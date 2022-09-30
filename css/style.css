@@ -683,6 +683,13 @@ div[data-anchor]:target::before {
   opacity: 1;
 }
 
+.calculation {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  font-size: 1.6rem;
+}
+
 .change-page__next, .change-page__next:link, .change-page__next:visited, .change-page__before, .change-page__before:link, .change-page__before:visited {
   display: inline-block;
   margin: 1rem;

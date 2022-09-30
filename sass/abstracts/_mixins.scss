@@ -1,0 +1,93 @@
+// @mixin responsive($breakpoint) {
+//     @if $breakpoint == phone {
+//         @media only screen and (max-width: 37.5em) { //600px
+//             @content;
+//         }
+//     }
+//     @if $breakpoint == tab-port {
+//         @media only screen and (max-width: 56.25em) { //900px
+//             @content;
+//         }
+//     }
+//     @if $breakpoint == tab-land {
+//         @media only screen and (max-width: 75em) { //1200px
+//             @content;
+//         }
+//     }
+//     @if $breakpoint == big-desktop {
+//         @media only screen and (min-width: 112.5em) { // > 1800px
+//             @content;
+//         }
+//     }
+// }
+
+@mixin responsive($breakpoint) {
+    @if $breakpoint == phone {
+        @media only screen and (max-width: 600px) {
+            @content;
+        }
+    }
+    @if $breakpoint == tab-port {
+        @media only screen and (max-width: 900px) {
+            @content;
+        }
+    }
+    @if $breakpoint == tab-land {
+        @media only screen and (max-width: 1200px) {
+            @content;
+        }
+    }
+    @if $breakpoint == big-desktop {
+        @media only screen and (min-width: 1800px) {
+            @content;
+        }
+    }
+}
+
+@mixin background-simple-gradient(
+    $sizeGrdient: 100%, 
+    $sizeIMG: 100%, 
+    $url, 
+    $position-x, 
+    $position-y, 
+    $direction, 
+    $color-1,
+    $color-1-alpha,
+    $color-2,
+    $color-2-alpha, 
+    $gradient-breakpoint: 50%
+    ) {
+        background-size: $sizeGrdient, $sizeIMG;
+        background-repeat: no-repeat;
+        background-position: $position-x $position-y;
+        background-image: 
+                    linear-gradient(to $direction, rgba($color-1, $color-1-alpha) $gradient-breakpoint, rgba($color-2, $color-2-alpha)),
+                    url($url);
+}
+
+@mixin gradient-2-breakpoints(
+    $sizeGrdient: 100%, 
+    $sizeIMG: 100%, 
+    $url, 
+    $position-x, 
+    $position-y, 
+    $direction, 
+    $color-1,
+    $color-1-alpha,
+    $color-2,
+    $color-2-alpha, 
+    $gradient-breakpoint-1: 50%,
+    $gradient-breakpoint-2: 50%
+    ) {
+        background-size: $sizeGrdient, $sizeIMG;
+        background-repeat: no-repeat;
+        background-position: $position-x $position-y;
+        background-image: 
+                    linear-gradient(
+                        to $direction, 
+                        rgba($color-1, $color-1-alpha) $gradient-breakpoint-1, 
+                        rgba($color-2, $color-2-alpha) $gradient-breakpoint-2, 
+                        rgba($color-2, $color-2-alpha)
+                    ),
+                    url($url);
+}

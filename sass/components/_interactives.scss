@@ -1,0 +1,31 @@
+.picker {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    outline: none;
+    border: 1px solid $color-blue;
+    border-radius: 5px;
+    padding: 1rem;
+    font-family: inherit;
+    font-size: 1.6rem;
+    color: $color-blue;
+    background-color: #fff;
+    option {
+        background-color: #fff;
+        color: $color-blue;
+    }
+}
+
+.number-picker {
+    padding: 1rem;
+    font-size: 1.6rem;
+    
+    &__input {
+        font-family: inherit;
+        font-size: inherit;
+        width: 5ch;
+        &::-webkit-inner-spin-button {
+            opacity: 1;
+        }
+    }
+}

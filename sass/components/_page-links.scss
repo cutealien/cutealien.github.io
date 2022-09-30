@@ -1,0 +1,14 @@
+.change-page {
+    &__next,
+    &__next:link,
+    &__next:visited,
+    &__before,
+    &__before:link,
+    &__before:visited {
+        display: inline-block;
+        margin: 1rem;
+        font-size: 1.6rem;
+        color: $color-blue;
+        text-decoration: underline;
+    }
+}

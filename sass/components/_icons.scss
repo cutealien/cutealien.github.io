@@ -1,0 +1,34 @@
+.icon-box {
+    // display: inline-block;
+    cursor: pointer;
+}
+
+.icon {
+    &__navbar {
+        height: 3.2rem;
+        width: 3.2rem;
+        // fill: $color-yellow;
+        transition: all .3s;
+        @include responsive(phone) {
+            height: 3rem;
+            width: 3rem;
+        }
+    }
+
+    &__whatsapp {
+        fill: $color-whatsapp;
+    }
+
+    &__btn {
+        height: 3rem;
+        width: 3rem;
+        fill: #fff;
+        vertical-align: sub; 
+    }
+
+    &__schedule {
+        height: 8rem;
+        width: 8rem;
+        fill: #000;
+    }
+}

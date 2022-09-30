@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./scripts/square.js" defer></script>
+    <script src="./scripts/question.js" defer></script>
+
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+            loader: {load: ['input/asciimath', 'output/chtml']}
+        }
+    </script>
+
+    <script id="MathJax-script" async src="./scripts/MathJax-master/es5/tex-chtml.js"></script>
+
+    <title>Ejemplo</title>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="/" class="navbar__logo-box">
+        </a>
+        <a href="/" class="navbar__link">
+            Inicio
+        </a>
+        <a href="#" class="navbar__link navbar__link--active">
+            Ejemplo
+        </a>
+        <a href="/calculo2/" class="navbar__link">
+            Cálculo 2
+        </a>
+    </nav>
+    <main class="main">
+        <section>
+            <h1 class="header-primary margin-bottom-sm">
+                Demostración $a^2 - b^2 = (a + b)(a -b)$
+            </h1>
+            <div class="fancy-line"></div>
+            <p class="paragraph">
+                Considere el siguiente cuadrado de longitud <math><mi>a</mi></math>:
+            </p>
+            <div class="canvas-container">
+                <canvas class="canvas" id="canvas-1" height="300px" width="300px"></canvas>
+            </div>
+            <p class="paragraph">
+                El área del cuadrado anterior es $ area = a^2 $
+            </p>
+        </section>
+        <div class="fancy-line"></div>
+        <section>
+            <p class="paragraph">
+                Ahora considere la siguiente figura:
+            </p>
+            <div class="canvas-container">
+                <canvas class="canvas" id="canvas-2" height="300px" width="300px"></canvas>
+            </div>
+            <form class="question margin-top-sm" data-question="question-1" data-answer="c">
+                <h3 class="question__header margin-bottom-sm">
+                    ¿Cuál es el área de color azul?
+                </h3>
+                <div class="question__row">
+                    <div class="question__col-1">
+                        <div class="question__options">
+                            <div class="question__option">
+                                <input type="radio" autocomplete="off" id="answer-1-1" name="question-1" value="a" data-option="question-1">
+                                <label for="answer-1-1">$(a + b)^2$</label>
+                            </div>
+            
+                            <div class="question__option">
+                                <input type="radio" autocomplete="off" id="answer-1-2" name="question-1" value="b" data-option="question-1">
+                                <label for="answer-1-2">$a^2 + b^2$</label>
+                            </div>
+            
+                            <div class="question__option">
+                                <input type="radio" autocomplete="off" id="answer-1-3" name="question-1" value="c" data-option="question-1">
+                                <label for="answer-1-3">$a^2 - b^2$</label>
+                            </div>
+                            <div class="question__option">
+                                <input type="radio" autocomplete="off" id="answer-1-4" name="question-1" value="d" data-option="question-1">
+                                <label for="answer-1-4">$(a - b)^2$</label>
+                            </div>
+                        </div>
+                        <div class="question__btn">
+                            <button class="btn btn--blue" type="submit" disabled data-btn="answer">Respuesta</button>
+                            <button class="btn btn--blue" type="button" disabled data-btn="continue">Continuar</button>
+                        </div>
+                    </div>
+                    <div class="question__col-2">
+                        <p class="paragraph question__answer"></p>
+                    </div>
+                </div>
+            </form>
+        </section>
+        <section class="step" id="step2">
+            <div class="fancy-line"></div>
+            <p class="paragraph">
+                El área de la figura de color azul es $(a - b)^2$. Quitando el área roja, la figura queda:
+            </p>
+            <div class="canvas-container">
+                <canvas class="canvas" id="canvas-3" height="300px" width="300px"></canvas>
+            </div>
+            <p class="paragraph">
+                De la figura azul se pueden obtener dos rectángulos azul de la siguiente forma:
+            </p>
+            <div class="canvas-container">
+                <canvas class="canvas" id="canvas-4" height="300px" width="300px"></canvas>
+            </div>
+            <form class="question margin-top-sm" data-question="question-2" data-answer="b">
+                <h3 class="question__header margin-bottom-sm">
+                    ¿Cuánto miden los lados $c$ y $d$?
+                </h3>
+                <div class="question__row">
+                    <div class="question__col-1">
+                        <div class="question__options">
+                            <div class="question__option">
+                                <input type="radio" autocomplete="off" id="answer-2-1" name="question-2" value="a" data-option="a">
+                                <label for="answer-2-1">$a + b$</label>
+                            </div>
+            
+                            <div class="question__option">
+                                <input type="radio" autocomplete="off" id="answer-2-2" name="question-2" value="b" data-option="b">
+                                <label for="answer-2-2">$a - b$</label>
+                            </div>
+            
+                            <div class="question__option">
+                                <input type="radio" autocomplete="off" id="answer-2-3" name="question-2" value="c" data-option="c">
+                                <label for="answer-2-3">$a * b$</label>
+                            </div>
+                            <div class="question__option">
+                                <input type="radio" autocomplete="off" id="answer-2-4" name="question-2" value="d" data-option="d">
+                                <label for="answer-2-4">$a + 2b$</label>
+                            </div>
+                        </div>
+                        <div class="question__btn">
+                            <button class="btn btn--blue" type="submit" disabled data-btn="answer">Respuesta</button>
+                            <button class="btn btn--blue" type="button" disabled data-btn="continue">Continuar</button>
+                        </div>
+                    </div>
+                    <div class="question__col-2">
+                        <p class="paragraph question__answer"></p>
+                    </div>
+                </div>
+            </form>
+        </section>
+        <section class="step" id="step3">
+            <div class="fancy-line"></div>
+            <p class="paragraph">
+                La longitud de los lados $c$ y $d$ es $a-b$.
+            </p>
+            <div class="canvas-container">
+                <canvas class="canvas" id="canvas-5" height="300px" width="300px"></canvas>
+            </div>
+            <p class="paragraph">
+                Se puede mover el rectángulo verde de manera que quede a la derecha del rectángulo azul.
+                El rectángulo morado representa al rectángulo verde 
+                trasladado y rotado.
+            </p> 
+            <div class="canvas-container">
+                <canvas class="canvas" id="canvas-6" height="300px" width="300px"></canvas>
+            </div>
+            <p class="paragraph">
+                El quitando el rectángulo verde, la figura queda como se muestra a continuación:
+            </p>
+            <div class="canvas-container">
+                <canvas class="canvas" id="canvas-7" height="300px" width="300px"></canvas>
+            </div>
+            <form class="question margin-top-sm" data-question="question-3" data-answer="d">
+                <h3 class="question__header margin-bottom-sm">
+                    ¿Cuál es el área del rectángulo anterior?
+                </h3>
+                <div class="question__row">
+                    <div class="question__col-1">
+                        <div class="question__options">
+                            <div class="question__option">
+                                <input type="radio" autocomplete="off" id="answer-3-1" name="question-3" value="a" data-option="a">
+                                <label for="answer-3-1">$a^2 + b$</label>
+                            </div>
+            
+                            <div class="question__option">
+                                <input type="radio" autocomplete="off" id="answer-3-2" name="question-3" value="b" data-option="b">
+                                <label for="answer-3-2">$a + b^2$</label>
+                            </div>
+            
+                            <div class="question__option">
+                                <input type="radio" autocomplete="off" id="answer-3-3" name="question-3" value="c" data-option="c">
+                                <label for="answer-3-3">$(a + b)^2$</label>
+                            </div>
+                            <div class="question__option">
+                                <input type="radio" autocomplete="off" id="answer-3-4" name="question-3" value="d" data-option="d">
+                                <label for="answer-3-4">$(a + b)(a - b)$</label>
+                            </div>
+                        </div>
+                        <div class="question__btn">
+                            <button class="btn btn--blue" type="submit" disabled data-btn="answer">Respuesta</button>
+                            <button class="btn btn--blue" type="button" disabled data-btn="continue">Continuar</button>
+                        </div>
+                    </div>
+                    <div class="question__col-2">
+                        <p class="paragraph question__answer"></p>
+                    </div>
+                </div>
+            </form>
+        </section>
+        <section class="step">
+            <div class="fancy-line"></div>
+            <p class="paragraph">
+                El área azul es $(a+b)(a-b)$. El área azul original fue $a^2-b^2$, y 
+                el área total no ha cambiado, obtenemos como resultado que $a^2-b^2 = (a+b)(a-b)$
+            </p>
+        </section>
+    </main>
+    
+</body>
+</html>

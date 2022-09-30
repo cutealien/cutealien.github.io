@@ -1,0 +1,37 @@
+.btn {
+    display: inline-block;
+    border: none;
+    border-radius: 10px 10px 10px 10px;
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: 700;
+    font-family: inherit;
+    text-align: center;
+    padding: 1rem 2rem;
+    box-shadow: 0 0px 10px #000;
+    transition: all 0.3s;
+    width: fit-content;
+
+    @include responsive(phone-tab) {
+        font-size: 2rem;
+    }
+    &:hover {
+        text-shadow: 0 0 5px $color-gray;
+    }
+    &:disabled {
+        background-color: $color-blue-light;
+        &:hover {
+            background-color: $color-blue-light;
+        }
+    }
+}
+
+.btn {
+    &--blue {
+        background-color: $color-blue;
+        color: #fff;
+        &:hover {
+            background-color: $color-blue-dark;
+        }
+    }
+}

@@ -1,0 +1,123 @@
+.slider-container {
+    position: relative;
+}
+.slide {
+    position: relative;
+    text-align: center;    
+
+    &__img {
+        height: calc(85vh - 10rem);
+        width: 100%;
+        background-size: cover;
+        background-repeat: no-repeat;
+
+        @for $i from 1 through 3 {
+
+            &--home-#{$i} {
+                background-image: 
+                    linear-gradient(to left, rgba(#000, 0.5), rgba(#000, 0.5)),
+                    url('../assets/Slide#{$i}.jpg');
+            }
+        }
+        &--home-1 {
+            background-position: 50% 50%;
+        }
+        &--home-2 {
+            background-position: 50% 50%;
+        }
+        &--home-3 {
+            background-position: 50% 50%;
+        }
+
+    }
+
+    &__dot-box{
+        position: absolute;
+        bottom: 2rem;
+        left: 0;
+        right: 0;
+        text-align: center;
+    }
+
+    &__dot {
+        cursor: pointer;
+        height: 20px;
+        width: 20px;
+        margin: 0 2px;
+        background-color: transparent;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+        &--white {
+            border: 3px solid white;
+            &:hover {
+                background-color: white;
+            }
+        }
+    }
+
+    &__control {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: auto;
+        padding: 16px;
+        margin-top: -22px;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        transition: 0.6s ease;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+        background-color: rgba(0,0,0,0.8);
+
+        &--next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+    }
+
+    &__text {
+        position: absolute;
+        bottom: 5rem;
+        left: 20%;
+        right: 20%;
+        // transform: translateX(-50%);
+        font-size: 5rem;
+        line-height: 1.2;
+        color: #fff;
+        font-weight: bold;
+        @include responsive(tab-land) {
+            font-size: 3rem;
+            bottom: 6rem;
+        }
+    }
+
+    &__box {
+        position: absolute;
+        bottom: 18rem;
+        left: 50%;
+        transform: translateX(-50%);
+        @include responsive(phone) {
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 4rem;
+            text-align: center;
+        }
+    }      
+    
+    &__logo-box {
+        margin-bottom: 2rem;
+    }
+    &__logo {
+        height: 10rem;
+        width: auto;
+    }
+
+    &__active {      
+        &--home {
+            background-color: white;
+        }
+    }
+}

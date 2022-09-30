@@ -1,0 +1,103 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: normal;
+    src: url('./fonts/Montserrat/static/Montserrat-Medium.ttf');
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: bold;
+    src: url('./fonts/Montserrat/static/Montserrat-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    font-style: italic;
+    font-weight: normal;
+    src: url('./fonts/Montserrat/static/Montserrat-MediumItalic.ttf');
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    font-style: italic;
+    font-weight: bold;
+    src: url('./fonts/Montserrat/static/Montserrat-BoldItalic.ttf');
+}
+
+@font-face {
+    font-family: 'Fugaz One';
+    font-style: normal;
+    font-weight: normal;
+    src: url('./fonts/Fugaz_one/FugazOne-regular.ttf');
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; // 1rem = 10px; 10px / 16px = 62.5%;
+    scroll-behavior: smooth;
+    scroll-padding-top: 10rem;
+
+    @media only screen and (max-width: $bp-medium) {
+        font-size: 50%;
+    }
+    @include responsive(big-desktop) {
+        font-size: 75%;
+    }
+
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #000;
+    background-color: #fafafa;
+}
+.course {
+    display: grid;
+    grid-template-columns: 300px repeat(3, 1fr);
+    grid-template-rows: repeat(2, max-content);
+    grid-template-areas: 
+                        "nav     nav  nav  nav"
+                        "sidebar main main main"
+    ;
+    & > .navbar {
+        grid-area: nav;
+    }
+    & > .main {
+        grid-area: main;
+    }
+    & > .sidebar {
+        grid-area: sidebar;
+        position: sticky;
+        top: 10rem;
+        left: 0;
+    }
+}
+
+.main {
+    // overflow-x: hidden;
+    // overflow-y: auto;
+    // max-width: 1200px;
+    // max-height: calc(100vh - 10rem);
+    // margin: 0 auto;
+    padding: 2rem 5%;
+}
+
+section {
+    padding: 2rem 0;
+    margin: 0 auto;
+    max-width: 1200px;
+}

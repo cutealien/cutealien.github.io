@@ -30,9 +30,14 @@
     }
 }
 
-.calculation {
+.calculation-canvas {
     position: absolute;
     bottom: 15px;
     left: 15px;
     font-size: 1.6rem;
+    // font-family: 'Fugaz One';
+}
+
+button[data-btn="continue"] {
+    display: none;
 }

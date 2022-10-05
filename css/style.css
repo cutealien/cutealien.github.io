@@ -162,7 +162,7 @@ body {
 .course > .sidebar {
   grid-area: sidebar;
   position: sticky;
-  top: 10rem;
+  top: 8rem;
   left: 0;
 }
 
@@ -177,17 +177,31 @@ section {
 }
 
 .header-primary {
-  font-size: 5rem;
+  font-size: 4rem;
   color: #000;
   line-height: 1.2;
+  margin-bottom: 2rem;
 }
 @media only screen and (max-width: 600px) {
   .header-primary {
     font-size: 3.5rem;
   }
 }
-.header--white {
-  color: #fff;
+.header-secondary {
+  font-size: 3rem;
+  color: #000;
+  line-height: 1.2;
+  margin-bottom: 2rem;
+}
+@media only screen and (max-width: 600px) {
+  .header-secondary {
+    font-size: 2.5rem;
+  }
+}
+.header-tertiary {
+  font-size: 2rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
 }
 
 .paragraph {
@@ -197,6 +211,9 @@ section {
   margin-bottom: 1rem;
   text-indent: 1rem;
   text-align: justify;
+}
+.paragraph--noindent {
+  text-indent: 0;
 }
 .paragraph--yellow {
   color: #c5b348;
@@ -226,6 +243,10 @@ section {
 
 .text-uppercase {
   text-transform: uppercase;
+}
+
+.text-cursive {
+  font-style: italic;
 }
 
 .margin-top-medium {
@@ -261,7 +282,7 @@ div[data-anchor]:target::before {
   top: 0;
   left: 0;
   box-shadow: 0 0 5px #979797;
-  height: 10rem;
+  height: 8rem;
   z-index: 10;
   background-color: rgb(16, 114, 180);
   padding: 1rem 5%;
@@ -276,8 +297,8 @@ div[data-anchor]:target::before {
   justify-content: center;
   align-items: center;
   margin-right: auto;
-  height: 8rem;
-  width: 8rem;
+  height: 6rem;
+  width: 6rem;
   border-radius: 50%;
   background-size: 100%, cover;
   background-repeat: no-repeat;
@@ -285,7 +306,7 @@ div[data-anchor]:target::before {
   background-image: linear-gradient(to right, rgba(17, 128, 202, 0) 30%, rgba(17, 128, 202, 0)), url("../assets/wp-content-uploads-2014-11-family-oriented-pups-blog.jpg");
 }
 .navbar__logo {
-  height: 8rem;
+  height: 6rem;
   width: auto;
 }
 .navbar__link, .navbar__link:link, .navbar__link:visited {
@@ -319,7 +340,7 @@ div[data-anchor]:target::before {
 
 .sidebar {
   overflow: scroll;
-  max-height: calc(100vh - 10rem);
+  max-height: calc(100vh - 8rem);
   padding: 2rem;
   border-right: 1px solid black;
 }
@@ -562,10 +583,85 @@ div[data-anchor]:target::before {
   background: blue;
 }
 
+.definition, .theorem, .example {
+  font-style: italic;
+  font-size: 2rem;
+  padding: 1rem 0;
+}
+.definition__formule, .theorem__formule, .example__formule {
+  text-align: center;
+  margin: 1rem auto;
+}
+.definition__paragraph, .theorem__paragraph, .example__paragraph {
+  margin-top: 1rem;
+}
+.definition__paragraph--item, .theorem__paragraph--item, .example__paragraph--item {
+  margin-left: 1rem;
+}
+.definition__list, .theorem__list, .example__list {
+  list-style: decimal;
+  padding: 1rem 0 2rem 3ch;
+}
+.definition__list-item:not(:last-child), .theorem__list-item:not(:last-child), .example__list-item:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+
+.proof__step {
+  list-style: decimal outside;
+  font-size: 2rem;
+  padding: 2rem 0 2rem 2ch;
+}
+.proof__step-item:not(:last-child) {
+  margin-bottom: 2rem;
+}
+.proof__list {
+  list-style: disc outside;
+  padding: 2rem 0 2rem 2ch;
+  font-size: 2rem;
+}
+.proof__list-item:not(:last-child) {
+  margin-bottom: 2rem;
+}
+
+.text-formule {
+  font-size: 2rem;
+  font-style: italic;
+  text-align: center;
+  margin: 1rem auto;
+  padding: 1rem;
+}
+.text-formule--left {
+  text-align: left;
+}
+
+.calculation {
+  padding: 2rem;
+  display: grid;
+  font-size: 2rem;
+  grid-template-columns: [first] max-content [second] max-content [text] 1fr;
+  grid-template-rows: max-content;
+  grid-auto-rows: max-content;
+  gap: 2rem 1rem;
+}
+.calculation__formule--1 {
+  grid-column: first/first;
+  justify-self: right;
+}
+.calculation__formule--2 {
+  grid-column: second/second;
+}
+.calculation__text {
+  padding-left: 4em;
+  grid-column: text/text;
+}
+
+.overline {
+  border-top: 1px solid black;
+}
+
 .question {
   padding: 2rem;
   font-size: 2rem;
-  max-width: 600px;
   margin: 0 auto;
   background-color: #fff;
   box-shadow: 0 0 10px #979797;
@@ -683,11 +779,15 @@ div[data-anchor]:target::before {
   opacity: 1;
 }
 
-.calculation {
+.calculation-canvas {
   position: absolute;
   bottom: 15px;
   left: 15px;
   font-size: 1.6rem;
+}
+
+button[data-btn=continue] {
+  display: none;
 }
 
 .change-page__next, .change-page__next:link, .change-page__next:visited, .change-page__before, .change-page__before:link, .change-page__before:visited {
@@ -696,6 +796,55 @@ div[data-anchor]:target::before {
   font-size: 1.6rem;
   color: rgb(17, 128, 202);
   text-decoration: underline;
+}
+
+.modal-btn {
+  color: rgb(17, 128, 202);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.modal {
+  position: fixed;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  height: 0%;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 50;
+}
+.modal--active {
+  height: 100%;
+  width: 100%;
+  opacity: 1;
+  visibility: visible;
+}
+.modal__toggle {
+  color: rgb(17, 128, 202);
+  text-decoration: underline;
+  font-size: inherit;
+  cursor: pointer;
+}
+.modal__background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+}
+.modal__content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fafafa;
+  z-index: 2;
+  padding: 2rem;
 }
 
 .container {

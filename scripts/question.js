@@ -14,9 +14,11 @@ const continueBtns = document.querySelectorAll('[data-btn=continue]')
 
 continueBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-        steps[currentStep].style.display = 'block'
-        steps[currentStep].scrollIntoView(true)
-        currentStep++
+        if(currentStep < steps.length) {
+            steps[currentStep].style.display = 'block'
+            steps[currentStep].scrollIntoView(true)
+            currentStep++
+        }
         btn.disabled = true
     })
 })
@@ -26,7 +28,6 @@ questions.forEach(question => {
     btnAnswer.disabled = true
 
     const optionGroup = question.querySelectorAll('[data-option]')
-    console.log(optionGroup);
     optionGroup.forEach(option => {
         option.addEventListener('change', (el) => {
             if(el.target.checked) {
@@ -49,24 +50,21 @@ questions.forEach(question => {
         answerText.classList.remove('question__answer--success')
     
         for (const entry of data) {
-            console.log(entry, entry[1],answer);
             if(entry[1] === answer) {
                 message = 'Correcto'
                 answerText.classList.add('question__answer--success')
                 answerText.classList.remove('question__answer--failed')
             }
-            // else {
-            //     message = 'Incorrecto'
-            // }
             answerText.innerHTML = message
         }
         var options = question.querySelectorAll('input')
-        console.log(options);
         options.forEach(option => {
             option.disabled = true
         });
         btnAnswer.disabled = true
-        continueBtns[currentStep].disabled = false
-        // btnContinue.disabled = false
+        if(currentStep < steps.length) {
+            continueBtns[currentStep].disabled = false
+            continueBtns[currentStep].style.display = 'inline-block'
+        }
     })
 })

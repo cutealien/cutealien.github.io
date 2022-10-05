@@ -4,3 +4,90 @@
 .merror {
     background: blue;
 }
+
+.definition, .theorem, .example{
+    font-style: italic;
+    font-size: 2rem;
+    padding: 1rem 0;
+    &__formule {
+        text-align: center;
+        margin: 1rem auto;
+    }
+    &__paragraph {
+        margin-top: 1rem;
+        &--item {
+            margin-left: 1rem;
+        }
+    }
+    &__list {
+        list-style: decimal;
+        // margin-left: 3ch;
+        // margin-bottom: 2rem;
+        padding: 1rem 0 2rem 3ch;
+        &-item:not(:last-child) {
+            margin-bottom: 1.5rem;
+        }
+    }
+}
+
+.proof {
+    &__step {
+        list-style: decimal outside;
+        // margin: 0 0 2rem 2ch;
+        font-size: 2rem;
+        padding: 2rem 0 2rem 2ch;
+        &-item {
+            &:not(:last-child) {
+                margin-bottom: 2rem;
+            }
+        }
+    }
+    &__list {
+        list-style: disc outside;
+        // padding-left: 2ch;
+        padding: 2rem 0 2rem 2ch;
+        font-size: 2rem;
+        &-item {
+            &:not(:last-child) {
+                margin-bottom: 2rem;
+            }
+        }
+    }
+}
+
+.text-formule {
+    font-size: 2rem;
+    font-style: italic;
+    text-align: center;
+    margin: 1rem auto;
+    padding: 1rem;
+    &--left {
+        text-align: left;
+    }
+}
+
+.calculation {
+    padding: 2rem;
+    display: grid;
+    font-size: 2rem;
+    grid-template-columns: [first] max-content [second] max-content [text]  1fr;
+    grid-template-rows: max-content;
+    grid-auto-rows: max-content;
+    gap: 2rem 1rem;
+    &__formule {
+        &--1 {
+            grid-column: first / first;
+            justify-self: right;
+        }
+        &--2 {
+            grid-column: second / second;
+        }
+    }
+    &__text {
+        padding-left: 4em;
+        grid-column: text / text;
+    }
+}
+.overline {
+    border-top: 1px solid black;
+}

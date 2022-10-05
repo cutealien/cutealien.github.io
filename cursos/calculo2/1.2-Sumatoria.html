@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/style.css">
+    
+    <script src="./scripts/variables.js" defer></script>
+    <script src="/scripts/question.js" defer></script>
+    <!-- <script src="./scripts/1-1-introduction.js" defer></script> -->
+
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+            loader: {load: ['input/asciimath', 'output/chtml']}
+        }
+    </script>
+    <script id="MathJax-script" async src="/scripts/MathJax-master/es5/tex-chtml.js"></script>
+
+    <title>Cálculo 2 El símbolo ∑</title>
+</head>
+<body class="course">
+    <nav class="navbar">
+        <a href="/" class="navbar__logo-box">
+        </a>
+        <a href="/" class="navbar__link">
+            Inicio
+        </a>
+        <a href="/example.html" class="navbar__link">
+            Ejemplo
+        </a>
+        <a href="#" class="navbar__link navbar__link--active">
+            Cálculo 2
+        </a>
+    </nav>
+    <nav class="sidebar">
+        <ol class="subject-list">
+            <li class="subject-list__item">
+                <strong class="subject-list__title">1 La integral definida</strong>
+                <ol class="subject-list">
+                    <li class="subject-list__item"><a href="index.html" class="subject-list__link">1.1 Introducción</a></li>
+                    <li class="subject-list__item">
+                        <a href="#" class="subject-list__link subject-list__link--active">1.2 El símbolo $\sum$</a>
+                        <ol class="subject-list">
+                            <li class="subject-list__item"><a href="#1.2" class="subject-list__link subject-list__link--active">1.2.1 Formalizando el símbolo sumatorio</a></li>
+                            <li class="subject-list__item"><a href="./1.2.2-propiedades.html" class="subject-list__link">1.2.2 Propiedades del símbolo $\sum$</a></li>
+                        </ol>
+                    </li>
+                    <li class="subject-list__item"><a href="./1.3-calculo-de-areas.html" class="subject-list__link">1.3 Cálculo de  ́areas con rect. insc. y circuns.</a></li>
+                    <li class="subject-list__item"><a href="#" class="subject-list__link">1.4 Construcción de la integral definida</a></li>
+                    <li class="subject-list__item"><a href="#" class="subject-list__link">1.5 Sumas de Riemann</a></li>
+                    <li class="subject-list__item"><a href="#" class="subject-list__link">1.6 Teorema fundamental del Cálculo y sus consecuencias</a></li>
+                    <li class="subject-list__item"><a href="#" class="subject-list__link">1.7 Ejercicios</a></li>
+                </ol>
+            </li>
+            <li class="subject-list__item">
+                <strong class="subject-list__title">2 La integral indefinida</strong>
+                <ol class="subject-list">
+                    <li class="subject-list__item"><a href="#" class="subject-list__link">2.1 Introducción</a></li>
+                    <li class="subject-list__item"><a href="#" class="subject-list__link">2.2 Antiderivadas inmediatas</a></li>
+                    <li class="subject-list__item"><a href="#" class="subject-list__link">2.3 Método de int. por sust. o cambio de variable</a></li>
+                    <li class="subject-list__item"><a href="#" class="subject-list__link">2.4 Método de integración por partes</a></li>
+                    <li class="subject-list__item">
+                        <a href="#" class="subject-list__link">2.5 Método de integración por fracciones parciales</a>
+                        <ol class="subject-list">
+                            <li class="subject-list__item"><a href="#" class="subject-list__link">2.5.1 El polinomio $Q(x)$ solo contiene factores lineales que no se repiten</a></li>     
+                            <li class="subject-list__item"><a href="#" class="subject-list__link">2.5.2 El polinomio $Q(x)$ solo contiene factores lineales, pero algunos de ellos se repetidos</a></li>     
+                            <li class="subject-list__item"><a href="#" class="subject-list__link">2.5.3 Integrales de funciones simples que involucran términos cuadráticos irreducibles</a></li>     
+                            <li class="subject-list__item"><a href="#" class="subject-list__link">2.5.4 El polinomio Q(x) contiene factores cuadráticos irreducibles que no se repiten</a></li>     
+                            <li class="subject-list__item"><a href="#" class="subject-list__link">2.5.5 El polinomio Q(x) contiene factores cuadráticos irreducibles que se repiten</a></li>     
+                        </ol>
+                    </li>
+                    <li class="subject-list__item"><a href="#" class="subject-list__link">2.6 Met. de int. por sust. trigonométrica</a></li>     
+                </ol>
+            </li>
+            <li class="subject-list__item">
+                <strong class="subject-list__title">3 Integrales impropias y aplicaciones</strong>
+                <ol class="subject-list">
+                    <li class="subject-list__item"><a href="#" class="subject-list__link">3.1 Integrales impropias</a></li>
+                    <li class="subject-list__item"><a href="#" class="subject-list__link">3.2 Más integrales impropias (para funciones discontinuas)</a></li>
+                    <li class="subject-list__item"><a href="#" class="subject-list__link">3.3 Cálculo de áreas de regiones acotadas pro curvas</a></li>   
+                </ol>
+            </li>
+        </ol>
+    </nav>
+    <main class="main">
+        <section>
+            <h2 class="header-primary margin-bottom-sm">
+                1.2 El símbolo sumatoria
+            </h2>
+            <p class="paragraph">
+                Consideremos la siguiente suma: <br>
+                $1+2+3+...+98+99+100$. <br>
+                La forma compacta de escribir la suma sería $\sum_{i=1}^{100} i $.
+            </p>
+            <p class="paragraph">
+            </p>
+            <p class="paragraph">
+                El término más general de hecho es $\sum_{i=1}^{n} a_i $ y se lee como la 
+                <strong class="text-cursive">suma de $a_i$, desde $1$ hasta $n$</strong>. 
+                Los números que aparecen debajo y sobre el símbolo $\sum$ induce el recorrido
+                de los valores de $i$, aumentando siempre de 1 en 1. A la variable $i$ se le conoce como
+                índice de la suma o como índice de sumación.
+            </p>
+            <p class="paragraph">
+                El índice de la suma siempre comienza en el entero que aparece debaje del símbolo
+                sumatorio, crece de 1 en 1 y finaliza en el entero que aparece encima del mismo
+                símbolo.
+            </p>
+            <p class="paragraph">
+                El símbolo $i$ puede reemplazarse por otro símbolo (particularmente por $j$, $k$, $l$, $m$, $n$).
+                Entonces la suma se puede esribir como $\sum_{j=1}^{n} a_j $ o $\sum_{n=1}^{m} a_n $
+            </p>
+        </section>
+        <div class="fancy-line"></div>
+        <section id="1.2">
+            <h2 class="header-secondary margin-bottom-sm">
+                1.2.1 Formalizando el símbolo sumatoria
+            </h2>
+            <form class="question margin-top-sm" data-question="question-1-2-1" data-answer="b">
+                <h3 class="question__header margin-bottom-sm">
+                    ¿Cuál es la sumatoria que representa a la suma $a_1 + a_2 + a_3 + a_4$?
+                </h3>
+                <div class="question__row">
+                    <div class="question__col-1">
+                        <div class="question__options">
+                            <div class="question__option">
+                                <input type="radio" autocomplete="off" id="answer-1-2-1-a" name="question-1-2-1" value="a" data-option="question-1-2-1">
+                                <label for="answer-1-2-1-a">$\sum_{j=1}^{5} a_j$</label>
+                            </div>
+            
+                            <div class="question__option">
+                                <input type="radio" autocomplete="off" id="answer-1-2-1-b" name="question-1-2-1" value="b" data-option="question-1-2-1">
+                                <label for="answer-1-2-1-b">$\sum_{n=1}^{4} a_n$</label>
+                            </div>
+            
+                            <div class="question__option">
+                                <input type="radio" autocomplete="off" id="answer-1-2-1-c" name="question-1-2-1" value="c" data-option="question-1-2-1">
+                                <label for="answer-1-2-1-c">$\sum_{i=1}^{5} a_{i+1}$</label>
+                            </div>
+                            <div class="question__option">
+                                <input type="radio" autocomplete="off" id="answer-1-2-1-d" name="question-1-2-1" value="d" data-option="question-1-2-1">
+                                <label for="answer-1-2-1-d">$\sum_{m=1}^{4} a_{m-1}$</label>
+                            </div>
+                        </div>
+                        <div class="question__btn">
+                            <button class="btn btn--blue" type="submit" disabled data-btn="answer">Respuesta</button>
+                            <button class="btn btn--blue" type="button" disabled data-btn="continue">Continuar</button>
+                        </div>
+                    </div>
+                    <div class="question__col-2">
+                        <p class="paragraph question__answer"></p>
+                    </div>
+                </div>
+            </form>
+            <div class="step margin-top-sm">
+                <form class="question margin-top-sm" data-question="question-1-2-2" data-answer="c">
+                    <h3 class="question__header margin-bottom-sm">
+                        ¿Cuántos términos hay en la suma $\sum_{i=k}^{n} a_{n}$?
+                    </h3>
+                    <div class="question__row">
+                        <div class="question__col-1">
+                            <div class="question__options">
+                                <div class="question__option">
+                                    <input type="radio" autocomplete="off" id="answer-1-2-2-a" name="question-1-2-2" value="a" data-option="question-1-2-2">
+                                    <label for="answer-1-2-2-a">$n-k$</label>
+                                </div>
+                
+                                <div class="question__option">
+                                    <input type="radio" autocomplete="off" id="answer-1-2-2-b" name="question-1-2-2" value="b" data-option="question-1-2-2">
+                                    <label for="answer-1-2-2-b">$n-k-1$</label>
+                                </div>
+                
+                                <div class="question__option">
+                                    <input type="radio" autocomplete="off" id="answer-1-2-2-c" name="question-1-2-2" value="c" data-option="question-1-2-2">
+                                    <label for="answer-1-2-2-c">$n-k+1$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" autocomplete="off" id="answer-1-2-2-d" name="question-1-2-2" value="d" data-option="question-1-2-2">
+                                    <label for="answer-1-2-2-d">$n+k$</label>
+                                </div>
+                            </div>
+                            <div class="question__btn">
+                                <button class="btn btn--blue" type="submit" disabled data-btn="answer">Respuesta</button>
+                                <button class="btn btn--blue" type="button" disabled data-btn="continue">Continuar</button>
+                            </div>
+                        </div>
+                        <div class="question__col-2">
+                            <p class="paragraph question__answer"></p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+        <section class="step">
+            <p class="paragraph margin-top-sm">
+                Riguros y formalmente hablando, al representar sumas o sumaciones, ni los puntos suspensivos
+                y ni el símbolo sumatorio forman parte de los axiomas de los números
+                reales y por lo tanto tenemos que definirlas. Para lograr esto, haremos uso de las
+                definiciones inductivas o por inducción, cuyas ideas principales son las mismas que
+                se utilizan cuando hacemos demostraciones por inducción.
+            </p>
+            <div class="definition">
+                <p class="definition__paragraph">
+                    <strong>Definición 1.2.1.</strong> El símbolo sumatorio $\sum$, queda determinado por
+                </p>
+                <p class="definition__paragraph definition__paragraph--item">
+                    1. Se define $\sum_{i=1}^{1} = a_1$
+                </p>
+                <p class="definition__paragraph definition__paragraph--item">
+                    2. Si el término $\sum_{i=1}^{n} = a_i$ está bien definido para un $n ≥ 1$ fijo, entonces se define: <br>
+                </p>
+                <p class="text-formule">
+                    $\sum_{i=1}^{n + 1} a_i = \sum_{i=1}^{n} a_i + a_{n+1}.$
+                </p>
+            </div>
+            <p class="paragraph">
+                De esta manera, haciendo uso de la definición y considerando $n = 1$ en el punto
+                2 de la definición, obtenemos que
+            </p>
+            <p class="text-formule">
+                $\sum_{i=1}^{2} a_i = \sum_{i=1}^{1} a_i + a_2 = a_1 + a_2$
+            </p>
+            <p class="paragraph">
+                Una vez que tenemos definido a $\sum_{i=1}^{2} a_i$ volvemos a usar el punto 2 para $n = 2$ y
+                obtenemos
+            </p>
+            <p class="text-formule">
+                $\sum_{i=1}^{3} a_i = \sum_{i=1}^{2} a_i + a_3 = (a_1 + a_2) + a_3 = a_1 + a_2 + a_3$.
+            </p>
+            <p class="paragraph">
+                De manera análoga
+            </p>
+            <p class="text-formule">
+                $\sum_{i=1}^{4} a_i = a_1 + a_2 + a_3 + a_4$.
+            </p>
+            <p class="paragraph">
+                Continuando de esta forma, usando 1) y 2) de la definición, obtenemos una definición
+                completa del símbolo sumatorio para cualquier número natural $n$. Se considera que
+                el uso de los puntos suspensivos es una forma, menos formal, del símbolo sumatorio.
+            </p>
+            <div>
+                <form class="question margin-top-sm" data-question="question-1-2-3" data-answer="a">
+                    <h3 class="question__header margin-bottom-sm">
+                        Si $a_i = a$, ¿Cuál es el valor de $\sum_{i=1}^{n} a_i$?
+                    </h3>
+                    <div class="question__row">
+                        <div class="question__col-1">
+                            <div class="question__options">
+                                <div class="question__option">
+                                    <input type="radio" autocomplete="off" id="answer-1-2-3-a" name="question-1-2-3" value="a" data-option="question-1-2-3">
+                                    <label for="answer-1-2-3-a">$na$</label>
+                                </div>
+                
+                                <div class="question__option">
+                                    <input type="radio" autocomplete="off" id="answer-1-2-3-b" name="question-1-2-3" value="b" data-option="question-1-2-3">
+                                    <label for="answer-1-2-3-b">$ni$</label>
+                                </div>
+                
+                                <div class="question__option">
+                                    <input type="radio" autocomplete="off" id="answer-1-2-3-c" name="question-1-2-3" value="c" data-option="question-1-2-3">
+                                    <label for="answer-1-2-3-c">$n + a - i$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" autocomplete="off" id="answer-1-2-3-d" name="question-1-2-3" value="d" data-option="question-1-2-3">
+                                    <label for="answer-1-2-3-d">$n + (a * i)$</label>
+                                </div>
+                            </div>
+                            <div class="question__btn">
+                                <button class="btn btn--blue" type="submit" disabled data-btn="answer">Respuesta</button>
+                                <!-- <button class="btn btn--blue" type="button" disabled data-btn="continue">Continuar</button> -->
+                            </div>
+                        </div>
+                        <div class="question__col-2">
+                            <p class="paragraph question__answer"></p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="change-page">
+                <a href="#" class="change-page__before">Anterior</a>
+                <a href="./1.2.2-propedades.html" class="change-page__next">Siguiente</a>
+            </div>
+        </section>
+    </main>
+    
+</body>
+</html>

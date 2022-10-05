@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/style.css">
+    
+    <script src="./scripts/variables.js" defer></script>
+    <script src="/scripts/question.js" defer></script>
+    <script src="/scripts/modal.js" defer></script>
+    <!-- <script src="./scripts/1-1-introduction.js" defer></script> -->
+
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+            loader: {load: ['input/asciimath', 'output/chtml']}
+        }
+    </script>
+    <script id="MathJax-script" async src="/scripts/MathJax-master/es5/tex-chtml.js"></script>
+    <!-- <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+    </script> -->
+
+    <title>Propiedades del símbolo ∑</title>
+</head>
+<body class="course">
+    <nav class="navbar">
+        <a href="/" class="navbar__logo-box">
+        </a>
+        <a href="/" class="navbar__link">
+            Inicio
+        </a>
+        <a href="/example.html" class="navbar__link">
+            Ejemplo
+        </a>
+        <a href="#" class="navbar__link navbar__link--active">
+            Cálculo 2
+        </a>
+    </nav>
+    <nav class="sidebar">
+        <ol class="subject-list">
+            <li class="subject-list__item">
+                <strong class="subject-list__title">1 La integral definida</strong>
+                <ol class="subject-list">
+                    <li class="subject-list__item"><a href="./index.html" class="subject-list__link">1.1 Introducción</a></li>
+                    <li class="subject-list__item">
+                        <a href="./1.2-Sumatoria.html" class="subject-list__link">1.2 El símbolo $\sum$</a>
+                        <ol class="subject-list">
+                            <li class="subject-list__item"><a href="./1.2-Sumatoria.html#1.2" class="subject-list__link">1.2.1 Formalizando el símbolo sumatorio</a></li>
+                            <li class="subject-list__item"><a href="#" class="subject-list__link subject-list__link--active">1.2.2 Propiedades del símbolo $\sum$</a></li>
+                        </ol>
+                    </li>
+                    <li class="subject-list__item"><a href="./1.3-calculo-de-areas.html" class="subject-list__link">1.3 Cálculo de  ́areas con rect. insc. y circuns.</a></li>
+                    <li class="subject-list__item"><a href="#" class="subject-list__link">1.4 Construcción de la integral definida</a></li>
+                    <li class="subject-list__item"><a href="#" class="subject-list__link">1.5 Sumas de Riemann</a></li>
+                    <li class="subject-list__item"><a href="#" class="subject-list__link">1.6 Teorema fundamental del Cálculo y sus consecuencias</a></li>
+                    <li class="subject-list__item"><a href="#" class="subject-list__link">1.7 Ejercicios</a></li>
+                </ol>
+            </li>
+            <li class="subject-list__item">
+                <strong class="subject-list__title">2 La integral indefinida</strong>
+                <ol class="subject-list">
+                    <li class="subject-list__item"><a href="#" class="subject-list__link">2.1 Introducción</a></li>
+                    <li class="subject-list__item"><a href="#" class="subject-list__link">2.2 Antiderivadas inmediatas</a></li>
+                    <li class="subject-list__item"><a href="#" class="subject-list__link">2.3 Método de int. por sust. o cambio de variable</a></li>
+                    <li class="subject-list__item"><a href="#" class="subject-list__link">2.4 Método de integración por partes</a></li>
+                    <li class="subject-list__item">
+                        <a href="#" class="subject-list__link">2.5 Método de integración por fracciones parciales</a>
+                        <ol class="subject-list">
+                            <li class="subject-list__item"><a href="#" class="subject-list__link">2.5.1 El polinomio $Q(x)$ solo contiene factores lineales que no se repiten</a></li>     
+                            <li class="subject-list__item"><a href="#" class="subject-list__link">2.5.2 El polinomio $Q(x)$ solo contiene factores lineales, pero algunos de ellos se repetidos</a></li>     
+                            <li class="subject-list__item"><a href="#" class="subject-list__link">2.5.3 Integrales de funciones simples que involucran términos cuadráticos irreducibles</a></li>     
+                            <li class="subject-list__item"><a href="#" class="subject-list__link">2.5.4 El polinomio Q(x) contiene factores cuadráticos irreducibles que no se repiten</a></li>     
+                            <li class="subject-list__item"><a href="#" class="subject-list__link">2.5.5 El polinomio Q(x) contiene factores cuadráticos irreducibles que se repiten</a></li>     
+                        </ol>
+                    </li>
+                    <li class="subject-list__item"><a href="#" class="subject-list__link">2.6 Met. de int. por sust. trigonométrica</a></li>     
+                </ol>
+            </li>
+            <li class="subject-list__item">
+                <strong class="subject-list__title">3 Integrales impropias y aplicaciones</strong>
+                <ol class="subject-list">
+                    <li class="subject-list__item"><a href="#" class="subject-list__link">3.1 Integrales impropias</a></li>
+                    <li class="subject-list__item"><a href="#" class="subject-list__link">3.2 Más integrales impropias (para funciones discontinuas)</a></li>
+                    <li class="subject-list__item"><a href="#" class="subject-list__link">3.3 Cálculo de áreas de regiones acotadas pro curvas</a></li>   
+                </ol>
+            </li>
+        </ol>
+    </nav>
+    <main class="main">
+        <section>
+            <h2 class="header-primary margin-bottom-sm">
+                1.2.2 Propiedades del símbolo $\sum$
+            </h2>
+            <div class="theorem">
+                <p class="theorem__paragraph">
+                    <strong>Teorema 1.2.1 </strong>(Linealidad). Sean $n ∈ N, ai, bi ∈ R$, para toda $i = 1, n,$ y $c ∈ R$,
+                    entonces:
+                </p>
+                <!-- <p class="theorem__formule">
+
+                </p> -->
+                <ol class="theorem__list">
+                    <li class="theorem__list-item">
+                        $\sum_{i=1}^{n} (ca_i) = c\sum_{i=1}^{n} a_i$
+                    </li>
+                    <li class="theorem__list-item">
+                        $\sum_{i=1}^{n} (a_i + b_i) = \sum_{i=1}^{n} a_i + \sum_{i=1}^{n} a_i$
+                    </li>
+                    <li class="theorem__list-item">
+                        $\sum_{i=1}^{n} (a_i - b_i) = \sum_{i=1}^{n} a_i - \sum_{i=1}^{n} a_i$
+                    </li>
+                </ol>
+            </div>
+            <div class="proof">
+                <h3 class="header-tertiary">
+                    Demostración.
+                </h3>
+                <ol class="proof__step">
+                    <li class="proof__step-item">
+                        Haremos la demostración por inducción sobre $n$.
+                        <ul class="proof__list">
+                            <li class="proof__list-item">
+                                Demostramos para $n = 1$, es decir, vamos a demostrar que
+                                <p class="text-formule">
+                                    $\sum_{i=1}^{n} (ca_i) = c\sum_{i=1}^{n} a_i$.
+                                </p>
+                                En efecto: Por un lado, por 1) de la 
+                                <span class="modal__toggle" for="modal-1-2-1" data-modal-btn="definition-1-2-1">Definición 1.2.1</span>,                                 
+                                sabemos que $\sum_{i=1}^{1} (ca_i) = ca_1$. 
+                                Por otro lado, nuevamente por 1) de la Definición 1.2.1, sabemos que $\sum_{i=1}^{1} (a_i) = a_1$. 
+                                Entonces, por la consistencia del producto sobre la igualdad, tenemos que $c\sum_{i=1}^{1} (a_i) = ca_1$. 
+                                Luego, por transitividad, concluimos que
+                                <p class="text-formule">
+                                    $\sum_{i=1}^{n} (ca_i) = c\sum_{i=1}^{n} a_i$.
+                                </p>
+                            </li>
+                            <li class="proof__list-item">
+                                Suponemos cierta la propiedad para $n = k$, es decir, suponemos que es cierta la igualdad
+                                $\sum_{i=1}^{k} (ca_i) = c\sum_{i=1}^{k} a_i$
+                                lo cual es nuestra hipótesis de inducción (H.I).
+                            </li>
+                            <li class="proof__list-item">
+                                Probaremos para $n = k + 1$, es decir, vamos a demostrar que
+                                <p class="text-formule">
+                                    $\sum_{i=1}^{k+1} (ca_i) = c\sum_{i=1}^{k+1} a_i$.
+                                </p>
+                                En efecto: 
+                                <div class="calculation">
+                                    <!-- row 1 -->
+                                    <div class="calculation__formule--1">
+                                        $\sum_{i=1}^{k+1} (ca_i)$
+                                    </div>
+                                    <div class="calculation__formule--2">
+                                        $=\sum_{i=1}^{k} (ca_i) + ca_{k+1}$
+                                    </div>
+                                    <div class="calculation__text">
+                                        por 2) de la Definición 1.2.1
+                                    </div>
+                                    <!-- row 2 -->
+                                    <div class="calculation__formule--2">
+                                        $=c\sum_{i=1}^{k} a_i + ca_{k+1}$
+                                    </div>
+                                    <div class="calculation__text">
+                                        por la hipótesis de inducción
+                                    </div>
+                                    <!-- row 3 -->
+                                    <div class="calculation__formule--2">
+                                        $ = c(\sum_{i=1}^{k} a_i + a_{k+1})$
+                                    </div>
+                                    <div class="calculation__text">
+                                        por distributividad
+                                    </div>
+                                    <!-- row 4 -->
+                                    <div class="calculation__formule--2">
+                                        $ = c\sum_{i=1}^{k+1} a_i$  
+                                    </div>
+                                    <div class="calculation__text">
+                                        por 2) de la Definición 1.2.1
+                                    </div>
+                                </div>
+                                <p class="paragraph">
+                                    Luego por transitividad concluimos que $\sum_{i=1}^{k+1} (ca_i) = c\sum_{i=1}^{k+1} a_i$.
+                                </p>
+                                <p class="paragraph">
+                                    Finalmente por el principio de inducción matemática, tenemos que
+                                </p>
+                                <p class="text-formule">
+                                    $ \forall n \in \\N : \sum_{i=1}^{n} (ca_i) = c\sum_{i=1}^{n} a_i$.
+                                </p>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="proof__step-item">
+                        Se deja como ejercicio al lector.
+                    </li>
+                    <li class="proof__step-item">
+                        Haremos la prueba haciendo uso de los puntos anteriores. En efecto:
+                        <div class="calculation">
+                            <!-- row 1 -->
+                            <div class="calculation__formule--1">
+                                $\sum_{i=1}^{n} (a_i-b_i)$
+                            </div>
+                            <div class="calculation__formule--2">
+                                $=\sum_{i=1}^{n} [a_i + (-b_i)]$
+                            </div>
+                            <div class="calculation__text">
+                                por definición de resta
+                            </div>
+                            <!-- row 2 -->
+                            <div class="calculation__formule--2">
+                                $=\sum_{i=1}^{n} a_i + \sum_{i=1}^{n} (-b_i)$
+                            </div>
+                            <div class="calculation__text">
+                                por 2) de este teorema
+                            </div>
+                            <!-- row 3 -->
+                            <div class="calculation__formule--2">
+                                $=\sum_{i=1}^{n} a_i + \sum_{i=1}^{n} [(-1)b_i]$
+                            </div>
+                            <div class="calculation__text">
+                                por que $-x = (-1)x$ para $x \in \\R$
+                            </div>
+                            <!-- row 4 -->
+                            <div class="calculation__formule--2">
+                                $=\sum_{i=1}^{n} a_i + (-1) \sum_{i=1}^{n} b_i$
+                            </div>
+                            <div class="calculation__text">
+                                por 1) de este teorema
+                            </div>
+                            <!-- row 5 -->
+                            <div class="calculation__formule--2">
+                                $=\sum_{i=1}^{n} a_i - \sum_{i=1}^{n} b_i$
+                            </div>
+                            <div class="calculation__text">
+                                por definición de resta
+                            </div>
+                        </div>
+                        <p class="paragraph">
+                            Finalmente, por transitividad, tenemos que $\sum_{i=1}^{n} (a_i-b_i) = \sum_{i=1}^{n} a_i - \sum_{i=1}^{n} b_i$.
+                        </p>
+                    </li>
+                </ol>
+            </div>
+        </section>
+        <section>
+            <form class="question margin-top-sm" data-question="question-1-2-4" data-answer="c">
+                <h3 class="question__header margin-bottom-sm">
+                    Si $\sum_{i=1}^{100} a_i = 60$ y $\sum_{i=1}^{100} b_i = 11$, entonces calcula $\sum_{i=1}^{100} (2a_i - 3b_i + 4) = 60$
+                </h3>
+                <div class="question__row">
+                <div class="question__col-1">
+                    <div class="question__options">
+                        <div class="question__option">
+                            <input type="radio" autocomplete="off" id="question-1-2-4-a" name="question-1-2-4" value="a" data-option="question-1-2-4">
+                            <label for="question-1-2-4-a">553</label>
+                        </div>
+                        <div class="question__option">
+                            <input type="radio" autocomplete="off" id="question-1-2-4-b" name="question-1-2-4" value="b" data-option="question-1-2-4">
+                            <label for="question-1-2-4-b">517</label>
+                        </div>
+                        <div class="question__option">
+                            <input type="radio" autocomplete="off" id="question-1-2-4-c" name="question-1-2-4" value="c" data-option="question-1-2-4">
+                            <label for="question-1-2-4-c">487</label>
+                        </div>
+                        <div class="question__option">
+                            <input type="radio" autocomplete="off" id="question-1-2-4-d" name="question-1-2-4" value="d" data-option="question-1-2-4">
+                            <label for="question-1-2-4-d">497</label>
+                        </div>
+                    </div>
+                    <div class="question__btn">
+                        <button class="btn btn--blue" type="submit" disabled data-btn="answer">Respuesta</button>
+                        <button class="btn btn--blue" type="button" disabled data-btn="continue">Continuar</button>
+                    </div>
+                </div>
+                <div class="question__col-2">
+                    <p class="paragraph question__answer"></p>
+                </div>
+                </div>
+            </form>
+            <div class="step">
+                <div class="margin-top-sm">
+                    <p class="paragraph">
+                        Haciendo uso del Teorema 1.2.1:
+                    </p>
+                    <div class="calculation">
+                        <!-- row 1 -->
+                        <div class="calculation__formule--1">
+                            $\sum_{i=1}^{100} (2a_i - 3b_i + 4)$
+                        </div>
+                        <div class="calculation__formule--2">
+                            $=\sum_{i=1}^{100} (2a_i) - \sum_{i=1}^{100} (3b_i) + \sum_{i=1}^{100} 4$
+                        </div>
+                        <div class="calculation__text">
+                            por 2) y 3) del Teorema 1.2.1
+                        </div>
+                        <!-- row 2 -->
+                        <div class="calculation__formule--2">
+                            $= 2 \sum_{i=1}^{100} a_i - 3 \sum_{i=1}^{100} b_i + \sum_{i=1}^{100} 4$
+                        </div>
+                        <div class="calculation__text">
+                            por 1) del Teorema 1.2.1
+                        </div>
+                        <!-- row 3 -->
+                        <div class="calculation__formule--2">
+                            $ = 2 \sum_{i=1}^{100} a_i - 3 \sum_{i=1}^{100} b_i + 100(4)$
+                        </div>
+                        <div class="calculation__text">
+                            por la sumación constante
+                        </div>
+                        <!-- row 4 -->
+                        <div class="calculation__formule--2">
+                            $ = 2(60) - 3(11) + 400$  
+                        </div>
+                        <div class="calculation__text">
+                            por hipótesis
+                        </div>
+                        <div class="calculation__formule--2">
+                            $ = 487$  
+                        </div>
+                    </div>
+                </div>
+                <form class="question margin-top-sm" data-question="question-1-2-5" data-answer="a">
+                    <h3 class="question__header margin-bottom-sm">
+                        Calcula la suma $\sum_{1}^{4} (a_{i+1+} - a_i)$
+                    </h3>
+                    <div class="question__row">
+                    <div class="question__col-1">
+                        <div class="question__options">
+                            <div class="question__option">
+                                <input type="radio" autocomplete="off" id="answer-1-2-5-a" name="question-1-2-5" value="a" data-option="question-1-2-5">
+                                <label for="answer-1-2-5-a">$a_5 - a_1$</label>
+                            </div>
+                            <div class="question__option">
+                                <input type="radio" autocomplete="off" id="answer-1-2-5-b" name="question-1-2-5" value="b" data-option="question-1-2-5">
+                                <label for="answer-1-2-5-b">$a_5 + a_4$</label>
+                            </div>
+                            <div class="question__option">
+                                <input type="radio" autocomplete="off" id="asnwer-1-2-5-c" name="question-1-2-5" value="c" data-option="question-1-2-5">
+                                <label for="asnwer-1-2-5-c">$a_2 + a_1$</label>
+                            </div>
+                            <div class="question__option">
+                                <input type="radio" autocomplete="off" id="answer-1-2-5-d" name="question-1-2-5" value="d" data-option="question-1-2-5">
+                                <label for="answer-1-2-5-d">$a_5 - a_4 - a_3 - a_2 - a_1$</label>
+                            </div>
+                        </div>
+                        <div class="question__btn">
+                            <button class="btn btn--blue" type="submit" disabled data-btn="answer">Respuesta</button>
+                            <button class="btn btn--blue" type="button" disabled data-btn="continue">Continuar</button>
+                        </div>
+                    </div>
+                    <div class="question__col-2">
+                        <p class="paragraph question__answer"></p>
+                    </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+        <section class="step">
+            <p class="paragraph">
+                Desarrolando la suma:
+            </p>
+            <div class="calculation">
+                <!-- row 1 -->
+                <div class="calculation__formule--1">
+                    $\sum_{i=1}^{100} (a_{i+1} - a_i)$
+                </div>
+                <div class="calculation__formule--2">
+                    $=(a_2 - a_1) + (a_3 - a_2) + (a_4 - a_3) + (a_5 - a_4)$
+                </div>
+                <!-- row 2 -->
+                <div class="calculation__formule--2">
+                    $= a_5 - a_1$
+                </div>
+            </div>
+            <p class="paragraph">
+                A este tipo de suma se le conoce como suma telescópica. Una suma es telescópica, si al final de la suma solo quedan el primer término y
+                el último término, es decir, se cancelan casi todos.
+            </p>
+            <div class="theorem">
+                <p class="theorem__paragraph">
+                    <strong>Teorema 1.2.2 </strong>(Sumas telescópicas). Si $n ∈ N $, y $a_i ∈ R \; \; \forall i =$ <span class="overline">$1,n$</span>, entonces
+                </p>
+                <ol class="theorem__list">
+                    <li class="theorem__list-item">
+                        $\sum_{i=1}^{n} (a_{i+1} - a_i) = a_{n+1} - a_1$.
+                    </li>
+                    <li class="theorem__list-item">
+                        $\sum_{i=1}^{n} [(i + 1)^2 - i^2) = (n + 1)^2 - 1$.
+                    </li>
+                </ol>
+            </div>
+            <div class="proof">
+                <h3 class="header-tertiary">Demostración.</h3>
+                <p class="paragraph">
+                    Se deja como ejercicio al lector.
+                </p>
+            </div>
+            <div class="theorem">
+                <p class="theorem__paragraph">
+                    <strong>Teorema 1.2.3 </strong>. Para toda $n ∈ N$ se cumple que
+                </p>
+                <ol class="theorem__list">
+                    <li class="theorem__list-item">
+                        $\sum_{i=1}^{n} i = \frac{n(n+1)}{2}$;
+                    </li>
+                    <li class="theorem__list-item">
+                        $\sum_{i=1}^{n} i^2 = \frac{n(n+1)(2n+1)}{6}$;
+                    </li>
+                    <li class="theorem__list-item">
+                        $\sum_{i=1}^{n} i^3 = [\frac{n(n+1)}{2}]^2$;
+                    </li>
+                    <li class="theorem__list-item">
+                        $\sum_{i=1}^{n} i^4 = \frac{n(n+1)(2n+1)(3n^2+3n-1)}{30}$;
+                    </li>
+                </ol>
+            </div>
+            <div class="proof">
+                <h3 class="header-tertiary">Demostración.</h3>
+                <ol class="proof__step">
+                    <li class="proof__step-item">
+                        Notemos que $(i + 1)^2 - i^2 = 2i + 1$, luego
+                        <div class="calculation">
+                            <!-- row 1 -->
+                            <div class="calculation__formule--1">
+                                $\sum_{i=1}^{n} [(i + 1)^2 - i^2]$
+                            </div>
+                            <div class="calculation__formule--2">
+                                $=\sum_{i=1}^{n}( 2i + 1)$
+                            </div>
+                            <div class="calculation__text">
+                                por consistencia de la suma sobre la "$  =  $"
+                            </div>
+                            <!-- row 2 -->
+                            <div class="calculation__formule--1">
+                                $\sum_{i=1}^{n} [(i + 1)^2 - i^2]$
+                            </div>
+                            <div class="calculation__formule--2">
+                                $=2\sum_{i=1}^{n}i + \sum_{i=1}^{n}1$
+                            </div>
+                            <div class="calculation__text">
+                                por Teorema 1.2.1
+                            </div>
+                            <!-- row 3 -->
+                            <div class="calculation__formule--1">
+                                $(n + 1)^2 - 1^2$
+                            </div>
+                            <div class="calculation__formule--2">
+                                $=2\sum_{i=1}^{n}i + n$
+                            </div>
+                            <div class="calculation__text">
+                                por Teorema 1.2.2 y sumación constante
+                            </div>
+                            <!-- row 4 -->
+                            <div class="calculation__formule--1">
+                                $n^2 + 2n$
+                            </div>
+                            <div class="calculation__formule--2">
+                                $=2\sum_{i=1}^{n}i + n$
+                            </div>
+                            <div class="calculation__text">
+                                desarrollando del binomio
+                            </div>
+                            <!-- row 5 -->
+                            <div class="calculation__formule--1">
+                                $n^2 + n$
+                            </div>
+                            <div class="calculation__formule--2">
+                                $=2\sum_{i=1}^{n}i$
+                            </div>
+                            <div class="calculation__text">
+                                restando $n$ en ambos lados
+                            </div>
+                            <!-- row 6 -->
+                            <div class="calculation__formule--1">
+                                $\sum_{i=1}^{n} i$
+                            </div>
+                            <div class="calculation__formule--2">
+                                $=\frac{n(n+1)}{2}$
+                            </div>
+                            <div class="calculation__text">
+                                despejando y asociando
+                            </div>
+                        </div>
+                    </li>
+                    <li class="proof__step-item">Ejercicio</li>
+                    <li class="proof__step-item">Ejercicio</li>
+                    <li class="proof__step-item">Ejercicio</li>
+                </ol>
+            </div>
+            <form class="question margin-top-sm" data-question="question-1-2-6" data-answer="d">
+                <h3 class="question__header margin-bottom-sm">
+                    Calcula el siguiente límite $\lim_{n \to \infty} \sum_{1}^{n}\frac{1}{n} (\frac{i}{n})^2$
+                </h3>
+                <div class="question__row">
+                <div class="question__col-1">
+                    <div class="question__options">
+                        <div class="question__option">
+                            <input type="radio" autocomplete="off" id="answer-1-2-6-a" name="question-1-2-6" value="a" data-option="question-1-2-6">
+                            <label for="answer-1-2-6-a">$\frac{1}{2}$</label>
+                        </div>
+                        <div class="question__option">
+                            <input type="radio" autocomplete="off" id="answer-1-2-6-b" name="question-1-2-6" value="b" data-option="question-1-2-6">
+                            <label for="answer-1-2-6-b">$\frac{2}{3}$</label>
+                        </div>
+                        <div class="question__option">
+                            <input type="radio" autocomplete="off" id="answer-1-2-6-c" name="question-1-2-6" value="c" data-option="question-1-2-6">
+                            <label for="answer-1-2-6-c">$1$</label>
+                        </div>
+                        <div class="question__option">
+                            <input type="radio" autocomplete="off" id="answer-1-2-6-d" name="question-1-2-6" value="d" data-option="question-1-2-6">
+                            <label for="answer-1-2-6-d">$\frac{1}{3}$</label>
+                        </div>
+                    </div>
+                    <div class="question__btn">
+                        <button class="btn btn--blue" type="submit" disabled data-btn="answer">Respuesta</button>
+                        <button class="btn btn--blue" type="button" disabled data-btn="continue">Continuar</button>
+                    </div>
+                </div>
+                <div class="question__col-2">
+                    <p class="paragraph question__answer"></p>
+                </div>
+                </div>
+            </form>
+            <div class="step margin-top-sm">
+                <p class="paragraph">
+                    Para $n \in \\N$, tenemos que
+                </p>
+                <div class="calculation">
+                    <!-- row 1 -->
+                    <div class="calculation__formule--1">
+                        $\sum_{1}^{n}\frac{1}{n} (\frac{i}{n})^2$
+                    </div>
+                    <div class="calculation__formule--2">
+                        $=\frac{1}{n^3} \sum_{1}^{n} i^2$
+                    </div>
+                    <div class="calculation__text">
+                        por 1) del Teorema 1.2.1
+                    </div>
+                    <!-- row 2 -->
+                    <div class="calculation__formule--2">
+                        $=\frac{1}{n^3} \frac{n(n+1)(2n+1)}{6}$
+                    </div>
+                    <div class="calculation__text">
+                        por 2) del Teorema 1.2.3
+                    </div>
+                    <!-- row 3 -->
+                    <div class="calculation__formule--2">
+                        $=\frac{1}{6} \frac{n}{n} \frac{n+1}{n} \frac{2n+1}{n}$
+                    </div>
+                    <!-- row 4 -->
+                    <div class="calculation__formule--2">
+                        $=\frac{1}{6} (1 + \frac{1}{n}) (2 + \frac{1}{n})$
+                    </div>                    
+                </div>
+                <p class="paragraph">
+                    Entonces,
+                </p>
+                <div class="calculation">
+                    <!-- row 1 -->
+                    <div class="calculation__formule--1">
+                        $\lim_{n \to \infty} \sum_{1}^{n}\frac{1}{n} (\frac{i}{n})^2$
+                    </div>
+                    <div class="calculation__formule--2">
+                        $= \lim_{n \to \infty} \frac{1}{6} (1 + \frac{1}{n}) (2 + \frac{1}{n}) = \frac{2}{6} = \frac{1}{3}$
+                    </div>
+                </div>
+                <div class="change-page">
+                    <a href="./1.2-Sumatoria.html" class="change-page__before">Anterior</a>
+                    <a href="./1.3-calculo-de-areas.html" class="change-page__next">Siguiente</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div class="modal" data-modal="definition-1-2-1">
+        <div class="modal__background" data-modal-background="definition-1-2-1"></div>
+        <div class="modal__content">
+            <div class="definition">
+                <p class="definition__paragraph">
+                    <strong>Definición 1.2.1.</strong> El símbolo sumatorio $\sum$, queda determinado por
+                </p>
+                <p class="definition__paragraph definition__paragraph--item">
+                    1. Se define $\sum_{i=1}^{1} = a_1$
+                </p>
+                <p class="definition__paragraph definition__paragraph--item">
+                    2. Si el término $\sum_{i=1}^{n} = a_i$ está bien definido para un $n ≥ 1$ fijo, entonces se define: <br>
+                </p>
+                <p class="text-formule">
+                    $\sum_{i=1}^{n + 1} a_i = \sum_{i=1}^{n} a_i + a_{n+1}.$
+                </p>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

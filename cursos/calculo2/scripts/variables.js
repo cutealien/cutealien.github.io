@@ -117,6 +117,5 @@ function drawCurve(ctx, mode = 'ins') {
 }
 
 function polygonArea(sides = 3, radio = 1) {
-    console.log(radio, sides, Math.pow(radio, 2));
     return (sides / 2) * Math.pow(radio, 2) * Math.sin((2 * Math.PI) / sides)
 }

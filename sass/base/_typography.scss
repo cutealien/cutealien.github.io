@@ -1,14 +1,27 @@
 .header {
     &-primary {
-        font-size: 5rem;
+        font-size: 4rem;
         color: #000;
         line-height: 1.2;
+        margin-bottom: 2rem;
         @include responsive(phone) {
             font-size: 3.5rem;
         }
     }
-    &--white {
-        color: #fff;
+    &-secondary {
+        font-size: 3rem;
+        color: #000;
+        line-height: 1.2;
+        margin-bottom: 2rem;
+        @include responsive(phone) {
+            font-size: 2.5rem;
+        }
+    }
+    &-tertiary {
+        font-size: 2rem;
+        line-height: 1.2;
+        margin-bottom: 1rem;
+
     }
 }
 
@@ -20,6 +33,10 @@
     margin-bottom: 1rem;
     text-indent: 1rem;
     text-align: justify;
+
+    &--noindent {
+        text-indent: 0;
+    }
 
     &--yellow {
         color: $color-yellow;

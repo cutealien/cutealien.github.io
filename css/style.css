@@ -605,15 +605,6 @@ div[data-anchor]:target::before {
   margin-bottom: 1.5rem;
 }
 
-.example {
-  font-size: 2rem;
-  padding: 1rem 0;
-}
-.example__paragraph {
-  margin-top: 1rem;
-  text-indent: 3ch;
-}
-
 .proof__step {
   list-style: decimal outside;
   font-size: 2rem;
@@ -643,6 +634,33 @@ div[data-anchor]:target::before {
 .calculation {
   padding: 2rem;
   font-size: 2rem;
+  display: grid;
+  grid-template-columns: [first] max-content [second] max-content;
+  grid-template-rows: max-content;
+  grid-auto-rows: max-content;
+  gap: 0 1rem;
+  align-items: center;
+  justify-content: center;
+}
+.calculation--text {
+  grid-template-columns: [first] max-content [second] max-content [third] max-content;
+}
+.calculation--no-text {
+  margin: 0 auto;
+}
+.calculation__formule--1 {
+  grid-column: first/first;
+  justify-self: right;
+  margin: -1em 0;
+}
+.calculation__formule--2 {
+  grid-column: second/second;
+  margin: -1em 0;
+  justify-self: left;
+}
+.calculation__text {
+  grid-column: 3/3;
+  font-style: italic;
 }
 
 .overline {
@@ -812,7 +830,7 @@ button[data-btn=continue] {
   opacity: 1;
   visibility: visible;
 }
-.modal__toggle {
+.modal__reference {
   color: rgb(17, 128, 202);
   text-decoration: underline;
   font-size: inherit;

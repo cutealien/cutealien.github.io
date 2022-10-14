@@ -31,14 +31,10 @@
     }
 }
 
-.example {
-    font-size: 2rem;
-    padding: 1rem 0;
-    &__paragraph {
-        margin-top: 1rem;
-        text-indent: 3ch;
-    }
-}
+// .example {
+//     font-size: 2rem;
+//     padding: 1rem 0;
+// }
 
 .proof {
     &__step {
@@ -78,38 +74,39 @@
 .calculation {
     padding: 2rem;
     font-size: 2rem;
-    // display: grid;
-    // grid-template-columns: [first] max-content [second] max-content;
-    // grid-template-rows: max-content;
-    // grid-auto-rows: max-content;
-    // gap: 0 1rem;
-    // align-items: center;
-    // justify-content: center;
+    display: grid;
+    grid-template-columns: [first] max-content [second] max-content;
+    grid-template-rows: max-content;
+    grid-auto-rows: max-content;
+    // grid-auto-columns: max-content;
+    gap: 0 1rem;
+    align-items: center;
+    justify-content: center;
     
-    // &--text {
-    //     grid-template-columns: [first] max-content [second] max-content [text]  max-content;
-    // }
+    &--text {
+        grid-template-columns: [first] max-content [second] max-content [third] max-content;
+    }
     
-    // &--no-text {
-    //     margin: 0 auto;
-    // }
+    &--no-text {
+        margin: 0 auto;
+    }
 
-    // &__formule {
-    //     &--1 {
-    //         grid-column: first / first;
-    //         justify-self: right;
-    //         margin: -0.3em 0;
-    //     }
-    //     &--2 {
-    //         grid-column: second / second;
-    //         margin: -0.3em 0;
-    //         justify-self: left;
-    //     }
-    // }
-    // &__text {
-    //     padding-left: 4em;
-    //     grid-column: text / text;
-    // }
+    &__formule {
+        &--1 {
+            grid-column: first / first;
+            justify-self: right;
+            margin: -1em 0;
+        }
+        &--2 {
+            grid-column: second / second;
+            margin: -1em 0;
+            justify-self: left;
+        }
+    }
+    &__text {
+        grid-column: 3 / 3;
+        font-style: italic;
+    }
 }
 .overline {
     border-top: 1px solid black;

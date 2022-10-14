@@ -4,7 +4,7 @@ var pickers = document.querySelectorAll('[data-picker=chapter-1-1]')
 //canvas 1
 var ctx_1_1 = canvas_chapter_1_1[0].getContext("2d")
 
-setFont('24px', 'Fugaz One', '#000', ctx_1_1)
+setFont(ctx_1_1, '24px Fugaz One', '#000')
 
 drawSquare(
     CANVAS_PADDING, 
@@ -45,9 +45,9 @@ ctx_1_2.lineTo(paralelogram.x2, paralelogram.y2)
 ctx_1_2.lineTo(paralelogram.x3, paralelogram.y3)
 ctx_1_2.lineTo(paralelogram.x4, paralelogram.y4)
 ctx_1_2.closePath()
-ctx_1_2.strokeStyle = COLOR_ORANGE_DARK
+ctx_1_2.strokeStyle = COLOR_BROWN_DARK
 ctx_1_2.stroke()
-ctx_1_2.fillStyle = COLOR_ORANGE_LIGHT
+ctx_1_2.fillStyle = COLOR_BROWN_LIGHT
 ctx_1_2.fill()
 
 ctx_1_2.beginPath()
@@ -80,9 +80,9 @@ ctx_1_3.moveTo(paralelogram.x1, paralelogram.y1)
 ctx_1_3.lineTo(paralelogram.x3, paralelogram.y3)
 ctx_1_3.lineTo(paralelogram.x4, paralelogram.y4)
 ctx_1_3.closePath()
-ctx_1_3.strokeStyle = COLOR_ORANGE_DARK
+ctx_1_3.strokeStyle = COLOR_BROWN_DARK
 ctx_1_3.stroke()
-ctx_1_3.fillStyle = COLOR_ORANGE_LIGHT
+ctx_1_3.fillStyle = COLOR_BROWN_LIGHT
 ctx_1_3.fill()
 
 ctx_1_3.lineWidth = 5
@@ -116,7 +116,7 @@ ctx_1_4.strokeStyle = '#000'
 
 drawCircle(ctx_1_4)
 
-ctx_1_4.strokeStyle = COLOR_ORANGE_DARK
+ctx_1_4.strokeStyle = COLOR_BROWN_DARK
 
 drawPolygon(ctx_1_4, 3)
 
@@ -125,7 +125,7 @@ numberPicker.addEventListener('change', (e) => {
     ctx_1_4.clearRect(0, 0, 300, 300)
     ctx_1_4.strokeStyle = '#000'
     drawCircle(ctx_1_4)
-    ctx_1_4.strokeStyle = COLOR_ORANGE_DARK
+    ctx_1_4.strokeStyle = COLOR_BROWN_DARK
     drawPolygon(ctx_1_4, numberOfSides)
     polygon.innerHTML = `Área del polígono = ${polygonArea(+e.target.value).toFixed(6)}`
 })

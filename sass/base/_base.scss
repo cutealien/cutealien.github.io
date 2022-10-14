@@ -45,16 +45,17 @@
 
 html {
     box-sizing: border-box;
-    font-size: 62.5%; // 1rem = 10px; 10px / 16px = 62.5%;
+    // font-size: 62.5%; // 1rem = 10px; 10px / 16px = 62.5%;
+    font-size: 10px;
     scroll-behavior: smooth;
     scroll-padding-top: 10rem;
 
     @media only screen and (max-width: $bp-medium) {
-        font-size: 50%;
+        font-size: 8px;
     }
-    @include responsive(big-desktop) {
-        font-size: 75%;
-    }
+    // @include responsive(big-desktop) {
+    //     font-size: 75%;
+    // }
 
 }
 
@@ -88,7 +89,7 @@ body {
 }
 
 .main {
-    // overflow-x: hidden;
+    overflow-x: hidden;
     // overflow-y: auto;
     // max-width: 1200px;
     // max-height: calc(100vh - 10rem);

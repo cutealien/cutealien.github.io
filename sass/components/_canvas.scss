@@ -1,8 +1,9 @@
 .canvas-container {
+    box-sizing: content-box;
     box-shadow: 0 0 5px $color-gray-light;
     background-color: #fff;
     margin: 2rem 0;
-    // padding-top: 2rem;
+    padding: 2rem;
     position: relative;
     min-width: 300px;
     max-height: 300px;

@@ -5,7 +5,7 @@
     background: blue;
 }
 
-.definition, .theorem, .example{
+.definition, .theorem{
     font-style: italic;
     font-size: 2rem;
     padding: 1rem 0;
@@ -15,18 +15,28 @@
     }
     &__paragraph {
         margin-top: 1rem;
-        &--item {
-            margin-left: 1rem;
-        }
+        text-indent: 3ch;
     }
     &__list {
         list-style: decimal;
         // margin-left: 3ch;
         // margin-bottom: 2rem;
         padding: 1rem 0 2rem 3ch;
+        &-item {
+            width: max-content;
+        }
         &-item:not(:last-child) {
             margin-bottom: 1.5rem;
         }
+    }
+}
+
+.example {
+    font-size: 2rem;
+    padding: 1rem 0;
+    &__paragraph {
+        margin-top: 1rem;
+        text-indent: 3ch;
     }
 }
 
@@ -59,8 +69,7 @@
     font-size: 2rem;
     font-style: italic;
     text-align: center;
-    margin: 1rem auto;
-    padding: 1rem;
+    // margin: -0.5em 0;
     &--left {
         text-align: left;
     }
@@ -68,25 +77,39 @@
 
 .calculation {
     padding: 2rem;
-    display: grid;
     font-size: 2rem;
-    grid-template-columns: [first] max-content [second] max-content [text]  1fr;
-    grid-template-rows: max-content;
-    grid-auto-rows: max-content;
-    gap: 2rem 1rem;
-    &__formule {
-        &--1 {
-            grid-column: first / first;
-            justify-self: right;
-        }
-        &--2 {
-            grid-column: second / second;
-        }
-    }
-    &__text {
-        padding-left: 4em;
-        grid-column: text / text;
-    }
+    // display: grid;
+    // grid-template-columns: [first] max-content [second] max-content;
+    // grid-template-rows: max-content;
+    // grid-auto-rows: max-content;
+    // gap: 0 1rem;
+    // align-items: center;
+    // justify-content: center;
+    
+    // &--text {
+    //     grid-template-columns: [first] max-content [second] max-content [text]  max-content;
+    // }
+    
+    // &--no-text {
+    //     margin: 0 auto;
+    // }
+
+    // &__formule {
+    //     &--1 {
+    //         grid-column: first / first;
+    //         justify-self: right;
+    //         margin: -0.3em 0;
+    //     }
+    //     &--2 {
+    //         grid-column: second / second;
+    //         margin: -0.3em 0;
+    //         justify-self: left;
+    //     }
+    // }
+    // &__text {
+    //     padding-left: 4em;
+    //     grid-column: text / text;
+    // }
 }
 .overline {
     border-top: 1px solid black;

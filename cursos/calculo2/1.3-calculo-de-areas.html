@@ -10,7 +10,7 @@
     
     <script src="./scripts/variables.js" defer></script>
     <script src="/scripts/question.js" defer></script>
-    <!-- <script src="./scripts/1-1-introduction.js" defer></script> -->
+    <script src="./scripts/1-3-calculus-areas.js" defer></script>
 
     <script>
         MathJax = {
@@ -56,7 +56,7 @@
                         </ol>
                     </li>
                     <li class="subject-list__item"><a href="#" class="subject-list__link subject-list__link--active">1.3 Cálculo de  ́areas con rect. insc. y circuns.</a></li>
-                    <li class="subject-list__item"><a href="#" class="subject-list__link">1.4 Construcción de la integral definida</a></li>
+                    <li class="subject-list__item"><a href="./1.4-integral-definida.html" class="subject-list__link">1.4 Construcción de la integral definida</a></li>
                     <li class="subject-list__item"><a href="#" class="subject-list__link">1.5 Sumas de Riemann</a></li>
                     <li class="subject-list__item"><a href="#" class="subject-list__link">1.6 Teorema fundamental del Cálculo y sus consecuencias</a></li>
                     <li class="subject-list__item"><a href="#" class="subject-list__link">1.7 Ejercicios</a></li>
@@ -97,6 +97,223 @@
             <h2 class="header-primary">
                 1.3 Cálculo de áreas con rectángulos inscritos y circunscritos
             </h2>
+            <p class="paragraph">
+                Consideremos la región $\mathbf{R}$ acotada por la parábola $y=f(x)=x^2$, el eje $X$ y la recta vertical $x=2$.
+            </p>
+            <div class="canvas-container">
+                <canvas class="canvas" height="300px" width="300px" data-canvas="chapter-1-3-1"></canvas>
+            </div>
+            <p class="paragraph">
+                Dividimos el intervalo $[0,2]$ en $n$ subintervalos, con $n\in \mathbf{N}$, cada uno de longitud $\Delta=\Delta x_i=\frac{2}{n}$, por medio de los $n+1$ puntos
+            </p>
+            <p class="text-formule margin-top-sm margin-bottom-sm">
+                $0=x_0 $ $< x_1 $ $< x_2 $ $< \cdots $ $< x_{i-1} $ $< x_i $ $< x_{i+1} $ $< \cdots $ $< x_{n-1} $ $< x_n=2.$
+                <!-- $$0=x_0 < x_1 < x_2 < \cdots < x_{i-1} < x_i < x_{i+1} < \cdots < x_{n-1} < x_n=2.$$ -->
+            </p>
+            <p class="paragraph">
+                Así, tenemos que $x_0=0,$ $x_1=\Delta x=\frac{2}{n},$ $x_2=2\Delta x=\frac{4}{n},$ $\dots,$ $x_i=i\Delta x=\frac{2i}{n}$ $,\dots,$ $x_{n-1}=(n-1)\Delta x=\frac{(n-1)}{n},$ $x_n=n \Delta x=\frac{n \cdot 2}{n}=2.$  
+                Consideremos el rectángulo representativo con base $[x_{i-1},x_i]$ y altura $f(x_i)=x_{i-1}^2$.
+                Esos rectángulos forman al siguiente polígono inscrito.
+            </p>
+            <div class="canvas-container">
+                <canvas class="canvas" height="300px" width="300px" data-canvas="chapter-1-3-2"></canvas>
+                <div class="picker">
+                    <input type="checkbox" id="checkbox-chapter-1-3-2" name="chapter-1-3-2" value="Rect" data-checkbox="checkbox-chapter-1-3-2" autocomplete="off">
+                    <label for="checkbox-chapter-1-3-2">Mostrar rectángulos</label>
+                </div>
+            </div>
+        </section>
+        <div class="fancy-line"></div>
+        <section>
+            <p class="paragraph">
+                El área $A(R_n)$ puede calcularse al sumar las áreas de los rectángulos que lo forman, así 
+            </p>
+            <!-- <div class="calculation calculation--no-text">
+                <div class="calculation__formule--1">
+                    $$A(R_n)$$
+                </div>
+                <div class="calculation__formule--2">
+                    $$=f(x_0)\Delta x+f(x_1)\Delta x+\cdots+f(x_{n-2})\Delta x+f(x_{n-1})\Delta x$$
+                </div>
+                <div class="calculation__formule--2">
+                    $$= \sum_{i=1}^{n-1} f(x_i)\Delta x,$$
+                </div>               -->
+                <div class="calculation">
+                    \begin{equation*}
+                        \begin{split}
+                            A(R_n) &=\left[\frac{8}{n^3}(0)^2+ \frac{8}{n^3}(1)^2+\cdots \frac{8}{n^3}(n-2)^2 + \frac{8}{n^3}(n-1)^2\right] \\
+                            &= \frac{8}{n^3}[1^2+2^2+3^3+\cdots +(n-2)^2+(n-2)^2] \\
+                            &= \frac{8}{n^3}\sum_{i=1}^{n-1}i^2 = \frac{8}{n^3}\frac{(n-1)n(2n-2+1)}{6} \\
+                            &=\frac{8}{6}\cdot \frac{(n-1)}{n}\cdot \frac{n}{n} \cdot \frac{(2n-1)}{n}= \frac{4}{3}\left(1-\frac{1}{n} \right)\left(1 \right)\left(2-\frac{1}{n} \right).
+                        \end{split}
+                    \end{equation*}
+                </div>
+            </div>
+            <p class="paragraph">
+                pero dadas las condiciones tenemos que
+            </p>
+            <p class="text-formule">
+                $$f(x_i)\Delta x \, = \,x_i^2 \Delta x \,=\, \left( \frac{2i}{n} \right)^2\cdot \frac{2}{n} \,=\,\frac{8}{n^3}i^2 \quad \forall i=\overline{1,n}.$$
+            </p>
+            <p class="paragraph">
+                Luego, tenemos
+            </p>
+            <div class="calculation">
+                $$
+                \begin{equation*}
+                    \begin{split}
+                        A(R_n) &=\left[\frac{8}{n^3}(0)^2+ \frac{8}{n^3}(1)^2+\cdots \frac{8}{n^3}(n-2)^2 + \frac{8}{n^3}(n-1)^2\right] \\
+                        &= \frac{8}{n^3}[1^2+2^2+3^3+\cdots +(n-2)^2+(n-2)^2] \\
+                        &= \frac{8}{n^3}\sum_{i=1}^{n-1}i^2 = \frac{8}{n^3}\frac{(n-1)n(2n-2+1)}{6} \\
+                        &=\frac{8}{6}\cdot \frac{(n-1)}{n}\cdot \frac{n}{n} \cdot \frac{(2n-1)}{n}= \frac{4}{3}\left(1-\frac{1}{n} \right)\left(1 \right)\left(2-\frac{1}{n} \right).
+                    \end{split}
+                \end{equation*}                   
+                $$
+            </div>
+            <p class="paragraph">
+                Primero aproximaremos el área con 6 decimales utilizando la expresión $A(R_n) = \frac{4}{3}\left(1-\frac{1}{n} \right)\left(2-\frac{1}{n} \right)$.
+                Cabe notar que los rectángulos que se grafican son $n-1$, esto se debe a que el primer valor es $x_0 = 0$, por lo que la altura del rectángulo es $f(x_0) = 0$.
+            </p>
+            <div class="canvas-container">
+                <canvas class="canvas" height="300px" width="300px" data-canvas="chapter-1-3-3"></canvas>
+                <div class="number-picker picker">
+                    <label class="number-picker__label" for="subintervals">Subintervalos (entre 2 y 100):</label>
+                    <input class="number-picker__input" type="number" id="subintervals" name="subintervals" min="2" max="100" value="2" data-picker="chapter-1-3-3" autocomplete="off">
+                    <div class="calculation-canvas" data-calculation="chapter-1-3-3">
+                        $A(R_2) = 1$
+                    </div>
+                </div>
+            </div>
+            <p class="paragraph">
+                Luego calculamos el límite para obtener el área de toda la región, es decir, 
+                $$A(R)=\lim_{n\to \infty}A(R_n)=\lim_{n\to\infty}\frac{4}{3}\left(1-\frac{1}{n} \right)\left(2-\frac{1}{n} \right)=\frac{8}{3}.$$
+            </p>
+            <p class="paragraph">
+                Es importante destacar que las aproximaciones no son mayores a $\frac{8}{3} \approx 2.66666666$
+            </p>
+        </section>
+        <div class="fancy-line"></div>
+        <section>
+            <p class="paragraph">
+                Si ahora cambiamos rectángulos inscritos por rectángulos circunscritos, entonces el área debe ser la misma. 
+                Siguiendo como antes, tenemos la región con los rectángulos circunscritos, $S_n$:
+            </p>
+            <div class="canvas-container">
+                <canvas class="canvas" height="300px" width="300px" data-canvas="chapter-1-3-4"></canvas>
+            </div>
+            <p class="paragraph">
+                Notemos que ahora $f(x_i)=x_i^2$, $\Delta x=\frac{2}{n}$ y $x_i=i\cdot\frac{2}{n}$, y así obtenemos que: 
+                $$A(S_n)=f(x_1)\Delta x+f(x_2)\Delta x+f(x_3)+\cdots+f(x_n)\Delta x,$$ 
+                como antes, $f(x_i)\cdot\Delta x=x_i^2\cdot \Delta x=\frac{8}{n^3}i^2$, y así
+            </p>
+            <div class="calculation">
+                $$
+                \begin{equation*}
+                    \begin{split}
+                        A(S_n)&=\left[\frac{8}{n^3}(1)^2+\frac{8}{n^3}(2)^2+\frac{8}{n^3}(3)^2+\cdots \frac{8}{n^3}(n)^2\right]\\
+                        &= \sum_{i=1}^n\frac{8}{n^3}i^2 \qquad \mbox{ por notación del símbolo sumatorio} \\
+                        &= \frac{8}{n^3}\sum_{i=1}^n i^2 \qquad \mbox{ por 1) del Teo. 1.2.1} \\
+                        &= \frac{8}{n^3}\cdot \frac{n(n+1)(2n+1)}{6} \qquad \mbox{ por 2) del Teo. 1.2.3}\\
+                        &= \cancelto{\frac{4}{3}}{\frac{8}{6}}\cdot \cancelto{1}{\frac{n}{n}}\cdot \frac{n+1}{n}\cdot \frac{2n+1}{n}=\frac{4}{3}\left(1+\frac{1}{n}\right)\left(2+\frac{1}{n}\right).
+                    \end{split}
+                \end{equation*}
+                $$             
+            </div>
+            <p class="paragraph">
+                Repitiendo la aproximación del área, pero esta vez ahora con rectángulos circunscritos utilizando la expresión 
+                $\frac{4}{3}\left(1+\frac{1}{n}\right)\left(2+\frac{1}{n}\right)$.
+            </p>
+            <div class="canvas-container">
+                <canvas class="canvas" height="300px" width="300px" data-canvas="chapter-1-3-5"></canvas>
+                <div class="number-picker picker">
+                    <label class="number-picker__label" for="subintervals-2">Subintervalos (entre 2 y 100):</label>
+                    <input class="number-picker__input" type="number" id="subintervals-2" name="subintervals" min="2" max="100" value="2" data-picker="chapter-1-3-5" autocomplete="off">
+                    <div class="calculation-canvas" data-calculation="chapter-1-3-5">
+                        $A(S_2) = 5$
+                    </div>
+                </div>
+            </div>
+            <p class="paragraph">
+                Tomando el límite, obtenemos que 
+                $$\lim_{n\to\infty}A(S_n)=\lim_{n\to\infty}\frac{4}{3}\left(1+\frac{1}{n}\right)\left(2+\frac{1}{n}\right)=\frac{4}{3}\cdot 1 \cdot 2=\frac{8}{3}.$$
+            </p>
+            <p class="paragraph">
+                Finalmente podemos decir que $$\lim_{n\to\infty}A(R_n)=A(R)=\lim_{n\to\infty}A(S_n).$$
+            </p>
+            <p class="paragraph">
+                Ahora notemos que las aproximaciones son mayores a $\frac{8}{3} \approx 2.66666666$
+            </p>
+        </section>
+        <div class="fancy-line"></div>
+        <section>
+            <p class="paragraph">
+                Esto nos permite dar la siguiente idea:
+            </p>
+            <p class="paragraph">
+                Supongamos que $f(x)\geq 0$, $\forall x \in[a,b]$ y además que $f$ es continua en $[a,b]$. 
+                Comenzamos dividiendo el intervalo $[a,b]$ es $n$ piezas iguales, es decir en subintervalos de tamaño $\Delta x=\frac{b-a}{n}$ 
+                (donde $\Delta x$ significa un pequeño cambio en la variable $x$). 
+                Los puntos que general la subdivisión son $$x_0=a, x_1=x_0+\Delta x, x_2=x_0+2\Delta x, \dots, x_i=x_0+i\Delta x, \dots x_n=x_0+n\Delta x=b.$$ 
+                Sobre cada subintervalo generado $[x_{i-1},x_i]$ construimos un rectángulo de altura $f(x_i)$ (siempre el lado derecho del subintervalo).
+            </p>
+            <div class="canvas-container">
+                <canvas class="canvas" height="300px" width="300px" data-canvas="chapter-1-3-6"></canvas>
+            </div>
+            <p class="paragraph">
+                Así, obtenemos que $$A\approx f(x_1)\Delta x+f(x_2)\Delta x+f(x_3)\Delta x+\cdots +f(x_n)\Delta x=\sum_{i=1}^nf(x_i)\Delta x=A_n.$$
+            </p>
+            <div class="definition">
+                <p class="definition__paragraph">
+                    <strong>Definición 1.3.1.</strong> Sea $f$ una función definida en el intervalo $[a,b]$. 
+                    Si $f$ es continua en $[a,b]$ y $f(x)\geq 0$, $\forall x\in[a,b]$, definimos el área bajo la curva $y=f(x)$ en $[a,b]$ como 
+                    $$A=\lim_{n\to\infty}A_n=\lim_{n\to\infty}\sum_{i=1}^nf(x_i)\Delta x.$$
+                </p>
+            </div>
+            <div class="example">
+                <p class="example__paragraph">
+                    <strong>Ejemplo 1.3.1 </strong>Calcular el área bajo la curva $y=f(x)$, donde $f(x)=2x-2x^2$ en el intervalo $[0,1]$.
+                </p>
+                <p class="example__paragraph">
+                    Notemos que $f=2x-2x^2$, la cual, por ser una función polinómica, es continua en todo $\mathbf{R}$, en particular es continua en el intervalo $[0,1]$.  
+                    Además 
+                    $$0\leq f(x) \Leftrightarrow 0\leq 2x-2x^2 \Leftrightarrow 0 \leq x-x^2 \Leftrightarrow 0\leq x(x-1).$$ 
+                    De aquí se deduce que $$(0\leq x \wedge 0\leq 1-x) \qquad \vee \qquad (x\leq 0 \wedge 1-x\leq 0),$$ 
+                    lo cual es equivalente a $$(0\leq x \wedge x\leq 1) \qquad \vee \qquad (x\leq 0 \wedge 1\leq x),$$ 
+                    pero el lado derecho jamás ocurre, por lo tanto 
+                    $$0\leq x \wedge x\leq 1 \Leftrightarrow x\in[0,1].$$ 
+                    Por lo tanto, la función es no negativa en el intervalo $[0,1]$.
+                </p>
+                <p class="example__paragraph">
+                    Luego, $\Delta x=\frac{1-0}{n}=\frac{1}{n}$, por lo tanto tenemos que 
+                    $$x_0=0, x_1=\frac{1}{n}, x_2=\frac{2}{n}, x_3=\frac{3}{n}, \dots, x_i=\frac{i}{n}, \dots, x_n=\cancelto{1}{\frac{n}{n}}=1.$$ Así,
+                </p>
+                <p class="example__paragraph">
+                    \begin{equation*}
+                        \begin{split}
+                            A_n&=\sum_{i=1}^n f(x_i) \Delta x \qquad \mbox{ por definición de $A_n$} \\
+                            &= \sum_{i=1}^n f\left(\frac{i}{n}\right) \frac{1}{n} \qquad \mbox{ por definición de $x_i$} \\
+                            &= \sum_{i=1}^n \left[2\left(\frac{i}{n} \right)-2\left(\frac{i}{n} \right)^2 \right]\frac{1}{n} \qquad \mbox{ por definición de $f(x)$} \\
+                            &= \sum_{i=1}^n \left[2\left(\frac{i}{n} \right)\left(\frac{1}{n} \right) \right] -\sum_{i=1}^n \left[2\left(\frac{i}{n} \right)^2\left(\frac{1}{n} \right) \right] \qquad \mbox{ por 3) del Teo. 1.2.1} \\
+                            &= \frac{2}{n^2}\sum_{i=1}^n i -\frac{2}{n^3}\sum_{i=1}^n i^2 \qquad \mbox{ por 1) del Teo. 1.2.1 }\\
+                            &= \frac{2}{n^2}\cdot \frac{n(n+1)}{2}-\frac{2}{n^3}\cdot \frac{n(n+1)(2n+1)}{6} \qquad \mbox{ por 1) y 2) del Teo. 1.2.3} \\
+                            &= \cancelto{1}{\frac{n}{n}}\cdot \frac{n+1}{n}-\frac{1}{3}\cdot\cancelto{1}{\frac{n}{n}}\cdot\frac{n+1}{n}\cdot\frac{2n+1}{n} \\
+                            &= 1\cdot\left(1+\frac{1}{n} \right)-\frac{1}{3}\cdot \left(1+\frac{1}{n} \right) \cdot \left(2+\frac{1}{n} \right).
+                        \end{split}
+                    \end{equation*}
+                </p>
+                <p class="example__paragraph">
+                    Luego, como la función es continua y no negativa en $[0,1]$, entonces por la definición de área, tenemos que 
+                    $$A=\lim_{n\to\infty}A_n=\lim_{n\to\infty}\left[1+\frac{1}{n} -\frac{1}{3}\cdot \left(1+\frac{1}{n} \right) \cdot \left(2+\frac{1}{n} \right)\right]=1-\frac{2}{3}=\frac{1}{3}.$$
+ 
+                </p>
+                <p class="example__paragraph">
+                    Finalmente, el área buscada es $\frac{1}{3}$.
+                </p>
+            </div>
+            <div class="change-page">
+                <a href="./1.2.2-propiedades.html" class="change-page__before">Anterior</a>
+                <a href="./1.4-integral-definida.html" class="change-page__next">Siguiente</a>
+            </div>
         </section>
     </main>
     

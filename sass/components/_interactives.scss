@@ -24,6 +24,7 @@
         font-family: inherit;
         font-size: inherit;
         width: 5ch;
+        margin-left: 0.5rem;
         &::-webkit-inner-spin-button {
             opacity: 1;
         }
@@ -31,10 +32,13 @@
 }
 
 .calculation-canvas {
-    position: absolute;
-    bottom: 15px;
-    left: 15px;
+    // position: absolute;
+    // bottom: 15px;
+    // left: 15px;
     font-size: 1.6rem;
+    // color: #000;
+    margin: .5rem 0;
+    text-align: left;
     // font-family: 'Fugaz One';
 }
 

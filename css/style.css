@@ -124,18 +124,13 @@
 }
 html {
   box-sizing: border-box;
-  font-size: 62.5%;
+  font-size: 10px;
   scroll-behavior: smooth;
   scroll-padding-top: 10rem;
 }
 @media only screen and (max-width: 900px) {
   html {
-    font-size: 50%;
-  }
-}
-@media only screen and (min-width: 1800px) {
-  html {
-    font-size: 75%;
+    font-size: 8px;
   }
 }
 
@@ -167,6 +162,7 @@ body {
 }
 
 .main {
+  overflow-x: hidden;
   padding: 2rem 5%;
 }
 
@@ -209,7 +205,7 @@ section {
   color: #000;
   line-height: 1.3;
   margin-bottom: 1rem;
-  text-indent: 1rem;
+  text-indent: 3ch;
   text-align: justify;
 }
 .paragraph--noindent {
@@ -340,7 +336,7 @@ div[data-anchor]:target::before {
 
 .sidebar {
   overflow: scroll;
-  max-height: calc(100vh - 8rem);
+  height: calc(100vh - 8rem);
   padding: 2rem;
   border-right: 1px solid black;
 }
@@ -494,9 +490,11 @@ div[data-anchor]:target::before {
 }
 
 .canvas-container {
+  box-sizing: content-box;
   box-shadow: 0 0 5px #d0d0d0;
   background-color: #fff;
   margin: 2rem 0;
+  padding: 2rem;
   position: relative;
   min-width: 300px;
   max-height: 300px;
@@ -583,27 +581,37 @@ div[data-anchor]:target::before {
   background: blue;
 }
 
-.definition, .theorem, .example {
+.definition, .theorem {
   font-style: italic;
   font-size: 2rem;
   padding: 1rem 0;
 }
-.definition__formule, .theorem__formule, .example__formule {
+.definition__formule, .theorem__formule {
   text-align: center;
   margin: 1rem auto;
 }
-.definition__paragraph, .theorem__paragraph, .example__paragraph {
+.definition__paragraph, .theorem__paragraph {
   margin-top: 1rem;
+  text-indent: 3ch;
 }
-.definition__paragraph--item, .theorem__paragraph--item, .example__paragraph--item {
-  margin-left: 1rem;
-}
-.definition__list, .theorem__list, .example__list {
+.definition__list, .theorem__list {
   list-style: decimal;
   padding: 1rem 0 2rem 3ch;
 }
-.definition__list-item:not(:last-child), .theorem__list-item:not(:last-child), .example__list-item:not(:last-child) {
+.definition__list-item, .theorem__list-item {
+  width: max-content;
+}
+.definition__list-item:not(:last-child), .theorem__list-item:not(:last-child) {
   margin-bottom: 1.5rem;
+}
+
+.example {
+  font-size: 2rem;
+  padding: 1rem 0;
+}
+.example__paragraph {
+  margin-top: 1rem;
+  text-indent: 3ch;
 }
 
 .proof__step {
@@ -627,8 +635,6 @@ div[data-anchor]:target::before {
   font-size: 2rem;
   font-style: italic;
   text-align: center;
-  margin: 1rem auto;
-  padding: 1rem;
 }
 .text-formule--left {
   text-align: left;
@@ -636,23 +642,7 @@ div[data-anchor]:target::before {
 
 .calculation {
   padding: 2rem;
-  display: grid;
   font-size: 2rem;
-  grid-template-columns: [first] max-content [second] max-content [text] 1fr;
-  grid-template-rows: max-content;
-  grid-auto-rows: max-content;
-  gap: 2rem 1rem;
-}
-.calculation__formule--1 {
-  grid-column: first/first;
-  justify-self: right;
-}
-.calculation__formule--2 {
-  grid-column: second/second;
-}
-.calculation__text {
-  padding-left: 4em;
-  grid-column: text/text;
 }
 
 .overline {
@@ -774,16 +764,16 @@ div[data-anchor]:target::before {
   font-family: inherit;
   font-size: inherit;
   width: 5ch;
+  margin-left: 0.5rem;
 }
 .number-picker__input::-webkit-inner-spin-button {
   opacity: 1;
 }
 
 .calculation-canvas {
-  position: absolute;
-  bottom: 15px;
-  left: 15px;
   font-size: 1.6rem;
+  margin: 0.5rem 0;
+  text-align: left;
 }
 
 button[data-btn=continue] {

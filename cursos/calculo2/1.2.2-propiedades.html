@@ -99,18 +99,18 @@
                 1.2.2 Propiedades del símbolo $\sum\label{sumatorio}$
             </h2>
             <div class="theorem">
-                <p class="theorem__paragraph">
+                <p class="paragraph">
                     <strong>Teorema 1.2.1 </strong>(Linealidad). Sean $n ∈ \mathbf{N}, a_i, b_i ∈ \mathbf{R}$, para toda $i = 1, n,$ y $c ∈ \mathbf{R}$,
                     entonces:
                 </p>
                 <ol class="theorem__list">
-                    <li class="theorem__list-item">
+                    <li class="theorem__list--formule">
                         $$\sum_{i=1}^{n} (ca_i) = c\sum_{i=1}^{n} a_i$$
                     </li>
-                    <li class="theorem__list-item">
+                    <li class="theorem__list--formule">
                         $$\sum_{i=1}^{n} (a_i + b_i) = \sum_{i=1}^{n} a_i + \sum_{i=1}^{n} a_i$$
                     </li>
-                    <li class="theorem__list-item">
+                    <li class="theorem__list--formule">
                         $$\sum_{i=1}^{n} (a_i - b_i) = \sum_{i=1}^{n} a_i - \sum_{i=1}^{n} a_i$$
                     </li>
                 </ol>
@@ -149,26 +149,7 @@
                                     $$\sum_{i=1}^{k+1} (ca_i) = c\sum_{i=1}^{k+1} a_i.$$
                                 </p>
                                 En efecto: 
-                                <div class="calculation">
-
-                                    <!-- <div class="calculation__formule--1">
-                                        $$\sum_{i=1}^{k+1} (ca_i)$$
-                                    </div>
-                                    <div class="calculation__formule--2">
-                                        $$=\sum_{i=1}^{k} (ca_i) + ca_{k+1} \qquad \mbox{por 2) de la Definición 1.2.1}$$
-                                    </div>
-                                    row 2
-                                    <div class="calculation__formule--2">
-                                        $$=c\sum_{i=1}^{k} a_i + ca_{k+1} \qquad \mbox{por la hipótesis de inducción}$$
-                                    </div>
-                                    row 3
-                                    <div class="calculation__formule--2">
-                                        $$ = c(\sum_{i=1}^{k} a_i + a_{k+1}) \qquad \mbox{por distributividad}$$
-                                    </div>
-                                    row 4
-                                    <div class="calculation__formule--2">
-                                        $$ = c\sum_{i=1}^{k+1} a_i \qquad \mbox{por 2) de la Definición 1.2.1}$$  
-                                    </div> -->
+                                <p class="paragraph">
                                     $$
                                     \begin{equation*}
                                         \begin{split}
@@ -179,7 +160,7 @@
                                         \end{split}
                                     \end{equation*}
                                     $$
-                                </div>
+                                </p>
                                 <p class="paragraph">
                                     Luego por transitividad concluimos que $\sum_{i=1}^{k+1} (ca_i) = c\sum_{i=1}^{k+1} a_i$.
                                 </p>
@@ -197,7 +178,7 @@
                     </li>
                     <li class="proof__step-item">
                         Haremos la prueba haciendo uso de los puntos anteriores. En efecto:
-                        <div class="calculation">
+                        <p class="paragraph">
                             $$
                             \begin{equation*}
                                 \begin{split}
@@ -209,7 +190,7 @@
                                 \end{split}
                             \end{equation*}
                             $$
-                        </div>
+                        </p>
                         <p class="paragraph">
                             Finalmente, por transitividad, tenemos que $\sum_{i=1}^{n} (a_i-b_i) = \sum_{i=1}^{n} a_i - \sum_{i=1}^{n} b_i$.
                         </p>
@@ -258,7 +239,7 @@
                     <p class="paragraph">
                         Haciendo uso del Teorema 1.2.1:
                     </p>
-                    <div class="calculation">
+                    <p class="paragraph">
                         $$
                         \begin{equation*}
                             \begin{split}
@@ -270,7 +251,7 @@
                             \end{split}
                         \end{equation*}
                         $$
-                    </div>
+                    </p>
                 </div>
                 <form class="question margin-top-sm" data-question="question-1-2-5" data-answer="a">
                     <h3 class="question__header margin-bottom-sm">
@@ -312,7 +293,7 @@
             <p class="paragraph">
                 Desarrolando la suma:
             </p>
-            <div class="calculation">
+            <p class="paragraph">
                 $$
                 \begin{equation*}
                     \begin{split}
@@ -321,20 +302,20 @@
                     \end{split}
                 \end{equation*}
                 $$
-            </div>
+            </p>
             <p class="paragraph">
                 A este tipo de suma se le conoce como suma telescópica. Una suma es telescópica, si al final de la suma solo quedan el primer término y
                 el último término, es decir, se cancelan casi todos.
             </p>
             <div class="theorem">
-                <p class="theorem__paragraph">
+                <p class="paragraph">
                     <strong>Teorema 1.2.2 </strong>(Sumas telescópicas). Si $n ∈ \mathbf{N} $, y $a_i ∈ \mathbf{R} \; \; \forall i =$ <span class="overline">$1,n$</span>, entonces
                 </p>
                 <ol class="theorem__list">
-                    <li class="theorem__list-item">
+                    <li class="theorem__list--formule">
                         $$\sum_{i=1}^{n} (a_{i+1} - a_i) = a_{n+1} - a_1.$$
                     </li>
-                    <li class="theorem__list-item">
+                    <li class="theorem__list--formule">
                         $$\sum_{i=1}^{n} [(i + 1)^2 - i^2) = (n + 1)^2 - 1.$$
                     </li>
                 </ol>
@@ -346,20 +327,20 @@
                 </p>
             </div>
             <div class="theorem">
-                <p class="theorem__paragraph">
+                <p class="paragraph">
                     <strong>Teorema 1.2.3 </strong>. Para toda $n ∈ \mathbf{N}$ se cumple que
                 </p>
                 <ol class="theorem__list">
-                    <li class="theorem__list-item">
+                    <li class="theorem__list--formule">
                         $$\sum_{i=1}^{n} i = \frac{n(n+1)}{2};$$
                     </li>
-                    <li class="theorem__list-item">
+                    <li class="theorem__list--formule">
                         $$\sum_{i=1}^{n} i^2 = \frac{n(n+1)(2n+1)}{6};$$
                     </li>
-                    <li class="theorem__list-item">
+                    <li class="theorem__list--formule">
                         $$\sum_{i=1}^{n} i^3 = \left[ \frac{n(n+1)}{2} \right]^2;$$
                     </li>
-                    <li class="theorem__list-item">
+                    <li class="theorem__list--formule">
                         $$\sum_{i=1}^{n} i^4 = \frac{n(n+1)(2n+1)(3n^2+3n-1)}{30};$$
                     </li>
                 </ol>
@@ -369,7 +350,7 @@
                 <ol class="proof__step">
                     <li class="proof__step-item">
                         Notemos que $(i + 1)^2 - i^2 = 2i + 1$, luego
-                        <div class="calculation">
+                        <p class="paragraph">
                             $$
                             \begin{equation*}
                                 \begin{split}
@@ -382,7 +363,7 @@
                                 \end{split}
                             \end{equation*}
                             $$
-                        </div>
+                        </p>
                     </li>
                     <li class="proof__step-item">Ejercicio</li>
                     <li class="proof__step-item">Ejercicio</li>
@@ -428,7 +409,7 @@
                 <p class="paragraph">
                     Para $n \in \mathbf{N}$, tenemos que
                 </p>
-                <div class="calculation">
+                <p class="paragraph">
                     $$
                     \begin{equation*}
                         \begin{split}
@@ -438,13 +419,13 @@
                         \end{split}
                     \end{equation*}
                     $$                 
-                </div>
+                </p>
                 <p class="paragraph">
                     Entonces,
                 </p>
-                <div class="calculation">
+                <p class="paragraph">
                     $$\lim_{n\to \infty}\sum_1^n\frac{i}{n^3}=\lim_{n\to \infty}\frac{1}{2}\cancelto{0}{\frac{1}{n}}\left(1+\cancelto{0}{\frac{1}{n}}\quad\right)=0.$$
-                </div>
+                </p>
                 <div class="fancy-line"></div>
                 <div class="change-page">
                     <a href="./1.2-Sumatoria.html" class="change-page__before">Anterior</a>
@@ -457,13 +438,13 @@
         <div class="modal__background" data-modal-background="definition-1-2-1"></div>
         <div class="modal__content">
             <div class="definition">
-                <p class="definition__paragraph">
+                <p class="paragraph">
                     <strong>Definición 1.2.1.</strong> El símbolo sumatorio $\sum$, queda determinado por
                 </p>
-                <p class="definition__paragraph definition__paragraph--item">
+                <p class="paragraph">
                     1. Se define $\sum_{i=1}^{1} = a_1$
                 </p>
-                <p class="definition__paragraph definition__paragraph--item">
+                <p class="paragraph">
                     2. Si el término $\sum_{i=1}^{n} = a_i$ está bien definido para un $n ≥ 1$ fijo, entonces se define: <br>
                 </p>
                 <p class="text-formule">

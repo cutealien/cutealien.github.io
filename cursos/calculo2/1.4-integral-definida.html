@@ -10,7 +10,7 @@
     
     <script src="./scripts/variables.js" defer></script>
     <script src="/scripts/question.js" defer></script>
-    <script src="./scripts/1-3-calculus-areas.js" defer></script>
+    <script src="/scripts/modal.js" defer></script>
 
     <script>
         MathJax = {
@@ -97,7 +97,1644 @@
             <h2 class="header-primary">
                 1.4 Construcción de la integral definida
             </h2>
+            <ul class="proof__list">
+                <li>def 1.4.1</li>
+                <li>ejemplo 1.4.1</li>
+                <li>def 1.4.2</li>
+                <li>def 1.4.3</li>
+                <li>ejemplo 1.4.3, que sea pregunta con solución en un modal</li>
+                <li>ejemplo 1.4.4</li>
+                <br>
+                <li>en otro archivo</li>
+                <li>teo 1.4.1</li>
+                <li>teo 1.4.2. en la pagina 31 falta escribir $x_i - x_{x-1}$</li>
+                <li>teo 1.4.2. en lab última ecuación falta '</li>
+                <li>teo 1.4.3. pagina 32 despues de la demostración quizo decir acotado por cualquier suma superior?</li>
+                <li>def 1.4.4</li>
+                <li>ejemplo 1.4.5. tercera formula contando desde el final (es suma inferior???)</li>
+                <li>ejemplo 1.4.6. al final de la sumas superiores sobra un k</li>
+                <br>
+                <li>otro archivo</li>
+                <li>teo 1.4.4</li>
+                <li>def 1.4.5</li>
+                <li>teo 1.4.5</li>
+                <li>ejemplo 1.4.7</li>
+                <li>ejemplo 1.4.8</li>
+                <li>teo 1.4.6, error en el segundo paso de los calculos de la demostración</li>
+                <li>teo 1.4.7, que onda con las 3 ultimas ecuaciones</li>
+            </ul>
+            <p class="paragraph">
+                En toda la construcción de la integral, consideraremos $f:[a,b]\to \mathbf{R}$ una función acotada definida en un intervalo cerrado, salvo que se diga lo contrario.
+            </p>
+            <div class="definition">
+                <p class="paragraph">
+                    <strong>Definición 1.4.1.</strong> Sea $[a,b]\subseteq \mathbf{R}$ un intervalo cerrado.
+                </p>
+                <ul class="definition__list">
+                    <li class="definition__list-item">
+                        Decimos que $P=\{x_0,x_1,x_2,...,x_{n-1},x_n\}\subseteq[a,b]$, con $n\in \mathbf{N}$, es una partición de $[a,b]$ si $$a=x_0 < x_1 < x_2 < \cdots < x_{n-1}< x_n=b.$$
+                    </li>
+                    <li class="definition__list-item">
+                        Sea $P'$ otra partición de $[a,b]$, decimos que $P'$ es un refinamiento de $P$ si $P\subseteq P'$.
+                    </li>
+                    <li class="definition__list-item">
+                        Sea $P=\{x_0,x_1,x_2,...,x_{n-1},x_n\}$ una patición, al número $$\max\{x_i-x_{i-1}:i=\overline{1,n}\}$$ se le llama la norma de $P$ y se denota por $\|P\|$. A las diferencias $x_i-x_{i-1}$ se le denota por $\Delta x_i$. Con base en esto, obtenemos $$\|P\|=\max\{\Delta x_i:i=\overline{1,n}\}.$$
+                    </li>
+                </ul>
+            </div>
+            <p class="paragraph">
+                Para tener un poco de claridad acerca de estos nuevos conceptos daremos un par de ejemplos.
+            </p>
+            <div class="example">
+                <p class="paragraph example__paragraph">
+                    <strong>Ejemplo 1.4.1</strong> Consideremos el intervalo $[0,1]$. Definimos los conjuntos 
+                </p>
+                <ul class="example__list">
+                    <li class="example__list-item">$P=\{0,\frac{1}{2},1\}$;</li>
+                    <li class="example__list-item">$Q=\{0,0.3,\frac{1}{2}, 0.75,1\}$;</li>
+                    <li class="example__list-item">$R=\{0,0.1,0.3,0.5,0.75,0.9,1\}$.</li>
+                </ul>
+                <p class="paragraph example__paragraph">
+                    son particiones del intervalo $[0,1]$, pues todos los conjuntos tienen al 0 y al 1, además de que todos los elementos de cada conjunto 
+                    están ordenados de forma creciente. Además, $P\subseteq Q\subseteq R$, es decir, $Q$ es un refinamiento de $P$, y $R$ es un refinamiento tanto de $P$ 
+                    como de $Q$. Más aún, recordemos que la norma se define como el máximo de las diferencias entre cada par de números consecutivos en las particiones, así
+                </p>
+                <ul class="example__list">
+                    <li class="example__list-item">$\|P\|=\max\{0.5,0.5\}=0.5$;</li>
+                    <li class="example__list-item">$\|Q\|=\max\{0.3,0.2,0.25,0.25\}=0.3$;</li>
+                    <li class="example__list-item">$\|R\|=\max\{0.1,0.2,0.2,0.25,0.15,0.1\}=0.25$.</li>
+                </ul>
+            </div>
+            <p class="paragraph">
+                Debemos notar que si alguna de las condiciones de la definición de partición no se cumple, entonces el conjunto no puede ser una partición.
+            </p>
+            <p class="paragraph">
+                Hay un caso especial de particiones que hemos trabajado antes en este libro pero que no les habíamos asignado el nombre de particiones y 
+                son aquellas que dividen al intervalo en $n$ subintervalos del mismo tamaño.
+            </p>
+            <div class="definition">
+                <p class="paragraph">
+                    <strong>Definición 1.4.2.</strong>
+                    Sea $[a,b]$ un intervalo cerrado. El conjunto $$P_n=\left\{x_i=a+i \frac{b-a}{n}:i=\overline{0,n}\right\}$$ 
+                    es una partición de $[a,b]$, y lo divide en $n$ subintervalos del mismo tamaño, es decir, de longitud $\frac{b-a}{n}$. Además, $\|P_n\|=\frac{b-a}{n}$.
+                </p>
+            </div>
+            <div class="definition">
+                <p class="paragraph">
+                    <strong>Definición 1.4.3.</strong> Sea $f:[a,b]\to \mathbf{R}$ una función acotada y $P=\{x_0,x_1,...,x_n\}$ una partición de $[a,b]$. Definimos:
+                </p>
+                <ul class="definition__list">
+                    <li class="definition__list-item">
+                        Para cada $i=\overline{1,n}$, donde $I_i=[x_{i-1},x_i]$, los números 
+                        $$m_i=\inf\{f(x):x\in I_i\} \qquad \mbox{y} \qquad M_i=\sup\{f(x):x\in I_i\}.$$
+                    </li>
+                    <li class="definition__list-item">
+                        La suma inferior y la suma superior de $f$ para la partición $P$, dadas por 
+                        $$ \underline{S}(f,P)=\sum_{i=1}^n m_i \Delta x_i \qquad \mbox{y} \qquad \overline{S}(f,P)=\sum_{i=1}^n M_i \Delta x_i,$$ respectivamente.
+                    </li>
+                </ul>
+            </div>
+            <p class="paragraph">
+                Como $f$ es una función acotada en el intervalo $[a,b]$, entonces es acotada en cada subintervalo $I_i\subseteq [a,b]$, 
+                de lo cual se garantiza la existencia de los números $m_i$ y $M_i$. Por lo tanto, las sumas inferiores y superiores siempre existen.
+            </p>
+            <form class="question" data-question="question-1-4-1" data-answer="c">
+                <h3 class="question__header margin-bottom-sm">
+                    <strong>Ejemplo 1.4.3.</strong> Sean $f:[0,2]\to \mathbf{R}$ la función dada por $f(x)=4-x^2$ y $P=\{0,\frac{1}{2}, 1, \frac{3}{2}, 2\}$ una partición de $[0.2]$. Calcular $\underline{S}(f,P)$ y $\overline{S}(f,P)$.
+                </h3>
+                <div class="question__row">
+                <div class="question__col-1">
+                    <div class="question__options">
+                        <div class="question__option">
+                            <input type="radio" autocomplete="off" id="answer-1-4-1-a" name="question-1-4-1" value="a" data-option="question-1-4-1">
+                            <label for="answer-1-4-1-a">$\underline{S}(f,P)=\frac{17}{4}, \quad \overline{S}(f,P)=\frac{21}{4}$</label>
+                        </div>
+                        <div class="question__option">
+                            <input type="radio" autocomplete="off" id="answer-1-4-1-b" name="question-1-4-1" value="b" data-option="question-1-4-1">
+                            <label for="answer-1-4-1-b">$\underline{S}(f,P)=\frac{21}{4}, \quad \overline{S}(f,P)=\frac{25}{4}$</label>
+                        </div>
+                        <div class="question__option">
+                            <input type="radio" autocomplete="off" id="answer-1-4-1-c" name="question-1-4-1" value="c" data-option="question-1-4-1">
+                            <label for="answer-1-4-1-c">$\underline{S}(f,P)=\frac{17}{4}, \quad \overline{S}(f,P)=\frac{25}{4}$</label>
+                        </div>
+                        <div class="question__option">
+                            <input type="radio" autocomplete="off" id="answer-1-4-1-d" name="question-1-4-1" value="d" data-option="question-1-4-1">
+                            <label for="answer-1-4-1-d">$\underline{S}(f,P)=\frac{21}{4}, \quad \overline{S}(f,P)=\frac{17}{4}$</label>
+                        </div>
+                    </div>
+                    <div class="question__btn">
+                        <button class="btn btn--blue" type="submit" disabled data-btn="answer">Respuesta</button>
+                        <button class="btn btn--blue" type="button" disabled data-btn="solution" data-modal-btn="question-1-4-1">Ver solución</button>
+                    </div>
+                </div>
+                <div class="question__col-2">
+                    <p class="question__answer"></p>
+                </div>
+                </div>
+            </form>
+            <div class="example">
+                <p class="paragraph">
+                    <strong>Ejemplo 1.4.4.</strong> Considera la función $f:[0,1]\to \mathbf{R}$, definida como $f(x)=x^2$, y las particiones regulares $P_n$, con $n\in \mathbf{N}$. 
+                    Demuestra que 
+                    $$\forall n\in \mathbf{N}: \underline{S}(f,P_n) < \frac{1}{3} < \overline{S}(f,P_n)$$
+                    y deduce que $\lim_{n\to\infty} \underline{S}(f,P_n)=\frac{1}{3}=\lim_{n\to\infty} \overline{S}(f,P_n)$.
+                </p>
+                <p class="paragraph">
+                    <strong>Solución.</strong>
+                </p>
+                <p class="paragraph">
+                    Por hipótesis, para cada $n\in \mathbf{N}$, la partición $P_n$ es una partición regular, así que 
+                    $$P_n=\left\{x_i=i \frac{1}{n}:i=\overline{0,n}\right\} \quad \mbox{ y } \quad \Delta x_i=\frac{1}{n}, \quad \forall i=\overline{1,n}.$$ 
+                    Luego, como $f(x)=x^2$, tenemos que $f'(x)=2x\geq 0$ para $x\in[0,1]$, y así $f$ es una función creciente en $[0,1]$, 
+                    en particular en $I_i\subseteq [0,1]$ para cada $i=\overline{1,n}$.}
+                    De esto se deduce que el valor mínimo de la función en cada $I_i$ se alcanza en el extremo izquierdo del intervlo y que el valor máximo de la función 
+                    se alcanza en el extremos derecho del intervalo, es decir, 
+                    $$m_i=\inf\{f(x):x\in I_i\}=f(x_{i-1}) \qquad \mbox{y} \qquad M_i=\sup\{f(x):x\in I_i\}=f(x_i).$$ 
+                    Así, tenemos que 
+                </p>
+                <div class="calculation">
+                    <div class="calculation__formule--1">
+                        $$\underline{S}(f,P)$$
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$=\sum_{i=1}^n m_i \Delta x_i$$
+                        </div>
+                        <div class="calculation__text">
+                            por la definición de suma inferior
+                        </div>
+                    </div>
+    
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$=\sum_{i=1}^n f(x_{i-1}) \Delta x_i $$
+                        </div>
+                        <div class="calculation__text">
+                            por definición de $m_i$
+                        </div>
+                    </div>
+    
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \sum_{i=1}^n (x_{i-1})^2 \Delta x_i $$
+                        </div>
+                        <div class="calculation__text">
+                            por definición de $f$
+                        </div>
+                    </div>
+    
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \sum_{i=1}^n \left(\frac{i-1}{n}\right)^2 \left(\frac{1}{n} \right)$$
+                        </div>
+                        <div class="calculation__text">
+                            por definición de $x_i$
+                        </div>
+                    </div>
+    
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \sum_{i=1}^{n-1} \left(\frac{i}{n}\right)^2 \left(\frac{1}{n} \right)$$
+                        </div>
+                        <div class="calculation__text">
+                            por propiedades de $\Sigma$
+                        </div>
+                    </div>
+    
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \frac{1}{n^3}\sum_{i=1}^{n-1} i^2$$                    
+                        </div>
+                        <div class="calculation__text">
+                            por 1) del <span class="modal__reference" data-modal-btn="theorem-1-2-1">Teorema 1.2.1</span>
+                        </div>
+                    </div>
+    
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$=\frac{1}{n^3}\frac{(n-1)(n)(2n-1)}{6}$$
+                        </div>
+                        <div class="calculation__text">
+                            por 2) del <span class="modal__reference" data-modal-btn="theorem-1-2-3">Teo. 1.2.3</span>
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        $$= \frac{2n^2-3n+1}{6n^2}=\frac{1}{3}-\frac{3n-1}{6n^2}.$$
+                    </div>
+                </div>
+                <p class="paragraph">
+                    Luego, por transitividad, tenemos que $\underline{S} (f,P)=\frac{1}{3}-\frac{3n-1}{6n^2}$, para cada $n\in \mathbf{N}$. 
+                    Además, como 
+                    $$n\in \mathbf{N} \Rightarrow 1\leq n \Rightarrow 3\leq 3n \Rightarrow 2\leq 3n-1 \Rightarrow 0 < \frac{2}{6n^2}\leq \frac{3n-1}{6n^2}$$ 
+                    se deduce que $\frac{1}{3}-\frac{3n-1}{6n^2} < \frac{1}{3}$.
+                </p>
+                <p class="paragraph">
+                    También, $\lim_{n\to\infty} \underline{S}(f,P_n)=\lim_{n\to\infty} \left( \frac{1}{3}-\frac{3n-1}{6n^2} \right)=\frac{1}{3}$.
+                </p>
+                <div class="calculation">
+                    <div class="calculation__formule--1">
+                        $$\overline{S}(f,P)$$
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$=\sum_{i=1}^n M_i \Delta x_i$$
+                        </div>
+                        <div class="calculation__text">
+                            por la definición de suma superior
+                        </div>
+                    </div>
+    
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \sum_{i=1}^n f(x_i) \Delta x_i $$
+                        </div>
+                        <div class="calculation__text">
+                            por definición de $M_i$
+                        </div>
+                    </div>
+    
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \sum_{i=1}^n (x_i)^2 \Delta x_i $$
+                        </div>
+                        <div class="calculation__text">
+                            por definición de $f$
+                        </div>
+                    </div>
+    
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \sum_{i=1}^n \left(\frac{i}{n}\right)^2 \left(\frac{1}{n} \right)$$
+                        </div>
+                        <div class="calculation__text">
+                            por definición de $x_i$
+                        </div>
+                    </div>
+    
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \frac{1}{n^3}\sum_{i=1}^n i^2$$
+                        </div>
+                        <div class="calculation__text">
+                            por 1) del <span class="modal__reference" data-modal-btn="theorem-1-2-1">Teorema 1.2.1</span>
+                        </div>
+                    </div>
+    
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \frac{1}{n^3}\frac{(n)(n+1)(2n+1)}{6}$$                    
+                        </div>
+                        <div class="calculation__text">
+                            por 2) del <span class="modal__reference" data-modal-btn="theorem-1-2-3">Teorema 1.2.3</span>
+                        </div>
+                    </div>
+    
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$=\frac{2n^2+3n+1}{6n^2}=\frac{1}{3}+\frac{3n+1}{6n^2}$$
+                        </div>
+                    </div>
+                </div>
+                <p class="paragraph">
+                    Luego, por transitividad, tenemos que $\overline{S}(f,P)=\frac{1}{3}+\frac{3n+1}{6n^2}$, para cada $n\in\mathbf{N}$. 
+                    Además, como 
+                    $$n\in \mathbf{N} \Rightarrow 1\leq n \Rightarrow 3\leq 3n \Rightarrow 4\leq 3n+1 \Rightarrow 0< \frac{4}{6n^2}\leq \frac{3n+1}{6n^2}.$$ 
+                    De aquí se deduce que $\frac{1}{3} < \frac{1}{3}+\frac{3n+1}{6n^2}$.
+                </p>
+                <p class="paragraph">
+                    También, $\lim_{n\to\infty} \overline{S}(f,P_n)=\lim_{n\to\infty} \left( \frac{1}{3}+\frac{3n+1}{6n^2} \right)=\frac{1}{3}$.
+                </p>
+                <p class="paragraph">
+                    Por lo tanto, tenemos que 
+                    $$\forall n\in\mathbf{N}: \underline{S}(f,P_n)<\frac{1}{3}<\overline{S}(f,P_n)$$
+                    y $\lim_{n\to\infty} \underline{S}(f,P_n)=\frac{1}{3}=\lim_{n\to\infty} \overline{S}(f,P_n)$.
+                </p>
+            </div>
+        </section>
+        <div class="fancy-line"></div>
+        <section>
+            <p class="paragraph">
+                Ahora veamos algunas propiedades básicas de las sumas inferiores y sumas superiores.
+            </p>
+            <div class="theorem">
+                <p class="paragraph">
+                    <strong>Teorema 1.4.1.</strong> Si $f:[a,b]\to\mathbf{R}$ es una función acotada y $P$ una partición de $[a,b]$, entonces $\underline{S}(f,P)\leq \overline{S}(f,P)$.
+                </p>
+            </div>
+            <div class="proof">
+                <h3 class="header-tertiary">Demostración.</h3>
+                <p class="paragraph">
+                    Por hipótesis, $P$ es una partición de $[a,b]$, digamos que $P==\{x_0,x_1,\dots,x_n\}$. 
+                    Luego, $\forall i=\overline{1,n}$, tenemos que 
+                    $$m_i=\inf\{f(x)x\in I_i\} \qquad \mbox{ y } \qquad M_i=\sup\{f(x)x\in I_i\},$$ 
+                    donde $I_i=[x_{i-1},x_i]$. Entonces, por definición de ínfimo y supremos, se tiene que $m_i\leq M_i$. 
+                    Además, como $\Delta x_i=x_i-x_{i-1}$, entonces $\Delta x_i>0$, pues $x_{i-1},x_i\in P$. 
+                    Luego, por consistencia del producto sobre la relación de orden, $m_i\Delta x_i \leq M_i \Delta x_i$. 
+                </p>
+                <p class="paragraph">
+                    Aplicando cosistencia de la suma sobre la relación de orden, sumamos todos los términos y obtenemos que 
+                    $\sum_{i=1}^n m_i \Delta x_i \leq \sum_{i=1}^n M_i \Delta x_i$. 
+                    Finalmente, por la definición de suma inferior y suma superior, llegamos a que $$\underline{S}(f,P)\leq \overline{S}(f,P).$$
+                </p>
+            </div>
+            <div class="theorem">
+                <p class="paragraph">
+                    <strong>Teorema 1.4.2.</strong> Si $f:[a,b]\to\mathbf{R}$ es una función acotada, $P$ una partición de $[a,b]$ y $P'$ un refinamiento de $P$, 
+                    entonces $$\underline{S}(f,P)\leq \underline{S}(f,P') \qquad \mbox{ y } \qquad  \overline{S}(f,P')\leq \overline{S}(f,P).$$
+                </p>
+            </div>
+            <div class="proof">
+                <h3 class="header-tertiary">Demostración.</h3>
+                <p class="paragraph">
+                    Por hipótesis, $P$ es una partición de $[a,b]$ y $P'$ es un refinamiento de $P$. 
+                    Demostraremos que $\overline{S}(f,P')\leq \overline{S}(f,P)$. Si $P=P'$, entonces la demostración es inmediata, así que supondremos que $P\neq P'$. 
+                    Haremos la demostración por inducción sobre el número de elementos que tiene el conjunto $P'\setminus P$, i.e., sobre el número de elementos que la partición $P'$ tiene más que la partición $P$. 
+                </p>
+                <p class="paragraph">
+                    Supongamos que $P'\setminus P$ tiene un elemento, digamos que $\{z\}=P'\setminus P$. 
+                    Como $P'$ es un refinamiento de $[a,b]$ y $z\in P'$, entonces existe un elemento $x_j \in P$ tal que $z\in(x_{j-1},x_j)$. 
+                    Definimos $$T_1:=\sup\{f(x):x\in[x_{j-1},z]\} \qquad \mbox{y} \qquad T_2:=\sup\{f(x):x\in[z,x_j]\},$$ entonces $T_1 \leq M_j$ y $T_2 \leq M_j$, 
+                    pues $\{f(x):x\in[x_{j-1},z]\}\subseteq \{f(x):x\in[x_{j-1},x_j]\}$ y $\{f(x):x\in[z,x_j]\} \subseteq \{f(x):x\in[x_{j-1},x_j]\}$. Entonces,
+                </p>
+                <p class="paragraph error">Página 30 ¿Falta escribir $\Delta x_i$ despues de $M_i$ en la sumatoria?</p>
+                <div class="calculation">
+                    <div class="calculation__formule--1">
+                        $$\overline{S}(f,P')$$
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$=\sum_{i=1}^{j-1}M_i+T_1(z-x_{j-1})+T_2(x_j-z)+\sum_{i=j+1}^n M_i$$
+                        </div>
+                        <div class="calculation__text">
+                            por def. de suma superior
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$\leq \sum_{i=1}^{j-1}M_i+M_j(z-x_{j-1})+M_j(x_j-z)+\sum_{i=j+1}^n M_i$$
+                        </div>
+                        <div class="calculation__text">
+                            por la relación con $M_j$
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \sum_{i=1}^{j-1}M_i+M_j(x_j-x_{j-1})+\sum_{i=j+1}^n M_i$$
+                        </div>
+                        <div class="calculation__text">
+                            por inverso aditivo
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \sum_{i=1}^{j-1}M_i+M_j\Delta x_j+\sum_{i=j+1}^n M_i$$
+                        </div>
+                        <div class="calculation__text">
+                            por def. de $\Delta x_j$
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \sum_{i=1}^n M_i$$
+                        </div>
+                        <div class="calculation__text">
+                            por propiedades de $\Sigma$
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \overline{S}(f,P')$$
+                        </div>
+                        <div class="calculation__text">
+                            por def. de suma superior
+                        </div>
+                    </div>
+                </div>
+                <p class="paragraph error">
+                    página 31 ¿En la última ecuación es $P$ en vez de $P'$ ?
+                </p>
+                <p class="paragraph">
+                    Luego, por transitividad tenemos que $\overline{S}(f,P')\leq \overline{S}(f,P).$ Y esto concluye el caso base de la inducción.
+                </p>
+                <p class="paragraph">
+                    Ahora, supongamos que si $\#(P'\setminus P)=n$, entonces $\overline{S}(f,P')\leq \overline{S}(f,P)$, lo cual será nuestra hipótesis de inducción. 
+                </p>
+                <p class="paragraph">
+                    Resta probar que si $\#(P'\setminus P)=n+1$, entonces $\overline{S}(f,P')\leq \overline{S}(f,P)$. 
+                    En efecto: Sea $P'$ un refinamiento de $P$ con $\#(P'\setminus P)=n+1$. 
+                    Tomamos $z\in (P'\setminus P)$ y definimos el refinamiento $Q:=P \cup \{z\}$. Así $Q$ es un refinamiento de $P$ con $\#(Q\setminus P)=1$. 
+                    Además, $P'$ también es refinamiento de $Q$ y se cumple que $\# (P'\setminus Q)=n$. 
+                    Entonces, por el caso base, tenemos que $ \overline{S}(f,Q)\leq \overline{S}(f,P)$ y por la hipótesis de inducción se cumple que $ \overline{S}(f,P')\leq \overline{S}(f,Q)$. Entonces, por transitividad, se cumple que $ \overline{S}(f,P')\leq \overline{S}(f,P)$. 
+                    Lo cual conlcuye nuestra inducción matemática. 
+                </p>
+                <p class="paragraph">
+                    Finalmente, por el principio de inducción matemática, se cumple que si $P'$ es un refinamiento de $P$, entonces $ \overline{S}(f,P')\leq \overline{S}(f,P)$.
+                </p>
+                <p class="paragraph">
+                    La demostración para sumas inferiores es análoga y se deja como ejercicio.
+                </p>
+            </div>
+            <div class="theorem">
+                <p class="paragraph">
+                    <strong>Teorema 1.4.3.</strong> Si $f:[a,b]\to\mathbf{R}$ es una función acotada y además $P$ y $Q$ son particiones de $[a,b]$, entonces 
+                    $ \underline{S}(f,P)\leq \overline{S}(f,Q)$.
+                </p>
+            </div>
+            <div class="proof">
+                <p class="paragraph">
+                    Por hipótesis, $P$ y $Q$ son particiones de $[a,b]$. Definimos la partición $R:=P \cup Q$, la cual es un refinamiento tanto de $P$ como de $Q$. 
+                    Por Teorema 1.4.2, como $R$ es un refinamiento de $P$, entonces $ \underline{S}(f,P)\leq \underline{S}(f,R)$. 
+                    Por Teorema 1.4.1, tenemos que $ \underline{S}(f,R)\leq \overline{S}(f,R)$. 
+                    Nuevamente, por Teorema 1.4.2, como $R$ es un refinamiento de $Q$, tenemos que $ \overline{S}(f,R)\leq \overline{S}(f,Q)$. 
+                    Finalmente, por transtividad, $$ \underline{S}(f,P)\leq \overline{S}(f,Q).$$
+                </p>
+            </div>
+            <p class="paragraph">
+                El Teorema 1.4.3, nos permite deducir que el conjunto 
+                $$\{\underline{S}(f,P): \,P\mbox{ es una partición de }[a,b]\}$$ 
+                es acotado superiormente por cualquier suma superior, y que el conjunto 
+                $$\{\overline{S}(f,P): \,P\mbox{ es una partición de }[a,b]\}$$ 
+                es acotado inferiormente por cualquier suma superior.
+            </p>
+            <p class="paragraph error">
+                página 32. quizo decir inferior???
+            </p>
+            <p class="paragraph">
+                Esto justifica la siguiente definición.
+            </p>
+            <div class="theorem">
+                <p class="paragraph">
+                    <strong>Definición 1.4.4.</strong> Sea $f:[a,b]\to\mathbf{R}$ una función acotada. 
+                    Definimos 
+                    <!-- $$\underline{\int_a^b}:= \sup\{\underline{S}(f,P): \,P\mbox{ es una partición de }[a,b]\} $$ -->
+                    $$
+                        {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu}%
+                        \int_a^b:= \sup\{\underline{S}(f,P): \,P\mbox{ es una partición de }[a,b]\}
+                    $$
+                    y 
+                    <!-- $$\overline{\int_a^b}:= \inf\{\overline{S}(f,P): \,P\mbox{ es una partición de }[a,b]\}.$$  -->
+                    $$
+                        {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu}%
+                        \int_a^b := \inf\{\overline{S}(f,P): \,P\mbox{ es una partición de }[a,b]\}.
+                    $$
+                    A estos números reales se les llamarán integral inferior de $f$ e integral superior de $f$, respectivamente.
+                </p>
+            </div>
+            <p class="paragraph">
+                La integral inferior y la integral superior de una función $f$ siempre existirán y será posible encontrarlos en algunos casos de forma no tan complicada.
+            </p>
+            <div class="example">
+                <p class="paragraph example__paragraph">
+                    <strong>Ejemplo 1.4.5.</strong> Sea $f:[a,b]\to \mathbf{R}$ dada por $f(x)=k$, donde $k\in\mathbf{R}$. Encuentra 
+                    $$
+                        {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx
+                        \qquad \mbox{ y } \qquad
+                        {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b f(x)\,dx.
+                    $$
+                </p>
+                <h3 class="header-tertiary">Solución.</h3>
+                <p class="paragraph">
+                    Sea $P:\{x_0,x_1,\dots,x_n\}$ una partición de $[a,b]$. 
+                    Entonces para cada $i=\overline{1,n}$, en $I_i=[x_{i-1},x_i]$, tenemos que $m_i=\inf\{f(x):x\in I_i\}=\inf\{k\}=k$ y $M_i=\sup\{f(x):x\in I_i\}=\sup \{k\}=k$, 
+                    por definición de $f$. Así, 
+                </p>
+                <div class="calculation">
+                    <div class="calculation__formule--1">
+                        $$\underline{S}(f,P)$$
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \sum_{i=1}^n m_i \Delta x_i$$
+                        </div>
+                        <div class="calculation__text">
+                            por definición de suma inferior
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \sum_{i=1}^n k \Delta x_i$$
+                        </div>
+                        <div class="calculation__text">
+                            por definición de $m_i$
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= k\sum_{i=1}^n \Delta x_i$$
+                        </div>
+                        <div class="calculation__text">
+                            por <span class="modal__reference" data-modal-btn="theorem-1-2-1">Teorema 1.2.1</span>
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= k\sum_{i=1}^n (x_i-x_{i-1})$$
+                        </div>
+                        <div class="calculation__text">
+                            por definición de $\Delta x_i$
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$=  k(x_n-x_0)$$
+                        </div>
+                        <div class="calculation__text">
+                            por <span class="modal__reference" data-modal-btn="theorem-1-2-2">Teorema 1.2.2</span>
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$=  k(b-a)$$
+                        </div>
+                        <div class="calculation__text">
+                            por definición de partición
+                        </div>
+                    </div>
+                </div>
+                <p class="paragraph">
+                    Luego, $$\forall P \mbox{ partición de }[a,b]: \underline{S}(f,P)=k(b-a).$$ Entonces 
+                </p>
+                <div class="calculation">
+                    <div class="calculation__formule--1">
+                        $${\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx$$
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \sup\{\underline{S}(f,P): \,P\mbox{ es una partición de }[a,b]\}$$
+                        </div>
+                        <div class="calculation__text">
+                            por def. de int. inferior
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \sup\{k(b-a)\}$$
+                        </div>
+                        <div class="calculation__text">
+                            por def. de suma inferior
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$=  k(b-a).$$
+                        </div>
+                    </div>
+                </div>
+                <p class="paragraph">
+                    Además,
+                </p>
+                <div class="calculation">
+                    <div class="calculation__formule--1">
+                        $$\overline{S}(f,P)$$
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \sum_{i=1}^n M_i \Delta x_i$$
+                        </div>
+                        <div class="calculation__text">
+                            por definición de suma inferior <strong class="error">pagina 33, quizo decir superior???</strong>
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \sum_{i=1}^n k \Delta x_i$$
+                        </div>
+                        <div class="calculation__text">
+                            por definición de $M_i$
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= k\sum_{i=1}^n \Delta x_i$$
+                        </div>
+                        <div class="calculation__text">
+                            por <span class="modal__reference" data-modal-btn="theorem-1-2-1">Teorema 1.2.1</span> 
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= k\sum_{i=1}^n (x_i-x_{i-1})$$
+                        </div>
+                        <div class="calculation__text">
+                            por definición de $\Delta x_i$
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= k(x_n-x_0)$$
+                        </div>
+                        <div class="calculation__text">
+                            por <span class="modal__reference" data-modal-btn="theorem-1-2-2">Teorema 1.2.2</span> 
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$=  k(b-a)$$
+                        </div>
+                        <div class="calculation__text">
+                            por definición de partición
+                        </div>
+                    </div>
+                </div>
+                <p class="paragraph">
+                    Luego, $$\forall P \mbox{ partición de }[a,b]: \overline{S}(f,P)=k(b-a).$$ Entonces 
+                </p>
+                <div class="calculation">
+                    <div class="calculation__formule--1">
+                        $${\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b f(x)\,dx$$
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \inf\{\overline{S}(f,P): \,P\mbox{ es una partición de }[a,b]\}$$
+                        </div>
+                        <div class="calculation__text">
+                            por def. de int. superior
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \\sup\{k(b-a)\}$$
+                        </div>
+                        <div class="calculation__text">
+                            por def. de suma superior
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$=  k(b-a).$$
+                        </div>
+                    </div>
+                </div>
+                <p class="paragraph">
+                    Finalmente, tenemos que 
+                    $$ {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx=k(b-a)={\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b f(x)\,dx.$$
+                </p>
+            </div>
+            <p class="paragraph">
+                Este ejemplo muestra que algunas veces la integral inferior y la integral superior van a coincidir, sin embargo esto no siempre sucederá así, 
+                tal y como lo mostramos en el siguiente ejemplo.
+            </p>
+            <div class="example">
+                <p class="paragraph example__paragraph">
+                    <strong>Ejemplo 1.4.6.</strong> Sea $f:[a,b]\to\mathbf{R}$ una función dada por 
+                    $f(x)= \left\{ \begin{array}{lcc}
+                                    1 &   \mbox{ si }  & x \in \mathbf{Q} \cap [a,b] \\
+                                    0 &  \mbox{ si }  & x \in \mathbf{I} \cap [a,b] 
+                                    \end{array}
+                    \right.$. Determina  
+                    $$\
+                        {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx \qquad \mbox{ y } \qquad
+                        {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b f(x)\,dx.
+                    $$ 
+                </p>        
+                <h3 class="header-tertiary">Solución.</h3>
+                <p class="paragraph">
+                    Sea $P:\{x_0,x_1,\dots,x_n\}$ una partición de $[a,b]$. 
+                    Entonces para cada $i=\overline{1,n}$, en $I_i=[x_{i-1},x_i]$, tenemos que $m_i=\inf\{f(x):x\in I_i\}=\inf\{0,1\}=0$ y $M_i=\sup\{f(x):x\in I_i\}=\sup \{0,1\}=1$, por definición de $f$. 
+                </p>
+                <p class="paragraph">
+                    Así,
+                </p>
+                <div class="calculation">
+                    <div class="calculation__formule--1">
+                        $$\underline{S}(f,P)$$
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$=  \sum_{i=1}^n m_i \Delta x_i$$
+                        </div>
+                        <div class="calculation__text">
+                            por definición de suma inferior
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \sum_{i=1}^n 0 \Delta x_i $$
+                        </div>
+                        <div class="calculation__text">
+                            definición de $m_i$
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= 0$$
+                        </div>
+                    </div>
+                </div>
+                <p class="paragraph">
+                    Luego, $$\forall P \mbox{ partición de }[a,b]: \underline{S}(f,P)=0.$$ Entonces
+                </p>
+                <div class="calculation">
+                    <div class="calculation__formule--1">
+                        $${\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx$$
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \sup\{\underline{S}(f,P): \,P\mbox{ es una partición de }[a,b]\} $$
+                        </div>
+                        <div class="calculation__text">
+                            por def. de int. inferior
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \sup\{0\} $$
+                        </div>
+                        <div class="calculation__text">
+                            por def. de suma inferior
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= 0 $$
+                        </div>
+                    </div>
+                </div>
+                <p class="paragraph">
+                    Además,
+                </p>
+                <div class="calculation">
+                    <div class="calculation__formule--1">
+                        $$\overline{S}(f,P) $$
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \sum_{i=1}^n M_i \Delta x_i$$
+                        </div>
+                        <div class="calculation__text">
+                            por definición de suma inferior <strong class="error">pagina 35 quizo decir superior???</strong>
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \sum_{i=1}^n 1 \Delta x_i$$
+                        </div>
+                        <div class="calculation__text">
+                            por definición de $M_i$
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \sum_{i=1}^n \Delta x_i$$
+                        </div>
+                        <div class="calculation__text">
+                            por neutro multiplicativo
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$=\sum_{i=1}^n (x_i-x_{i-1})$$
+                        </div>
+                        <div class="calculation__text">
+                            por definición de $\Delta x_i$
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= (x_n-x_0) $$
+                        </div>
+                        <div class="calculation__text">
+                            por <span class="modal__reference" data-modal-btn="theorem-1-2-2">Teorema 1.2.2</span>
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= (b-a) $$
+                        </div>
+                        <div class="calculation__text">
+                            por definición de partición
+                        </div>
+                    </div>
+                </div>
+                <p class="paragraph">
+                    Luego, $$\forall P \mbox{ partición de }[a,b]: \overline{S}(f,P)=k(b-a).$$ <strong class="error">sobra la $k$ en la expresion???</strong> Entonces 
+                </p>
+                <p class="paragraph">
+                    \begin{equation*}
+                        \begin{split}
+                            {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b f(x)\,dx &=  \inf\{\overline{S}(f,P): \,P\mbox{ es una partición de }[a,b]\} \quad \mbox{ por def. de int. superior} \\
+                            &=  \sup\{(b-a)\} \quad \mbox{ por def. de suma superior} \\
+                            &= b-a. 
+                        \end{split}
+                    \end{equation*}
+                </p>
+                <div class="calculation">
+                    <div class="calculation__formule--1">
+                        $${\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b f(x)\,dx$$
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \inf\{\overline{S}(f,P): \,P\mbox{ es una partición de }[a,b]\} $$
+                        </div>
+                        <div class="calculation__text">
+                            por def. de int. superior
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \sup\{(b-a)\} $$
+                        </div>
+                        <div class="calculation__text">
+                            por def. de suma superior
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= b-a $$
+                        </div>
+                    </div>
+                </div>
+                <p class="paragraph">
+                    Finalmente, tenemos que 
+                    $${\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx = 0, 
+                    \qquad \mbox{y}\qquad 
+                    {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b f(x)\,dx=b-a.$$
+                </p>
+            </div>
+            <p class="paragraph">
+                Estos dos ejemplos muestran que algunas veces la integral inferior y la integral superior van a coincidir y algunas veces no, sin embargo la integral inferior 
+                jamás va a superar a la integral superior, lo cual queda de manifiesto en el siguiente teorema.
+            </p>
+        </section>
+        <div class="fancy-line"></div>
+        <section>
+            <div class="theorem">
+                <p class="paragraph">
+                    <strong>Teorema 1.4.4.</strong> Si $f:[a,b]\to\mathbf{R}$ es una función acotada, entonces 
+                    $$
+                        {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx \leq 
+                        {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b f(x)\,dx.
+                    $$
+                </p>
+            </div>
+            <div class="proof">
+                <p class="paragraph">
+                    Sean $P_1$ la partición regular con 2 puntos y $P$ una partición arbitraria de $[a,b]$.
+                </p>
+                <p class="paragraph">
+                    Por un lado, por Teorema 1.4.3, $\underline{S}(f,P)\leq \underline{S}(f,P_1)$. 
+                    Entonces, $\underline{S}(f,P_1)$ es una cota superior del conjunto $$\{\underline{S}(f,P): \,P\mbox{ es una partición de }[a,b]\}.$$ 
+                    Así, por definición de supremo, $$\sup\{\underline{S}(f,P): \,P\mbox{ es una partición de }[a,b]\} \leq \underline{S}(f,P_1),$$ de lo cual se deduce, 
+                    por la definición de integral inferior, que 
+                    $${\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx \leq \underline{S}(f,P_1).$$
+                </p>
+                <p class="paragraph">
+                    Por otro lado, por Teorema 1.4.3, $\underline{S}(f,P_1)\leq \underline{S}(f,P)$. 
+                    Entonces, $\underline{S}(f,P_1)$ es una cota inferior del conjunto $$\{\overline{S}(f,P): \,P\mbox{ es una partición de }[a,b]\}.$$ 
+                    Así, por definición de ínfimo, 
+                    $$\overline{S}(f,P_1) \leq \inf\{\underline{S}(f,P): \,P\mbox{ es una partición de }[a,b]\},$$ de lo cual se deduce, por la definición de integral superior, que 
+                    $$\underline{S}(f,P_1) \leq {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b f(x)\,dx.$$
+                </p>
+                <p class="paragraph">
+                    Finalmente, por transitividad, 
+                    $${\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx \leq {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b f(x)\,dx.$$
+                </p>
+            </div>
+            <p class="paragraph">
+                Una vez que hemos visto ejemplos de cómo calcular la integral inferior y la integral superior de una función acotada, nos percatamos que algunas veces esas integrales van a coincidir. En este caso es cuando diremos que la función es integrable.
+            </p>
+            <div class="definition">
+                <p class="paragraph">
+                    <strong>Definición 1.4.5</strong> Sea $f:[a,b]\to\mathbf{R}$ una función acotada. 
+                    Decimos que $f$ es integrable en $[a,b]$ si 
+                    $$
+                        {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx =
+                        {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b f(x)\,dx.
+                    $$ 
+                    A este valor común lo denotaremos simplemente por $\int f(x)\,dx$, es decir, cuando $f$ sea integrable en $[a,b]$, entonces 
+                    $$
+                        {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx =
+                        \int f(x)\,dx=
+                        {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b f(x)\,dx,
+                    $$
+                    y lo leeremos como la integral definida de $a$ hasta $b$ de la función $f(x).$
+                </p>
+            </div>
+            <p class="paragraph">
+                Con los ejemplos anteriores, nos damos cuenta de que determinar la integrabilidad o no integrabilidad de una función no es algo sencillo si usamos únicamente la definición. 
+                El siguiente resultado nos da una equivalencia de funciones integrables.
+            </p>
+            <div class="theorem">
+                <p class="paragraph">
+                    <strong>Teorema 1.4.5.</strong> Sea $f:[a,b]\to \mathbf{R}$ una función acotada. La función $f$ es integrable en $[a,b]$ si y sólo si $\forall \varepsilon>0, \exists P$ una partición de $[a,b]$ tal que 
+                    $$\overline{S}(f,P)-\underline{S}(f,P) < \varepsilon.$$ 
+                </p>
+            </div>
+            <div class="proof">
+                <h3 class="header-tertiary">Demostración.</h3>
+                <p class="paragraph">
+                    $\Rightarrow]$ Supongamos que $f$ es integrable y por lo tanto, 
+                    $${\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx= {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b f(x)\,dx.$$ 
+                    Sea $\varepsilon>0$, por definición de integral inferior y superior, además de las propiedades del ínfimo y del supremo, para $\frac{\varepsilon}{2}>0$, 
+                    existen particiones $Q$ y $R$ de $[a,b]$, tales que 
+                    $$
+                        \overline{S}(f,Q) < {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b f(x)\,dx +\frac{\varepsilon}{2} \quad \mbox{ y }\quad 
+                        {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx -\frac{\varepsilon}{2} < \underline{S}(f,R).
+                    $$
+                </p>
+                <p class="paragraph">
+                    Consideremos la partición $P=Q\cup R$ del intervalo $[a,b]$. Así tenemos que $P$ es un refinamiento tanto de $Q$ como de $R$. Luego, por Teorema 1.4.2, tenemos que 
+                    $$\overline{S}(f,P) < \overline{S}(f,Q) \quad \mbox{ y }\quad \underline{S}(f,R)<\underline{S}(f,P).$$ 
+                    Entonces, por transitividad, 
+                    $$
+                        \overline{S}(f,P)<{\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b f(x)\,dx+
+                        \frac{\varepsilon}{2} \quad \mbox{ y }\quad 
+                        {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx-\frac{\varepsilon}{2}<
+                        \underline{S}(f,P).
+                    $$ 
+                    De aquí deducimos que <span class="error">va doble $<<$ o solo un $<$</span>
+                    $$
+                        \overline{S}(f,P)-\underline{S}(f,P)<<{\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b f(x)\,dx+
+                        \frac{\varepsilon}{2}-
+                        {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx
+                        +\frac{\varepsilon}{2}.
+                    $$ 
+                    pero como
+                    $$
+                        {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx=
+                        {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b f(x)\,dx,
+                    $$
+                    por hipótesis, se concluye finalmente que 
+                    $$\overline{S}(f,P)-\underline{S}(f,P) < \varepsilon.$$ 
+                </p>
+                <p class="paragraph">
+                    $\Leftarrow]$ Se deja como ejercicio.
+                </p>
+            </div>
+            <div class="example">
+                <p class="paragraph example__paragraph">
+                    <strong>Ejemplo 1.4.7.</strong> Sea $f:[a,b]\to \mathbf{R}$ definida por $f(x)=x$. Demostrar que $f$ es integrable en $[a,b]$.
+                </p>
+                <h3 class="header-tertiary">Solución.</h3>
+                <p class="paragraph">
+                    Sea $\varepsilon>0$. Consideremos $P_n$ una partición regular de $[a,b]$, con $n\in \mathbf{N} $, la cual está dada por $P_n=\{x_i=a+i\frac{b-a}{n}:i=\overline{0,n}\}$. 
+                    Así, $\forall i=\overline{1,n}$, tenemos para $I_i=[x_{i-1},x_i]$, que $m_i=x_{i-1}$ y $M_i=x_i$. Luego,
+                </p>
+                <div class="calculation">
+                    <div class="calculation__formule--1">
+                        $$\underline{S}(f,P_n)$$
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \sum_{i=1}^n m_i \Delta x_i $$
+                        </div>
+                        <div class="calculation__text">
+                            por def. de suma inferior
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \sum_{i=1}^n x_{i-1} \Delta x_i $$
+                        </div>
+                        <div class="calculation__text">
+                            por def. de $m_{i}$
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \sum_{i=1}^n \left[a+(i-1)\frac{b-a}{n} \right] \Delta x_i $$
+                        </div>
+                        <div class="calculation__text">
+                            por def. de $x_i$
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \sum_{i=1}^n \left[a+i\frac{b-a}{n} \right] \frac{b-a}{n} $$
+                        </div>
+                        <div class="calculation__text">
+                            por def. de $\Delta x_i$
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= a\cdot\frac{b-a}{n} \sum_{i=1}^n 1 + \frac{(b-a)^2}{n^2}\sum_{i=1}^n(i-1) $$
+                        </div>
+                        <div class="calculation__text">
+                            por <span class="modal__reference" data-modal-btn="theorem-1-2-1">Teorema 1.2.1</span>
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= a\cdot\frac{b-a}{n} \sum_{i=1}^n 1 + \frac{(b-a)^2}{n^2}\sum_{i=1}^{n-1}i $$
+                        </div>
+                        <div class="calculation__text">
+                            por propiedades de $ \Sigma$
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= a\cdot\frac{b-a}{n} \cdot n + \frac{(b-a)^2}{n^2}\frac{(n-1)n}{2} $$
+                        </div>
+                        <div class="calculation__text">
+                            por <span class="modal__reference" data-modal-btn="theorem-1-2-3">Teorema 1.2.3</span>
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= a(b-a) + \frac{(b-a)^2}{2}\left(1-\frac{1}{n} \right) $$
+                        </div>
+                        <div class="calculation__text">
+                            por algebrita
+                        </div>
+                    </div>
+                </div>
+                <p class="paragraph">
+                    De manera similar,
+                    $$\overline{S}(f,P_n) = a(b-a) + \frac{(b-a)^2}{2}\left(1+\frac{1}{n} \right)$$
+                </p>
+                <p class="paragraph">
+                    De aquí se deduce que $\overline{S}(f,P_n)-\underline{S}(f,P_n)=\frac{(b-a)^2}{n}$. 
+                    Luego, por la propiedad arquimediana, $\exists n_0\in\mathbf{N}$ tal que $\frac{(b-a)^2}{n_0}<\varepsilon.$ 
+                    Entonces, para la partición $P=P_{n_0}$ de $[a,b]$, se tiene que  $$\overline{S}(f,P)-\underline{S}(f,P)<\varepsilon.$$ 
+                </p>
+                <p class="paragraph">
+                    Finalmente, por el Teorema 1.4.5, la función $f$ es integrable en $[a,b]$.
+                </p>
+            </div>
+            <p class="paragraph">
+                Hasta ahora las funciones integrables que hemos mencionado son funciones continuas, sin embargo la definición que manejamos no pide como 
+                requisito indispensable que la función sea continua. Así que daremos un ejemplo de una función discontinua que es integrable.
+            </p>
+            <div class="example">
+                <p class="paragraph example__paragraph">
+                    <strong>Ejemplo 1.4.8</strong> Sea $f:[0,1]\to \mathbf{R}$ dada por 
+                        $f(x)= \left\{ \begin{array}{lcc}
+                                    0 &   \mbox{ si }  & x \in [0,1]\setminus\{\frac{1}{2}\} \\
+                                    1 &  \mbox{ si }  & x=\frac{1}{2} 
+                                    \end{array}
+                        \right.$. Demuestra que $f$ es integrable en $[0,1]$.
+                </p>
+                <p class="paragraph">
+                    Sea $\varepsilon>0$. Consideremos $P$ una partición de $[0,1]$, donde $P=\{x_0,x_1,\dots,x_n\}$ y $x_i\neq \frac{1}{2}$ para toda $i=\overline{1,n}$. 
+                    Como $P$ es partición de $0,1$, entonces existe $j\in\{1,2,...,n\}$ tal que $\frac{1}{2}\in (x_{j-1},x_j)$. Luego, para toda $i=\overline{1,n}$, se cumple que $m_i=0$. 
+                    Además, $M_i=0$ si $i\neq j$ y $M_i=1$ si $i=j$. Entonces,
+                </p>
+                <div class="calculation">
+                    <div class="calculation__formule--1">
+                        $$\underline{S}(f,P_n)$$
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$=  \sum_{i=1}^n m_i \Delta x_i$$
+                        </div>
+                        <div class="calculation__text">
+                            por def. de suma inferior
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \sum_{i=1}^n 0 \Delta x_i $$
+                        </div>
+                        <div class="calculation__text">
+                            por def. de $m_{i}$
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= 0 $$
+                        </div>
+                    </div>
+                </div>
+                <p class="paragraph">
+                    Y también, 
+                </p>
+                <div class="calculation">
+                    <div class="calculation__formule--1">
+                        $$\overline{S}(f,P_n)$$
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \sum_{i=1}^n M_i \Delta x_i $$
+                        </div>
+                        <div class="calculation__text">
+                            por def. de suma superior
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= M_j \Delta x_j $$
+                        </div>
+                        <div class="calculation__text">
+                            pues $M_i=0$ si $i\neq j$
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \Delta x_j $$
+                        </div>
+                        <div class="calculation__text">
+                            por def. de $M_j$
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= x_j-x_{j-1} $$
+                        </div>
+                        <div class="calculation__text">
+                            por def. de $\Delta x_j$
+                        </div>
+                    </div>
+                </div>
+                <p class="paragraph">
+                    De aquí se deduce que $\overline{S}(f,P)-\underline{S}(f,P)=x_j - x_{j-1}$. 
+                    Basta tomar a la partición $P$ tal que $x_j - x_{j-1}<\varepsilon.$.
+                    De este modo tenemos que $$\overline{S}(f,P)-\underline{S}(f,P)<\varepsilon.$$
+                </p>
+                <p class="paragraph">
+                    Finalmente, por el Teorema 1.4.5, la función $f$ es integrable en $[0,1]$.
+                </p>
+            </div>
+            <div class="theorem">
+                <p class="paragraph">
+                    <strong>Teorema 1.4.6.</strong> Si $f:[a,b]\to\mathbf{R}$ es una función acotada y creciente (o decreciente), entonces $f$ es integrable en $[a,b]$
+                </p>
+            </div>
+            <div class="proof">
+                <h3 class="header-tertiary">Demostración.</h3>
+                <p class="paragraph">
+                    Si $f$ es una función constante, entonces $f$ es integrable en $[a,b]$, por el Ejemplo 1.4.5. 
+                    Entonces consideramos a $f$ una función creciente y no constante, lo cual nos garantiza que $f(a) < f(b)$. 
+                </p>
+                <p class="paragraph">
+                    Sea $\varepsilon>0$. Tomemos $P=\{x_0,x_1,\dots,x_n\}$ una partición de $[a,b]$ tal que $\|P\| < \frac{\varepsilon}{f(b)-f(a)}$.
+                    Como $f$ es creciente, entonces $\forall i=\overline{1,n}$, en $I_i=[x_{i-1},x_i]$, se tiene que 
+                    $$m_i=\inf\{f(x):x\in I_i\}=f(x_{i-1}) \quad \mbox{y}\quad M_i=\sup\{f(x):x\in I_i\}=f(x_i). $$ 
+                </p>
+                <div class="calculation">
+                    <div class="calculation__formule--1">
+                        $$\overline{S}(f,P)-\underline{S}(f,P)$$
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \sum_{i=1}^n M_i \Delta x_i - \sum_{i=1}^n m_i \Delta x_i $$
+                        </div>
+                        <div class="calculation__text">
+                            por def. de sumas inferior y superior
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \sum_{i=1}^n f(x_i) \Delta x_i - \sum_{i=1}^n m_i \Delta x_i $$
+                        </div>
+                        <div class="calculation__text">
+                            por def. de $M_i$ y $m_i$ 
+                            <span class="error">pagina 41 la segunda sumatoria es  $\sum_{i=1}^n f(x_{i-1}) \Delta x_i$</span>
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \sum_{i=1}^n [f(x_i)-f(x_{i-1})]\Delta x_i $$
+                        </div>
+                        <div class="calculation__text">
+                            por <span class="modal__reference" data-modal-btn="theorem-1-2-1">Teorema 1.2.1</span>
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$\leq \sum_{i=1}^n [f(x_i)-f(x_{i-1})] \|P\| $$
+                        </div>
+                        <div class="calculation__text">
+                            porque $\Delta x_i \leq \|P\|$
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \|P\| \sum_{i=1}^n [f(x_i)-f(x_{i-1})] $$
+                        </div>
+                        <div class="calculation__text">
+                            por <span class="modal__reference" data-modal-btn="theorem-1-2-1">Teorema 1.2.1</span>
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \|P\| [f(x_n)-f(x_0)] $$
+                        </div>
+                        <div class="calculation__text">
+                            por <span class="modal__reference" data-modal-btn="theorem-1-2-2">Teorema 1.2.2</span>
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \|P\| [f(b)-f(a)] $$
+                        </div>
+                        <div class="calculation__text">
+                            por definición de partición
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$< \frac{\varepsilon}{f(b)-f(a)} [f(b)-f(a)] $$
+                        </div>
+                        <div class="calculation__text">
+                            porque $\|P\|< \frac{\varepsilon}{f(b)-f(a)}$
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \varepsilon $$
+                        </div>
+                    </div>
+                </div>
+                <p class="paragraph">
+                    Finalmente, por el Teorema 1.5.4, la función $f$ es integrable en $[a,b]$.
+                </p>
+                <p class="paragraph">
+                    Si $f$ es decreciente, la demostración es análoga.
+                </p>
+            </div>
+        </section>
+        <div class="fancy-line"></div>
+        <section>
+            <p class="paragraph">
+                Ahora daremos un teroema que recoje algunas propiedades importantes de las integrales inferiores y superiores, que se traducen en propiedades de la integral definida.
+            </p>
+            <div class="theorem">
+                <p class="paragraph">
+                    <strong>Teorema 1.4.7.</strong> Sea $f:[a,b]\to \mathbf{R} $ una función acotada.
+                </p>
+                <ul class="theorem__list">
+                    <li class="theorem__list-item">
+                        Si $c\in[a,b]$, entonces 
+                        $$
+                            {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b f(x)\,dx = 
+                            {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^c f(x)\,dx + {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_c^b f(x)\,dx,$$ y 
+                            análogamente 
+                        $$
+                            {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx = 
+                            {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^c f(x)\,dx + {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_c^b f(x)\,dx.
+                        $$
+                    </li>
+                    <li class="theorem__list-item">
+                        Si $M=\sup\{f(x):x\in[a,b]\}$ y $m=\inf\{f(x):x\in[a,b]\}$, entonces 
+                        $$
+                            m(b-a) \leq {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx \leq 
+                            {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b f(x)\,dx \leq M(b-a).
+                        $$
+                    </li>
+                    <li class="theorem__list-item">
+                        Si $c\in \mathbf{R}$, entonces 
+                        $$
+                            {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b [f(x)+c]\,dx=
+                            {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b f(x)\,dx+c(b-a)
+                        $$ 
+                            y además 
+                        $$
+                            {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b [f(x)+c]\,dx=
+                            {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx+c(b-a).
+                        $$
+                    </li>
+                </ul>
+            </div>
+            <div class="proof">
+                <h3 class="header-tertiary">Demostración.</h3>
+                <ul class="proof__step">
+                    <li class="proof__step-item">
+                        Veamos la demostración para integrales inferiores.
+                        <!-- <p class="paragraph">
+                        </p> -->
+                        <p class="paragraph">
+                            Sean $P$ una partición de $[a,b]$ y $C\in[a,b]$. Tomemos la partición $Q=P\cup\{c\}$ de $[a,b]$ y definamos $Q_1=[a,c]\cap Q$ y $Q_2=[c,b]\cap Q$, 
+                            entonces $Q_1$ es una partición de $[a,c]$ y $Q_2$ es una partición de $[c,b]$. Notemos que por definición de $Q$, tenemos que $Q$ es un refinamiento 
+                            de $P$ y, por Teorema 1.4.2, $\underline{S}(f,P)\leq \underline{S}(f,Q)$. 
+                            Además, es claro que $\underline{S}(f,Q)=\underline{S}(f,Q_1)+\underline{S}(f,Q_2)$. 
+                            Pero, por definición de intetgral <span class="error">pagina 43 escribio intetgral en vez de integral</span> inferior, sabemos que 
+                            $$
+                                \underline{S}(f,Q_1) \leq {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^c f(x)\,dx \quad y \quad 
+                                \underline{S}(f,Q_2) \leq {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_c^b f(x)\,dx.
+                            $$
+                            Luego, por transitividad, 
+                            $$
+                                \underline{S}(f,P)\leq {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^c f(x)\,dx + 
+                                {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_c^b f(x)\,dx.
+                            $$
+                        </p>
+                        <p class="paragraph">
+                            Como $P$ era una partición arbitraria, entonces 
+                            $$
+                                {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^c f(x)\,dx + 
+                                {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_c^b f(x)\,dx
+                            $$ 
+                            es una cota superior para el conjunto $\{\underline{S}(f,P): P \mbox{ es partición de }[a,b]\}$. 
+                            Por lo tanto, 
+                            $$
+                                {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx \leq {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^c f(x)\,dx + 
+                                {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_c^b f(x)\,dx.
+                            $$
+                        </p>
+                        <p class="paragraph">
+                            Ahora, como 
+                            $$
+                                {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^c f(x)\,dx=\sup\{\underline{S}(f,P): P \mbox{ es partición de }[a,c]\}
+                            $$
+                                y 
+                            $$
+                                {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_c^b f(x)\,dx=\sup\{\underline{S}(f,P): P \mbox{ es partición de }[c,b]\},
+                            $$
+                            dada $\varepsilon>0$, existen particiones $P_1$ de $[a,c]$ y $P_2$ de $[c,b]$, tales que 
+                            $$
+                                {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^c f(x)\,dx-\frac{\varepsilon}{2} < \underline{S}(f,P_1) \quad \mbox{ y } \quad 
+                                {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_c^b f(x)\,dx-\frac{\varepsilon}{2}< \underline{S}(f,P_2).
+                            $$
+                            <span class="hint">En caso de no entender lo anterior revise el Teorema 1.4.4.</span>
+                        </p>
+                        <p class="paragraph">
+                            Si $R=P_1\cup P_2$, entonces $R$ es una partición de $[a,b]$ y además $\underline{S}(f,P_1)+\underline{S}(f,P_2)=\underline{S}(f,R)$. 
+                            Pero, por definición de integral inferior, 
+                            $$
+                                \underline{S}(f,R)\leq {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx.
+                            $$
+                            Luego, por transitividad, 
+                            $$
+                                {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^c f(x)\,dx + 
+                                {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_c^b f(x)\,dx-\varepsilon < 
+                                {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx.
+                            $$
+                        </p>
+                        <p class="paragraph">
+                            Por lo tanto, $\forall \varepsilon>0:$ 
+                            $$
+                                {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^c f(x)\,dx + 
+                                {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_c^b f(x)\,dx-\varepsilon < 
+                                {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx.
+                            $$
+                            De lo cual se deduce que <span class="doubt">duda personal ¿como pasamos de la expresion anterior a la que sigue?</span>
+                            $$
+                                {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^c f(x)\,dx + 
+                                {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_c^b f(x)\,dx \leq 
+                                {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx.
+                            $$
+                        </p>
+                        <p class="paragraph">
+                            Finalmente, 
+                            $$
+                                {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx = 
+                                {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^c f(x)\,dx + 
+                                {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_c^b f(x)\,dx.
+                            $$
+                        </p>
+                        <p class="paragraph">
+                            El caso para integrales superiores se hace de manera análoga.
+                        </p>
+                    </li>
+                    <li class="proo__step-item">
+                        Se deja como ejercicio.
+                    </li>
+                    <li class="proo__step-item">
+                        Haremos la prueba integrales superiores. Sea $P=\{x_0,x_1,...,x_n\}$ una partición de $[a,b]$. Para cada $i=\overline{1,n}$, 
+                        consideremos $N_i=\sup\{(f+c)(x):x\in[x_{i-1},x_i]\}$ y $M_i=\sup\{f(x):x\in[x_{i-1},x_i]\}$. Notemos que, por propiedades del supremo, $N_i=M_i+c$. Luego,
+                        <div class="calculation">
+                            <div class="calculation__formule--1">
+                                $$\overline{S}(f+c,P)$$
+                            </div>
+                            <div class="calculation__formule--2">
+                                <div>
+                                    $$= \sum_{i=1}^n N_i \Delta x_i $$
+                                </div>
+                                <div class="calculation__text">
+                                    por definición de suma superior
+                                </div>
+                            </div>
+                            <div class="calculation__formule--2">
+                                <div>
+                                    $$= \sum_{i=1}^n (M_i+c) \Delta x_i $$
+                                </div>
+                                <div class="calculation__text">
+                                    porque $N_i=M_i+c$
+                                </div>
+                            </div>
+                            <div class="calculation__formule--2">
+                                <div>
+                                    $$= \sum_{i=1}^n M_i \Delta x_i + c\sum_{i=1}^n \Delta x_i $$
+                                </div>
+                                <div class="calculation__text">
+                                    por <span class="modal__reference" data-modal-btn="theorem-1-2-1">Teorema 1.2.1</span>
+                                </div>
+                            </div>
+                            <div class="calculation__formule--2">
+                                <div>
+                                    $$= \overline{S}(f,P) + c\sum_{i=1}^n \Delta x_i $$
+                                </div>
+                                <div class="calculation__text">
+                                    por definición de suma superior
+                                </div>
+                            </div>
+                            <div class="calculation__formule--2">
+                                <div>
+                                    $$= \overline{S}(f,P) + c\sum_{i=1}^n (x_i-x_{i-1}) $$
+                                </div>
+                                <div class="calculation__text">
+                                    por definición de $\Delta x_i$
+                                </div>
+                            </div>
+                            <div class="calculation__formule--2">
+                                <div>
+                                    $$= \overline{S}(f,P) + c(x_n-x_0) $$
+                                </div>
+                                <div class="calculation__text">
+                                    por <span class="modal__reference" data-modal-btn="theorem-1-2-2">Teorema 1.2.2</span>
+                                </div>
+                            </div>
+                            <div class="calculation__formule--2">
+                                <div>
+                                    $$= \overline{S}(f,P) + c(b-a) $$
+                                </div>
+                                <div class="calculation__text">
+                                    por definición de partición
+                                </div>
+                            </div>
+                        </div>
+                        <p class="paragraph">
+                            Esto justifica que $$\{\overline{S}(f+c,P): P \mbox{ es partición de }[a,b]\}=\{\overline{S}(f,P)+c(b-a): P \mbox{ es partición de }[a,b]\}$$
+                        </p>
+                        <p class="paragraph">
+                            Así,
+                        </p>
+                        <div class="calculation">
+                            <div class="calculation__formule--1">
+                                $${\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b [f(x)+c]\,dx$$
+                            </div>
+                            <div class="calculation__formule--2">
+                                <div>
+                                    $$= {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b (f+c)(x)\,dx $$
+                                </div>
+                                <div class="calculation__text">
+                                    por definición de $f+c$
+                                </div>
+                            </div>
+                            <div class="calculation__formule--2">
+                                <div>
+                                    $$= \inf\{\overline{S}(f+c,P): P \mbox{ es partición de }[a,b]\} $$
+                                </div>
+                                <div class="calculation__text">
+                                    por definición de integral inferior <span class="error">superior???</span>
+                                </div>
+                            </div>
+                            <div class="calculation__formule--2">
+                                <div>
+                                    $$= \inf\{\overline{S}(f,P)+c(b-a): P \mbox{ es partición de }[a,b]\} $$
+                                </div>
+                                <div class="calculation__text">
+                                    por lo anterior
+                                </div>
+                            </div>
+                            <div class="calculation__formule--2">
+                                <div>
+                                    $$= \inf\{\overline{S}(f,P): P \mbox{ es partición de }[a,b]\}+c(b-a) $$
+                                </div>
+                                <div class="calculation__text">
+                                    por propiedades del ínfimo
+                                </div>
+                            </div>
+                            <div class="calculation__formule--2">
+                                <div>
+                                    $$= {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b f(x)\,dx +c(b-a) $$
+                                </div>
+                                <div class="calculation__text">
+                                    por definición de integral inferior
+                                </div>
+                            </div>
+                        </div>
+                        <p class="paragraph">
+                            Finalmente, 
+                            $$
+                                {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b [f(x)+c]\,dx =
+                                {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b f(x)\,dx +c(b-a).
+                            $$
+                        </p>
+                        <p class="paragraph">
+                            El caso para integrales inferiores es análogo.
+                        </p>
+                    </li>
+                </ul>
+            </div>
+            <p class="paragraph">
+                Como resultado inmediato se obtienen propiedades de la integral definida para funciones integrables.
+            </p>
+            <div class="theorem">
+                <p class="paragraph">
+                    <strong>Corolario 1.4.1.</strong> Sea $f:[a,b]\to\mathbf{R}$ una función integrable.
+                </p>
+                <ul class="theorem__list">
+                    <li class="theorem__list-item">Si $c\in[a,b]$, entonces $$\int_a^b f(x)\,dx = \int_a^c f(x)\,dx + \int_c^b f(x)\,dx.$$ </li>
+                    <li class="theorem__list-item">Si $m=\inf\{f(x):x\in[a,b]\}$ y $M=\sup\{f(x):x\in[a,b]\}$, entonces $$m(b-a) \leq \int_a^b f(x)\,dx \leq M(b-a).$$</li>
+                    <li class="theorem__list-item">Si $c\in \mathbf{R} $, entonces $$\int_a^b [f(x)+c]\,dx=\int_a^b f(x)\,dx+c(b-a).$$ </li>
+                </ul>
+            </div>
         </section>
     </main>
+    <!-- modals -->
+    <div class="modal" data-modal="question-1-4-1">
+        <div class="modal__background" data-modal-background="question-1-4-1"></div>
+        <div class="modal__content">
+            <p class="paragraph">
+                <strong>Solución</strong>
+            </p>
+            <p class="paragraph">
+                Por la definición de la partición $P$, tenemos que $x_0=0$, $x_1=\frac{1}{2}$, $x_2=1$, $x_3=\frac{3}{2}$ y $x_4=2$. 
+                Así, $\forall i=\overline{1,4}: \Delta x_i=\frac{1}{2}$. Además, como $f(x)=4-x^2$ es continua y decreciente en $[0,2]$, pues $f'(x)=-2x\leq0$ para $x\in[0,2]$, entonces es decreciente en $I_i$, y por o tanto alcanza su valos más peque\~no en el extremos derecho del intervalo $I_i$ y su valor más grande en el extremo izquierdo del intervalo $I_i$, es decir,
+                $$m_i=\inf\{f(x):x\in I_i\}=f(x_i) \qquad \mbox{y} \qquad M_i=\sup\{f(x):x\in I_i\}=f(x_{i-1}).$$ Entonces,
+            </p>
+            <p class="paragraph">
+                \begin{equation*}
+                    \begin{split}
+                        \underline{S}(f,P)&=\sum_{i=1}^4 m_i \Delta x_i \quad \mbox{por la definición de suma inferior} \\
+                        &=\sum_{i=1}^4 f(x_i) \Delta x_i\quad \mbox{por la definición de } m_i \\
+                        &= f(x_1)\Delta x_1+f(x_2)\Delta x_2+f(x_3)\Delta x_3+f(x_4)\Delta x_4  \quad \mbox{por la definición de }\Sigma \\
+                        &= f\left(\frac{1}{2}\right)\left(\frac{1}{2}\right)+f(1)\left(\frac{1}{2}\right)+f\left(\frac{3}{2}\right)\left(\frac{1}{2}\right)+f(2)\left(\frac{1}{2}\right) \quad \mbox{ por definición de }x_i\\
+                        &= \left[4-\left(\frac{1}{2}\right)^2\right]\left(\frac{1}{2}\right)+\left[4-(1)^2\right]\left(\frac{1}{2}\right)+\left[4-\left(\frac{3}{2}\right)^2\right]\left(\frac{1}{2}\right)+\left[4-(2)^2\right]\left(\frac{1}{2}\right)\\
+                        & \hspace{3in} \mbox{ por def. de }f\\
+                        &= \left(\frac{15}{4}+3+\frac{7}{4}+0\right)\left(\frac{1}{2}\right)=\frac{17}{4}.
+                    \end{split}
+                \end{equation*}
+            </p>
+            <p class="paragraph">
+                Luego, por transitividad, tenemos que $\underline{S}(f,P)=\frac{17}{4}$.
+            </p>
+            <p class="paragraph">
+                Además,
+            </p>
+            <p class="paragraph">
+                    \begin{equation*}
+                    \begin{split}
+                        \underline{S}(f,P)&=\sum_{i=1}^4 M_i \Delta x_i \quad \mbox{por la definición de suma superior} \\
+                        &=\sum_{i=1}^4 f(x_{i-1}) \Delta x_i\quad \mbox{por la definición de } M_i \\
+                        &= f(x_0)\Delta x_1+f(x_1)\Delta x_2+f(x_2)\Delta x_3+f(x_3)\Delta x_4  \quad \mbox{por la definición de }\Sigma \\
+                        &= f\left(0\right)\left(\frac{1}{2}\right)+f\left(\frac{1}{2}\right)\left(\frac{1}{2}\right)+f(1)\left(\frac{1}{2}\right)+f\left(\frac{3}{2}\right)\left(\frac{1}{2}\right) \quad \mbox{ por definición de }x_i\\
+                        &= \left[4-\left(0\right)^2\right]\left(\frac{1}{2}\right)+\left[4-\left(\frac{1}{2}\right)^2\right]\left(\frac{1}{2}\right)+\left[4-(1)^2\right]\left(\frac{1}{2}\right)+\left[4-\left(\frac{3}{2}\right)^2\right]\left(\frac{1}{2}\right)\\
+                        & \hspace{3in} \mbox{ por def. de }f\\
+                        &= \left(4+\frac{15}{4}+3+\frac{7}{4}\right)\left(\frac{1}{2}\right)=\frac{25}{4}.
+                    \end{split}
+                \end{equation*}
+            </p>
+            <p class="paragraph">
+                Finalmente, por transitividad, tenemos que $\overline{S}(f,P)=\frac{25}{4}$.
+            </p>
+        </div>
+    </div>
+    <div class="modal" data-modal="theorem-1-2-1">
+        <div class="modal__background" data-modal-background="theorem-1-2-1"></div>
+        <div class="modal__content">
+            <div class="theorem">
+                <p class="paragraph">
+                    <strong>Teorema 1.2.1 </strong>(Linealidad). Sean $n ∈ \mathbf{N}, a_i, b_i ∈ \mathbf{R}$, para toda $i = 1, n,$ y $c ∈ \mathbf{R}$,
+                    entonces:
+                </p>
+                <ol class="theorem__list">
+                    <li class="theorem__list--formule">
+                        $$\sum_{i=1}^{n} (ca_i) = c\sum_{i=1}^{n} a_i$$
+                    </li>
+                    <li class="theorem__list--formule">
+                        $$\sum_{i=1}^{n} (a_i + b_i) = \sum_{i=1}^{n} a_i + \sum_{i=1}^{n} a_i$$
+                    </li>
+                    <li class="theorem__list--formule">
+                        $$\sum_{i=1}^{n} (a_i - b_i) = \sum_{i=1}^{n} a_i - \sum_{i=1}^{n} a_i$$
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <div class="modal" data-modal="theorem-1-2-3">
+        <div class="modal__background" data-modal-background="theorem-1-2-3"></div>
+        <div class="modal__content">
+            <div class="theorem">
+                <p class="paragraph">
+                    <strong>Teorema 1.2.3 </strong>. Para toda $n ∈ \mathbf{N}$ se cumple que
+                </p>
+                <ol class="theorem__list">
+                    <li class="theorem__list--formule">
+                        $$\sum_{i=1}^{n} i = \frac{n(n+1)}{2};$$
+                    </li>
+                    <li class="theorem__list--formule">
+                        $$\sum_{i=1}^{n} i^2 = \frac{n(n+1)(2n+1)}{6};$$
+                    </li>
+                    <li class="theorem__list--formule">
+                        $$\sum_{i=1}^{n} i^3 = \left[ \frac{n(n+1)}{2} \right]^2;$$
+                    </li>
+                    <li class="theorem__list--formule">
+                        $$\sum_{i=1}^{n} i^4 = \frac{n(n+1)(2n+1)(3n^2+3n-1)}{30};$$
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <div class="modal" data-modal="theorem-1-2-2">
+        <div class="modal__background" data-modal-background="theorem-1-2-2"></div>
+        <div class="modal__content">
+            <div class="theorem">
+                <p class="paragraph">
+                    <strong>Teorema 1.2.2 </strong>(Sumas telescópicas). Si $n ∈ \mathbf{N} $, y $a_i ∈ \mathbf{R} \; \; \forall i =$ <span class="overline">$1,n$</span>, entonces
+                </p>
+                <ol class="theorem__list">
+                    <li class="theorem__list--formule">
+                        $$\sum_{i=1}^{n} (a_{i+1} - a_i) = a_{n+1} - a_1.$$
+                    </li>
+                    <li class="theorem__list--formule">
+                        $$\sum_{i=1}^{n} [(i + 1)^2 - i^2) = (n + 1)^2 - 1.$$
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

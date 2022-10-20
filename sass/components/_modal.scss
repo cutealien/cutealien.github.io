@@ -6,23 +6,25 @@
 
 .modal {
     position: fixed;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
+    // transform: translate(-50%, -50%);
+    // top: 50%;
+    // left: 50%;
     // bottom: 0;
     // right: 0;
+    top: 0;
+    left: 0;
     height: 0%;
-    width: 100%;
+    width: 0%;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-    z-index: 50;
+    transition: opacity 0.3s ease;
+    z-index: 10;
 
     &--active{
         height: 100%;
         width: 100%;
         opacity: 1;
-        visibility: visible;   
+        visibility: visible;
     }
 
     &__reference {
@@ -44,6 +46,9 @@
         position: absolute;
         top: 50%;
         left: 50%;
+        max-height: 80%;
+        max-width: 1200px;
+        overflow-y: auto;
         transform: translate(-50%, -50%);
         background-color: #fafafa;
         z-index: 2;

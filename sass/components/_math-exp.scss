@@ -7,22 +7,16 @@
 
 .definition, .theorem{
     font-style: italic;
-    font-size: 2rem;
     padding: 1rem 0;
     &__formule {
         text-align: center;
         margin: 1rem auto;
     }
-    &__paragraph {
-        margin-top: 1rem;
-        text-indent: 3ch;
-    }
     &__list {
         list-style: decimal;
-        // margin-left: 3ch;
-        // margin-bottom: 2rem;
         padding: 1rem 0 2rem 3ch;
-        &-item {
+        font-size: 2rem;
+        &--formule {
             width: max-content;
         }
         &-item:not(:last-child) {
@@ -31,15 +25,17 @@
     }
 }
 
-// .example {
-//     font-size: 2rem;
-//     padding: 1rem 0;
-// }
+.example {
+    padding: 1rem 0;
+    &__paragraph {
+        font-style: italic;
+        margin: 1rem 0 2rem;
+    }
+}
 
-.proof {
+.proof, .example {
     &__step {
         list-style: decimal outside;
-        // margin: 0 0 2rem 2ch;
         font-size: 2rem;
         padding: 2rem 0 2rem 2ch;
         &-item {
@@ -65,23 +61,22 @@
     font-size: 2rem;
     font-style: italic;
     text-align: center;
-    // margin: -0.5em 0;
     &--left {
         text-align: left;
     }
 }
 
 .calculation {
-    padding: 2rem;
+    // padding: 2rem;
     font-size: 2rem;
     display: grid;
-    grid-template-columns: [first] max-content [second] max-content;
+    grid-template-columns: [first] max-content [second] auto;
     grid-template-rows: max-content;
     grid-auto-rows: max-content;
-    // grid-auto-columns: max-content;
     gap: 0 1rem;
     align-items: center;
     justify-content: center;
+    margin: 0 auto;
     
     &--text {
         grid-template-columns: [first] max-content [second] max-content [third] max-content;
@@ -95,17 +90,22 @@
         &--1 {
             grid-column: first / first;
             justify-self: right;
-            margin: -1em 0;
+            // margin: -1em 0;
         }
         &--2 {
             grid-column: second / second;
-            margin: -1em 0;
+            // margin: -1em 0;
             justify-self: left;
+            display: flex;
+            align-items: center;
+            justify-content: left;
+            column-gap: 4rem;
         }
     }
     &__text {
         grid-column: 3 / 3;
         font-style: italic;
+        font-size: 1.6rem;
     }
 }
 .overline {

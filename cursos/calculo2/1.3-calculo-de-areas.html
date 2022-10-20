@@ -129,7 +129,7 @@
             <p class="paragraph">
                 El área $A(R_n)$ puede calcularse al sumar las áreas de los rectángulos que lo forman, así 
             </p>
-            <div class="calculation">
+            <p class="paragraph">
                 \begin{equation*}
                     \begin{split}
                         A(R_n) &=\left[\frac{8}{n^3}(0)^2+ \frac{8}{n^3}(1)^2+\cdots \frac{8}{n^3}(n-2)^2 + \frac{8}{n^3}(n-1)^2\right] \\
@@ -138,7 +138,7 @@
                         &=\frac{8}{6}\cdot \frac{(n-1)}{n}\cdot \frac{n}{n} \cdot \frac{(2n-1)}{n}= \frac{4}{3}\left(1-\frac{1}{n} \right)\left(1 \right)\left(2-\frac{1}{n} \right).
                     \end{split}
                 \end{equation*}
-            </div>
+            </p>
             <p class="paragraph">
                 pero dadas las condiciones tenemos que
             </p>
@@ -148,7 +148,7 @@
             <p class="paragraph">
                 Luego, tenemos
             </p>
-            <div class="calculation">
+            <p class="paragraph">
                 $$
                 \begin{equation*}
                     \begin{split}
@@ -159,7 +159,7 @@
                     \end{split}
                 \end{equation*}                   
                 $$
-            </div>
+            </p>
             <p class="paragraph">
                 Primero aproximaremos el área con 6 decimales utilizando la expresión $A(R_n) = \frac{4}{3}\left(1-\frac{1}{n} \right)\left(2-\frac{1}{n} \right)$.
                 Cabe notar que los rectángulos que se grafican son $n-1$, esto se debe a que el primer valor es $x_0 = 0$, por lo que la altura del rectángulo es $f(x_0) = 0$.
@@ -196,19 +196,6 @@
                 $$A(S_n)=f(x_1)\Delta x+f(x_2)\Delta x+f(x_3)+\cdots+f(x_n)\Delta x,$$ 
                 como antes, $f(x_i)\cdot\Delta x=x_i^2\cdot \Delta x=\frac{8}{n^3}i^2$, y así
             </p>
-            <!-- <p class="paragraph">
-                $$
-                \begin{equation*}
-                    \begin{split}
-                        A(S_n)&=\left[\frac{8}{n^3}(1)^2+\frac{8}{n^3}(2)^2+\frac{8}{n^3}(3)^2+\cdots \frac{8}{n^3}(n)^2\right]\\
-                        &= \sum_{i=1}^n\frac{8}{n^3}i^2 \qquad \mbox{ por notación del símbolo sumatorio} \\
-                        &= \frac{8}{n^3}\sum_{i=1}^n i^2 \qquad \mbox{ por 1) del Teo. 1.2.1} \\
-                        &= \frac{8}{n^3}\cdot \frac{n(n+1)(2n+1)}{6} \qquad \mbox{ por 2) del Teo. 1.2.3}\\
-                        &= \cancelto{\frac{4}{3}}{\frac{8}{6}}\cdot \cancelto{1}{\frac{n}{n}}\cdot \frac{n+1}{n}\cdot \frac{2n+1}{n}=\frac{4}{3}\left(1+\frac{1}{n}\right)\left(2+\frac{1}{n}\right).
-                    \end{split}
-                \end{equation*}
-                $$
-            </p> -->
             <div class="calculation">
                 <div class="calculation__formule--1">
                     $$A(S_n)$$
@@ -218,24 +205,30 @@
                 </div>
 
                 <div class="calculation__formule--2">
-                    $$=\sum_{i=1}^n\frac{8}{n^3}i^2  $$
-                </div>
-                <div class="calculation__text">
-                    por notación del símbolo sumatorio
-                </div>
-
-                <div class="calculation__formule--2">
-                    $$=\frac{8}{n^3}\sum_{i=1}^n i^2  $$
-                </div>
-                <div class="calculation__text">
-                    por 1) del <span class="modal__reference" data-modal-btn="theorem-1-2-1">Teo. 1.2.1</span>
+                    <div>
+                        $$=\sum_{i=1}^n\frac{8}{n^3}i^2  $$
+                    </div>
+                    <div class="calculation__text">
+                        por notación del símbolo sumatorio
+                    </div>
                 </div>
 
                 <div class="calculation__formule--2">
-                    $$=\frac{8}{n^3}\cdot \frac{n(n+1)(2n+1)}{6}$$
+                    <div>
+                        $$=\frac{8}{n^3}\sum_{i=1}^n i^2  $$
+                    </div>
+                    <div class="calculation__text">
+                        por 1) del <span class="modal__reference" data-modal-btn="theorem-1-2-1">Teo. 1.2.1</span>
+                    </div>
                 </div>
-                <div class="calculation__text">
-                    por 2) del <span class="modal__reference" data-modal-btn="theorem-1-2-3">Teo. 1.2.3</span>
+
+                <div class="calculation__formule--2">
+                    <div>
+                        $$=\frac{8}{n^3}\cdot \frac{n(n+1)(2n+1)}{6}$$
+                    </div>
+                    <div class="calculation__text">
+                        por 2) del <span class="modal__reference" data-modal-btn="theorem-1-2-3">Teo. 1.2.3</span>
+                    </div>
                 </div>
 
                 <div class="calculation__formule--2">
@@ -290,16 +283,17 @@
                 Así, obtenemos que $$A\approx f(x_1)\Delta x+f(x_2)\Delta x+f(x_3)\Delta x+\cdots +f(x_n)\Delta x=\sum_{i=1}^nf(x_i)\Delta x=A_n.$$
             </p>
             <div class="definition">
-                <p class="definition__paragraph">
+                <p class="paragraph">
                     <strong>Definición 1.3.1.</strong> Sea $f$ una función definida en el intervalo $[a,b]$. 
                     Si $f$ es continua en $[a,b]$ y $f(x)\geq 0$, $\forall x\in[a,b]$, definimos el área bajo la curva $y=f(x)$ en $[a,b]$ como 
                     $$A=\lim_{n\to\infty}A_n=\lim_{n\to\infty}\sum_{i=1}^nf(x_i)\Delta x.$$
                 </p>
             </div>
             <div class="example">
-                <p class="paragraph">
+                <p class="paragraph example__paragraph">
                     <strong>Ejemplo 1.3.1 </strong>Calcular el área bajo la curva $y=f(x)$, donde $f(x)=2x-2x^2$ en el intervalo $[0,1]$.
                 </p>
+                <p class="paragraph"><strong>Solución.</strong></p>
                 <p class="paragraph">
                     Notemos que $f=2x-2x^2$, la cual, por ser una función polinómica, es continua en todo $\mathbf{R}$, en particular es continua en el intervalo $[0,1]$.  
                     Además 
@@ -314,73 +308,76 @@
                     Luego, $\Delta x=\frac{1-0}{n}=\frac{1}{n}$, por lo tanto tenemos que 
                     $$x_0=0, x_1=\frac{1}{n}, x_2=\frac{2}{n}, x_3=\frac{3}{n}, \dots, x_i=\frac{i}{n}, \dots, x_n=\cancelto{1}{\frac{n}{n}}=1.$$ Así,
                 </p>
-                <!-- <p class="paragraph">
-                    \begin{equation*}
-                        \begin{split}
-                            A_n&=\sum_{i=1}^n f(x_i) \Delta x \qquad \mbox{ por definición de $A_n$} \\
-                            &= \sum_{i=1}^n f\left(\frac{i}{n}\right) \frac{1}{n} \qquad \mbox{ por definición de $x_i$} \\
-                            &= \sum_{i=1}^n \left[2\left(\frac{i}{n} \right)-2\left(\frac{i}{n} \right)^2 \right]\frac{1}{n} \qquad \mbox{ por definición de $f(x)$} \\
-                            &= \sum_{i=1}^n \left[2\left(\frac{i}{n} \right)\left(\frac{1}{n} \right) \right] -\sum_{i=1}^n \left[2\left(\frac{i}{n} \right)^2\left(\frac{1}{n} \right) \right] \qquad \mbox{ por 3) del Teo. 1.2.1} \\
-                            &= \frac{2}{n^2}\sum_{i=1}^n i -\frac{2}{n^3}\sum_{i=1}^n i^2 \qquad \mbox{ por 1) del Teo. 1.2.1 }\\
-                            &= \frac{2}{n^2}\cdot \frac{n(n+1)}{2}-\frac{2}{n^3}\cdot \frac{n(n+1)(2n+1)}{6} \qquad \mbox{ por 1) y 2) del Teo. 1.2.3} \\
-                            &= \cancelto{1}{\frac{n}{n}}\cdot \frac{n+1}{n}-\frac{1}{3}\cdot\cancelto{1}{\frac{n}{n}}\cdot\frac{n+1}{n}\cdot\frac{2n+1}{n} \\
-                            &= 1\cdot\left(1+\frac{1}{n} \right)-\frac{1}{3}\cdot \left(1+\frac{1}{n} \right) \cdot \left(2+\frac{1}{n} \right).
-                        \end{split}
-                    \end{equation*}
-                </p> -->
                 <div class="calculation">
                     <div class="calculation__formule--1">
                         $$A_n$$
                     </div>
                     <div class="calculation__formule--2">
-                        $$=\sum_{i=1}^n f(x_i) \Delta x$$
-                    </div>
-                    <div class="calculation__text">
-                        por definición de $A_n$
-                    </div>
-                    
-                    <div class="calculation__formule--2">
-                        $$= \sum_{i=1}^n f\left(\frac{i}{n}\right) \frac{1}{n}$$
-                    </div>
-                    <div class="calculation__text">
-                        por definición de $x_i$
-                    </div>
-
-                    <div class="calculation__formule--2">
-                        $$= \sum_{i=1}^n \left[2\left(\frac{i}{n} \right)-2\left(\frac{i}{n} \right)^2 \right]\frac{1}{n}$$
-                    </div>
-                    <div class="calculation__text">
-                        por definición de $f(x)$
+                        <div>
+                            $$=\sum_{i=1}^n f(x_i) \Delta x$$
+                        </div>
+                        <div class="calculation__text">
+                            por definición de $A_n$
+                        </div>
                     </div>
                     
                     <div class="calculation__formule--2">
-                        $$= \sum_{i=1}^n \left[2\left(\frac{i}{n} \right)\left(\frac{1}{n} \right) \right] -\sum_{i=1}^n \left[2\left(\frac{i}{n} \right)^2\left(\frac{1}{n} \right) \right]$$
+                        <div>
+                            $$= \sum_{i=1}^n f\left(\frac{i}{n}\right) \frac{1}{n}$$
+                        </div>
+                        <div class="calculation__text">
+                            por definición de $x_i$
+                        </div>
                     </div>
-                    <div class="calculation__text">
-                        por 3) del <span class="modal__reference" data-modal-btn="theorem-1-2-1">Teo. 1.2.1</span>
+
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \sum_{i=1}^n \left[2\left(\frac{i}{n} \right)-2\left(\frac{i}{n} \right)^2 \right]\frac{1}{n}$$
+                        </div>
+                        <div class="calculation__text">
+                            por definición de $f(x)$
+                        </div>
+                    </div>
+                    
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \sum_{i=1}^n \left[2\left(\frac{i}{n} \right)\left(\frac{1}{n} \right) \right] -\sum_{i=1}^n \left[2\left(\frac{i}{n} \right)^2\left(\frac{1}{n} \right) \right]$$
+                        </div>
+                        <div class="calculation__text">
+                            por 3) del <span class="modal__reference" data-modal-btn="theorem-1-2-1">Teo. 1.2.1</span>
+                        </div>
+
                     </div>
 
 
                     <div class="calculation__formule--2">
-                        $$= \frac{2}{n^2}\sum_{i=1}^n i -\frac{2}{n^3}\sum_{i=1}^n i^2 $$
-                    </div>
-                    <div class="calculation__text">
-                        por 1) del <span class="modal__reference" data-modal-btn="theorem-1-2-1">Teo. 1.2.1 </span>
-                    </div>
-
-                    <div class="calculation__formule--2">
-                        $$= \frac{2}{n^2}\cdot \frac{n(n+1)}{2}-\frac{2}{n^3}\cdot \frac{n(n+1)(2n+1)}{6}$$
-                    </div>
-                    <div class="calculation__text">
-                        por 1) y 2) del <span class="modal__reference" data-modal-btn="theorem-1-2-3">Teo. 1.2.3</span>
+                        <div>
+                            $$= \frac{2}{n^2}\sum_{i=1}^n i -\frac{2}{n^3}\sum_{i=1}^n i^2 $$
+                        </div>
+                        <div class="calculation__text">
+                            por 1) del <span class="modal__reference" data-modal-btn="theorem-1-2-1">Teo. 1.2.1 </span>
+                        </div>
                     </div>
 
                     <div class="calculation__formule--2">
-                        $$= \cancelto{1}{\frac{n}{n}}\cdot \frac{n+1}{n}-\frac{1}{3}\cdot\cancelto{1}{\frac{n}{n}}\cdot\frac{n+1}{n}\cdot\frac{2n+1}{n}$$
+                        <div>
+                            $$= \frac{2}{n^2}\cdot \frac{n(n+1)}{2}-\frac{2}{n^3}\cdot \frac{n(n+1)(2n+1)}{6}$$
+                        </div>
+                        <div class="calculation__text">
+                            por 1) y 2) del <span class="modal__reference" data-modal-btn="theorem-1-2-3">Teo. 1.2.3</span>
+                        </div>
                     </div>
 
                     <div class="calculation__formule--2">
-                        $$= 1\cdot\left(1+\frac{1}{n} \right)-\frac{1}{3}\cdot \left(1+\frac{1}{n} \right) \cdot \left(2+\frac{1}{n} \right).$$
+                        <div>
+                            $$= \cancelto{1}{\frac{n}{n}}\cdot \frac{n+1}{n}-\frac{1}{3}\cdot\cancelto{1}{\frac{n}{n}}\cdot\frac{n+1}{n}\cdot\frac{2n+1}{n}$$
+                        </div>
+                    </div>
+
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= 1\cdot\left(1+\frac{1}{n} \right)-\frac{1}{3}\cdot \left(1+\frac{1}{n} \right) \cdot \left(2+\frac{1}{n} \right).$$
+                        </div>
                     </div>
                 </div>
 
@@ -403,18 +400,18 @@
         <div class="modal__background" data-modal-background="theorem-1-2-1"></div>
         <div class="modal__content">
             <div class="theorem">
-                <p class="theorem__paragraph">
+                <p class="paragraph">
                     <strong>Teorema 1.2.1 </strong>(Linealidad). Sean $n ∈ \mathbf{N}, a_i, b_i ∈ \mathbf{R}$, para toda $i = 1, n,$ y $c ∈ \mathbf{R}$,
                     entonces:
                 </p>
                 <ol class="theorem__list">
-                    <li class="theorem__list-item">
+                    <li class="theorem__list--formule">
                         $$\sum_{i=1}^{n} (ca_i) = c\sum_{i=1}^{n} a_i$$
                     </li>
-                    <li class="theorem__list-item">
+                    <li class="theorem__list--formule">
                         $$\sum_{i=1}^{n} (a_i + b_i) = \sum_{i=1}^{n} a_i + \sum_{i=1}^{n} a_i$$
                     </li>
-                    <li class="theorem__list-item">
+                    <li class="theorem__list--formule">
                         $$\sum_{i=1}^{n} (a_i - b_i) = \sum_{i=1}^{n} a_i - \sum_{i=1}^{n} a_i$$
                     </li>
                 </ol>
@@ -425,20 +422,20 @@
         <div class="modal__background" data-modal-background="theorem-1-2-3"></div>
         <div class="modal__content">
             <div class="theorem">
-                <p class="theorem__paragraph">
+                <p class="paragraph">
                     <strong>Teorema 1.2.3 </strong>. Para toda $n ∈ \mathbf{N}$ se cumple que
                 </p>
                 <ol class="theorem__list">
-                    <li class="theorem__list-item">
+                    <li class="theorem__list--formule">
                         $$\sum_{i=1}^{n} i = \frac{n(n+1)}{2};$$
                     </li>
-                    <li class="theorem__list-item">
+                    <li class="theorem__list--formule">
                         $$\sum_{i=1}^{n} i^2 = \frac{n(n+1)(2n+1)}{6};$$
                     </li>
-                    <li class="theorem__list-item">
+                    <li class="theorem__list--formule">
                         $$\sum_{i=1}^{n} i^3 = \left[ \frac{n(n+1)}{2} \right]^2;$$
                     </li>
-                    <li class="theorem__list-item">
+                    <li class="theorem__list--formule">
                         $$\sum_{i=1}^{n} i^4 = \frac{n(n+1)(2n+1)(3n^2+3n-1)}{30};$$
                     </li>
                 </ol>

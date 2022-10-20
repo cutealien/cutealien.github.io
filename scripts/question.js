@@ -62,9 +62,13 @@ questions.forEach(question => {
             option.disabled = true
         });
         btnAnswer.disabled = true
-        if(currentStep < steps.length) {
-            continueBtns[currentStep].disabled = false
-            continueBtns[currentStep].style.display = 'inline-block'
+        if(btnAnswer.nextElementSibling) {
+            btnAnswer.nextElementSibling.disabled = false
+            btnAnswer.nextElementSibling.style.display = 'inline-block'
         }
+        // if(currentStep < steps.length) {
+        //     continueBtns[currentStep].disabled = false
+        //     continueBtns[currentStep].style.display = 'inline-block'
+        // }
     })
 })

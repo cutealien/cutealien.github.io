@@ -17,6 +17,7 @@ function showSlides(slideIndex, slides, dots, sliderName) {
         dots[i].classList.remove(`slide__active--${sliderName}`);
     }
     slides[slideIndex - 1].style.display = "block";
+    // slides[slideIndex - 1].style.display = "grid";
     dots[slideIndex - 1].classList.add(`slide__active--${sliderName}`) ;
 }
 

@@ -588,23 +588,23 @@ div[data-anchor]:target::before {
   background: blue;
 }
 
-.definition, .theorem {
+.definition, .theorem, .note {
   font-style: italic;
   padding: 1rem 0;
 }
-.definition__formule, .theorem__formule {
+.definition__formule, .theorem__formule, .note__formule {
   text-align: center;
   margin: 1rem auto;
 }
-.definition__list, .theorem__list {
+.definition__list, .theorem__list, .note__list {
   list-style: decimal;
   padding: 1rem 0 2rem 3ch;
   font-size: 2rem;
 }
-.definition__list--formule, .theorem__list--formule {
+.definition__list--formule, .theorem__list--formule, .note__list--formule {
   width: max-content;
 }
-.definition__list-item:not(:last-child), .theorem__list-item:not(:last-child) {
+.definition__list-item:not(:last-child), .theorem__list-item:not(:last-child), .note__list-item:not(:last-child) {
   margin-bottom: 1.5rem;
 }
 

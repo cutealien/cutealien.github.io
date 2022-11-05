@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/style.css">
+    
+    <script src="./scripts/variables.js" defer></script>
+    <script src="../../scripts/question.js" defer></script>
+    <script src="../../scripts/modal.js" defer></script>
+
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+            loader: {load: ['input/asciimath', 'output/chtml']}
+        }
+    </script>
+    <script id="MathJax-script" async src="/scripts/MathJax-master/es5/tex-chtml.js"></script>
+    <!-- <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+    </script> -->
+
+    <title>Cálculo de áreas con rectángulos inscritos y circunscritos</title>
+</head>
+<body class="course">
+    <nav class="navbar">
+        <a href="/" class="navbar__logo-box">
+        </a>
+        <a href="/" class="navbar__link">
+            Inicio
+        </a>
+        <a href="/example.html" class="navbar__link">
+            Ejemplo
+        </a>
+        <a href="#" class="navbar__link navbar__link--active">
+            Cálculo 2
+        </a>
+    </nav>
+    <nav class="sidebar">
+        <ol class="subject-list">
+            <li class="subject-list__item">
+                <strong class="subject-list__title">1 La integral definida</strong>
+                <ol class="subject-list">
+                    <li class="subject-list__item"><a href="./index.html" class="subject-list__link">1.1 Introducción</a></li>
+                    <li class="subject-list__item">
+                        <a href="./1.2-Sumatoria.html" class="subject-list__link">1.2 El símbolo $\sum$</a>
+                        <ol class="subject-list">
+                            <li class="subject-list__item"><a href="./1.2-Sumatoria.html#1.2" class="subject-list__link">1.2.1 Formalizando el símbolo sumatorio</a></li>
+                            <li class="subject-list__item"><a href="./1.2.2-propiedades.html" class="subject-list__link">1.2.2 Propiedades del símbolo $\sum$</a></li>
+                        </ol>
+                    </li>
+                    <li class="subject-list__item"><a href="./1.3-calculo-de-areas.html" class="subject-list__link">1.3 Cálculo de  ́areas con rect. insc. y circuns.</a></li>
+                    <li class="subject-list__item"><a href="./1.4-integral-definida.html" class="subject-list__link">1.4 Construcción de la integral definida</a></li>
+                    <li class="subject-list__item"><a href="#" class="subject-list__link subject-list__link--active">1.5 Sumas de Riemann</a></li>
+                    <li class="subject-list__item"><a href="#" class="subject-list__link">1.6 Teorema fundamental del Cálculo y sus consecuencias</a></li>
+                    <li class="subject-list__item"><a href="#" class="subject-list__link">1.7 Ejercicios</a></li>
+                </ol>
+            </li>
+            <li class="subject-list__item">
+                <strong class="subject-list__title">2 La integral indefinida</strong>
+                <ol class="subject-list">
+                    <li class="subject-list__item"><a href="#" class="subject-list__link">2.1 Introducción</a></li>
+                    <li class="subject-list__item"><a href="#" class="subject-list__link">2.2 Antiderivadas inmediatas</a></li>
+                    <li class="subject-list__item"><a href="#" class="subject-list__link">2.3 Método de int. por sust. o cambio de variable</a></li>
+                    <li class="subject-list__item"><a href="#" class="subject-list__link">2.4 Método de integración por partes</a></li>
+                    <li class="subject-list__item">
+                        <a href="#" class="subject-list__link">2.5 Método de integración por fracciones parciales</a>
+                        <ol class="subject-list">
+                            <li class="subject-list__item"><a href="#" class="subject-list__link">2.5.1 El polinomio $Q(x)$ solo contiene factores lineales que no se repiten</a></li>     
+                            <li class="subject-list__item"><a href="#" class="subject-list__link">2.5.2 El polinomio $Q(x)$ solo contiene factores lineales, pero algunos de ellos se repetidos</a></li>     
+                            <li class="subject-list__item"><a href="#" class="subject-list__link">2.5.3 Integrales de funciones simples que involucran términos cuadráticos irreducibles</a></li>     
+                            <li class="subject-list__item"><a href="#" class="subject-list__link">2.5.4 El polinomio Q(x) contiene factores cuadráticos irreducibles que no se repiten</a></li>     
+                            <li class="subject-list__item"><a href="#" class="subject-list__link">2.5.5 El polinomio Q(x) contiene factores cuadráticos irreducibles que se repiten</a></li>     
+                        </ol>
+                    </li>
+                    <li class="subject-list__item"><a href="#" class="subject-list__link">2.6 Met. de int. por sust. trigonométrica</a></li>     
+                </ol>
+            </li>
+            <li class="subject-list__item">
+                <strong class="subject-list__title">3 Integrales impropias y aplicaciones</strong>
+                <ol class="subject-list">
+                    <li class="subject-list__item"><a href="#" class="subject-list__link">3.1 Integrales impropias</a></li>
+                    <li class="subject-list__item"><a href="#" class="subject-list__link">3.2 Más integrales impropias (para funciones discontinuas)</a></li>
+                    <li class="subject-list__item"><a href="#" class="subject-list__link">3.3 Cálculo de áreas de regiones acotadas pro curvas</a></li>   
+                </ol>
+            </li>
+        </ol>
+    </nav>
+    
+    <main class="main">
+        <section>
+            <h1 class="header-primary">
+                1.5 Sumas de Riemann
+            </h1>
+            <p class="paragraph">
+                Sabemos que si $r>0$, entonces, por la definición de integral inferior (por ser un supremo), existe una partición $P$ de $[a,b]$, tal que 
+                $${\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx-r < \underline{S}(f,P).$$ 
+                También, por la definición de integral superior (por ser un ínfimo), existe una partición $Q$ de $[a,b]$ tal que
+                $$\overline{S}(f,Q) < {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b f(x)\, dx+r.$$
+            </p>
+            <p class="paragraph">
+                Definimos $R:=P\cup Q$, una partici\'on de $[a,b]$, el cual es un refinamiento tanto de $P$ como de $Q$. Por el Teorema 5, tenemos que 
+                $$\underline{S}(f,P)\leq \underline{S}(f,R) \qquad \mbox{ y } \qquad \overline{S}(f,R) \leq \overline{S}(f,Q).$$ 
+            </p>
+            <p class="paragraph">
+                De lo cual se deduce que 
+                $$
+                    {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx-r < \underline{S}(f,R) \qquad \mbox{ y } \qquad 
+                    \overline{S}(f,R) < {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b f(x)\, dx+r.
+                $$
+            </p>
+            <p class="paragraph">
+                Esto prueba lo siguiente:
+            </p>
+            <div class="theorem">
+                <p class="paragraph">
+                    <strong>Lema 1.5.1. </strong> $\forall r\in\mathbf{R}_+$, $\exists R$, partición de $[a,b]$, tal que 
+                    $$
+                        {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx-r < \underline{S}(f,R) \qquad \mbox{ y } \qquad 
+                        \overline{S}(f,R) < {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b f(x)\, dx+r.
+                    $$
+                </p>
+            </div>
+            <p class="paragraph">
+                El siguiente teorema, que es la formulación del Teorema 10, dice casi lo mismo que este Lema, pero ahora se garantiza la existencia de un 
+                número $\delta$, a partir del cual toda partición que tenga norma menor a ese delta, cumplirá con las desigualdades.
+            </p>
+            <div class="theorem">
+                <p class="paragraph">
+                    <strong>Teorema 1.5.1 </strong> Si $f:[a,b]\to\mathbb{R}$ una función acotada y $\varepsilon >0$, entonces existe $\delta>0$ tal que para toda partición $P$ de $[a,b]$, con $||P||< \delta$, se cumple que 
+                    $$
+                        {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx-\varepsilon < \underline{S}(f,R) \qquad \mbox{ y } \qquad 
+                        \overline{S}(f,R) < {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b f(x)\, dx+\varepsilon.
+                    $$
+                </p>
+            </div>
+            <div class="proof">
+                <h3 class="header-tertiary">Demostración en clase.</h3>
+            </div>
+            <p class="paragraph">
+                Ahora veremos la definición de sumas de Riemann, las cuales nos permiten ver a la integral como un límite, el cual será un límite especial, pero primero necesitamos unos conceptos extra.
+            </p>
+        </section>
+        <section>
+            <div class="fancy-line"></div>
+            <div class="definition">
+                <p class="paragraph">
+                    <strong>Definición 1.5.1. </strong> Sean $f:[a,b]\to\mathbf{R} $ una función acotada y $P=\{x_0,x_1,...,x_n\}$ una partición de $[a,b]$.
+                </p>
+                <ol class="definition__list">
+                    <li class="definition__list-item">
+                        A los conjuntos de la forma $A=\{\xi_i:i=\overline{1,n}\}$, donde $\xi_i\in I_i=[x_{i-1},x_i]$, se les llama selección de la partición $P$.
+                    </li>
+                    <li class="definition__list-item">
+                        Para la función $f$ y la selección $A=\{\xi_i:i=\overline{1,n}\}$ de la partición $P$, definimos la suma de Riemann, denotada por $S(f,A,P)$, como $$S(f,A,P):=\sum_{i=1}^n f(\xi_i)\Delta x_i.$$
+                    </li>
+                </ol>
+            </div>
+            <div class="note">
+                <h3 class="header-tertiary">Observación 1.5.1</h3>
+                <ol class="note__list">
+                    <li class="note__list-item">El número $\xi_i$ es un elemento cualquiera de $[x_{i-1},x_i]$, así para cada elección de las $\xi_i$´s tenemos una suma de Riemann diferente, es decir, cada selección $A$ de la partición $P$, genera una suma de Riemann diferente.</li>
+                    <li class="note__list-item">Para cada selección $A$ de la partición $P$, se tiene que $$\underline{S}(f,P) \leq S(f,A,P) \leq \overline{S}(f,P).$$</li>
+                </ol>
+            </div>
+            <p class="paragraph">
+                Sabiendo que $f$ es acotada, es más fácil considerar sumas de Riemann como sumas de aproximación que usar las sumas inferiores y superiores.
+            </p>
+            <div class="example">
+                <p class="paragraph example__paragraph">
+                    <strong>Ejemplo 1.5.1. </strong>Considera la región trapezoidal $R$, acotada por la recta $y=x$, el eje $X$, y las rectas verticales $x=1$ y $x=2$. 
+                    Calcula las sumas de Riemann $S(f,A_n,P_n)$, en donde $P_n$ es una partición regular, para $n\in\mathbf{N}$ y $A_n$ es la selección formada por los extremos izquierdos de los subintervalos. 
+                </p>
+            </div>
+            <h3 class="header-tertiary">Solución.</h3>
+            <p class="paragraph">
+                Notemos que la función involucrada es $f(x)=x$ y que el intervalo de nuestro interés es $[1,2]$. 
+                Además, para $n\in\mathbf{N} $, la partición regular es $P_n=\{x_i=1+\frac{i}{n}:i=\overline{0,n}\}$ y entonces la selección es $A_n=\{\xi_i=x_{i-1}:i=\overline{1,n}\}$. 
+                Luego,
+            </p>
+            <div class="calculation">
+                <div class="calculation__formule--1">
+                    $$S(f,A_n,P_n)$$
+                </div>
+                <div class="calculation__formule--2">
+                    <div>
+                        $$= \sum_{i=1}^n f(\xi_i)\Delta x_i $$
+                    </div>
+                    <div class="calculation__text">
+                        por Definición 1.5.1
+                    </div>
+                </div>
+                <div class="calculation__formule--2">
+                    <div>
+                        $$= \sum_{i=1}^n f(x_{i-1})\Delta x_i $$
+                    </div>
+                    <div class="calculation__text">
+                        por definición de $\xi_i$
+                    </div>
+                </div>
+                <div class="calculation__formule--2">
+                    <div>
+                        $$= \sum_{i=1}^n x_{i-1} \Delta x_i$$
+                    </div>
+                    <div class="calculation__text">
+                        por definición de $f$
+                    </div>
+                </div>
+                <div class="calculation__formule--2">
+                    <div>
+                        $$= \sum_{i=1}^n \left(1+\frac{i-1}{n} \right) \Delta x_i $$
+                    </div>
+                    <div class="calculation__text">
+                        por definición de $x_{i-1}$
+                    </div>
+                </div>
+                <div class="calculation__formule--2">
+                    <div>
+                        $$= \sum_{i=1}^n \left(1+\frac{i-1}{n} \right) \cdot \frac{1}{n} $$
+                    </div>
+                    <div class="calculation__text">
+                        por definición de $\Delta x_i$
+                    </div>
+                </div>
+                <div class="calculation__formule--2">
+                    <div>
+                        $$= \frac{1}{n}\sum_{i=1}^n 1 + \frac{1}{n^2}\sum_{i=1}^n (i-1) $$
+                    </div>
+                    <div class="calculation__text">
+                        por <span class="modal__reference" data-modal-btn="theorem-1-2-1">Teorema 1.2.1</span>
+                    </div>
+                </div>
+                <div class="calculation__formule--2">
+                    <div>
+                        $$= 1 + \frac{1}{n^2}\sum_{i=1}^{n-1} i $$
+                    </div>
+                    <div class="calculation__text">
+                        por definición de $\Sigma$
+                    </div>
+                </div>
+                <div class="calculation__formule--2">
+                    <div>
+                        $$= 1+\frac{1}{n^2} \cdot \frac{(n-1)n}{2} $$
+                    </div>
+                    <div class="calculation__text">
+                        por <span class="modal__reference" data-modal-btn="theorem-1-4-3">Teorema 1.4.3</span> <span class="modal__reference error" data-modal-btn="theorem-1-2-3">es el Teorema 1.2.3???</span>
+                    </div>
+                </div>
+                <div class="calculation__formule--2">
+                    <div>
+                        $$= \frac{3}{2}-\frac{1}{2n} $$
+                    </div>
+                    <div class="calculation__text">
+                        por algebrita
+                    </div>
+                </div>
+            </div>
+            <p class="paragraph">
+                Luego, por transitividad tenemos que $$ S(f,A_n,P_n)=\frac{3}{2}-\frac{1}{2n}.$$
+            </p>
+            <p class="paragraph">
+                De lo cual se deduce que $$\lim_{n\to\infty}S(f,A_n,P_n)=\frac{3}{2},$$ lo cual es precisamente el área de la región considerada.
+            </p>
+            <p class="paragraph">
+                Esto nos dice que si definimos adecuadamente un límite para las sumas de Riemann, nos puede condyucir a una forma de hallar la integral, en particular, encontrar el área bajo una curva.
+            </p>
+            <div class="definition">
+                <p class="paragraph">
+                    <strong>Definición 1.5.2. </strong>Sea $f:[a,b]\to \mathbf{R} $ una función acotada. 
+                    Definimos el límite de las sumas de Riemann de $f$ cuando la norma de las particiones tiende a cero como elnúmero <span class="error">pagina 51 falta espacio</span> real 
+                    $$L=\lim_{\|P\|\to 0}S(f,A,P),$$ el cual cumple que $\forall \varepsilon>0 $, $\exists \delta>0$, tal que $\forall P$ 
+                    partición de $[a,b]$ con $\|P\|<\delta$ y $\forall A$ selección de $P$, se tiene que $$|S(f,A,P)-L|< \varepsilon.$$
+                </p>
+            </div>
+            <p class="paragraph">
+                Este límite tiene algunas propiedades importantes, que serán la base de algunas propiedades importantes de la integral definida.
+            </p>
+            <div class="theorem">
+                <p class="paragraph">
+                    <strong>Teorema 1.5.2. </strong>Sean $f,g:[a,b]\to\mathbf{R}$ funciones acotadas y $\alpha \in\mathbf{R}$. Si $\lim_{\|P\|\to 0}S(f,A,P)$ y $\lim_{\|P\|\to 0}S(g,A,P)$ existen, entonces
+                </p>
+                <ol class="theorem__list">
+                    <li class="theorem__list--formule">
+                        El límite $\lim_{\|P\|\to 0}S(f,A,P)$ es único.
+                    </li>
+                    <li class="theorem__list--formule">
+                        El límite $\lim_{\|P\|\to 0}S(\alpha f,A,P)$ existe y $$\lim_{\|P\|\to 0}S(\alpha f,A,P)=\alpha \lim_{\|P\|\to 0}S(f,A,P).$$
+                    </li>
+                    <li class="theorem__list--formule">
+                        El límite $\lim_{\|P\|\to 0}S(f+g,A,P)$ existe y $$\lim_{\|P\|\to 0}S(f+g,A,P)=\lim_{\|P\|\to 0}S(f,A,P)+\lim_{\|P\|\to 0}S(g,A,P).$$
+                    </li>
+                    <li class="theorem__list--formule">
+                        Si $0\leq f(x), \forall x \in[a,b]$, entonces $$0 \leq \lim_{\|P\|\to 0}S(f,A,P).$$
+                    </li>
+                    <li class="theorem__list--formule">
+                        Si $g(x)\leq f(x), \forall x \in[a,b]$, entonces $$\lim_{\|P\|\to 0}S(g,A,P)\leq \lim_{\|P\|\to 0}S(f,A,P).$$
+                    </li>
+                    <li class="theorem__list--formule">
+                        Si $m\leq f(x)\leq M, \forall x \in[a,b]$, con $m,M\in\mathbf{R}$, entonces $$m(b-a) \leq  \lim_{\|P\|\to 0}S(f,A,P) \leq M(b-a).$$                        
+                    </li>
+                </ol>
+            </div>
+            <div class="proof">
+                <h3 class="header-tertiary">Demostración.</h3>
+                <ol class="proof__step">
+                    <li class="proof__step-item">
+                        Ejercicio
+                    </li>
+                    <li class="proof__step-item">
+                        Si $\alpha=0$, entonces $S(\alpha f,A, P)=0$ para toda $P$ partición de $[a,b]$ y toda selección $A$ de la partición $P$. 
+                        Así tendremos que $\lim_{\|P\|\to 0}S(f,A,P)=0$ y por lo tanto la igualdad se da de manera inmediata. Así que vamos a suponer que $\alpha\neq 0$. 
+                        Por hipótesis, $\lim_{\|P\|\to 0}S(f,A,P)$ existe y digamos que es $L$. Sea $\varepsilon>0$, como $\lim_{\|P\|\to 0}S(f,A,P)=L$, para $\frac{\varepsilon}{|\alpha|}>0$, 
+                        $\exists \delta_0>0$ tal que $\forall P$ partición de $[a,b]$ con $\|P\|<\delta$ y $\forall A$ selección de $P$, se tiene que 
+                        $$
+                            |S(f,A,P)-L|<\frac{\varepsilon}{|\alpha|} \cdots &#x1F600
+                        $$
+                        <p class="paragraph">
+                            Consideremos $\delta=\delta_0>0$. Sean $P=\{x_0,x_1,...,x_n\}$ una partición de $[a,b]$ con $\|P\|<\delta$ y $A=\{\xi_i: \xi_i\in[x_{i-1},x_i], i=\overline{1,n}\}$ 
+                            una selección de $P$. Entonces
+                        </p>
+                        <div class="calculation">
+                            <div class="calculation__formule--1">
+                                $$\left|S(\alpha f,A,P)-\alpha L \right|$$
+                            </div>
+                            <div class="calculation__formule--2">
+                                <div>
+                                    $$= \left| \sum_{i=1}^n (\alpha f)(\xi_i) \Delta x_i - \alpha L \right| $$
+                                </div>
+                                <div class="calculation__text">
+                                    por Definición 1.5.1
+                                </div>
+                            </div>
+                            <div class="calculation__formule--2">
+                                <div>
+                                    $$= \left| \sum_{i=1}^n [\alpha \cdot f(\xi_i)] \Delta x_i - \alpha L \right| $$
+                                </div>
+                                <div class="calculation__text">
+                                    por definición de  \alpha f
+                                </div>
+                            </div>
+                            <div class="calculation__formule--2">
+                                <div>
+                                    $$= \left| \alpha \sum_{i=1}^n f(\xi_i) \Delta x_i - \alpha L \right| $$
+                                </div>
+                                <div class="calculation__text">
+                                    por <span class="modal__reference" data-modal-btn="theorem-1-2-1">Teorema 1.2.1</span>
+                                </div>
+                            </div>
+                            <div class="calculation__formule--2">
+                                <div>
+                                    $$= \left| \alpha S(f,A,P) - \alpha L \right| $$
+                                </div>
+                                <div class="calculation__text">
+                                    por Definición 1.5.1
+                                </div>
+                            </div>
+                            <div class="calculation__formule--2">
+                                <div>
+                                    $$= |\alpha| \cdot \left| S(f,A,P) - L \right| $$
+                                </div>
+                                <div class="calculation__text">
+                                    por propiedades del valor absoluto
+                                </div>
+                            </div>
+                            <div class="calculation__formule--2">
+                                <div>
+                                    $$ < |\alpha| \cdot \frac{\varepsilon}{|\alpha|} $$
+                                </div>
+                                <div class="calculation__text">
+                                    por &#x1F600
+                                </div>
+                            </div>
+                            <div class="calculation__formule--2">
+                                <div>
+                                    $$= \varepsilon $$
+                                </div>
+                            </div>
+                        </div>
+                        <p class="paragraph">
+                            Finalmente, por transitividad, tenemos que $\forall \varepsilon>0 $, $\exists \delta>0$, tal que $\forall P$ partición de $[a,b]$ con $\|P\|<\delta$ y 
+                            $\forall A$ selección de $P$, se tiene que 
+                            $$|S(\alpha f,A,P)-\alpha L| < \varepsilon,$$ 
+                            es decir, $\lim_{\|P\|\to 0}S(\alpha f,A,P)=\alpha L$, y por lo tanto, 
+                            $$\lim_{\|P\|\to 0}S(\alpha f,A,P)=\alpha \lim_{\|P\|\to 0}S(f,A,P).$$
+                        </p>
+                    </li>
+                    <li class="proof__step-item">Ejercicio</li>
+                    <li class="proof__step-item">Ejercicio</li>
+                    <li class="proof__step-item">Ejercicio</li>
+                </ol>
+            </div>
+        </section>
+        <section>
+        <div class="fancy-line"></div>
+            <p class="paragraph">
+                Ahora veamos que en realidad, este límite que definimos es la integral definida que hemos construido.
+            </p>
+            <div class="theorem">
+                <p class="paragraph">
+                    <strong>Teorema 1.5.3.</strong> Sea $f:[a,b]\to\mathbb{R}$ una función acotada. La función $f$ es integrable en $[a,b]$ si y sólo si $\lim_{\|P\|\to 0}S(f,A,P)$ existe. Además, si el límite existe, entonces
+                        $$
+                            \lim_{\|P\|\to 0}S(f,A,P)=\int_a^b f(x)\,dx.
+                        $$
+                </p>
+            </div>
+            <div class="proof">
+                <h3 class="header-tertiary">Demostración en clase.</h3>
+            </div>
+            <p class="paragraph">
+                Ahora combinamos los Teoremas 1.5.2 y 1.5.3, para deducir el siguiente resultado.
+            </p>
+            <div class="theorem">
+                <p class="paragraph">
+                    <strong>Teorema 1.5.4.</strong> Si $f,g:[a,b]\to\mathbf{R}$ son funciones integrables y $\alpha \in \mathbf{R}$, entonces
+                </p>
+                <ol class="theorem__list">
+                    <li class="theorem__list--formule">
+                       $$\int_a^b (\alpha f)(x)\,dx=\alpha \int_a^b f(x)\,dx$$
+                    </li>
+                    <li class="theorem__list--formule">
+                        $$\int_a^b (f+g)(x)\,dx=\int_a^b f(x)\,dx+\int_a^b g(x)\,dx$$
+                    </li>
+                    <li class="theorem__list--formule">
+                        Si $0\leq f(x), \forall x\in[a,b]$, entonces $$0\leq \int_a^b f(x)\,dx.$$
+                    </li>
+                    <li class="theorem__list--formule">
+                        Si $g(x)\leq f(x), \forall x\in[a,b]$, entonces $$\int_a^b g(x)\,dx \leq \int_a^b f(x)\,dx.$$
+                    </li>
+                    <li class="theorem__list--formule">
+                        Si $m\leq f(x)\leq M, \forall x\in[a,b]$, con $m,M\in\mathbf{R}$, entonces $$m(b-a)\leq \int_a^b f(x)\,dx \leq M(b-a).$$
+                    </li>
+                </ol>
+            </div>
+            <div class="proof">
+                <h3 class="header-tertiary">Demostración.</h3>
+                <ol class="proof__step">
+                    <li class="proof__step-item">
+                        Por hipótesis, $f$ es integrable y $\alpha \in\mathbf{R}$, así que por Teorema 1.5.3, existe $\lim_{\|P\|\to 0}S(f,A,P)$ y además 
+                        $\lim_{\|P\|\to 0}S(f,A,P)=\int_a^b f(x)\,dx$. Luego, por 2) del Teorema 1.5.2, $\lim_{\|P\|\to 0}S(\alpha f,A,P)$ existe y además, 
+                        $\lim_{\|P\|\to 0}S(\alpha f,A,P)=\alpha \lim_{\|P\|\to 0}S(f,A,P)$. 
+                        Pero, por Teorema 1.5.3, $\lim_{\|P\|\to 0}S(\alpha f,A,P)=\int_a^b (\alpha f)(x)\,dx$. 
+                        Finalmente, se obtiene que $$\int_a^b (\alpha f)(x)\,dx=\alpha \int_a^b f(x)\,dx.$$
+                    </li>
+                    <li class="proof__step-item">
+                        Por hipótesis, $f$ y $g$ son funciones integrables en $[a,b]$. Luego, por Teorema 1.5.3, existen $\lim_{\|P\|\to 0}S(f,A,P)$ y 
+                        $\lim_{\|P\|\to 0}S(g,A,P)$, y además $\lim_{\|P\|\to 0}S(f,A,P)=\int_a^b f(x)\,dx$ y $\lim_{\|P\|\to 0}S(g,A,P)=\int_a^b g(x)\,dx$. 
+                        Entonces, por 3) del Teorema 1.5.2,  existe $\lim_{\|P\|\to 0}S(f+g,A,P)$ y 
+                        $\lim_{\|P\|\to 0}S(f+g,A,P)=\lim_{\|P\|\to 0}S(f,A,P)+\lim_{\|P\|\to 0}S(g,A,P)$. 
+                        Por el Teorema 1.5.3, $\lim_{\|P\|\to 0}S(f+g,A,P)=\int_a^b (f+g)(x)\,dx$. 
+                        Finalmente, por transitividad, $$\int_a^b (f+g)(x)\,dx=\int_a^b f(x)\,dx+\int_a^b g(x)\,dx.$$
+                    </li>
+                </ol>
+            </div>
+            <p class="paragraph">
+                3), 4) y 5) quedan como ejercicio (se trabajan de manera análoga).
+            </p>
+            <p class="paragraph">
+                Una vez que hemos visto las propiedades algebraicas más importantes de las integrales definidas, es el momento de ampliar la clase de funciones integrables y 
+                para eso debemos ver el Teorema Fundamental del Cálculo.
+            </p>
+        </section>
+    </main>
+    <div class="modal" data-modal="theorem-1-2-1">
+        <div class="modal__background" data-modal-background="theorem-1-2-1"></div>
+        <div class="modal__content">
+            <div class="theorem">
+                <p class="paragraph">
+                    <strong>Teorema 1.2.1 </strong>(Linealidad). Sean $n ∈ \mathbf{N}, a_i, b_i ∈ \mathbf{R}$, para toda $i = 1, n,$ y $c ∈ \mathbf{R}$,
+                    entonces:
+                </p>
+                <ol class="theorem__list">
+                    <li class="theorem__list--formule">
+                        $$\sum_{i=1}^{n} (ca_i) = c\sum_{i=1}^{n} a_i$$
+                    </li>
+                    <li class="theorem__list--formule">
+                        $$\sum_{i=1}^{n} (a_i + b_i) = \sum_{i=1}^{n} a_i + \sum_{i=1}^{n} a_i$$
+                    </li>
+                    <li class="theorem__list--formule">
+                        $$\sum_{i=1}^{n} (a_i - b_i) = \sum_{i=1}^{n} a_i - \sum_{i=1}^{n} a_i$$
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <div class="modal" data-modal="theorem-1-4-3">
+        <div class="modal__background" data-modal-background="theorem-1-4-3"></div>
+        <div class="modal__content">
+            <div class="theorem">
+                <p class="paragraph">
+                    <strong>Teorema 1.4.3.</strong> Si $f:[a,b]\to\mathbf{R}$ es una función acotada y además $P$ y $Q$ son particiones de $[a,b]$, entonces 
+                    $ \underline{S}(f,P)\leq \overline{S}(f,Q)$.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="modal" data-modal="theorem-1-2-3">
+        <div class="modal__background" data-modal-background="theorem-1-2-3"></div>
+        <div class="modal__content">
+            <div class="theorem">
+                <p class="paragraph">
+                    <strong>Teorema 1.2.3 </strong>. Para toda $n ∈ \mathbf{N}$ se cumple que
+                </p>
+                <ol class="theorem__list">
+                    <li class="theorem__list--formule">
+                        $$\sum_{i=1}^{n} i = \frac{n(n+1)}{2};$$
+                    </li>
+                    <li class="theorem__list--formule">
+                        $$\sum_{i=1}^{n} i^2 = \frac{n(n+1)(2n+1)}{6};$$
+                    </li>
+                    <li class="theorem__list--formule">
+                        $$\sum_{i=1}^{n} i^3 = \left[ \frac{n(n+1)}{2} \right]^2;$$
+                    </li>
+                    <li class="theorem__list--formule">
+                        $$\sum_{i=1}^{n} i^4 = \frac{n(n+1)(2n+1)(3n^2+3n-1)}{30};$$
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

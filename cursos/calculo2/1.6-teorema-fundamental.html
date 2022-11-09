@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/style.css">
+    
+    <script src="./scripts/variables.js" defer></script>
+    <script src="../../scripts/question.js" defer></script>
+    <script src="../../scripts/modal.js" defer></script>
+
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+            loader: {load: ['input/asciimath', 'output/chtml']}
+        }
+    </script>
+    <script id="MathJax-script" async src="/scripts/MathJax-master/es5/tex-chtml.js"></script>
+    <!-- <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+    </script> -->
+
+    <title>Cálculo de áreas con rectángulos inscritos y circunscritos</title>
+</head>
+<body class="course">
+    <nav class="navbar">
+        <a href="/" class="navbar__logo-box">
+        </a>
+        <a href="/" class="navbar__link">
+            Inicio
+        </a>
+        <a href="/example.html" class="navbar__link">
+            Ejemplo
+        </a>
+        <a href="#" class="navbar__link navbar__link--active">
+            Cálculo 2
+        </a>
+    </nav>
+    <nav class="sidebar">
+        <ol class="subject-list">
+            <li class="subject-list__item">
+                <strong class="subject-list__title">1 La integral definida</strong>
+                <ol class="subject-list">
+                    <li class="subject-list__item"><a href="./index.html" class="subject-list__link">1.1 Introducción</a></li>
+                    <li class="subject-list__item">
+                        <a href="./1.2-Sumatoria.html" class="subject-list__link">1.2 El símbolo $\sum$</a>
+                        <ol class="subject-list">
+                            <li class="subject-list__item"><a href="./1.2-Sumatoria.html#1.2" class="subject-list__link">1.2.1 Formalizando el símbolo sumatorio</a></li>
+                            <li class="subject-list__item"><a href="./1.2.2-propiedades.html" class="subject-list__link">1.2.2 Propiedades del símbolo $\sum$</a></li>
+                        </ol>
+                    </li>
+                    <li class="subject-list__item"><a href="./1.3-calculo-de-areas.html" class="subject-list__link">1.3 Cálculo de  ́areas con rect. insc. y circuns.</a></li>
+                    <li class="subject-list__item"><a href="./1.4-integral-definida.html" class="subject-list__link">1.4 Construcción de la integral definida</a></li>
+                    <li class="subject-list__item"><a href="./1.5-sumas-riemann.html" class="subject-list__link">1.5 Sumas de Riemann</a></li>
+                    <li class="subject-list__item"><a href="#" class="subject-list__link subject-list__link--active">1.6 Teorema fundamental del Cálculo y sus consecuencias</a></li>
+                    <li class="subject-list__item"><a href="#" class="subject-list__link">1.7 Ejercicios</a></li>
+                </ol>
+            </li>
+            <li class="subject-list__item">
+                <strong class="subject-list__title">2 La integral indefinida</strong>
+                <ol class="subject-list">
+                    <li class="subject-list__item"><a href="#" class="subject-list__link">2.1 Introducción</a></li>
+                    <li class="subject-list__item"><a href="#" class="subject-list__link">2.2 Antiderivadas inmediatas</a></li>
+                    <li class="subject-list__item"><a href="#" class="subject-list__link">2.3 Método de int. por sust. o cambio de variable</a></li>
+                    <li class="subject-list__item"><a href="#" class="subject-list__link">2.4 Método de integración por partes</a></li>
+                    <li class="subject-list__item">
+                        <a href="#" class="subject-list__link">2.5 Método de integración por fracciones parciales</a>
+                        <ol class="subject-list">
+                            <li class="subject-list__item"><a href="#" class="subject-list__link">2.5.1 El polinomio $Q(x)$ solo contiene factores lineales que no se repiten</a></li>     
+                            <li class="subject-list__item"><a href="#" class="subject-list__link">2.5.2 El polinomio $Q(x)$ solo contiene factores lineales, pero algunos de ellos se repetidos</a></li>     
+                            <li class="subject-list__item"><a href="#" class="subject-list__link">2.5.3 Integrales de funciones simples que involucran términos cuadráticos irreducibles</a></li>     
+                            <li class="subject-list__item"><a href="#" class="subject-list__link">2.5.4 El polinomio Q(x) contiene factores cuadráticos irreducibles que no se repiten</a></li>     
+                            <li class="subject-list__item"><a href="#" class="subject-list__link">2.5.5 El polinomio Q(x) contiene factores cuadráticos irreducibles que se repiten</a></li>     
+                        </ol>
+                    </li>
+                    <li class="subject-list__item"><a href="#" class="subject-list__link">2.6 Met. de int. por sust. trigonométrica</a></li>     
+                </ol>
+            </li>
+            <li class="subject-list__item">
+                <strong class="subject-list__title">3 Integrales impropias y aplicaciones</strong>
+                <ol class="subject-list">
+                    <li class="subject-list__item"><a href="#" class="subject-list__link">3.1 Integrales impropias</a></li>
+                    <li class="subject-list__item"><a href="#" class="subject-list__link">3.2 Más integrales impropias (para funciones discontinuas)</a></li>
+                    <li class="subject-list__item"><a href="#" class="subject-list__link">3.3 Cálculo de áreas de regiones acotadas pro curvas</a></li>   
+                </ol>
+            </li>
+        </ol>
+    </nav>
+    
+    <main class="main">
+        <section>
+            <h1 class="header-primary">
+                1.6 Teorema Fundamental del Cálculo
+            </h1>
+            <p class="paragraph">
+                Vamos a ver una clase muy importante de funciones integrables, a saber, las funciones continuas, además de que veremos la relación tan estrecha 
+                que hay entre la integral definida y la derivada.
+            </p>
+            <div class="theorem">
+                <p class="paragraph">
+                    <strong>Teorema 1.6.1.</strong> Sea $f:[a.b]\to\mathbf{R}$ una función continua. 
+                </p>
+                <ul class="theorem__list">
+                    <li class="theorem__list-item">
+                        Si $F:[a,b]\to\mathbf{R}$ está dada por 
+                        $$F(x)={\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^x f(t)\,dt \quad \mbox{ si } \quad x\in(a,b] \quad \mbox{y} \quad F(a)=0,$$ entonces 
+                        $$\lim_{h\to 0}\frac{F(x+h)-F(x)}{h}=f(x) \quad \mbox{ para } \quad x\in(a,b),$$  
+                        $$\lim_{h\to 0^+}\frac{F(a+h)-F(a)}{h}=f(a) \quad \mbox{ y } \quad \lim_{h\to 0^-}\frac{F(b+h)-F(b)}{h}=f(b).$$
+                    </li>
+                    <li class="theorem__list-item">
+                        Si $G:[a,b]\to\mathbf{R}$ está dada por 
+                        $$G(x)={\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^x f(t)\,dt \quad \mbox{ si } \quad x\in(a,b] \quad \mbox{y} \quad G(a)=0,$$ entonces 
+                        $$\lim_{h\to 0}\frac{G(x+h)-G(x)}{h}=f(x) \quad \mbox{ para } \quad x\in(a,b),$$  
+                        $$\lim_{h\to 0^+}\frac{G(a+h)-G(a)}{h}=f(a) \quad \mbox{ y } \quad \lim_{h\to 0^-}\frac{G(b+h)-G(b)}{h}=f(b).$$                        
+                    </li>
+                </ul>
+            </div>
+            <div class="proof">
+                <h3 class="header-tertiary">
+                    Demostración.
+                </h3>
+                <ul class="proof__step">
+                    <li class="prof__step-item">
+                        Sea $x\in[a,b]$, en donde $f$ es continua o continua por la izquierda o continua por la derecha, pues $f$ es continua por hipótesis. Tenemos que
+                        <div class="calculation">
+                            <div class="calculation__formule--1">
+                                $$\frac{F(x+h)-F(x)}{h}$$
+                            </div>
+                            <div class="calculation__formule--2">
+                                <div>
+                                    $$=  \frac{1}{h}[F(x+h)-F(x)] $$
+                                </div>
+                                <div class="calculation__text">
+                                    por suma de fracciones
+                                </div>
+                            </div>
+                            <div class="calculation__formule--2">
+                                <div>
+                                    $$=  \frac{1}{h} \left[ {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^{x+h} f(t)\,dt - {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^x f(t)\,dt \right]$$
+                                </div>
+                                <div class="calculation__text">
+                                    por definición de $F$
+                                </div>
+                            </div>
+                        </div>
+                        Para $h>0$, suficientemente pequeña, tal que $a\leq x < x+h< b $, por 1) del <span class="modal__reference" data-modal-btn="theorem-1-4-7">Teorema 1.4.7</span> ,  tenemos que 
+                        $$ {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^{x+h} f(t)\,dt =  {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^x f(t)\,dt+ {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_x^{x+h} f(t)\,dt,$$ 
+                        de lo cual se deduce que 
+
+                        <div class="calculation">
+                            <div class="calculation__formule--1">
+                                $$\frac{F(x+h)-F(x)}{h}$$
+                            </div>
+                            <div class="calculation__formule--2">
+                                <div>
+                                    $$= \frac{1}{h} {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_x^{x+h} f(t)\,dt. $$
+                                </div>
+                                <div class="calculation__text">
+                                    (1.1)
+                                </div>
+                            </div>
+                        </div>
+                        Por otro lado, como $h>0$, por 3) del <span class="modal__reference" data-modal-btn="theorem-1-4-7">Teorema 1.4.7</span>, tenemos que 
+                        $${\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_x^{x+h} [f(t)-f(x)]\,dt={\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_x^{x+h} f(t)\,dt-hf(x).$$ 
+                        Y así,
+                        <div class="calculation">
+                            <div class="calculation__formule--1">
+                                $$f(x)$$
+                            </div>
+                            <div class="calculation__formule--2">
+                                <div>
+                                    $$= \frac{1}{h} {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_x^{x+h} f(t)\,dt - \frac{1}{h} {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_x^{x+h} [f(t)-f(x)]\,dt $$
+                                </div>
+                                <div class="calculation__text">
+                                    (1.2)
+                                </div>
+                            </div>
+                        </div>
+
+                        Entonces, por (1.1) y (1.2),
+                        <div class="calculation">
+                            <div class="calculation__formule--1">
+                                $$\frac{F(x+h)-F(x)}{h}-f(x)$$
+                            </div>
+                            <div class="calculation__formule--2">
+                                <div>
+                                    $$= \frac{1}{h} {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_x^{x+h} f(t)\,dt -\frac{1}{h} {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_x^{x+h} f(t)\,dt + \frac{1}{h} {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_x^{x+h} [f(t)-f(x)]\,dt $$
+                                </div>
+                            </div>
+                            <div class="calculation__formule--2">
+                                <div>
+                                    $$= \frac{1}{h} {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_x^{x+h} [f(t)-f(x)]\,dt.$$
+                                </div>
+                                <div class="calculation__text">
+                                    (1.3)
+                                </div>
+                            </div>
+                        </div>
+                        Definiendo el conjunto $A_h=\{f(t)-f(x):t\in[x,x+h]\}$, para $h>0$, entonces
+                        <div class="calculation">
+                            <div class="calculation__formule--1">
+                                $$ h\inf A_h $$
+                            </div>
+                            <div class="calculation__formule--2">
+                                <div>
+                                    $$ \leq {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_x^{x+h} [f(t)-f(x)]\,dt \leq h\sup A_h$$
+                                </div>
+                                <div class="calculation__text">
+                                    2) del <span class="modal__reference" data-modal-btn="theorem-1-4-7">Teorema 1.4.7</span>
+                                </div>
+                            </div>
+                            <div class="calculation__formule--1">
+                                $$\Leftrightarrow \inf A_h$$
+                            </div>
+                            <div class="calculation__formule--2">
+                                <div>
+                                    $$ \leq \frac{1}{h}{\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_x^{x+h} [f(t)-f(x)]\,dt \leq \sup A_h, $$
+                                </div>
+                                <div class="calculation__text">
+                                    dividiendo todo entre $h$
+                                </div>
+                            </div>
+                            <div class="calculation__formule--1">
+                                $$\Leftrightarrow \inf A_h$$
+                            </div>
+                            <div class="calculation__formule--2">
+                                <div>
+                                    $$ \leq \frac{F(x+h)-F(x)}{h}-f(x) \leq \sup A_h, $$
+                                </div>
+                                <div class="calculation__text">
+                                    por $(1.3)$
+                                </div>
+                            </div>
+                            <div class="calculation__formule--1">
+                                $$\Leftrightarrow \lim_{h\to0^+}\inf A_h$$
+                            </div>
+                            <div class="calculation__formule--2">
+                                <div>
+                                    $$ \leq \lim_{h\to0^+}\left[\frac{F(x+h)-F(x)}{h}-f(x)\right] \leq \lim_{h\to0^+}\sup A_h, $$
+                                </div>
+                                <div class="calculation__text">
+                                    por prop. de límites
+                                </div>
+                            </div>
+                        </div>
+                        Como $f$ es una función continua a la derecha en $x$, entonces $\lim_{h\to0^+}\inf A_h=0=\lim_{h\to0^+}\sup A_h$. 
+                        De donde se obtiene que $\lim_{h\to0^+}\left[\frac{F(x+h)-F(x)}{h}-f(x)\right]=0$, es decir, 
+                        $$\lim_{h\to0^+}\frac{F(x+h)-F(x)}{h}=f(x) \cdots &#x1F600$$
+                        
+                        <p class="paragraph">
+                            Si ahora tomamos $h < 0 $ tal que $a\leq x+h < x \leq b$, entonces 
+                        </p>
+                        <div class="calculation">
+                            <div class="calculation__formule--1">
+                                $$\frac{1}{h} {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^{x+h} f(t)\,dt$$
+                            </div>
+                            <div class="calculation__formule--2">
+                                <div>
+                                    $$= \frac{1}{h} {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^{x+h} f(t)\,dt+\frac{1}{h} {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_{x+h}^x f(t)\,dt-\frac{1}{h} {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_{x+h}^x f(t)\,dt $$
+                                </div>
+                            </div>
+                            <div class="calculation__formule--2">
+                                <div>
+                                    $$= \frac{1}{h} {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^x f(t)\,dt-\frac{1}{h} {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_{x+h}^x f(t)\,dt $$
+                                </div>
+                                <div class="calculation__text">
+                                    por <span class="modal__reference" data-modal-btn="theorem-1-4-7">Teorema 1.4.7</span>
+                                </div>
+                            </div>
+                        </div>
+                        Usando esto y la definición de $F$, en analogía con (1.1), se tiene que
+                        <div class="calculation">
+                            <div class="calculation__formule--1">
+                                $$\frac{F(x+h)-F(x)}{h}$$
+                            </div>
+                            <div class="calculation__formule--2">
+                                <div>
+                                    $$= -\frac{1}{h}{\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_{x+h}^x f(t)\,dt. $$
+                                </div>
+                                <div class="calculation__text">
+                                    (1.4)
+                                </div>
+                            </div>
+                        </div>
+                        Como $h< 0 $, por 3) del <span class="modal__reference" data-modal-btn="theorem-1-4-7">Teorema 1.4.7</span>, 
+                        $${\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_{x+h}^x [f(t)-f(x)]\,dt={\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_{x+h}^x f(t)\,dt-(-h)f(x).$$ 
+                        De donde obtenemos
+                        <div class="calculation">
+                            <div class="calculation__formule--1">
+                                $$f(x)$$
+                            </div>
+                            <div class="calculation__formule--2">
+                                <div>
+                                    $$= -\frac{1}{h}{\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_{x+h}^x f(t)\,dt+\frac{1}{h} {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_{x+h}^x [f(t)-f(x)]\,dt $$
+                                </div>
+                                <div class="calculation__text">
+                                    (1.5)
+                                </div>
+                            </div>
+                        </div>      
+                        Luego, usando (1.4) y (1.5), se deduce                  
+                        <div class="calculation">
+                            <div class="calculation__formule--1">
+                                $$\frac{F(x+h)-F(x)}{h}-f(x)$$
+                            </div>
+                            <div class="calculation__formule--2">
+                                <div>
+                                    $$= -\frac{1}{h} {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_{x+h}^x f(t)\,dt +\frac{1}{h} {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_{x+h}^x f(t)\,dt - \frac{1}{h} {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_{x+h}^x [f(t)-f(x)]\,dt $$
+                                </div>
+                            </div>
+                            <div class="calculation__formule--2">
+                                <div>
+                                    $$= -\frac{1}{h} {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_{x+h}^x [f(t)-f(x)]\,dt. $$
+                                </div>
+                                <div class="calculation__text">
+                                    (1.6)
+                                </div>
+                            </div>
+                        </div>
+                        Ahora, definiendo el conjunto $B_h=\{f(t)-f(x):t\in[x+h,x]\}$, para $h < 0$, entonces
+                        <div class="calculation">
+                            <div class="calculation__formule--1">
+                                $$-h\inf B_h$$
+                            </div>
+                            <div class="calculation__formule--2">
+                                <div>
+                                    $$\leq {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_{x+h}^x [f(t)-f(x)]\,dt \leq -h\sup B_h, $$
+                                </div>
+                                <div class="calculation__text">
+                                    2) del <span class="modal__reference" data-modal-btn="theorem-1-4-7">Teorema 1.4.7</span>
+                                </div>
+                            </div>
+                            <div class="calculation__formule--1">
+                                $$\Leftrightarrow \inf B_h$$
+                            </div>
+                            <div class="calculation__formule--2">
+                                <div>
+                                    $$ \leq -\frac{1}{h}{\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_{x+h}^x [f(t)-f(x)]\,dt \leq \sup B_h, $$
+                                </div>
+                                <div class="calculation__text">
+                                    dividiendo todo entre $-h$
+                                </div>
+                            </div>
+                            <div class="calculation__formule--1">
+                                $$\Leftrightarrow \inf B_h$$
+                            </div>
+                            <div class="calculation__formule--2">
+                                <div>
+                                    $$ \leq \frac{F(x+h)-F(x)}{h}-f(x) \leq \sup B_h, $$
+                                </div>
+                                <div class="calculation__text">
+                                    por (1.6)
+                                </div>
+                            </div>
+                            <div class="calculation__formule--1">
+                                $$ \Leftrightarrow \lim_{h\to0^-}\inf B_h$$
+                            </div>
+                            <div class="calculation__formule--2">
+                                <div>
+                                    $$ \leq \lim_{h\to0^-}\left[\frac{F(x+h)-F(x)}{h}-f(x)\right] \leq \lim_{h\to0^-}\sup B_h, $$
+                                </div>
+                                <div class="calculation__text">
+                                    por prop. de límites
+                                </div>
+                            </div>
+                        </div>
+                        Como $f$ es una función continua a la izquierda en $x$, entonces $\lim_{h\to0^-}\inf B_h=0=\lim_{h\to0^-}\sup B_h$. 
+                        De donde se obtiene que $\lim_{h\to0^-}\left[\frac{F(x+h)-F(x)}{h}-f(x)\right]=0$, es decir, 
+                        $$\lim_{h\to0^-}\frac{F(x+h)-F(x)}{h}=f(x) \cdots &#x1F626; $$
+
+                        Finalmente, por &#x1F600; y &#x1F626;, se deduce que $$\lim_{h\to0}\frac{F(x+h)-F(x)}{h}=f(x).$$
+                    </li>
+                    <li class="proof__step-item">Se demuestra de forma análoga.</li>
+                </ul>
+            </div>
+            <p class="paragraph">
+                <strong>Nota: </strong>En realidad lo que se demuestra en este Teorema es que $F'(x)=f(x)$ y $G'(x)=f(x)$, para toda $x\in[a,b]$, entendiendo que en $a$ y en $b$ se usa derivada lateral.
+            </p>
+            <p class="paragraph">
+                Una de las primeras consecuencias del Teorema Fundamental del Cálculo que toda función continua definida en un intervalo cerrado es integrable.
+            </p>
+            <p class="paragraph">
+                Una de las primeras consecuencias del Teorema Fundamental del Cálculo que toda función continua definida en un intervalo cerrado es integrable.
+            </p>
+            <div class="theorem">
+                <p class="paragraph">
+                    <strong>Teorema 1.6.2. </strong>Si $f:[a,b]\to\mathbf{R}$ es una función continua, entonces $f$ es integrable en $[a,b]$.
+                </p>
+            </div>
+            <div class="proof">
+                <p class="paragraph">
+                    Por el Teorema 1.6.1, usando las funciones $F$ y $G$ definidas en ese Teorema, tenemos que $\forall x\in[a,b]:F'(x)=G'(x)$. Del Teorema del Valor Medio para derivadas, obtenemos que $\forall x\in[a,b]:F(x)=G(x)+C$, con $C$ una constante arbitraria. 
+                </p>
+                <p class="paragraph">
+                    Además, por el Teorema 1.6.1, sabemos que $F(a)=0$ y $G(a)=0$, esto indica que $C=0$. Luego, $\forall x\in[a,b]:F(x)=G(x)$. En particular, tenemos que $F(b)=G(b)$, es decir, 
+                    $${\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b f(x)\,dx={\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx,$$
+                    y por lo tanto $f$ es integrable en $[a,b]$.
+                </p>
+            </div>
+        </section>
+        <section>
+            <div class="fancy-line"></div>
+            <p class="paragraph">
+                Puede reescribirse el TFC usando el Teorema 1.6.1 y queda de una forma más compacta.
+            </p>
+            <div class="theorem">
+                <p class="paragraph">
+                    <strong>Corolario 1.6.1. </strong>Si $f:[a,b]\to\mathbf{R}$ es una función continua entonces la función $F:[a,b]\to\mathbf{R}$, dada por $F(x)=\int_a^x f(t)\,dt$, es derivable y además $F'(x)=f(x), \forall x\in[a,b]$.
+                </p>
+            </div>
+            <p class="paragraph">
+                <strong>Nota: </strong>El corolario en realidad indica que $\frac{d}{dx}\int_a^x f(t)\,dt=f(x)$.
+            </p>
+            <div class="example">
+                <p class="paragraph example__paragraph">
+                    <strong>Ejemplo 1.6.1. </strong>Encuentra la derivada de la integral $\int_a^x \frac{\sin t}{2+\sin^2 t}\,dt$.
+                </p>
+                <p class="paragraph">
+                    Notemos que la función $f(t)=\frac{\sin t}{2+\sin^2 t}$ es una función continua en $\mathbf{R}$. Luego,
+                </p>
+                <div class="calculation">
+                    <div class="calculation__formule--1">
+                        $$\frac{d}{x}\int_a^x \frac{\sin t}{2+\sin^2 t}\,dt$$
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \frac{d}{dx}\int_a^x f(t)\,dt $$
+                        </div>
+                        <div class="calculation__text">
+                            por la definición de $f$
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= f(x) $$
+                        </div>
+                        <div class="calculation__text">
+                            por el Teorema 1.6.1
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \frac{\sin x}{2+\sin^2 x} $$
+                        </div>
+                        <div class="calculation__text">
+                            por la definición de $f$
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="paragraph">
+                Combinando el TFC con la regla de la cadena es posible obtener derivadas más complicadas.
+            </p>
+            <div class="example">
+                <p class="paragraph example__paragraph">
+                    <strong>Ejemplo 1.6.2. </strong>Obtener la derivada de la función $\int_0^{x^2} e^{t^2}\,dt$.
+                </p>
+                <p class="paragraph">
+                    Sabemos que la función $f(t)=e^{t^2}$ es una función continua en $\mathbf{R}$. Definiendo $F(x)= \int_0^{x^2} e^{t^2}\,dt$ y $G(y)=\int_0^{y} e^{t^2}\,dt$, 
+                    entonces, tenemos que $F(x)= \int_0^{x^2} f(t)\,dt$ y $G(y)= \int_0^y f(t)\,dt$. Luego, por el Teorema 1.6.1, $G'(y)=f(y)$.
+                </p>
+                <p class="paragraph">
+                    Si hacemos el cambio de variable $u(x)=x^2$, entonces $F(x)=G(u(x))$. Luego,
+                </p>
+                <div class="calculation">
+                    <div class="calculation__formule--1">
+                        $$\frac{d}{dx}F(x)$$
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \frac{d}{dx}G(u(x)) $$
+                        </div>
+                        <div class="calculation__text">
+                            por la definición de $F,G$ y $u$
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= G'(u(x))\cdot u'(x) $$
+                        </div>
+                        <div class="calculation__text">
+                            por la regla de la cadena
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= f(u(x))\cdot 2x $$
+                        </div>
+                        <div class="calculation__text">
+                            por el Teorema 1.6.1
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= f(x^2)\cdot 2x $$
+                        </div>
+                        <div class="calculation__text">
+                            por la definición de $u$
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= e^{x^4}\cdot 2x $$
+                        </div>
+                        <div class="calculation__text">
+                            por la definición de $f$
+                        </div>
+                    </div>
+                </div>
+                <p class="paragraph">
+                    Finalmente, por transitividad, $$\frac{d}{dx}\int_0^{x^2} e^{t^2}\,dt=2xe^{x^4}. $$
+                </p>
+            </div>
+            <p class="paragraph">
+                Ahora veamos uno de los resultados que nos permiten calcular la integral evaluando en un punto especial.
+            </p>
+            <div class="theorem">
+                <p class="paragraph">
+                    <strong>Teorema 1.6.7. </strong>Si $f:[a,b]\to\mathbf{R}$ es una función continua, entonces existe $c\in(a,b)$ tal que $$\int_a^b f(x)\,dx=f(c)\cdot(b-a).$$
+                </p>
+            </div>
+            <div class="fancy-line"></div>
+            <div class="change-page">
+                <a href="./1.5-sumas-riemann.html" class="change-page__before">Anterior</a>
+                <a href="#" class="change-page__next">Siguiente</a>
+            </div>
+        </section>
+    </main>
+    <div class="modal" data-modal="theorem-1-4-7">
+        <div class="modal__background" data-modal-background="theorem-1-4-7"></div>
+        <div class="modal__content">
+            <p class="paragraph">
+                <strong>Teorema 1.4.7.</strong> Sea $f:[a,b]\to \mathbf{R} $ una función acotada.
+            </p>
+            <ul class="theorem__list">
+                <li class="theorem__list-item">
+                    Si $c\in[a,b]$, entonces 
+                    $$
+                        {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b f(x)\,dx = 
+                        {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^c f(x)\,dx + {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_c^b f(x)\,dx,$$ y 
+                        análogamente 
+                    $$
+                        {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx = 
+                        {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^c f(x)\,dx + {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_c^b f(x)\,dx.
+                    $$
+                </li>
+                <li class="theorem__list-item">
+                    Si $M=\sup\{f(x):x\in[a,b]\}$ y $m=\inf\{f(x):x\in[a,b]\}$, entonces 
+                    $$
+                        m(b-a) \leq {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx \leq 
+                        {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b f(x)\,dx \leq M(b-a).
+                    $$
+                </li>
+                <li class="theorem__list-item">
+                    Si $c\in \mathbf{R}$, entonces 
+                    $$
+                        {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b [f(x)+c]\,dx=
+                        {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b f(x)\,dx+c(b-a)
+                    $$ 
+                        y además 
+                    $$
+                        {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b [f(x)+c]\,dx=
+                        {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx+c(b-a).
+                    $$
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

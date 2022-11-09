@@ -670,11 +670,13 @@ div[data-anchor]:target::before {
   align-items: center;
   justify-content: left;
   column-gap: 4rem;
+  width: 100%;
 }
 .calculation__text {
   grid-column: 3/3;
   font-style: italic;
   font-size: 1.6rem;
+  margin-left: auto;
 }
 
 .overline {

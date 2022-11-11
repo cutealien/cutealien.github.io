@@ -7,7 +7,7 @@ modalBtns.forEach(btn => {
         modal.classList.add('modal--active')
         modal.querySelector('.modal__content').scrollTop = 0
         // modal.scrollTop = 0
-        document.querySelector('body').style.overflow = 'hidden'
+        // document.querySelector('body').style.overflow = 'hidden'
     })
     modalBack.addEventListener('click', () => {
         modal.classList.remove('modal--active')

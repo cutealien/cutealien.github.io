@@ -6,24 +6,19 @@
 
 .modal {
     position: fixed;
-    // transform: translate(-50%, -50%);
-    // top: 50%;
-    // left: 50%;
-    // bottom: 0;
-    // right: 0;
     top: 0;
     left: 0;
-    height: 0%;
-    width: 0%;
+    height: 100%;
+    width: 100%;
     opacity: 0;
+    transform: scale(0);
     visibility: hidden;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease-in-out;
     z-index: 10;
 
     &--active{
-        height: 100%;
-        width: 100%;
         opacity: 1;
+        transform: scale(1);
         visibility: visible;
     }
 

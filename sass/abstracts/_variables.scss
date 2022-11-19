@@ -1,12 +1,12 @@
-$color-yellow: #c5b348;
-$color-blue: rgb(17, 128, 202);
-$color-blue-light: rgb(81, 152, 199);
-$color-blue-dark: rgb(16, 114, 180);
+$color-secondary: #dfa01f;
+$color-primary: rgb(17, 128, 202);
+$color-primary-light: rgb(81, 152, 199);
+$color-primary-dark: rgb(16, 114, 180);
+$color-tertiary: #d74180;
 $color-green: rgb(11, 124, 58);
 $color-green-light: rgb(20, 243, 131);
 $color-red: rgb(150, 18, 18);
 $color-red-light: rgb(243, 148, 148);
-$color-purple: rgb(123, 30, 160);
 
 $color-gray: #979797;
 $color-gray-light: #d0d0d0;
@@ -26,3 +26,12 @@ $bp-large: 1200px;
 $bp-medium: 1000px;
 $bp-small: 600px;
 $bp-smallest: 500px;
+
+:root {
+    --color-primary: #1180ca;
+    --color-primary-light: #59a9df;
+    --color-primary-dark: #003777;
+    --color-secondary: #dfa01f;
+    --color-tertiary: #d74180;
+    --color-green: #0b7c3a;
+}

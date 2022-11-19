@@ -3,16 +3,16 @@
     top: 15px;
     right: 15px;
     outline: none;
-    border: 1px solid $color-blue;
+    border: 1px solid var(--color-primary);
     border-radius: 5px;
     padding: 1rem;
     font-family: inherit;
     font-size: 1.6rem;
-    color: $color-blue;
+    color: var(--color-primary);
     background-color: #fff;
     option {
         background-color: #fff;
-        color: $color-blue;
+        color: var(--color-primary);
     }
 }
 

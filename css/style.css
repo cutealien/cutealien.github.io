@@ -1,3 +1,12 @@
+:root {
+  --color-primary: #1180ca;
+  --color-primary-light: #59a9df;
+  --color-primary-dark: #003777;
+  --color-secondary: #dfa01f;
+  --color-tertiary: #d74180;
+  --color-green: #0b7c3a;
+}
+
 .TFManim {
   opacity: 0;
 }
@@ -218,11 +227,11 @@ section {
 }
 
 .hint {
-  color: rgb(17, 128, 202);
+  color: var(--color-primary);
 }
 
 .doubt {
-  color: rgb(123, 30, 160);
+  color: #d74180;
 }
 
 .text-center {
@@ -287,7 +296,7 @@ div[data-anchor]:target::before {
   box-shadow: 0 0 5px #979797;
   height: 8rem;
   z-index: 10;
-  background-color: rgb(16, 114, 180);
+  background-color: var(--color-primary-dark);
   padding: 1rem 5%;
   display: flex;
   justify-content: center;
@@ -302,11 +311,11 @@ div[data-anchor]:target::before {
   margin-right: auto;
   height: 6rem;
   width: 6rem;
+  background-image: url("../assets/wp-content-uploads-2014-11-family-oriented-pups-blog.jpg");
+  background-size: cover;
   border-radius: 50%;
-  background-size: 100%, cover;
   background-repeat: no-repeat;
-  background-position: 50% 50%;
-  background-image: linear-gradient(to right, rgba(17, 128, 202, 0) 30%, rgba(17, 128, 202, 0)), url("../assets/wp-content-uploads-2014-11-family-oriented-pups-blog.jpg");
+  background-position: center;
 }
 .navbar__logo {
   height: 6rem;
@@ -366,18 +375,18 @@ div[data-anchor]:target::before {
   text-shadow: 0 0 5px #979797;
 }
 .btn:disabled {
-  background-color: rgb(81, 152, 199);
+  background-color: var(--color-primary-light);
 }
 .btn:disabled:hover {
-  background-color: rgb(81, 152, 199);
+  background-color: var(--color-primary-light);
 }
 
 .btn--blue {
-  background-color: rgb(17, 128, 202);
+  background-color: var(--color-primary);
   color: #fff;
 }
 .btn--blue:hover {
-  background-color: rgb(16, 114, 180);
+  background-color: var(--color-primary-dark);
 }
 
 .slider-container {
@@ -577,7 +586,7 @@ div[data-anchor]:target::before {
   width: 100%;
   height: 2px;
   margin: 2rem auto;
-  background-image: linear-gradient(145deg, rgb(17, 128, 202), rgb(11, 124, 58));
+  background-image: linear-gradient(145deg, var(--color-primary), var(--color-green));
 }
 
 .math-exp {
@@ -747,11 +756,11 @@ div[data-anchor]:target::before {
   border-bottom: 1px solid transparent;
 }
 .subject-list__link:hover, .subject-list__link:link:hover, .subject-list__link:visited:hover {
-  color: rgb(17, 128, 202);
-  border-bottom: 1px solid rgb(17, 128, 202);
+  color: var(--color-primary);
+  border-bottom: 1px solid var(--color-primary);
 }
 .subject-list__link--active, .subject-list__link--active:link, .subject-list__link--active:visited {
-  color: rgb(17, 128, 202);
+  color: var(--color-primary);
 }
 .subject-list__link--active::after {
   content: "";
@@ -760,7 +769,7 @@ div[data-anchor]:target::before {
   width: 1rem;
   border-radius: 50%;
   margin-left: 1rem;
-  background-color: rgb(17, 128, 202);
+  background-color: var(--color-primary);
 }
 
 .simple-list {
@@ -777,17 +786,17 @@ div[data-anchor]:target::before {
   top: 15px;
   right: 15px;
   outline: none;
-  border: 1px solid rgb(17, 128, 202);
+  border: 1px solid var(--color-primary);
   border-radius: 5px;
   padding: 1rem;
   font-family: inherit;
   font-size: 1.6rem;
-  color: rgb(17, 128, 202);
+  color: var(--color-primary);
   background-color: #fff;
 }
 .picker option {
   background-color: #fff;
-  color: rgb(17, 128, 202);
+  color: var(--color-primary);
 }
 
 .number-picker {
@@ -818,12 +827,12 @@ button[data-btn=continue], button[data-btn=solution] {
   display: inline-block;
   margin: 1rem;
   font-size: 1.6rem;
-  color: rgb(17, 128, 202);
+  color: var(--color-primary);
   text-decoration: underline;
 }
 
 .modal-btn {
-  color: rgb(17, 128, 202);
+  color: var(--color-primary);
   text-decoration: underline;
   cursor: pointer;
 }
@@ -846,7 +855,7 @@ button[data-btn=continue], button[data-btn=solution] {
   visibility: visible;
 }
 .modal__reference {
-  color: rgb(17, 128, 202);
+  color: var(--color-primary);
   text-decoration: underline;
   font-size: inherit;
   cursor: pointer;

@@ -43,8 +43,8 @@
     font-weight: bold;
 }
 .hint {
-    color: $color-blue;
+    color: var(--color-primary);
 }
 .doubt {
-    color: $color-purple;
+    color: $color-tertiary;
 }

@@ -5,7 +5,7 @@
     box-shadow: 0 0 5px $color-gray;
     height: 8rem;
     z-index: 10;
-    background-color: $color-blue-dark;
+    background-color: var(--color-primary-dark);
     padding: 1rem 5%;
     display: flex;
     justify-content: center;    
@@ -20,12 +20,11 @@
         margin-right: auto;
         height: 6rem;
         width: 6rem;
+        background-image: url('../assets/wp-content-uploads-2014-11-family-oriented-pups-blog.jpg');
+        background-size: cover;
         border-radius: 50%;
-        @include background-simple-gradient(
-            100%, cover,
-            '../assets/wp-content-uploads-2014-11-family-oriented-pups-blog.jpg',
-            50%, 50%, right, $color-blue, 0, $color-blue, 0, 30%
-        );
+        background-repeat: no-repeat;
+        background-position: center;
     }
 
     &__logo {

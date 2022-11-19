@@ -7,7 +7,6 @@
     &__navbar {
         height: 3.2rem;
         width: 3.2rem;
-        // fill: $color-yellow;
         transition: all .3s;
         @include responsive(phone) {
             height: 3rem;

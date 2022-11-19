@@ -1,5 +1,5 @@
 .modal-btn {
-    color: $color-blue;
+    color: var(--color-primary);
     text-decoration: underline;
     cursor: pointer;
 }
@@ -23,7 +23,7 @@
     }
 
     &__reference {
-        color: $color-blue;
+        color: var(--color-primary);
         text-decoration: underline;
         font-size: inherit;
         cursor: pointer;

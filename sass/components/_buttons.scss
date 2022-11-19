@@ -19,19 +19,19 @@
         text-shadow: 0 0 5px $color-gray;
     }
     &:disabled {
-        background-color: $color-blue-light;
+        background-color: var(--color-primary-light);
         &:hover {
-            background-color: $color-blue-light;
+            background-color: var(--color-primary-light);
         }
     }
 }
 
 .btn {
     &--blue {
-        background-color: $color-blue;
+        background-color: var(--color-primary);
         color: #fff;
         &:hover {
-            background-color: $color-blue-dark;
+            background-color: var(--color-primary-dark);
         }
     }
 }

@@ -77,6 +77,14 @@ body {
                         "nav     nav  nav  nav"
                         "sidebar main main main"
     ;
+
+    @media only screen and (max-width: 1000px) {
+        grid-template-areas: 
+                        "nav nav  nav  nav"
+                        "main main main main"
+        ;
+    }
+
     & > .navbar {
         grid-area: nav;
     }
@@ -88,6 +96,9 @@ body {
         position: sticky;
         top: 8rem;
         left: 0;
+        @media only screen and (max-width: 1000px) {
+            display: none;
+        }
     }
 }
 

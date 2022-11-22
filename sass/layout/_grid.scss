@@ -9,7 +9,7 @@
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 2rem 5%;
+    // gap: 2rem 5%;
     .col-1-of-2 {
         flex: 0 1 45%;
         @include responsive(tab-port) {
@@ -18,5 +18,11 @@
     }
     .col-1-of-1 {
         flex: 0 1 80%;
+    }
+    .col {
+        flex: 1 1 0;
+        @include responsive(phone-land) {
+            flex: 1 1 100%;
+        }
     }
 }

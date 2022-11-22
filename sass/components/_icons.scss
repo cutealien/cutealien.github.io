@@ -8,7 +8,7 @@
         height: 3.2rem;
         width: 3.2rem;
         transition: all .3s;
-        @include responsive(phone) {
+        @include responsive(phone-land) {
             height: 3rem;
             width: 3rem;
         }

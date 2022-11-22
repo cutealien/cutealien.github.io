@@ -11,6 +11,7 @@
     <script src="./scripts/variables.js" defer></script>
     <script src="../../scripts/question.js" defer></script>
     <script src="../../scripts/modal.js" defer></script>
+    <script src="../../scripts/menu-mobile.js" defer></script>
 
     <script>
         MathJax = {
@@ -41,13 +42,14 @@
         <a href="#" class="navbar__link navbar__link--active">
             Cálculo 2
         </a>
+        <button class="menu-mobile-btn burger-btn" data-menu-btn="menu-mobile"><span class="burger-icon"></span></button>
     </nav>
     <nav class="sidebar">
         <ol class="subject-list">
             <li class="subject-list__item">
                 <strong class="subject-list__title">1 La integral definida</strong>
                 <ol class="subject-list">
-                    <li class="subject-list__item"><a href="./index.html" class="subject-list__link">1.1 Introducción</a></li>
+                    <li class="subject-list__item"><a href="/cursos/calculo2/" class="subject-list__link">1.1 Introducción</a></li>
                     <li class="subject-list__item">
                         <a href="./1.2-Sumatoria.html" class="subject-list__link">1.2 El símbolo $\sum$</a>
                         <ol class="subject-list">
@@ -57,9 +59,9 @@
                     </li>
                     <li class="subject-list__item"><a href="./1.3-calculo-de-areas.html" class="subject-list__link">1.3 Cálculo de  ́areas con rect. insc. y circuns.</a></li>
                     <li class="subject-list__item">
-                        <a href="./1.4-integral-definida.html" class="subject-list__link subject-list__link--active">1.4 Construcción de la integral definida</a>
+                        <a href="./1.4-integral-definida.html" class="subject-list__link">1.4 Construcción de la integral definida</a>
                         <ol class="subject-list">
-                            <li class="subject-list__item"><a href="./1.4-integral-definida-2.html" class="subject-list__link subject-list__link--active">1.4.1 Construcción de la integral definida parte 2</a></li>
+                            <li class="subject-list__item"><a href="#" class="subject-list__link subject-list__link--active">1.4.1 Construcción de la integral definida parte 2</a></li>
                             <li class="subject-list__item"><a href="./1.4-integral-definida-3.html" class="subject-list__link">1.4.2 Construcción de la integral definida parte 3</a></li>
                         </ol>
                     </li>
@@ -98,23 +100,88 @@
             </li>
         </ol>
     </nav>
+    <div class="menu-mobile" data-menu="menu-mobile">
+        <div class="menu-mobile__bg" data-menu-bg="menu-mobile"></div>
+        <div class="menu-mobile__content" data-menu-content="menu-mobile">
+            <div class="menu-mobile__header">
+                <button class="menu-mobile-btn burger-btn" data-menu-btn="menu-mobile"><span class="burger-icon burger-icon--pressed"></span></button>
+            </div>
+            <nav class="navbar-mobile">
+                <ol class="subject-list">
+                    <li class="subject-list__item">
+                        <strong class="subject-list__title">1 La integral definida</strong>
+                        <ol class="subject-list">
+                            <li class="subject-list__item"><a href="/cursos/calculo2/" class="subject-list__link">1.1 Introducción</a></li>
+                            <li class="subject-list__item">
+                                <a href="./1.2-Sumatoria.html" class="subject-list__link">1.2 El símbolo $\sum$</a>
+                                <ol class="subject-list">
+                                    <li class="subject-list__item"><a href="./1.2-Sumatoria.html#1.2" class="subject-list__link">1.2.1 Formalizando el símbolo sumatorio</a></li>
+                                    <li class="subject-list__item"><a href="./1.2.2-propiedades.html" class="subject-list__link">1.2.2 Propiedades del símbolo $\sum$</a></li>
+                                </ol>
+                            </li>
+                            <li class="subject-list__item"><a href="./1.3-calculo-de-areas.html" class="subject-list__link">1.3 Cálculo de  ́areas con rect. insc. y circuns.</a></li>
+                            <li class="subject-list__item">
+                                <a href="./1.4-integral-definida.html" class="subject-list__link">1.4 Construcción de la integral definida</a>
+                                <ol class="subject-list">
+                                    <li class="subject-list__item"><a href="#" class="subject-list__link subject-list__link--active">1.4.1 Construcción de la integral definida parte 2</a></li>
+                                    <li class="subject-list__item"><a href="./1.4-integral-definida-3.html" class="subject-list__link">1.4.2 Construcción de la integral definida parte 3</a></li>
+                                </ol>
+                            </li>
+                            <li class="subject-list__item"><a href="./1.5-sumas-riemann.html" class="subject-list__link">1.5 Sumas de Riemann</a></li>
+                            <li class="subject-list__item"><a href="./1.6-teorema-fundamental.html" class="subject-list__link">1.6 Teorema fundamental del Cálculo y sus consecuencias</a></li>
+                            <li class="subject-list__item"><a href="#" class="subject-list__link">1.7 Ejercicios</a></li>
+                        </ol>
+                    </li>
+                    <li class="subject-list__item">
+                        <strong class="subject-list__title">2 La integral indefinida</strong>
+                        <ol class="subject-list">
+                            <li class="subject-list__item"><a href="#" class="subject-list__link">2.1 Introducción</a></li>
+                            <li class="subject-list__item"><a href="#" class="subject-list__link">2.2 Antiderivadas inmediatas</a></li>
+                            <li class="subject-list__item"><a href="#" class="subject-list__link">2.3 Método de int. por sust. o cambio de variable</a></li>
+                            <li class="subject-list__item"><a href="#" class="subject-list__link">2.4 Método de integración por partes</a></li>
+                            <li class="subject-list__item">
+                                <a href="#" class="subject-list__link">2.5 Método de integración por fracciones parciales</a>
+                                <ol class="subject-list">
+                                    <li class="subject-list__item"><a href="#" class="subject-list__link">2.5.1 El polinomio $Q(x)$ solo contiene factores lineales que no se repiten</a></li>     
+                                    <li class="subject-list__item"><a href="#" class="subject-list__link">2.5.2 El polinomio $Q(x)$ solo contiene factores lineales, pero algunos de ellos se repetidos</a></li>     
+                                    <li class="subject-list__item"><a href="#" class="subject-list__link">2.5.3 Integrales de funciones simples que involucran términos cuadráticos irreducibles</a></li>     
+                                    <li class="subject-list__item"><a href="#" class="subject-list__link">2.5.4 El polinomio Q(x) contiene factores cuadráticos irreducibles que no se repiten</a></li>     
+                                    <li class="subject-list__item"><a href="#" class="subject-list__link">2.5.5 El polinomio Q(x) contiene factores cuadráticos irreducibles que se repiten</a></li>     
+                                </ol>
+                            </li>
+                            <li class="subject-list__item"><a href="#" class="subject-list__link">2.6 Met. de int. por sust. trigonométrica</a></li>     
+                        </ol>
+                    </li>
+                    <li class="subject-list__item">
+                        <strong class="subject-list__title">3 Integrales impropias y aplicaciones</strong>
+                        <ol class="subject-list">
+                            <li class="subject-list__item"><a href="#" class="subject-list__link">3.1 Integrales impropias</a></li>
+                            <li class="subject-list__item"><a href="#" class="subject-list__link">3.2 Más integrales impropias (para funciones discontinuas)</a></li>
+                            <li class="subject-list__item"><a href="#" class="subject-list__link">3.3 Cálculo de áreas de regiones acotadas pro curvas</a></li>   
+                        </ol>
+                    </li>
+                </ol>
+            </nav>
+        </div>
+    </div>
     <main class="main">
         <section>
             <h2 class="header-primary">
-                1.4 Construcción de la integral definida parte 2
+                1.4.1 Construcción de la integral definida parte 2
             </h2>
             <p class="paragraph">
                 Ahora veamos algunas propiedades básicas de las sumas inferiores y sumas superiores.
             </p>
             <div class="theorem">
                 <p class="paragraph">
-                    <strong>Teorema 1.4.1.</strong> Si $f:[a,b]\to\mathbf{R}$ es una función acotada y $P$ una partición de $[a,b]$, entonces $\underline{S}(f,P)\leq \overline{S}(f,P)$.
+                    <strong class="theorem__title">Teorema 1.4.1.</strong> Si $f:[a,b]\to\mathbf{R}$ es una función acotada y $P$ una partición de $[a,b]$, 
+                    entonces $\underline{S}(f,P)\leq \overline{S}(f,P)$.
                 </p>
             </div>
             <div class="proof">
                 <h3 class="header-tertiary">Demostración.</h3>
                 <p class="paragraph">
-                    Por hipótesis, $P$ es una partición de $[a,b]$, digamos que $P==\{x_0,x_1,\dots,x_n\}$. 
+                    Por hipótesis, $P$ es una partición de $[a,b]$, digamos que $P=\{x_0,x_1,\dots,x_n\}$. 
                     Luego, $\forall i=\overline{1,n}$, tenemos que 
                     $$m_i=\inf\{f(x)x\in I_i\} \qquad \mbox{ y } \qquad M_i=\sup\{f(x)x\in I_i\},$$ 
                     donde $I_i=[x_{i-1},x_i]$. Entonces, por definición de ínfimo y supremos, se tiene que $m_i\leq M_i$. 
@@ -129,7 +196,7 @@
             </div>
             <div class="theorem">
                 <p class="paragraph">
-                    <strong>Teorema 1.4.2.</strong> Si $f:[a,b]\to\mathbf{R}$ es una función acotada, $P$ una partición de $[a,b]$ y $P'$ un refinamiento de $P$, 
+                    <strong class="theorem__title">Teorema 1.4.2.</strong> Si $f:[a,b]\to\mathbf{R}$ es una función acotada, $P$ una partición de $[a,b]$ y $P'$ un refinamiento de $P$, 
                     entonces $$\underline{S}(f,P)\leq \underline{S}(f,P') \qquad \mbox{ y } \qquad  \overline{S}(f,P')\leq \overline{S}(f,P).$$
                 </p>
             </div>
@@ -226,11 +293,12 @@
             </div>
             <div class="theorem">
                 <p class="paragraph">
-                    <strong>Teorema 1.4.3.</strong> Si $f:[a,b]\to\mathbf{R}$ es una función acotada y además $P$ y $Q$ son particiones de $[a,b]$, entonces 
+                    <strong class="theorem__title">Teorema 1.4.3.</strong> Si $f:[a,b]\to\mathbf{R}$ es una función acotada y además $P$ y $Q$ son particiones de $[a,b]$, entonces 
                     $ \underline{S}(f,P)\leq \overline{S}(f,Q)$.
                 </p>
             </div>
             <div class="proof">
+                <h3 class="header-tertiary">Demostración.</h3>
                 <p class="paragraph">
                     Por hipótesis, $P$ y $Q$ son particiones de $[a,b]$. Definimos la partición $R:=P \cup Q$, la cual es un refinamiento tanto de $P$ como de $Q$. 
                     Por Teorema 1.4.2, como $R$ es un refinamiento de $P$, entonces $ \underline{S}(f,P)\leq \underline{S}(f,R)$. 
@@ -254,7 +322,7 @@
             </p>
             <div class="theorem">
                 <p class="paragraph">
-                    <strong>Definición 1.4.4.</strong> Sea $f:[a,b]\to\mathbf{R}$ una función acotada. 
+                    <strong class="theorem__title">Definición 1.4.4.</strong> Sea $f:[a,b]\to\mathbf{R}$ una función acotada. 
                     Definimos 
                     <!-- $$\underline{\int_a^b}:= \sup\{\underline{S}(f,P): \,P\mbox{ es una partición de }[a,b]\} $$ -->
                     $$
@@ -275,7 +343,7 @@
             </p>
             <div class="example">
                 <p class="paragraph example__paragraph">
-                    <strong>Ejemplo 1.4.5.</strong> Sea $f:[a,b]\to \mathbf{R}$ dada por $f(x)=k$, donde $k\in\mathbf{R}$. Encuentra 
+                    <strong class="example__title">Ejemplo 1.4.5.</strong> Sea $f:[a,b]\to \mathbf{R}$ dada por $f(x)=k$, donde $k\in\mathbf{R}$. Encuentra 
                     $$
                         {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx
                         \qquad \mbox{ y } \qquad
@@ -466,7 +534,7 @@
             </p>
             <div class="example">
                 <p class="paragraph example__paragraph">
-                    <strong>Ejemplo 1.4.6.</strong> Sea $f:[a,b]\to\mathbf{R}$ una función dada por 
+                    <strong class="example__title">Ejemplo 1.4.6.</strong> Sea $f:[a,b]\to\mathbf{R}$ una función dada por 
                     $f(x)= \left\{ \begin{array}{lcc}
                                     1 &   \mbox{ si }  & x \in \mathbf{Q} \cap [a,b] \\
                                     0 &  \mbox{ si }  & x \in \mathbf{I} \cap [a,b] 
@@ -647,66 +715,18 @@
             </p>
             <div class="fancy-line"></div>
             <div class="change-page">
-                <a href="./1.3-calculo-de-areas.html" class="change-page__before">Anterior</a>
-                <a href="./1.5-sumas-riemann.html" class="change-page__next">Siguiente</a>
+                <a href="./1.4-integral-definida.html" class="change-page__before">Anterior</a>
+                <a href="./1.4-integral-definida-3.html" class="change-page__next">Siguiente</a>
             </div>
         </section>
     </main>
     <!-- modals -->
-    <div class="modal" data-modal="question-1-4-1">
-        <div class="modal__background" data-modal-background="question-1-4-1"></div>
-        <div class="modal__content">
-            <p class="paragraph">
-                <strong>Solución</strong>
-            </p>
-            <p class="paragraph">
-                Por la definición de la partición $P$, tenemos que $x_0=0$, $x_1=\frac{1}{2}$, $x_2=1$, $x_3=\frac{3}{2}$ y $x_4=2$. 
-                Así, $\forall i=\overline{1,4}: \Delta x_i=\frac{1}{2}$. Además, como $f(x)=4-x^2$ es continua y decreciente en $[0,2]$, pues $f'(x)=-2x\leq0$ para $x\in[0,2]$, entonces es decreciente en $I_i$, y por o tanto alcanza su valos más peque\~no en el extremos derecho del intervalo $I_i$ y su valor más grande en el extremo izquierdo del intervalo $I_i$, es decir,
-                $$m_i=\inf\{f(x):x\in I_i\}=f(x_i) \qquad \mbox{y} \qquad M_i=\sup\{f(x):x\in I_i\}=f(x_{i-1}).$$ Entonces,
-            </p>
-            <p class="paragraph">
-                \begin{equation*}
-                    \begin{split}
-                        \underline{S}(f,P)&=\sum_{i=1}^4 m_i \Delta x_i \quad \mbox{por la definición de suma inferior} \\
-                        &=\sum_{i=1}^4 f(x_i) \Delta x_i\quad \mbox{por la definición de } m_i \\
-                        &= f(x_1)\Delta x_1+f(x_2)\Delta x_2+f(x_3)\Delta x_3+f(x_4)\Delta x_4  \quad \mbox{por la definición de }\Sigma \\
-                        &= f\left(\frac{1}{2}\right)\left(\frac{1}{2}\right)+f(1)\left(\frac{1}{2}\right)+f\left(\frac{3}{2}\right)\left(\frac{1}{2}\right)+f(2)\left(\frac{1}{2}\right) \quad \mbox{ por definición de }x_i\\
-                        &= \left[4-\left(\frac{1}{2}\right)^2\right]\left(\frac{1}{2}\right)+\left[4-(1)^2\right]\left(\frac{1}{2}\right)+\left[4-\left(\frac{3}{2}\right)^2\right]\left(\frac{1}{2}\right)+\left[4-(2)^2\right]\left(\frac{1}{2}\right)\\
-                        & \hspace{3in} \mbox{ por def. de }f\\
-                        &= \left(\frac{15}{4}+3+\frac{7}{4}+0\right)\left(\frac{1}{2}\right)=\frac{17}{4}.
-                    \end{split}
-                \end{equation*}
-            </p>
-            <p class="paragraph">
-                Luego, por transitividad, tenemos que $\underline{S}(f,P)=\frac{17}{4}$.
-            </p>
-            <p class="paragraph">
-                Además,
-            </p>
-            <p class="paragraph">
-                    \begin{equation*}
-                    \begin{split}
-                        \underline{S}(f,P)&=\sum_{i=1}^4 M_i \Delta x_i \quad \mbox{por la definición de suma superior} \\
-                        &=\sum_{i=1}^4 f(x_{i-1}) \Delta x_i\quad \mbox{por la definición de } M_i \\
-                        &= f(x_0)\Delta x_1+f(x_1)\Delta x_2+f(x_2)\Delta x_3+f(x_3)\Delta x_4  \quad \mbox{por la definición de }\Sigma \\
-                        &= f\left(0\right)\left(\frac{1}{2}\right)+f\left(\frac{1}{2}\right)\left(\frac{1}{2}\right)+f(1)\left(\frac{1}{2}\right)+f\left(\frac{3}{2}\right)\left(\frac{1}{2}\right) \quad \mbox{ por definición de }x_i\\
-                        &= \left[4-\left(0\right)^2\right]\left(\frac{1}{2}\right)+\left[4-\left(\frac{1}{2}\right)^2\right]\left(\frac{1}{2}\right)+\left[4-(1)^2\right]\left(\frac{1}{2}\right)+\left[4-\left(\frac{3}{2}\right)^2\right]\left(\frac{1}{2}\right)\\
-                        & \hspace{3in} \mbox{ por def. de }f\\
-                        &= \left(4+\frac{15}{4}+3+\frac{7}{4}\right)\left(\frac{1}{2}\right)=\frac{25}{4}.
-                    \end{split}
-                \end{equation*}
-            </p>
-            <p class="paragraph">
-                Finalmente, por transitividad, tenemos que $\overline{S}(f,P)=\frac{25}{4}$.
-            </p>
-        </div>
-    </div>
     <div class="modal" data-modal="theorem-1-2-1">
         <div class="modal__background" data-modal-background="theorem-1-2-1"></div>
         <div class="modal__content">
             <div class="theorem">
                 <p class="paragraph">
-                    <strong>Teorema 1.2.1 </strong>(Linealidad). Sean $n ∈ \mathbf{N}, a_i, b_i ∈ \mathbf{R}$, para toda $i = 1, n,$ y $c ∈ \mathbf{R}$,
+                    <strong class="theorem__title">Teorema 1.2.1 </strong>(Linealidad). Sean $n ∈ \mathbf{N}, a_i, b_i ∈ \mathbf{R}$, para toda $i = 1, n,$ y $c ∈ \mathbf{R}$,
                     entonces:
                 </p>
                 <ol class="theorem__list">
@@ -723,36 +743,12 @@
             </div>
         </div>
     </div>
-    <div class="modal" data-modal="theorem-1-2-3">
-        <div class="modal__background" data-modal-background="theorem-1-2-3"></div>
-        <div class="modal__content">
-            <div class="theorem">
-                <p class="paragraph">
-                    <strong>Teorema 1.2.3 </strong>. Para toda $n ∈ \mathbf{N}$ se cumple que
-                </p>
-                <ol class="theorem__list">
-                    <li class="theorem__list--formule">
-                        $$\sum_{i=1}^{n} i = \frac{n(n+1)}{2};$$
-                    </li>
-                    <li class="theorem__list--formule">
-                        $$\sum_{i=1}^{n} i^2 = \frac{n(n+1)(2n+1)}{6};$$
-                    </li>
-                    <li class="theorem__list--formule">
-                        $$\sum_{i=1}^{n} i^3 = \left[ \frac{n(n+1)}{2} \right]^2;$$
-                    </li>
-                    <li class="theorem__list--formule">
-                        $$\sum_{i=1}^{n} i^4 = \frac{n(n+1)(2n+1)(3n^2+3n-1)}{30};$$
-                    </li>
-                </ol>
-            </div>
-        </div>
-    </div>
     <div class="modal" data-modal="theorem-1-2-2">
         <div class="modal__background" data-modal-background="theorem-1-2-2"></div>
         <div class="modal__content">
             <div class="theorem">
                 <p class="paragraph">
-                    <strong>Teorema 1.2.2 </strong>(Sumas telescópicas). Si $n ∈ \mathbf{N} $, y $a_i ∈ \mathbf{R} \; \; \forall i =$ <span class="overline">$1,n$</span>, entonces
+                    <strong class="theorem__title">Teorema 1.2.2 </strong>(Sumas telescópicas). Si $n ∈ \mathbf{N} $, y $a_i ∈ \mathbf{R} \; \; \forall i =$ <span class="overline">$1,n$</span>, entonces
                 </p>
                 <ol class="theorem__list">
                     <li class="theorem__list--formule">

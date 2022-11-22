@@ -22,8 +22,13 @@
 // }
 
 @mixin responsive($breakpoint) {
-    @if $breakpoint == phone {
+    @if $breakpoint == phone-port {
         @media only screen and (max-width: 600px) {
+            @content;
+        }
+    }
+    @if $breakpoint == phone-land {
+        @media only screen and (max-width: 800px) {
             @content;
         }
     }

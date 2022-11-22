@@ -11,6 +11,7 @@
     <script src="./scripts/variables.js" defer></script>
     <script src="../../scripts/question.js" defer></script>
     <script src="../../scripts/modal.js" defer></script>
+    <script src="../../scripts/menu-mobile.js" defer></script>
 
     <script>
         MathJax = {
@@ -41,13 +42,14 @@
         <a href="#" class="navbar__link navbar__link--active">
             Cálculo 2
         </a>
+        <button class="menu-mobile-btn burger-btn" data-menu-btn="menu-mobile"><span class="burger-icon"></span></button>
     </nav>
     <nav class="sidebar">
         <ol class="subject-list">
             <li class="subject-list__item">
                 <strong class="subject-list__title">1 La integral definida</strong>
                 <ol class="subject-list">
-                    <li class="subject-list__item"><a href="./index.html" class="subject-list__link">1.1 Introducción</a></li>
+                    <li class="subject-list__item"><a href="/cursos/calculo2/" class="subject-list__link">1.1 Introducción</a></li>
                     <li class="subject-list__item">
                         <a href="./1.2-Sumatoria.html" class="subject-list__link">1.2 El símbolo $\sum$</a>
                         <ol class="subject-list">
@@ -57,10 +59,10 @@
                     </li>
                     <li class="subject-list__item"><a href="./1.3-calculo-de-areas.html" class="subject-list__link">1.3 Cálculo de  ́areas con rect. insc. y circuns.</a></li>
                     <li class="subject-list__item">
-                        <a href="./1.4-integral-definida.html" class="subject-list__link subject-list__link--active">1.4 Construcción de la integral definida</a>
+                        <a href="./1.4-integral-definida.html" class="subject-list__link">1.4 Construcción de la integral definida</a>
                         <ol class="subject-list">
                             <li class="subject-list__item"><a href="./1.4-integral-definida-2.html" class="subject-list__link">1.4.1 Construcción de la integral definida parte 2</a></li>
-                            <li class="subject-list__item"><a href="./1.4-integral-definida-3.html" class="subject-list__link subject-list__link--active">1.4.2 Construcción de la integral definida parte 3</a></li>
+                            <li class="subject-list__item"><a href="#" class="subject-list__link subject-list__link--active">1.4.2 Construcción de la integral definida parte 3</a></li>
                         </ol>
                     </li>
                     <li class="subject-list__item"><a href="./1.5-sumas-riemann.html" class="subject-list__link">1.5 Sumas de Riemann</a></li>
@@ -98,14 +100,78 @@
             </li>
         </ol>
     </nav>
+    <div class="menu-mobile" data-menu="menu-mobile">
+        <div class="menu-mobile__bg" data-menu-bg="menu-mobile"></div>
+        <div class="menu-mobile__content" data-menu-content="menu-mobile">
+            <div class="menu-mobile__header">
+                <button class="menu-mobile-btn burger-btn" data-menu-btn="menu-mobile"><span class="burger-icon burger-icon--pressed"></span></button>
+            </div>
+            <nav class="navbar-mobile">
+                <ol class="subject-list">
+                    <li class="subject-list__item">
+                        <strong class="subject-list__title">1 La integral definida</strong>
+                        <ol class="subject-list">
+                            <li class="subject-list__item"><a href="/cursos/calculo2/" class="subject-list__link">1.1 Introducción</a></li>
+                            <li class="subject-list__item">
+                                <a href="./1.2-Sumatoria.html" class="subject-list__link">1.2 El símbolo $\sum$</a>
+                                <ol class="subject-list">
+                                    <li class="subject-list__item"><a href="./1.2-Sumatoria.html#1.2" class="subject-list__link">1.2.1 Formalizando el símbolo sumatorio</a></li>
+                                    <li class="subject-list__item"><a href="./1.2.2-propiedades.html" class="subject-list__link">1.2.2 Propiedades del símbolo $\sum$</a></li>
+                                </ol>
+                            </li>
+                            <li class="subject-list__item"><a href="./1.3-calculo-de-areas.html" class="subject-list__link">1.3 Cálculo de  ́areas con rect. insc. y circuns.</a></li>
+                            <li class="subject-list__item">
+                                <a href="./1.4-integral-definida.html" class="subject-list__link">1.4 Construcción de la integral definida</a>
+                                <ol class="subject-list">
+                                    <li class="subject-list__item"><a href="./1.4-integral-definida-2.html" class="subject-list__link">1.4.1 Construcción de la integral definida parte 2</a></li>
+                                    <li class="subject-list__item"><a href="#" class="subject-list__link subject-list__link--active">1.4.2 Construcción de la integral definida parte 3</a></li>
+                                </ol>
+                            </li>
+                            <li class="subject-list__item"><a href="./1.5-sumas-riemann.html" class="subject-list__link">1.5 Sumas de Riemann</a></li>
+                            <li class="subject-list__item"><a href="./1.6-teorema-fundamental.html" class="subject-list__link">1.6 Teorema fundamental del Cálculo y sus consecuencias</a></li>
+                            <li class="subject-list__item"><a href="#" class="subject-list__link">1.7 Ejercicios</a></li>
+                        </ol>
+                    </li>
+                    <li class="subject-list__item">
+                        <strong class="subject-list__title">2 La integral indefinida</strong>
+                        <ol class="subject-list">
+                            <li class="subject-list__item"><a href="#" class="subject-list__link">2.1 Introducción</a></li>
+                            <li class="subject-list__item"><a href="#" class="subject-list__link">2.2 Antiderivadas inmediatas</a></li>
+                            <li class="subject-list__item"><a href="#" class="subject-list__link">2.3 Método de int. por sust. o cambio de variable</a></li>
+                            <li class="subject-list__item"><a href="#" class="subject-list__link">2.4 Método de integración por partes</a></li>
+                            <li class="subject-list__item">
+                                <a href="#" class="subject-list__link">2.5 Método de integración por fracciones parciales</a>
+                                <ol class="subject-list">
+                                    <li class="subject-list__item"><a href="#" class="subject-list__link">2.5.1 El polinomio $Q(x)$ solo contiene factores lineales que no se repiten</a></li>     
+                                    <li class="subject-list__item"><a href="#" class="subject-list__link">2.5.2 El polinomio $Q(x)$ solo contiene factores lineales, pero algunos de ellos se repetidos</a></li>     
+                                    <li class="subject-list__item"><a href="#" class="subject-list__link">2.5.3 Integrales de funciones simples que involucran términos cuadráticos irreducibles</a></li>     
+                                    <li class="subject-list__item"><a href="#" class="subject-list__link">2.5.4 El polinomio Q(x) contiene factores cuadráticos irreducibles que no se repiten</a></li>     
+                                    <li class="subject-list__item"><a href="#" class="subject-list__link">2.5.5 El polinomio Q(x) contiene factores cuadráticos irreducibles que se repiten</a></li>     
+                                </ol>
+                            </li>
+                            <li class="subject-list__item"><a href="#" class="subject-list__link">2.6 Met. de int. por sust. trigonométrica</a></li>     
+                        </ol>
+                    </li>
+                    <li class="subject-list__item">
+                        <strong class="subject-list__title">3 Integrales impropias y aplicaciones</strong>
+                        <ol class="subject-list">
+                            <li class="subject-list__item"><a href="#" class="subject-list__link">3.1 Integrales impropias</a></li>
+                            <li class="subject-list__item"><a href="#" class="subject-list__link">3.2 Más integrales impropias (para funciones discontinuas)</a></li>
+                            <li class="subject-list__item"><a href="#" class="subject-list__link">3.3 Cálculo de áreas de regiones acotadas pro curvas</a></li>   
+                        </ol>
+                    </li>
+                </ol>
+            </nav>
+        </div>
+    </div>
     <main class="main">
         <section>
             <h2 class="header-primary">
-                1.4 Construcción de la integral definida parte 2
+                1.4 Construcción de la integral definida parte 3
             </h2>
             <div class="theorem">
                 <p class="paragraph">
-                    <strong>Teorema 1.4.4.</strong> Si $f:[a,b]\to\mathbf{R}$ es una función acotada, entonces 
+                    <strong class="theorem__title">Teorema 1.4.4.</strong> Si $f:[a,b]\to\mathbf{R}$ es una función acotada, entonces 
                     $$
                         {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx \leq 
                         {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b f(x)\,dx.
@@ -140,7 +206,7 @@
             </p>
             <div class="definition">
                 <p class="paragraph">
-                    <strong>Definición 1.4.5</strong> Sea $f:[a,b]\to\mathbf{R}$ una función acotada. 
+                    <strong class="definition__title">Definición 1.4.5</strong> Sea $f:[a,b]\to\mathbf{R}$ una función acotada. 
                     Decimos que $f$ es integrable en $[a,b]$ si 
                     $$
                         {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx =
@@ -161,7 +227,7 @@
             </p>
             <div class="theorem">
                 <p class="paragraph">
-                    <strong>Teorema 1.4.5.</strong> Sea $f:[a,b]\to \mathbf{R}$ una función acotada. La función $f$ es integrable en $[a,b]$ si y sólo si $\forall \varepsilon>0, \exists P$ una partición de $[a,b]$ tal que 
+                    <strong class="theorem__title">Teorema 1.4.5.</strong> Sea $f:[a,b]\to \mathbf{R}$ una función acotada. La función $f$ es integrable en $[a,b]$ si y sólo si $\forall \varepsilon>0, \exists P$ una partición de $[a,b]$ tal que 
                     $$\overline{S}(f,P)-\underline{S}(f,P) < \varepsilon.$$ 
                 </p>
             </div>
@@ -208,7 +274,7 @@
             </div>
             <div class="example">
                 <p class="paragraph example__paragraph">
-                    <strong>Ejemplo 1.4.7.</strong> Sea $f:[a,b]\to \mathbf{R}$ definida por $f(x)=x$. Demostrar que $f$ es integrable en $[a,b]$.
+                    <strong class="example__title">Ejemplo 1.4.7.</strong> Sea $f:[a,b]\to \mathbf{R}$ definida por $f(x)=x$. Demostrar que $f$ es integrable en $[a,b]$.
                 </p>
                 <h3 class="header-tertiary">Solución.</h3>
                 <p class="paragraph">
@@ -303,7 +369,7 @@
             </p>
             <div class="example">
                 <p class="paragraph example__paragraph">
-                    <strong>Ejemplo 1.4.8</strong> Sea $f:[0,1]\to \mathbf{R}$ dada por 
+                    <strong class="example__title">Ejemplo 1.4.8</strong> Sea $f:[0,1]\to \mathbf{R}$ dada por 
                         $f(x)= \left\{ \begin{array}{lcc}
                                     0 &   \mbox{ si }  & x \in [0,1]\setminus\{\frac{1}{2}\} \\
                                     1 &  \mbox{ si }  & x=\frac{1}{2} 
@@ -392,7 +458,7 @@
             </div>
             <div class="theorem">
                 <p class="paragraph">
-                    <strong>Teorema 1.4.6.</strong> Si $f:[a,b]\to\mathbf{R}$ es una función acotada y creciente (o decreciente), entonces $f$ es integrable en $[a,b]$
+                    <strong class="theorem__title">Teorema 1.4.6.</strong> Si $f:[a,b]\to\mathbf{R}$ es una función acotada y creciente (o decreciente), entonces $f$ es integrable en $[a,b]$
                 </p>
             </div>
             <div class="proof">
@@ -496,7 +562,7 @@
             </p>
             <div class="theorem">
                 <p class="paragraph">
-                    <strong>Teorema 1.4.7.</strong> Sea $f:[a,b]\to \mathbf{R} $ una función acotada.
+                    <strong class="theorem__title">Teorema 1.4.7.</strong> Sea $f:[a,b]\to \mathbf{R} $ una función acotada.
                 </p>
                 <ul class="theorem__list">
                     <li class="theorem__list-item">
@@ -758,7 +824,7 @@
             </p>
             <div class="theorem">
                 <p class="paragraph">
-                    <strong>Corolario 1.4.1.</strong> Sea $f:[a,b]\to\mathbf{R}$ una función integrable.
+                    <strong class="theorem__title">Corolario 1.4.1.</strong> Sea $f:[a,b]\to\mathbf{R}$ una función integrable.
                 </p>
                 <ul class="theorem__list">
                     <li class="theorem__list-item">Si $c\in[a,b]$, entonces $$\int_a^b f(x)\,dx = \int_a^c f(x)\,dx + \int_c^b f(x)\,dx.$$ </li>
@@ -768,7 +834,7 @@
             </div>
             <div class="fancy-line"></div>
             <div class="change-page">
-                <a href="./1.3-calculo-de-areas.html" class="change-page__before">Anterior</a>
+                <a href="./1.4-integral-definida-2.html" class="change-page__before">Anterior</a>
                 <a href="./1.5-sumas-riemann.html" class="change-page__next">Siguiente</a>
             </div>
         </section>
@@ -777,9 +843,7 @@
     <div class="modal" data-modal="question-1-4-1">
         <div class="modal__background" data-modal-background="question-1-4-1"></div>
         <div class="modal__content">
-            <p class="paragraph">
-                <strong>Solución</strong>
-            </p>
+            <h3 class="header-tertiary">Solución.</h3>
             <p class="paragraph">
                 Por la definición de la partición $P$, tenemos que $x_0=0$, $x_1=\frac{1}{2}$, $x_2=1$, $x_3=\frac{3}{2}$ y $x_4=2$. 
                 Así, $\forall i=\overline{1,4}: \Delta x_i=\frac{1}{2}$. Además, como $f(x)=4-x^2$ es continua y decreciente en $[0,2]$, pues $f'(x)=-2x\leq0$ para $x\in[0,2]$, entonces es decreciente en $I_i$, y por o tanto alcanza su valos más peque\~no en el extremos derecho del intervalo $I_i$ y su valor más grande en el extremo izquierdo del intervalo $I_i$, es decir,
@@ -827,7 +891,7 @@
         <div class="modal__content">
             <div class="theorem">
                 <p class="paragraph">
-                    <strong>Teorema 1.2.1 </strong>(Linealidad). Sean $n ∈ \mathbf{N}, a_i, b_i ∈ \mathbf{R}$, para toda $i = 1, n,$ y $c ∈ \mathbf{R}$,
+                    <strong class="theorem__title">Teorema 1.2.1 </strong>(Linealidad). Sean $n ∈ \mathbf{N}, a_i, b_i ∈ \mathbf{R}$, para toda $i = 1, n,$ y $c ∈ \mathbf{R}$,
                     entonces:
                 </p>
                 <ol class="theorem__list">
@@ -849,7 +913,7 @@
         <div class="modal__content">
             <div class="theorem">
                 <p class="paragraph">
-                    <strong>Teorema 1.2.3 </strong>. Para toda $n ∈ \mathbf{N}$ se cumple que
+                    <strong class="theorem__title">Teorema 1.2.3 </strong>. Para toda $n ∈ \mathbf{N}$ se cumple que
                 </p>
                 <ol class="theorem__list">
                     <li class="theorem__list--formule">
@@ -873,7 +937,7 @@
         <div class="modal__content">
             <div class="theorem">
                 <p class="paragraph">
-                    <strong>Teorema 1.2.2 </strong>(Sumas telescópicas). Si $n ∈ \mathbf{N} $, y $a_i ∈ \mathbf{R} \; \; \forall i =$ <span class="overline">$1,n$</span>, entonces
+                    <strong class="theorem__title">Teorema 1.2.2 </strong>(Sumas telescópicas). Si $n ∈ \mathbf{N} $, y $a_i ∈ \mathbf{R} \; \; \forall i =$ <span class="overline">$1,n$</span>, entonces
                 </p>
                 <ol class="theorem__list">
                     <li class="theorem__list--formule">

@@ -12,6 +12,7 @@
     <script src="../../scripts/question.js" defer></script>
     <script src="../../scripts/modal.js" defer></script>
     <script src="./scripts/1-3-calculus-areas.js" defer></script>
+    <script src="../../scripts/menu-mobile.js" defer></script>
 
     <script>
         MathJax = {
@@ -43,13 +44,14 @@
         <a href="#" class="navbar__link navbar__link--active">
             Cálculo 2
         </a>
+        <button class="menu-mobile-btn burger-btn" data-menu-btn="menu-mobile"><span class="burger-icon"></span></button>
     </nav>
     <nav class="sidebar">
         <ol class="subject-list">
             <li class="subject-list__item">
                 <strong class="subject-list__title">1 La integral definida</strong>
                 <ol class="subject-list">
-                    <li class="subject-list__item"><a href="./index.html" class="subject-list__link">1.1 Introducción</a></li>
+                    <li class="subject-list__item"><a href="/cursos/calculo2/" class="subject-list__link">1.1 Introducción</a></li>
                     <li class="subject-list__item">
                         <a href="./1.2-Sumatoria.html" class="subject-list__link">1.2 El símbolo $\sum$</a>
                         <ol class="subject-list">
@@ -58,7 +60,13 @@
                         </ol>
                     </li>
                     <li class="subject-list__item"><a href="#" class="subject-list__link subject-list__link--active">1.3 Cálculo de  ́areas con rect. insc. y circuns.</a></li>
-                    <li class="subject-list__item"><a href="./1.4-integral-definida.html" class="subject-list__link">1.4 Construcción de la integral definida</a></li>
+                    <li class="subject-list__item">
+                        <a href="./1.4-integral-definida.html" class="subject-list__link">1.4 Construcción de la integral definida</a>
+                        <ol class="subject-list">
+                            <li class="subject-list__item"><a href="./1.4-integral-definida-2.html" class="subject-list__link">1.4.1 Construcción de la integral definida parte 2</a></li>
+                            <li class="subject-list__item"><a href="./1.4-integral-definida-3.html" class="subject-list__link">1.4.2 Construcción de la integral definida parte 3</a></li>
+                        </ol>
+                    </li>
                     <li class="subject-list__item"><a href="./1.5-sumas-riemann.html" class="subject-list__link">1.5 Sumas de Riemann</a></li>
                     <li class="subject-list__item"><a href="./1.6-teorema-fundamental.html" class="subject-list__link">1.6 Teorema fundamental del Cálculo y sus consecuencias</a></li>
                     <li class="subject-list__item"><a href="#" class="subject-list__link">1.7 Ejercicios</a></li>
@@ -94,6 +102,70 @@
             </li>
         </ol>
     </nav>
+    <div class="menu-mobile" data-menu="menu-mobile">
+        <div class="menu-mobile__bg" data-menu-bg="menu-mobile"></div>
+        <div class="menu-mobile__content" data-menu-content="menu-mobile">
+            <div class="menu-mobile__header">
+                <button class="menu-mobile-btn burger-btn" data-menu-btn="menu-mobile"><span class="burger-icon burger-icon--pressed"></span></button>
+            </div>
+            <nav class="navbar-mobile">
+                <ol class="subject-list">
+                    <li class="subject-list__item">
+                        <strong class="subject-list__title">1 La integral definida</strong>
+                        <ol class="subject-list">
+                            <li class="subject-list__item"><a href="/cursos/calculo2/" class="subject-list__link">1.1 Introducción</a></li>
+                            <li class="subject-list__item">
+                                <a href="./1.2-Sumatoria.html" class="subject-list__link">1.2 El símbolo $\sum$</a>
+                                <ol class="subject-list">
+                                    <li class="subject-list__item"><a href="./1.2-Sumatoria.html#1.2" class="subject-list__link">1.2.1 Formalizando el símbolo sumatorio</a></li>
+                                    <li class="subject-list__item"><a href="./1.2.2-propiedades.html" class="subject-list__link">1.2.2 Propiedades del símbolo $\sum$</a></li>
+                                </ol>
+                            </li>
+                            <li class="subject-list__item"><a href="#" class="subject-list__link subject-list__link--active">1.3 Cálculo de  ́areas con rect. insc. y circuns.</a></li>
+                            <li class="subject-list__item">
+                                <a href="./1.4-integral-definida.html" class="subject-list__link">1.4 Construcción de la integral definida</a>
+                                <ol class="subject-list">
+                                    <li class="subject-list__item"><a href="./1.4-integral-definida-2.html" class="subject-list__link">1.4.1 Construcción de la integral definida parte 2</a></li>
+                                    <li class="subject-list__item"><a href="./1.4-integral-definida-3.html" class="subject-list__link">1.4.2 Construcción de la integral definida parte 3</a></li>
+                                </ol>
+                            </li>
+                            <li class="subject-list__item"><a href="./1.5-sumas-riemann.html" class="subject-list__link">1.5 Sumas de Riemann</a></li>
+                            <li class="subject-list__item"><a href="./1.6-teorema-fundamental.html" class="subject-list__link">1.6 Teorema fundamental del Cálculo y sus consecuencias</a></li>
+                            <li class="subject-list__item"><a href="#" class="subject-list__link">1.7 Ejercicios</a></li>
+                        </ol>
+                    </li>
+                    <li class="subject-list__item">
+                        <strong class="subject-list__title">2 La integral indefinida</strong>
+                        <ol class="subject-list">
+                            <li class="subject-list__item"><a href="#" class="subject-list__link">2.1 Introducción</a></li>
+                            <li class="subject-list__item"><a href="#" class="subject-list__link">2.2 Antiderivadas inmediatas</a></li>
+                            <li class="subject-list__item"><a href="#" class="subject-list__link">2.3 Método de int. por sust. o cambio de variable</a></li>
+                            <li class="subject-list__item"><a href="#" class="subject-list__link">2.4 Método de integración por partes</a></li>
+                            <li class="subject-list__item">
+                                <a href="#" class="subject-list__link">2.5 Método de integración por fracciones parciales</a>
+                                <ol class="subject-list">
+                                    <li class="subject-list__item"><a href="#" class="subject-list__link">2.5.1 El polinomio $Q(x)$ solo contiene factores lineales que no se repiten</a></li>     
+                                    <li class="subject-list__item"><a href="#" class="subject-list__link">2.5.2 El polinomio $Q(x)$ solo contiene factores lineales, pero algunos de ellos se repetidos</a></li>     
+                                    <li class="subject-list__item"><a href="#" class="subject-list__link">2.5.3 Integrales de funciones simples que involucran términos cuadráticos irreducibles</a></li>     
+                                    <li class="subject-list__item"><a href="#" class="subject-list__link">2.5.4 El polinomio Q(x) contiene factores cuadráticos irreducibles que no se repiten</a></li>     
+                                    <li class="subject-list__item"><a href="#" class="subject-list__link">2.5.5 El polinomio Q(x) contiene factores cuadráticos irreducibles que se repiten</a></li>     
+                                </ol>
+                            </li>
+                            <li class="subject-list__item"><a href="#" class="subject-list__link">2.6 Met. de int. por sust. trigonométrica</a></li>     
+                        </ol>
+                    </li>
+                    <li class="subject-list__item">
+                        <strong class="subject-list__title">3 Integrales impropias y aplicaciones</strong>
+                        <ol class="subject-list">
+                            <li class="subject-list__item"><a href="#" class="subject-list__link">3.1 Integrales impropias</a></li>
+                            <li class="subject-list__item"><a href="#" class="subject-list__link">3.2 Más integrales impropias (para funciones discontinuas)</a></li>
+                            <li class="subject-list__item"><a href="#" class="subject-list__link">3.3 Cálculo de áreas de regiones acotadas pro curvas</a></li>   
+                        </ol>
+                    </li>
+                </ol>
+            </nav>
+        </div>
+    </div>
     <main class="main">
         <section>
             <h2 class="header-primary">
@@ -136,7 +208,8 @@
                         A(R_n) &=\left[\frac{8}{n^3}(0)^2+ \frac{8}{n^3}(1)^2+\cdots \frac{8}{n^3}(n-2)^2 + \frac{8}{n^3}(n-1)^2\right] \\
                         &= \frac{8}{n^3}[1^2+2^2+3^3+\cdots +(n-2)^2+(n-2)^2] \\
                         &= \frac{8}{n^3}\sum_{i=1}^{n-1}i^2 = \frac{8}{n^3}\frac{(n-1)n(2n-2+1)}{6} \\
-                        &=\frac{8}{6}\cdot \frac{(n-1)}{n}\cdot \frac{n}{n} \cdot \frac{(2n-1)}{n}= \frac{4}{3}\left(1-\frac{1}{n} \right)\left(1 \right)\left(2-\frac{1}{n} \right).
+                        &=\frac{8}{6}\cdot \frac{(n-1)}{n}\cdot \frac{n}{n} \cdot \frac{(2n-1)}{n} \\
+                        &= \frac{4}{3}\left(1-\frac{1}{n} \right)\left(1 \right)\left(2-\frac{1}{n} \right).
                     \end{split}
                 \end{equation*}
             </p>
@@ -156,7 +229,8 @@
                         A(R_n) &=\left[\frac{8}{n^3}(0)^2+ \frac{8}{n^3}(1)^2+\cdots \frac{8}{n^3}(n-2)^2 + \frac{8}{n^3}(n-1)^2\right] \\
                         &= \frac{8}{n^3}[1^2+2^2+3^3+\cdots +(n-2)^2+(n-2)^2] \\
                         &= \frac{8}{n^3}\sum_{i=1}^{n-1}i^2 = \frac{8}{n^3}\frac{(n-1)n(2n-2+1)}{6} \\
-                        &=\frac{8}{6}\cdot \frac{(n-1)}{n}\cdot \frac{n}{n} \cdot \frac{(2n-1)}{n}= \frac{4}{3}\left(1-\frac{1}{n} \right)\left(1 \right)\left(2-\frac{1}{n} \right).
+                        &=\frac{8}{6}\cdot \frac{(n-1)}{n}\cdot \frac{n}{n} \cdot \frac{(2n-1)}{n} \\
+                        &= \frac{4}{3}\left(1-\frac{1}{n} \right)\left(1 \right)\left(2-\frac{1}{n} \right).
                     \end{split}
                 \end{equation*}                   
                 $$
@@ -274,27 +348,35 @@
                 Supongamos que $f(x)\geq 0$, $\forall x \in[a,b]$ y además que $f$ es continua en $[a,b]$. 
                 Comenzamos dividiendo el intervalo $[a,b]$ es $n$ piezas iguales, es decir en subintervalos de tamaño $\Delta x=\frac{b-a}{n}$ 
                 (donde $\Delta x$ significa un pequeño cambio en la variable $x$). 
-                Los puntos que general la subdivisión son $$x_0=a, x_1=x_0+\Delta x, x_2=x_0+2\Delta x, \dots, x_i=x_0+i\Delta x, \dots x_n=x_0+n\Delta x=b.$$ 
+                <!-- Los puntos que generan la subdivisión son $$x_0=a, x_1=x_0+\Delta x, x_2=x_0+2\Delta x, \dots, x_i=x_0+i\Delta x, \dots x_n=x_0+n\Delta x=b.$$  -->
+                Los puntos que generan la subdivisión son $x_0=a, x_1=x_0+\Delta x, \dots, x_i=x_0+i\Delta x, \dots x_n=x_0+n\Delta x=b.$
                 Sobre cada subintervalo generado $[x_{i-1},x_i]$ construimos un rectángulo de altura $f(x_i)$ (siempre el lado derecho del subintervalo).
             </p>
             <div class="canvas-container">
                 <canvas class="canvas" height="300px" width="300px" data-canvas="chapter-1-3-6"></canvas>
             </div>
             <p class="paragraph">
-                Así, obtenemos que $$A\approx f(x_1)\Delta x+f(x_2)\Delta x+f(x_3)\Delta x+\cdots +f(x_n)\Delta x=\sum_{i=1}^nf(x_i)\Delta x=A_n.$$
+                Así, obtenemos que 
+                \begin{equation*}
+                    \begin{split}
+                    A &\approx f(x_1)\Delta x+f(x_2)\Delta x+f(x_3)\Delta x+\cdots +f(x_n)\Delta x\\
+                        &=\sum_{i=1}^nf(x_i)\Delta x\\
+                        &= A_n.
+                    \end{split}
+                \end{equation*}
             </p>
             <div class="definition">
                 <p class="paragraph">
-                    <strong>Definición 1.3.1.</strong> Sea $f$ una función definida en el intervalo $[a,b]$. 
+                    <strong class="definition__title">Definición 1.3.1.</strong> Sea $f$ una función definida en el intervalo $[a,b]$. 
                     Si $f$ es continua en $[a,b]$ y $f(x)\geq 0$, $\forall x\in[a,b]$, definimos el área bajo la curva $y=f(x)$ en $[a,b]$ como 
                     $$A=\lim_{n\to\infty}A_n=\lim_{n\to\infty}\sum_{i=1}^nf(x_i)\Delta x.$$
                 </p>
             </div>
             <div class="example">
                 <p class="paragraph example__paragraph">
-                    <strong>Ejemplo 1.3.1 </strong>Calcular el área bajo la curva $y=f(x)$, donde $f(x)=2x-2x^2$ en el intervalo $[0,1]$.
+                    <strong class="example__title">Ejemplo 1.3.1 </strong>Calcular el área bajo la curva $y=f(x)$, donde $f(x)=2x-2x^2$ en el intervalo $[0,1]$.
                 </p>
-                <p class="paragraph"><strong>Solución.</strong></p>
+                <h3 class="header-tertiary">Solución.</h3>
                 <p class="paragraph">
                     Notemos que $f=2x-2x^2$, la cual, por ser una función polinómica, es continua en todo $\mathbf{R}$, en particular es continua en el intervalo $[0,1]$.  
                     Además 
@@ -307,7 +389,7 @@
                 </p>
                 <p class="paragraph">
                     Luego, $\Delta x=\frac{1-0}{n}=\frac{1}{n}$, por lo tanto tenemos que 
-                    $$x_0=0, x_1=\frac{1}{n}, x_2=\frac{2}{n}, x_3=\frac{3}{n}, \dots, x_i=\frac{i}{n}, \dots, x_n=\cancelto{1}{\frac{n}{n}}=1.$$ Así,
+                    $x_0=0, x_1=\frac{1}{n}, x_2=\frac{2}{n}, x_3=\frac{3}{n}, \dots, x_i=\frac{i}{n}, \dots, x_n=\cancelto{1}{\frac{n}{n}}=1.$ Así,
                 </p>
                 <div class="calculation">
                     <div class="calculation__formule--1">
@@ -384,7 +466,14 @@
 
                 <p class="paragraph">
                     Luego, como la función es continua y no negativa en $[0,1]$, entonces por la definición de área, tenemos que 
-                    $$A=\lim_{n\to\infty}A_n=\lim_{n\to\infty}\left[1+\frac{1}{n} -\frac{1}{3}\cdot \left(1+\frac{1}{n} \right) \cdot \left(2+\frac{1}{n} \right)\right]=1-\frac{2}{3}=\frac{1}{3}.$$
+                    <!-- $$A=\lim_{n\to\infty}A_n=\lim_{n\to\infty}\left[1+\frac{1}{n} -\frac{1}{3}\cdot \left(1+\frac{1}{n} \right) \cdot \left(2+\frac{1}{n} \right)\right]=1-\frac{2}{3}=\frac{1}{3}.$$ -->
+                    \begin{equation*}
+                        \begin{split}
+                            A &=\lim_{n\to\infty}A_n \\
+                            &= \lim_{n\to\infty}\left[1+\frac{1}{n} -\frac{1}{3}\cdot \left(1+\frac{1}{n} \right) \cdot \left(2+\frac{1}{n} \right)\right] \\
+                            &= 1-\frac{2}{3}=\frac{1}{3}.
+                        \end{split}
+                    \end{equation*}
                 </p>
                 <p class="paragraph">
                     Finalmente, el área buscada es $\frac{1}{3}$.
@@ -402,7 +491,7 @@
         <div class="modal__content">
             <div class="theorem">
                 <p class="paragraph">
-                    <strong>Teorema 1.2.1 </strong>(Linealidad). Sean $n ∈ \mathbf{N}, a_i, b_i ∈ \mathbf{R}$, para toda $i = 1, n,$ y $c ∈ \mathbf{R}$,
+                    <strong class="theorem__title">Teorema 1.2.1 </strong>(Linealidad). Sean $n ∈ \mathbf{N}, a_i, b_i ∈ \mathbf{R}$, para toda $i = 1, n,$ y $c ∈ \mathbf{R}$,
                     entonces:
                 </p>
                 <ol class="theorem__list">
@@ -424,7 +513,7 @@
         <div class="modal__content">
             <div class="theorem">
                 <p class="paragraph">
-                    <strong>Teorema 1.2.3 </strong>. Para toda $n ∈ \mathbf{N}$ se cumple que
+                    <strong class="theorem__title">Teorema 1.2.3 </strong>. Para toda $n ∈ \mathbf{N}$ se cumple que
                 </p>
                 <ol class="theorem__list">
                     <li class="theorem__list--formule">

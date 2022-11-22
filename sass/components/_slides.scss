@@ -99,7 +99,7 @@
         bottom: 18rem;
         left: 50%;
         transform: translateX(-50%);
-        @include responsive(phone) {
+        @include responsive(phone-land) {
             left: 50%;
             transform: translateX(-50%);
             font-size: 4rem;

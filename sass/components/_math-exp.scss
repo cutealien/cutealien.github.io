@@ -110,6 +110,10 @@
             justify-content: left;
             column-gap: 4rem;
             width: 100%;
+            @include responsive(phone-land) {
+                // max-width: max-content;
+                overflow-x: auto;
+            }
         }
     }
     &__text {

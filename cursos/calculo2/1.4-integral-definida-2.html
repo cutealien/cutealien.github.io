@@ -194,6 +194,7 @@
                     Finalmente, por la definición de suma inferior y suma superior, llegamos a que $$\underline{S}(f,P)\leq \overline{S}(f,P).$$
                 </p>
             </div>
+            <div class="fancy-line"></div>
             <div class="theorem">
                 <p class="paragraph">
                     <strong class="theorem__title">Teorema 1.4.2.</strong> Si $f:[a,b]\to\mathbf{R}$ es una función acotada, $P$ una partición de $[a,b]$ y $P'$ un refinamiento de $P$, 
@@ -216,51 +217,66 @@
                 <p class="paragraph error">Página 30 ¿Falta escribir $\Delta x_i$ despues de $M_i$ en la sumatoria?</p>
                 <div class="calculation">
                     <div class="calculation__formule--1">
-                        $$\overline{S}(f,P')$$
+                        $$\overline{S}(f,P') =$$
                     </div>
                     <div class="calculation__formule--2">
                         <div>
-                            $$=\sum_{i=1}^{j-1}M_i+T_1(z-x_{j-1})+T_2(x_j-z)+\sum_{i=j+1}^n M_i$$
+                            $$\sum_{i=1}^{j-1}M_i\Delta x_i + T_1(z-x_{j-1})+T_2(x_j-z)+\sum_{i=j+1}^n M_i \Delta x_i$$
                         </div>
                         <div class="calculation__text">
                             por def. de suma superior
                         </div>
                     </div>
+                    <div class="calculation__formule--1">
+                        $$\leq$$
+                    </div>
                     <div class="calculation__formule--2">
                         <div>
-                            $$\leq \sum_{i=1}^{j-1}M_i+M_j(z-x_{j-1})+M_j(x_j-z)+\sum_{i=j+1}^n M_i$$
+                            $$ \sum_{i=1}^{j-1}M_i \Delta x_i + M_j(z-x_{j-1})+M_j(x_j-z) + \sum_{i=j+1}^n M_i\Delta x_i$$
                         </div>
                         <div class="calculation__text">
                             por la relación con $M_j$
                         </div>
                     </div>
+                    <div class="calculation__formule--1">
+                        $$=$$
+                    </div>
                     <div class="calculation__formule--2">
                         <div>
-                            $$= \sum_{i=1}^{j-1}M_i+M_j(x_j-x_{j-1})+\sum_{i=j+1}^n M_i$$
+                            $$ \sum_{i=1}^{j-1}M_i \Delta x_i + M_j(x_j-x_{j-1}) + \sum_{i=j+1}^n M_i \Delta x_i$$
                         </div>
                         <div class="calculation__text">
                             por inverso aditivo
                         </div>
                     </div>
+                    <div class="calculation__formule--1">
+                        $$=$$
+                    </div>
                     <div class="calculation__formule--2">
                         <div>
-                            $$= \sum_{i=1}^{j-1}M_i+M_j\Delta x_j+\sum_{i=j+1}^n M_i$$
+                            $$ \sum_{i=1}^{j-1}M_i \Delta x_i + M_j\Delta x_j+\sum_{i=j+1}^n M_i \Delta x_i$$
                         </div>
                         <div class="calculation__text">
                             por def. de $\Delta x_j$
                         </div>
                     </div>
+                    <div class="calculation__formule--1">
+                        $$=$$
+                    </div>
                     <div class="calculation__formule--2">
                         <div>
-                            $$= \sum_{i=1}^n M_i$$
+                            $$ \sum_{i=1}^n M_i \Delta x_i$$
                         </div>
                         <div class="calculation__text">
                             por propiedades de $\Sigma$
                         </div>
                     </div>
+                    <div class="calculation__formule--1">
+                        $$=$$
+                    </div>
                     <div class="calculation__formule--2">
                         <div>
-                            $$= \overline{S}(f,P')$$
+                            $$ \overline{S}(f,P)$$
                         </div>
                         <div class="calculation__text">
                             por def. de suma superior
@@ -290,6 +306,7 @@
                 <p class="paragraph">
                     La demostración para sumas inferiores es análoga y se deja como ejercicio.
                 </p>
+                <div class="fancy-line"></div>
             </div>
             <div class="theorem">
                 <p class="paragraph">
@@ -307,12 +324,13 @@
                     Finalmente, por transtividad, $$ \underline{S}(f,P)\leq \overline{S}(f,Q).$$
                 </p>
             </div>
+            <div class="fancy-line"></div>
             <p class="paragraph">
                 El Teorema 1.4.3, nos permite deducir que el conjunto 
                 $$\{\underline{S}(f,P): \,P\mbox{ es una partición de }[a,b]\}$$ 
                 es acotado superiormente por cualquier suma superior, y que el conjunto 
                 $$\{\overline{S}(f,P): \,P\mbox{ es una partición de }[a,b]\}$$ 
-                es acotado inferiormente por cualquier suma superior.
+                es acotado inferiormente por cualquier suma inferior.
             </p>
             <p class="paragraph error">
                 página 32. quizo decir inferior???
@@ -353,186 +371,344 @@
                 <h3 class="header-tertiary">Solución.</h3>
                 <p class="paragraph">
                     Sea $P:\{x_0,x_1,\dots,x_n\}$ una partición de $[a,b]$. 
-                    Entonces para cada $i=\overline{1,n}$, en $I_i=[x_{i-1},x_i]$, tenemos que $m_i=\inf\{f(x):x\in I_i\}=\inf\{k\}=k$ y $M_i=\sup\{f(x):x\in I_i\}=\sup \{k\}=k$, 
-                    por definición de $f$. Así, 
+                    
                 </p>
-                <div class="calculation">
-                    <div class="calculation__formule--1">
-                        $$\underline{S}(f,P)$$
+                <form class="question margin-top-sm" data-question="question-1-4-2-1" data-answer="k">
+                    <h3 class="question__header margin-bottom-sm">
+                        ¿Cuál es el valor de $m_i$ y $M_i$ para cada $i=\overline{1,n}$, en $I_i=[x_{i-1},x_i]$,?
+                    </h3>
+                    <div class="question__row">
+                    <div class="question__col-1">
+                        <div class="question__options">
+                            <!-- <div class="question__option">
+                                <input type="radio" autocomplete="off" id="answer-1-4-2-1-a" name="question-1-4-2-1" value="a" data-option="question-1-4-2-1">
+                                <label for="answer-1-4-2-1-a">k</label>
+                            </div>
+                            <div class="question__option">
+                                <input type="radio" autocomplete="off" id="answer-1-4-2-1-b" name="question-1-4-2-1" value="b" data-option="question-1-4-2-1">
+                                <label for="answer-1-4-2-1-b">a</label>
+                            </div>
+                            <div class="question__option">
+                                <input type="radio" autocomplete="off" id="answer-1-4-2-1-c" name="question-1-4-2-1" value="c" data-option="question-1-4-2-1">
+                                <label for="answer-1-4-2-1-c">b</label>
+                            </div> -->
+                            <div class="question__option-input">
+                                <input class="question__input" type="text" autocomplete="off" id="answer-1-4-2-1-d" name="question-1-4-2-1" data-option="question-1-4-2-1">
+                                <label for="answer-1-4-2-1-d">Respuesta</label>
+                            </div>
+                        </div>
+                        <div class="question__btn-box">
+                            <button class="btn btn--blue" type="submit" disabled data-btn="answer">Aceptar</button>
+                            <button class="btn btn--blue" type="button" disabled data-btn="continue">Continuar</button>
+                        </div>
+                        
                     </div>
-                    <div class="calculation__formule--2">
-                        <div>
-                            $$= \sum_{i=1}^n m_i \Delta x_i$$
-                        </div>
-                        <div class="calculation__text">
-                            por definición de suma inferior
-                        </div>
+                    <div class="question__col-2">
+                        <p class="question__answer"></p>
                     </div>
-                    <div class="calculation__formule--2">
-                        <div>
-                            $$= \sum_{i=1}^n k \Delta x_i$$
-                        </div>
-                        <div class="calculation__text">
-                            por definición de $m_i$
-                        </div>
                     </div>
-                    <div class="calculation__formule--2">
-                        <div>
-                            $$= k\sum_{i=1}^n \Delta x_i$$
+                </form>
+                <div class="step">
+                    <p class="paragraph">
+                        Entonces para cada $i=\overline{1,n}$, en $I_i=[x_{i-1},x_i]$, tenemos que $m_i=\inf\{f(x):x\in I_i\}=\inf\{k\}=k$ y $M_i=\sup\{f(x):x\in I_i\}=\sup \{k\}=k$, 
+                        por definición de $f$. 
+                    </p>
+                    <form class="question margin-top-sm" data-question="question-1-4-2-2" data-answer="d">
+                        <h3 class="question__header margin-bottom-sm">
+                            ¿Qué se obtiene al desarrollar $\underline{S}(f,P)$ ?
+                        </h3>
+                        <div class="question__row">
+                        <div class="question__col-1">
+                            <div class="question__options">
+                                <div class="question__option">
+                                    <input type="radio" autocomplete="off" id="answer-1-4-2-2-a" name="question-1-4-2-2" value="a" data-option="question-1-4-2-2">
+                                    <label for="answer-1-4-2-2-a">$k$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" autocomplete="off" id="answer-1-4-2-2-b" name="question-1-4-2-2" value="b" data-option="question-1-4-2-2">
+                                    <label for="answer-1-4-2-2-b">$k(a-b)$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" autocomplete="off" id="answer-1-4-2-2-c" name="question-1-4-2-2" value="c" data-option="question-1-4-2-2">
+                                    <label for="answer-1-4-2-2-c">$k(b+a)$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" autocomplete="off" id="answer-1-4-2-2-d" name="question-1-4-2-2" value="d" data-option="question-1-4-2-2">
+                                    <label for="answer-1-4-2-2-d">$k(b-a)$</label>
+                                </div>
+                            </div>
+                            <div class="question__btn-box">
+                                <button class="btn btn--blue" type="submit" disabled data-btn="answer">Respuesta</button>
+                                <button class="btn btn--blue" type="button" disabled data-btn="continue">Continuar</button>
+                            </div>
                         </div>
-                        <div class="calculation__text">
-                            por <span class="modal__reference" data-modal-btn="theorem-1-2-1">Teorema 1.2.1</span>
+                        <div class="question__col-2">
+                            <p class="question__answer"></p>
                         </div>
-                    </div>
-                    <div class="calculation__formule--2">
-                        <div>
-                            $$= k\sum_{i=1}^n (x_i-x_{i-1})$$
                         </div>
-                        <div class="calculation__text">
-                            por definición de $\Delta x_i$
-                        </div>
-                    </div>
-                    <div class="calculation__formule--2">
-                        <div>
-                            $$=  k(x_n-x_0)$$
-                        </div>
-                        <div class="calculation__text">
-                            por <span class="modal__reference" data-modal-btn="theorem-1-2-2">Teorema 1.2.2</span>
-                        </div>
-                    </div>
-                    <div class="calculation__formule--2">
-                        <div>
-                            $$=  k(b-a)$$
-                        </div>
-                        <div class="calculation__text">
-                            por definición de partición
-                        </div>
-                    </div>
+                    </form>
                 </div>
-                <p class="paragraph">
-                    Luego, $$\forall P \mbox{ partición de }[a,b]: \underline{S}(f,P)=k(b-a).$$ Entonces 
-                </p>
-                <div class="calculation">
-                    <div class="calculation__formule--1">
-                        $${\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx$$
+                <div class="step">
+                    <p class="paragraph">
+                        Desarrollando $\underline{S}(f,P)$, tenemos
+                    </p>
+                    <div class="calculation">
+                        <div class="calculation__formule--1">
+                            $$\underline{S}(f,P)$$
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= \sum_{i=1}^n m_i \Delta x_i$$
+                            </div>
+                            <div class="calculation__text">
+                                por definición de suma inferior
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= \sum_{i=1}^n k \Delta x_i$$
+                            </div>
+                            <div class="calculation__text">
+                                por definición de $m_i$
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= k\sum_{i=1}^n \Delta x_i$$
+                            </div>
+                            <div class="calculation__text">
+                                por <span class="modal__reference" data-modal-btn="theorem-1-2-1">Teorema 1.2.1</span>
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= k\sum_{i=1}^n (x_i-x_{i-1})$$
+                            </div>
+                            <div class="calculation__text">
+                                por definición de $\Delta x_i$
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$=  k(x_n-x_0)$$
+                            </div>
+                            <div class="calculation__text">
+                                por <span class="modal__reference" data-modal-btn="theorem-1-2-2">Teorema 1.2.2</span>
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$=  k(b-a)$$
+                            </div>
+                            <div class="calculation__text">
+                                por definición de partición
+                            </div>
+                        </div>
                     </div>
-                    <div class="calculation__formule--2">
-                        <div>
-                            $$= \sup\{\underline{S}(f,P): \,P\mbox{ es una partición de }[a,b]\}$$
+                    <p class="paragraph">
+                        Luego, $$\forall P \mbox{ partición de }[a,b]: \underline{S}(f,P)=k(b-a).$$ 
+                    </p>
+                    <form class="question margin-top-sm" data-question="question-1-4-2-3" data-answer="a">
+                        <h3 class="question__header margin-bottom-sm">
+                            ¿Cuál es el valor de la integral inferior?
+                        </h3>
+                        <div class="question__row">
+                        <div class="question__col-1">
+                            <div class="question__options">
+                                <div class="question__option">
+                                    <input type="radio" autocomplete="off" id="answer-1-4-2-3-a" name="question-1-4-2-3" value="a" data-option="question-1-4-2-3">
+                                    <label for="answer-1-4-2-3-a">k(b-a)</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" autocomplete="off" id="answer-1-4-2-3-b" name="question-1-4-2-3" value="b" data-option="question-1-4-2-3">
+                                    <label for="answer-1-4-2-3-b">k(b+a)</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" autocomplete="off" id="answer-1-4-2-3-c" name="question-1-4-2-3" value="c" data-option="question-1-4-2-3">
+                                    <label for="answer-1-4-2-3-c">k</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" autocomplete="off" id="answer-1-4-2-3-d" name="question-1-4-2-3" value="d" data-option="question-1-4-2-3">
+                                    <label for="answer-1-4-2-3-d">b-a</label>
+                                </div>
+                            </div>
+                            <div class="question__btn-box">
+                                <button class="btn btn--blue" type="submit" disabled data-btn="answer">Respuesta</button>
+                                <button class="btn btn--blue" type="button" disabled data-btn="continue">Continuar</button>
+                            </div>
                         </div>
-                        <div class="calculation__text">
-                            por def. de int. inferior
+                        <div class="question__col-2">
+                            <p class="question__answer"></p>
                         </div>
-                    </div>
-                    <div class="calculation__formule--2">
-                        <div>
-                            $$= \sup\{k(b-a)\}$$
                         </div>
-                        <div class="calculation__text">
-                            por def. de suma inferior
-                        </div>
-                    </div>
-                    <div class="calculation__formule--2">
-                        <div>
-                            $$=  k(b-a).$$
-                        </div>
-                    </div>
+                    </form>
                 </div>
-                <p class="paragraph">
-                    Además,
-                </p>
-                <div class="calculation">
-                    <div class="calculation__formule--1">
-                        $$\overline{S}(f,P)$$
-                    </div>
-                    <div class="calculation__formule--2">
-                        <div>
-                            $$= \sum_{i=1}^n M_i \Delta x_i$$
+                <div class="step">
+                    <p class="paragraph">
+                        La integral inferior es:
+                    </p>
+                    <div class="calculation">
+                        <div class="calculation__formule--1">
+                            $${\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx$$
                         </div>
-                        <div class="calculation__text">
-                            por definición de suma inferior <strong class="error">pagina 33, quizo decir superior???</strong>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= \sup\{\underline{S}(f,P): \,P\mbox{ es una partición de }[a,b]\}$$
+                            </div>
+                            <div class="calculation__text">
+                                por def. de int. inferior
+                            </div>
                         </div>
-                    </div>
-                    <div class="calculation__formule--2">
-                        <div>
-                            $$= \sum_{i=1}^n k \Delta x_i$$
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= \sup\{k(b-a)\}$$
+                            </div>
+                            <div class="calculation__text">
+                                por def. de suma inferior
+                            </div>
                         </div>
-                        <div class="calculation__text">
-                            por definición de $M_i$
-                        </div>
-                    </div>
-                    <div class="calculation__formule--2">
-                        <div>
-                            $$= k\sum_{i=1}^n \Delta x_i$$
-                        </div>
-                        <div class="calculation__text">
-                            por <span class="modal__reference" data-modal-btn="theorem-1-2-1">Teorema 1.2.1</span> 
-                        </div>
-                    </div>
-                    <div class="calculation__formule--2">
-                        <div>
-                            $$= k\sum_{i=1}^n (x_i-x_{i-1})$$
-                        </div>
-                        <div class="calculation__text">
-                            por definición de $\Delta x_i$
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$=  k(b-a).$$
+                            </div>
                         </div>
                     </div>
-                    <div class="calculation__formule--2">
-                        <div>
-                            $$= k(x_n-x_0)$$
+                    <form class="question margin-top-sm" data-question="question-1-4-2-4" data-answer="c">
+                        <h3 class="question__header margin-bottom-sm">
+                            ¿Cuál es el valor de la integral superior?
+                        </h3>
+                        <div class="question__row">
+                        <div class="question__col-1">
+                            <div class="question__options">
+                                <div class="question__option">
+                                    <input type="radio" autocomplete="off" id="answer-1-4-2-4-a" name="question-1-4-2-4" value="a" data-option="question-1-4-2-4">
+                                    <label for="answer-1-4-2-4-a">$b-a$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" autocomplete="off" id="answer-1-4-2-4-b" name="question-1-4-2-4" value="b" data-option="question-1-4-2-4">
+                                    <label for="answer-1-4-2-4-b">$b+a$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" autocomplete="off" id="answer-1-4-2-4-c" name="question-1-4-2-4" value="c" data-option="question-1-4-2-4">
+                                    <label for="answer-1-4-2-4-c">$k(b-a)$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" autocomplete="off" id="answer-1-4-2-4-d" name="question-1-4-2-4" value="d" data-option="question-1-4-2-4">
+                                    <label for="answer-1-4-2-4-d">$k(b+a)$</label>
+                                </div>
+                            </div>
+                            <div class="question__btn-box">
+                                <button class="btn btn--blue" type="submit" disabled data-btn="answer">Respuesta</button>
+                                <button class="btn btn--blue" type="button" disabled data-btn="continue">Continuar</button>
+                            </div>
                         </div>
-                        <div class="calculation__text">
-                            por <span class="modal__reference" data-modal-btn="theorem-1-2-2">Teorema 1.2.2</span> 
+                        <div class="question__col-2">
+                            <p class="question__answer"></p>
                         </div>
-                    </div>
-                    <div class="calculation__formule--2">
-                        <div>
-                            $$=  k(b-a)$$
                         </div>
-                        <div class="calculation__text">
-                            por definición de partición
-                        </div>
-                    </div>
+                    </form>
                 </div>
-                <p class="paragraph">
-                    Luego, $$\forall P \mbox{ partición de }[a,b]: \overline{S}(f,P)=k(b-a).$$ Entonces 
-                </p>
-                <div class="calculation">
-                    <div class="calculation__formule--1">
-                        $${\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b f(x)\,dx$$
+                <div class="step">
+                    <p class="paragraph">
+                        Para la integral superior, tenemos
+                    </p>
+                    <div class="calculation">
+                        <div class="calculation__formule--1">
+                            $$\overline{S}(f,P)$$
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= \sum_{i=1}^n M_i \Delta x_i$$
+                            </div>
+                            <div class="calculation__text">
+                                por definición de suma superior <strong class="error">pagina 33, esta escrito inferior???</strong>
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= \sum_{i=1}^n k \Delta x_i$$
+                            </div>
+                            <div class="calculation__text">
+                                por definición de $M_i$
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= k\sum_{i=1}^n \Delta x_i$$
+                            </div>
+                            <div class="calculation__text">
+                                por <span class="modal__reference" data-modal-btn="theorem-1-2-1">Teorema 1.2.1</span> 
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= k\sum_{i=1}^n (x_i-x_{i-1})$$
+                            </div>
+                            <div class="calculation__text">
+                                por definición de $\Delta x_i$
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= k(x_n-x_0)$$
+                            </div>
+                            <div class="calculation__text">
+                                por <span class="modal__reference" data-modal-btn="theorem-1-2-2">Teorema 1.2.2</span> 
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$=  k(b-a)$$
+                            </div>
+                            <div class="calculation__text">
+                                por definición de partición
+                            </div>
+                        </div>
                     </div>
-                    <div class="calculation__formule--2">
-                        <div>
-                            $$= \inf\{\overline{S}(f,P): \,P\mbox{ es una partición de }[a,b]\}$$
+                    <p class="paragraph">
+                        Luego, $$\forall P \mbox{ partición de }[a,b]: \overline{S}(f,P)=k(b-a).$$ Entonces 
+                    </p>
+                    <div class="calculation">
+                        <div class="calculation__formule--1">
+                            $${\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b f(x)\,dx$$
                         </div>
-                        <div class="calculation__text">
-                            por def. de int. superior
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= \inf\{\overline{S}(f,P): \,P\mbox{ es una partición de }[a,b]\}$$
+                            </div>
+                            <div class="calculation__text">
+                                por def. de int. superior
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= \inf\{k(b-a)\}$$
+                            </div>
+                            <div class="calculation__text">
+                                por def. de suma superior
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$=  k(b-a).$$
+                            </div>
                         </div>
                     </div>
-                    <div class="calculation__formule--2">
-                        <div>
-                            $$= \\sup\{k(b-a)\}$$
-                        </div>
-                        <div class="calculation__text">
-                            por def. de suma superior
-                        </div>
+                    <p class="paragraph">
+                        Finalmente, tenemos que 
+                        $$ {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx=k(b-a)={\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b f(x)\,dx.$$
+                    </p>
+                    <p class="paragraph">
+                        Este ejemplo muestra que algunas veces la integral inferior y la integral superior van a coincidir, sin embargo esto no siempre sucederá así, 
+                        tal y como lo mostramos en el siguiente ejemplo.
+                    </p>
+                    <div>
+                        <button class="btn btn--blue" type="button" data-btn="continue">Continuar</button>
                     </div>
-                    <div class="calculation__formule--2">
-                        <div>
-                            $$=  k(b-a).$$
-                        </div>
-                    </div>
+                    <div class="fancy-line"></div>
                 </div>
-                <p class="paragraph">
-                    Finalmente, tenemos que 
-                    $$ {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx=k(b-a)={\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b f(x)\,dx.$$
-                </p>
             </div>
-            <p class="paragraph">
-                Este ejemplo muestra que algunas veces la integral inferior y la integral superior van a coincidir, sin embargo esto no siempre sucederá así, 
-                tal y como lo mostramos en el siguiente ejemplo.
-            </p>
-            <div class="example">
+            <div class="step example">
                 <p class="paragraph example__paragraph">
                     <strong class="example__title">Ejemplo 1.4.6.</strong> Sea $f:[a,b]\to\mathbf{R}$ una función dada por 
                     $f(x)= \left\{ \begin{array}{lcc}
@@ -547,176 +723,278 @@
                 </p>        
                 <h3 class="header-tertiary">Solución.</h3>
                 <p class="paragraph">
-                    Sea $P:\{x_0,x_1,\dots,x_n\}$ una partición de $[a,b]$. 
-                    Entonces para cada $i=\overline{1,n}$, en $I_i=[x_{i-1},x_i]$, tenemos que $m_i=\inf\{f(x):x\in I_i\}=\inf\{0,1\}=0$ y $M_i=\sup\{f(x):x\in I_i\}=\sup \{0,1\}=1$, por definición de $f$. 
+                    Sea $P:\{x_0,x_1,\dots,x_n\}$ una partición de $[a,b]$.                     
                 </p>
-                <p class="paragraph">
-                    Así,
-                </p>
-                <div class="calculation">
-                    <div class="calculation__formule--1">
-                        $$\underline{S}(f,P)$$
+                <form class="question margin-top-sm" data-question="question-1-4-2-5" data-answer="c">
+                    <h3 class="question__header margin-bottom-sm">
+                        ¿Cuál es el valor $m_i$ y $M_i$?
+                    </h3>
+                    <div class="question__row">
+                    <div class="question__col-1">
+                        <div class="question__options">
+                            <div class="question__option">
+                                <input type="radio" autocomplete="off" id="answer-1-4-2-5-a" name="question-1-4-2-5" value="a" data-option="question-1-4-2-5">
+                                <label for="answer-1-4-2-5-a">$0$ y $0$</label>
+                            </div>
+                            <div class="question__option">
+                                <input type="radio" autocomplete="off" id="answer-1-4-2-5-b" name="question-1-4-2-5" value="b" data-option="question-1-4-2-5">
+                                <label for="answer-1-4-2-5-b">$1$ y $1$</label>
+                            </div>
+                            <div class="question__option">
+                                <input type="radio" autocomplete="off" id="answer-1-4-2-5-c" name="question-1-4-2-5" value="c" data-option="question-1-4-2-5">
+                                <label for="answer-1-4-2-5-c">$0$ y $1$</label>
+                            </div>
+                            <div class="question__option">
+                                <input type="radio" autocomplete="off" id="answer-1-4-2-5-d" name="question-1-4-2-5" value="d" data-option="question-1-4-2-5">
+                                <label for="answer-1-4-2-5-d">$1$ y $0$</label>
+                            </div>
+                        </div>
+                        <div class="question__btn-box">
+                            <button class="btn btn--blue" type="submit" disabled data-btn="answer">Respuesta</button>
+                            <button class="btn btn--blue" type="button" disabled data-btn="continue">Continuar</button>
+                        </div>
                     </div>
-                    <div class="calculation__formule--2">
-                        <div>
-                            $$=  \sum_{i=1}^n m_i \Delta x_i$$
+                    <div class="question__col-2">
+                        <p class="question__answer"></p>
+                    </div>
+                    </div>
+                </form>
+                <div class="step">
+                    <p class="paragraph">
+                        Para cada $i=\overline{1,n}$, en $I_i=[x_{i-1},x_i]$, tenemos que $m_i=\inf\{f(x):x\in I_i\}=\inf\{0,1\}=0$ y 
+                        $M_i=\sup\{f(x):x\in I_i\}=\sup \{0,1\}=1$, por definición de $f$. 
+                    </p>
+                    <form class="question margin-top-sm" data-question="question-1-4-2-6" data-answer="b">
+                        <h3 class="question__header margin-bottom-sm">
+                            ¿Cuál es el valor de la integral inferior?
+                        </h3>
+                        <div class="question__row">
+                        <div class="question__col-1">
+                            <div class="question__options">
+                                <div class="question__option">
+                                    <input type="radio" autocomplete="off" id="answer-1-4-2-6-a" name="question-1-4-2-6" value="a" data-option="question-1-4-2-6">
+                                    <label for="answer-1-4-2-6-a">$b-a$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" autocomplete="off" id="answer-1-4-2-6-b" name="question-1-4-2-6" value="b" data-option="question-1-4-2-6">
+                                    <label for="answer-1-4-2-6-b">$0$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" autocomplete="off" id="answer-1-4-2-6-c" name="question-1-4-2-6" value="c" data-option="question-1-4-2-6">
+                                    <label for="answer-1-4-2-6-c">$1$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" autocomplete="off" id="answer-1-4-2-6-d" name="question-1-4-2-6" value="d" data-option="question-1-4-2-6">
+                                    <label for="answer-1-4-2-6-d">$b+a$</label>
+                                </div>
+                            </div>
+                            <div class="question__btn-box">
+                                <button class="btn btn--blue" type="submit" disabled data-btn="answer">Respuesta</button>
+                                <button class="btn btn--blue" type="button" disabled data-btn="continue">Continuar</button>
+                            </div>
                         </div>
-                        <div class="calculation__text">
-                            por definición de suma inferior
+                        <div class="question__col-2">
+                            <p class="question__answer"></p>
+                        </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="step">
+                    <p class="paragraph">
+                        Calculando la integral inferior,
+                    </p>
+                    <div class="calculation">
+                        <div class="calculation__formule--1">
+                            $$\underline{S}(f,P)$$
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$=  \sum_{i=1}^n m_i \Delta x_i$$
+                            </div>
+                            <div class="calculation__text">
+                                por definición de suma inferior
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= \sum_{i=1}^n 0 \Delta x_i $$
+                            </div>
+                            <div class="calculation__text">
+                                definición de $m_i$
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= 0$$
+                            </div>
                         </div>
                     </div>
-                    <div class="calculation__formule--2">
-                        <div>
-                            $$= \sum_{i=1}^n 0 \Delta x_i $$
+                    <p class="paragraph">
+                        Luego, $$\forall P \mbox{ partición de }[a,b]: \underline{S}(f,P)=0.$$ Entonces
+                    </p>
+                    <div class="calculation">
+                        <div class="calculation__formule--1">
+                            $${\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx$$
                         </div>
-                        <div class="calculation__text">
-                            definición de $m_i$
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= \sup\{\underline{S}(f,P): \,P\mbox{ es una partición de }[a,b]\} $$
+                            </div>
+                            <div class="calculation__text">
+                                por def. de int. inferior
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= \sup\{0\} $$
+                            </div>
+                            <div class="calculation__text">
+                                por def. de suma inferior
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= 0 $$
+                            </div>
                         </div>
                     </div>
-                    <div class="calculation__formule--2">
-                        <div>
-                            $$= 0$$
+                    <form class="question margin-top-sm" data-question="question-1-4-2-7" data-answer="a">
+                        <h3 class="question__header margin-bottom-sm">
+                            ¿Cuál es el valor de la integral superior?
+                        </h3>
+                        <div class="question__row">
+                        <div class="question__col-1">
+                            <div class="question__options">
+                                <div class="question__option">
+                                    <input type="radio" autocomplete="off" id="answer-1-4-2-7-a" name="question-1-4-2-7" value="a" data-option="question-1-4-2-7">
+                                    <label for="answer-1-4-2-7-a">$1$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" autocomplete="off" id="answer-1-4-2-7-b" name="question-1-4-2-7" value="b" data-option="question-1-4-2-7">
+                                    <label for="answer-1-4-2-7-b">$0$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" autocomplete="off" id="answer-1-4-2-7-c" name="question-1-4-2-7" value="c" data-option="question-1-4-2-7">
+                                    <label for="answer-1-4-2-7-c">$b-a$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" autocomplete="off" id="answer-1-4-2-7-d" name="question-1-4-2-7" value="d" data-option="question-1-4-2-7">
+                                    <label for="answer-1-4-2-7-d">$b+a$</label>
+                                </div>
+                            </div>
+                            <div class="question__btn-box">
+                                <button class="btn btn--blue" type="submit" disabled data-btn="answer">Respuesta</button>
+                                <button class="btn btn--blue" type="button" disabled data-btn="continue">Continuar</button>
+                            </div>
                         </div>
+                        <div class="question__col-2">
+                            <p class="question__answer"></p>
+                        </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="step">
+                    <p class="paragraph">
+                        Calculando la integral superior
+                    </p>
+                    <div class="calculation">
+                        <div class="calculation__formule--1">
+                            $$\overline{S}(f,P) $$
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= \sum_{i=1}^n M_i \Delta x_i$$
+                            </div>
+                            <div class="calculation__text">
+                                por definición de suma inferior <strong class="error">pagina 35 quizo decir superior???</strong>
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= \sum_{i=1}^n 1 \Delta x_i$$
+                            </div>
+                            <div class="calculation__text">
+                                por definición de $M_i$
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= \sum_{i=1}^n \Delta x_i$$
+                            </div>
+                            <div class="calculation__text">
+                                por neutro multiplicativo
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$=\sum_{i=1}^n (x_i-x_{i-1})$$
+                            </div>
+                            <div class="calculation__text">
+                                por definición de $\Delta x_i$
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= x_n-x_0 $$
+                            </div>
+                            <div class="calculation__text">
+                                por <span class="modal__reference" data-modal-btn="theorem-1-2-2">Teorema 1.2.2</span>
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= b-a $$
+                            </div>
+                            <div class="calculation__text">
+                                por definición de partición
+                            </div>
+                        </div>
+                    </div>
+                    <p class="paragraph">
+                        Luego, $$\forall P \mbox{ partición de }[a,b]: \overline{S}(f,P)=b-a.$$ <strong class="error">sobra la $k$ en la expresion???</strong> Entonces 
+                    </p>
+                    <div class="calculation">
+                        <div class="calculation__formule--1">
+                            $${\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b f(x)\,dx$$
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= \inf\{\overline{S}(f,P): \,P\mbox{ es una partición de }[a,b]\} $$
+                            </div>
+                            <div class="calculation__text">
+                                por def. de int. superior
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= \inf\{(b-a)\} $$
+                            </div>
+                            <div class="calculation__text">
+                                por def. de suma superior
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= b-a $$
+                            </div>
+                        </div>
+                    </div>
+                    <p class="paragraph">
+                        Finalmente, tenemos que 
+                        $${\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx = 0, 
+                        \qquad \mbox{y}\qquad 
+                        {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b f(x)\,dx=b-a.$$
+                    </p>
+                    <p class="paragraph">
+                        Estos dos ejemplos muestran que algunas veces la integral inferior y la integral superior van a coincidir y algunas veces no, sin embargo la integral inferior 
+                        jamás va a superar a la integral superior, lo cual queda de manifiesto en el siguiente teorema.
+                    </p>
+                    <div class="fancy-line"></div>
+                    <div class="change-page">
+                        <a href="./1.4-integral-definida.html" class="change-page__before">Anterior</a>
+                        <a href="./1.4-integral-definida-3.html" class="change-page__next">Siguiente</a>
                     </div>
                 </div>
-                <p class="paragraph">
-                    Luego, $$\forall P \mbox{ partición de }[a,b]: \underline{S}(f,P)=0.$$ Entonces
-                </p>
-                <div class="calculation">
-                    <div class="calculation__formule--1">
-                        $${\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx$$
-                    </div>
-                    <div class="calculation__formule--2">
-                        <div>
-                            $$= \sup\{\underline{S}(f,P): \,P\mbox{ es una partición de }[a,b]\} $$
-                        </div>
-                        <div class="calculation__text">
-                            por def. de int. inferior
-                        </div>
-                    </div>
-                    <div class="calculation__formule--2">
-                        <div>
-                            $$= \sup\{0\} $$
-                        </div>
-                        <div class="calculation__text">
-                            por def. de suma inferior
-                        </div>
-                    </div>
-                    <div class="calculation__formule--2">
-                        <div>
-                            $$= 0 $$
-                        </div>
-                    </div>
-                </div>
-                <p class="paragraph">
-                    Además,
-                </p>
-                <div class="calculation">
-                    <div class="calculation__formule--1">
-                        $$\overline{S}(f,P) $$
-                    </div>
-                    <div class="calculation__formule--2">
-                        <div>
-                            $$= \sum_{i=1}^n M_i \Delta x_i$$
-                        </div>
-                        <div class="calculation__text">
-                            por definición de suma inferior <strong class="error">pagina 35 quizo decir superior???</strong>
-                        </div>
-                    </div>
-                    <div class="calculation__formule--2">
-                        <div>
-                            $$= \sum_{i=1}^n 1 \Delta x_i$$
-                        </div>
-                        <div class="calculation__text">
-                            por definición de $M_i$
-                        </div>
-                    </div>
-                    <div class="calculation__formule--2">
-                        <div>
-                            $$= \sum_{i=1}^n \Delta x_i$$
-                        </div>
-                        <div class="calculation__text">
-                            por neutro multiplicativo
-                        </div>
-                    </div>
-                    <div class="calculation__formule--2">
-                        <div>
-                            $$=\sum_{i=1}^n (x_i-x_{i-1})$$
-                        </div>
-                        <div class="calculation__text">
-                            por definición de $\Delta x_i$
-                        </div>
-                    </div>
-                    <div class="calculation__formule--2">
-                        <div>
-                            $$= (x_n-x_0) $$
-                        </div>
-                        <div class="calculation__text">
-                            por <span class="modal__reference" data-modal-btn="theorem-1-2-2">Teorema 1.2.2</span>
-                        </div>
-                    </div>
-                    <div class="calculation__formule--2">
-                        <div>
-                            $$= (b-a) $$
-                        </div>
-                        <div class="calculation__text">
-                            por definición de partición
-                        </div>
-                    </div>
-                </div>
-                <p class="paragraph">
-                    Luego, $$\forall P \mbox{ partición de }[a,b]: \overline{S}(f,P)=k(b-a).$$ <strong class="error">sobra la $k$ en la expresion???</strong> Entonces 
-                </p>
-                <p class="paragraph">
-                    \begin{equation*}
-                        \begin{split}
-                            {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b f(x)\,dx &=  \inf\{\overline{S}(f,P): \,P\mbox{ es una partición de }[a,b]\} \quad \mbox{ por def. de int. superior} \\
-                            &=  \sup\{(b-a)\} \quad \mbox{ por def. de suma superior} \\
-                            &= b-a. 
-                        \end{split}
-                    \end{equation*}
-                </p>
-                <div class="calculation">
-                    <div class="calculation__formule--1">
-                        $${\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b f(x)\,dx$$
-                    </div>
-                    <div class="calculation__formule--2">
-                        <div>
-                            $$= \inf\{\overline{S}(f,P): \,P\mbox{ es una partición de }[a,b]\} $$
-                        </div>
-                        <div class="calculation__text">
-                            por def. de int. superior
-                        </div>
-                    </div>
-                    <div class="calculation__formule--2">
-                        <div>
-                            $$= \sup\{(b-a)\} $$
-                        </div>
-                        <div class="calculation__text">
-                            por def. de suma superior
-                        </div>
-                    </div>
-                    <div class="calculation__formule--2">
-                        <div>
-                            $$= b-a $$
-                        </div>
-                    </div>
-                </div>
-                <p class="paragraph">
-                    Finalmente, tenemos que 
-                    $${\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx = 0, 
-                    \qquad \mbox{y}\qquad 
-                    {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b f(x)\,dx=b-a.$$
-                </p>
-            </div>
-            <p class="paragraph">
-                Estos dos ejemplos muestran que algunas veces la integral inferior y la integral superior van a coincidir y algunas veces no, sin embargo la integral inferior 
-                jamás va a superar a la integral superior, lo cual queda de manifiesto en el siguiente teorema.
-            </p>
-            <div class="fancy-line"></div>
-            <div class="change-page">
-                <a href="./1.4-integral-definida.html" class="change-page__before">Anterior</a>
-                <a href="./1.4-integral-definida-3.html" class="change-page__next">Siguiente</a>
             </div>
         </section>
     </main>

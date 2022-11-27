@@ -33,6 +33,5 @@ window.addEventListener("resize", (e) => {
 		menuMobile.classList.remove('menu-mobile--active')
 		menuMobilebg.classList.remove('menu-mobile__bg--active')
 		menuMobilecontent.classList.remove('menu-mobile__content--active')
-		console.log(media.matches)
 	}
 });

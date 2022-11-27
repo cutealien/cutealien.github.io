@@ -8,8 +8,9 @@
     // border: none;
     &__header {
         font-style: italic;
-        font-weight: normal;
+        font-weight: bold;
         font-size: inherit;
+        border-bottom: 1px solid var(--color-primary);
     }
     &__row {
         display: flex;
@@ -27,6 +28,27 @@
         }
         &:not(:last-child) {
             margin-bottom: 1rem;
+        }
+    }
+
+    &__input {
+        border: none;
+        border-bottom: 2px solid var(--color-primary-light);
+        background-color: var(--color-gray-light);
+        padding: 1rem;
+        transition: all 0.3s linear;
+        font-family: inherit;
+        font-size: 2rem;
+        width: 10ch;
+
+        &:hover, &:focus {
+            border-bottom: 2px solid var(--color-primary-dark);
+            background-color: var(--color-gray);
+            outline: none;
+        }
+        &:disabled {
+            border-bottom: 2px solid transparent;
+            background-color: var(--color-gray-light);
         }
     }
     &__btn-box {

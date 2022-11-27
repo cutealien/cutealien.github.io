@@ -7,13 +7,13 @@
     }
 
     &__item {
-        padding-left: 2rem;
+        padding-left: 1rem;
         &:not(:last-child) {
             margin: 1rem 0;
         }
-        @include responsive(tab-port) {
-            padding-left: 1rem;
-        }
+        // @include responsive(tab-port) {
+        //     padding-left: 1rem;
+        // }
     }
 
     &__link,

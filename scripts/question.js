@@ -29,11 +29,25 @@ questions.forEach(question => {
 
     const optionGroup = question.querySelectorAll('[data-option]')
     optionGroup.forEach(option => {
-        option.addEventListener('change', (el) => {
-            if(el.target.checked) {
-                btnAnswer.disabled = false
-            }
-        })
+        if(option.type === 'radio') {
+            option.addEventListener('change', (el) => {
+                if(el.target.checked) {
+                    btnAnswer.disabled = false
+                }
+            })
+        }
+        if(option.type === 'text') {
+            option.addEventListener('keyup', (el) => {
+                // btnAnswer.disabled = el.target.value === '' ? true : false
+                btnAnswer.disabled = !el.target.value
+                // if(el.target.value !== '') {
+                //     btnAnswer.disabled = false
+                // }
+                // else {
+                //     btnAnswer.disabled = true
+                // }
+            })
+        }
     })
 
 

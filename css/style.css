@@ -6,6 +6,8 @@
   --color-secondary: #dfa01f;
   --color-tertiary: #d74180;
   --color-green: #0b7c3a;
+  --color-gray-light: #f4f4f4;
+  --color-gray: #f0f0f0;
 }
 
 .TFManim {
@@ -185,6 +187,11 @@ body {
   overflow-x: hidden;
   padding: 2rem 5%;
 }
+@media only screen and (max-width: 800px) {
+  .main {
+    padding: 2rem;
+  }
+}
 
 section {
   padding: 2rem 0;
@@ -235,6 +242,7 @@ section {
   color: rgb(150, 18, 18);
   background-color: rgb(243, 148, 148);
   font-weight: bold;
+  padding: 1rem;
 }
 
 .hint {
@@ -758,6 +766,11 @@ div[data-anchor]:target::before {
   column-gap: 4rem;
   width: 100%;
 }
+@media only screen and (max-width: 800px) {
+  .calculation__formule--2 {
+    overflow-x: auto;
+  }
+}
 .calculation__text {
   grid-column: 3/3;
   font-style: italic;
@@ -778,8 +791,9 @@ div[data-anchor]:target::before {
 }
 .question__header {
   font-style: italic;
-  font-weight: normal;
+  font-weight: bold;
   font-size: inherit;
+  border-bottom: 1px solid var(--color-primary);
 }
 .question__row {
   display: flex;
@@ -798,6 +812,25 @@ div[data-anchor]:target::before {
 }
 .question__option:not(:last-child) {
   margin-bottom: 1rem;
+}
+.question__input {
+  border: none;
+  border-bottom: 2px solid var(--color-primary-light);
+  background-color: var(--color-gray-light);
+  padding: 1rem;
+  transition: all 0.3s linear;
+  font-family: inherit;
+  font-size: 2rem;
+  width: 10ch;
+}
+.question__input:hover, .question__input:focus {
+  border-bottom: 2px solid var(--color-primary-dark);
+  background-color: var(--color-gray);
+  outline: none;
+}
+.question__input:disabled {
+  border-bottom: 2px solid transparent;
+  background-color: var(--color-gray-light);
 }
 .question__btn-box {
   margin-top: 2rem;
@@ -831,15 +864,10 @@ div[data-anchor]:target::before {
   text-transform: uppercase;
 }
 .subject-list__item {
-  padding-left: 2rem;
+  padding-left: 1rem;
 }
 .subject-list__item:not(:last-child) {
   margin: 1rem 0;
-}
-@media only screen and (max-width: 1000px) {
-  .subject-list__item {
-    padding-left: 1rem;
-  }
 }
 .subject-list__link, .subject-list__link:link, .subject-list__link:visited {
   color: #000;
@@ -911,7 +939,7 @@ div[data-anchor]:target::before {
   text-align: left;
 }
 
-button[data-btn=continue], button[data-btn=solution] {
+.question button[data-btn=continue], button[data-btn=solution] {
   display: none;
 }
 

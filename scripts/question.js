@@ -58,13 +58,12 @@ questions.forEach(question => {
         var data = new FormData(question)
         var message = 'Incorrecto'
         var answerText = question.querySelector('p')
-
     
         answerText.classList.add('question__answer--failed')
         answerText.classList.remove('question__answer--success')
     
         for (const entry of data) {
-            if(entry[1] === answer) {
+            if(entry[1].toLowerCase() === answer) {
                 message = 'Correcto'
                 answerText.classList.add('question__answer--success')
                 answerText.classList.remove('question__answer--failed')

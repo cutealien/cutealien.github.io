@@ -18,6 +18,11 @@
         justify-content: space-between;
         gap: 2rem;
     }
+    &__col-2 {
+        display: flex;
+        justify-content: center;
+        min-width: 150px;
+    }
     &__option {
         display: flex;
         align-items: flex-start;
@@ -39,7 +44,8 @@
         transition: all 0.3s linear;
         font-family: inherit;
         font-size: 2rem;
-        width: 10ch;
+        width: 20ch;
+        // text-transform: lowercase;
 
         &:hover, &:focus {
             border-bottom: 2px solid var(--color-primary-dark);

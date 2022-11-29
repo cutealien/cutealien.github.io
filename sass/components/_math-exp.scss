@@ -110,7 +110,7 @@
             justify-content: left;
             column-gap: 4rem;
             width: 100%;
-            @include responsive(phone-land) {
+            @include responsive(tab-land) {
                 // max-width: max-content;
                 overflow-x: auto;
             }

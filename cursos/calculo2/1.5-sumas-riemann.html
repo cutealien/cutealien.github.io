@@ -103,6 +103,7 @@
         <div class="menu-mobile__bg" data-menu-bg="menu-mobile"></div>
         <div class="menu-mobile__content" data-menu-content="menu-mobile">
             <div class="menu-mobile__header">
+                <h3 class="header-tertiary">Cálculo 2</h3>
                 <button class="menu-mobile-btn burger-btn" data-menu-btn="menu-mobile"><span class="burger-icon burger-icon--pressed"></span></button>
             </div>
             <nav class="navbar-mobile">
@@ -175,7 +176,8 @@
                 $$\overline{S}(f,Q) < {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b f(x)\, dx+r.$$
             </p>
             <p class="paragraph">
-                Definimos $R:=P\cup Q$, una partici\'on de $[a,b]$, el cual es un refinamiento tanto de $P$ como de $Q$. Por el Teorema 5, tenemos que 
+                Definimos $R:=P\cup Q$, una partición de $[a,b]$, el cual es un refinamiento tanto de $P$ como de $Q$. 
+                Por el <span class="modal__reference" data-modal-btn="theorem-1-4-2">Teorema 5</span> <span class="error">Es teorema 1.4.2</span> , tenemos que 
                 $$\underline{S}(f,P)\leq \underline{S}(f,R) \qquad \mbox{ y } \qquad \overline{S}(f,R) \leq \overline{S}(f,Q).$$ 
             </p>
             <p class="paragraph">
@@ -319,7 +321,7 @@
                         $$= 1+\frac{1}{n^2} \cdot \frac{(n-1)n}{2} $$
                     </div>
                     <div class="calculation__text">
-                        por <span class="modal__reference" data-modal-btn="theorem-1-4-3">Teorema 1.4.3</span> <span class="modal__reference error" data-modal-btn="theorem-1-2-3">es el Teorema 1.2.3???</span>
+                        por <span class="modal__reference" data-modal-btn="theorem-1-2-3">Teorema 1.2.3</span> <span class="modal__reference error" data-modal-btn="theorem-1-4-3">en el libro esta escrito Teorema 1.4.3</span> 
                     </div>
                 </div>
                 <div class="calculation__formule--2">
@@ -338,12 +340,12 @@
                 De lo cual se deduce que $$\lim_{n\to\infty}S(f,A_n,P_n)=\frac{3}{2},$$ lo cual es precisamente el área de la región considerada.
             </p>
             <p class="paragraph">
-                Esto nos dice que si definimos adecuadamente un límite para las sumas de Riemann, nos puede condyucir a una forma de hallar la integral, en particular, encontrar el área bajo una curva.
+                Esto nos dice que si definimos adecuadamente un límite para las sumas de Riemann, nos puede conducir a una forma de hallar la integral, en particular, encontrar el área bajo una curva.
             </p>
             <div class="definition">
                 <p class="paragraph">
                     <strong class="definition__title">Definición 1.5.2. </strong>Sea $f:[a,b]\to \mathbf{R} $ una función acotada. 
-                    Definimos el límite de las sumas de Riemann de $f$ cuando la norma de las particiones tiende a cero como elnúmero <span class="error">pagina 51 falta espacio</span> real 
+                    Definimos el límite de las sumas de Riemann de $f$ cuando la norma de las particiones tiende a cero como el número <span class="error">pagina 51 falta espacio</span> real 
                     $$L=\lim_{\|P\|\to 0}S(f,A,P),$$ el cual cumple que $\forall \varepsilon>0 $, $\exists \delta>0$, tal que $\forall P$ 
                     partición de $[a,b]$ con $\|P\|<\delta$ y $\forall A$ selección de $P$, se tiene que $$|S(f,A,P)-L|< \varepsilon.$$
                 </p>
@@ -595,6 +597,17 @@
                         $$\sum_{i=1}^{n} i^4 = \frac{n(n+1)(2n+1)(3n^2+3n-1)}{30};$$
                     </li>
                 </ol>
+            </div>
+        </div>
+    </div>
+    <div class="modal" data-modal="theorem-1-4-2">
+        <div class="modal__background" data-modal-background="theorem-1-4-2"></div>
+        <div class="modal__content">
+            <div class="theorem">
+                <p class="paragraph">
+                    <strong class="theorem__title">Teorema 1.4.2.</strong> Si $f:[a,b]\to\mathbf{R}$ es una función acotada, $P$ una partición de $[a,b]$ y $P'$ un refinamiento de $P$, 
+                    entonces $$\underline{S}(f,P)\leq \underline{S}(f,P') \qquad \mbox{ y } \qquad  \overline{S}(f,P')\leq \overline{S}(f,P).$$
+                </p>
             </div>
         </div>
     </div>

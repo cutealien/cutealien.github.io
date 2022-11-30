@@ -24,6 +24,14 @@
         transition: opacity 300ms 0.3s linear, transform 300ms 0.3s linear;
     }
 
+    &__header {
+        padding: .5rem 0;
+        border-bottom: 2px solid var(--color-primary);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
     &__bg {
         position: absolute;
         top: 0;

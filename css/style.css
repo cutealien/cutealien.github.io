@@ -346,6 +346,11 @@ div[data-anchor]:target::before {
   font-weight: bold;
   width: max-content;
 }
+@media only screen and (max-width: 600px) {
+  .navbar__link[href="/"], .navbar__link:link[href="/"], .navbar__link:visited[href="/"] {
+    display: none;
+  }
+}
 .navbar__link::after, .navbar__link:link::after, .navbar__link:visited::after {
   content: "";
   display: block;
@@ -590,8 +595,6 @@ div[data-anchor]:target::before {
   margin: 2rem 0;
   padding: 2rem;
   position: relative;
-  min-width: 300px;
-  max-height: 300px;
 }
 
 .canvas {
@@ -1031,6 +1034,13 @@ div[data-anchor]:target::before {
 }
 .menu-mobile--visible {
   transition: opacity 300ms 0.3s linear, transform 300ms 0.3s linear;
+}
+.menu-mobile__header {
+  padding: 0.5rem 0;
+  border-bottom: 2px solid var(--color-primary);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .menu-mobile__bg {
   position: absolute;

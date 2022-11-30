@@ -40,6 +40,12 @@
         font-size: 1.6rem;
         font-weight: bold;
         width: max-content;
+
+        &[href="/"] {
+            @include responsive(phone-port) {
+                display: none;
+            }
+        }
         &::after {
             content: "";
             display: block;

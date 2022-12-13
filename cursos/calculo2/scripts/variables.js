@@ -131,8 +131,11 @@ function parabole(x) {
 function example_1_3_5(x) {  
     return Math.sin(x) + 6
 }
-function polynomial1(x) {
-    return 2*Math.pow(x,2) + 6 * x - 5
+// function polynomial1(x) {
+//     return 2*Math.pow(x,2) + 6 * x - 5
+// }
+function identityFunction(x) {
+    return x;
 }
 
 // function drawAxis(canvas, ctx, centerX, centerY) {

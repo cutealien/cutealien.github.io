@@ -46,7 +46,7 @@
                 <ol class="subject-list">
                     <li class="subject-list__item"><a href="/cursos/calculo2/" class="subject-list__link">1.1 Introducción</a></li>
                     <li class="subject-list__item">
-                        <a href="#" class="subject-list__link subject-list__link--active">1.2 El símbolo $\sum$</a>
+                        <a href="./1.2-Sumatoria.html" class="subject-list__link subject-list__link--active">1.2 El símbolo $\sum$</a>
                         <ol class="subject-list">
                             <li class="subject-list__item"><a href="#1.2" class="subject-list__link subject-list__link--active">1.2.1 Formalizando el símbolo sumatorio</a></li>
                             <li class="subject-list__item"><a href="./1.2.2-propiedades.html" class="subject-list__link">1.2.2 Propiedades del símbolo $\sum$</a></li>
@@ -56,8 +56,10 @@
                     <li class="subject-list__item">
                         <a href="./1.4-integral-definida.html" class="subject-list__link">1.4 Construcción de la integral definida</a>
                         <ol class="subject-list">
-                            <li class="subject-list__item"><a href="./1.4-integral-definida-2.html" class="subject-list__link">1.4.1 Construcción de la integral definida parte 2</a></li>
-                            <li class="subject-list__item"><a href="./1.4-integral-definida-3.html" class="subject-list__link">1.4.2 Construcción de la integral definida parte 3</a></li>
+                            <li class="subject-list__item"><a href="./1.4.1-integral-definida.html" class="subject-list__link">1.4.1 Construcción de la integral definida parte 2</a></li>
+                            <li class="subject-list__item"><a href="./1.4.2-integral-definida.html" class="subject-list__link">1.4.2 Construcción de la integral definida parte 3</a></li>
+                            <li class="subject-list__item"><a href="./1.4.3-integral-definida.html" class="subject-list__link">1.4.3 Construcción de la integral definida parte 4</a></li>
+                            <li class="subject-list__item"><a href="./1.4.4-integral-definida.html" class="subject-list__link">1.4.4 Construcción de la integral definida parte 5</a></li>
                         </ol>
                     </li>
                     <li class="subject-list__item"><a href="./1.5-sumas-riemann.html" class="subject-list__link">1.5 Sumas de Riemann</a></li>
@@ -119,8 +121,10 @@
                             <li class="subject-list__item">
                                 <a href="./1.4-integral-definida.html" class="subject-list__link">1.4 Construcción de la integral definida</a>
                                 <ol class="subject-list">
-                                    <li class="subject-list__item"><a href="./1.4-integral-definida-2.html" class="subject-list__link">1.4.1 Construcción de la integral definida parte 2</a></li>
-                                    <li class="subject-list__item"><a href="./1.4-integral-definida-3.html" class="subject-list__link">1.4.2 Construcción de la integral definida parte 3</a></li>
+                                    <li class="subject-list__item"><a href="./1.4.1-integral-definida.html" class="subject-list__link">1.4.1 Construcción de la integral definida parte 2</a></li>
+                                    <li class="subject-list__item"><a href="./1.4.2-integral-definida.html" class="subject-list__link">1.4.2 Construcción de la integral definida parte 3</a></li>
+                                    <li class="subject-list__item"><a href="./1.4.3-integral-definida.html" class="subject-list__link">1.4.3 Construcción de la integral definida parte 4</a></li>
+                                    <li class="subject-list__item"><a href="./1.4.4-integral-definida.html" class="subject-list__link">1.4.4 Construcción de la integral definida parte 5</a></li>
                                 </ol>
                             </li>
                             <li class="subject-list__item"><a href="./1.5-sumas-riemann.html" class="subject-list__link">1.5 Sumas de Riemann</a></li>
@@ -190,7 +194,7 @@
             </p>
         </section>
         <div class="fancy-line"></div>
-        <section id="1.2">
+        <section>
             <h2 class="header-secondary margin-bottom-sm">
                 1.2.1 Formalizando el símbolo sumatoria
             </h2>
@@ -221,8 +225,8 @@
                             </div>
                         </div>
                         <div class="question__btn-box">
-                            <button class="btn btn--blue" type="submit" disabled data-btn="answer">Aceptar</button>
-                            <button class="btn btn--blue" type="button" disabled data-btn="continue">Continuar</button>
+                            <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Aceptar</button>
+                            <button class="btn btn--blue" type="button" disabled data-btn-continue="step-1">Continuar</button>
                         </div>
                     </div>
                     <div class="question__col-2">
@@ -230,7 +234,7 @@
                     </div>
                 </div>
             </form>
-            <div class="step margin-top-sm">
+            <div class="section--hidden margin-top-sm" data-section="step-1">
                 <form class="question margin-top-sm" data-question="question-1-2-2" data-answer="c">
                     <h3 class="question__header margin-bottom-sm">
                         ¿Cuántos términos hay en la suma $\sum_{i=k}^{n} a_{n}$?
@@ -258,8 +262,8 @@
                                 </div>
                             </div>
                             <div class="question__btn-box">
-                                <button class="btn btn--blue" type="submit" disabled data-btn="answer">Aceptar</button>
-                                <button class="btn btn--blue" type="button" disabled data-btn="continue">Continuar</button>
+                                <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Aceptar</button>
+                                <button class="btn btn--blue" type="button" disabled data-btn-continue="step-2">Continuar</button>
                             </div>
                         </div>
                         <div class="question__col-2">
@@ -269,7 +273,7 @@
                 </form>
             </div>
         </section>
-        <section class="step">
+        <section class="section--hidden" data-section="step-2">
             <p class="paragraph margin-top-sm">
                 Riguros y formalmente hablando, al representar sumas o sumaciones, ni los puntos suspensivos
                 y ni el símbolo sumatorio forman parte de los axiomas de los números
@@ -344,8 +348,7 @@
                                 </div>
                             </div>
                             <div class="question__btn-box">
-                                <button class="btn btn--blue" type="submit" disabled data-btn="answer">Aceptar</button>
-                                <!-- <button class="btn btn--blue" type="button" disabled data-btn="continue">Continuar</button> -->
+                                <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Aceptar</button>
                             </div>
                         </div>
                         <div class="question__col-2">

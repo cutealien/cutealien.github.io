@@ -31,9 +31,9 @@
         <a href="/" class="navbar__link">
             Inicio
         </a>
-        <a href="/example.html" class="navbar__link">
+        <!-- <a href="/example.html" class="navbar__link">
             Ejemplo
-        </a>
+        </a> -->
         <a href="#" class="navbar__link navbar__link--active">
             Cálculo 2
         </a>
@@ -56,8 +56,10 @@
                     <li class="subject-list__item">
                         <a href="./1.4-integral-definida.html" class="subject-list__link">1.4 Construcción de la integral definida</a>
                         <ol class="subject-list">
-                            <li class="subject-list__item"><a href="./1.4-integral-definida-2.html" class="subject-list__link">1.4.1 Construcción de la integral definida parte 2</a></li>
-                            <li class="subject-list__item"><a href="./1.4-integral-definida-3.html" class="subject-list__link">1.4.2 Construcción de la integral definida parte 3</a></li>
+                            <li class="subject-list__item"><a href="./1.4.1-integral-definida.html" class="subject-list__link">1.4.1 Construcción de la integral definida parte 2</a></li>
+                            <li class="subject-list__item"><a href="./1.4.2-integral-definida.html" class="subject-list__link">1.4.2 Construcción de la integral definida parte 3</a></li>
+                            <li class="subject-list__item"><a href="./1.4.3-integral-definida.html" class="subject-list__link">1.4.3 Construcción de la integral definida parte 4</a></li>
+                            <li class="subject-list__item"><a href="./1.4.4-integral-definida.html" class="subject-list__link">1.4.4 Construcción de la integral definida parte 5</a></li>
                         </ol>
                     </li>
                     <li class="subject-list__item"><a href="./1.5-sumas-riemann.html" class="subject-list__link">1.5 Sumas de Riemann</a></li>
@@ -119,8 +121,10 @@
                             <li class="subject-list__item">
                                 <a href="./1.4-integral-definida.html" class="subject-list__link">1.4 Construcción de la integral definida</a>
                                 <ol class="subject-list">
-                                    <li class="subject-list__item"><a href="./1.4-integral-definida-2.html" class="subject-list__link">1.4.1 Construcción de la integral definida parte 2</a></li>
-                                    <li class="subject-list__item"><a href="./1.4-integral-definida-3.html" class="subject-list__link">1.4.2 Construcción de la integral definida parte 3</a></li>
+                                    <li class="subject-list__item"><a href="./1.4.1-integral-definida.html" class="subject-list__link">1.4.1 Construcción de la integral definida parte 2</a></li>
+                                    <li class="subject-list__item"><a href="./1.4.2-integral-definida.html" class="subject-list__link">1.4.2 Construcción de la integral definida parte 3</a></li>
+                                    <li class="subject-list__item"><a href="./1.4.3-integral-definida.html" class="subject-list__link">1.4.3 Construcción de la integral definida parte 4</a></li>
+                                    <li class="subject-list__item"><a href="./1.4.4-integral-definida.html" class="subject-list__link">1.4.4 Construcción de la integral definida parte 5</a></li>
                                 </ol>
                             </li>
                             <li class="subject-list__item"><a href="./1.5-sumas-riemann.html" class="subject-list__link">1.5 Sumas de Riemann</a></li>
@@ -257,9 +261,9 @@
             </p>
             <div class="canvas-container">
                 <canvas class="canvas" height="300px" width="300px" data-canvas="chapter-1-1"></canvas>
-                <div class="number-picker picker" id="picker-1">
+                <div class="picker" id="picker-1">
                     <label class="number-picker__label" for="sides">Lados (entre 3 y 100):</label>
-                    <input class="number-picker__input" type="number" id="sides" name="sides" min="3" max="100" value="3" data-picker="chapter-1-1" autocomplete="off">
+                    <input class="input-number" type="number" id="sides" name="sides" min="3" max="100" value="3" data-picker="chapter-1-1" autocomplete="off">
                     <div class="calculation-canvas" data-calculation="polygon">
                         <!-- Área del polígono =  -->
                     </div>
@@ -278,7 +282,7 @@
                     circunscrito.
                     <div class="canvas-container">
                         <canvas class="canvas" height="300px" width="300px" data-canvas="chapter-1-1"></canvas>
-                        <select class="picker" name="graphic" id="graphic" data-picker="chapter-1-1" autocomplete="off">
+                        <select class="picker select" name="graphic" id="graphic" data-picker="chapter-1-1" autocomplete="off">
                             <option value="ins">Inscrito</option>
                             <option value="cir">Circunscrito</option>
                         </select>

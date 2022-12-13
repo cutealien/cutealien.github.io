@@ -1,9 +1,8 @@
-.btn {
+.btn, .btn-sm {
     display: inline-block;
     border: none;
     border-radius: 4px;
     text-decoration: none;
-    font-size: 2rem;
     font-weight: 700;
     font-family: inherit;
     text-align: center;
@@ -15,23 +14,24 @@
     @include responsive(phone-tab) {
         font-size: 2rem;
     }
-    &:hover {
-        text-shadow: 0 0 5px $color-gray;
-    }
-    &:disabled {
-        background-color: var(--color-primary-light);
-        &:hover {
-            background-color: var(--color-primary-light);
-        }
-    }
+}
+.btn-sm {
+    font-size: 1.6rem;
 }
 
 .btn {
+    font-size: 2rem;
     &--blue {
         background-color: var(--color-primary);
         color: #fff;
         &:hover {
             background-color: var(--color-primary-dark);
+        }
+        &:disabled {
+            background-color: var(--color-primary-light);
+            &:hover {
+                background-color: var(--color-primary-light);
+            }
         }
     }
 }

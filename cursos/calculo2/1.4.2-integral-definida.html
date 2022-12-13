@@ -60,8 +60,10 @@
                     <li class="subject-list__item">
                         <a href="./1.4-integral-definida.html" class="subject-list__link">1.4 Construcción de la integral definida</a>
                         <ol class="subject-list">
-                            <li class="subject-list__item"><a href="#" class="subject-list__link subject-list__link--active">1.4.1 Construcción de la integral definida parte 2</a></li>
-                            <li class="subject-list__item"><a href="./1.4-integral-definida-3.html" class="subject-list__link">1.4.2 Construcción de la integral definida parte 3</a></li>
+                            <li class="subject-list__item"><a href="./1.4.1-integral-definida.html" class="subject-list__link">1.4.1 Construcción de la integral definida parte 2</a></li>
+                            <li class="subject-list__item"><a href="./1.4.2-integral-definida.html" class="subject-list__link subject-list__link--active">1.4.2 Construcción de la integral definida parte 3</a></li>
+                            <li class="subject-list__item"><a href="./1.4.3-integral-definida.html" class="subject-list__link">1.4.3 Construcción de la integral definida parte 4</a></li>
+                            <li class="subject-list__item"><a href="./1.4.4-integral-definida.html" class="subject-list__link">1.4.4 Construcción de la integral definida parte 5</a></li>
                         </ol>
                     </li>
                     <li class="subject-list__item"><a href="./1.5-sumas-riemann.html" class="subject-list__link">1.5 Sumas de Riemann</a></li>
@@ -123,8 +125,10 @@
                             <li class="subject-list__item">
                                 <a href="./1.4-integral-definida.html" class="subject-list__link">1.4 Construcción de la integral definida</a>
                                 <ol class="subject-list">
-                                    <li class="subject-list__item"><a href="#" class="subject-list__link subject-list__link--active">1.4.1 Construcción de la integral definida parte 2</a></li>
-                                    <li class="subject-list__item"><a href="./1.4-integral-definida-3.html" class="subject-list__link">1.4.2 Construcción de la integral definida parte 3</a></li>
+                                    <li class="subject-list__item"><a href="./1.4.1-integral-definida.html" class="subject-list__link">1.4.1 Construcción de la integral definida parte 2</a></li>
+                                    <li class="subject-list__item"><a href="./1.4.2-integral-definida.html" class="subject-list__link subject-list__link--active">1.4.2 Construcción de la integral definida parte 3</a></li>
+                                    <li class="subject-list__item"><a href="./1.4.3-integral-definida.html" class="subject-list__link">1.4.3 Construcción de la integral definida parte 4</a></li>
+                                    <li class="subject-list__item"><a href="./1.4.4-integral-definida.html" class="subject-list__link">1.4.4 Construcción de la integral definida parte 5</a></li>
                                 </ol>
                             </li>
                             <li class="subject-list__item"><a href="./1.5-sumas-riemann.html" class="subject-list__link">1.5 Sumas de Riemann</a></li>
@@ -167,147 +171,8 @@
     <main class="main">
         <section>
             <h2 class="header-primary">
-                1.4.1 Construcción de la integral definida parte 2
+                1.4.2 Construcción de la integral definida parte 3
             </h2>
-            <p class="paragraph">
-                Ahora veamos algunas propiedades básicas de las sumas inferiores y sumas superiores.
-            </p>
-            <div class="theorem">
-                <p class="paragraph">
-                    <strong class="theorem__title">Teorema 1.4.1.</strong> Si $f:[a,b]\to\mathbf{R}$ es una función acotada y $P$ una partición de $[a,b]$, 
-                    entonces $\underline{S}(f,P)\leq \overline{S}(f,P)$.
-                </p>
-            </div>
-            <div class="proof">
-                <h3 class="header-tertiary">Demostración.</h3>
-                <p class="paragraph">
-                    Por hipótesis, $P$ es una partición de $[a,b]$, digamos que $P=\{x_0,x_1,\dots,x_n\}$. 
-                    Luego, $\forall i=\overline{1,n}$, tenemos que 
-                    $$m_i=\inf\{f(x)x\in I_i\} \qquad \mbox{ y } \qquad M_i=\sup\{f(x)x\in I_i\},$$ 
-                    donde $I_i=[x_{i-1},x_i]$. Entonces, por definición de ínfimo y supremos, se tiene que $m_i\leq M_i$. 
-                    Además, como $\Delta x_i=x_i-x_{i-1}$, entonces $\Delta x_i>0$, pues $x_{i-1},x_i\in P$. 
-                    Luego, por consistencia del producto sobre la relación de orden, $m_i\Delta x_i \leq M_i \Delta x_i$. 
-                </p>
-                <p class="paragraph">
-                    Aplicando cosistencia de la suma sobre la relación de orden, sumamos todos los términos y obtenemos que 
-                    $\sum_{i=1}^n m_i \Delta x_i \leq \sum_{i=1}^n M_i \Delta x_i$. 
-                    Finalmente, por la definición de suma inferior y suma superior, llegamos a que $$\underline{S}(f,P)\leq \overline{S}(f,P).$$
-                </p>
-            </div>
-            <div class="fancy-line"></div>
-            <div class="theorem">
-                <p class="paragraph">
-                    <strong class="theorem__title">Teorema 1.4.2.</strong> Si $f:[a,b]\to\mathbf{R}$ es una función acotada, $P$ una partición de $[a,b]$ y $P'$ un refinamiento de $P$, 
-                    entonces $$\underline{S}(f,P)\leq \underline{S}(f,P') \qquad \mbox{ y } \qquad  \overline{S}(f,P')\leq \overline{S}(f,P).$$
-                </p>
-            </div>
-            <div class="proof">
-                <h3 class="header-tertiary">Demostración.</h3>
-                <p class="paragraph">
-                    Por hipótesis, $P$ es una partición de $[a,b]$ y $P'$ es un refinamiento de $P$. 
-                    Demostraremos que $\overline{S}(f,P')\leq \overline{S}(f,P)$. Si $P=P'$, entonces la demostración es inmediata, así que supondremos que $P\neq P'$. 
-                    Haremos la demostración por inducción sobre el número de elementos que tiene el conjunto $P'\setminus P$, i.e., sobre el número de elementos que la partición $P'$ tiene más que la partición $P$. 
-                </p>
-                <p class="paragraph">
-                    Supongamos que $P'\setminus P$ tiene un elemento, digamos que $\{z\}=P'\setminus P$. 
-                    Como $P'$ es un refinamiento de $[a,b]$ y $z\in P'$, entonces existe un elemento $x_j \in P$ tal que $z\in(x_{j-1},x_j)$. 
-                    Definimos $$T_1:=\sup\{f(x):x\in[x_{j-1},z]\} \qquad \mbox{y} \qquad T_2:=\sup\{f(x):x\in[z,x_j]\},$$ entonces $T_1 \leq M_j$ y $T_2 \leq M_j$, 
-                    pues $\{f(x):x\in[x_{j-1},z]\}\subseteq \{f(x):x\in[x_{j-1},x_j]\}$ y $\{f(x):x\in[z,x_j]\} \subseteq \{f(x):x\in[x_{j-1},x_j]\}$. Entonces,
-                </p>
-                <p class="paragraph error">Página 30 ¿Falta escribir $\Delta x_i$ despues de $M_i$ en la sumatoria?</p>
-                <div class="calculation">
-                    <div class="calculation__formule--1">
-                        $$\overline{S}(f,P') =$$
-                    </div>
-                    <div class="calculation__formule--2">
-                        <div>
-                            $$\sum_{i=1}^{j-1}M_i\Delta x_i + T_1(z-x_{j-1})+T_2(x_j-z)+\sum_{i=j+1}^n M_i \Delta x_i$$
-                        </div>
-                        <div class="calculation__text">
-                            por def. de suma superior
-                        </div>
-                    </div>
-                    <div class="calculation__formule--1">
-                        $$\leq$$
-                    </div>
-                    <div class="calculation__formule--2">
-                        <div>
-                            $$ \sum_{i=1}^{j-1}M_i \Delta x_i + M_j(z-x_{j-1})+M_j(x_j-z) + \sum_{i=j+1}^n M_i\Delta x_i$$
-                        </div>
-                        <div class="calculation__text">
-                            por la relación con $M_j$
-                        </div>
-                    </div>
-                    <div class="calculation__formule--1">
-                        $$=$$
-                    </div>
-                    <div class="calculation__formule--2">
-                        <div>
-                            $$ \sum_{i=1}^{j-1}M_i \Delta x_i + M_j(x_j-x_{j-1}) + \sum_{i=j+1}^n M_i \Delta x_i$$
-                        </div>
-                        <div class="calculation__text">
-                            por inverso aditivo
-                        </div>
-                    </div>
-                    <div class="calculation__formule--1">
-                        $$=$$
-                    </div>
-                    <div class="calculation__formule--2">
-                        <div>
-                            $$ \sum_{i=1}^{j-1}M_i \Delta x_i + M_j\Delta x_j+\sum_{i=j+1}^n M_i \Delta x_i$$
-                        </div>
-                        <div class="calculation__text">
-                            por def. de $\Delta x_j$
-                        </div>
-                    </div>
-                    <div class="calculation__formule--1">
-                        $$=$$
-                    </div>
-                    <div class="calculation__formule--2">
-                        <div>
-                            $$ \sum_{i=1}^n M_i \Delta x_i$$
-                        </div>
-                        <div class="calculation__text">
-                            por propiedades de $\Sigma$
-                        </div>
-                    </div>
-                    <div class="calculation__formule--1">
-                        $$=$$
-                    </div>
-                    <div class="calculation__formule--2">
-                        <div>
-                            $$ \overline{S}(f,P)$$
-                        </div>
-                        <div class="calculation__text">
-                            por def. de suma superior
-                        </div>
-                    </div>
-                </div>
-                <p class="paragraph error">
-                    página 31 ¿En la última ecuación es $P$ en vez de $P'$ ?
-                </p>
-                <p class="paragraph">
-                    Luego, por transitividad tenemos que $\overline{S}(f,P')\leq \overline{S}(f,P).$ Y esto concluye el caso base de la inducción.
-                </p>
-                <p class="paragraph">
-                    Ahora, supongamos que si $\#(P'\setminus P)=n$, entonces $\overline{S}(f,P')\leq \overline{S}(f,P)$, lo cual será nuestra hipótesis de inducción. 
-                </p>
-                <p class="paragraph">
-                    Resta probar que si $\#(P'\setminus P)=n+1$, entonces $\overline{S}(f,P')\leq \overline{S}(f,P)$. 
-                    En efecto: Sea $P'$ un refinamiento de $P$ con $\#(P'\setminus P)=n+1$. 
-                    Tomamos $z\in (P'\setminus P)$ y definimos el refinamiento $Q:=P \cup \{z\}$. Así $Q$ es un refinamiento de $P$ con $\#(Q\setminus P)=1$. 
-                    Además, $P'$ también es refinamiento de $Q$ y se cumple que $\# (P'\setminus Q)=n$. 
-                    Entonces, por el caso base, tenemos que $ \overline{S}(f,Q)\leq \overline{S}(f,P)$ y por la hipótesis de inducción se cumple que $ \overline{S}(f,P')\leq \overline{S}(f,Q)$. Entonces, por transitividad, se cumple que $ \overline{S}(f,P')\leq \overline{S}(f,P)$. 
-                    Lo cual conlcuye nuestra inducción matemática. 
-                </p>
-                <p class="paragraph">
-                    Finalmente, por el principio de inducción matemática, se cumple que si $P'$ es un refinamiento de $P$, entonces $ \overline{S}(f,P')\leq \overline{S}(f,P)$.
-                </p>
-                <p class="paragraph">
-                    La demostración para sumas inferiores es análoga y se deja como ejercicio.
-                </p>
-                <div class="fancy-line"></div>
-            </div>
             <div class="theorem">
                 <p class="paragraph">
                     <strong class="theorem__title">Teorema 1.4.3.</strong> Si $f:[a,b]\to\mathbf{R}$ es una función acotada y además $P$ y $Q$ son particiones de $[a,b]$, entonces 
@@ -331,9 +196,6 @@
                 es acotado superiormente por cualquier suma superior, y que el conjunto 
                 $$\{\overline{S}(f,P): \,P\mbox{ es una partición de }[a,b]\}$$ 
                 es acotado inferiormente por cualquier suma inferior.
-            </p>
-            <p class="paragraph error">
-                página 32. quizo decir inferior???
             </p>
             <p class="paragraph">
                 Esto justifica la siguiente definición.
@@ -381,13 +243,13 @@
                         <div class="question__col-1">
                             <div class="question__options">
                                 <div class="question__option-input">
-                                    <input class="question__input" type="text" autocomplete="off" id="answer-1-4-2-1-d" name="question-1-4-2-1" data-option="question-1-4-2-1">
+                                    <input class="input-text input-text--small" type="text" autocomplete="off" id="answer-1-4-2-1-d" name="question-1-4-2-1" data-option="question-1-4-2-1">
                                     <label for="answer-1-4-2-1-d">Respuesta</label>
                                 </div>
                             </div>
                             <div class="question__btn-box">
-                                <button class="btn btn--blue" type="submit" disabled data-btn="answer">Aceptar</button>
-                                <button class="btn btn--blue" type="button" disabled data-btn="continue">Continuar</button>
+                                <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Aceptar</button>
+                                <button class="btn btn--blue" type="button" disabled data-btn-continue="step-1">Continuar</button>
                             </div>
                         </div>
                         <div class="question__col-2">
@@ -395,7 +257,7 @@
                         </div>
                     </div>
                 </form>
-                <div class="step">
+                <div class="section--hidden" data-section="step-1">
                     <p class="paragraph">
                         Entonces para cada $i=\overline{1,n}$, en $I_i=[x_{i-1},x_i]$, tenemos que $m_i=\inf\{f(x):x\in I_i\}=\inf\{k\}=k$ y $M_i=\sup\{f(x):x\in I_i\}=\sup \{k\}=k$, 
                         por definición de $f$. 
@@ -425,8 +287,8 @@
                                     </div>
                                 </div>
                                 <div class="question__btn-box">
-                                    <button class="btn btn--blue" type="submit" disabled data-btn="answer">Respuesta</button>
-                                    <button class="btn btn--blue" type="button" disabled data-btn="continue">Continuar</button>
+                                    <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                    <button class="btn btn--blue" type="button" disabled data-btn-continue="step-2">Continuar</button>
                                 </div>
                             </div>
                             <div class="question__col-2">
@@ -435,7 +297,7 @@
                         </div>
                     </form>
                 </div>
-                <div class="step">
+                <div class="section--hidden" data-section="step-2">
                     <p class="paragraph">
                         Desarrollando $\underline{S}(f,P)$, tenemos
                     </p>
@@ -520,8 +382,8 @@
                                     </div>
                                 </div>
                                 <div class="question__btn-box">
-                                    <button class="btn btn--blue" type="submit" disabled data-btn="answer">Respuesta</button>
-                                    <button class="btn btn--blue" type="button" disabled data-btn="continue">Continuar</button>
+                                    <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                    <button class="btn btn--blue" type="button" disabled data-btn-continue="step-3">Continuar</button>
                                 </div>
                             </div>
                             <div class="question__col-2">
@@ -530,7 +392,7 @@
                         </div>
                     </form>
                 </div>
-                <div class="step">
+                <div class="section--hidden" data-section="step-3">
                     <p class="paragraph">
                         La integral inferior es:
                     </p>
@@ -585,8 +447,8 @@
                                     </div>
                                 </div>
                                 <div class="question__btn-box">
-                                    <button class="btn btn--blue" type="submit" disabled data-btn="answer">Respuesta</button>
-                                    <button class="btn btn--blue" type="button" disabled data-btn="continue">Continuar</button>
+                                    <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                    <button class="btn btn--blue" type="button" disabled data-btn-continue="step-4">Continuar</button>
                                 </div>
                             </div>
                             <div class="question__col-2">
@@ -595,7 +457,7 @@
                         </div>
                     </form>
                 </div>
-                <div class="step">
+                <div class="section--hidden" data-section="step-4">
                     <p class="paragraph">
                         Para la integral superior, tenemos
                     </p>
@@ -690,12 +552,12 @@
                         tal y como lo mostramos en el siguiente ejemplo.
                     </p>
                     <div>
-                        <button class="btn btn--blue" type="button" data-btn="continue">Continuar</button>
+                        <button class="btn-sm btn--blue" type="button" data-btn-continue="step-5">Continuar</button>
                     </div>
                     <div class="fancy-line"></div>
                 </div>
             </div>
-            <div class="step example">
+            <div class="section--hidden example" data-section="step-5">
                 <p class="paragraph example__paragraph">
                     <strong class="example__title">Ejemplo 1.4.6.</strong> Sea $f:[a,b]\to\mathbf{R}$ una función dada por 
                     $f(x)= \left\{ \begin{array}{lcc}
@@ -737,8 +599,8 @@
                                 </div>
                             </div>
                             <div class="question__btn-box">
-                                <button class="btn btn--blue" type="submit" disabled data-btn="answer">Respuesta</button>
-                                <button class="btn btn--blue" type="button" disabled data-btn="continue">Continuar</button>
+                                <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                <button class="btn btn--blue" type="button" disabled data-btn-continue="step-6">Continuar</button>
                             </div>
                         </div>
                         <div class="question__col-2">
@@ -746,7 +608,7 @@
                         </div>
                     </div>
                 </form>
-                <div class="step">
+                <div class="section--hidden" data-section="step-6">
                     <p class="paragraph">
                         Para cada $i=\overline{1,n}$, en $I_i=[x_{i-1},x_i]$, tenemos que $m_i=\inf\{f(x):x\in I_i\}=\inf\{0,1\}=0$ y 
                         $M_i=\sup\{f(x):x\in I_i\}=\sup \{0,1\}=1$, por definición de $f$. 
@@ -776,8 +638,8 @@
                                     </div>
                                 </div>
                                 <div class="question__btn-box">
-                                    <button class="btn btn--blue" type="submit" disabled data-btn="answer">Respuesta</button>
-                                    <button class="btn btn--blue" type="button" disabled data-btn="continue">Continuar</button>
+                                    <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                    <button class="btn btn--blue" type="button" disabled data-btn-continue="step-7">Continuar</button>
                                 </div>
                             </div>
                             <div class="question__col-2">
@@ -786,7 +648,7 @@
                         </div>
                     </form>
                 </div>
-                <div class="step">
+                <div class="section--hidden" data-section="step-7">
                     <p class="paragraph">
                         Calculando la integral inferior,
                     </p>
@@ -845,7 +707,7 @@
                             </div>
                         </div>
                     </div>
-                    <form class="question margin-top-sm" data-question="question-1-4-2-7" data-answer="a">
+                    <form class="question margin-top-sm" data-question="question-1-4-2-7" data-answer="c">
                         <h3 class="question__header margin-bottom-sm">
                             ¿Cuál es el valor de la integral superior?
                         </h3>
@@ -870,8 +732,8 @@
                                     </div>
                                 </div>
                                 <div class="question__btn-box">
-                                    <button class="btn btn--blue" type="submit" disabled data-btn="answer">Respuesta</button>
-                                    <button class="btn btn--blue" type="button" disabled data-btn="continue">Continuar</button>
+                                    <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                    <button class="btn btn--blue" type="button" disabled data-btn-continue="step-8">Continuar</button>
                                 </div>
                             </div>
                             <div class="question__col-2">
@@ -880,7 +742,7 @@
                         </div>
                     </form>
                 </div>
-                <div class="step">
+                <div class="section--hidden" data-section="step-8">
                     <p class="paragraph">
                         Calculando la integral superior
                     </p>
@@ -938,7 +800,7 @@
                         </div>
                     </div>
                     <p class="paragraph">
-                        Luego, $$\forall P \mbox{ partición de }[a,b]: \overline{S}(f,P)=b-a.$$ <strong class="error">sobra la $k$ en la expresion???</strong> Entonces 
+                        Luego, $$\forall P \mbox{ partición de }[a,b]: \overline{S}(f,P)=b-a.$$ Entonces 
                     </p>
                     <div class="calculation">
                         <div class="calculation__formule--1">
@@ -978,8 +840,8 @@
                     </p>
                     <div class="fancy-line"></div>
                     <div class="change-page">
-                        <a href="./1.4-integral-definida.html" class="change-page__before">Anterior</a>
-                        <a href="./1.4-integral-definida-3.html" class="change-page__next">Siguiente</a>
+                        <a href="./1.4.1-integral-definida.html" class="change-page__before">Anterior</a>
+                        <a href="./1.4.3-integral-definida.html" class="change-page__next">Siguiente</a>
                     </div>
                 </div>
             </div>

@@ -21,10 +21,6 @@
         }
     </script>
     <script id="MathJax-script" async src="/scripts/MathJax-master/es5/tex-chtml.js"></script>
-    <!-- <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script type="text/javascript" id="MathJax-script" async
-    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
-    </script> -->
 
     <title>Cálculo 2 | Integral definida</title>
 </head>
@@ -58,10 +54,12 @@
                     </li>
                     <li class="subject-list__item"><a href="./1.3-calculo-de-areas.html" class="subject-list__link">1.3 Cálculo de  ́areas con rect. insc. y circuns.</a></li>
                     <li class="subject-list__item">
-                        <a href="#" class="subject-list__link subject-list__link--active">1.4 Construcción de la integral definida</a>
+                        <a href="1.4-integral-definida.html" class="subject-list__link subject-list__link--active">1.4 Construcción de la integral definida</a>
                         <ol class="subject-list">
-                            <li class="subject-list__item"><a href="./1.4-integral-definida-2.html" class="subject-list__link">1.4.1 Construcción de la integral definida parte 2</a></li>
-                            <li class="subject-list__item"><a href="./1.4-integral-definida-3.html" class="subject-list__link">1.4.2 Construcción de la integral definida parte 3</a></li>
+                            <li class="subject-list__item"><a href="./1.4.1-integral-definida.html" class="subject-list__link">1.4.1 Construcción de la integral definida parte 2</a></li>
+                            <li class="subject-list__item"><a href="./1.4.2-integral-definida.html" class="subject-list__link">1.4.2 Construcción de la integral definida parte 3</a></li>
+                            <li class="subject-list__item"><a href="./1.4.3-integral-definida.html" class="subject-list__link">1.4.3 Construcción de la integral definida parte 4</a></li>
+                            <li class="subject-list__item"><a href="./1.4.4-integral-definida.html" class="subject-list__link">1.4.4 Construcción de la integral definida parte 5</a></li>
                         </ol>
                     </li>
                     <li class="subject-list__item"><a href="./1.5-sumas-riemann.html" class="subject-list__link">1.5 Sumas de Riemann</a></li>
@@ -123,8 +121,10 @@
                             <li class="subject-list__item">
                                 <a href="#" class="subject-list__link subject-list__link--active">1.4 Construcción de la integral definida</a>
                                 <ol class="subject-list">
-                                    <li class="subject-list__item"><a href="./1.4-integral-definida-2.html" class="subject-list__link">1.4.1 Construcción de la integral definida parte 2</a></li>
-                                    <li class="subject-list__item"><a href="./1.4-integral-definida-3.html" class="subject-list__link">1.4.2 Construcción de la integral definida parte 3</a></li>
+                                    <li class="subject-list__item"><a href="./1.4.1-integral-definida.html" class="subject-list__link">1.4.1 Construcción de la integral definida parte 2</a></li>
+                                    <li class="subject-list__item"><a href="./1.4.2-integral-definida.html" class="subject-list__link">1.4.2 Construcción de la integral definida parte 3</a></li>
+                                    <li class="subject-list__item"><a href="./1.4.3-integral-definida.html" class="subject-list__link">1.4.3 Construcción de la integral definida parte 4</a></li>
+                                    <li class="subject-list__item"><a href="./1.4.4-integral-definida.html" class="subject-list__link">1.4.4 Construcción de la integral definida parte 5</a></li>
                                 </ol>
                             </li>
                             <li class="subject-list__item"><a href="./1.5-sumas-riemann.html" class="subject-list__link">1.5 Sumas de Riemann</a></li>
@@ -165,32 +165,6 @@
         </div>
     </div>
     <main class="main">
-        <ul class="proof__list">
-            <!-- <li>def 1.4.1</li>
-            <li>ejemplo 1.4.1</li>
-            <li>def 1.4.2</li>
-            <li>def 1.4.3</li>
-            <li>ejemplo 1.4.3, que sea pregunta con solución en un modal</li>
-            <li>ejemplo 1.4.4</li>
-            <br> -->
-            <!-- <li>en otro archivo</li>
-            <li>teo 1.4.1</li>
-            <li>teo 1.4.2. en la pagina 31 falta escribir $x_i - x_{x-1}$</li>
-            <li>teo 1.4.2. en lab última ecuación falta '</li>
-            <li>teo 1.4.3. pagina 32 despues de la demostración quizo decir acotado por cualquier suma superior?</li>
-            <li>def 1.4.4</li>
-            <li>ejemplo 1.4.5. tercera formula contando desde el final (es suma inferior???)</li>
-            <li>ejemplo 1.4.6. al final de la sumas superiores sobra un k</li>
-            <br> -->
-            <!-- <li>otro archivo</li>
-            <li>teo 1.4.4</li>
-            <li>def 1.4.5</li>
-            <li>teo 1.4.5</li>
-            <li>ejemplo 1.4.7</li>
-            <li>ejemplo 1.4.8</li>
-            <li>teo 1.4.6, error en el segundo paso de los calculos de la demostración</li>
-            <li>teo 1.4.7, que onda con las 3 ultimas ecuaciones</li> -->
-        </ul>
         <section>
             <h2 class="header-primary">
                 1.4 Construcción de la integral definida parte 1
@@ -298,7 +272,7 @@
                             </div>
                         </div>
                         <div class="question__btn-box">
-                            <button class="btn btn--blue" type="submit" disabled data-btn="answer">Aceptar</button>
+                            <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Aceptar</button>
                             <button class="btn btn--blue" type="button" disabled data-btn="solution" data-modal-btn="question-1-4-1">Ver solución</button>
                         </div>
                     </div>
@@ -339,8 +313,8 @@
                                 </div>
                             </div>
                             <div class="question__btn-box">
-                                <button class="btn btn--blue" type="submit" disabled data-btn="answer">Aceptar</button>
-                                <button class="btn btn--blue" type="button" disabled data-btn="continue">Continuar</button>
+                                <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Aceptar</button>
+                                <button class="btn btn--blue" type="button" disabled data-btn-continue="step-1">Continuar</button>
                             </div>
                         </div>
                         <div class="question__col-2">
@@ -348,7 +322,7 @@
                         </div>
                     </div>
                 </form>
-                <div class="step">
+                <div class="section--hidden" data-section="step-1">
                     <p class="paragraph">
                         Como $f(x)=x^2$, tenemos que $f'(x)=2x\geq 0$ para $x\in[0,1]$, y así $f$ es una función creciente en $[0,1]$, 
                         en particular en $I_i\subseteq [0,1]$ para cada $i=\overline{1,n}$.
@@ -386,8 +360,8 @@
                                     </div>
                                 </div>
                                 <div class="question__btn-box">
-                                    <button class="btn btn--blue" type="submit" disabled data-btn="answer">Aceptar</button>
-                                    <button class="btn btn--blue" type="button" disabled data-btn="continue">Continuar</button>
+                                    <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Aceptar</button>
+                                    <button class="btn btn--blue" type="button" disabled data-btn-continue="step-2">Continuar</button>
                                 </div>
                             </div>
                             <div class="question__col-2">
@@ -396,7 +370,7 @@
                         </div>
                     </form>
                 </div>
-                <div class="step">
+                <div class="section--hidden" data-section="step-2">
                     <p class="paragraph">
                         Calculando, tenemos que 
                     </p>
@@ -499,8 +473,8 @@
                                     </div>
                                 </div>
                                 <div class="question__btn-box">
-                                    <button class="btn btn--blue" type="submit" disabled data-btn="answer">Aceptar</button>
-                                    <button class="btn btn--blue" type="button" disabled data-btn="continue">Continuar</button>
+                                    <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Aceptar</button>
+                                    <button class="btn btn--blue" type="button" disabled data-btn-continue="step-3">Continuar</button>
                                 </div>
                             </div>
                             <div class="question__col-2">
@@ -509,7 +483,7 @@
                         </div>
                     </form>
                 </div>
-                <div class="step">
+                <div class="section--hidden" data-section="step-3">
                     <p class="paragraph">
                         Como 
                         $$n\in \mathbf{N} \Rightarrow 1\leq n \Rightarrow 3\leq 3n \Rightarrow 2\leq 3n-1 \Rightarrow 0 < \frac{2}{6n^2}\leq \frac{3n-1}{6n^2}$$ 
@@ -559,8 +533,8 @@
                                     </div>
                                 </div>
                                 <div class="question__btn-box">
-                                    <button class="btn btn--blue" type="submit" disabled data-btn="answer">Aceptar</button>
-                                    <button class="btn btn--blue" type="button" disabled data-btn="continue">Continuar</button>
+                                    <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Aceptar</button>
+                                    <button class="btn btn--blue" type="button" disabled data-btn-continue="step-4">Continuar</button>
                                 </div>
                             </div>
                             <div class="question__col-2">
@@ -569,7 +543,7 @@
                         </div>
                     </form>
                 </div>
-                <div class="step">
+                <div class="section--hidden" data-section="step-4">
                     <p class="paragraph">
                         Para la suma superior, se tiene
                     </p>
@@ -654,7 +628,7 @@
                     <div class="fancy-line"></div>
                     <div class="change-page">
                         <a href="./1.3-calculo-de-areas.html" class="change-page__before">Anterior</a>
-                        <a href="./1.4-integral-definida-2.html" class="change-page__next">Siguiente</a>
+                        <a href="./1.4.1-integral-definida.html" class="change-page__next">Siguiente</a>
                     </div>
                 </div>
             </div>

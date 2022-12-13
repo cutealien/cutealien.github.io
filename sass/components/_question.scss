@@ -1,6 +1,7 @@
 .question {
     padding: 2rem;
     font-size: 2rem;
+    // font-size: 1.9rem;
     // max-width: 600px;
     margin: 2rem auto;
     background-color: #fff;
@@ -36,26 +37,12 @@
         }
     }
 
-    &__input {
-        border: none;
-        border-bottom: 2px solid var(--color-primary-light);
-        background-color: var(--color-gray-light);
-        padding: 1rem;
-        transition: all 0.3s linear;
-        font-family: inherit;
-        font-size: 2rem;
-        width: 20ch;
-        // text-transform: lowercase;
+    &__label-select {
+        align-self: center;
+    }
 
-        &:hover, &:focus {
-            border-bottom: 2px solid var(--color-primary-dark);
-            background-color: var(--color-gray);
-            outline: none;
-        }
-        &:disabled {
-            border-bottom: 2px solid transparent;
-            background-color: var(--color-gray-light);
-        }
+    &__select {
+        align-self: center;
     }
     &__btn-box {
         margin-top: 2rem;
@@ -81,5 +68,40 @@
             color: $color-red;
             background-color: $color-red-light;
         }
+    }
+}
+
+.question button[data-btn="continue"], .question button[data-btn-continue], button[data-btn="solution"] {
+    display: none;
+}
+// .question button[data-btn="continue"], .question button[data-btn-continue], button[data-btn="solution"], 
+.question .btn__invisible {
+    visibility: hidden;
+    opacity: 0;
+    transform: scale(0);
+    transition: opacity 300ms ease-in;
+}
+.question .btn__visible {
+    visibility: visible;
+    opacity: 1;
+    transform: scale(1);
+}
+
+.section {
+    &--hidden {
+        // display: none;
+        visibility: hidden;
+        // transform: scale(0);
+        height: 0;
+        overflow-y: hidden;
+    }
+    &--visible {
+        // display: block;
+        // transform: scale(1);
+        visibility: visible;
+        height: auto;
+        overflow-y: unset;
+        // animation: fromrleft 2s linear 0s;
+        animation: fadein 500ms linear 0s;
     }
 }

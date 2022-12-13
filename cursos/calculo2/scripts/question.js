@@ -130,3 +130,52 @@ orderSelects.forEach(orderSelect => {
 
     })
 })
+
+const justificationProblems = document.querySelectorAll('[data-justification]')
+
+justificationProblems.forEach(problem => {
+    const formdata = problem.querySelector('[data-justification-form]')
+    const texts = problem.querySelectorAll('[data-justification-text]')
+    const btnAnswer = problem.querySelector('[data-btn-answer]')
+    const options = problem.querySelectorAll('[data-option]')
+
+    var answers = formdata.dataset.answer.split('_')
+    var step = 0
+    btnAnswer.disabled = true
+    
+    options.forEach(option => {
+        option.addEventListener('change', (el) => {
+            if(el.target.checked) {
+                btnAnswer.disabled = false
+            }
+        })
+    })
+
+    formdata.addEventListener('submit', e => {
+        e.preventDefault()
+        var data = Array.from(new FormData(formdata))[0][1]
+
+        texts[step].classList.remove('calculation__text--hidden')
+        var nextStep = problem.querySelectorAll(`[data-justification-step='${step+1}']`)
+        var t = problem.querySelector(`[value='${data}']`)
+        if(answers[step] === data) {
+            nextStep[0].classList.add('correct')
+        }
+        else {
+            nextStep[0].classList.add('error')
+        }
+        nextStep[0].innerHTML = `Tu respuesta: ${t.nextElementSibling.innerHTML}`
+        nextStep.forEach(part => {
+            part.classList.remove('calculation--hidden')
+            part.scrollIntoView()
+        })
+        step++
+        formdata.reset()
+        if(step >= answers.length){
+            btnAnswer.disabled = true
+            btnAnswer.nextElementSibling.style.display = 'inline-block'
+            btnAnswer.nextElementSibling.disabled = false
+            options.forEach(option => option.disabled = true)
+        }
+    })
+})

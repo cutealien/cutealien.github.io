@@ -87,8 +87,11 @@
     justify-content: center;
     margin: 0 auto;
     
-    &--text {
-        grid-template-columns: [first] max-content [second] max-content [third] max-content;
+    // &--text {
+    //     box-shadow: 0 0 10px $color-gray;
+    // }
+    @include responsive(tab-land) {
+        grid-template-columns: [first] max-content [second] 1fr;
     }
     
     &--no-text {
@@ -110,6 +113,7 @@
             justify-content: left;
             column-gap: 4rem;
             width: 100%;
+            transition: opacity 0.3s linear;
             @include responsive(tab-land) {
                 // max-width: max-content;
                 overflow-x: auto;
@@ -121,6 +125,25 @@
         font-style: italic;
         font-size: 1.6rem;
         margin-left: auto;
+        transition: opacity 0.3s linear;
+        &--hidden {
+            opacity: 0;
+        }
+    }
+    &__answer {
+        grid-column: 1 / -1;
+        font-style: italic;
+        font-size: 1.6rem;
+    }
+    &__question {
+        grid-column: 1 / -1;
+    }
+    &--hidden {
+        visibility: hidden;
+        transform: scale(0);
+        overflow-y: hidden;
+        opacity: 0;
+        height: 0;
     }
 }
 .overline {

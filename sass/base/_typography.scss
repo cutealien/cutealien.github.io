@@ -43,6 +43,13 @@
     font-weight: bold;
     padding: 1rem;
 }
+
+.correct {
+    padding: 1rem;
+    color: var(--color-green);
+    background-color: var(--color-green-light);
+    font-weight: bold;
+}
 .hint {
     color: var(--color-primary);
 }

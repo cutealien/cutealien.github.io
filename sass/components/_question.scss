@@ -32,6 +32,9 @@
         input {
             margin-top: 1rem;
         }
+        input:disabled + label {
+            opacity: 0.5;
+        }
         &:not(:last-child) {
             margin-bottom: 1rem;
         }

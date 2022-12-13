@@ -5,9 +5,11 @@
   --color-primary-dark: #003777;
   --color-secondary: #dfa01f;
   --color-tertiary: #d74180;
-  --color-green: #0b7c3a;
+  --color-green: #095c2c;
+  --color-green-light: #12d473;
   --color-gray-light: #f9f9f9;
   --color-gray: #f0f0f0;
+  --color-gray-dark: #7c7c7c;
 }
 
 .TFManim {
@@ -242,6 +244,13 @@ section {
   background-color: rgb(243, 148, 148);
   font-weight: bold;
   padding: 1rem;
+}
+
+.correct {
+  padding: 1rem;
+  color: var(--color-green);
+  background-color: var(--color-green-light);
+  font-weight: bold;
 }
 
 .hint {
@@ -752,8 +761,10 @@ div[data-anchor]:target::before {
   justify-content: center;
   margin: 0 auto;
 }
-.calculation--text {
-  grid-template-columns: [first] max-content [second] max-content [third] max-content;
+@media only screen and (max-width: 1200px) {
+  .calculation {
+    grid-template-columns: [first] max-content [second] 1fr;
+  }
 }
 .calculation--no-text {
   margin: 0 auto;
@@ -770,6 +781,7 @@ div[data-anchor]:target::before {
   justify-content: left;
   column-gap: 4rem;
   width: 100%;
+  transition: opacity 0.3s linear;
 }
 @media only screen and (max-width: 1200px) {
   .calculation__formule--2 {
@@ -781,6 +793,25 @@ div[data-anchor]:target::before {
   font-style: italic;
   font-size: 1.6rem;
   margin-left: auto;
+  transition: opacity 0.3s linear;
+}
+.calculation__text--hidden {
+  opacity: 0;
+}
+.calculation__answer {
+  grid-column: 1/-1;
+  font-style: italic;
+  font-size: 1.6rem;
+}
+.calculation__question {
+  grid-column: 1/-1;
+}
+.calculation--hidden {
+  visibility: hidden;
+  transform: scale(0);
+  overflow-y: hidden;
+  opacity: 0;
+  height: 0;
 }
 
 .overline {
@@ -819,6 +850,9 @@ div[data-anchor]:target::before {
 }
 .question__option input {
   margin-top: 1rem;
+}
+.question__option input:disabled + label {
+  opacity: 0.5;
 }
 .question__option:not(:last-child) {
   margin-bottom: 1rem;

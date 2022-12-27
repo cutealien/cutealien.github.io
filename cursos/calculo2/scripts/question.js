@@ -9,11 +9,13 @@ questionEvaluation = function(question, btnAnswer, answer) {
     var data = new FormData(question)
     var message = 'Incorrecto'
     var answerText = question.querySelector('p')
+    var userAnswer = ''
 
     answerText.classList.add('question__answer--failed')
     answerText.classList.remove('question__answer--success')
 
     for (const entry of data) {
+        userAnswer = entry[1]
         if(entry[1].toLowerCase() === answer) {
             message = 'Correcto'
             answerText.classList.add('question__answer--success')
@@ -24,6 +26,14 @@ questionEvaluation = function(question, btnAnswer, answer) {
     var options = question.querySelectorAll('input')
     options.forEach(option => {
         option.disabled = true
+        if(option.value === answer && option.nextElementSibling) {
+            option.nextElementSibling.classList.remove('question__option--incorrect')
+            option.nextElementSibling.classList.add('question__option--correct')
+        }
+        if(option.value === userAnswer && option.value !== answer && option.nextElementSibling) {
+            option.nextElementSibling.classList.remove('question__option--correct')
+            option.nextElementSibling.classList.add('question__option--incorrect')
+        }
     });
     btnAnswer.disabled = true
     if(btnAnswer.nextElementSibling) {
@@ -158,6 +168,7 @@ justificationProblems.forEach(problem => {
         texts[step].classList.remove('calculation__text--hidden')
         var nextStep = problem.querySelectorAll(`[data-justification-step='${step+1}']`)
         var t = problem.querySelector(`[value='${data}']`)
+        console.log(answers[step], data)
         if(answers[step] === data) {
             nextStep[0].classList.add('correct')
         }

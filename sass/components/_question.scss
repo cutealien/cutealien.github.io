@@ -18,6 +18,9 @@
         align-items: center;
         justify-content: space-between;
         gap: 2rem;
+        &--align-start {
+            align-items: flex-start;
+        }
     }
     &__col-2 {
         display: flex;
@@ -29,6 +32,16 @@
         align-items: flex-start;
         justify-content: left;
         column-gap: 1rem;
+        border: 1px solid transparent;
+
+        &--correct {
+            background-color: var(--color-green-light);
+            border: 1px solid var(--color-green);
+        }
+        &--incorrect {
+            background-color: var(--color-red-light);
+            border: 1px solid var(--color-red);
+        }
         input {
             margin-top: 1rem;
         }

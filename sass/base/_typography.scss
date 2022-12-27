@@ -50,6 +50,13 @@
     background-color: var(--color-green-light);
     font-weight: bold;
 }
+
+.link-reference {
+    color: var(--color-primary);
+    text-decoration: underline;
+    font-size: inherit;
+    cursor: pointer;
+}
 .hint {
     color: var(--color-primary);
 }

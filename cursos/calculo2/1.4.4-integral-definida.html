@@ -26,7 +26,7 @@
     src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
     </script> -->
 
-    <title>Cálculo 2 | Integral definida</title>
+    <title>Cálculo 2 | Integral definida 5</title>
 </head>
 <body class="course">
     <nav class="navbar">
@@ -99,6 +99,12 @@
                     <li class="subject-list__item"><a href="#" class="subject-list__link">3.3 Cálculo de áreas de regiones acotadas pro curvas</a></li>   
                 </ol>
             </li>
+            <li class="subject-list__item">
+                <strong class="subject-list__title">Anexo</strong>
+                <ol class="subject-list">
+                    <li class="subject-list__item"><a href="./anexo-conjuntos.html" class="subject-list__link">Conjuntos</a></li>
+                </ol>
+            </li>
         </ol>
     </nav>
     <div class="menu-mobile" data-menu="menu-mobile">
@@ -164,6 +170,12 @@
                             <li class="subject-list__item"><a href="#" class="subject-list__link">3.3 Cálculo de áreas de regiones acotadas pro curvas</a></li>   
                         </ol>
                     </li>
+                    <li class="subject-list__item">
+                        <strong class="subject-list__title">Anexo</strong>
+                        <ol class="subject-list">
+                            <li class="subject-list__item"><a href="./anexo-conjuntos.html" class="subject-list__link">Conjuntos</a></li>
+                        </ol>
+                    </li>
                 </ol>
             </nav>
         </div>
@@ -180,105 +192,356 @@
             </div>
             <div class="proof">
                 <h3 class="header-tertiary">Demostración.</h3>
-                <p class="paragraph">
-                    Si $f$ es una función constante, entonces $f$ es integrable en $[a,b]$, por el Ejemplo 1.4.5. 
-                    Entonces consideramos a $f$ una función creciente y no constante, lo cual nos garantiza que $f(a) < f(b)$. 
-                </p>
-                <p class="paragraph">
-                    Sea $\varepsilon>0$. Tomemos $P=\{x_0,x_1,\dots,x_n\}$ una partición de $[a,b]$ tal que $\|P\| < \frac{\varepsilon}{f(b)-f(a)}$.
-                    Como $f$ es creciente, entonces $\forall i=\overline{1,n}$, en $I_i=[x_{i-1},x_i]$, se tiene que 
-                    $$m_i=\inf\{f(x):x\in I_i\}=f(x_{i-1}) \quad \mbox{y}\quad M_i=\sup\{f(x):x\in I_i\}=f(x_i). $$ 
-                </p>
-                <div class="calculation">
-                    <div class="calculation__formule--1">
-                        $$\overline{S}(f,P)-\underline{S}(f,P)$$
-                    </div>
-                    <div class="calculation__formule--2">
-                        <div>
-                            $$= \sum_{i=1}^n M_i \Delta x_i - \sum_{i=1}^n m_i \Delta x_i $$
+                <form class="question margin-top-sm" data-question="question-1.4.4-1" data-answer="b">
+                    <h3 class="question__header margin-bottom-sm">
+                        ¿Cuál es nuestra hipótesis?
+                    </h3>
+                    <div class="question__row">
+                        <div class="question__col-1">
+                            <div class="question__options">
+                                <div class="question__option">
+                                    <input type="radio" autocomplete="off" id="answer-1.4.4-1-a" name="question-1.4.4-1" value="a" data-option="question-1.4.4-1">
+                                    <label for="answer-1.4.4-1-a">$f:[a,b]\to\mathbf{R}$ es integrable en $[a,b]$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" autocomplete="off" id="answer-1.4.4-1-b" name="question-1.4.4-1" value="b" data-option="question-1.4.4-1">
+                                    <label for="answer-1.4.4-1-b">$f:[a,b]\to\mathbf{R}$ es una función acotada y creciente (o decreciente)</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" autocomplete="off" id="answer-1.4.4-1-c" name="question-1.4.4-1" value="c" data-option="question-1.4.4-1">
+                                    <label for="answer-1.4.4-1-c">$\exists P$ una partición de $[a,b]$ tal que $f$ es integrable</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" autocomplete="off" id="answer-1.4.4-1-d" name="question-1.4.4-1" value="d" data-option="question-1.4.4-1">
+                                    <label for="answer-1.4.4-1-d">$f$ es continua</label>
+                                </div>
+                            </div>
+                            <div class="question__btn-box">
+                                <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                <button class="btn btn--blue" type="button" disabled data-btn-continue="step-1">Continuar</button>
+                            </div>
                         </div>
-                        <div class="calculation__text">
-                            por def. de sumas inferior y superior
-                        </div>
-                    </div>
-                    <div class="calculation__formule--2">
-                        <div>
-                            $$= \sum_{i=1}^n f(x_i) \Delta x_i - \sum_{i=1}^n f(x_{i-1}) \Delta x_i $$
-                        </div>
-                        <div class="calculation__text">
-                            por def. de $M_i$ y $m_i$ 
-                            <span class="error">pagina 41 la segunda sumatoria es  $\sum_{i=1}^n f(x_{i-1}) \Delta x_i$</span>
-                        </div>
-                    </div>
-                    <div class="calculation__formule--2">
-                        <div>
-                            $$= \sum_{i=1}^n [f(x_i)-f(x_{i-1})]\Delta x_i $$
-                        </div>
-                        <div class="calculation__text">
-                            por <span class="modal__reference" data-modal-btn="theorem-1-2-1">Teorema 1.2.1</span>
+                        <div class="question__col-2">
+                            <p class="question__answer"></p>
                         </div>
                     </div>
-                    <div class="calculation__formule--2">
-                        <div>
-                            $$\leq \sum_{i=1}^n [f(x_i)-f(x_{i-1})] \|P\| $$
+                </form>
+                <div class="section--hidden" data-section="step-1">
+                    <p class="paragraph">
+                        El <span class="modal__reference" data-modal-btn="theorem-1-4-5">Teorema 1.4.5</span> nos dice como demostrar que una función es integrable.
+                    </p>
+                    <form class="question margin-top-sm" data-question="question-1.4.4-2" data-answer="a">
+                        <h3 class="question__header margin-bottom-sm">
+                            ¿Qué condición del <span class="modal__reference" data-modal-btn="theorem-1-4-5">Teorema 1.4.5</span> cumplimos?
+                        </h3>
+                        <div class="question__row">
+                            <div class="question__col-1">
+                                <div class="question__options">
+                                    <div class="question__option">
+                                        <input type="radio" autocomplete="off" id="answer-1.4.4-2-a" name="question-1.4.4-2" value="a" data-option="question-1.4.4-2">
+                                        <label for="answer-1.4.4-2-a">$f:[a,b]\to \mathbf{R}$ una función acotada.</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" autocomplete="off" id="answer-1.4.4-2-b" name="question-1.4.4-2" value="b" data-option="question-1.4.4-2">
+                                        <label for="answer-1.4.4-2-b">$f$ es integrable en $[a,b]$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" autocomplete="off" id="answer-1.4.4-2-c" name="question-1.4.4-2" value="c" data-option="question-1.4.4-2">
+                                        <label for="answer-1.4.4-2-c">$\forall \varepsilon>0, \exists P$ una partición de $[a,b]$ tal que 
+                                            $\overline{S}(f,P)-\underline{S}(f,P) < \varepsilon.$ </label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" autocomplete="off" id="answer-1.4.4-2-d" name="question-1.4.4-2" value="d" data-option="question-1.4.4-2">
+                                        <label for="answer-1.4.4-2-d">$f$ es continua</label>
+                                    </div>
+                                </div>
+                                <div class="question__btn-box">
+                                    <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                    <button class="btn btn--blue" type="button" disabled data-btn-continue="step-2">Continuar</button>
+                                </div>
+                            </div>
+                            <div class="question__col-2">
+                                <p class="question__answer"></p>
+                            </div>
                         </div>
-                        <div class="calculation__text">
-                            porque $\Delta x_i \leq \|P\|$
+                    </form>
+                </div>
+                <div class="section--hidden" data-section="step-2">
+                    <p class="paragraph">
+                        La condición del teorema que cumplimos es $f:[a,b]\to \mathbf{R}$ una función acotada. Entonces nos falta por demostrar que
+                        $f$ es integrable. De nuevo el <span class="modal__reference" data-modal-btn="theorem-1-4-5">Teorema 1.4.5</span> nos dice como.
+                    </p>
+                    <form class="question margin-top-sm" data-question="question-1.4.4-3" data-answer="d">
+                        <h3 class="question__header margin-bottom-sm">
+                            ¿Cómo demostramos que $f$ es integrable?
+                        </h3>
+                        <div class="question__row">
+                            <div class="question__col-1">
+                                <div class="question__options">
+                                    <div class="question__option">
+                                        <input type="radio" autocomplete="off" id="answer-1.4.4-3-a" name="question-1.4.4-3" value="a" data-option="question-1.4.4-3">
+                                        <label for="answer-1.4.4-3-a">Calculando $\overline{S}(f,P)$ y $\underline{S}(f,P)$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" autocomplete="off" id="answer-1.4.4-3-b" name="question-1.4.4-3" value="b" data-option="question-1.4.4-3">
+                                        <label for="answer-1.4.4-3-b">Encontrando $M_i$ y $m_i$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" autocomplete="off" id="answer-1.4.4-3-c" name="question-1.4.4-3" value="c" data-option="question-1.4.4-3">
+                                        <label for="answer-1.4.4-3-c">Demostrando que $f$ es continua</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" autocomplete="off" id="answer-1.4.4-3-d" name="question-1.4.4-3" value="d" data-option="question-1.4.4-3">
+                                        <label for="answer-1.4.4-3-d">Dado $\varepsilon>0$, encontrando una partición $P$ $[a,b]$, que satisfaga $\overline{S}(f,P)-\underline{S}(f,P) < \varepsilon.$</label>
+                                    </div>
+                                </div>
+                                <div class="question__btn-box">
+                                    <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                    <button class="btn btn--blue" type="button" disabled data-btn-continue="step-3">Continuar</button>
+                                </div>
+                            </div>
+                            <div class="question__col-2">
+                                <p class="question__answer"></p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="calculation__formule--2">
-                        <div>
-                            $$= \|P\| \sum_{i=1}^n [f(x_i)-f(x_{i-1})] $$
+                    </form>
+                </div>
+                <div class="section--hidden" data-section="step-3">
+                    <p class="paragraph">
+                        La condición de integrabilidad requiere que exista una partición de $P$ tal que $\overline{S}(f,P)-\underline{S}(f,P) < \varepsilon$, para todo $\varepsilon>0$.
+                        Por lo tanto basta con encontrar esta $P$ para satisfacer el
+                        <span class="modal__reference" data-modal-btn="theorem-1-4-5">Teorema 1.4.5</span> y poder concluir que $f$ es integrable.
+                    </p>
+                    <p class="paragraph">
+                        Si $f$ es una función constante, entonces $f$ es integrable en $[a,b]$, por el <a href="./1.4.2-integral-definida.html#example-1.4.5" class="link-reference">Ejemplo 1.4.5</a>. 
+                        Entonces consideramos a $f$ una función creciente y no constante, lo cual nos garantiza que $f(a) < f(b)$. 
+                    </p>
+                    <p class="paragraph">
+                        Sea $\varepsilon>0$. Tomemos $P=\{x_0,x_1,\dots,x_n\}$ una partición de $[a,b]$ tal que $\|P\| < \frac{\varepsilon}{f(b)-f(a)}$.
+                        <!-- Como $f$ es creciente, entonces $\forall i=\overline{1,n}$, en $I_i=[x_{i-1},x_i]$, se tiene que 
+                        $$m_i=\inf\{f(x):x\in I_i\}=f(x_{i-1}) \quad \mbox{y}\quad M_i=\sup\{f(x):x\in I_i\}=f(x_i). $$  -->
+                    </p>
+                    <form class="question margin-top-sm" data-question="question-1.4.4-4" data-answer="d">
+                        <h3 class="question__header margin-bottom-sm">
+                            $\forall i=\overline{1,n}$, en $I_i=[x_{i-1},x_i]$, ¿Cuál de los siguientes enunciados es correcto?
+                        </h3>
+                        <div class="question__row">
+                            <div class="question__col-1">
+                                <div class="question__options">
+                                    <div class="question__option">
+                                        <input type="radio" autocomplete="off" id="answer-1.4.4-4-a" name="question-1.4.4-4" value="a" data-option="question-1.4.4-4">
+                                        <label for="answer-1.4.4-4-a">$m_i=\sup\{f(x):x\in I_i\}=f(x_{i})$ y $ M_i=\inf\{f(x):x\in I_i\}=f(x_{i+1}).$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" autocomplete="off" id="answer-1.4.4-4-b" name="question-1.4.4-4" value="b" data-option="question-1.4.4-4">
+                                        <label for="answer-1.4.4-4-b">$m_i=\sup\{f(x):x\in I_i\}=f(x_{i})$ y $ M_i=\inf\{f(x):x\in I_i\}=f(x_{i-1}).$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" autocomplete="off" id="answer-1.4.4-4-c" name="question-1.4.4-4" value="c" data-option="question-1.4.4-4">
+                                        <label for="answer-1.4.4-4-c">$m_i=\inf\{f(x):x\in I_i\}=f(x_{i+1})$ y $ M_i=\sup\{f(x):x\in I_i\}=f(x_i).$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" autocomplete="off" id="answer-1.4.4-4-d" name="question-1.4.4-4" value="d" data-option="question-1.4.4-4">
+                                        <label for="answer-1.4.4-4-d">$m_i=\inf\{f(x):x\in I_i\}=f(x_{i-1})$ y $ M_i=\sup\{f(x):x\in I_i\}=f(x_i).$</label>
+                                    </div>
+                                </div>
+                                <div class="question__btn-box">
+                                    <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                    <button class="btn btn--blue" type="button" disabled data-btn-continue="step-4">Continuar</button>
+                                </div>
+                            </div>
+                            <div class="question__col-2">
+                                <p class="question__answer"></p>
+                            </div>
                         </div>
-                        <div class="calculation__text">
-                            por <span class="modal__reference" data-modal-btn="theorem-1-2-1">Teorema 1.2.1</span>
+                    </form>
+                </div>
+                <div class="section--hidden" data-section="step-4">
+                    <p class="paragraph">
+                        Como $f$ es creciente, entonces $\forall i=\overline{1,n}$, en $I_i=[x_{i-1},x_i]$, los mínimos se encuentran en el lado izquierdo del intervalo y los máximos
+                        en el lado derecho del intervalo, así se tiene que 
+                        $$m_i=\inf\{f(x):x\in I_i\}=f(x_{i-1}) \quad \mbox{y}\quad M_i=\sup\{f(x):x\in I_i\}=f(x_i). $$ 
+                    </p>
+                    <p class="paragraph">
+                        Realizando la suma $\overline{S}(f,P)-\underline{S}(f,P)$, tenemos que
+                    </p>
+                    <div class="calculation" data-justification="question-1.4.4-5">
+                        <div class="calculation__formule--1">
+                            $$\overline{S}(f,P)-\underline{S}(f,P)$$
                         </div>
-                    </div>
-                    <div class="calculation__formule--2">
-                        <div>
-                            $$= \|P\| [f(x_n)-f(x_0)] $$
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= \sum_{i=1}^n M_i \Delta x_i - \sum_{i=1}^n m_i \Delta x_i $$
+                            </div>
+                            <div class="calculation__text">
+                                por def. de sumas inferior y superior
+                            </div>
                         </div>
-                        <div class="calculation__text">
-                            por <span class="modal__reference" data-modal-btn="theorem-1-2-2">Teorema 1.2.2</span>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= \sum_{i=1}^n f(x_i) \Delta x_i - \sum_{i=1}^n f(x_{i-1}) \Delta x_i $$
+                            </div>
+                            <div class="calculation__text ">
+                                por def. de $M_i$ y $m_i$ 
+                                <!-- <span class="error">pagina 41 la segunda sumatoria es  $\sum_{i=1}^n f(x_{i-1}) \Delta x_i$</span> -->
+                            </div>
                         </div>
-                    </div>
-                    <div class="calculation__formule--2">
-                        <div>
-                            $$= \|P\| [f(b)-f(a)] $$
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= \sum_{i=1}^n [f(x_i)-f(x_{i-1})]\Delta x_i $$
+                            </div>
+                            <div class="calculation__text calculation__text--hidden" data-justification-text="question-1.4.4-5">
+                                por <span class="modal__reference" data-modal-btn="theorem-1-2-1">Teorema 1.2.1</span>
+                            </div>
                         </div>
-                        <div class="calculation__text">
-                            por definición de partición
+                        <div class="calculation__answer text-center calculation--hidden" data-justification-step="1">
+                                
                         </div>
-                    </div>
-                    <div class="calculation__formule--2">
-                        <div>
-                            $$< \frac{\varepsilon}{f(b)-f(a)} [f(b)-f(a)] $$
+                        <div class="calculation__formule--2 calculation--hidden" data-justification-step="1">
+                            <div>
+                                $$\leq \sum_{i=1}^n [f(x_i)-f(x_{i-1})] \|P\| $$
+                            </div>
+                            <div class="calculation__text calculation__text--hidden" data-justification-text="question-1.4.4-5">
+                                porque $\Delta x_i \leq \|P\|$
+                            </div>
                         </div>
-                        <div class="calculation__text">
-                            porque $\|P\|< \frac{\varepsilon}{f(b)-f(a)}$
+                        <div class="calculation__answer text-center calculation--hidden" data-justification-step="2">
+                                
                         </div>
-                    </div>
-                    <div class="calculation__formule--2">
-                        <div>
-                            $$= \varepsilon $$
+                        <div class="calculation__formule--2 calculation--hidden" data-justification-step="2">
+                            <div>
+                                $$= \|P\| \sum_{i=1}^n [f(x_i)-f(x_{i-1})] $$
+                            </div>
+                            <div class="calculation__text calculation__text--hidden" data-justification-text="question-1.4.4-5">
+                                por <span class="modal__reference" data-modal-btn="theorem-1-2-1">Teorema 1.2.1</span>
+                            </div>
+                        </div>
+                        <div class="calculation__answer text-center calculation--hidden" data-justification-step="3">
+                                
+                        </div>
+                        <div class="calculation__formule--2 calculation--hidden" data-justification-step="3">
+                            <div>
+                                $$= \|P\| [f(x_n)-f(x_0)] $$
+                            </div>
+                            <div class="calculation__text calculation__text--hidden" data-justification-text="question-1.4.4-5">
+                                por <span class="modal__reference" data-modal-btn="theorem-1-2-2">Teorema 1.2.2</span>
+                            </div>
+                        </div>
+                        <div class="calculation__answer text-center calculation--hidden" data-justification-step="4">
+                                
+                        </div>
+                        <div class="calculation__formule--2 calculation--hidden" data-justification-step="4">
+                            <div>
+                                $$= \|P\| [f(b)-f(a)] $$
+                            </div>
+                            <div class="calculation__text calculation__text--hidden" data-justification-text="question-1.4.4-5">
+                                por definición de partición
+                            </div>
+                        </div>
+                        <div class="calculation__answer text-center calculation--hidden" data-justification-step="5">
+                                
+                        </div>
+                        <div class="calculation__formule--2 calculation--hidden" data-justification-step="5">
+                            <div>
+                                $$< \frac{\varepsilon}{f(b)-f(a)} [f(b)-f(a)] $$
+                            </div>
+                            <div class="calculation__text calculation__text--hidden" data-justification-text="question-1.4.4-5">
+                                porque $\|P\|< \frac{\varepsilon}{f(b)-f(a)}$
+                            </div>
+                        </div>
+                        <div class="calculation__answer text-center calculation--hidden" data-justification-step="6">
+                                
+                        </div>
+                        <div class="calculation__formule--2 calculation--hidden" data-justification-step="6">
+                            <div>
+                                $$= \varepsilon $$
+                            </div>
+                        </div>
+                        <div class="calculation__question">
+                            <form class="question margin-top-sm" data-justification-form="question-1.4.4-5" data-answer="3_4_3_5_6_7">
+                                <h3 class="question__header margin-bottom-sm">
+                                    Justifica el paso anterior
+                                </h3>
+                                <div class="question__row question__row--align-start">
+                                    <div class="question__col-1">
+                                        <div class="question__options">
+                                            <div class="question__option">
+                                                <input type="radio" autocomplete="off" id="answer-1.4.5-5-a" name="question-1.4.4-5" value="3" data-option="question-1.4.4-5">
+                                                <label for="answer-1.4.5-5-a">por Teorema 1.2.1</label>
+                                            </div>
+                                            <div class="question__option">
+                                                <input type="radio" autocomplete="off" id="answer-1.4.5-5-b" name="question-1.4.4-5" value="5" data-option="question-1.4.4-5">
+                                                <label for="answer-1.4.5-5-b">por Teorema 1.2.2</label>
+                                            </div>
+                                            <!-- <div class="question__option">
+                                                <input type="radio" autocomplete="off" id="answer-1.4.5-5-c" name="question-1.4.4-5" value="2" data-option="question-1.4.4-5">
+                                                <label for="answer-1.4.5-5-c">por def. de $M_i$ y $m_i$</label>
+                                            </div>
+                                            <div class="question__option">
+                                                <input type="radio" autocomplete="off" id="answer-1.4.5-5-d" name="question-1.4.4-5" value="1" data-option="question-1.4.4-5">
+                                                <label for="answer-1.4.5-5-d">por def. de sumas inferior y superior</label>
+                                            </div> -->
+                                            <div class="question__option">
+                                                <input type="radio" autocomplete="off" id="answer-1.4.5-5-e" name="question-1.4.4-5" value="4" data-option="question-1.4.4-5">
+                                                <label for="answer-1.4.5-5-e">porque $\Delta x_i \leq \|P\|$</label>
+                                            </div>
+                                            <div class="question__option">
+                                                <input type="radio" autocomplete="off" id="answer-1.4.5-5-f" name="question-1.4.4-5" value="6" data-option="question-1.4.4-5">
+                                                <label for="answer-1.4.5-5-f">por definición de partición</label>
+                                            </div>
+                                            <div class="question__option">
+                                                <input type="radio" autocomplete="off" id="answer-1.4.5-5-g" name="question-1.4.4-5" value="7" data-option="question-1.4.4-5">
+                                                <label for="answer-1.4.5-5-g">porque $\|P\|< \frac{\varepsilon}{f(b)-f(a)}$</label>
+                                            </div>
+                                        </div>
+                                        <div class="question__btn-box">
+                                            <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                            <button class="btn btn--blue" type="button" disabled data-btn-continue="step-5">Continuar</button>
+                                        </div>
+                                    </div>
+                                    <div class="question__col-1">
+                                        <div><span class="modal__reference" data-modal-btn="theorem-1-2-1">Teorema 1.2.1</span></div>
+                                        <div><span class="modal__reference" data-modal-btn="theorem-1-2-2">Teorema 1.2.2</span></div>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
-                <p class="paragraph">
-                    Finalmente, por el Teorema 1.4.5, la función $f$ es integrable en $[a,b]$.
-                </p>
-                <p class="paragraph">
-                    Si $f$ es decreciente, la demostración es análoga.
-                </p>
-                <div>
-                    <button class="btn btn--blue" type="button" data-btn-continue="step-10">Continuar</button>
+                <div class="section--hidden" data-section="step-5">
+                    <p class="paragraph">
+                        Finalmente, por el Teorema 1.4.5, la función $f$ es integrable en $[a,b]$.
+                    </p>
+                    <p class="paragraph">
+                        Si $f$ es decreciente, la demostración es análoga.
+                    </p>
+                    <!-- <div class="note">
+                        <h3 class="header-tertiary">Nota:</h3>
+                        <p class="paragraph">
+                            El <span class="modal__reference" data-modal-btn="theorem-1-4-5">Teorema 1.4.5</span> nos indica que 
+                            si $\forall \varepsilon>0, \exists P$ una partición de $[a,b]$ tal que 
+                            $\overline{S}(f,P)-\underline{S}(f,P) < \varepsilon.$ entonces la función $f$ es integrable en $[a,b]$.
+                            Recuerde que la partición $P$ es elegida por nosotros, por lo tanto podemos escoger la partición de manera que
+                            $\|P\|$ sea tan pequeña o grande como queramos.
+                        </p>
+                        <p class="paragraph">
+                            En los calculos anteriores se obtiene que 
+                            $\overline{S}(f,P)-\underline{S}(f,P) \leq \|P\| [f(b)-f(a)]$
+                            y para asegurar que $\overline{S}(f,P)-\underline{S}(f,P) < \varepsilon$
+                            se tendría que cumplir que $\|P\| [f(b)-f(a)] < \varepsilon$, por eso se escogió $P$ de tal manera que
+                            $\|P\| < \frac{\varepsilon}{f(b)-f(a)}$.
+                        </p>
+                    </div> -->
+                    <div>
+                        <button class="btn-sm btn--blue" type="button" data-btn-continue="step-6">Continuar</button>
+                    </div>
                 </div>
             </div>
             <div class="fancy-line"></div>
         </section>
-        <section class="section--hidden" data-section="step-10">
+        <section class="section--hidden" data-section="step-6">
             <p class="paragraph">
-                Ahora daremos un teroema que recoje algunas propiedades importantes de las integrales inferiores y superiores, que se traducen en propiedades de la integral definida.
+                Ahora daremos un teorema que recoje algunas propiedades importantes de las integrales inferiores y superiores, que se traducen en propiedades de la integral definida.
             </p>
             <div class="theorem">
                 <p class="paragraph">
@@ -329,7 +592,7 @@
                             entonces $Q_1$ es una partición de $[a,c]$ y $Q_2$ es una partición de $[c,b]$. Notemos que por definición de $Q$, tenemos que $Q$ es un refinamiento 
                             de $P$ y, por <span class="modal__reference" data-modal-btn="theorem-1-4-2">Teorema 1.4.2</span>, $\underline{S}(f,P)\leq \underline{S}(f,Q)$. 
                             Además, es claro que $\underline{S}(f,Q)=\underline{S}(f,Q_1)+\underline{S}(f,Q_2)$. 
-                            Pero, por definición de integral <span class="error">pagina 43 escribio intetgral en vez de integral</span> inferior, sabemos que 
+                            Pero, por definición de integral inferior, sabemos que 
                             $$
                                 \underline{S}(f,Q_1) \leq {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^c f(x)\,dx \quad y \quad 
                                 \underline{S}(f,Q_2) \leq {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_c^b f(x)\,dx.
@@ -367,7 +630,6 @@
                                 {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^c f(x)\,dx-\frac{\varepsilon}{2} < \underline{S}(f,P_1) \quad \mbox{ y } \quad 
                                 {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_c^b f(x)\,dx-\frac{\varepsilon}{2}< \underline{S}(f,P_2).
                             $$
-                            <span class="hint">No me queda claro la justificación del paso anterior.</span>
                         </p>
                         <p class="paragraph">
                             Si $R=P_1\cup P_2$, entonces $R$ es una partición de $[a,b]$ y además $\underline{S}(f,P_1)+\underline{S}(f,P_2)=\underline{S}(f,R)$. 
@@ -659,6 +921,17 @@
                 <p class="paragraph">
                     <strong class="theorem__title">Teorema 1.4.3.</strong> Si $f:[a,b]\to\mathbf{R}$ es una función acotada y además $P$ y $Q$ son particiones de $[a,b]$, entonces 
                     $ \underline{S}(f,P)\leq \overline{S}(f,Q)$.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="modal" data-modal="theorem-1-4-5">
+        <div class="modal__background" data-modal-background="theorem-1-4-5"></div>
+        <div class="modal__content">
+            <div class="theorem">
+                <p class="paragraph">
+                    <strong class="theorem__title">Teorema 1.4.5.</strong> Sea $f:[a,b]\to \mathbf{R}$ una función acotada. La función $f$ es integrable en $[a,b]$ si y sólo si $\forall \varepsilon>0, \exists P$ una partición de $[a,b]$ tal que 
+                    $$\overline{S}(f,P)-\underline{S}(f,P) < \varepsilon.$$ 
                 </p>
             </div>
         </div>

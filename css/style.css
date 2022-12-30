@@ -4,7 +4,9 @@
   --color-primary-light-op: 89, 169, 223;
   --color-primary-dark: #003777;
   --color-secondary: #dfa01f;
-  --color-tertiary: #d74180;
+  --color-tertiary: #9929a8;
+  --color-tertiary-light: #e148f5;
+  --color-tertiary-dark: #6b1c75;
   --color-green: #095c2c;
   --color-green-light: #12d473;
   --color-gray-light: #f9f9f9;
@@ -267,7 +269,9 @@ section {
 }
 
 .doubt {
-  color: #d74180;
+  color: var(--color-tertiary-light);
+  padding: 0.5rem;
+  background-color: var(--color-tertiary-dark);
 }
 
 .text-center {
@@ -297,7 +301,7 @@ section {
   font-style: italic;
 }
 
-.margin-top-medium {
+.margin-top-md {
   margin-top: 4rem;
 }
 
@@ -305,7 +309,7 @@ section {
   margin-bottom: 2rem;
 }
 
-.margin-bottom-medium {
+.margin-bottom-md {
   margin-bottom: 4rem;
 }
 

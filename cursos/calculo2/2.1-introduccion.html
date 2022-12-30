@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/style.css">
+    
+    <script src="./scripts/question.js" defer></script>
+    <script src="./scripts/modal.js" defer></script>
+    <script src="./scripts/menu-mobile.js" defer></script>
+
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+            loader: {load: ['input/asciimath', 'output/chtml']}
+        }
+    </script>
+    <script id="MathJax-script" async src="/scripts/MathJax-master/es5/tex-chtml.js"></script>
+
+    <title>Cálculo 2 | Integral Indefinida Introducción</title>
+</head>
+<body class="course">
+    <nav class="navbar">
+        <a href="/" class="navbar__logo-box">
+        </a>
+        <a href="/" class="navbar__link">
+            Inicio
+        </a>
+        <a href="/example.html" class="navbar__link">
+            Ejemplo
+        </a>
+        <a href="#" class="navbar__link navbar__link--active">
+            Cálculo 2
+        </a>
+        <button class="menu-mobile-btn burger-btn" data-menu-btn="menu-mobile"><span class="burger-icon"></span></button>
+    </nav>
+    <nav class="sidebar">
+        <ol class="subject-list">
+            <li class="subject-list__item">
+                <strong class="subject-list__title">1 La integral definida</strong>
+                <ol class="subject-list">
+                    <li class="subject-list__item"><a href="/cursos/calculo2/" class="subject-list__link">1.1 Introducción</a></li>
+                    <li class="subject-list__item">
+                        <a href="./1.2-Sumatoria.html" class="subject-list__link">1.2 El símbolo $\sum$</a>
+                        <ol class="subject-list">
+                            <li class="subject-list__item"><a href="./1.2-Sumatoria.html#1.2" class="subject-list__link">1.2.1 Formalizando el símbolo sumatorio</a></li>
+                            <li class="subject-list__item"><a href="./1.2.2-propiedades.html" class="subject-list__link">1.2.2 Propiedades del símbolo $\sum$</a></li>
+                        </ol>
+                    </li>
+                    <li class="subject-list__item"><a href="./1.3-calculo-de-areas.html" class="subject-list__link">1.3 Cálculo de  ́areas con rect. insc. y circuns.</a></li>
+                    <li class="subject-list__item">
+                        <a href="./1.4-integral-definida.html" class="subject-list__link">1.4 Construcción de la integral definida</a>
+                        <ol class="subject-list">
+                            <li class="subject-list__item"><a href="./1.4.1-integral-definida.html" class="subject-list__link">1.4.1 Construcción de la integral definida parte 2</a></li>
+                            <li class="subject-list__item"><a href="./1.4.2-integral-definida.html" class="subject-list__link">1.4.2 Construcción de la integral definida parte 3</a></li>
+                            <li class="subject-list__item"><a href="./1.4.3-integral-definida.html" class="subject-list__link">1.4.3 Construcción de la integral definida parte 4</a></li>
+                            <li class="subject-list__item"><a href="./1.4.4-integral-definida.html" class="subject-list__link">1.4.4 Construcción de la integral definida parte 5</a></li>
+                        </ol>
+                    </li>
+                    <li class="subject-list__item"><a href="./1.5-sumas-riemann.html" class="subject-list__link">1.5 Sumas de Riemann</a></li>
+                    <li class="subject-list__item"><a href="./1.6-teorema-fundamental.html" class="subject-list__link">1.6 Teorema fundamental del Cálculo y sus consecuencias</a></li>
+                    <li class="subject-list__item"><a href="#" class="subject-list__link">1.7 Ejercicios</a></li>
+                </ol>
+            </li>
+            <li class="subject-list__item">
+                <strong class="subject-list__title">2 La integral indefinida</strong>
+                <ol class="subject-list">
+                    <li class="subject-list__item"><a href="./2.1-introduccion.html" class="subject-list__link subject-list__link--active">2.1 Introducción</a></li>
+                    <li class="subject-list__item"><a href="#" class="subject-list__link">2.2 Antiderivadas inmediatas</a></li>
+                    <li class="subject-list__item"><a href="#" class="subject-list__link">2.3 Método de int. por sust. o cambio de variable</a></li>
+                    <li class="subject-list__item"><a href="#" class="subject-list__link">2.4 Método de integración por partes</a></li>
+                    <li class="subject-list__item">
+                        <a href="#" class="subject-list__link">2.5 Método de integración por fracciones parciales</a>
+                        <ol class="subject-list">
+                            <li class="subject-list__item"><a href="#" class="subject-list__link">2.5.1 El polinomio $Q(x)$ solo contiene factores lineales que no se repiten</a></li>     
+                            <li class="subject-list__item"><a href="#" class="subject-list__link">2.5.2 El polinomio $Q(x)$ solo contiene factores lineales, pero algunos de ellos se repetidos</a></li>     
+                            <li class="subject-list__item"><a href="#" class="subject-list__link">2.5.3 Integrales de funciones simples que involucran términos cuadráticos irreducibles</a></li>     
+                            <li class="subject-list__item"><a href="#" class="subject-list__link">2.5.4 El polinomio Q(x) contiene factores cuadráticos irreducibles que no se repiten</a></li>     
+                            <li class="subject-list__item"><a href="#" class="subject-list__link">2.5.5 El polinomio Q(x) contiene factores cuadráticos irreducibles que se repiten</a></li>     
+                        </ol>
+                    </li>
+                    <li class="subject-list__item"><a href="#" class="subject-list__link">2.6 Met. de int. por sust. trigonométrica</a></li>     
+                </ol>
+            </li>
+            <li class="subject-list__item">
+                <strong class="subject-list__title">3 Integrales impropias y aplicaciones</strong>
+                <ol class="subject-list">
+                    <li class="subject-list__item"><a href="#" class="subject-list__link">3.1 Integrales impropias</a></li>
+                    <li class="subject-list__item"><a href="#" class="subject-list__link">3.2 Más integrales impropias (para funciones discontinuas)</a></li>
+                    <li class="subject-list__item"><a href="#" class="subject-list__link">3.3 Cálculo de áreas de regiones acotadas pro curvas</a></li>   
+                </ol>
+            </li>
+            <li class="subject-list__item">
+                <strong class="subject-list__title">Anexo</strong>
+                <ol class="subject-list">
+                    <li class="subject-list__item"><a href="./anexo-conjuntos.html" class="subject-list__link subject-list__link--active">A1 Conjuntos</a></li>
+                </ol>
+            </li>
+        </ol>
+    </nav>
+    <div class="menu-mobile" data-menu="menu-mobile">
+        <div class="menu-mobile__bg" data-menu-bg="menu-mobile"></div>
+        <div class="menu-mobile__content" data-menu-content="menu-mobile">
+            <div class="menu-mobile__header">
+                <h3 class="header-tertiary">Cálculo 2</h3>
+                <button class="menu-mobile-btn burger-btn" data-menu-btn="menu-mobile"><span class="burger-icon burger-icon--pressed"></span></button>
+            </div>
+            <nav class="navbar-mobile">
+                <ol class="subject-list">
+                    <li class="subject-list__item">
+                        <strong class="subject-list__title">1 La integral definida</strong>
+                        <ol class="subject-list">
+                            <li class="subject-list__item"><a href="/cursos/calculo2/" class="subject-list__link">1.1 Introducción</a></li>
+                            <li class="subject-list__item">
+                                <a href="./1.2-Sumatoria.html" class="subject-list__link">1.2 El símbolo $\sum$</a>
+                                <ol class="subject-list">
+                                    <li class="subject-list__item"><a href="./1.2-Sumatoria.html#1.2" class="subject-list__link">1.2.1 Formalizando el símbolo sumatorio</a></li>
+                                    <li class="subject-list__item"><a href="./1.2.2-propiedades.html" class="subject-list__link">1.2.2 Propiedades del símbolo $\sum$</a></li>
+                                </ol>
+                            </li>
+                            <li class="subject-list__item"><a href="./1.3-calculo-de-areas.html" class="subject-list__link">1.3 Cálculo de  ́areas con rect. insc. y circuns.</a></li>
+                            <li class="subject-list__item">
+                                <a href="./1.4-integral-definida.html" class="subject-list__link">1.4 Construcción de la integral definida</a>
+                                <ol class="subject-list">
+                                    <li class="subject-list__item"><a href="./1.4.1-integral-definida.html" class="subject-list__link">1.4.1 Construcción de la integral definida parte 2</a></li>
+                                    <li class="subject-list__item"><a href="./1.4.2-integral-definida.html" class="subject-list__link">1.4.2 Construcción de la integral definida parte 3</a></li>
+                                    <li class="subject-list__item"><a href="./1.4.3-integral-definida.html" class="subject-list__link">1.4.3 Construcción de la integral definida parte 4</a></li>
+                                    <li class="subject-list__item"><a href="./1.4.4-integral-definida.html" class="subject-list__link">1.4.4 Construcción de la integral definida parte 5</a></li>
+                                </ol>
+                            </li>
+                            <li class="subject-list__item"><a href="./1.5-sumas-riemann.html" class="subject-list__link">1.5 Sumas de Riemann</a></li>
+                            <li class="subject-list__item"><a href="./1.6-teorema-fundamental.html" class="subject-list__link">1.6 Teorema fundamental del Cálculo y sus consecuencias</a></li>
+                            <li class="subject-list__item"><a href="#" class="subject-list__link">1.7 Ejercicios</a></li>
+                        </ol>
+                    </li>
+                    <li class="subject-list__item">
+                        <strong class="subject-list__title">2 La integral indefinida</strong>
+                        <ol class="subject-list">
+                            <li class="subject-list__item"><a href="./2.1-introduccion.html" class="subject-list__link subject-list__link--active">2.1 Introducción</a></li>
+                            <li class="subject-list__item"><a href="#" class="subject-list__link">2.2 Antiderivadas inmediatas</a></li>
+                            <li class="subject-list__item"><a href="#" class="subject-list__link">2.3 Método de int. por sust. o cambio de variable</a></li>
+                            <li class="subject-list__item"><a href="#" class="subject-list__link">2.4 Método de integración por partes</a></li>
+                            <li class="subject-list__item">
+                                <a href="#" class="subject-list__link">2.5 Método de integración por fracciones parciales</a>
+                                <ol class="subject-list">
+                                    <li class="subject-list__item"><a href="#" class="subject-list__link">2.5.1 El polinomio $Q(x)$ solo contiene factores lineales que no se repiten</a></li>     
+                                    <li class="subject-list__item"><a href="#" class="subject-list__link">2.5.2 El polinomio $Q(x)$ solo contiene factores lineales, pero algunos de ellos se repetidos</a></li>     
+                                    <li class="subject-list__item"><a href="#" class="subject-list__link">2.5.3 Integrales de funciones simples que involucran términos cuadráticos irreducibles</a></li>     
+                                    <li class="subject-list__item"><a href="#" class="subject-list__link">2.5.4 El polinomio Q(x) contiene factores cuadráticos irreducibles que no se repiten</a></li>     
+                                    <li class="subject-list__item"><a href="#" class="subject-list__link">2.5.5 El polinomio Q(x) contiene factores cuadráticos irreducibles que se repiten</a></li>     
+                                </ol>
+                            </li>
+                            <li class="subject-list__item"><a href="#" class="subject-list__link">2.6 Met. de int. por sust. trigonométrica</a></li>     
+                        </ol>
+                    </li>
+                    <li class="subject-list__item">
+                        <strong class="subject-list__title">3 Integrales impropias y aplicaciones</strong>
+                        <ol class="subject-list">
+                            <li class="subject-list__item"><a href="#" class="subject-list__link">3.1 Integrales impropias</a></li>
+                            <li class="subject-list__item"><a href="#" class="subject-list__link">3.2 Más integrales impropias (para funciones discontinuas)</a></li>
+                            <li class="subject-list__item"><a href="#" class="subject-list__link">3.3 Cálculo de áreas de regiones acotadas pro curvas</a></li>   
+                        </ol>
+                    </li>
+                    <li class="subject-list__item">
+                        <strong class="subject-list__title">Anexo</strong>
+                        <ol class="subject-list">
+                            <li class="subject-list__item"><a href="./anexo-conjuntos.html" class="subject-list__link subject-list__link--active">Conjuntos</a></li>
+                        </ol>
+                    </li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <main class="main">
+        <section>
+            <h2 class="header-primary margin-bottom-md">
+                Capítulo 2
+            </h2>
+            <h1 class="header-primary margin-bottom-md">LA INTEGRAL INDEFINIDA</h1>
+            <h2 class="header-primary margin-bottom-md">
+                2.1 Introducción
+            </h2>
+            <p class="paragraph">
+                En la unidad anterior construimos la integral definida de una función acotada. 
+                Como vimos, calcular el valor de la integral es súmamente complicado e imposible algunas veces. Según el Teorema Fundamental del Cálculo. si $f$ es integrable en 
+                $[a,b]$, $F$ es derivable y además $F(x)=f(x),\,\forall x\in[a,b]$ <span class="error">$F'(x)=f(x)$</span>, entonces $\int_a^b=F(b)-F(a)$ <span class="doubt">siento que falta justificación</span>. En esta unidad desarrollaremos técnicas para hallar primitivas. 
+            </p>
+            <div class="definition">
+                <p class="paragraph">
+                    <span class="definition__title">Definición 2.1.1. </span> Sean $A\subseteq \mathbf{R}$, $f:A\to\mathbf{R}$ una función y $F:A\to\mathbf{R}$ una función derivable en $A$, 
+                    diremos que $F$ es una primitiva o antiderivada de $f$ si $\forall x\in A: F'(x)=f(x)$.
+                </p>
+            </div>
+            <p class="paragraph">
+                Si $f$ es continua y $f:[a,b]\to \mathbf{R}$, entonces siempre se garantiza la existencia de una primitiva por el T.F.V. <span class="error">T.F.C.???</span>, 
+                a saber, $$F(x)=\int_a^x f(t)\,dt,$$ 
+                así que las funciones continuas definidas en intervalos cerrados tienen asegurada la existencia de sus primitivas.
+            </p>
+            <p class="paragraph">
+                Sin embargo no todas las funciones integrables tienen primitivas, pero si las podemos hallar, aseguramos el cálculo de sus integrales definidas. 
+                Es más, si $F'(x)=f(x)$, sabemos que $\int_a^b f(x)\,dx=F(b)-F(a)$, así que de ahora en delante, bajo estas condiciones, denotaremos 
+                $$\int_a^b f(x)\,dx=F(b)-F(a)=F(x)\bigg|_a^b.$$
+            </p>
+            <p class="paragraph">
+                Por supuesto, la primitiva de una función es única, salvo una constante, pero hallar la forma genérica de una primitiva de una función dada es importante. 
+                Denotaremos por $\int f(x)\,dx$ a la primitiva de $f$ en su forma más general  y con su dominio lo más grande posible. Así, tendremos que 
+                $$\frac{d}{dx}\int f(x)\,dx=f(x).$$
+            </p>
+            <div class="definition">
+                <p class="paragraph">
+                    <span class="definition__title">Definición 2.1.2.</span> Sea $f$ una función integrable. Definimos como integral definida de $f$ a la primitiva de $f$ en su 
+                    forma más general y con dominio lo más grande posible, y la denotaremos por $$\int f(x)\,dx.$$
+                </p>
+            </div>
+            <p class="paragraph">
+                Los problemas de calcular primitivas y derivadas difieren en dos aspectos importantes. Primero, las derivadas de funciones elementales siempre existen, 
+                sin embargo algunas funciones elementales no tienen primitiva elemental, por ejemplo la función $f(x)=e^{x^2}$, a pesar de ser una función continua. 
+                Segundo, un ligero cambio en la función no genera gran cambio en la derivada, pero pequeños cambios en la forma del integrando puede ocasionar un fuerte cambio en la primitiva,
+                por ejemplo, $$\int\frac{dx}{x^2+1}=\arctan(x)+c \qquad \mbox{ y }\qquad \int\frac{x}{x^2+1}=\frac{1}{2}\ln (x^2+1)+c.$$
+            </p>
+            <p class="paragraph">
+                Antes de comenzar a encontrar primitivas, veamos algunas propiedades básicas de ellas.
+            </p>
+        </section>
+        <section>
+            <div class="fancy-line"></div>
+            <div class="theorem">
+                <p class="paragraph">
+                    <span class="theorem__title">Teorema 2.1.1.</span> Las únicas primitivas de la función cero son las funciones constantes, i.e., $$\int 0\,dx=c, \qquad \mbox{ con }c\in\mathbf{R}.$$
+                </p>
+            </div>
+            <div class="proof">
+                <h3 class="header-tertiary">Demostración.</h3>
+                <p class="paragraph">
+                    Supongamos que $F(x)$ es una primitiva de la función cero, i.e., que $F'(x)=0, \forall x\in\mathbf{R}$. Sean $a,x\in\mathbf{R}$ con $a\neq x$, entonces por el 
+                    Teorema del Valor Medio para derivadas, $\exists b\in(a,x)$ tal que $\frac{F(x)-F(a)}{x-a}=F'(b)$. Pero como $F'(b)=0$, entonces $F(x)=F(a)$, 
+                    de lo cual se deduce que $F(x)=F(a), \forall x\in\mathbf{R}$. Tomando $c=F(a)$, concluimos que $F(x)=c, \forall x\in\mathbf{R}$. Finalmente, $$\int 0\,dx=c.$$
+                </p>
+            </div>
+            <p class="paragraph">
+                Podemos observar que esta prueba se puede realizar para una primitiva de la función cero en un intervalo cerrado, y así:
+            </p>
+            <div class="theorem">
+                <p class="paragraph">
+                    <span class="theorem__title">Corolario 2.1.1. </span>Si $F(x)$ una primitiva de la función cero en un intervalo cerrado $[a,b]$, entonces $F(x)=c, \forall x\in[a,b]$ con $c$ una constante.
+                </p>
+            </div>
+        </section>
+        <section>
+            <div class="fancy-line"></div>
+            <p class="paragraph">
+                Este corolario nos permite demostrar el siguiente resultado.
+            </p>
+            <div class="theorem">
+                <p class="paragraph">
+                    <span class="theorem__title">Teorema 2.1.2. </span> Si $F$ es una primitiva de la función $f$ en un intervalo cerrado $[a,b]$, 
+                    entonces cualquier primitiva $G$ de $f$ en $[a,b]$, debe ser de la forma $G(x)=F(x)+c, \forall x\in[a,b]$ con $c$ una constante. 
+                    Más aún, cualquier función $G$ de esta forma es una primitiva para $f$.
+                </p>
+            </div>
+            <div class="proof">
+                <h3 class="header-tertiary">Demostración.</h3>
+                <form class="question margin-top-sm" data-question="question-2-1-1" data-answer="c">
+                    <h3 class="question__header margin-bottom-sm">
+                        ¿Cuál es nuestra hipótesis?
+                    </h3>
+                    <div class="question__row">
+                        <div class="question__col-1">
+                            <div class="question__options">
+                                <div class="question__option">
+                                    <input type="radio" autocomplete="off" id="answer-2-1-1-a" name="question-2-1-1" value="a" data-option="question-2-1-1">
+                                    <label for="answer-2-1-1-a">$G(x)=F(x) + c.$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" autocomplete="off" id="answer-2-1-1-b" name="question-2-1-1" value="b" data-option="question-2-1-1">
+                                    <label for="answer-2-1-1-b">$G$ es primitiva de $f.$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" autocomplete="off" id="answer-2-1-1-c" name="question-2-1-1" value="c" data-option="question-2-1-1">
+                                    <label for="answer-2-1-1-c">$F$ es primitiva de $f$. </label>
+                                </div>
+                            </div>
+                            <div class="question__btn-box">
+                                <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                <button class="btn btn--blue" type="button" disabled data-btn-continue="step-1">Continuar</button>
+                            </div>
+                        </div>
+                        <div class="question__col-2">
+                            <p class="question__answer"></p>
+                        </div>
+                    </div>
+                </form>
+                <div class="section--hidden" data-section="step-1">
+                    <p class="paragraph">
+                        Nuestra hipótesis es que $F$ es una primitiva de $f$.
+                    </p>
+                    <form class="question margin-top-sm" data-question="question-2-1-2" data-answer="a">
+                        <h3 class="question__header margin-bottom-sm">
+                            ¿Qué hay que demostrar?
+                        </h3>
+                        <div class="question__row">
+                            <div class="question__col-1">
+                                <div class="question__options">
+                                    <div class="question__option">
+                                        <input type="radio" autocomplete="off" id="answer-2-1-2-a" name="question-2-1-2" value="a" data-option="question-2-1-2">
+                                        <label for="answer-2-1-2-a">Que cualquier primitiva $G$ de $f$ en $[a,b]$ es de la forma $G(x) = F(x) + c.$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" autocomplete="off" id="answer-2-1-2-b" name="question-2-1-2" value="b" data-option="question-2-1-2">
+                                        <label for="answer-2-1-2-b">Que si $f$ es continua $[a,b]$ entonces $F$ es una primitiva</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" autocomplete="off" id="answer-2-1-2-c" name="question-2-1-2" value="c" data-option="question-2-1-2">
+                                        <label for="answer-2-1-2-c">Que $G'=F'$ en $[a,b].$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" autocomplete="off" id="answer-2-1-2-d" name="question-2-1-2" value="d" data-option="question-2-1-2">
+                                        <label for="answer-2-1-2-d">Que $G$ y $F$ son integrables en $[a,b]$</label>
+                                    </div>
+                                </div>
+                                <div class="question__btn-box">
+                                    <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                    <button class="btn btn--blue" type="button" disabled data-btn-continue="step-2">Continuar</button>
+                                </div>
+                            </div>
+                            <div class="question__col-2">
+                                <p class="question__answer"></p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="section--hidden" data-section="step-2">
+                    <p class="paragraph">
+                        Tenemos que demostrar que cualquier primitiva $G$ de $f$ en $[a,b]$ es de la forma $G(x) = F(x) + c.$
+                    </p>
+                    <p class="paragraph">
+                        Sean $F(x)$ y $G(x)$ dos primitivas de $f(x)$ en $[a,b].$    
+                    </p>
+                    <form class="question margin-top-sm" data-question="question-2-1-3" data-answer="b">
+                        <h3 class="question__header margin-bottom-sm">
+                            ¿Qué implica lo anterior?
+                        </h3>
+                        <div class="question__row">
+                            <div class="question__col-1">
+                                <div class="question__options">
+                                    <div class="question__option">
+                                        <input type="radio" autocomplete="off" id="answer-2-1-3-a" name="question-c" value="a" data-option="question-c">
+                                        <label for="answer-2-1-3-a">$F = G$ en $[a,b]$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" autocomplete="off" id="answer-2-1-3-b" name="question-c" value="b" data-option="question-c">
+                                        <label for="answer-2-1-3-b">$F'(x) = G'(x)$ en $[a,b].$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" autocomplete="off" id="answer-2-1-3-c" name="question-c" value="c" data-option="question-c">
+                                        <label for="answer-2-1-3-c">$\int_a^b F(x) \,dx=\int_a^b G(x) \,dx.$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" autocomplete="off" id="answer-2-1-3-d" name="question-c" value="d" data-option="question-c">
+                                        <label for="answer-2-1-3-d">$\int_a^b F(x) \,dx = G(x).$</label>
+                                    </div>
+                                </div>
+                                <div class="question__btn-box">
+                                    <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                    <button class="btn btn--blue" type="button" disabled data-btn-continue="step-3">Continuar</button>
+                                </div>
+                            </div>
+                            <div class="question__col-2">
+                                <p class="question__answer"></p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="section--hidden" data-section="step-3">
+                    <p class="paragraph">
+                        Lo anterior implica que $F'(x)=f(x)$ y $G'(x)=f(x)$, para toda $x\in[a,b]$.
+                    </p>
+                    <p class="paragraph">
+                        Definimos la función $H(x)=G(x)-F(x), \forall x\in[a,b]$. Como $F$ y $G$ son derivables, entonces $H$ es derivable y además $H'(x)=G'(x)-F'(x),$    
+                        pero como $F'(x)=G'(x)$, entonces $H'(x)=0, \forall x\in[a,b]$. Así, $H$ es una primitiva de la función cero en $[a,b]$, y por el 
+                        Corolario 2.1.1, tenemos que $H(x)=c, \forall x\in[a,b]$ con $c$ una constante. 
+                        Luego, por la definición de $H$, tenemos que $G(x)-F(x)=c$, i.e., $G(x)=F(x)+c, \forall x\in[a,b]$.
+                    </p>
+                    <p class="paragraph">
+                        Por otro lado, si $G(x)=F(x)+c$ y $F$ es una primitiva de $f$, entonces tendremos que $G'(x)=F'(x)$, y por lo tanto, por definición de primitiva, 
+                        $G'(x)=f(x)$, i.e., $G$ también es una primitiva de $f$.
+                    </p>
+                    <div class="fancy-line"></div>
+                    <div class="change-page">
+                        <a href="./1.6-teorema-fundamental.html" class="change-page__before">Anterior</a>
+                        <a href="#" class="change-page__next">Siguiente</a>
+                    </div>
+                </div>
+                <!-- <p class="paragraph">
+                    Sean $F(x)$ y $G(x)$ dos primitivas de $f(x)$ en $[a,b]$, i.e., $F'(x)=f(x)$ y $G'(x)=f(x)$, para toda $x\in[a,b]$. 
+                    Definimos la función $H(x)=G(x)-F(x), \forall x\in[a,b]$. Como $F$ y $G$ son derivables, entonces $H$ es derivable y además $H'(x)=G'(x)-F'(x)$, 
+                    pero como $F'(x)=G'(x)$, entonces $H'(x)=0, \forall x\in[a,b]$. Así, $H$ es una primitiva de la función cero en $[a,b]$, y por el 
+                    Corolario 2.1.1, tenemos que $H(x)=c, \forall x\in[a,b]$ con $c$ una constante. 
+                    Luego, por la definición de $H$, tenemos que $G(x)-F(x)=c$, i.e., $G(x)=F(x)+c, \forall x\in[a,b]$.
+                </p> -->
+            </div>
+        </section>
+    </main>
+</body>
+</html>

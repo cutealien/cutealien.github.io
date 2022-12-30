@@ -61,5 +61,7 @@
     color: var(--color-primary);
 }
 .doubt {
-    color: $color-tertiary;
+    color: var(--color-tertiary-light);
+    padding: .5rem;
+    background-color: var(--color-tertiary-dark);
 }

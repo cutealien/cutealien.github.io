@@ -52,8 +52,8 @@
             <p class="paragraph">
                 El área del cuadrado anterior es $ area = a^2 $
             </p>
+            <div class="fancy-line"></div>
         </section>
-        <div class="fancy-line"></div>
         <section>
             <p class="paragraph">
                 Ahora considere la siguiente figura:
@@ -88,8 +88,8 @@
                             </div>
                         </div>
                         <div class="question__btn-box">
-                            <button class="btn btn--blue" type="submit" disabled data-btn="answer">Respuesta</button>
-                            <button class="btn btn--blue" type="button" disabled data-btn="continue">Continuar</button>
+                            <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                            <button class="btn btn--blue" type="button" disabled data-btn-continue="step-1">Continuar</button>
                         </div>
                     </div>
                     <div class="question__col-2">
@@ -98,7 +98,7 @@
                 </div>
             </form>
         </section>
-        <section class="step" id="step2">
+        <section class="section--hidden" data-section="step-1">
             <div class="fancy-line"></div>
             <p class="paragraph">
                 El área de la figura de color azul es $(a - b)^2$. Quitando el área roja, la figura queda:
@@ -139,8 +139,8 @@
                             </div>
                         </div>
                         <div class="question__btn-box">
-                            <button class="btn btn--blue" type="submit" disabled data-btn="answer">Respuesta</button>
-                            <button class="btn btn--blue" type="button" disabled data-btn="continue">Continuar</button>
+                            <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                            <button class="btn btn--blue" type="button" disabled data-btn-continue="step-2">Continuar</button>
                         </div>
                     </div>
                     <div class="question__col-2">
@@ -149,7 +149,7 @@
                 </div>
             </form>
         </section>
-        <section class="step" id="step3">
+        <section class="section--hidden" data-section="step-2">
             <div class="fancy-line"></div>
             <p class="paragraph">
                 La longitud de los lados $c$ y $d$ es $a-b$.
@@ -198,8 +198,8 @@
                             </div>
                         </div>
                         <div class="question__btn-box">
-                            <button class="btn btn--blue" type="submit" disabled data-btn="answer">Respuesta</button>
-                            <button class="btn btn--blue" type="button" disabled data-btn="continue">Continuar</button>
+                            <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                            <button class="btn btn--blue" type="button" disabled data-btn-continue="step-3">Continuar</button>
                         </div>
                     </div>
                     <div class="question__col-2">
@@ -208,7 +208,7 @@
                 </div>
             </form>
         </section>
-        <section class="step">
+        <section class="section--hidden" data-section="step-3">
             <div class="fancy-line"></div>
             <p class="paragraph">
                 El área azul es $(a+b)(a-b)$. El área azul original fue $a^2-b^2$, y 

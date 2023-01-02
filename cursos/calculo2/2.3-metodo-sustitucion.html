@@ -22,7 +22,7 @@
     </script>
     <script id="MathJax-script" async src="/scripts/MathJax-master/es5/tex-chtml.js"></script>
 
-    <title>Cálculo 2 | Integral definida</title>
+    <title>Cálculo 2 | Integral Indefinida Introducción</title>
 </head>
 <body class="course">
     <nav class="navbar">
@@ -72,7 +72,7 @@
                 <ol class="subject-list">
                     <li class="subject-list__item"><a href="./2.1-introduccion.html" class="subject-list__link">2.1 Introducción</a></li>
                     <li class="subject-list__item"><a href="./2.2-antiderivadas-inmediatas.html" class="subject-list__link">2.2 Antiderivadas inmediatas</a></li>
-                    <li class="subject-list__item"><a href="./2.3-metodo-sustitucion.html" class="subject-list__link">2.3 Método de int. por sust. o cambio de variable</a></li>
+                    <li class="subject-list__item"><a href="./2.3-metodo-sustitucion.html" class="subject-list__link subject-list__link--active">2.3 Método de int. por sust. o cambio de variable</a></li>
                     <li class="subject-list__item"><a href="#" class="subject-list__link">2.4 Método de integración por partes</a></li>
                     <li class="subject-list__item">
                         <a href="#" class="subject-list__link">2.5 Método de integración por fracciones parciales</a>
@@ -98,7 +98,7 @@
             <li class="subject-list__item">
                 <strong class="subject-list__title">Anexo</strong>
                 <ol class="subject-list">
-                    <li class="subject-list__item"><a href="./anexo-conjuntos.html" class="subject-list__link subject-list__link--active">A1 Conjuntos</a></li>
+                    <li class="subject-list__item"><a href="./anexo-conjuntos.html" class="subject-list__link">A1 Conjuntos</a></li>
                 </ol>
             </li>
         </ol>
@@ -143,7 +143,7 @@
                         <ol class="subject-list">
                             <li class="subject-list__item"><a href="./2.1-introduccion.html" class="subject-list__link">2.1 Introducción</a></li>
                             <li class="subject-list__item"><a href="./2.2-antiderivadas-inmediatas.html" class="subject-list__link">2.2 Antiderivadas inmediatas</a></li>
-                            <li class="subject-list__item"><a href="./2.3-metodo-sustitucion.html" class="subject-list__link">2.3 Método de int. por sust. o cambio de variable</a></li>
+                            <li class="subject-list__item"><a href="./2.3-metodo-sustitucion.html" class="subject-list__link subject-list__link--active">2.3 Método de int. por sust. o cambio de variable</a></li>
                             <li class="subject-list__item"><a href="#" class="subject-list__link">2.4 Método de integración por partes</a></li>
                             <li class="subject-list__item">
                                 <a href="#" class="subject-list__link">2.5 Método de integración por fracciones parciales</a>
@@ -169,7 +169,7 @@
                     <li class="subject-list__item">
                         <strong class="subject-list__title">Anexo</strong>
                         <ol class="subject-list">
-                            <li class="subject-list__item"><a href="./anexo-conjuntos.html" class="subject-list__link subject-list__link--active">Conjuntos</a></li>
+                            <li class="subject-list__item"><a href="./anexo-conjuntos.html" class="subject-list__link">Conjuntos</a></li>
                         </ol>
                     </li>
                 </ol>
@@ -178,72 +178,63 @@
     </div>
     <main class="main">
         <section>
-            <h1 class="header-primary">Anexo conjuntos</h1>
-            <p class="paragraph">
-                En esta sección se proporcionarán teoremas que facilitan el entendimiento de la sección 1.4.
-            </p>
-            <div class="theorem">
-                <p class="paragraph">
-                    <strong class="theorem__title">Teorema 1.</strong> Sean $a$ y $b$ dos números reales tales que $a \leq b + \varepsilon$ para todo $\varepsilon > 0.$
-                    Entonces $a \leq b$.
-                </p>
-            </div>
-            <div class="proof">
-                <h3 class="header-tertiary">Demostración.</h3>
-                <p class="paragraph">
-                    Suponga por el contrario que $a>b$, de tal forma que $a-b>0$ es positivo. Ahora nuestro objetivo es contradecir el enunciado
-                    $$\forall \varepsilon > 0, \quad a \leq b + \varepsilon.$$
-                </p>
-                <p class="paragraph">
-                    Una forma de contradecirlo es encontrando un $\varepsilon>0$ talque $a > b + \varepsilon$, es decir, $a-b > \varepsilon$. Ciertamente es posible
-                    por la hipótesis $a-b>0$, sólo necesitamos escoger un $\varepsilon > 0$ más pequeño que $a-b$.
-                </p>
-                <p class="paragraph">
-                    Puesto que $a-b > 0$, existe un $\varepsilon>0$ más pequeño que $a-b$, es decir, $0 < \varepsilon < a-b$ y por lo tanto, $a > b + \varepsilon$, lo cual
-                    contradice el hecho que $a \leq b + \varepsilon$ para todo $\varepsilon > 0$. Por lo tanto nuestra suposición es incorrecta y debe ser $a < b$.
-                </p>
-                <p class="paragraph">
-                    El valor de $\varepsilon$ no tiene que ser necesariamente explícito. Lo importante es que cualquier $\varepsilon$ positivo y más pequeño que $a-b$
-                    cumplirá el objetivo. Pero si aún tiene dudas, considere $\varepsilon = \frac{a-b}{2}$. Note que $\frac{a-b}{2}> 0$ porque $a-b>0$, así $a-b > \frac{a-b}{2} = \varepsilon > 0.$ 
-                    Entonces
-                    $$ b + \varepsilon = b + \frac{a-b}{2} = \frac{a+b}{2} < \frac{a + a}{2} = a.$$
-                </p>
-                <p class="paragraph">
-                    Nuevamente hemos encontrado una contradicción, por lo que se concluye que debe ser $a< b.$
-                </p>
-            </div>
-            <div class="fancy-line"></div>
-        </section>
-        <section>
-            <div class="theorem">
-                <p class="paragraph">
-                    <strong class="theorem__title">Teorema 2.</strong> Sea $a$ una cota superior de un conjunto $A \subseteq \mathbf{R}.$ Entonces $a$
-                    es el supremo de $A$ si y sólo si para todo $\varepsilon > 0$ existe un $s \in A$ tal que $a-\varepsilon < s$.
-                </p>
-            </div>
-            <div class="proof">
-                <h3 class="header-tertiary">Demostración.</h3>
-                <p class="paragraph">
-                    $\Rightarrow$ Sea $a = \sup{A}.$ Suponga que existe un $\varepsilon > 0$ tal que para todo $a \in A$ se cumple $s \leq a-\varepsilon.$ Esto implica que $a - \varepsilon $ es una
-                    cota superior de $A$ más pequeña que $a$, lo cual es una contradicción. Por lo tanto $\forall \varepsilon > 0$ se cumple que $a-\varepsilon < s.$
-                </p>
-                <p class="paragraph">
-                    $\Leftarrow$ Suponga que para todo $\varepsilon > 0 $ se cumple que $ a - \varepsilon < s$ y que $a$ no es el supremo. Como el supremo existe, sea 
-                    $M = \sup{A}$, entonces se tiene que $M < a$. Sea $ \varepsilon = a - M$, entonces existe un $s \in S$ tal que, $s > a - \varepsilon = a -(a - M) = M$.
-                    De donde $s > M$, lo cual contradice nuestra suposición de que $M$ es el supremo. Por lo tanto $a$ es el supremo.
-                </p>
-            </div>
-            <p class="paragraph">
-                Intente probar el equivalente para el ínfimo:
-            </p>
-            <div class="theorem">
-                <p class="paragraph">
-                    <strong class="theorem__title">Teorema 3.</strong> Sea $b$ una cota inferior de un conjunto $A \subseteq \mathbf{R}.$ Entonces $b$
-                    es el ínfimo de $A$ si y sólo si para todo $\varepsilon > 0$ existe un $s \in A$ tal que $s < b + \varepsilon$.
-                </p>
-            </div>
-            <div class="fancy-line"></div>
+            <h1 class="header-primary">
+                2.3 Método de integración por sustitución o cambio de variable
+            </h1>
         </section>
     </main>
+    <div class="modal" data-modal="theorem-2-1-2">
+        <div class="modal__background" data-modal-background="theorem-2-1-2"></div>
+        <div class="modal__content">
+            <div class="theorem">
+                <p class="paragraph">
+                    <span class="theorem__title">Teorema 2.1.2. </span> Si $F$ es una primitiva de la función $f$ en un intervalo cerrado $[a,b]$, 
+                    entonces cualquier primitiva $G$ de $f$ en $[a,b]$, debe ser de la forma $G(x)=F(x)+c, \forall x\in[a,b]$ con $c$ una constante. 
+                    Más aún, cualquier función $G$ de esta forma es una primitiva para $f$.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="floating-btn">
+        <button class="btn-sm btn--blue" data-modal-btn="formules">Fórmulas Básicas</button>
+    </div>
+    <div class="modal" data-modal="formules">
+        <div class="modal__background" data-modal-background="formules"></div>
+        <div class="modal__content">
+            <h3 class="header-tertiary">Fórmulas Básicas de Integración</h3>
+            <ol class="formules-sheet">
+                <li class="formules-sheet--formule">
+                    $$\int x^n\,dx=\frac{x^{n+1}}{n+1}+C \qquad \mbox{ con }n\in\mathbf{N} \setminus\{-1\} \mbox{ y }C\mbox{ una constante}.$$
+                </li>
+                <li class="formules-sheet--formule">
+                    $$\int e^{kx}\,dx=\frac{e^{kx}}{k}+C \qquad \mbox{con }C \mbox{ una constante.}$$
+                </li>
+                <li class="formules-sheet--formule">
+                    $$\int\frac{1}{x}\,dx=\ln x+C \qquad \mbox{con }C \mbox{ una constante.}$$
+                </li>
+                <li class="formules-sheet--formule">
+                    $$\int \cos x\,dx=\sin x+C \qquad \mbox{con }C \mbox{ una constante.}$$
+                </li>
+                <li class="formules-sheet--formule">
+                    $$\int \sin x\,dx=-\cos x+C \qquad \mbox{con }C \mbox{ una constante.}$$
+                </li>
+                <li class="formules-sheet--formule">
+                    \begin{split}
+                        \frac{d}{dx}\tan x &=\sec^2 x  \Rightarrow \int\sec^2 x\, dx=\tan x +C \\
+                        \frac{d}{dx}\cot x &=-\csc^2 x  \Rightarrow \int\csc^2 x\, dx=-\cot x +C \\
+                        \frac{d}{dx}\sec x &=\sec x \tan x  \Rightarrow \int\sec x \tan x\, dx=\sec x +C \\
+                        \frac{d}{dx}\csc x &=-\csc x \cot x  \Rightarrow \int\csc x \cot x\, dx=-\csc x +C
+                    \end{split}
+                </li>
+                <li class="formules-sheet--formule">
+                    \begin{split}
+                        \frac{d}{dx}\arcsin x &=\frac{1}{\sqrt{1-x^2}}  \Rightarrow \int \frac{1}{\sqrt{1-x^2}} \, dx=\arcsin x +C \\
+                        \frac{d}{dx}\arccos x &=-\frac{1}{\sqrt{1-x^2}}  \Rightarrow \int \frac{1}{\sqrt{1-x^2}} \, dx=-\arccos x +C \\
+                        \frac{d}{dx}\arctan x &=\frac{1}{1+x^2}  \Rightarrow \int \frac{1}{1+x^2} \, dx=\arctan x +C 
+                    \end{split}
+                </li>
+            </ol>
+        </div>
+    </div>
 </body>
 </html>

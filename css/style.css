@@ -497,6 +497,15 @@ div[data-anchor]:target::before {
   transform: rotate(-135deg);
 }
 
+.floating-btn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 9;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
 .slider-container {
   position: relative;
 }
@@ -830,6 +839,16 @@ div[data-anchor]:target::before {
 
 .overline {
   border-top: 1px solid black;
+}
+
+.formules-sheet {
+  list-style: none;
+  font-size: 2rem;
+  padding: 2rem;
+}
+.formules-sheet--formule {
+  border-bottom: 1px solid var(--color-primary);
+  width: max-content;
 }
 
 .question {

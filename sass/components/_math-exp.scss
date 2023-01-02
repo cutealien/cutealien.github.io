@@ -150,3 +150,13 @@
 .overline {
     border-top: 1px solid black;
 }
+
+.formules-sheet {
+    list-style: none;
+    font-size: 2rem;
+    padding: 2rem;
+    &--formule {
+        border-bottom: 1px solid var(--color-primary);
+        width: max-content;
+    }
+}

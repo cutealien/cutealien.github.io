@@ -3,6 +3,15 @@ var menuMobile = document.querySelector('[data-menu=menu-mobile]')
 var menuMobilebg = document.querySelector('[data-menu-bg=menu-mobile]')
 var menuMobilecontent = document.querySelector('[data-menu-content=menu-mobile]')
 
+// Autoscroll for sidebar
+var url = window.location.pathname
+var file = url.split('/').slice(-1)
+var atag = document.querySelector(`a[href="./${file}"]`)
+
+if(atag) {
+	atag.scrollIntoView(true)
+}
+
 menuMobilebtns.forEach(btn => {
 	btn.addEventListener('click', toggleMenu)
 })

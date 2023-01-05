@@ -72,7 +72,13 @@
                 <ol class="subject-list">
                     <li class="subject-list__item"><a href="./2.1-introduccion.html" class="subject-list__link">2.1 Introducción</a></li>
                     <li class="subject-list__item"><a href="./2.2-antiderivadas-inmediatas.html" class="subject-list__link">2.2 Antiderivadas inmediatas</a></li>
-                    <li class="subject-list__item"><a href="./2.3-metodo-sustitucion.html" class="subject-list__link subject-list__link--active">2.3 Método de int. por sust. o cambio de variable</a></li>
+                    <li class="subject-list__item">
+                        <a href="./2.3-metodo-sustitucion.html" class="subject-list__link subject-list__link--active">2.3 Método de int. por sust. o cambio de variable</a>
+                        <ol class="subject-list">
+                            <li class="subject-list__item"><a href="./2.3-metodo-sustitucion.html" class="subject-list__link">2.3.1 Método de int. por sust. o cambio de variable parte 2</a></li>
+                            <li class="subject-list__item"><a href="./2.3-metodo-sustitucion.html" class="subject-list__link">2.3.2 Método de int. por sust. o cambio de variable parte 3</a></li>
+                        </ol>
+                    </li>
                     <li class="subject-list__item"><a href="#" class="subject-list__link">2.4 Método de integración por partes</a></li>
                     <li class="subject-list__item">
                         <a href="#" class="subject-list__link">2.5 Método de integración por fracciones parciales</a>
@@ -143,7 +149,13 @@
                         <ol class="subject-list">
                             <li class="subject-list__item"><a href="./2.1-introduccion.html" class="subject-list__link">2.1 Introducción</a></li>
                             <li class="subject-list__item"><a href="./2.2-antiderivadas-inmediatas.html" class="subject-list__link">2.2 Antiderivadas inmediatas</a></li>
-                            <li class="subject-list__item"><a href="./2.3-metodo-sustitucion.html" class="subject-list__link subject-list__link--active">2.3 Método de int. por sust. o cambio de variable</a></li>
+                            <li class="subject-list__item">
+                                <a href="./2.3-metodo-sustitucion.html" class="subject-list__link subject-list__link--active">2.3 Método de int. por sust. o cambio de variable</a>
+                                <ol class="subject-list">
+                                    <li class="subject-list__item"><a href="./2.3-metodo-sustitucion.html" class="subject-list__link">2.3.1 Método de int. por sust. o cambio de variable parte 2</a></li>
+                                    <li class="subject-list__item"><a href="./2.3-metodo-sustitucion.html" class="subject-list__link">2.3.2 Método de int. por sust. o cambio de variable parte 3</a></li>
+                                </ol>
+                            </li>
                             <li class="subject-list__item"><a href="#" class="subject-list__link">2.4 Método de integración por partes</a></li>
                             <li class="subject-list__item">
                                 <a href="#" class="subject-list__link">2.5 Método de integración por fracciones parciales</a>
@@ -181,22 +193,651 @@
             <h1 class="header-primary">
                 2.3 Método de integración por sustitución o cambio de variable
             </h1>
+            <p class="paragraph">
+                En esta sección puedes revisar las fórmulas discutidas en la sección anterior presionando el botón de la parte inferior derecha.
+            </p>
+            <p class="paragraph">
+                La idea de este método de integración se basa en el siguiente teorema.
+            </p>
+            <div class="theorem">
+                <p class="paragraph">
+                    <strong class="theorem__title">Teorema 2.3.1.</strong> Sean $f$ y $g$ funciones continuas.
+                </p>
+                <ol class="theorem__list">
+                    <li class="theorem__list-item">
+                        Si $f'$ y $g'$ son continuas y $H(u)=\int f(u)\,du$, entonces $$\int f(g(x))g'(x)\, dx=H(g(x)).$$
+                    </li>
+                    <li class="theorem__list-item">
+                        Si $\nu$ es una función derivable con derivada continua e invertible con inversa derivable, y  
+                        $H(x)=\int f(\nu(x))\nu'(x)\,dx$, entonces $$\int f(y)\,dy=H(\nu^{-1}(y)).$$
+                    </li>
+                </ol>
+            </div>
+            <div class="proof">
+                <h3 class="header-tertiary">Demostración.</h3>
+                <p class="paragraph">
+                    1) Por hipótesis, $H(u)=\int f(u)\,du$, entonces, por definición de primitiva tenemos que $H'(u)=f(u)$. 
+                    Además, por la regla de la cadena sabemos que $[H(g(x))]'=H'(g(x))g'(x)$, pero como $H'(u)=f(u)$, entonces $H'(g(x))=f(g(x))$, y así 
+                    $$[H(g(x))]'=f(g(x))g'(x).$$ 
+                    Luego, por definición, obtenemos que $H(g(x))$ es una primitiva de la función $f(g(x))g'(x)$. 
+                    Por lo tanto, $$\int f(g(x))g'(x)\, dx=H(g(x)).$$
+                </p>
+                <p class="paragraph">
+                    2) Por la regla de la cadena,
+                </p>
+                <div class="calculation">
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$[H(\nu^{-1}(y))]'=H'(\nu^{-1}(y))(\nu^{-1})'(y).  $$
+                        </div>
+                        <div class="calculation__text">
+                            (2.8)
+                        </div>
+                    </div>
+                </div>
+                <p class="paragraph">
+                    Pero por hipótesis, $H(x)=\int f(\nu(x))\nu'(x)\,dx$, entonces $H'(x)=f(\nu(x))\nu'(x)$, por la definición de primitiva. 
+                    Y así,  $H'(\nu^{-1}(x))=f(\nu(\nu^{-1}(y)))\nu'(\nu^{-1}(y))=f(y)\nu'(\nu^{-1}(y))$. 
+                    Y sutituyendo esta última igualdad en (2.8), se obtiene que
+                </p>
+                <div class="calculation">
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$[H(\nu^{-1}(y))]'=f(y)\nu'(\nu^{-1}(y))(\nu^{-1})'(y).$$
+                        </div>
+                        <div class="calculation__text">
+                            (2.9)
+                        </div>
+                    </div>
+                </div>
+                <p class="paragraph">
+                    Además, por la fórmula de derivada inversa, $(\nu^{-1})'(y)=\frac{1}{\nu'(\nu^{-1}(y))}$. Y al sustituir esto en (2.9), 
+                    se obtiene que $$[H(\nu^{-1}(y))]'=f(y)\nu'(\nu^{-1}(y))\frac{1}{\nu'(\nu^{-1}(y))}=f(y).$$
+                    Por lo tanto, $H(\nu^{-1}(y))$ es una primitiva de $f(y)$, y finalmente tenemos $$\int f(y)\,dy=H(\nu^{-1}(y)).$$
+                </p>
+                <div class="fancy-line"></div>
+            </div>
+        </section>
+        <section>
+            <p class="paragraph">
+                Ahora veamos algunos ejemplos de aplicación de este teorema.
+            </p>
+            <div class="example">
+                <p class="paragraph example__paragraph">
+                    <strong class="example__title">Ejemplo 2.3.1.</strong> Hallar $\int\frac{x}{\sqrt{x^2+2}}$.
+                </p>
+                <h3 class="header-tertiary">Solución.</h3>
+                <p class="paragraph">
+                    Si $g(x)=x^2+2$ y $f(u)=\frac{1}{\sqrt{u}}$, entonces $f$ y $g$ son continuas con derivada continua en $(0,\infty)$. 
+                    Además, $$f(g(x))g'(x)=\frac{1}{\sqrt{g(x)}}\cdot 2x= \frac{2x}{\sqrt{x^2+2}},$$ entonces $\frac{x}{\sqrt{x^2+2}}=\frac{1}{2}f(g(x))g'(x)$. 
+                    También, $$H(u)=\int f(u)\, du=\int \frac{1}{\sqrt{u}}\, du=2\sqrt{u}+C.$$ 
+                    Luego, por el Teorema 2.3.1, tenemos que
+                </p>
+                <div class="calculation">
+                    <div class="calculation__formule--1">
+                        $$\int\frac{x}{\sqrt{x^2+2}}$$
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \frac{1}{2}\int f(g(x))g'(x)\,dx $$
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \frac{1}{2}H(g(x)) $$
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \frac{1}{2}\left(2\sqrt{\left(g(x)\right)}\right)+C$$
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \sqrt{x^2+2}+C. $$
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="fancy-line"></div>
+            <div class="example">
+                <p class="paragraph example__paragraph">
+                    <strong class="example__title">Ejemplo 2.3.2.</strong> Calcular $\int(3x^2+4)^4 x\,dx$.
+                </p>
+                <p class="paragraph">
+                    Consideramos $g(x)=3x^2+4$ y $f(u)=u^4$, así $f$ y $g$ son continuas con derivada continua en todo $\mathbf{R}$.
+                </p>
+                <form class="question margin-top-sm" data-question="question-2-3-1" data-answer="c">
+                    <h3 class="question__header margin-bottom-sm">
+                        Calcula $H(u).$
+                    </h3>
+                    <div class="question__row">
+                        <div class="question__col-1">
+                            <div class="question__options">
+                                <div class="question__option">
+                                    <input type="radio" autocomplete="off" id="answer-2-3-1-a" name="question-2-3-1" value="a" data-option="question-2-3-1">
+                                    <label for="answer-2-3-1-a">$\frac{u^3}{3} + 4u$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" autocomplete="off" id="answer-2-3-1-b" name="question-2-3-1" value="b" data-option="question-2-3-1">
+                                    <label for="answer-2-3-1-b">$3u^3$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" autocomplete="off" id="answer-2-3-1-c" name="question-2-3-1" value="c" data-option="question-2-3-1">
+                                    <label for="answer-2-3-1-c">$\frac{u^5}{5}$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" autocomplete="off" id="answer-2-3-1-d" name="question-2-3-1" value="d" data-option="question-2-3-1">
+                                    <label for="answer-2-3-1-d">$\frac{u^4}{4}$</label>
+                                </div>
+                            </div>
+                            <div class="question__btn-box">
+                                <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                <button class="btn btn--blue" type="button" disabled data-btn-continue="step-1">Continuar</button>
+                            </div>
+                        </div>
+                        <div class="question__col-2">
+                            <p class="question__answer"></p>
+                        </div>
+                    </div>
+                </form>
+                <div class="section--hidden" data-section="step-1">
+                    <p class="paragraph">
+                        Tenemos que $$H(u)=\int f(u)\,du=\int u^4 \,du=\frac{u^5}{5}+C.$$
+                    </p>
+                    <form class="question margin-top-sm" data-question="question-2-3-2" data-answer="b">
+                        <h3 class="question__header margin-bottom-sm">
+                            Calcula $f(g(x))g'(x).$
+                        </h3>
+                        <div class="question__row">
+                            <div class="question__col-1">
+                                <div class="question__options">
+                                    <div class="question__option">
+                                        <input type="radio" autocomplete="off" id="answer-2-3-2-a" name="question-2-3-2" value="a" data-option="question-2-3-2">
+                                        <label for="answer-2-3-2-a">$f(g(x))g'(x)=(3x^6 +4)^4 \cdot 4x^3$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" autocomplete="off" id="answer-2-3-2-b" name="question-2-3-2" value="b" data-option="question-2-3-2">
+                                        <label for="answer-2-3-2-b">$f(g(x))g'(x)=(3x^2 +4)^4 \cdot 6x$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" autocomplete="off" id="answer-2-3-2-c" name="question-2-3-2" value="c" data-option="question-2-3-2">
+                                        <label for="answer-2-3-2-c">$f(g(x))g'(x)=4(6x +4)^3 \cdot 3x^2$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" autocomplete="off" id="answer-2-3-2-d" name="question-2-3-2" value="d" data-option="question-2-3-2">
+                                        <label for="answer-2-3-2-d">$f(g(x))g'(x)=4(3x^2 +4)^3 \cdot 6x$</label>
+                                    </div>
+                                </div>
+                                <div class="question__btn-box">
+                                    <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                    <button class="btn btn--blue" type="button" disabled data-btn-continue="step-2">Continuar</button>
+                                </div>
+                            </div>
+                            <div class="question__col-2">
+                                <p class="question__answer"></p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="section--hidden" data-section="step-2">
+                    <p class="paragraph">
+                        Puesto que $g'(x)=6x$, obtenemos $f(g(x))g'(x)=(3x^2 +4)^4 \cdot 6x$.
+                    </p>
+                    <form class="question margin-top-sm" data-question="question-2-3-3" data-answer="a">
+                        <h3 class="question__header margin-bottom-sm">
+                            Calcula $\int(3x^2+4)^4 x\,dx.$
+                        </h3>
+                        <div class="question__row">
+                            <div class="question__col-1">
+                                <div class="question__options">
+                                    <div class="question__option">
+                                        <input type="radio" autocomplete="off" id="answer-2-3-3-a" name="question-2-3-3" value="a" data-option="question-2-3-3">
+                                        <label for="answer-2-3-3-a">$\frac{(3x^2+4)^5}{30}+C$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" autocomplete="off" id="answer-2-3-3-b" name="question-2-3-3" value="b" data-option="question-2-3-3">
+                                        <label for="answer-2-3-3-b">$\frac{6}{4}(3x^2 +4)^4+C$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" autocomplete="off" id="answer-2-3-3-c" name="question-2-3-3" value="c" data-option="question-2-3-3">
+                                        <label for="answer-2-3-3-c">$\frac{x^5}{30}(3x^2 +4)+C$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" autocomplete="off" id="answer-2-3-3-d" name="question-2-3-3" value="d" data-option="question-2-3-3">
+                                        <label for="answer-2-3-3-d">$\frac{6}{5}\cdot(3x^2 +4)^5+C$</label>
+                                    </div>
+                                </div>
+                                <div class="question__btn-box">
+                                    <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                    <button class="btn btn--blue" type="button" disabled data-btn-continue="step-3">Continuar</button>
+                                </div>
+                            </div>
+                            <div class="question__col-2">
+                                <p class="question__answer"></p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="section--hidden" data-section="step-3">
+                    <p class="paragraph">
+                        Finalmente, por el Teorema 2.3.1
+                    </p>
+                    <div class="calculation">
+                        <div class="calculation__formule--1">
+                            $$\int(3x^2+4)^4 x\,dx$$
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= \frac{1}{6} \int f(g(x))g'(x)\,dx $$
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= \frac{1}{6}H(g(x)) $$
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= \frac{1}{6}\cdot\frac{(3x^2 +4)^5}{5}+C. $$
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= \frac{(3x^2+4)^5}{30}+C $$
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <button class="btn-sm btn--blue" type="button" data-btn-continue="step-4">Continuar</button>
+                    </div>
+                    <div class="fancy-line"></div>
+                </div>
+            </div>
+        </section>
+        <section class="section--hidden" data-section="step-4">
+            <p class="paragraph">
+                Notemos que la función $g(x)$ es lo que conocemos como cambio de variable, así es posible hacer las integrales de una forma más práctica, 
+                pues si tomamos $u=g(x)$, entonces $du=g'(x)dx$, y entonces el Teorema 2.3.1 toma la forma $$\int f(u)\,du=H(u)$$ y bastará regresar el resultado a la 
+                variable original. Es necesario hacer notar que al hacer un cambio de variable, en la nueva integral ya no debe aparecer la variable $x$ y 
+                todo debe depender de la nueva variable $u$.
+            </p>
+            <p class="paragraph">
+                Cuando hacemos un cambio de variable, es común intentar como cambio de variable $u$ a lo que está dentro de una potencia o de un radical, 
+                también podemos elegir el exponente de una función exponencial, o el argumento de una función trigonométrica o logarítmica. 
+                También, es común intentar el cambio de variable cuando tenemos un cociente, que el denominador sea el cambio de variable. 
+                Siempre buscamos que en la misma integral se identifique una función y, de alguna forma, su derivada.
+            </p>
+            <div class="fancy-line"></div>
+            <div class="example">
+                <p class="paragraph example__paragraph">
+                    <strong class="example__title">Ejemplo 2.3.3.</strong> Resuelve $\int x^2 \sqrt{x^3+7}\, dx$.
+                </p>
+                <form class="question margin-top-sm" data-question="question-2-3-4" data-answer="c">
+                    <h3 class="question__header margin-bottom-sm">
+                        ¿Cuál seria un cambio de variable adecuado?
+                    </h3>
+                    <div class="question__row">
+                        <div class="question__col-1">
+                            <div class="question__options">
+                                <div class="question__option">
+                                    <input type="radio" autocomplete="off" id="answer-2-3-4-a" name="question-2-3-4" value="a" data-option="question-2-3-4">
+                                    <label for="answer-2-3-4-a">$u=x^2$ y $du=2xdx$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" autocomplete="off" id="answer-2-3-4-b" name="question-2-3-4" value="b" data-option="question-2-3-4">
+                                    <label for="answer-2-3-4-b">$u=\sqrt{x^3+7}$ y $du=\frac{1}{2}3x^2\sqrt{x^3+7}dx$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" autocomplete="off" id="answer-2-3-4-c" name="question-2-3-4" value="c" data-option="question-2-3-4">
+                                    <label for="answer-2-3-4-c">$u=x^3+7$ y $du=3x^2dx$</label>
+                                </div>
+                            </div>
+                            <div class="question__btn-box">
+                                <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                <button class="btn btn--blue" type="button" disabled data-btn-continue="step-5">Continuar</button>
+                            </div>
+                        </div>
+                        <div class="question__col-2">
+                            <p class="question__answer"></p>
+                        </div>
+                    </div>
+                </form>
+                <div class="section--hidden" data-section="step-5">
+                    <p class="paragraph">
+                        Como $\int x^2 \sqrt{x^3+7}\, dx=\int \sqrt{x^3+7} \cdot x^2\, dx$. Hacemos el cambio de variable $u=x^3+7$ y $du=3x^2dx$ 
+                        <span class="hint">(nunca debes olvidar los diferenciales)</span>, entonces $\frac{1}{3}du=x^2dx$.
+                    </p>
+                    <form class="question margin-top-sm" data-question="question-2-3-5" data-answer="a">
+                        <h3 class="question__header margin-bottom-sm">
+                            ¿Cómo queda la integral después del cambio de variable?
+                        </h3>
+                        <div class="question__row">
+                            <div class="question__col-1">
+                                <div class="question__options">
+                                    <div class="question__option">
+                                        <input type="radio" autocomplete="off" id="answer-2-3-5-a" name="question-2-3-5" value="a" data-option="question-2-3-5">
+                                        <label for="answer-2-3-5-a">$\int \sqrt{x^3+7} \cdot x^2\, dx = \int \sqrt{u}\, \frac{1}{3}\,du $</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" autocomplete="off" id="answer-2-3-5-b" name="question-2-3-5" value="b" data-option="question-2-3-5">
+                                        <label for="answer-2-3-5-b">$\int \sqrt{x^3+7} \cdot x^2\, dx = \int 3\sqrt{u}\, u^2\,du $</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" autocomplete="off" id="answer-2-3-5-c" name="question-2-3-5" value="c" data-option="question-2-3-5">
+                                        <label for="answer-2-3-5-c">$\int \sqrt{x^3+7} \cdot x^2\, dx = \int \sqrt{u}\, \frac{1}{6}u\,du $</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" autocomplete="off" id="answer-2-3-5-d" name="question-2-3-5" value="d" data-option="question-2-3-5">
+                                        <label for="answer-2-3-5-d">$\int \sqrt{x^3+7} \cdot x^2\, dx = \int u^{\frac{1}{3}} \, \frac{1}{3}\,du $</label>
+                                    </div>
+                                </div>
+                                <div class="question__btn-box">
+                                    <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                    <button class="btn btn--blue" type="button" disabled data-btn-continue="step-6">Continuar</button>
+                                </div>
+                            </div>
+                            <div class="question__col-2">
+                                <p class="question__answer"></p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="section--hidden" data-section="step-6">
+                    <p class="paragraph">
+                        Después del cambio la integral queda de la siguiente manera,
+                        $$\int \sqrt{x^3+7} \cdot x^2\, dx = \int \sqrt{u} \frac{1}{3}\,du.$$
+                    </p>
+                    <form class="question margin-top-sm" data-question="question-2-3-6" data-answer="b">
+                        <h3 class="question__header margin-bottom-sm">
+                            Usando el cambio de variable anterior, calcula $\int x^2 \sqrt{x^3+7}\, dx.$
+                        </h3>
+                        <div class="question__row">
+                            <div class="question__col-1">
+                                <div class="question__options">
+                                    <div class="question__option">
+                                        <input type="radio" autocomplete="off" id="answer-2-3-6-a" name="question-2-3-6" value="a" data-option="question-2-3-6">
+                                        <label for="answer-2-3-6-a">$\frac{9}{2}(x^3+7)^{2/3}+C.$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" autocomplete="off" id="answer-2-3-6-b" name="question-2-3-6" value="b" data-option="question-2-3-6">
+                                        <label for="answer-2-3-6-b">$\frac{2}{9}(x^3+7)^{3/2}+C.$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" autocomplete="off" id="answer-2-3-6-c" name="question-2-3-6" value="c" data-option="question-2-3-6">
+                                        <label for="answer-2-3-6-c">$\frac{x}{9}(x^3+7)^{9/2}+C.$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" autocomplete="off" id="answer-2-3-6-d" name="question-2-3-6" value="d" data-option="question-2-3-6">
+                                        <label for="answer-2-3-6-d">$\frac{2}{3}(\frac{x^4}{4}+7x)^{3/2}+C.$</label>
+                                    </div>
+                                </div>
+                                <div class="question__btn-box">
+                                    <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                    <button class="btn btn--blue" type="button" disabled data-btn-continue="step-7">Continuar</button>
+                                </div>
+                            </div>
+                            <div class="question__col-2">
+                                <p class="question__answer"></p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="section--hidden" data-section="step-7">
+                    <p class="paragraph">
+                        Calculando la integral usando el cambio de variable, tenemos que,
+                    </p>
+                    <div class="calculation">
+                        <div class="calculation__formule--1">
+                            $$\int \sqrt{x^3+7} \cdot x^2\, dx$$
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= \int \sqrt{u} \frac{1}{3}\,du $$
+                            </div>
+                            <div class="calculation__text">
+                                por Teorema 2.3.1
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= \frac{1}{3} \int \sqrt{u}\,du $$
+                            </div>
+                            <div class="calculation__text">
+                                por <span class="modal__reference" data-modal-btn="theorem-2-2-1">Teorema 2.2.1</span>            
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= \frac{1}{3} \cdot \frac{u^{3/2}}{3/2}+C $$
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= \frac{2}{9}(x^3+7)^{3/2}+C $$
+                            </div>
+                            <div class="calculation__text">
+                                por el cambio de variable
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <button class="btn-sm btn--blue" type="button" data-btn-continue="step-8">Continuar</button>
+                    </div>
+                    <div class="fancy-line"></div>
+                </div>
+            </div>
+        </section>
+        <section class="section--hidden" data-section="step-8">
+            <p class="paragraph">
+                Algunas veces los cambios de variable no suelen ser tan evidentes y entonces debemos buscar la manera de decidir nuestro cambio de variable después 
+                de descomponer algunos factores, pero sin perder de vista que todo debe quedar en términos de la nueva variable. 
+                Como otro tip: cuando el integrando involucre a una raíz cuadrada y no sea evidente el cambio de variable, se puede intentar 
+                elegir al cambio de variable como toda la raíz cuadrada, por ejemplo.
+            </p>
+            <div class="example">
+                <p class="paragraph example__paragraph">
+                    <strong class="example__title">Ejemplo 2.3.4.</strong> Encuentra $\int x^5 \sqrt{1-x^3} \, dx$.
+                </p>
+                <h3 class="header-tertiary">Solución.</h3>
+                <p class="paragraph">
+                    Notemos que la derivada de lo que está dentro del radical lo podemos obtener de $x^5,$ así que por ahí vendrá nuestra descomposición. 
+                    Es decir, $$\int x^5 \sqrt{1-x^3} \, dx=\int x^3 \sqrt{1-x^3}\, x^2\, dx.$$ Hacemos el cambio de variable $u=\sqrt{1-x^3}$, entonces 
+                    $$du=\frac{1}{2}\frac{1}{\sqrt{1-x^3}}(-3x^2)dx.$$ Pero considerando nuestro cambio de variable, 
+                    obtenemos $$du=-\frac{3}{2}\frac{1}{u}x^2dx$$ y así $-\frac{2}{3}udu=x^2 dx$. 
+                    Como debemos reescribir todo en términos de $u$, solo nos falta obtener a $x^3$ en términos de $u$. Como $u=\sqrt{1-x^3}$, entonces $x^3=1-u^2$. Luego,
+                </p>
+                <form class="question margin-top-sm" data-question="question-2-3-7" data-answer="b">
+                    <h3 class="question__header margin-bottom-sm">
+                        ¿Cuál es $du$?
+                    </h3>
+                    <div class="question__row">
+                        <div class="question__col-1">
+                            <div class="question__options">
+                                <div class="question__option">
+                                    <input type="radio" autocomplete="off" id="answer-2-3-7-a" name="question-2-3-7" value="a" data-option="question-2-3-7">
+                                    <label for="answer-2-3-7-a">$du=\frac{1}{2}(1-x^3)^\frac{3}{2}(-3x^2)dx.$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" autocomplete="off" id="answer-2-3-7-b" name="question-2-3-7" value="b" data-option="question-2-3-7">
+                                    <label for="answer-2-3-7-b">$du=\frac{1}{2}\frac{1}{\sqrt{1-x^3}}(-3x^2)dx.$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" autocomplete="off" id="answer-2-3-7-c" name="question-2-3-7" value="c" data-option="question-2-3-7">
+                                    <label for="answer-2-3-7-c">$du=\frac{1}{2}\sqrt{1-x^3}(-3x^2)dx.$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" autocomplete="off" id="answer-2-3-7-d" name="question-2-3-7" value="d" data-option="question-2-3-7">
+                                    <label for="answer-2-3-7-d">$du=-\frac{1}{2}\sqrt{1-x^3}(-3x^2)dx.$</label>
+                                </div>
+                            </div>
+                            <div class="question__btn-box">
+                                <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                <button class="btn btn--blue" type="button" disabled data-btn-continue="step-9">Continuar</button>
+                            </div>
+                        </div>
+                        <div class="question__col-2">
+                            <p class="question__answer"></p>
+                        </div>
+                    </div>
+                </form>
+                <div class="section--hidden" data-section="step-9">
+                    <p class="paragraph">
+                        Tenemos que  $$du=\frac{1}{2}\frac{1}{\sqrt{1-x^3}}(-3x^2)dx.$$ Pero considerando nuestro cambio de variable, 
+                        obtenemos $$du=-\frac{3}{2}\frac{1}{u}x^2dx$$ y así $-\frac{2}{3}udu=x^2 dx$. 
+                        Como debemos reescribir todo en términos de $u$, solo nos falta obtener a $x^3$ en términos de $u$. Como $u=\sqrt{1-x^3}$, entonces $x^3=1-u^2$.
+                    </p>
+                    <form class="question margin-top-sm" data-question="question-2-3-8" data-answer="a">
+                        <h3 class="question__header margin-bottom-sm">
+                            ¿Cómo queda la integral después del cambio de variable?
+                        </h3>
+                        <div class="question__row">
+                            <div class="question__col-1">
+                                <div class="question__options">
+                                    <div class="question__option">
+                                        <input type="radio" autocomplete="off" id="answer-2-3-8-a" name="question-2-3-8" value="a" data-option="question-2-3-8">
+                                        <label for="answer-2-3-8-a">$\int x^3 \sqrt{1-x^3}\, x^2\, dx = \int (1-u^2)u\left(-\frac{2}{3}u\,du \right)$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" autocomplete="off" id="answer-2-3-8-b" name="question-2-3-8" value="b" data-option="question-2-3-8">
+                                        <label for="answer-2-3-8-b">$\int x^3 \sqrt{1-x^3}\, x^2\, dx = \int (1+u^2)u\left(\frac{3}{2}u\,du \right)$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" autocomplete="off" id="answer-2-3-8-c" name="question-2-3-8" value="c" data-option="question-2-3-8">
+                                        <label for="answer-2-3-8-c">$\int x^3 \sqrt{1-x^3}\, x^2\, dx = \int (1-u^2)\sqrt{u}\left(-\frac{2}{3}u\,du \right)$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" autocomplete="off" id="answer-2-3-8-d" name="question-2-3-8" value="d" data-option="question-2-3-8">
+                                        <label for="answer-2-3-8-d">$\int x^3 \sqrt{1-x^3}\, x^2\, dx = \int (u^2-1)u\left(\frac{2}{3}u\,du \right)$</label>
+                                    </div>
+                                </div>
+                                <div class="question__btn-box">
+                                    <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                    <button class="btn btn--blue" type="button" disabled data-btn-continue="step-10">Continuar</button>
+                                </div>
+                            </div>
+                            <div class="question__col-2">
+                                <p class="question__answer"></p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="section--hidden" data-section="step-10">
+                    <p class="paragraph">
+                        La integral queda como $$\int x^3 \sqrt{1-x^3}\, x^2\, dx = \int (1-u^2)u\left(-\frac{2}{3}u\,du \right).$$
+                    </p>
+                    <form class="question margin-top-sm" data-question="question-2-3-9" data-answer="d">
+                        <h3 class="question__header margin-bottom-sm">
+                            ¿Cuál es el valor final de la integral?
+                        </h3>
+                        <div class="question__row">
+                            <div class="question__col-1">
+                                <div class="question__options">
+                                    <div class="question__option">
+                                        <input type="radio" autocomplete="off" id="answer-2-3-9-a" name="question-2-3-9" value="a" data-option="question-2-3-9">
+                                        <label for="answer-2-3-9-a">$\frac{2}{15}(1-x^3)^{3/2} -\frac{1}{9}(1-x^3)^{5/2} + C.$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" autocomplete="off" id="answer-2-3-9-b" name="question-2-3-9" value="b" data-option="question-2-3-9">
+                                        <label for="answer-2-3-9-b">$\frac{2}{15}(1-x^2)^{5/2} +\frac{2}{9}(1-x^2)^{5/2} + C.$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" autocomplete="off" id="answer-2-3-9-c" name="question-2-3-9" value="c" data-option="question-2-3-9">
+                                        <label for="answer-2-3-9-c">$\frac{2}{30}(1-x^2)^{3/2} -\frac{1}{9}(1-x^3)^{3/2} + C.$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" autocomplete="off" id="answer-2-3-9-d" name="question-2-3-9" value="d" data-option="question-2-3-9">
+                                        <label for="answer-2-3-9-d">$\frac{2}{15}(1-x^3)^{5/2} -\frac{2}{9}(1-x^3)^{3/2} + C.$</label>
+                                    </div>
+                                </div>
+                                <div class="question__btn-box">
+                                    <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                    <button class="btn btn--blue" type="button" disabled data-btn-continue="step-11">Continuar</button>
+                                </div>
+                            </div>
+                            <div class="question__col-2">
+                                <p class="question__answer"></p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="section--hidden" data-section="step-11">
+                    <p class="paragraph">
+                        Resolviendo la integral utilizando el cambio de variable, obtenemos
+                    </p>
+                    <div class="calculation">
+                        <div class="calculation__formule--1">
+                            $$\int x^3 \sqrt{1-x^3}\, x^2\, dx$$
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= \int (1-u^2)u\left(-\frac{2}{3}u\,du \right) $$
+                            </div>
+                            <div class="calculation__text">
+                                por Teorema 2.3.1
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= - \frac{2}{3} \int (1-u^2)u^2\, du $$
+                            </div>
+                            <div class="calculation__text">
+                                por <span class="modal__reference" data-modal-btn="theorem-2-2-1">Teorema 2.2.1</span>
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= - \frac{2}{3} \int (u^2-u^4)\, du $$
+                            </div>
+                            <div class="calculation__text">
+                                por distributividad
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= - \frac{2}{3}\left( \frac{u^3}{3}-\frac{u^5}{5} \right) + C $$
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$=  \frac{2}{15}u^5 -\frac{2}{9}u^3 + C $$
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= \frac{2}{15}(1-x^3)^{5/2} -\frac{2}{9}(1-x^3)^{3/2} + C. $$
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fancy-line"></div>
+                    <div class="change-page">
+                        <a href="./2.2-antiderivadas-inmediatas.html" class="change-page__before">Anterior</a>
+                        <a href="#" class="change-page__next">Siguiente</a>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
-    <div class="modal" data-modal="theorem-2-1-2">
-        <div class="modal__background" data-modal-background="theorem-2-1-2"></div>
+    <div class="modal" data-modal="theorem-2-2-1">
+        <div class="modal__background" data-modal-background="theorem-2-2-1"></div>
         <div class="modal__content">
             <div class="theorem">
                 <p class="paragraph">
-                    <span class="theorem__title">Teorema 2.1.2. </span> Si $F$ es una primitiva de la función $f$ en un intervalo cerrado $[a,b]$, 
-                    entonces cualquier primitiva $G$ de $f$ en $[a,b]$, debe ser de la forma $G(x)=F(x)+c, \forall x\in[a,b]$ con $c$ una constante. 
-                    Más aún, cualquier función $G$ de esta forma es una primitiva para $f$.
+                    <strong class="theorem__title">Teorema 2.2.1.</strong> Si $f$ y $g$ funciones integrables, entonces 
                 </p>
+                <ol class="theorem__list">
+                    <li class="theorem__list--formule">
+                        $$\int (f\pm g)(x)\, dx=\int f(x) \, dx \pm \int g(x) \, dx.$$
+                    </li>
+                    <li class="theorem__list--formule">
+                        $$\int (cf)(x) \, dx = c\int f(x) \, dx, \mbox{con} \, c \in\mathbf{R}.$$
+                    </li>
+                </ol>
             </div>
         </div>
     </div>
-    <div class="floating-btn">
-        <button class="btn-sm btn--blue" data-modal-btn="formules">Fórmulas Básicas</button>
+    <div class="floating-btn floating-btn--transparent">
+        <button class="btn-sm btn--blue" data-modal-btn="formules">Formulario</button>
     </div>
     <div class="modal" data-modal="formules">
         <div class="modal__background" data-modal-background="formules"></div>

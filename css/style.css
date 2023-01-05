@@ -502,8 +502,13 @@ div[data-anchor]:target::before {
   bottom: 2rem;
   right: 2rem;
   z-index: 9;
-  padding: 1rem;
-  border-radius: 5px;
+  transition: opcacity 0.3 linear;
+}
+.floating-btn:hover {
+  opacity: 1;
+}
+.floating-btn--transparent {
+  opacity: 0.7;
 }
 
 .slider-container {

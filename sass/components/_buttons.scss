@@ -107,6 +107,11 @@
     bottom: 2rem;
     right: 2rem;
     z-index: 9;
-    padding: 1rem;
-    border-radius: 5px;
+    transition: opcacity 0.3 linear;
+    &:hover {
+        opacity: 1;
+    }
+    &--transparent {
+        opacity: 0.7;
+    }
 }

@@ -751,6 +751,9 @@ div[data-anchor]:target::before {
   font-style: italic;
   margin: 1rem 0 2rem;
 }
+.example__title {
+  font-weight: bold;
+}
 
 .proof__step, .example__step {
   list-style: decimal outside;

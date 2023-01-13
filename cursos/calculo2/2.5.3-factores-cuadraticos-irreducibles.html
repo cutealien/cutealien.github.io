@@ -22,7 +22,7 @@
     </script>
     <script id="MathJax-script" async src="/scripts/MathJax-master/es5/tex-chtml.js"></script>
 
-    <title>Cálculo 2 | Método de Sustitución parte 2</title>
+    <title>Cálculo 2 | Factores cuadráticos irreducibles</title>
 </head>
 <body class="course">
     <nav class="navbar">
@@ -75,7 +75,7 @@
                     <li class="subject-list__item">
                         <a href="./2.3-metodo-sustitucion.html" class="subject-list__link">2.3 Método de int. por sust. o cambio de variable</a>
                         <ol class="subject-list">
-                            <li class="subject-list__item"><a href="./2.3.1-metodo-sustitucion-parte-2.html" class="subject-list__link subject-list__link--active">2.3.1 Método de int. por sust. o cambio de variable parte 2</a></li>
+                            <li class="subject-list__item"><a href="./2.3.1-metodo-sustitucion-parte-2.html" class="subject-list__link">2.3.1 Método de int. por sust. o cambio de variable parte 2</a></li>
                         </ol>
                     </li>
                     <li class="subject-list__item"><a href="./2.4-integracion-por-partes.html" class="subject-list__link">2.4 Método de integración por partes</a></li>
@@ -84,7 +84,7 @@
                         <ol class="subject-list">
                             <li class="subject-list__item"><a href="./2.5.1-factores-lineales-no-repetidos.html" class="subject-list__link">2.5.1 El polinomio $Q(x)$ solo contiene factores lineales que no se repiten</a></li>     
                             <li class="subject-list__item"><a href="./2.5.2-factores-lineales-repetidos.html" class="subject-list__link">2.5.2 El polinomio $Q(x)$ solo contiene factores lineales, pero algunos de ellos se repetidos</a></li>     
-                            <li class="subject-list__item"><a href="./2.5.3-factores-cuadraticos-irreducibles.html" class="subject-list__link">2.5.3 Integrales de funciones simples que involucran términos cuadráticos irreducibles</a></li>     
+                            <li class="subject-list__item"><a href="./2.5.3-factores-cuadraticos-irreducibles.html" class="subject-list__link subject-list__link--active">2.5.3 Integrales de funciones simples que involucran términos cuadráticos irreducibles</a></li>     
                             <li class="subject-list__item"><a href="#" class="subject-list__link">2.5.4 El polinomio Q(x) contiene factores cuadráticos irreducibles que no se repiten</a></li>     
                             <li class="subject-list__item"><a href="#" class="subject-list__link">2.5.5 El polinomio Q(x) contiene factores cuadráticos irreducibles que se repiten</a></li>     
                         </ol>
@@ -151,7 +151,7 @@
                             <li class="subject-list__item">
                                 <a href="./2.3-metodo-sustitucion.html" class="subject-list__link">2.3 Método de int. por sust. o cambio de variable</a>
                                 <ol class="subject-list">
-                                    <li class="subject-list__item"><a href="./2.3-metodo-sustitucion.html" class="subject-list__link subject-list__link--active">2.3.1 Método de int. por sust. o cambio de variable parte 2</a></li>
+                                    <li class="subject-list__item"><a href="./2.3.1-metodo-sustitucion-parte-2.html" class="subject-list__link">2.3.1 Método de int. por sust. o cambio de variable parte 2</a></li>
                                 </ol>
                             </li>
                             <li class="subject-list__item"><a href="./2.4-integracion-por-partes.html" class="subject-list__link">2.4 Método de integración por partes</a></li>
@@ -160,7 +160,7 @@
                                 <ol class="subject-list">
                                     <li class="subject-list__item"><a href="./2.5.1-factores-lineales-no-repetidos.html" class="subject-list__link">2.5.1 El polinomio $Q(x)$ solo contiene factores lineales que no se repiten</a></li>     
                                     <li class="subject-list__item"><a href="./2.5.2-factores-lineales-repetidos.html" class="subject-list__link">2.5.2 El polinomio $Q(x)$ solo contiene factores lineales, pero algunos de ellos se repetidos</a></li>     
-                                    <li class="subject-list__item"><a href="./2.5.3-factores-cuadraticos-irreducibles.html" class="subject-list__link">2.5.3 Integrales de funciones simples que involucran términos cuadráticos irreducibles</a></li>     
+                                    <li class="subject-list__item"><a href="./2.5.3-factores-cuadraticos-irreducibles.html" class="subject-list__link subject-list__link--active">2.5.3 Integrales de funciones simples que involucran términos cuadráticos irreducibles</a></li>     
                                     <li class="subject-list__item"><a href="#" class="subject-list__link">2.5.4 El polinomio Q(x) contiene factores cuadráticos irreducibles que no se repiten</a></li>     
                                     <li class="subject-list__item"><a href="#" class="subject-list__link">2.5.5 El polinomio Q(x) contiene factores cuadráticos irreducibles que se repiten</a></li>     
                                 </ol>
@@ -189,161 +189,167 @@
     <main class="main">
         <section>
             <h1 class="header-primary">
-                2.3.1 Método de integración por sustitución o cambio de variable parte 2
+                2.5.3 Integrales de funciones simples que involucran términos cuadráticos irreducibles
             </h1>
             <p class="paragraph">
-                En esta sección puedes revisar las fórmulas discutidas en la sección anterior presionando el botón de la parte inferior derecha.
+                En las dos subsecciones anteriores todo se reducía a calcular integrales de funciones racionales simples de la forma 
+                $$\frac{A}{x-\alpha} \qquad \mbox{ y } \qquad \frac{A}{(x-\alpha)^k},$$ las cuales se resuelven fácilmente con cambios de variable.
             </p>
             <p class="paragraph">
-                Hay algunas integrales que se resuelven por cambio de variable, pero antes de eso es necesario hacer notar algún truco algebraico, 
-                que consta de sumar un cero adecuado o de multiplicar por un uno adecuado. Por ejemplo,
+                Ahora aparecerán fracciones simples de la forma $$\frac{Ax+B}{x^2 +px +q} \qquad \mbox{ y } \qquad \frac{Ax+B}{(x^2+px+q)^k},$$ 
+                donde el discriminante $p^2-4q$ es negativo. El primer tipo lo explicaremos a continuación.
             </p>
-            <ol class="example__step">
-                <li class="example__step-item">
-                    En la integral $\int \frac{x}{x+3}\,dx$ basta con sumar y restar un 3 en el numerador, para obtener  $\int \frac{x+3-3}{x+3}\,dx$ y al 
-                    separarla en dos integrales, en la segunda basta elegir el denominador como cambio de variable y obtener $x- \ln(x+3)+C$.
-                </li>
-                <li class="example__step-item">
-                    En la integral $\int \frac{1}{e^x+3}\,dx$ basta con multiplicar por $\frac{e^{-x}}{e^{-x}}$, que es un uno, para obtener  
-                    $\int \frac{e^{-x}}{1+3e^{-x}}\,dx$ y elegir el denominador como cambio de variable para llegar al resultado $-\frac{1}{3}\ln(1+3e^{-x})+C$.
-                </li>
-                <li class="example__step-item">
-                    Una de las integrales más famosas y que se resuelven por cambio de variable es $\int \sec x\,dx$, en esta basta multiplicar por 
-                    $\frac{\sec x+\tan x}{\sec x+\tan x}$ que también es un uno, para convertirla en $\int \frac{\sec^2 x+\sec x \tan x}{\sec x + \tan x}\,dx$ y 
-                    al tomar como cambio de variable al denominador, se llega a $\ln(\sec x+\tan x)+C$.
-                </li>
-            </ol>
             <p class="paragraph">
-                Notemos que cuando hacemos cambio de variable es necesario volver a la variable original, es decir, regresar todo a la variable con la cual partimos, 
-                sin embargo no sucede lo mismo con integrales definidas, pues al hacer el cambio de variable, se transforma también el intervalo de integración.
+                Aprovecharemos la $x$ del numerador para completar la derivada del denominador. Cuando no aparezca la $x$, entonces debemos completar cuadrados en el denominador 
+                para obligar a que aparezca una integral inmediata que involucre al arcotangente.
             </p>
-        </section>
-        <section>
-            <div class="theorem">
-                <p class="paragraph">
-                    <strong class="theorem__title">Teorema 2.3.2.</strong> Sean $f:[a,b]\to \mathbf{R}$ una función continua y $\nu:[c,d]\to\mathbf{R}$ una función derivable 
-                    con derivada, $\nu'$, continua en $[c,d]$. Si $\forall x\in[c,d]:\nu(x)\in[a,b]$, entonces 
-                    $$\int_c^d f(\nu(x))\nu'(x)\,dx=\int_{\nu(c)}^{\nu(d)}f(u)\,du.$$
-                </p>
-            </div>
-            <div class="proof">
-                <h3 class="header-tertiary">Demostración.</h3>
-                <p class="paragraph">
-                     Definimos $G(u)=\int_{\nu(c)}^y f(u)\,du$ <span class="error">$G(y)=\int_{\nu(c)}^y f(u)\,du$</span> con $y\in [\nu(c),\nu(d)]$. Por la regla de la cadena, sabemos que 
-                    $$[G(\nu(x))]'=G'(\nu(x))\nu'(x), \forall x\in[c,d].$$ 
-                    Nótese que si $x\in[c,d]$, entonces $\nu(x)\in[\nu(c),\nu(d)]\subseteq [a,b]$, y por definición de primitiva $G'(y)=f(y)$, así que $G'(\nu(x))=f(\nu(x))$. 
-                    Por lo tanto, $$[G(\nu(x))]'=f(\nu(x))\nu'(x), \forall x\in[c,d].$$ Así que $G(\nu(x))$ es una primitiva de la función $f(\nu(x))\nu'(x)$, al menos en $[c,d]$. 
-                    Luego, $$\int_c^d f(\nu(x))\nu'(x)\,dx=G(\nu(d))-G(\nu(c)).$$
-                </p>
-                <p class="paragraph">
-                    Como $G(y)$ es primitiva de $f(y)$ en $[\nu(c),\nu(d)]$, pues $f$ es continua por hipótesis, entonces por el TFC, 
-                    $\int_{\nu(c)}^{\nu(d)}f(u)\,du=G(\nu(d))-G(\nu(c)).$ 
-                    Finalmente, concluimos que 
-                    $$\int_c^d f(\nu(x))\nu'(x)\,dx=\int_{\nu(c)}^{\nu(d)}f(u)\,du.$$
-                </p>
-                <div class="note">
-                    <p class="paragraph">
-                        <strong class="note__title">Nota:</strong> Nuevamente, de forma práctica se propone el cambio de variable $u=\nu(x)$ y $du=\nu'(x)dx$.
-                    </p>
-                </div>
-                <p class="paragraph">
-                    Veamos algunos ejemplos, pues debemos tener cuidado al tranformar los límites de integración que se inducen con el cambio de variable.
-                </p>
-            </div>
-            <div class="fancy-line"></div>
-        </section>
-        <section>
             <div class="example">
                 <p class="paragraph example__paragraph">
-                    <strong class="example__title">Ejemplo 2.3.5.</strong> Calcular $\int_0^1 (x+1)^6 \, x^2 \,dx$.
+                    <strong class="example__title">Ejemplo 2.5.5.</strong> Calcular $\int\frac{3x+6}{x^2+2x+2}\,dx$.
                 </p>
+                <h3 class="header-tertiary">Solución.</h3>
                 <p class="paragraph">
-                    Hacemos el cambio de variable $u=x+1$, entonces $du=dx$ y $x^2=(u-1)^2$. Además, es necesario hacer notar que en realidad tenemos que tenemos $u(x)=x+1$, 
-                    así $u(0)=0+1=1$ y $u(1)=1+1=2$. Luego,
+                    Aquí $f(x)=\frac{3x+6}{x^2+2x+2}$ con $P(x)=3x+6$ y $Q(x)=x^2+2x+2$, y como el grado de $P(x)$ es menor que el grado de $Q(x)$, 
+                    entonces $f(x)$ es una función racional propia, de hecho es una función racional simple, pues $Q(x)$ es una función cuadrática irreducible. 
+                    Para integrarla, primero debemos hacer que aparezca la derivada del denominador en el numerador, lo cual lo lograremos sólo haciendo uso del álgebra. 
+                    Como el denominador es $Q(x)=x^2+2x+2$ y su derivada es $Q'(x)=2x+2$, debemos hacer que esta aparezca en el numerador:
                 </p>
                 <div class="calculation">
                     <div class="calculation__formule--1">
-                        $$\int_0^1(x+1)^6\,x^2\,dx$$
+                        $$\int\frac{3x+6}{x^2+2x+2}\,dx$$
                     </div>
                     <div class="calculation__formule--2">
                         <div>
-                            $$=  \int_1^2 u^6 (u-1)^2 \,du $$
+                            $$= \int \frac{3(x+2)}{x^2+2x+2}\,dx $$
                         </div>
                         <div class="calculation__text">
-                            por Teorema 2.3.2
+                            dejamos solita a la $x$
                         </div>
                     </div>
                     <div class="calculation__formule--2">
                         <div>
-                            $$= \int_1^2 u^6 (u^2-2u+1) \,du $$
+                            $$= 3\int\frac{x+2}{x^2+2x+2}\,dx $$
                         </div>
                         <div class="calculation__text">
-                            por álgebra
+                            por <span class="modal__reference" data-modal-btn="theorem-2-2-1">Teorema 2.2.1</span>
                         </div>
                     </div>
                     <div class="calculation__formule--2">
                         <div>
-                            $$= \int_1^2 (u^8-2u^7+u^6) \,du $$
+                            $$= 3\int\frac{2}{2}\frac{x+2}{x^2+2x+2}\,dx $$
                         </div>
                         <div class="calculation__text">
-                            por distributividad
+                            hacemos que aparezca un 2 involucrado en la derivada
                         </div>
                     </div>
                     <div class="calculation__formule--2">
                         <div>
-                            $$= \left[\frac{u^9}{9}-2\frac{u^8}{8}+\frac{u^7}{7}\right]\bigg|_1^2 $$
+                            $$= \frac{3}{2}\int\frac{2x+4}{x^2+2x+2}\,dx $$
                         </div>
                         <div class="calculation__text">
-                            por TFC
+                            por <span class="modal__reference" data-modal-btn="theorem-2-2-1">Teorema 2.2.1</span>
                         </div>
                     </div>
                     <div class="calculation__formule--2">
                         <div>
-                            $$= \left[\frac{2^9}{9}-\frac{2^8}{4}+\frac{2^7}{7}\right]-\left[\frac{1^9}{9}-\frac{1^8}{4}+\frac{1^7}{7}\right] $$
+                            $$= \frac{3}{2}\int\frac{2x+2+2}{x^2+2x+2}\,dx $$
                         </div>
                         <div class="calculation__text">
-                            por notación
+                            para que aparezca la derivada
                         </div>
                     </div>
                     <div class="calculation__formule--2">
                         <div>
-                            $$= \frac{2815}{252}. $$
+                            $$= \frac{3}{2}\int\frac{2x+2}{x^2+2x+2}\,dx + \frac{3}{2}\int\frac{2}{x^2+2x+2}\,dx $$
+                        </div>
+                        <div class="calculation__text">
+                            por <span class="modal__reference" data-modal-btn="theorem-2-2-1">Teorema 2.2.1</span>
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \frac{3}{2}\int\frac{2x+2}{x^2+2x+2}\,dx + 3\int\frac{1}{x^2+2x+2}\,dx $$
+                        </div>
+                        <div class="calculation__text">
+                            por <span class="modal__reference" data-modal-btn="theorem-2-2-1">Teorema 2.2.1</span>
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \frac{3}{2}\int\frac{2x+2}{x^2+2x+2}\,dx + 3\int\frac{1}{(x+1)^2+1}\,dx $$
+                        </div>
+                        <div class="calculation__text">
+                            completando cuadrados
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div class="calculation__text">
+                           hacemos $u=x^2+2x+2$ y $w=x+1$ entonces $du=(2x+2)dx$ y $dw=dx$
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \frac{3}{2}\int\frac{1}{u}\,du + 3\int\frac{1}{w^2+1}\,dw $$
+                        </div>
+                        <div class="calculation__text">
+                            por <span class="modal__reference" data-modal-btn="theorem-2-3-1">Teorema 2.3.1</span>
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \frac{3}{2}\ln u + 3\arctan w+ C $$
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$=\frac{3}{2}\ln(x^2+2x+2) + 3\arctan (x+1)+ C $$
+                        </div>
+                        <div class="calculation__text">
+                            por los cambios de variable
                         </div>
                     </div>
                 </div>
+                <p class="paragraph">
+                    Finalmente, $$\int\frac{3x+6}{x^2+2x+2}\,dx=\frac{3}{2}\ln(x^2+2x+2) + 3\arctan (x+1)+ C.$$
+                </p>
+                <div class="fancy-line"></div>
             </div>
-            <div class="fancy-line"></div>
+        </section>
+        <section>
+            <p class="paragraph">
+                Ahora daremos un ejemplo que nos obligue a completar cuadrados y a hacer cambios más fuertes.
+            </p>
             <div class="example">
                 <p class="paragraph example__paragraph">
-                    <strong class="example__title">Ejemplo 2.3.6.</strong> Encuentra el valor de $\int_1^e \frac{1}{x(3+\ln x)^2}\,dx$.
+                    <strong class="example__title">Ejemplo 2.5.6.</strong> Hallar $\int\frac{4x+7}{x^2+3x+5}\,dx$.
                 </p>
+                <h3 class="header-tertiary">Solución.</h3>
                 <p class="paragraph">
-                    Primero separamos el integrando como producto de dos funciones para que sea claro cuál es el cambio de variable que debemos hacer, i.e., notemos que 
-                    $$\int_1^e \frac{1}{x(3+\ln x)^2}\,dx=\int_1^e \frac{1}{(3+\ln x)^2}\,\frac{1}{x}\,dx.$$ 
-                    Hacemos el cambio de variable $u=3+\ln x$.
+                    De manera similar al ejemplo anterior, el denominador es $Q(x)=x^2+3x+5$ y su derivada es $Q'(x)=2x+3$, 
+                    debemos hacer que esta aparezca en el numerador:
                 </p>
-                <form class="question margin-top-sm" data-question="question-2-3-1-1" data-answer="d">
+                <form class="question margin-top-sm" data-question="question-2-5-3-1" data-answer="d">
                     <h3 class="question__header margin-bottom-sm">
-                        ¿Cuál $du$, $u(1)$ y $u(e)$?
+                        ¿Cómo debe de quedar la integral para que la derivada del denominador aparezca en el numerador?
                     </h3>
                     <div class="question__row">
                         <div class="question__col-1">
                             <div class="question__options">
                                 <div class="question__option">
-                                    <input type="radio" autocomplete="off" id="answer-2-3-1-1-a" name="question-2-3-1-1" value="a" data-option="question-2-3-1-1">
-                                    <label for="answer-2-3-1-1-a">$du=-\frac{1}{x}dx$, $u(1)=1$ y $u(e)=2.$</label>
+                                    <input type="radio" autocomplete="off" id="answer-2-5-3-1-a" name="question-2-5-3-1" value="a" data-option="question-2-5-3-1">
+                                    <label for="answer-2-5-3-1-a">$\int\frac{2x+3+2}{x^2+3x+5}\,dx$</label>
                                 </div>
                                 <div class="question__option">
-                                    <input type="radio" autocomplete="off" id="answer-2-3-1-1-b" name="question-2-3-1-1" value="b" data-option="question-2-3-1-1">
-                                    <label for="answer-2-3-1-1-b">$du=-\frac{1}{x}dx$, $u(1)=0$ y $u(e)=1.$</label>
+                                    <input type="radio" autocomplete="off" id="answer-2-5-3-1-b" name="question-2-5-3-1" value="b" data-option="question-2-5-3-1">
+                                    <label for="answer-2-5-3-1-b">$\int\frac{2x+3+\frac{1}{4}}{x^2+3x+5}\,dx$</label>
                                 </div>
                                 <div class="question__option">
-                                    <input type="radio" autocomplete="off" id="answer-2-3-1-1-c" name="question-2-3-1-1" value="c" data-option="question-2-3-1-1">
-                                    <label for="answer-2-3-1-1-c">$du=\frac{1}{x^2}dx$, $u(1)=4$ y $u(e)=5.$</label>
+                                    <input type="radio" autocomplete="off" id="answer-2-5-3-1-c" name="question-2-5-3-1" value="c" data-option="question-2-5-3-1">
+                                    <label for="answer-2-5-3-1-c">$\int\frac{2x+3}{x^2+3x+5}\,dx$</label>
                                 </div>
                                 <div class="question__option">
-                                    <input type="radio" autocomplete="off" id="answer-2-3-1-1-d" name="question-2-3-1-1" value="d" data-option="question-2-3-1-1">
-                                    <label for="answer-2-3-1-1-d">$du=\frac{1}{x}dx$, $u(1)=3$ y $u(e)=4.$</label>
+                                    <input type="radio" autocomplete="off" id="answer-2-5-3-1-d" name="question-2-5-3-1" value="d" data-option="question-2-5-3-1">
+                                    <label for="answer-2-5-3-1-d">$2\int\frac{2x+3+\frac{1}{2}}{x^2+3x+5}\,dx$</label>
                                 </div>
                             </div>
                             <div class="question__btn-box">
@@ -357,31 +363,101 @@
                     </div>
                 </form>
                 <div class="section--hidden" data-section="step-1">
+                    <div class="calculation">
+                        <div class="calculation__formule--1">
+                            $$\int\frac{4x+7}{x^2+3x+5}\,dx$$
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= \int \frac{4\left(x+\frac{7}{4}\right)}{x^2+3x+5}\,dx $$
+                            </div>
+                            <div class="calculation__text">
+                                dejamos solita a la $x$
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= 4\int\frac{x+\frac{7}{4}}{x^2+3x+5}\,dx $$
+                            </div>
+                            <div class="calculation__text">
+                                por <span class="modal__reference" data-modal-btn="theorem-2-2-1">Teorema 2.2.1</span>
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= 4\int\frac{2}{2}\frac{x+\frac{7}{4}}{x^2+3x+5}\,dx $$
+                            </div>
+                            <div class="calculation__text">
+                                hacemos que aparezca un 2 involucrado en la derivada
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= \frac{4}{2}\int\frac{2x+2\frac{7}{4}}{x^2+3x+5}\,dx $$
+                            </div>
+                            <div class="calculation__text">
+                                por <span class="modal__reference" data-modal-btn="theorem-2-2-1">Teorema 2.2.1</span>
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= 2\int\frac{2x+3+\frac{1}{2}}{x^2+3x+5}\,dx $$
+                            </div>
+                            <div class="calculation__text">
+                                para que aparezca la derivada
+                            </div>
+                        </div>
+                    </div>
                     <p class="paragraph">
-                        Tenemos que $du=\frac{1}{x}dx$. Además, es claro que $u(x)=3+\ln x$, luego $u(1)=3+\ln 1=3+0=3$ y $u(e)=3+\ln(e)=3+1=4$.
+                        Ahora podemos separar la integral en dos y trabajarlas individualmente,
                     </p>
-                    <form class="question margin-top-sm" data-question="question-2-3-1-2" data-answer="a">
+                    <div class="calculation">
+                        <div class="calculation__formule--1">
+                            $$2\int\frac{2x+3+\frac{1}{2}}{x^2+3x+5}\,dx$$
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= 2\int\frac{2x+3}{x^2+3x+5}\,dx + 2\int\frac{\frac{1}{2}}{x^2+3x+5}\,dx $$
+                            </div>
+                            <div class="calculation__text">
+                                por <span class="modal__reference" data-modal-btn="theorem-2-2-1">Teorema 2.2.1</span>
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= 2\int\frac{2x+3}{x^2+3x+5}\,dx + \int\frac{1}{x^2+3x+5}\,dx $$
+                            </div>
+                            <div class="calculation__text">
+                                por <span class="modal__reference" data-modal-btn="theorem-2-2-1">Teorema 2.2.1</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="paragraph">
+                        La primer integral se encuentra en una forma en la que podemos integrarla con un cambio de variable por lo que trabajaremos con la segunda integral.
+                        Nuestro primer objetivo será que el denominador quede en la forma $a^2+1,$ para esto completaremos el cuadrado en la expresión $x^2+3x+5.$
+                    </p>
+                    <form class="question margin-top-sm" data-question="question-2-5-3-2" data-answer="c">
                         <h3 class="question__header margin-bottom-sm">
-                            ¿Cómo queda la integral $\int_1^e \frac{1}{(3+\ln x)^2}\,\frac{1}{x}\,dx$ después del cambio?
+                            ¿Cómo queda la expresión $x^2+3x+5$ después de completar el cuadrado?
                         </h3>
                         <div class="question__row">
                             <div class="question__col-1">
                                 <div class="question__options">
                                     <div class="question__option">
-                                        <input type="radio" autocomplete="off" id="answer-2-3-1-2-a" name="question-2-3-1-2" value="a" data-option="question-2-3-1-2">
-                                        <label for="answer-2-3-1-2-a">$\int_3^4 \frac{1}{u^2} \,du$</label>
+                                        <input type="radio" autocomplete="off" id="answer-2-5-3-2-a" name="question-2-5-3-2" value="a" data-option="question-2-5-3-2">
+                                        <label for="answer-2-5-3-2-a">$\left(x+\frac{3}{2}\right)^2+5$</label>
                                     </div>
                                     <div class="question__option">
-                                        <input type="radio" autocomplete="off" id="answer-2-3-1-2-b" name="question-2-3-1-2" value="b" data-option="question-2-3-1-2">
-                                        <label for="answer-2-3-1-2-b">$\int_1^e \left(-\frac{1}{u^2}\right) \,du$</label>
+                                        <input type="radio" autocomplete="off" id="answer-2-5-3-2-b" name="question-2-5-3-2" value="b" data-option="question-2-5-3-2">
+                                        <label for="answer-2-5-3-2-b">$\left(x+2\right)^2+1$</label>
                                     </div>
                                     <div class="question__option">
-                                        <input type="radio" autocomplete="off" id="answer-2-3-1-2-c" name="question-2-3-1-2" value="c" data-option="question-2-3-1-2">
-                                        <label for="answer-2-3-1-2-c">$\int_3^4 \frac{1}{\ln u} \,du$</label>
+                                        <input type="radio" autocomplete="off" id="answer-2-5-3-2-c" name="question-2-5-3-2" value="c" data-option="question-2-5-3-2">
+                                        <label for="answer-2-5-3-2-c">$\left(x+\frac{3}{2}\right)^2+\frac{11}{4}$</label>
                                     </div>
                                     <div class="question__option">
-                                        <input type="radio" autocomplete="off" id="answer-2-3-1-2-d" name="question-2-3-1-2" value="d" data-option="question-2-3-1-2">
-                                        <label for="answer-2-3-1-2-d">$\int_1^e \frac{1}{u^2} \,du $</label>
+                                        <input type="radio" autocomplete="off" id="answer-2-5-3-2-d" name="question-2-5-3-2" value="d" data-option="question-2-5-3-2">
+                                        <label for="answer-2-5-3-2-d">$\left(x+2\right)^2+x+1$</label>
                                     </div>
                                 </div>
                                 <div class="question__btn-box">
@@ -397,264 +473,185 @@
                 </div>
                 <div class="section--hidden" data-section="step-2">
                     <p class="paragraph">
-                        El intervalo de integración después del cambio de variable es $[3,4]$, con $du=\frac{1}{x}dx$ y $u=3+\ln x$. La integral queda como,
+                        Completando el cuadrado:
                     </p>
                     <div class="calculation">
                         <div class="calculation__formule--1">
-                            $$\int_1^e \frac{1}{(3+\ln x)^2}\,\frac{1}{x}\,dx$$
+                            $$x^2+3x+5$$
                         </div>
                         <div class="calculation__formule--2">
                             <div>
-                                $$= \int_3^4 \frac{1}{u^2} \,du $$
+                                $$= x^2+3x+\frac{9}{4}+5-\frac{9}{4} $$
                             </div>
                             <div class="calculation__text">
-                                por Teorema 2.3.2
+                                completando cuadrados
                             </div>
                         </div>
                         <div class="calculation__formule--2">
                             <div>
-                                $$= \int_3^4 u^{-2} \,du $$
+                                $$= \left(x+\frac{3}{2}\right)^2+\frac{11}{4} $$
                             </div>
                             <div class="calculation__text">
-                                por álgebra
-                            </div>
-                        </div>
-                        <div class="calculation__formule--2">
-                            <div>
-                                $$= \left[\frac{u^{-1}}{-1}\right]\bigg|_3^4 $$
-                            </div>
-                            <div class="calculation__text">
-                                por TFC
-                            </div>
-                        </div>
-                        <div class="calculation__formule--2">
-                            <div>
-                                $$= \left[\frac{4^{-1}}{-1}\right]-\left[\frac{3^{-1}}{-1}\right] $$
-                            </div>
-                            <div class="calculation__text">
-                                por notación
-                            </div>
-                        </div>
-                        <div class="calculation__formule--2">
-                            <div>
-                                $$= -\frac{1}{4}+\frac{1}{3}=\frac{1}{12}. $$
+                                por binomio cuadrado
                             </div>
                         </div>
                     </div>
                     <p class="paragraph">
-                        Es necesario hacer notar que se pueden hacer tantos cambios de variable como se necesiten o se requieran, eso dependerá de la integral que se estará 
-                        intentando resolver. Debemos dejar en claro que si se trata de una integral definida, con cada cambio de variable debemos hacer el cambio de intervalo de 
-                        integración respectivo en cada cambio de variable hecho.
+                        Para hacer que la integral quede $a^2 +1$ debemos hacer operaciones algebraicas adicionales de la siguiente manera,
                     </p>
-                    <div>
-                        <button class="btn-sm btn--blue" type="button" data-btn-continue="step-3">Continuar</button>
+                    <div class="calculation">
+                        <div class="calculation__formule--1">
+                            $$\int\frac{1}{x^2+3x+5}\,dx$$
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= \int\frac{1}{x^2+3x+\frac{9}{4}+5-\frac{9}{4}}\,dx $$
+                            </div>
+                            <div class="calculation__text">
+                                completando cuadrados
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= \int\frac{1}{\left(x+\frac{3}{2}\right)^2+\frac{11}{4}}\,dx $$
+                            </div>
+                            <div class="calculation__text">
+                                por binomio cuadrado
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= \int\frac{1}{\frac{11}{4}\left( \frac{\left(x+\frac{3}{2}\right)^2}{\frac{11}{4}}+1 \right)}\,dx $$
+                            </div>
+                            <div class="calculation__text">
+                                obligando que se sume un 1 abajo
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= \frac{1}{\frac{11}{4}} \int\frac{1}{ \left(\frac{x+\frac{3}{2}}{\sqrt{\frac{11}{4}}}\right)^2+1}\,dx $$
+                            </div>
+                            <div class="calculation__text">
+                                obligando que aparezca un cuadrado
+                            </div>
+                        </div>
+                        <!-- <div class="calculation__formule--2">
+                            <div>
+                                $$= \frac{1}{\sqrt{\frac{11}{4}}} \int\frac{\sqrt{\frac{11}{4}}}{ \left(\frac{x+\frac{3}{2}}{\sqrt{\frac{11}{4}}}\right)^2+1}\,dx $$
+                            </div>
+                            <div class="calculation__text">
+                                obligando que aparezca la derivada arriba
+                            </div>
+                        </div> -->
                     </div>
-                    <div class="fancy-line"></div>
+                    <p class="paragraph">
+                        Resumiendo nuestros pasos algebraicos hasta ahora:
+                    </p>
+                    <div class="calculation">
+                        <div class="calculation__formule--1">
+                            $$\int\frac{4x+7}{x^2+3x+5}\,dx$$
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= 2\int\frac{2x+3+\frac{1}{2}}{x^2+3x+5}\,dx $$
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= 2\int\frac{2x+3}{x^2+3x+5}\,dx + \int\frac{1}{x^2+3x+5}\,dx $$
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= 2\int\frac{2x+3}{x^2+3x+5}\,dx + \frac{1}{\frac{11}{4}} \int\frac{1}{ \left(\frac{x+\frac{3}{2}}{\sqrt{\frac{11}{4}}}\right)^2+1}\,dx $$
+                            </div>
+                        </div>
+                    </div>
+                    <p class="paragraph">
+                        Ahora ya podemos realizar la integración de manera sencilla:
+                    </p>
+                    <form class="question margin-top-sm" data-question="question-2-5-3-3" data-answer="b">
+                        <h3 class="question__header margin-bottom-sm">
+                            Haciendo $u=x^2+3x+5$ y $w=\frac{x+\frac{3}{2}}{\sqrt{\frac{11}{4}}}$ ¿cómo queda la integral?
+                        </h3>
+                        <div class="question__row">
+                            <div class="question__col-1">
+                                <div class="question__options">
+                                    <div class="question__option">
+                                        <input type="radio" autocomplete="off" id="answer-2-5-3-3-a" name="question-2-5-3-3" value="a" data-option="question-2-5-3-3">
+                                        <label for="answer-2-5-3-3-a">$2\ln(x^2+3x+5) + \arctan \left( \frac{2x+3}{11} \right)+ C$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" autocomplete="off" id="answer-2-5-3-3-b" name="question-2-5-3-3" value="b" data-option="question-2-5-3-3">
+                                        <label for="answer-2-5-3-3-b">$2\ln(x^2+3x+5) + \frac{2}{\sqrt{11}}\arctan \left( \frac{2x+3}{\sqrt{11}} \right)+ C$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" autocomplete="off" id="answer-2-5-3-3-c" name="question-2-5-3-3" value="c" data-option="question-2-5-3-3">
+                                        <label for="answer-2-5-3-3-c">$\ln{\frac{2x+3}{\sqrt{11}}} + \arctan \left( 2x+3 \right)+ C$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" autocomplete="off" id="answer-2-5-3-3-d" name="question-2-5-3-3" value="d" data-option="question-2-5-3-3">
+                                        <label for="answer-2-5-3-3-d">$2\ln\left((x+3)^2\right) + \frac{2}{\sqrt{11}}\arctan \left( x^2+3x+5 \right)+ C$</label>
+                                    </div>
+                                </div>
+                                <div class="question__btn-box">
+                                    <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                    <button class="btn btn--blue" type="button" disabled data-btn-continue="step-3">Continuar</button>
+                                </div>
+                            </div>
+                            <div class="question__col-2">
+                                <p class="question__answer"></p>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-            </div>
-        </section>
-        <section class="section--hidden" data-section="step-3">
-            <div class="example">
-                <p class="paragraph">
-                    <strong class="example__title">Ejemplo 2.3.7.</strong> Hallar $\int_1^5 \frac{1}{2+\sqrt{x-1}}\,dx$.
-                </p>
-                <h3 class="header-tertiary">Demostración.</h3>
-                <p class="paragraph">
-                    Como hemos mencionado antes, en estos casos conviene tomar como cambio de variable a la raíoz cuadrada involucrada, es decir, hacemos el cambio de variable 
-                    $u=\sqrt{x-1}.$
-                </p>
-                <form class="question margin-top-sm" data-question="question-2-3-1-3" data-answer="a">
-                    <h3 class="question__header margin-bottom-sm">
-                        ¿Cómo queda la integral después del cambio de variable?
-                    </h3>
-                    <div class="question__row">
-                        <div class="question__col-1">
-                            <div class="question__options">
-                                <div class="question__option">
-                                    <input type="radio" autocomplete="off" id="answer-2-3-1-3-a" name="question-2-3-1-3" value="a" data-option="question-2-3-1-3">
-                                    <label for="answer-2-3-1-3-a">$\int_0^2 \frac{1}{2+u} \, 2u\,du.$</label>
-                                </div>
-                                <div class="question__option">
-                                    <input type="radio" autocomplete="off" id="answer-2-3-1-3-b" name="question-2-3-1-3" value="b" data-option="question-2-3-1-3">
-                                    <label for="answer-2-3-1-3-b">$\int_0^2 (2+u)^\frac{3}{2} \, 2u\,du$</label>
-                                </div>
-                                <div class="question__option">
-                                    <input type="radio" autocomplete="off" id="answer-2-3-1-3-c" name="question-2-3-1-3" value="c" data-option="question-2-3-1-3">
-                                    <label for="answer-2-3-1-3-c">$\int_1^5 \frac{1}{2+u} \, 2u\,du$</label>
-                                </div>
-                                <div class="question__option">
-                                    <input type="radio" autocomplete="off" id="answer-2-3-1-3-d" name="question-2-3-1-3" value="d" data-option="question-2-3-1-3">
-                                    <label for="answer-2-3-1-3-d">$\int_1^5 (2+u)^\frac{3}{2} \, 2u\,du$</label>
-                                </div>
-                            </div>
-                            <div class="question__btn-box">
-                                <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
-                                <button class="btn btn--blue" type="button" disabled data-btn-continue="step-4">Continuar</button>
-                            </div>
-                        </div>
-                        <div class="question__col-2">
-                            <p class="question__answer"></p>
-                        </div>
-                    </div>
-                </form>
-                <div class="section--hidden" data-section="step-4">
+                <div class="section--hidden" data-section="step-3">
                     <p class="paragraph">
-                        Con el cambio de variable, obtenemos, $du=\frac{1}{2} \frac{1}{\sqrt{x-1}}dx$, pero respetando nuestro cambio de variable, obtenemos que $2udu=dx$. 
-                        Además, tenemos que $u(x)=\sqrt{x-1}$ para obtener que $u(1)=\sqrt{1-1}=0$ y $u(5)=\sqrt{5-1}=2$. Así,
+                        Para $u=x^2+3x+5$ y $w=\frac{x+\frac{3}{2}}{\sqrt{\frac{11}{4}}}$ entonces $du=(2x+3)dx$ y $dw=\frac{1}{\sqrt{\frac{11}{4}}}dx,$
+                        entonces,
                     </p>
                     <div class="calculation">
-                        <div class="calculation__formule--1">
-                            $$\int_1^5 \frac{1}{2+\sqrt{x-1}}\,dx$$
-                        </div>
                         <div class="calculation__formule--2">
                             <div>
-                                $$= \int_0^2 \frac{1}{2+u} \, 2u\,du $$
-                            </div>
-                            <div class="calculation__text">
-                                por el Teorema 2.3.2
+                                $$ 2\int\frac{2x+3}{x^2+3x+5}\,dx + \frac{1}{\frac{11}{4}} \int\frac{1}{ \left(\frac{x+\frac{3}{2}}{\sqrt{\frac{11}{4}}}\right)^2+1}\,dx $$
                             </div>
                         </div>
-                        <div class="calculation__formule--2">
-                            <div>
-                                $$=  2 \int_0^2 \frac{u}{2+u}\,du $$
-                            </div>
-                            <div class="calculation__text">
-                                por el <span class="error">por Teorema 14 Unidad 1.???</span> <br> <span class="modal__reference" data-modal-btn="theorem-2-2-1">Teorema 2.2.1</span>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="paragraph">
-                        Pero esta integral también se resuelve por cambio de variable y como hemos dicho que en estos casos conviene tomar al denominador como el cambio de variable, 
-                        entonces hacemos el nuevo cambio de variable $v=2+u$. 
                         
-                    </p>
-                    <form class="question margin-top-sm" data-question="question-2-3-1-4" data-answer="b">
-                        <h3 class="question__header margin-bottom-sm">
-                            ¿Cómo queda la nueva integral al hacer el cambio de variable?
-                        </h3>
-                        <div class="question__row">
-                            <div class="question__col-1">
-                                <div class="question__options">
-                                    <div class="question__option">
-                                        <input type="radio" autocomplete="off" id="answer-2-3-1-4-a" name="question-2-3-1-4" value="a" data-option="question-2-3-1-4">
-                                        <label for="answer-2-3-1-4-a">$2\int_0^2 \frac{v+2}{v}\,dv$</label>
-                                    </div>
-                                    <div class="question__option">
-                                        <input type="radio" autocomplete="off" id="answer-2-3-1-4-b" name="question-2-3-1-4" value="b" data-option="question-2-3-1-4">
-                                        <label for="answer-2-3-1-4-b">$2\int_2^4 \frac{v-2}{v}\,dv$</label>
-                                    </div>
-                                    <div class="question__option">
-                                        <input type="radio" autocomplete="off" id="answer-2-3-1-4-c" name="question-2-3-1-4" value="c" data-option="question-2-3-1-4">
-                                        <label for="answer-2-3-1-4-c">$2\int_0^2 \frac{v}{v+2}\,dv$</label>
-                                    </div>
-                                    <div class="question__option">
-                                        <input type="radio" autocomplete="off" id="answer-2-3-1-4-d" name="question-2-3-1-4" value="d" data-option="question-2-3-1-4">
-                                        <label for="answer-2-3-1-4-d">$2\int_2^4 \frac{v+2}{v}\,dv$</label>
-                                    </div>
-                                </div>
-                                <div class="question__btn-box">
-                                    <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
-                                    <button class="btn btn--blue" type="button" disabled data-btn-continue="step-5">Continuar</button>
-                                </div>
-                            </div>
-                            <div class="question__col-2">
-                                <p class="question__answer"></p>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="section--hidden" data-section="step-5">
-                    <p class="paragraph">
-                        Para $v=2+u$, se tiene $dv=du$ y $u=v-2$. También, notemos que $v(u)=2+u$, entonces $v(0)=0+2=2$ y $v(2)=2+2=4$. Por lo tanto,
-                        $$2 \int_0^2 \frac{u}{2+u}\,du = 2\int_2^4 \frac{v-2}{v}\,dv$$
-                    </p>
-                    <form class="question margin-top-sm" data-question="question-2-3-1-5" data-answer="b">
-                        <h3 class="question__header margin-bottom-sm">
-                            ¿Cuál es el valor final de la integral?
-                        </h3>
-                        <div class="question__row">
-                            <div class="question__col-1">
-                                <div class="question__options">
-                                    <div class="question__option">
-                                        <input type="radio" autocomplete="off" id="answer-2-3-1-5-a" name="question-2-3-1-5" value="a" data-option="question-2-3-1-5">
-                                        <label for="answer-2-3-1-5-a">$8-4\ln 4$</label>
-                                    </div>
-                                    <div class="question__option">
-                                        <input type="radio" autocomplete="off" id="answer-2-3-1-5-b" name="question-2-3-1-5" value="b" data-option="question-2-3-1-5">
-                                        <label for="answer-2-3-1-5-b">$4-4\ln 2$</label>
-                                    </div>
-                                    <div class="question__option">
-                                        <input type="radio" autocomplete="off" id="answer-2-3-1-5-c" name="question-2-3-1-5" value="c" data-option="question-2-3-1-5">
-                                        <label for="answer-2-3-1-5-c">$8-2\ln 2$</label>
-                                    </div>
-                                    <div class="question__option">
-                                        <input type="radio" autocomplete="off" id="answer-2-3-1-5-d" name="question-2-3-1-5" value="d" data-option="question-2-3-1-5">
-                                        <label for="answer-2-3-1-5-d">$4-\ln 4+\ln 2$</label>
-                                    </div>
-                                </div>
-                                <div class="question__btn-box">
-                                    <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
-                                    <button class="btn btn--blue" type="button" disabled data-btn-continue="step-6">Continuar</button>
-                                </div>
-                            </div>
-                            <div class="question__col-2">
-                                <p class="question__answer"></p>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="section--hidden" data-section="step-6">
-                    <p class="paragraph">
-                        Resolviendo la integral se tiene,
-                    </p>
-                    <div class="calculation">
-                        <div class="calculation__formule--1">
-                            $$ 2\int_2^4 \frac{v-2}{v}\,dv $$
-                        </div>
                         <div class="calculation__formule--2">
                             <div>
-                                $$= 2\int_2^4 \left(1 - \frac{2}{v} \right)\,dv $$
-                            </div>
-                        </div>
-                        <div class="calculation__formule--2">
-                            <div>
-                                $$= 2(v-2\ln v)\bigg|_2^4 $$
+                                $$\quad \quad= 2\int\frac{1}{u}\,du + \frac{1}{\sqrt{\frac{11}{4}}}\int\frac{1}{w^2+1}\,dw $$
                             </div>
                             <div class="calculation__text">
-                                por notación
+                                por <span class="modal__reference" data-modal-btn="theorem-2-3-1">Teorema 2.3.1</span>
+                            </div>
+                        </div>
+                        
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$\quad \quad= 2\ln u + \frac{1}{\sqrt{\frac{11}{4}}}\arctan w+ C $$
                             </div>
                         </div>
                         <div class="calculation__formule--2">
                             <div>
-                                $$= 2[2-2(\ln 4-\ln 2)] $$
-                            </div>
-                        </div>
-                        <div class="calculation__formule--2">
-                            <div>
-                                $$= 4-4(\ln 4-\ln 2) $$
-                            </div>
-                        </div>
-                        <div class="calculation__formule--2">
-                            <div>
-                                $$= 4-4(2\ln 2- \ln 2) $$
+                                $$\quad \quad= 2\ln(x^2+3x+5) + \frac{\sqrt{4}}{\sqrt{11}}\arctan \left( \frac{x+\frac{3}{2}}{\sqrt{\frac{11}{4}}} \right)+ C $$
                             </div>
                             <div class="calculation__text">
-                                pues $\ln 4=2\ln 2$
+                                por los cambios de variable
                             </div>
                         </div>
                         <div class="calculation__formule--2">
                             <div>
-                                $$= 4-4\ln 2. $$
+                                $$\quad \quad= 2\ln(x^2+3x+5) + \frac{2}{\sqrt{11}}\arctan \left( \frac{2x+3}{\sqrt{11}} \right)+ C $$
                             </div>
                         </div>
                     </div>
                     <p class="paragraph">
-                        Finalmente, $$\int_1^5 \frac{1}{2+\sqrt{x-1}}\,dx=4-4\ln 2.$$
+                        Finalmente, $$\int\frac{4x+7}{x^2+3x+5}\,dx =  2\ln(x^2+3x+5) + \frac{2}{\sqrt{11}}\arctan \left( \frac{2x+3}{\sqrt{11}} \right)+ C.$$
                     </p>
                     <div class="fancy-line"></div>
                     <div class="change-page">
-                        <a href="./2.3-metodo-sustitucion.html" class="change-page__before">Anterior</a>
-                        <a href="./2.4-integracion-por-partes.html" class="change-page__next">Siguiente</a>
+                        <a href="./2.5.2-factores-lineales-repetidos.html" class="change-page__before">Anterior</a>
+                        <a href=".#" class="change-page__next">Siguiente</a>
                     </div>
                 </div>
             </div>
@@ -673,6 +670,25 @@
                     </li>
                     <li class="theorem__list--formule">
                         $$\int (cf)(x) \, dx = c\int f(x) \, dx, \mbox{con} \, c \in\mathbf{R}.$$
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <div class="modal" data-modal="theorem-2-3-1">
+        <div class="modal__background" data-modal-background="theorem-2-3-1"></div>
+        <div class="modal__content">
+            <div class="theorem">
+                <p class="paragraph">
+                    <strong class="theorem__title">Teorema 2.3.1.</strong> Sean $f$ y $g$ funciones continuas.
+                </p>
+                <ol class="theorem__list">
+                    <li class="theorem__list-item">
+                        Si $f'$ y $g'$ son continuas y $H(u)=\int f(u)\,du$, entonces $$\int f(g(x))g'(x)\, dx=H(g(x)).$$
+                    </li>
+                    <li class="theorem__list-item">
+                        Si $\nu$ es una función derivable con derivada continua e invertible con inversa derivable, y  
+                        $H(x)=\int f(\nu(x))\nu'(x)\,dx$, entonces $$\int f(y)\,dy=H(\nu^{-1}(y)).$$
                     </li>
                 </ol>
             </div>
@@ -717,6 +733,40 @@
                     \end{split}
                 </li>
             </ol>
+        </div>
+    </div>
+    <div class="modal" data-modal="theorem-2-5-1">
+        <div class="modal__background" data-modal-background="theorem-2-5-1"></div>
+        <div class="modal__content">
+            <table class="math-table">
+                <caption>
+                    Teorema 2.5.1.
+                  </caption>
+                <thead>
+                    <tr>
+                        <th>Factor en el denominador</th>
+                        <th>Término en la descomposición</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>$$x-\alpha$$</td>
+                        <td>$$\frac{A}{x-\alpha}$$</td>
+                      </tr>
+                    <tr>
+                        <td>$$(x-\alpha)^k$$</td>
+                        <td>$$\frac{A_1}{x-\alpha}+\frac{A_2}{(x-\alpha)^2}+\cdots +\frac{A_k}{(x-\alpha)^k}$$</td>
+                    </tr>
+                    <tr>
+                        <td>$$x^2+px+q$$</td>
+                        <td>$$\frac{Ax+B}{x^2+px+q}$$</td>
+                    </tr>
+                    <tr>
+                        <td>$$(x^2+px+q)^k$$</td>
+                        <td>$$\frac{A_1x+B_1}{x^2+px+q}+\frac{A_2x+B_2}{(x^2+px+q)^2}+\cdots+ \frac{A_kx+B_k}{(x^2+px+q)^k}$$</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </body>

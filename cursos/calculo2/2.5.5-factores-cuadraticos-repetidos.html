@@ -22,7 +22,7 @@
     </script>
     <script id="MathJax-script" async src="/scripts/MathJax-master/es5/tex-chtml.js"></script>
 
-    <title>Cálculo 2 | Factores lineales no repetidos</title>
+    <title>Cálculo 2 | Factores cuadráticos irreducibles</title>
 </head>
 <body class="course">
     <nav class="navbar">
@@ -82,11 +82,11 @@
                     <li class="subject-list__item">
                         <a href="./2.5-fracciones-parciales.html" class="subject-list__link">2.5 Método de integración por fracciones parciales</a>
                         <ol class="subject-list">
-                            <li class="subject-list__item"><a href="./2.5.1-factores-lineales-no-repetidos.html" class="subject-list__link subject-list__link--active">2.5.1 El polinomio $Q(x)$ solo contiene factores lineales que no se repiten</a></li>     
+                            <li class="subject-list__item"><a href="./2.5.1-factores-lineales-no-repetidos.html" class="subject-list__link">2.5.1 El polinomio $Q(x)$ solo contiene factores lineales que no se repiten</a></li>     
                             <li class="subject-list__item"><a href="./2.5.2-factores-lineales-repetidos.html" class="subject-list__link">2.5.2 El polinomio $Q(x)$ solo contiene factores lineales, pero algunos de ellos se repetidos</a></li>     
                             <li class="subject-list__item"><a href="./2.5.3-factores-cuadraticos-irreducibles.html" class="subject-list__link">2.5.3 Integrales de funciones simples que involucran términos cuadráticos irreducibles</a></li>     
                             <li class="subject-list__item"><a href="./2.5.4-factores-cuadraticos-no-repetidos.html" class="subject-list__link">2.5.4 El polinomio Q(x) contiene factores cuadráticos irreducibles que no se repiten</a></li>     
-                            <li class="subject-list__item"><a href="./2.5.5-factores-cuadraticos-repetidos.html" class="subject-list__link">2.5.5 El polinomio Q(x) contiene factores cuadráticos irreducibles que se repiten</a></li>     
+                            <li class="subject-list__item"><a href="./2.5.5-factores-cuadraticos-repetidos.html" class="subject-list__link subject-list__link--active">2.5.5 El polinomio Q(x) contiene factores cuadráticos irreducibles que se repiten</a></li>     
                         </ol>
                     </li>
                     <li class="subject-list__item"><a href="#" class="subject-list__link">2.6 Met. de int. por sust. trigonométrica</a></li>     
@@ -158,11 +158,11 @@
                             <li class="subject-list__item">
                                 <a href="./2.5-fracciones-parciales.html" class="subject-list__link">2.5 Método de integración por fracciones parciales</a>
                                 <ol class="subject-list">
-                                    <li class="subject-list__item"><a href="./2.5.1-factores-lineales-no-repetidos.html" class="subject-list__link subject-list__link--active">2.5.1 El polinomio $Q(x)$ solo contiene factores lineales que no se repiten</a></li>     
+                                    <li class="subject-list__item"><a href="./2.5.1-factores-lineales-no-repetidos.html" class="subject-list__link">2.5.1 El polinomio $Q(x)$ solo contiene factores lineales que no se repiten</a></li>     
                                     <li class="subject-list__item"><a href="./2.5.2-factores-lineales-repetidos.html" class="subject-list__link">2.5.2 El polinomio $Q(x)$ solo contiene factores lineales, pero algunos de ellos se repetidos</a></li>     
                                     <li class="subject-list__item"><a href="./2.5.3-factores-cuadraticos-irreducibles.html" class="subject-list__link">2.5.3 Integrales de funciones simples que involucran términos cuadráticos irreducibles</a></li>     
                                     <li class="subject-list__item"><a href="./2.5.4-factores-cuadraticos-no-repetidos.html" class="subject-list__link">2.5.4 El polinomio Q(x) contiene factores cuadráticos irreducibles que no se repiten</a></li>     
-                                    <li class="subject-list__item"><a href="./2.5.5-factores-cuadraticos-repetidos.html" class="subject-list__link">2.5.5 El polinomio Q(x) contiene factores cuadráticos irreducibles que se repiten</a></li>     
+                                    <li class="subject-list__item"><a href="./2.5.5-factores-cuadraticos-repetidos.html" class="subject-list__link subject-list__link--active">2.5.5 El polinomio Q(x) contiene factores cuadráticos irreducibles que se repiten</a></li>     
                                 </ol>
                             </li>
                             <li class="subject-list__item"><a href="#" class="subject-list__link">2.6 Met. de int. por sust. trigonométrica</a></li>     
@@ -189,123 +189,64 @@
     <main class="main">
         <section>
             <h1 class="header-primary">
-                2.5.1 El polinomio $Q(x)$ solo contiene factores lineales que no se repiten
+                2.5.5 El polinomio $Q(x)$ contiene factores cuadráticos irreducibles que se repiten
             </h1>
             <p class="paragraph">
-                Si $f(x)$ es de la forma $f(x)=\frac{P(x)}{(x-\alpha_1)(x-\alpha_2)}$, donde $grad P(x)< 2 $, entonces $$f(x)=\frac{A}{x-\alpha_1}+\frac{B}{x-\alpha_2}.$$
+                Si $Q(x)$ contiene un factor cuadrático irreducible que se repite $k$ veces, entonces este factor aportará $k$ fracciones simples a la descomposición, i.e., 
+                si $f(x)$ tiene la forma $f(x)=\frac{P(x)}{\cdots (x^2+px+q)^k \cdots}$ <span class="error">$f(x)=\frac{P(x)}{ (x^2+px+q)^k}$ va sin puntos, no?</span>, donde $x^2+px+q$ es un polinomio cuadrático irredcible, entonces 
+                $$f(x)=\cdots+\frac{A_1x+B_1}{x^2+px+q}+\frac{A_2x+B_2}{(x^2+px+q)^2}+\cdots+\frac{A_kx+B_k}{(x^2+px+q)^k}+\cdots$$
+                <span class="error">$$f(x)=+\frac{A_1x+B_1}{x^2+px+q}+\frac{A_2x+B_2}{(x^2+px+q)^2}+\cdots+\frac{A_kx+B_k}{(x^2+px+q)^k}+$$</span>
+                <span class="error">no lleva puntos al inicio</span>
             </p>
             <p class="paragraph">
-                Si $f(x)$ es de la forma $f(x)=\frac{P(x)}{(x-\alpha_1)(x-\alpha_2)(x-\alpha_3)}$, donde $grad P(x)< 3$, entonces $$f(x)=\frac{A}{x-\alpha_1}+\frac{B}{x-\alpha_2}+\frac{C}{x-\alpha_3}.$$ 
+                Por ejemplo, si $P(x)$ es un polinomio con $grad P(x) < 6$, entonces
+                $$f(x)=\frac{P(x)}{(x^2+1)(x^2+3)^2}=\frac{Ax+B}{x^2+1}+\frac{Cx+D}{x^2+3}+\frac{Ex+F}{(x^2+3)^2}.$$ 
+                Análogamente, si $P(x)$ es un polinomio con $grad P(x) < 9$, entonces
+                \begin{equation*}
+                    \begin{split}
+                        f(x)&= \frac{P(x)}{(x+2)(x-5)^2(x^2+x+3)(x^2+2x+8)^2} \\
+                        &= \frac{A}{x+2}+\frac{B}{x-5}+\frac{C}{(x-5)^2}+\frac{Dx+E}{x^2+x+3}\\
+                        &\quad +\frac{Fx+G}{x^2+2x+8}+\frac{Hx+I}{(x^2+2x+8)^2}.
+                    \end{split}
+                \end{equation*}
+                Notemos que aquí se obtienen fracciones simples que ya hemos discutido antes y cuyas integrales sabeos cómo atacarlas.
             </p>
             <p class="paragraph">
-                Y así sucesivamente, cada factor lineal que no se repite aporta una fracción en la descomposición.
+                Daremos un ejemplo para indicar de qué manera se resolverán estas integrales, sin embargo hay riesgo de que aparezcan integrales que aún no sabemos resolver.
             </p>
-            <div class="example">
-                <p class="paragraph example__paragraph">
-                    <strong class="example__title">Ejemplo 2.5.1.</strong> Calcular $\int \frac{1}{x^2-9}\,dx$.
-                </p>
-                <h3 class="header-tertiary">
-                    Solución.
-                </h3>
-                <p class="paragraph">
-                    Notemos que $f(x)=\frac{1}{x^2-9}$, con $P(x)=1$ y $Q(x)=x^2-9$. Como el grado de $P(x)$ es 0 y el grado de $Q(x)$ es 2, entonces $f(x)$ es una 
-                    función racional propia y así procedemos a factorizar a $Q(x)$:
-                    $$Q(x)=x^2-9=(x-3)(x+3).$$
-                    Dado que $Q(x)$ se factoriza como producto de dos factores lineales que no se repiten, entoces cada factor aporta una fracción simple a la descomposición, es decir,
-                    $$f(x)=\frac{1}{x^2-9}=\frac{1}{(x+3)(x-3)}=\frac{A}{x+3}+\frac{B}{x-3}=\frac{A(x-3)+B(x+3)}{(x+3)(x-3)}.$$
-                    De aquí se deduce que $$1=A(x-3)+B(x+3), \qquad \forall x\in\mathbf{R}.$$
-                    Es posible deducir las constantes dando valores especiales a $x$, de hecho, elegimos valores que hagan un factor cero para obtener rápidamente las constantes buscadas.
-                </p>
-                <ul class="example__list">
-                    <li class="example__list-item">
-                        Si $x=3$, entonces $$1=A(3-3)+B(3+3)=6B \Rightarrow B=\frac{1}{6}.$$
-                    </li>
-                    <li class="example__list-item">
-                        Si $x=-3$, entonces $$1=A(-3-3)+B(-3+3)=-6A \Rightarrow A=-\frac{1}{6}.$$
-                    </li>
-                </ul>
-                <p class="paragraph">
-                    Así, la descomposición en fracciones parciales de $f(x)$ queda como: $$f(x)=\frac{-\frac{1}{6}}{x+3}+\frac{\frac{1}{6}}{x-3}.$$ Ahora hacemos la integración,
-                </p>
-                <div class="calculation">
-                    <div class="calculation__formule--1">
-                        $$\int \frac{1}{x^2-9}\,dx$$
-                    </div>
-                    <div class="calculation__formule--2">
-                        <div>
-                            $$= \int \left( \frac{-\frac{1}{6}}{x+3}+\frac{\frac{1}{6}}{x-3} \right) $$
-                        </div>
-                        <div class="calculation__text">
-                            por fracciones parciales
-                        </div>
-                    </div>
-                    <div class="calculation__formule--2">
-                        <div>
-                            $$= -\frac{1}{6} \int\frac{1}{x+3}\,dx + \frac{1}{6} \int\frac{1}{x-3}\, dx $$
-                        </div>
-                        <div class="calculation__text">
-                            por <span class="modal__reference" data-modal-btn="theorem-2-2-1">Teorema 2.2.1</span>
-                        </div>
-                    </div>
-                    <div class="calculation__formule--2">
-                        <div class="calculation__text">
-                            hacemos $u=x+1$ y $w=x-1,$ entonces $du=dx$ y $dw=dx$
-                        </div>
-                    </div>
-                    <div class="calculation__formule--2">
-                        <div>
-                            $$= -\frac{1}{6} \int\frac{1}{u}\,du + \frac{1}{6} \int\frac{1}{w}\, dw $$
-                        </div>
-                        <div class="calculation__text">
-                            por <span class="modal__reference" data-modal-btn="theorem-2-3-1">Teorema 2.3.1</span>
-                        </div>
-                    </div>
-                    <div class="calculation__formule--2">
-                        <div>
-                            $$= -\frac{1}{6} \ln u + \frac{1}{6}\ln w +C $$
-                        </div>
-                        <div class="calculation__text">
-                            
-                        </div>
-                    </div>
-                    <div class="calculation__formule--2">
-                        <div>
-                            $$= -\frac{1}{6} \ln (x+3) + \frac{1}{6}\ln (x-3) + C $$
-                        </div>
-                        <div class="calculation__text">
-                            por los cambios de variable
-                        </div>
-                    </div>
-                </div>
-                <p class="paragraph">
-                    Finalmente, $$\int \frac{1}{x^2-9}\,dx=-\frac{1}{6} \ln (x+3) + \frac{1}{6}\ln (x-3) + C.$$
-                </p>
-            </div>
             <div class="fancy-line"></div>
-        </section>
-        <section>
-            <p class="paragraph">
-                Ahora daremos un ejemplo en donde se tengan 3 factores en el denominador.
-            </p>
             <div class="example">
-                <p class="paragraph example__paragraph">
-                    <strong class="example__title">Ejemplor 2.5.2.</strong> Encontrar $\int \frac{2x^2+3x-1}{x^3-6x^2+5x}\,dx.$
+                <p class="paragraph">
+                    <strong class="example__title">Ejemplo 2.5.9.</strong> Hallar $\int \frac{x^3+2}{x^4+18x^2+81}\,dx$.
                 </p>
                 <h3 class="header-tertiary">Solución.</h3>
-                <form class="question margin-top-sm" data-question="question-2-5-1-1" data-answer="a">
+                <p class="paragraph">
+                    Aquí $f(x)=\frac{x^3+2}{x^4+18x^2+81}$ con $P(x)=x^3+2$ y $Q(x)=x^4+18x^2+81$. Como el grado de $P(x)$ es 3  y el grado de $Q(x)$ es 4, 
+                    entonces $f(x)$ es una función racional propia, así que procedemos a factorizar al polinomio $(Q(x))$: 
+                    $$Q(x)=x^4+18x^2+81=(x^2+9)^2.$$
+                </p>
+                <form class="question margin-top-sm" data-question="question-2-5-5-1" data-answer="c" autocomplete="off">
                     <h3 class="question__header margin-bottom-sm">
-                        ¿$f(x)$ es una función racional propia o impropia?
+                        Usando el <span class="modal__reference" data-modal-btn="theorem-2-5-1">Teorema 2.5.1</span> ¿cómo queda la descomposición en fracciones parciales?
                     </h3>
                     <div class="question__row">
                         <div class="question__col-1">
                             <div class="question__options">
                                 <div class="question__option">
-                                    <input type="radio" autocomplete="off" id="answer-2-5-1-1-a" name="question-2-5-1-1" value="a" data-option="question-2-5-1-1">
-                                    <label for="answer-2-5-1-1-a">propia</label>
+                                    <input type="radio" id="answer-2-5-5-1-a" name="question-2-5-5-1" value="a" data-option="question-2-5-5-1">
+                                    <label for="answer-2-5-5-1-a">$$\frac{A(x^2+9)+B}{(x^2+9)^2}$$</label>
                                 </div>
                                 <div class="question__option">
-                                    <input type="radio" autocomplete="off" id="answer-2-5-1-1-b" name="question-2-5-1-1" value="b" data-option="question-2-5-1-1">
-                                    <label for="answer-2-5-1-1-b">impropia</label>
+                                    <input type="radio" id="answer-2-5-5-1-b" name="question-2-5-5-1" value="b" data-option="question-2-5-5-1">
+                                    <label for="answer-2-5-5-1-b">$$\frac{(Ax)(x^2+9)+(Bx+C)}{(x^2+9)^2}$$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" id="answer-2-5-5-1-c" name="question-2-5-5-1" value="c" data-option="question-2-5-5-1">
+                                    <label for="answer-2-5-5-1-c">$$\frac{(Ax+B)(x^2+9)+(Cx+D)}{(x^2+9)^2}$$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" id="answer-2-5-5-1-d" name="question-2-5-5-1" value="d" data-option="question-2-5-5-1">
+                                    <label for="answer-2-5-5-1-d">$$\frac{(Ax)(x^2+9)+(Bx)}{(x^2+9)^2}$$</label>
                                 </div>
                             </div>
                             <div class="question__btn-box">
@@ -320,32 +261,38 @@
                 </form>
                 <div class="section--hidden" data-section="step-1">
                     <p class="paragraph">
-                        Aquí tenemos que $f(x)=\frac{2x^2+3x-1}{x^3-6x^2+5x}$ con $P(x)=2x^2+3x-1$ y $Q(x)=x^3-6x^2+5x$. Como el grado de $P(x)$ es menor que el grado de 
-                        $Q(x)$, entonces $f(x)$ es una función racional propia, así que procedemos a factorizar al denominador, i.e., al polinomio 
-                        $(Q(x))$: $$Q(x)=x^3-6x^2+5x=x(x^2-6x+5)=x(x-1)(x-5).$$
+                        Como $Q(x)$ un factor cuadráticos irreducible que se repite dos veces, entonces aportará dos fracciones simples, y así obtenemos la 
+                        descomposición en fracciones parciales por el <span class="modal__reference" data-modal-btn="theorem-2-5-1">Teorema 2.5.1:</span>
+                        \begin{equation*}
+                            \begin{split}
+                                f(x)&= \frac{x^3+2}{x^4+18x^2+81} \\&
+                                = \frac{x^3+2}{(x^2+9)^2}= \frac{Ax+B}{x^2+9}+\frac{Cx+D}{(x^2+9)^2} \\
+                                &= \frac{(Ax+B)(x^2+9)+(Cx+D)}{(x^2+9)^2}.
+                            \end{split}
+                        \end{equation*}
                     </p>
-                    <form class="question margin-top-sm" data-question="question-2-5-1-2" data-answer="d">
+                    <form class="question margin-top-sm" data-question="question-2-5-5-2" data-answer="b" autocomplete="off">
                         <h3 class="question__header margin-bottom-sm">
-                            ¿Cómo queda la descomposición en fracciones parciales?
+                            ¿Cuál es el valor de las constantes $A,$ $B,$ $C,$ y $D$?
                         </h3>
                         <div class="question__row">
                             <div class="question__col-1">
                                 <div class="question__options">
                                     <div class="question__option">
-                                        <input type="radio" autocomplete="off" id="answer-2-5-1-2-a" name="question-2-5-1-2" value="a" data-option="question-2-5-1-2">
-                                        <label for="answer-2-5-1-2-a">$$\frac{x(x-1)(x-5)}{A(x-1)(x-5) + B x(x-5) + Cx(x-1)}$$</label>
+                                        <input type="radio" id="answer-2-5-5-2-a" name="question-2-5-5-2" value="a" data-option="question-2-5-5-2">
+                                        <label for="answer-2-5-5-2-a">$A=2,$ $B=1,$ $C=0$ y $D=-9$</label>
                                     </div>
                                     <div class="question__option">
-                                        <input type="radio" autocomplete="off" id="answer-2-5-1-2-b" name="question-2-5-1-2" value="b" data-option="question-2-5-1-2">
-                                        <label for="answer-2-5-1-2-b">$$\frac{Ax(x-5) + B (x-1)(x-5) + C(x-1)(x-5)}{x(x-1)(x-5)}$$</label>
+                                        <input type="radio" id="answer-2-5-5-2-b" name="question-2-5-5-2" value="b" data-option="question-2-5-5-2">
+                                        <label for="answer-2-5-5-2-b">$A=1,$ $B=0,$ $C=-9$ y $D=2$</label>
                                     </div>
                                     <div class="question__option">
-                                        <input type="radio" autocomplete="off" id="answer-2-5-1-2-c" name="question-2-5-1-2" value="c" data-option="question-2-5-1-2">
-                                        <label for="answer-2-5-1-2-c">$$\frac{Ax + B (x-1) + C(x-5)}{x(x-1)(x-5)}$$</label>
+                                        <input type="radio" id="answer-2-5-5-2-c" name="question-2-5-5-2" value="c" data-option="question-2-5-5-2">
+                                        <label for="answer-2-5-5-2-c">$A=-9,$ $B=2,$ $C=1$ y $D=0$</label>
                                     </div>
                                     <div class="question__option">
-                                        <input type="radio" autocomplete="off" id="answer-2-5-1-2-d" name="question-2-5-1-2" value="d" data-option="question-2-5-1-2">
-                                        <label for="answer-2-5-1-2-d">$$\frac{A(x-1)(x-5) + B x(x-5) + Cx(x-1)}{x(x-1)(x-5)}$$</label>
+                                        <input type="radio" id="answer-2-5-5-2-d" name="question-2-5-5-2" value="d" data-option="question-2-5-5-2">
+                                        <label for="answer-2-5-5-2-d">$A=0,$ $B=-1,$ $C=1$ y $D=1$</label>
                                     </div>
                                 </div>
                                 <div class="question__btn-box">
@@ -361,42 +308,50 @@
                 </div>
                 <div class="section--hidden" data-section="step-2">
                     <p class="paragraph">
-                        Como $Q(x)$ contiene 3 factores lineales que no se repiten, entonces cada factor aporta una fracción simple en la descomposición, y así obtenemos 
-                        la descomposición en fracciones parciales por el <span class="modal__reference" data-modal-btn="theorem-2-5-1">Teorema 2.5.1</span>:
-                        \begin{equation*}
-                            \begin{split}
-                                f(x)&= \frac{2x^2+3x-1}{x^3-6x^2+5x}=\frac{2x^2+3x-1}{x(x-1)(x-5)} \\
-                                &= \frac{A}{x}+\frac{B}{x-1}+\frac{C}{x-5} \\
-                                &= \frac{A(x-1)(x-5) + B x(x-5) + Cx(x-1)}{x(x-1)(x-5)}
-                            \end{split}
-                        \end{equation*}
+                        De la descomposición se deduce que 
+                        $$x^3+2=(Ax+B)(x^2+9)+(Cx+D)=Ax^3+9Ax+Bx^2+9B+Cx+D.$$ Entonces,
+                        $$x^3+2=Ax^3+Bx^2+(9A+C)x+(9B+D).$$
                     </p>
                     <p class="paragraph">
-                        De aquí se deduce que 
-                        $$2x^2+3x-1=A(x-1)(x-5) + B x(x-5) + Cx(x-1) \qquad \forall x\in\mathbf{R}.$$
+                        Nuevamente, no daremos valores numéricos a la variable $x$, conviene encontrar los valores de las constantes resolviendo un sistema de ecuaciones. 
+                        Esta ecuación arroja el sistema
+                        \begin{align}
+                            A   &= 1 \nonumber \\
+                            B &=0 \nonumber \\
+                            9A+C &=0 \nonumber \\
+                            9B+D  &= 2
+                            \nonumber
+                        \end{align}
                     </p>
-                    <form class="question margin-top-sm" data-question="question-2-5-1-3" data-answer="a">
+                    <p class="paragraph">
+                        Y al resolverlo, se obtiene que $A=1$, $B=0$, $C=-9$ y $D=2$.
+                    </p>
+                    <p class="paragraph">
+                        Luego, la descomposición en fracciones parciales queda:
+                        $$f(x)= \frac{x}{x^2+9}+\frac{-9x+2}{(x^2+9)^2}.$$
+                    </p>
+                    <form class="question margin-top-sm" data-question="question-2-5-5-3" data-answer="c" autocomplete="off">
                         <h3 class="question__header margin-bottom-sm">
-                            ¿Cuál es el valord de las constantes $A$, $B$ y $C$?
+                            Calcula la integral de $f(x).$
                         </h3>
                         <div class="question__row">
                             <div class="question__col-1">
                                 <div class="question__options">
                                     <div class="question__option">
-                                        <input type="radio" autocomplete="off" id="answer-2-5-1-3-a" name="question-2-5-1-3" value="a" data-option="question-2-5-1-3">
-                                        <label for="answer-2-5-1-3-a">$A=-\frac{1}{5}, B=-1, C=\frac{16}{5}$</label>
+                                        <input type="radio" id="answer-2-5-5-3-a" name="question-2-5-5-3" value="a" data-option="question-2-5-5-3">
+                                        <label for="answer-2-5-5-3-a">$\frac{1}{2}\ln (x^2+9) + \frac{9}{2}\arctan(x^2+9) + 2\int \frac{1}{(x^2+9)^2}\,dx$</label>
                                     </div>
                                     <div class="question__option">
-                                        <input type="radio" autocomplete="off" id="answer-2-5-1-3-b" name="question-2-5-1-3" value="b" data-option="question-2-5-1-3">
-                                        <label for="answer-2-5-1-3-b">$A=\frac{1}{5}, B=1, C=-\frac{16}{5}$</label>
+                                        <input type="radio" id="answer-2-5-5-3-b" name="question-2-5-5-3" value="b" data-option="question-2-5-5-3">
+                                        <label for="answer-2-5-5-3-b">$\frac{1}{2}\arctan (x^2+9) + \frac{9}{2(x^2+9)} + 2\int \frac{1}{(x^2+9)^2}\,dx$</label>
                                     </div>
                                     <div class="question__option">
-                                        <input type="radio" autocomplete="off" id="answer-2-5-1-3-c" name="question-2-5-1-3" value="c" data-option="question-2-5-1-3">
-                                        <label for="answer-2-5-1-3-c">$A=-\frac{1}{5}, B=\frac{12}{5} C=-1, $</label>
+                                        <input type="radio" id="answer-2-5-5-3-c" name="question-2-5-5-3" value="c" data-option="question-2-5-5-3">
+                                        <label for="answer-2-5-5-3-c">$\frac{1}{2}\ln (x^2+9) + \frac{9}{2(x^2+9)} + 2\int \frac{1}{(x^2+9)^2}\,dx$</label>
                                     </div>
                                     <div class="question__option">
-                                        <input type="radio" autocomplete="off" id="answer-2-5-1-3-d" name="question-2-5-1-3" value="d" data-option="question-2-5-1-3">
-                                        <label for="answer-2-5-1-3-d">$A=\frac{1}{5}, B=-2, C=\frac{12}{5}$</label>
+                                        <input type="radio" id="answer-2-5-5-3-d" name="question-2-5-5-3" value="d" data-option="question-2-5-5-3">
+                                        <label for="answer-2-5-5-3-d">$\frac{1}{2}\arctan (x^2+9) + \frac{9}{2}\ln(x^2+9) + 2\int \frac{1}{(x^2+9)^2}\,dx$</label>
                                     </div>
                                 </div>
                                 <div class="question__btn-box">
@@ -412,75 +367,18 @@
                 </div>
                 <div class="section--hidden" data-section="step-3">
                     <p class="paragraph">
-                        Deduciremos las constantes buscadas asignando valores especiales a la variabe $x$, a saber, elegiremos a las raíces del polinomio $Q(x)$.
-                    </p>
-                    <ul class="example__list">
-                        <li class="example__list-item">
-                            Si $x=0$, entonces 
-                            $$2(0)^2+3(0)-1=A(0-1)(0-5)+B (0)(0-5) + C(0)(0-1)$$
-                            de donde se obtiene que $-1=5A$, y así $A=-\frac{1}{5}$.
-                        </li>
-                        <li class="example__list-item">
-                            Si $x=1$, entonces 
-                            $$2(1)^2+3(1)-1=A(1-1)(1-5)+B (1)(1-5) + C(1)(1-1)$$
-                            de donde se obtiene que $4=-4B$, y así $B=-1$.
-                        </li>
-                        <li class="example__list-item">
-                            Si $x=5$, entonces 
-                            $$2(5)^2+3(5)-1=A(5-1)(5-5)+B (5)(5-5) + C(5)(5-1)$$
-                            de donde se obtiene que $64=20C$, y así $C=\frac{64}{20}=\frac{16}{5}$.
-                        </li>
-                    </ul>
-                    <p class="paragraph">
-                        Por lo que la descomposición en fracciones parciales es:
-                        $$f(x)=\frac{-\frac{1}{5}}{x}+\frac{-1}{x-1}+\frac{\frac{16}{5}}{x-5}.$$
-                    </p>
-                    <form class="question margin-top-sm" data-question="question-2-5-1-4" data-answer="b">
-                        <h3 class="question__header margin-bottom-sm">
-                            Calcula la integral
-                        </h3>
-                        <div class="question__row">
-                            <div class="question__col-1">
-                                <div class="question__options">
-                                    <div class="question__option">
-                                        <input type="radio" autocomplete="off" id="answer-2-5-1-4-a" name="question-2-5-1-4" value="a" data-option="question-2-5-1-4">
-                                        <label for="answer-2-5-1-4-a">$$-\frac{1}{5} \ln (x+1) + \ln (x) + \frac{5}{16}\ln (x-5) +C.$$</label>
-                                    </div>
-                                    <div class="question__option">
-                                        <input type="radio" autocomplete="off" id="answer-2-5-1-4-b" name="question-2-5-1-4" value="b" data-option="question-2-5-1-4">
-                                        <label for="answer-2-5-1-4-b">$$-\frac{1}{5} \ln x - \ln (x-1) + \frac{16}{5}\ln (x-5) +C.$$</label>
-                                    </div>
-                                    <div class="question__option">
-                                        <input type="radio" autocomplete="off" id="answer-2-5-1-4-c" name="question-2-5-1-4" value="c" data-option="question-2-5-1-4">
-                                        <label for="answer-2-5-1-4-c">$$-\frac{1}{5} \ln (x-1) - \ln (x-5) + \frac{16}{5}\ln (x) +C.$$</label>
-                                    </div>
-                                    <div class="question__option">
-                                        <input type="radio" autocomplete="off" id="answer-2-5-1-4-d" name="question-2-5-1-4" value="d" data-option="question-2-5-1-4">
-                                        <label for="answer-2-5-1-4-d">$$-\frac{1}{5} \ln (x-5) - \frac{16}{5}\ln (x-1) + \ln (x-5) +C.$$</label>
-                                    </div>
-                                </div>
-                                <div class="question__btn-box">
-                                    <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
-                                    <button class="btn btn--blue" type="button" disabled data-btn-continue="step-4">Continuar</button>
-                                </div>
-                            </div>
-                            <div class="question__col-2">
-                                <p class="question__answer"></p>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="section--hidden" data-section="step-4">
-                    <p class="paragraph">
-                        Integrando,
+                        Integramos haciendo uso de lo explicado en las subsecciones anteriores, obligando algebraicamente que en el numerador aparezca la derivada 
+                        del denominador o que aprezca el arcotangente,
                     </p>
                     <div class="calculation">
-                        <div class="calculation__formule--1">
-                            $$\int \frac{2x^2+3x-1}{x^3-6x^2+5x}\,dx$$
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$\int \frac{x^3+2}{x^4+18x^2+81}\,dx $$
+                            </div>
                         </div>
                         <div class="calculation__formule--2">
                             <div>
-                                $$= \int \left( \frac{-\frac{1}{5}}{x}+\frac{-1}{x-1}+\frac{\frac{16}{5}}{x-5} \right)\,dx $$
+                                $$\quad = \int \left( \frac{x}{x^2+9}+\frac{-9x+2}{(x^2+9)^2} \right)\,dx $$
                             </div>
                             <div class="calculation__text">
                                 por fracciones parciales
@@ -488,52 +386,59 @@
                         </div>
                         <div class="calculation__formule--2">
                             <div>
-                                $$= -\frac{1}{5}\int \frac{1}{x} \,dx - \int \frac{1}{x-1} \,dx +\frac{16}{5}\int \frac{1}{x-5} $$
+                                $$\quad = \int \frac{x}{x^2+9}\,dx - \int \frac{9x}{(x^2+9)^2}\,dx +\int \frac{2}{(x^2+9)^2}\,dx $$
                             </div>
                             <div class="calculation__text">
-                                por <span class="modal__reference" data-modal-btn="theorem-2-2-1">Teorema 2.1.1</span>
-                                
-                            </div>
-                        </div>
-                        <div class="calculation__formule--2">
-                            <div class="calculation__text">
-                                hacemos $u=x-1$ y $w=x-5$, entonces $du=dx$ y $dw=dx$
+                                <span class="modal__reference" data-modal-btn="theorem-2-2-1">Teorema 2.2.1</span>
                             </div>
                         </div>
                         <div class="calculation__formule--2">
                             <div>
-                                $$= -\frac{1}{5}\int \frac{1}{x} \,dx - \int \frac{1}{u} \,du +\frac{16}{5}\int \frac{1}{w} \,dw $$
+                                $$\quad = \int \frac{x}{x^2+9}\,dx - 9\int \frac{x}{(x^2+9)^2}\,dx +2\int \frac{1}{(x^2+9)^2}\,dx $$
                             </div>
                             <div class="calculation__text">
-                                por <span class="modal__reference" data-modal-btn="theorem-2-3-1">Teorema 2.3.1</span>
+                                <span class="modal__reference" data-modal-btn="theorem-2-2-1">Teorema 2.2.1</span>
                             </div>
                         </div>
                         <div class="calculation__formule--2">
                             <div>
-                                $$= -\frac{1}{5} \ln x - \ln u + \frac{16}{5}\ln w +C $$
+                                $$\quad = \frac{1}{2}\int \frac{2x}{x^2+9}\,dx - \frac{9}{2}\int \frac{2x}{(x^2+9)^2}\,dx + 2\int \frac{1}{(x^2+9)^2}\,dx $$
+                            </div>
+                            <div class="calculation__text">
+                                <span class="modal__reference" data-modal-btn="theorem-2-2-1">Teorema 2.2.1</span>
                             </div>
                         </div>
                         <div class="calculation__formule--2">
                             <div>
-                                $$= -\frac{1}{5} \ln x - \ln (x-1) + \frac{16}{5}\ln (x-5) +C $$
+                                $$\quad = \frac{1}{2}\ln (x^2+9) - \frac{9}{2}\frac{-1}{x^2+9} + 2\int \frac{1}{(x^2+9)^2}\,dx $$
                             </div>
                             <div class="calculation__text">
-                                por los cambios de variable
+                                <span class="modal__reference" data-modal-btn="theorem-2-2-1">Teorema 2.3.1</span>
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$\quad = \frac{1}{2}\ln (x^2+9) + \frac{9}{2(x^2+9)} + 2\int \frac{1}{(x^2+9)^2}\,dx $$
+                            </div>
+                            <div class="calculation__text">
+                                por cuentas
                             </div>
                         </div>
                     </div>
                     <p class="paragraph">
-                        Por lo tanto,
-                        $$\int \frac{2x^2+3x-1}{x^3-6x^2+5x}\,dx=-\frac{1}{5} \ln x - \ln (x-1) + \frac{16}{5}\ln (x-5) +C.$$
+                        Por lo tanto, $$\int \frac{x^3+2}{x^4+18x^2+81}\,dx=\frac{1}{2}\ln (x^2+9) + \frac{9}{2(x^2+9)} + 2\int \frac{1}{(x^2+9)^2}\,dx.$$
+                    </p>
+                    <p class="paragraph">
+                        Sin emabargo, esta última integral no la podemos resolver con las técnicas que hemos visto, así que requerimos una técnica nueva: la de sustitución trigonométrica.
                     </p>
                     <div class="fancy-line"></div>
                     <div class="change-page">
-                        <a href="./2.5-fracciones-parciales.html" class="change-page__before">Anterior</a>
-                        <a href="./2.5.2-factores-lineales-repetidos.html" class="change-page__next">Siguiente</a>
+                        <a href="./2.5.4-factores-cuadraticos-no-repetidos.html" class="change-page__before">Anterior</a>
+                        <a href="#" class="change-page__next">Siguiente</a>
                     </div>
                 </div>
             </div>
-        </section>
+        </section>    
     </main>
     <div class="modal" data-modal="theorem-2-2-1">
         <div class="modal__background" data-modal-background="theorem-2-2-1"></div>

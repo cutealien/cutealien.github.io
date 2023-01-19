@@ -477,45 +477,66 @@
             </div>
         </div>
     </div>
-    <div class="floating-btn floating-btn--transparent">
-        <button class="btn-sm btn--blue" data-modal-btn="formules">Formulario</button>
+    <div class="floating-box">
+        <button class="floating-box__btn btn-sm btn--blue" data-modal-btn="formules">&int;</button>
+        <button class="floating-box__btn btn-sm btn--blue" data-modal-btn="theorem-2-5-1">$\frac{a}{b}$</button>
     </div>
     <div class="modal" data-modal="formules">
         <div class="modal__background" data-modal-background="formules"></div>
         <div class="modal__content">
-            <h3 class="header-tertiary">Fórmulas Básicas de Integración</h3>
-            <ol class="formules-sheet">
-                <li class="formules-sheet--formule">
-                    $$\int x^n\,dx=\frac{x^{n+1}}{n+1}+C \qquad \mbox{ con }n\in\mathbf{N} \setminus\{-1\} \mbox{ y }C\mbox{ una constante}.$$
-                </li>
-                <li class="formules-sheet--formule">
-                    $$\int e^{kx}\,dx=\frac{e^{kx}}{k}+C \qquad \mbox{con }C \mbox{ una constante.}$$
-                </li>
-                <li class="formules-sheet--formule">
-                    $$\int\frac{1}{x}\,dx=\ln x+C \qquad \mbox{con }C \mbox{ una constante.}$$
-                </li>
-                <li class="formules-sheet--formule">
-                    $$\int \cos x\,dx=\sin x+C \qquad \mbox{con }C \mbox{ una constante.}$$
-                </li>
-                <li class="formules-sheet--formule">
-                    $$\int \sin x\,dx=-\cos x+C \qquad \mbox{con }C \mbox{ una constante.}$$
-                </li>
-                <li class="formules-sheet--formule">
-                    \begin{split}
-                        \frac{d}{dx}\tan x &=\sec^2 x  \Rightarrow \int\sec^2 x\, dx=\tan x +C \\
-                        \frac{d}{dx}\cot x &=-\csc^2 x  \Rightarrow \int\csc^2 x\, dx=-\cot x +C \\
-                        \frac{d}{dx}\sec x &=\sec x \tan x  \Rightarrow \int\sec x \tan x\, dx=\sec x +C \\
-                        \frac{d}{dx}\csc x &=-\csc x \cot x  \Rightarrow \int\csc x \cot x\, dx=-\csc x +C
-                    \end{split}
-                </li>
-                <li class="formules-sheet--formule">
-                    \begin{split}
-                        \frac{d}{dx}\arcsin x &=\frac{1}{\sqrt{1-x^2}}  \Rightarrow \int \frac{1}{\sqrt{1-x^2}} \, dx=\arcsin x +C \\
-                        \frac{d}{dx}\arccos x &=-\frac{1}{\sqrt{1-x^2}}  \Rightarrow \int \frac{1}{\sqrt{1-x^2}} \, dx=-\arccos x +C \\
-                        \frac{d}{dx}\arctan x &=\frac{1}{1+x^2}  \Rightarrow \int \frac{1}{1+x^2} \, dx=\arctan x +C 
-                    \end{split}
-                </li>
-            </ol>
+            <table class="math-table">
+                <thead>
+                    <tr>
+                        <th>Fórmulas básicas de integración</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            $$\int x^n\,dx=\frac{x^{n+1}}{n+1}+C \qquad \mbox{ con }n\in\mathbf{N} \setminus\{-1\} \mbox{ y }C\mbox{ una constante}.$$
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            $$\int e^{kx}\,dx=\frac{e^{kx}}{k}+C \qquad \mbox{con }C \mbox{ una constante.}$$
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            $$\int\frac{1}{x}\,dx=\ln x+C \qquad \mbox{con }C \mbox{ una constante.}$$
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            $$\int \cos x\,dx=\sin x+C \qquad \mbox{con }C \mbox{ una constante.}$$
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            $$\int \sin x\,dx=-\cos x+C \qquad \mbox{con }C \mbox{ una constante.}$$
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            \begin{split}
+                                \frac{d}{dx}\tan x &=\sec^2 x  \Rightarrow \int\sec^2 x\, dx=\tan x +C \\
+                                \frac{d}{dx}\cot x &=-\csc^2 x  \Rightarrow \int\csc^2 x\, dx=-\cot x +C \\
+                                \frac{d}{dx}\sec x &=\sec x \tan x  \Rightarrow \int\sec x \tan x\, dx=\sec x +C \\
+                                \frac{d}{dx}\csc x &=-\csc x \cot x  \Rightarrow \int\csc x \cot x\, dx=-\csc x +C
+                            \end{split}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            \begin{split}
+                                \frac{d}{dx}\arcsin x &=\frac{1}{\sqrt{1-x^2}}  \Rightarrow \int \frac{1}{\sqrt{1-x^2}} \, dx=\arcsin x +C \\
+                                \frac{d}{dx}\arccos x &=-\frac{1}{\sqrt{1-x^2}}  \Rightarrow \int \frac{1}{\sqrt{1-x^2}} \, dx=-\arccos x +C \\
+                                \frac{d}{dx}\arctan x &=\frac{1}{1+x^2}  \Rightarrow \int \frac{1}{1+x^2} \, dx=\arctan x +C 
+                            \end{split}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
     <div class="modal" data-modal="theorem-2-5-1">

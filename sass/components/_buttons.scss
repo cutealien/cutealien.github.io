@@ -114,4 +114,7 @@
     &--transparent {
         opacity: 0.7;
     }
+    &--2 {
+        transform: translateY(-100%)    ;
+    }
 }

@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/style.css">
+    
+    <script src="./scripts/question.js" defer></script>
+    <script src="./scripts/modal.js" defer></script>
+    <script src="./scripts/menu-mobile.js" defer></script>
+
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+            loader: {load: ['input/asciimath', 'output/chtml']}
+        }
+    </script>
+    <script id="MathJax-script" async src="/scripts/MathJax-master/es5/tex-chtml.js"></script>
+
+    <title>Cálculo 2 | Sustitución trigonométrica</title>
+</head>
+<body class="course">
+    <nav class="navbar">
+        <a href="/" class="navbar__logo-box">
+        </a>
+        <a href="/" class="navbar__link">
+            Inicio
+        </a>
+        <a href="/example.html" class="navbar__link">
+            Ejemplo
+        </a>
+        <a href="#" class="navbar__link navbar__link--active">
+            Cálculo 2
+        </a>
+        <button class="menu-mobile-btn burger-btn" data-menu-btn="menu-mobile"><span class="burger-icon"></span></button>
+    </nav>
+    <nav class="sidebar">
+        <ol class="subject-list">
+            <li class="subject-list__item">
+                <strong class="subject-list__title">1 La integral definida</strong>
+                <ol class="subject-list">
+                    <li class="subject-list__item"><a href="/cursos/calculo2/" class="subject-list__link">1.1 Introducción</a></li>
+                    <li class="subject-list__item">
+                        <a href="./1.2-Sumatoria.html" class="subject-list__link">1.2 El símbolo $\sum$</a>
+                        <ol class="subject-list">
+                            <li class="subject-list__item"><a href="./1.2-Sumatoria.html#1.2" class="subject-list__link">1.2.1 Formalizando el símbolo sumatorio</a></li>
+                            <li class="subject-list__item"><a href="./1.2.2-propiedades.html" class="subject-list__link">1.2.2 Propiedades del símbolo $\sum$</a></li>
+                        </ol>
+                    </li>
+                    <li class="subject-list__item"><a href="./1.3-calculo-de-areas.html" class="subject-list__link">1.3 Cálculo de  ́areas con rect. insc. y circuns.</a></li>
+                    <li class="subject-list__item">
+                        <a href="./1.4-integral-definida.html" class="subject-list__link">1.4 Construcción de la integral definida</a>
+                        <ol class="subject-list">
+                            <li class="subject-list__item"><a href="./1.4.1-integral-definida.html" class="subject-list__link">1.4.1 Construcción de la integral definida parte 2</a></li>
+                            <li class="subject-list__item"><a href="./1.4.2-integral-definida.html" class="subject-list__link">1.4.2 Construcción de la integral definida parte 3</a></li>
+                            <li class="subject-list__item"><a href="./1.4.3-integral-definida.html" class="subject-list__link">1.4.3 Construcción de la integral definida parte 4</a></li>
+                            <li class="subject-list__item"><a href="./1.4.4-integral-definida.html" class="subject-list__link">1.4.4 Construcción de la integral definida parte 5</a></li>
+                        </ol>
+                    </li>
+                    <li class="subject-list__item"><a href="./1.5-sumas-riemann.html" class="subject-list__link">1.5 Sumas de Riemann</a></li>
+                    <li class="subject-list__item"><a href="./1.6-teorema-fundamental.html" class="subject-list__link">1.6 Teorema fundamental del Cálculo y sus consecuencias</a></li>
+                    <li class="subject-list__item"><a href="#" class="subject-list__link">1.7 Ejercicios</a></li>
+                </ol>
+            </li>
+            <li class="subject-list__item">
+                <strong class="subject-list__title">2 La integral indefinida</strong>
+                <ol class="subject-list">
+                    <li class="subject-list__item"><a href="./2.1-introduccion.html" class="subject-list__link">2.1 Introducción</a></li>
+                    <li class="subject-list__item"><a href="./2.2-antiderivadas-inmediatas.html" class="subject-list__link">2.2 Antiderivadas inmediatas</a></li>
+                    <li class="subject-list__item">
+                        <a href="./2.3-metodo-sustitucion.html" class="subject-list__link">2.3 Método de int. por sust. o cambio de variable</a>
+                        <ol class="subject-list">
+                            <li class="subject-list__item"><a href="./2.3.1-metodo-sustitucion-parte-2.html" class="subject-list__link">2.3.1 Método de int. por sust. o cambio de variable parte 2</a></li>
+                        </ol>
+                    </li>
+                    <li class="subject-list__item"><a href="./2.4-integracion-por-partes.html" class="subject-list__link">2.4 Método de integración por partes</a></li>
+                    <li class="subject-list__item">
+                        <a href="./2.5-fracciones-parciales.html" class="subject-list__link">2.5 Método de integración por fracciones parciales</a>
+                        <ol class="subject-list">
+                            <li class="subject-list__item"><a href="./2.5.1-factores-lineales-no-repetidos.html" class="subject-list__link">2.5.1 El polinomio $Q(x)$ solo contiene factores lineales que no se repiten</a></li>     
+                            <li class="subject-list__item"><a href="./2.5.2-factores-lineales-repetidos.html" class="subject-list__link">2.5.2 El polinomio $Q(x)$ solo contiene factores lineales, pero algunos de ellos se repetidos</a></li>     
+                            <li class="subject-list__item"><a href="./2.5.3-factores-cuadraticos-irreducibles.html" class="subject-list__link">2.5.3 Integrales de funciones simples que involucran términos cuadráticos irreducibles</a></li>     
+                            <li class="subject-list__item"><a href="./2.5.4-factores-cuadraticos-no-repetidos.html" class="subject-list__link">2.5.4 El polinomio Q(x) contiene factores cuadráticos irreducibles que no se repiten</a></li>     
+                            <li class="subject-list__item"><a href="./2.5.5-factores-cuadraticos-repetidos.html" class="subject-list__link">2.5.5 El polinomio Q(x) contiene factores cuadráticos irreducibles que se repiten</a></li>     
+                        </ol>
+                    </li>
+                    <li class="subject-list__item"><a href="./2.6-sust-trigonometrica.html" class="subject-list__link subject-list__link--active">2.6 Met. de int. por sust. trigonométrica</a></li>     
+                </ol>
+            </li>
+            <li class="subject-list__item">
+                <strong class="subject-list__title">3 Integrales impropias y aplicaciones</strong>
+                <ol class="subject-list">
+                    <li class="subject-list__item"><a href="#" class="subject-list__link">3.1 Integrales impropias</a></li>
+                    <li class="subject-list__item"><a href="#" class="subject-list__link">3.2 Más integrales impropias (para funciones discontinuas)</a></li>
+                    <li class="subject-list__item"><a href="#" class="subject-list__link">3.3 Cálculo de áreas de regiones acotadas pro curvas</a></li>   
+                </ol>
+            </li>
+            <li class="subject-list__item">
+                <strong class="subject-list__title">Anexo</strong>
+                <ol class="subject-list">
+                    <li class="subject-list__item"><a href="./anexo-conjuntos.html" class="subject-list__link">A1 Conjuntos</a></li>
+                </ol>
+            </li>
+        </ol>
+    </nav>
+    <div class="menu-mobile" data-menu="menu-mobile">
+        <div class="menu-mobile__bg" data-menu-bg="menu-mobile"></div>
+        <div class="menu-mobile__content" data-menu-content="menu-mobile">
+            <div class="menu-mobile__header">
+                <h3 class="header-tertiary">Cálculo 2</h3>
+                <button class="menu-mobile-btn burger-btn" data-menu-btn="menu-mobile"><span class="burger-icon burger-icon--pressed"></span></button>
+            </div>
+            <nav class="navbar-mobile">
+                <ol class="subject-list">
+                    <li class="subject-list__item">
+                        <strong class="subject-list__title">1 La integral definida</strong>
+                        <ol class="subject-list">
+                            <li class="subject-list__item"><a href="/cursos/calculo2/" class="subject-list__link">1.1 Introducción</a></li>
+                            <li class="subject-list__item">
+                                <a href="./1.2-Sumatoria.html" class="subject-list__link">1.2 El símbolo $\sum$</a>
+                                <ol class="subject-list">
+                                    <li class="subject-list__item"><a href="./1.2-Sumatoria.html#1.2" class="subject-list__link">1.2.1 Formalizando el símbolo sumatorio</a></li>
+                                    <li class="subject-list__item"><a href="./1.2.2-propiedades.html" class="subject-list__link">1.2.2 Propiedades del símbolo $\sum$</a></li>
+                                </ol>
+                            </li>
+                            <li class="subject-list__item"><a href="./1.3-calculo-de-areas.html" class="subject-list__link">1.3 Cálculo de  ́areas con rect. insc. y circuns.</a></li>
+                            <li class="subject-list__item">
+                                <a href="./1.4-integral-definida.html" class="subject-list__link">1.4 Construcción de la integral definida</a>
+                                <ol class="subject-list">
+                                    <li class="subject-list__item"><a href="./1.4.1-integral-definida.html" class="subject-list__link">1.4.1 Construcción de la integral definida parte 2</a></li>
+                                    <li class="subject-list__item"><a href="./1.4.2-integral-definida.html" class="subject-list__link">1.4.2 Construcción de la integral definida parte 3</a></li>
+                                    <li class="subject-list__item"><a href="./1.4.3-integral-definida.html" class="subject-list__link">1.4.3 Construcción de la integral definida parte 4</a></li>
+                                    <li class="subject-list__item"><a href="./1.4.4-integral-definida.html" class="subject-list__link">1.4.4 Construcción de la integral definida parte 5</a></li>
+                                </ol>
+                            </li>
+                            <li class="subject-list__item"><a href="./1.5-sumas-riemann.html" class="subject-list__link">1.5 Sumas de Riemann</a></li>
+                            <li class="subject-list__item"><a href="./1.6-teorema-fundamental.html" class="subject-list__link">1.6 Teorema fundamental del Cálculo y sus consecuencias</a></li>
+                            <li class="subject-list__item"><a href="#" class="subject-list__link">1.7 Ejercicios</a></li>
+                        </ol>
+                    </li>
+                    <li class="subject-list__item">
+                        <strong class="subject-list__title">2 La integral indefinida</strong>
+                        <ol class="subject-list">
+                            <li class="subject-list__item"><a href="./2.1-introduccion.html" class="subject-list__link">2.1 Introducción</a></li>
+                            <li class="subject-list__item"><a href="./2.2-antiderivadas-inmediatas.html" class="subject-list__link">2.2 Antiderivadas inmediatas</a></li>
+                            <li class="subject-list__item">
+                                <a href="./2.3-metodo-sustitucion.html" class="subject-list__link">2.3 Método de int. por sust. o cambio de variable</a>
+                                <ol class="subject-list">
+                                    <li class="subject-list__item"><a href="./2.3.1-metodo-sustitucion-parte-2.html" class="subject-list__link">2.3.1 Método de int. por sust. o cambio de variable parte 2</a></li>
+                                </ol>
+                            </li>
+                            <li class="subject-list__item"><a href="./2.4-integracion-por-partes.html" class="subject-list__link">2.4 Método de integración por partes</a></li>
+                            <li class="subject-list__item">
+                                <a href="./2.5-fracciones-parciales.html" class="subject-list__link">2.5 Método de integración por fracciones parciales</a>
+                                <ol class="subject-list">
+                                    <li class="subject-list__item"><a href="./2.5.1-factores-lineales-no-repetidos.html" class="subject-list__link">2.5.1 El polinomio $Q(x)$ solo contiene factores lineales que no se repiten</a></li>     
+                                    <li class="subject-list__item"><a href="./2.5.2-factores-lineales-repetidos.html" class="subject-list__link">2.5.2 El polinomio $Q(x)$ solo contiene factores lineales, pero algunos de ellos se repetidos</a></li>     
+                                    <li class="subject-list__item"><a href="./2.5.3-factores-cuadraticos-irreducibles.html" class="subject-list__link">2.5.3 Integrales de funciones simples que involucran términos cuadráticos irreducibles</a></li>     
+                                    <li class="subject-list__item"><a href="./2.5.4-factores-cuadraticos-no-repetidos.html" class="subject-list__link">2.5.4 El polinomio Q(x) contiene factores cuadráticos irreducibles que no se repiten</a></li>     
+                                    <li class="subject-list__item"><a href="./2.5.5-factores-cuadraticos-repetidos.html" class="subject-list__link">2.5.5 El polinomio Q(x) contiene factores cuadráticos irreducibles que se repiten</a></li>     
+                                </ol>
+                            </li>
+                            <li class="subject-list__item"><a href="./2.6-sust-trigonometrica.html" class="subject-list__link subject-list__link--active">2.6 Met. de int. por sust. trigonométrica</a></li>     
+                        </ol>
+                    </li>
+                    <li class="subject-list__item">
+                        <strong class="subject-list__title">3 Integrales impropias y aplicaciones</strong>
+                        <ol class="subject-list">
+                            <li class="subject-list__item"><a href="#" class="subject-list__link">3.1 Integrales impropias</a></li>
+                            <li class="subject-list__item"><a href="#" class="subject-list__link">3.2 Más integrales impropias (para funciones discontinuas)</a></li>
+                            <li class="subject-list__item"><a href="#" class="subject-list__link">3.3 Cálculo de áreas de regiones acotadas pro curvas</a></li>   
+                        </ol>
+                    </li>
+                    <li class="subject-list__item">
+                        <strong class="subject-list__title">Anexo</strong>
+                        <ol class="subject-list">
+                            <li class="subject-list__item"><a href="./anexo-conjuntos.html" class="subject-list__link">Conjuntos</a></li>
+                        </ol>
+                    </li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <main class="main">
+        <section>
+            <h1 class="header-primary">
+                2.5.6 Método de integración por sustitución trigonométrica
+            </h1>
+            <p class="paragraph">
+                Algunas integrales pueden resolverse haciendo cambios de variable que involucren a las funciones trigonométricas y para eso debemos tener en cuenta 
+                algunas identidades trigonométricas básicas: 
+                \begin{equation*}
+                    \tan \theta=\frac{\sin \theta}{\cos \theta}, \quad \cot \theta=\frac{\cos \theta}{\sin \theta}, \quad \sec \theta = \frac{1}{\cos \theta}, \quad  \csc \theta=\frac{1}{\sin \theta},
+                \end{equation*}
+                y también debemos tener buen conocimiento de sus derivadas.
+            </p>
+            <p class="paragraph">
+                Otras identidades trigonométricas que también debemos conocer son 
+                \begin{equation}\label{trig1} \cos^2\theta+\sin^2\theta=1 \qquad \mbox{ y } \qquad \tan^2\theta+1=\sec^2\theta. \end{equation}
+            </p>
+            <p class="paragraph">
+                Además, algunas de las fórmulas más conocidas que se deben conocer son el seno y el coseno de la suma y resta de ángulos. Si $A$ y $B$ son números reales, entonces
+                \begin{equation*}
+                    \begin{split}
+                        \sin(A\pm B) & = \sin A \cos B \pm \sin B \cos A \\
+                        \cos(A\pm B) & = \cos A \cos B \mp \sin A \sin B
+                    \end{split}
+                \end{equation*}
+            </p>
+            <p class="paragraph">
+                Para una lista más extensa de identidades checa la lista de identidades trigonométricas.
+            </p>
+            <p class="paragraph">
+                El cambio obligado dependerá de la posición del 1, pues dependiendo de si está sumando o restando a algo que está elevado al cuadrado, 
+                es la identidad que usaremos para que se unduzca el cambio de variable. Si hay algo elevado al cuadrado y se le suma o se le resta una constante, 
+                debemos aparacer el 1 e identificar qué identidad será la adecuada para definir nuestro cambio de variable.
+            </p>
+            <div class="note">
+                <p class="paragraph">
+                    <strong class="note__title">Nota:</strong> La idea de hacer este cambio de variable es que la integral se transforme en una integral más fácil de 
+                    resolver y una vez que se obtenga el resultado, debemos volver a la variable original teniendo en cuenta la identidad usada y las identidades trigonométricas que conocemos.
+                </p>
+            </div>
+            <div class="fancy-line"></div>
+            <div class="example">
+                <p class="paragraph">
+                    <strong class="example__title">Ejemplo 2.6.1.</strong> Calcular $\int\sqrt{1-x^2}\,dx$.
+                </p>
+                <p class="paragraph">
+                    Como el integrando es $f(x)=\sqrt{1-x^2}$, nos damos cuenta que, según las <span class="modal__reference" data-modal-btn="trigonometric">identidades trigonométricas</span>, tiene la forma $\cos \theta=\sqrt{1-\sin^2\theta}$, 
+                    identificando ambas ecuaciones, obtenemos que $x^2$ debe ser igual a $\sin^2\theta$, lo que nos indica que el cambio de variable adecuado es $x=\sin \theta$, entonces $dx=\cos\theta d\theta$, así
+                </p>
+                <div class="calculation">
+                    <div class="calculation__formule--1">
+                        $$\int\sqrt{1-x^2}\,dx$$
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \int\sqrt{1-\sin^2\theta}\,\cos\theta\,d\theta $$
+                        </div>
+                        <div class="calculation__text">
+                            por <span class="modal__reference" data-modal-btn="theorem-2-3-1">Teorema 2.3.1</span>
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \int \cos\theta \cos \theta\,d\theta $$
+                        </div>
+                        <div class="calculation__text">
+                            
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \int \cos^2\theta \,d\theta $$
+                        </div>
+                        <div class="calculation__text">
+                            por leyes de exponentes
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \int \frac{1+\cos(2\theta)}{2}\,d\theta $$
+                        </div>
+                        <div class="calculation__text">
+                            
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \int \frac{1}{2} d\theta + \int \frac{\cos(2\theta)}{2}\,d\theta $$
+                        </div>
+                        <div class="calculation__text">
+                            por <span class="modal__reference" data-modal-btn="theorem-2-2-1">Teorema 2.2.1</span>
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \frac{1}{2}\int \,d\theta +\frac{1}{2} \int \cos(2\theta)\,d\theta $$
+                        </div>
+                        <div class="calculation__text">
+                            por <span class="modal__reference" data-modal-btn="theorem-2-2-1">Teorema 2.2.1</span>
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \frac{1}{2}\int \,d\theta +\frac{1}{4} \int \cos(2\theta)\,2d\theta $$
+                        </div>
+                        <div class="calculation__text">
+                            por <span class="modal__reference" data-modal-btn="theorem-2-2-1">Teorema 2.2.1</span>
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div class="calculation__text">
+                            hacemos $u=2\theta$ entonces $du=2d\theta$
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \frac{1}{2}\int \,d\theta +\frac{1}{4} \int \cos(u)\,du $$
+                        </div>
+                        <div class="calculation__text">
+                            por <span class="modal__reference" data-modal-btn="theorem-2-3-1">Teorema 2.3.1</span>
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \frac{1}{2}\theta + \frac{1}{4}\sin u+C $$
+                        </div>
+                        <div class="calculation__text">
+                            
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \frac{1}{2}\theta + \frac{1}{4}\sin (2\theta)+C $$
+                        </div>
+                        <div class="calculation__text">
+                            por el cambio de variable
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \frac{1}{2}\theta + \frac{1}{4}2\sin \theta \cos\theta+C $$
+                        </div>
+                        <div class="calculation__text">
+                            
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \frac{1}{2}\theta + \frac{1}{2}\sin \theta \cos\theta+C $$
+                        </div>
+                        <div class="calculation__text">
+                            por cuentitas
+                        </div>
+                    </div>
+                </div>
+                <p class="paragraph">
+                    Luego, debemos volver a la variable original. Sabemos que $x=\sin \theta$, entonces $\theta=\arcsin x$ y además, $\cos \theta=\sqrt{1-\sin^2\theta}=\sqrt{1-x^2}$. Así,
+                    $$\frac{1}{2}\theta + \frac{1}{2}\sin \theta \cos\theta+C=\frac{1}{2}\arcsin x + \frac{1}{2}x \sqrt{1-x^2}+C.$$
+                </p>
+                <p class="paragraph">
+                    Finalmente, $$\int\sqrt{1-x^2}\,dx=\frac{1}{2}\arcsin x + \frac{1}{2}x \sqrt{1-x^2}+C.$$
+                </p>
+            </div>
+            <div class="fancy-line"></div>
+        </section>    
+        <section>
+            <p class="paragraph">
+                Ahora ya podemos resolver la integral de la sección anterior.
+            </p>
+            <p class="paragraph">
+                La integral fue a resolver es $\int \frac{1}{(x^2+9)^2}\,dx$. La integral tiene la forma $\tan^2\theta+1=\sec^2\theta,$ pero antes debemos encontrar una forma de
+                eliminar el $9$ del denominador. Para esto podemos hacer el cambio $x = 3\tan \theta$, lo que indica que $dx=3\sec^2\theta d\theta.$
+            </p>
+            <form class="question margin-top-sm" data-question="question-2-6-1" data-answer="a" autocomplete="off">
+                <h3 class="question__header margin-bottom-sm">
+                    ¿Cómo queda la integral después del cambio de variable?
+                </h3>
+                <div class="question__row">
+                    <div class="question__col-1">
+                        <div class="question__options">
+                            <div class="question__option">
+                                <input type="radio" id="answer-2-6-1-a" name="question-2-6-1" value="a" data-option="question-2-6-1">
+                                <label for="answer-2-6-1-a">$$\frac{1}{27}\int \cos^2\theta d\theta$$</label>
+                            </div>
+                            <div class="question__option">
+                                <input type="radio" id="answer-2-6-1-b" name="question-2-6-1" value="b" data-option="question-2-6-1">
+                                <label for="answer-2-6-1-b">$$\frac{1}{9}\int \frac{1}{\sin^2\theta}d\theta$$</label>
+                            </div>
+                            <div class="question__option">
+                                <input type="radio" id="answer-2-6-1-c" name="question-2-6-1" value="c" data-option="question-2-6-1">
+                                <label for="answer-2-6-1-c">$$\frac{1}{27}\int \frac{\tan\theta}{\sec^2\theta}d\theta$$</label>
+                            </div>
+                            <div class="question__option">
+                                <input type="radio" id="answer-2-6-1-d" name="question-2-6-1" value="d" data-option="question-2-6-1">
+                                <label for="answer-2-6-1-d">$$\frac{1}{81}\int \sec^2\theta d\theta$$</label>
+                            </div>
+                        </div>
+                        <div class="question__btn-box">
+                            <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                            <button class="btn btn--blue" type="button" disabled data-btn-continue="step-1">Continuar</button>
+                        </div>
+                    </div>
+                    <div class="question__col-2">
+                        <p class="question__answer"></p>
+                    </div>
+                </div>
+            </form>
+            <div class="section--hidden" data-section="step-1">
+                <p class="paragraph">
+                    Después de la sustitución y hacer simplificaciones, tenemos
+                </p>
+                <div class="calculation">
+                    <div class="calculation__formule--1">
+                        $$\int \frac{1}{(x^2+9)^2}\,dx$$
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \int \frac{3\sec^2\theta}{\left( 9 \tan^2 \theta + 9 \right)^2}d\theta $$
+                        </div>
+                        <div class="calculation__text">
+                            por el cambio de variable
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= 3\int \frac{\sec^2 \theta}{\left(9 ( \tan^2\theta + 1) \right)^2}d\theta $$
+                        </div>
+                        <div class="calculation__text">
+                            
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \frac{3}{81}\int \frac{\sec^2 \theta}{\left( \tan^2\theta + 1 \right)^2}d\theta $$
+                        </div>
+                        <div class="calculation__text">
+                            
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \frac{1}{27}\int \frac{\sec^2 \theta}{\sec^4\theta}d\theta $$
+                        </div>
+                        <div class="calculation__text">
+                            
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \frac{1}{27}\int \frac{1}{\sec^2\theta}d\theta $$
+                        </div>
+                        <div class="calculation__text">
+                            
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \frac{1}{27}\int \cos^2\theta d\theta $$
+                        </div>
+                        <div class="calculation__text">
+                            
+                        </div>
+                    </div>
+                </div>
+                <p class="paragraph">
+                    Para resolver la última integral utilizamos la identidad $\cos^2 \theta  = \frac{1+\cos(2\theta)}{2}.$
+                </p>
+                <form class="question margin-top-sm" data-question="question-2-6-2" data-answer="a" autocomplete="off">
+                    <h3 class="question__header margin-bottom-sm">
+                        Usando la identidad anterior, resuelve la integral en términos de $\theta.$
+                    </h3>
+                    <div class="question__row">
+                        <div class="question__col-1">
+                            <div class="question__options">
+                                <div class="question__option">
+                                    <input type="radio" id="answer-2-6-2-a" name="question-2-6-2" value="a" data-option="question-2-6-2">
+                                    <label for="answer-2-6-2-a">$\frac{1}{54}\theta + \frac{1}{54}\sin\theta \cos\theta$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" id="answer-2-6-2-b" name="question-2-6-2" value="b" data-option="question-2-6-2">
+                                    <label for="answer-2-6-2-b">$\frac{1}{54}\theta^2 + \frac{1}{54}\sin^2\theta$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" id="answer-2-6-2-c" name="question-2-6-2" value="c" data-option="question-2-6-2">
+                                    <label for="answer-2-6-2-c">$\frac{1}{54}\theta + \frac{1}{54} \cos^2\theta$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" id="answer-2-6-2-d" name="question-2-6-2" value="d" data-option="question-2-6-2">
+                                    <label for="answer-2-6-2-d">$\frac{1}{54}\theta + \frac{1}{54} \tan\theta$</label>
+                                </div>
+                            </div>
+                            <div class="question__btn-box">
+                                <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                <button class="btn btn--blue" type="button" disabled data-btn-continue="step-2">Continuar</button>
+                            </div>
+                        </div>
+                        <div class="question__col-2">
+                            <p class="question__answer"></p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="section--hidden" data-section="step-2">
+                <p class="paragraph">
+                    Usando la identidad, tenemos
+                </p>
+                <div class="calculation">
+                    <div class="calculation__formule--1">
+                        $$\frac{1}{27}\int \cos^2\theta d\theta$$
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \frac{1}{27}\int \left(\frac{1}{2} + \frac{1}{2}\cos(2\theta) \right) d\theta $$
+                        </div>
+                        <div class="calculation__text">
+                            
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \frac{1}{54}\int d\theta + \frac{1}{54}\int \cos(2\theta)  d\theta $$
+                        </div>
+                        <div class="calculation__text">
+                            por <span class="modal__reference" data-modal-btn="theorem-2-2-1">Teorema 2.2.1</span>
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \frac{1}{54}\theta + \frac{1}{108} \sin(2\theta)$$
+                        </div>
+                        <div class="calculation__text">
+                            
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \frac{1}{54}\theta + \frac{1}{54} \sin\theta \cos\theta $$
+                        </div>
+                        <div class="calculation__text">
+                            por que $\sin(2\theta)  = 2\sin \theta \cos\theta$
+                        </div>
+                    </div>
+                </div>
+                <p class="paragraph">
+                    Ahora tene,os que regresar a la variable original. Sabemos que $x=3\tan\theta,$ de donde $\tan\theta = \frac{x}{3}$ y $\theta = \arctan \frac{x}{3}.$ 
+                    Para expresar $\cos\theta$ en términos de $x$ utilizaremos la identidad $\tan^2\theta+1=\sec^2\theta$ y $\sec\theta = \frac{1}{\cos\theta},$ entonces
+                    \begin{align}
+                        \sec^2\theta   &= \tan^2\theta+1 \\
+                        \Rightarrow \sec \theta &=\sqrt{\tan^2\theta+1} \\
+                        \Rightarrow \frac{1}{\cos \theta} &=\sqrt{\tan^2\theta+1} \\
+                        \Rightarrow \cos \theta &= \frac{1}{\sqrt{\tan^2\theta+1}} \\
+                        \Rightarrow \cos \theta &= \frac{1}{\sqrt{(\frac{x}{3})^2+1}} \\
+                        \Rightarrow \cos \theta &= \frac{3}{\sqrt{x^2+9}} \\
+                    \end{align}
+                </p>
+                <p class="paragraph">
+                    Y para expresar $\sin\theta$ usamos $\sin \theta=\sqrt{1-\cos^2\theta},$ de donde
+                    \begin{align}
+                        \sin \theta &= \sqrt{1-\cos^2\theta} \\
+                        \sin \theta &= \sqrt{1-\left(\frac{3}{\sqrt{x^2+9}}\right)^2} \\
+                        \sin \theta &= \sqrt{1-\frac{9}{x^2+9}} \\
+                        \sin \theta &= \sqrt{\frac{x^2}{x^2+9}} \\
+                        \sin \theta &= \frac{x}{\sqrt{x^2+9}} \\
+                    \end{align}
+                </p>
+                <p class="paragraph">
+                    Así, $$\frac{1}{54}\theta + \frac{1}{54} \sin\theta \cos\theta = \frac{1}{54}\arctan \left(\frac{x}{3}\right) + \frac{1}{54}\frac{3x}{x^2+9}$$
+                </p>
+                <p class="paragraph">
+                    Finalmente tenemos que, $$\int \frac{1}{(x^2+9)^2}\,dx = \frac{1}{54}\arctan \left(\frac{x}{3}\right) + \frac{1}{18}\frac{x}{x^2+9}$$
+                </p>
+                <div class="fancy-line"></div>
+                <div class="change-page">
+                    <a href="./2.5.5-factores-cuadraticos-repetidos.html" class="change-page__before">Anterior</a>
+                    <a href="#" class="change-page__next">Siguiente</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div class="modal" data-modal="theorem-2-2-1">
+        <div class="modal__background" data-modal-background="theorem-2-2-1"></div>
+        <div class="modal__content">
+            <div class="theorem">
+                <p class="paragraph">
+                    <strong class="theorem__title">Teorema 2.2.1.</strong> Si $f$ y $g$ funciones integrables, entonces 
+                </p>
+                <ol class="theorem__list">
+                    <li class="theorem__list--formule">
+                        $$\int (f\pm g)(x)\, dx=\int f(x) \, dx \pm \int g(x) \, dx.$$
+                    </li>
+                    <li class="theorem__list--formule">
+                        $$\int (cf)(x) \, dx = c\int f(x) \, dx, \mbox{con} \, c \in\mathbf{R}.$$
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <div class="modal" data-modal="theorem-2-3-1">
+        <div class="modal__background" data-modal-background="theorem-2-3-1"></div>
+        <div class="modal__content">
+            <div class="theorem">
+                <p class="paragraph">
+                    <strong class="theorem__title">Teorema 2.3.1.</strong> Sean $f$ y $g$ funciones continuas.
+                </p>
+                <ol class="theorem__list">
+                    <li class="theorem__list-item">
+                        Si $f'$ y $g'$ son continuas y $H(u)=\int f(u)\,du$, entonces $$\int f(g(x))g'(x)\, dx=H(g(x)).$$
+                    </li>
+                    <li class="theorem__list-item">
+                        Si $\nu$ es una función derivable con derivada continua e invertible con inversa derivable, y  
+                        $H(x)=\int f(\nu(x))\nu'(x)\,dx$, entonces $$\int f(y)\,dy=H(\nu^{-1}(y)).$$
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <div class="floating-btn floating-btn--transparent">
+        <button class="btn-sm btn--blue" data-modal-btn="formules">Formulario</button>
+    </div>
+    <div class="modal" data-modal="formules">
+        <div class="modal__background" data-modal-background="formules"></div>
+        <div class="modal__content">
+            <table class="math-table">
+                <thead>
+                    <tr>
+                        <th>Fórmulas básicas de integración</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            $$\int x^n\,dx=\frac{x^{n+1}}{n+1}+C \qquad \mbox{ con }n\in\mathbf{N} \setminus\{-1\} \mbox{ y }C\mbox{ una constante}.$$
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            $$\int e^{kx}\,dx=\frac{e^{kx}}{k}+C \qquad \mbox{con }C \mbox{ una constante.}$$
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            $$\int\frac{1}{x}\,dx=\ln x+C \qquad \mbox{con }C \mbox{ una constante.}$$
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            $$\int \cos x\,dx=\sin x+C \qquad \mbox{con }C \mbox{ una constante.}$$
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            $$\int \sin x\,dx=-\cos x+C \qquad \mbox{con }C \mbox{ una constante.}$$
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            \begin{split}
+                                \frac{d}{dx}\tan x &=\sec^2 x  \Rightarrow \int\sec^2 x\, dx=\tan x +C \\
+                                \frac{d}{dx}\cot x &=-\csc^2 x  \Rightarrow \int\csc^2 x\, dx=-\cot x +C \\
+                                \frac{d}{dx}\sec x &=\sec x \tan x  \Rightarrow \int\sec x \tan x\, dx=\sec x +C \\
+                                \frac{d}{dx}\csc x &=-\csc x \cot x  \Rightarrow \int\csc x \cot x\, dx=-\csc x +C
+                            \end{split}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            \begin{split}
+                                \frac{d}{dx}\arcsin x &=\frac{1}{\sqrt{1-x^2}}  \Rightarrow \int \frac{1}{\sqrt{1-x^2}} \, dx=\arcsin x +C \\
+                                \frac{d}{dx}\arccos x &=-\frac{1}{\sqrt{1-x^2}}  \Rightarrow \int \frac{1}{\sqrt{1-x^2}} \, dx=-\arccos x +C \\
+                                \frac{d}{dx}\arctan x &=\frac{1}{1+x^2}  \Rightarrow \int \frac{1}{1+x^2} \, dx=\arctan x +C 
+                            \end{split}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="floating-btn floating-btn--transparent floating-btn--2">
+        <button class="btn-sm btn--blue" data-modal-btn="trigonometric">Identidades</button>
+    </div>
+    <div class="modal" data-modal="trigonometric">
+        <div class="modal__background" data-modal-background="trigonometric"></div>
+        <div class="modal__content">
+            <table class="math-table">
+                <thead>
+                    <tr>
+                        <th>Identidades trigonométricas</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            \begin{equation*}
+                                \tan \theta=\frac{\sin \theta}{\cos \theta}, \quad \cot \theta=\frac{\cos \theta}{\sin \theta}, \quad \sec \theta = \frac{1}{\cos \theta}, \quad  \csc \theta=\frac{1}{\sin \theta},
+                            \end{equation*}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            \begin{equation} \cos^2\theta+\sin^2\theta=1 \qquad \mbox{ y } \qquad \tan^2\theta+1=\sec^2\theta. \end{equation}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            \begin{equation*}
+                                \begin{split}
+                                    \sin(A\pm B) & = \sin A \cos B \pm \sin B \cos A \\
+                                    \cos(A\pm B) & = \cos A \cos B \mp \sin A \sin B
+                                \end{split}
+                            \end{equation*}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            \begin{equation}\label{angdoble} \sin(2\theta)  = 2\sin \theta \cos \theta  \quad \mbox{ y } \quad \cos(2\theta) = \cos^2\theta - \sin^2 \theta.\end{equation}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            \begin{equation}\label{trig2} \cos^2 \theta  = \frac{1+\cos(2\theta)}{2}  \quad \mbox{ y } \quad \sin^2\theta = \frac{1-\cos (2\theta)}{2}.\end{equation}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            \begin{equation}
+                                \begin{matrix}
+                                    \cos^2\theta+\sin^2\theta=1 & \tan^2\theta+1=\sec^2\theta \\
+                                    \cos^2\theta=1-\sin^2\theta & \tan^2\theta=\sec^2\theta-1 \\
+                                    \cos \theta=\sqrt{1-\sin^2\theta} & \tan\theta=\sqrt{\sec^2\theta-1}\\
+                                    \sin^2\theta=1-\cos^2\theta & \sec\theta=\sqrt{\tan^2\theta+1}\\
+                                    \sin \theta=\sqrt{1-\cos^2\theta} &
+                                \end{matrix}
+                            \end{equation}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

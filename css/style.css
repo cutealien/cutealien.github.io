@@ -510,6 +510,9 @@ div[data-anchor]:target::before {
 .floating-btn--transparent {
   opacity: 0.7;
 }
+.floating-btn--2 {
+  transform: translateY(-100%);
+}
 
 .slider-container {
   position: relative;
@@ -860,12 +863,11 @@ div[data-anchor]:target::before {
 }
 
 .math-table {
-  padding: 2rem;
   border-collapse: collapse;
   table-layout: fixed;
   font-size: 1.5rem;
   border: 1px solid var(--color-primary-dark);
-  margin: auto;
+  margin: 2rem auto;
 }
 .math-table caption {
   font-size: 2rem;
@@ -875,7 +877,7 @@ div[data-anchor]:target::before {
   color: #fff;
   background-color: var(--color-primary-dark);
 }
-.math-table th:first-child {
+.math-table th:not(:last-child) {
   border-right: 1px solid #fff;
 }
 .math-table tbody tr:nth-child(even) {
@@ -884,7 +886,7 @@ div[data-anchor]:target::before {
 .math-table td {
   padding: 1rem;
 }
-.math-table tr td:first-child {
+.math-table tr td:not(:last-child) {
   border-right: 1px solid var(--color-primary-dark);
 }
 

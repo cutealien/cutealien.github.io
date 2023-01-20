@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/style.css">
+    
+    <script src="./scripts/variables.js" defer></script>
+    <script src="./scripts/3.1-chapter.js" defer></script>
+    <script src="./scripts/question.js" defer></script>
+    <script src="./scripts/modal.js" defer></script>
+    <script src="./scripts/menu-mobile.js" defer></script>
+
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+            loader: {load: ['input/asciimath', 'output/chtml']}
+        }
+    </script>
+    <script id="MathJax-script" async src="/scripts/MathJax-master/es5/tex-chtml.js"></script>
+
+    <title>Cálculo 2 | Integrales impropias</title>
+</head>
+<body class="course">
+    <nav class="navbar">
+        <a href="/" class="navbar__logo-box">
+        </a>
+        <a href="/" class="navbar__link">
+            Inicio
+        </a>
+        <a href="/example.html" class="navbar__link">
+            Ejemplo
+        </a>
+        <a href="#" class="navbar__link navbar__link--active">
+            Cálculo 2
+        </a>
+        <button class="menu-mobile-btn burger-btn" data-menu-btn="menu-mobile"><span class="burger-icon"></span></button>
+    </nav>
+    <nav class="sidebar">
+        <ol class="subject-list">
+            <li class="subject-list__item">
+                <strong class="subject-list__title">1 La integral definida</strong>
+                <ol class="subject-list">
+                    <li class="subject-list__item"><a href="/cursos/calculo2/" class="subject-list__link">1.1 Introducción</a></li>
+                    <li class="subject-list__item">
+                        <a href="./1.2-Sumatoria.html" class="subject-list__link">1.2 El símbolo $\sum$</a>
+                        <ol class="subject-list">
+                            <li class="subject-list__item"><a href="./1.2-Sumatoria.html#1.2" class="subject-list__link">1.2.1 Formalizando el símbolo sumatorio</a></li>
+                            <li class="subject-list__item"><a href="./1.2.2-propiedades.html" class="subject-list__link">1.2.2 Propiedades del símbolo $\sum$</a></li>
+                        </ol>
+                    </li>
+                    <li class="subject-list__item"><a href="./1.3-calculo-de-areas.html" class="subject-list__link">1.3 Cálculo de  ́areas con rect. insc. y circuns.</a></li>
+                    <li class="subject-list__item">
+                        <a href="./1.4-integral-definida.html" class="subject-list__link">1.4 Construcción de la integral definida</a>
+                        <ol class="subject-list">
+                            <li class="subject-list__item"><a href="./1.4.1-integral-definida.html" class="subject-list__link">1.4.1 Construcción de la integral definida parte 2</a></li>
+                            <li class="subject-list__item"><a href="./1.4.2-integral-definida.html" class="subject-list__link">1.4.2 Construcción de la integral definida parte 3</a></li>
+                            <li class="subject-list__item"><a href="./1.4.3-integral-definida.html" class="subject-list__link">1.4.3 Construcción de la integral definida parte 4</a></li>
+                            <li class="subject-list__item"><a href="./1.4.4-integral-definida.html" class="subject-list__link">1.4.4 Construcción de la integral definida parte 5</a></li>
+                        </ol>
+                    </li>
+                    <li class="subject-list__item"><a href="./1.5-sumas-riemann.html" class="subject-list__link">1.5 Sumas de Riemann</a></li>
+                    <li class="subject-list__item"><a href="./1.6-teorema-fundamental.html" class="subject-list__link">1.6 Teorema fundamental del Cálculo y sus consecuencias</a></li>
+                    <li class="subject-list__item"><a href="#" class="subject-list__link">1.7 Ejercicios</a></li>
+                </ol>
+            </li>
+            <li class="subject-list__item">
+                <strong class="subject-list__title">2 La integral indefinida</strong>
+                <ol class="subject-list">
+                    <li class="subject-list__item"><a href="./2.1-introduccion.html" class="subject-list__link">2.1 Introducción</a></li>
+                    <li class="subject-list__item"><a href="./2.2-antiderivadas-inmediatas.html" class="subject-list__link">2.2 Antiderivadas inmediatas</a></li>
+                    <li class="subject-list__item">
+                        <a href="./2.3-metodo-sustitucion.html" class="subject-list__link">2.3 Método de int. por sust. o cambio de variable</a>
+                        <ol class="subject-list">
+                            <li class="subject-list__item"><a href="./2.3.1-metodo-sustitucion-parte-2.html" class="subject-list__link">2.3.1 Método de int. por sust. o cambio de variable parte 2</a></li>
+                        </ol>
+                    </li>
+                    <li class="subject-list__item"><a href="./2.4-integracion-por-partes.html" class="subject-list__link">2.4 Método de integración por partes</a></li>
+                    <li class="subject-list__item">
+                        <a href="./2.5-fracciones-parciales.html" class="subject-list__link">2.5 Método de integración por fracciones parciales</a>
+                        <ol class="subject-list">
+                            <li class="subject-list__item"><a href="./2.5.1-factores-lineales-no-repetidos.html" class="subject-list__link">2.5.1 El polinomio $Q(x)$ solo contiene factores lineales que no se repiten</a></li>     
+                            <li class="subject-list__item"><a href="./2.5.2-factores-lineales-repetidos.html" class="subject-list__link">2.5.2 El polinomio $Q(x)$ solo contiene factores lineales, pero algunos de ellos se repetidos</a></li>     
+                            <li class="subject-list__item"><a href="./2.5.3-factores-cuadraticos-irreducibles.html" class="subject-list__link">2.5.3 Integrales de funciones simples que involucran términos cuadráticos irreducibles</a></li>     
+                            <li class="subject-list__item"><a href="./2.5.4-factores-cuadraticos-no-repetidos.html" class="subject-list__link">2.5.4 El polinomio Q(x) contiene factores cuadráticos irreducibles que no se repiten</a></li>     
+                            <li class="subject-list__item"><a href="./2.5.5-factores-cuadraticos-repetidos.html" class="subject-list__link">2.5.5 El polinomio Q(x) contiene factores cuadráticos irreducibles que se repiten</a></li>     
+                        </ol>
+                    </li>
+                    <li class="subject-list__item"><a href="./2.6-sust-trigonometrica.html" class="subject-list__link subject-list__link--active">2.6 Met. de int. por sust. trigonométrica</a></li>     
+                </ol>
+            </li>
+            <li class="subject-list__item">
+                <strong class="subject-list__title">3 Integrales impropias y aplicaciones</strong>
+                <ol class="subject-list">
+                    <li class="subject-list__item"><a href="./3.1-integrales-impropias.html" class="subject-list__link">3.1 Integrales impropias</a></li>
+                    <li class="subject-list__item"><a href="#" class="subject-list__link">3.2 Más integrales impropias (para funciones discontinuas)</a></li>
+                    <li class="subject-list__item"><a href="#" class="subject-list__link">3.3 Cálculo de áreas de regiones acotadas pro curvas</a></li>   
+                </ol>
+            </li>
+            <li class="subject-list__item">
+                <strong class="subject-list__title">Anexo</strong>
+                <ol class="subject-list">
+                    <li class="subject-list__item"><a href="./anexo-conjuntos.html" class="subject-list__link">A1 Conjuntos</a></li>
+                </ol>
+            </li>
+        </ol>
+    </nav>
+    <div class="menu-mobile" data-menu="menu-mobile">
+        <div class="menu-mobile__bg" data-menu-bg="menu-mobile"></div>
+        <div class="menu-mobile__content" data-menu-content="menu-mobile">
+            <div class="menu-mobile__header">
+                <h3 class="header-tertiary">Cálculo 2</h3>
+                <button class="menu-mobile-btn burger-btn" data-menu-btn="menu-mobile"><span class="burger-icon burger-icon--pressed"></span></button>
+            </div>
+            <nav class="navbar-mobile">
+                <ol class="subject-list">
+                    <li class="subject-list__item">
+                        <strong class="subject-list__title">1 La integral definida</strong>
+                        <ol class="subject-list">
+                            <li class="subject-list__item"><a href="/cursos/calculo2/" class="subject-list__link">1.1 Introducción</a></li>
+                            <li class="subject-list__item">
+                                <a href="./1.2-Sumatoria.html" class="subject-list__link">1.2 El símbolo $\sum$</a>
+                                <ol class="subject-list">
+                                    <li class="subject-list__item"><a href="./1.2-Sumatoria.html#1.2" class="subject-list__link">1.2.1 Formalizando el símbolo sumatorio</a></li>
+                                    <li class="subject-list__item"><a href="./1.2.2-propiedades.html" class="subject-list__link">1.2.2 Propiedades del símbolo $\sum$</a></li>
+                                </ol>
+                            </li>
+                            <li class="subject-list__item"><a href="./1.3-calculo-de-areas.html" class="subject-list__link">1.3 Cálculo de  ́areas con rect. insc. y circuns.</a></li>
+                            <li class="subject-list__item">
+                                <a href="./1.4-integral-definida.html" class="subject-list__link">1.4 Construcción de la integral definida</a>
+                                <ol class="subject-list">
+                                    <li class="subject-list__item"><a href="./1.4.1-integral-definida.html" class="subject-list__link">1.4.1 Construcción de la integral definida parte 2</a></li>
+                                    <li class="subject-list__item"><a href="./1.4.2-integral-definida.html" class="subject-list__link">1.4.2 Construcción de la integral definida parte 3</a></li>
+                                    <li class="subject-list__item"><a href="./1.4.3-integral-definida.html" class="subject-list__link">1.4.3 Construcción de la integral definida parte 4</a></li>
+                                    <li class="subject-list__item"><a href="./1.4.4-integral-definida.html" class="subject-list__link">1.4.4 Construcción de la integral definida parte 5</a></li>
+                                </ol>
+                            </li>
+                            <li class="subject-list__item"><a href="./1.5-sumas-riemann.html" class="subject-list__link">1.5 Sumas de Riemann</a></li>
+                            <li class="subject-list__item"><a href="./1.6-teorema-fundamental.html" class="subject-list__link">1.6 Teorema fundamental del Cálculo y sus consecuencias</a></li>
+                            <li class="subject-list__item"><a href="#" class="subject-list__link">1.7 Ejercicios</a></li>
+                        </ol>
+                    </li>
+                    <li class="subject-list__item">
+                        <strong class="subject-list__title">2 La integral indefinida</strong>
+                        <ol class="subject-list">
+                            <li class="subject-list__item"><a href="./2.1-introduccion.html" class="subject-list__link">2.1 Introducción</a></li>
+                            <li class="subject-list__item"><a href="./2.2-antiderivadas-inmediatas.html" class="subject-list__link">2.2 Antiderivadas inmediatas</a></li>
+                            <li class="subject-list__item">
+                                <a href="./2.3-metodo-sustitucion.html" class="subject-list__link">2.3 Método de int. por sust. o cambio de variable</a>
+                                <ol class="subject-list">
+                                    <li class="subject-list__item"><a href="./2.3.1-metodo-sustitucion-parte-2.html" class="subject-list__link">2.3.1 Método de int. por sust. o cambio de variable parte 2</a></li>
+                                </ol>
+                            </li>
+                            <li class="subject-list__item"><a href="./2.4-integracion-por-partes.html" class="subject-list__link">2.4 Método de integración por partes</a></li>
+                            <li class="subject-list__item">
+                                <a href="./2.5-fracciones-parciales.html" class="subject-list__link">2.5 Método de integración por fracciones parciales</a>
+                                <ol class="subject-list">
+                                    <li class="subject-list__item"><a href="./2.5.1-factores-lineales-no-repetidos.html" class="subject-list__link">2.5.1 El polinomio $Q(x)$ solo contiene factores lineales que no se repiten</a></li>     
+                                    <li class="subject-list__item"><a href="./2.5.2-factores-lineales-repetidos.html" class="subject-list__link">2.5.2 El polinomio $Q(x)$ solo contiene factores lineales, pero algunos de ellos se repetidos</a></li>     
+                                    <li class="subject-list__item"><a href="./2.5.3-factores-cuadraticos-irreducibles.html" class="subject-list__link">2.5.3 Integrales de funciones simples que involucran términos cuadráticos irreducibles</a></li>     
+                                    <li class="subject-list__item"><a href="./2.5.4-factores-cuadraticos-no-repetidos.html" class="subject-list__link">2.5.4 El polinomio Q(x) contiene factores cuadráticos irreducibles que no se repiten</a></li>     
+                                    <li class="subject-list__item"><a href="./2.5.5-factores-cuadraticos-repetidos.html" class="subject-list__link">2.5.5 El polinomio Q(x) contiene factores cuadráticos irreducibles que se repiten</a></li>     
+                                </ol>
+                            </li>
+                            <li class="subject-list__item"><a href="./2.6-sust-trigonometrica.html" class="subject-list__link subject-list__link--active">2.6 Met. de int. por sust. trigonométrica</a></li>     
+                        </ol>
+                    </li>
+                    <li class="subject-list__item">
+                        <strong class="subject-list__title">3 Integrales impropias y aplicaciones</strong>
+                        <ol class="subject-list">
+                            <li class="subject-list__item"><a href="./3.1-integrales-impropias.html" class="subject-list__link">3.1 Integrales impropias</a></li>
+                            <li class="subject-list__item"><a href="#" class="subject-list__link">3.2 Más integrales impropias (para funciones discontinuas)</a></li>
+                            <li class="subject-list__item"><a href="#" class="subject-list__link">3.3 Cálculo de áreas de regiones acotadas pro curvas</a></li>   
+                        </ol>
+                    </li>
+                    <li class="subject-list__item">
+                        <strong class="subject-list__title">Anexo</strong>
+                        <ol class="subject-list">
+                            <li class="subject-list__item"><a href="./anexo-conjuntos.html" class="subject-list__link">Conjuntos</a></li>
+                        </ol>
+                    </li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <main class="main">
+        <section>
+            <h2 class="header-primary margin-bottom-md">
+                Capítulo 3
+            </h2>
+            <h1 class="header-primary margin-bottom-md">
+                INTEGRALES IMPROPIAS Y
+                APLICACIóN DE LA
+                INTEGRAL DEFINIDA Y DE
+                LAS INTEGRALES IMPROPIAS
+            </h1>
+            <h2 class="header-primary margin-bottom-md">
+                3.1 Integrales Impropia
+            </h2>
+            <p class="paragraph">
+                Cuando vimos la definición de integral definida, uno de los teoremas más importantes para garantizar de la integral de algunas funciones, en el cual hemos basado 
+                otros teoremas y gran parte de nuestros ejercicios (incluyendo las tareas), fue el Teorema 16 <span class="modal__reference error" data-modal-btn="theorem-1-6-2">Teorema 1.6.2??</span> de la Unidad 1, 
+                el cual nos indica que para que una función sea integrable en un intervalo cerrado es que la función en cuestión sea continua en dicho intervalo 
+                cerrado (fue indispensable que el intervalo fuera finito, i.e, de la forma $[a,b]$ con $a,b\in\mathbb{R}$).
+            </p>
+            <p class="paragraph">
+                Comenzaremos extendiendo la definición de integral definida a intervalos infinitos, es decir, que nuestro intervalo de integración sea infinito. 
+                A estas integrales les llamaremos <strong>Integral Impropia</strong>.
+            </p>
+            <p class="paragraph">
+                Por ejemplo, consideremos el problema de encontrar el área de la región comprendida entre las curvas $y=e^{-x}$, el eje $X$, el eje $Y$ y la recta $x=b$, 
+                donde $b>0$ (como se muestra en la figura).
+            </p>
+            <div class="canvas-container">
+                <canvas class="canvas" height="200" width="300" data-canvas="example-3-1"></canvas>
+            </div>
+            <p class="paragraph">
+                Notemos que el cálculo de esta área, se reduce a calcular la integral de la función $f(x)=e^{-x}$, la cual es continua en $\mathbb{R}$, 
+                en particular, en el intervalo cerrado $[0,b]$ para toda $b>0$. Luego, por el Teorema 16 <span class="modal__reference error" data-modal-btn="theorem-1-6-2">Teorema 1.6.2??</span>
+                es integrable en dicho intervalo. Así, podemos calcular su integral sin remordimiento alguno:
+                \begin{split}
+                    \int_0^b e^{-x}\,dx &=[-e^{-x}]\bigg|_0^b \\
+                    &=-e^{-b}-[-e^{-0}] \quad \mbox{ por el TFC } \\
+                    &=1-e^{-b}.
+                \end{split}
+            </p>
+            <p class="paragraph">
+                Si permitimos que $b$ crezca indefinidamente, obtenemos
+                \begin{split}
+                    \int_0^\infty e^{-x}\,dx &=\lim_{b\to \infty}\int_0^b e^{-x}\,dx \\
+                    &=\lim_{b\to\infty}(1-e^{-b}) \\
+                    &=\lim_{b\to\infty}1-\lim_{b\to\infty}e^{-b}\\
+                    &=\lim_{b\to\infty}1-\lim_{b\to\infty}\frac{1}{e^b}\\
+                    &=1-0=1.
+                \end{split}
+            </p>
+            <div class="definition">
+                <p class="paragraph">
+                    <span class="definition__title">Definición 3.1.1.</span> Sea $f:\mathbb{R}\to\mathbb{R}$ una función.
+                </p>
+                <ol class="definition__list">
+                    <li class="definition__list-item">
+                        Si $f$ es una función continua para toda $x\geq a$, entonces definimos la integral impropia 
+                        $$\int_a^\infty f(x)\,dx=\lim_{b\to\infty}\int_a^b f(x)\,dx$$ si este límite existe.
+                    </li>
+                    <li class="definition__list-item">
+                        Si $f$ es continua para toda $x\leq b$, entonces definimos la integral impropia 
+                        $$\int_{-\infty}^b f(x)\,dx=\lim_{a\to-\infty}\int_a^b f(x)\, dx$$ si el límite existe.
+                    </li>
+                    <li class="definition__list-item">
+                        Si $f$ es continua en todo $\mathbb{R}$, entonces definimos la integral impropia 
+                        $$\int_{-\infty}^\infty f(x)\,dx=\int_{-\infty}^c f(x)\,dx+\int_c^\infty f(x)\,dx$$ 
+                        donde $c$ es cualquier número real, lo cual es cierto si ambas integrales impropias existen.
+                    </li>
+                </ol>
+                <p class="paragraph">
+                    Si los límites mencionados en los puntos $1)$ y $2)$ existen, se dice que la integral impropia <strong>converge</strong>. Si no existen, 
+                    entonces se dice que la integral impropia <strong>diverge</strong>. En el punto $3)$, la integral impropia converge (la del lado izquierdo)
+                    si y solo si las dos integrales impropias involucradas convergen (las del lado derecho). También, suele escribirse como 
+                    $$\int_{-\infty}^\infty f(x)\,dx=\int_{\mathbb{R}}f(x)\,dx.$$
+                </p>
+            </div>
+            <p class="paragraph">
+                Daremos algunos ejemplos para ilustrar los conceptos que acabamos de aprender, comenzando con una integral en donde el infinito aparezca en el límite inferior de la integral.
+            </p>
+            <div class="fancy-line"></div>
+        </section>
+        <section>
+            <div class="example">
+                <p class="paragraph example__paragraph">
+                    <span class="example__title">Ejemplo 3.1.1</span> Calcular la integral $\int_{-\infty}^2 \frac{1}{(4-x)^2}\,dx$ si es que existe.
+                </p>
+                <div class="canvas-container">
+                    <canvas class="canvas" height="200" width="300" data-canvas="example-3-1-1"></canvas>
+                </div>
+                <h3 class="header-tertiary">Solución.</h3>
+                <p class="paragraph">
+                    Notemos que la función $\frac{1}{(4-x)^2}$ es continua en $\mathbb{R}-\{4\}$, es decir, es continua en $(-\infty,4)\cup (4,\infty)$. 
+                    En particular, es continua para toda $x\leq 2$, es decir, en el intervalo $(-\infty,2]$. Así, tenemos que 
+                </p>
+                <div class="calculation">
+                    <div class="calculation__formule--1">
+                        $$\lim_{a\to-\infty}\int_a^2 \frac{1}{(4-x)^2}\,dx$$
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \lim_{a\to-\infty}\int_{4-a}^2 \frac{-1}{u^2}\,du $$
+                        </div>
+                        <div class="calculation__text">
+                            hacemos $u=4-x$, $du=-dx$ <br> $\Rightarrow x=4-u,$ $-du=dx$
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \lim_{a\to-\infty} \left[\frac{1}{u}\right]\bigg|_{4-a}^2 $$
+                        </div>
+                        <div class="calculation__text">
+                            
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \lim_{a\to-\infty} \left(\frac{1}{2}-\frac{1}{4-a}\right) $$
+                        </div>
+                        <div class="calculation__text">
+                            por el TFC
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \frac{1}{2} $$
+                        </div>
+                        <div class="calculation__text">
+                            por propiedades de límites
+                        </div>
+                    </div>
+                </div>
+                <p class="paragraph">
+                    Finalmente, por definición, la integral impropia existe y además 
+                    $$\int_{-\infty}^2\frac{1}{(4-x)^2}=\lim_{a\to-\infty}\int_a^2 \frac{1}{(4-x)^2}\,dx=\frac{1}{2}.$$
+                </p>
+            </div>
+            <div class="fancy-line"></div>
+            <p class="paragraph">
+                En el siguiente ejemplo analizaremos un caso especial de integrales impropias que trabajan sobre todo $\mathbb{R}$.
+            </p>
+            <div class="example">
+                <p class="paragraph example__paragraph">
+                    <span class="example__title">Ejemplo 3.1.3.</span>
+                    Calcular y comparar, de ser posible, las integrales $$\int_{-\infty}^\infty x\,dx \qquad \mbox{y } \qquad \lim_{r\to\infty}\int_{-r}^r x\,dx.$$
+                </p>
+                <p class="paragraph">
+                    Notemos que la función involucrada en ambas integrales es $f(x)=x$, la cual es continua en todo $\mathbb{R}$, dado que es un polinomio de grado 1.
+                </p>
+                <form class="question margin-top-sm" data-question="question-3-1-1" data-answer="c" autocomplete="off">
+                    <h3 class="question__header margin-bottom-sm">
+                        Como $0\in\mathbb{R}$ y usando 3) de la Definición 3.1.1 ¿cómo queda expresada la integral impropia si $c=0$?
+                    </h3>
+                    <div class="question__row">
+                        <div class="question__col-1">
+                            <div class="question__options">
+                                <div class="question__option">
+                                    <input type="radio" id="answer-3-1-1-a" name="question-3-1-1" value="a" data-option="question-3-1-1">
+                                    <label for="answer-3-1-1-a">$$\lim_{c\to-0}\int_{-\infty}^c x\,dx +\lim_{c\to-0}\int_c^\infty x\,dx$$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" id="answer-3-1-1-b" name="question-3-1-1" value="b" data-option="question-3-1-1">
+                                    <label for="answer-3-1-1-b">$$\lim_{c\to-\infty}\int_{c}^c x\,dx$$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" id="answer-3-1-1-c" name="question-3-1-1" value="c" data-option="question-3-1-1">
+                                    <label for="answer-3-1-1-c">$$\int_{-\infty}^0 x\,dx +\int_0^\infty x\,dx$$</label>
+                                </div>
+                            </div>
+                            <div class="question__btn-box">
+                                <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                <button class="btn btn--blue" type="button" disabled data-btn-continue="step-1">Continuar</button>
+                            </div>
+                        </div>
+                        <div class="question__col-2">
+                            <p class="question__answer"></p>
+                        </div>
+                    </div>
+                </form>
+                <div class="section--hidden" data-section="step-1">
+                    <p class="paragraph">
+                        Por 3) de la Definición 3.1.1
+                    </p>
+                    <div class="calculation">
+                        <div class="calculation__formule--1">
+                            $$\int_{-\infty}^\infty x\,dx$$
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= \int_{-\infty}^0 x\,dx +\int_0^\infty x\,dx $$
+                            </div>
+                            <div class="calculation__text">
+                                por Definición 3.1.1
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= \lim_{a\to-\infty}\int_a^0 x\,dx+\lim_{b\to\infty}\int_0^b x\,dx $$
+                            </div>
+                            <div class="calculation__text">
+                                por Definición 3.1.1
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= \lim_{a\to-\infty} \left[\frac{x^2}{2}\bigg|_a^0 \right]+ \lim_{b\to\infty} \left[\frac{x^2}{2}\bigg|_0^b \right] $$
+                            </div>
+                            <div class="calculation__text">
+                                por TFC
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= \lim_{a\to-\infty}\left[\frac{0^2}{2}-\frac{a^2}{2} \right]+\lim_{b\to\infty} \left[\frac{b^2}{2}-\frac{0^2}{2} \right] $$
+                            </div>
+                            <div class="calculation__text">
+                                por notación
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= \lim_{a\to-\infty}\left[-\frac{a^2}{2} \right]+\lim_{b\to\infty} \left[\frac{b^2}{2} \right] $$
+                            </div>
+                            <div class="calculation__text">
+                                por neutro aditivo
+                            </div>
+                        </div>
+                    </div>
+                    <form class="question margin-top-sm" data-question="question-3-1-2" data-answer="a" autocomplete="off">
+                        <h3 class="question__header margin-bottom-sm">
+                            ¿La integral converge o diverge?
+                        </h3>
+                        <div class="question__row">
+                            <div class="question__col-1">
+                                <div class="question__options">
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-3-1-2-a" name="question-3-1-2" value="a" data-option="question-3-1-2">
+                                        <label for="answer-3-1-2-a">Diverge</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-3-1-2-b" name="question-3-1-2" value="b" data-option="question-3-1-2">
+                                        <label for="answer-3-1-2-b">Converge</label>
+                                    </div>
+                                </div>
+                                <div class="question__btn-box">
+                                    <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                    <button class="btn btn--blue" type="button" disabled data-btn-continue="step-2">Continuar</button>
+                                </div>
+                            </div>
+                            <div class="question__col-2">
+                                <p class="question__answer"></p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="section--hidden" data-section="step-2">
+                    <p class="paragraph">
+                        Como $\lim_{a\to-\infty}\left[-\frac{a^2}{2} \right]=-\infty$, entonces la integral diverge. Más aún, 
+                        $\lim_{b\to\infty} \left[\frac{b^2}{2} \right]=\infty$, esto también nos estaría indicando que la integral en cuestión diverge. 
+                    </p>
+                    <p class="paragraph">
+                        Por lo tanto, $\int_{-\infty}^\infty x\,dx$ diverge.
+                    </p>
+                    <p class="paragraph">
+                        Ahora trabajaremos con $\lim_{r\to\infty}\int_{-r}^r x\,dx$.
+                    </p>
+                    <form class="question margin-top-sm" data-question="question-3-1-3" data-answer="b" autocomplete="off">
+                        <h3 class="question__header margin-bottom-sm">
+                            Calcula $\int_{-r}^r x\,dx$
+                        </h3>
+                        <div class="question__row">
+                            <div class="question__col-1">
+                                <div class="question__options">
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-3-1-3-a" name="question-3-1-3" value="a" data-option="question-3-1-3">
+                                        <label for="answer-3-1-3-a">$r^2$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-3-1-3-b" name="question-3-1-3" value="b" data-option="question-3-1-3">
+                                        <label for="answer-3-1-3-b">$0$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-3-1-3-c" name="question-3-1-3" value="c" data-option="question-3-1-3">
+                                        <label for="answer-3-1-3-c">$\frac{r^2}{2}$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-3-1-3-d" name="question-3-1-3" value="d" data-option="question-3-1-3">
+                                        <label for="answer-3-1-3-d">$\frac{r^2}{4}$</label>
+                                    </div>
+                                </div>
+                                <div class="question__btn-box">
+                                    <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                    <button class="btn btn--blue" type="button" disabled data-btn-continue="step-3">Continuar</button>
+                                </div>
+                            </div>
+                            <div class="question__col-2">
+                                <p class="question__answer"></p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="section--hidden" data-section="step-3">
+                    <p class="paragraph">
+                        Puesto que $f(x)=x$ es impar,
+                        $$\int_{-r}^r x\,dx = 0$$
+                    </p>
+                    <p class="paragraph">
+                        Así, concluimos que $\lim_{r\to\infty}\int_{-r}^r x\,dx=0$.
+                    </p>
+                    <p class="paragraph">
+                        Finalmente concluimos que $$\int_{-\infty}^\infty x\,dx \neq \lim_{r\to\infty}\int_{-r}^r x\,dx.$$
+                    </p>
+                    <p class="paragraph">
+                        Ahora toca el turno de trabajar con una integral que integre sobre todo $\mathbb{R}$ ya teniendo en cuenta nuestra definición sin confundir límites.
+                    </p>
+                    <div>
+                        <button class="btn-sm btn--blue" type="button" data-btn-continue="step-4">Continuar</button>
+                    </div>
+                    <div class="fancy-line"></div>
+                </div>
+            </div>
+            <div class="example section--hidden" data-section="step-4">
+                <p class="paragraph example__paragraph">
+                    <span class="example__title">Ejemplo 3.1.4.</span>
+                    Determinar si la integral $\int_{-\infty}^\infty \frac{1}{x^2+6x+12}\,dx$ converge.
+                </p>
+                <p class="paragraph">
+                    Notemos que nuestro integrando es $f(x)= \frac{1}{x^2+6x+12}$, pero el denominador no tiene raíces reales, porque su discriminante es -12, i.e., el 
+                    denominador nunca se anula, así que la función $f(x)$ es continua en todo $\mathbb{R}$. Por lo tanto, tiene sentido intentar calcular la integral impropia
+                </p>
+                <div class="calculation">
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$\int_{-\infty}^\infty \frac{1}{x^2+6x+12}\,dx$$
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$\quad \quad= \int_{-\infty}^0 \frac{1}{x^2+6x+12}\,dx+\int_0^\infty \frac{1}{x^2+6x+12}\,dx $$
+                        </div>
+                        <div class="calculation__text">
+                            por Definición 3.1.1 pues $0\in\mathbb{R}$
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$\quad \quad= \lim_{a\to-\infty}\int_a^0 \frac{1}{x^2+6x+12}\,dx+\lim_{b\to\infty}\int_0^b \frac{1}{x^2+6x+12}\,dx $$
+                        </div>
+                        <div class="calculation__text">
+                            por Definición 3.1.1
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$\quad \quad= \lim_{a\to-\infty}\int_a^0 \frac{1}{(x+3)^2+3}\,dx+\lim_{b\to\infty}\int_0^b \frac{1}{(x+3)^2+3}\,dx $$
+                        </div>
+                        <div class="calculation__text">
+                            por Definición 3.1.1
+                        </div>
+                    </div>
+                </div>
+                <form class="question margin-top-sm" data-question="question-3-1-4" data-answer="b" autocomplete="off">
+                    <h3 class="question__header margin-bottom-sm">
+                        Calcula la integral involucrada
+                    </h3>
+                    <div class="question__row">
+                        <div class="question__col-1">
+                            <div class="question__options">
+                                <div class="question__option">
+                                    <input type="radio" id="answer-3-1-4-a" name="question-3-1-4" value="a" data-option="question-3-1-4">
+                                    <label for="answer-3-1-4-a">$\frac{3}{\sqrt{3}} \ln \left(\frac{x+3}{\sqrt{3}} \right)+ C$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" id="answer-3-1-4-b" name="question-3-1-4" value="b" data-option="question-3-1-4">
+                                    <label for="answer-3-1-4-b">$\frac{\sqrt{3}}{3} \arctan \left(\frac{x+3}{\sqrt{3}} \right)+ C$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" id="answer-3-1-4-c" name="question-3-1-4" value="c" data-option="question-3-1-4">
+                                    <label for="answer-3-1-4-c">$\frac{\sqrt{3}}{3}\left(\frac{x+3}{\sqrt{3}} \right)^2+ C$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" id="answer-3-1-4-d" name="question-3-1-4" value="d" data-option="question-3-1-4">
+                                    <label for="answer-3-1-4-d">$\frac{3}{\sqrt{3}} \left(\frac{\sqrt{3}}{x+3} \right)+ C$</label>
+                                </div>
+                            </div>
+                            <div class="question__btn-box">
+                                <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                <button class="btn btn--blue" type="button" disabled data-btn-continue="step-5">Continuar</button>
+                            </div>
+                        </div>
+                        <div class="question__col-2">
+                            <p class="question__answer"></p>
+                        </div>
+                    </div>
+                </form>
+                <div class="section--hidden" data-section="step-5">
+                    <p class="paragraph">
+                        Calculando la integral
+                        \begin{equation*}
+                            \begin{split}
+                                \int \frac{1}{(x+3)^2+3}\,dx &= \frac{1}{3}\int \frac{1}{\left(\frac{x+3}{\sqrt{3}} \right))^2+1}\,dx \\
+                                &= \frac{\sqrt{3}}{3}\int \frac{\frac{1}{\sqrt{3}}}{\left(\frac{x+3}{\sqrt{3}} \right))^2+1}\,dx \\
+                                &= \frac{\sqrt{3}}{3} \arctan \left(\frac{x+3}{\sqrt{3}} \right)+ C
+                            \end{split}
+                        \end{equation*}
+                    </p>
+                    <form class="question margin-top-sm" data-question="question-3-1-5" data-answer="b" autocomplete="off">
+                        <h3 class="question__header margin-bottom-sm">
+                            Calcula $\int_{-\infty}^\infty \frac{1}{x^2+6x+12}\,dx.$
+                        </h3>
+                        <div class="question__row">
+                            <div class="question__col-1">
+                                <div class="question__options">
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-3-1-5-a" name="question-3-1-5" value="a" data-option="question-3-1-5">
+                                        <label for="answer-3-1-5-a">$-\frac{\sqrt{3}}{3}\pi$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-3-1-5-b" name="question-3-1-5" value="b" data-option="question-3-1-5">
+                                        <label for="answer-3-1-5-b">$\frac{\sqrt{3}}{3}\pi$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-3-1-5-c" name="question-3-1-5" value="c" data-option="question-3-1-5">
+                                        <label for="answer-3-1-5-c">$\frac{2\sqrt{3}}{3}\pi$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-3-1-5-d" name="question-3-1-5" value="d" data-option="question-3-1-5">
+                                        <label for="answer-3-1-5-d">$-\frac{2\sqrt{3}}{3}\pi$</label>
+                                    </div>
+                                </div>
+                                <div class="question__btn-box">
+                                    <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                    <button class="btn btn--blue" type="button" disabled data-btn-continue="step-6">Continuar</button>
+                                </div>
+                            </div>
+                            <div class="question__col-2">
+                                <p class="question__answer"></p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="section--hidden" data-section="step-6">
+                    <p class="paragraph">
+                        De la integral calculada anteriormente concluimos,
+                    </p>
+                    <div class="calculation">
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$ \int_{-\infty}^\infty \frac{1}{x^2+6x+12}\,dx $$
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$\quad = \lim_{a\to-\infty}\int_a^0 \frac{1}{(x+3)^2+3}\,dx +\lim_{b\to\infty}\int_0^b \frac{1}{(x+3)^2+3}\,dx $$
+                            </div>
+                            <div class="calculation__text">
+                                por la Definición 3.1.1
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$\quad = \lim_{a\to-\infty}\left[ \frac{\sqrt{3}}{3} \arctan \left( \frac{x+3}{\sqrt{3}} \right) \right] \bigg|_a^0 + \lim_{b\to\infty} \left[ \frac{\sqrt{3}}{3} \arctan \left(\frac{x+3}{\sqrt{3}} \right) \right]\bigg|_0^b $$
+                            </div>
+                            <div class="calculation__text">
+                                por TFC
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$\quad = \lim_{a\to-\infty}\left[ \frac{\sqrt{3}}{3} \arctan \left( \frac{0+3}{\sqrt{3}}\right)-\frac{\sqrt{3}}{3} \arctan \left( \frac{a+3}{\sqrt{3}} \right) \right] $$
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$\quad  \quad + \lim_{b\to\infty} \left[ \frac{\sqrt{3}}{3} \arctan \left(\frac{b+3}{\sqrt{3}}\right)-\frac{\sqrt{3}}{3} \arctan \left(\frac{0+3}{\sqrt{3}} \right)\right] $$
+                            </div>
+                            <div class="calculation__text">
+                                por notación
+                            </div>
+                        </div>
+                        <div class="calculation__answer">
+                            como $\lim_{a\to-\infty}\arctan \left( \frac{a+3}{\sqrt{3}} \right)=-\frac{\pi}{2}$ y 
+                            $\lim_{b\to\infty}\arctan \left( \frac{b+3}{\sqrt{3}} \right)=\frac{\pi}{2}$
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$\quad = \frac{\sqrt{3}}{3}\lim_{a\to-\infty}\left[ \arctan \left( \frac{3}{\sqrt{3}}\right) \right]-\frac{\sqrt{3}}{3}\lim_{a\to-\infty}\left[ \arctan \left( \frac{a+3}{\sqrt{3}}\right) \right] $$
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$\quad  \quad+ \frac{\sqrt{3}}{3}\lim_{b\to\infty}\left[ \arctan \left( \frac{b+3}{\sqrt{3}}\right) \right]-\frac{\sqrt{3}}{3}\lim_{b\to\infty}\left[ \arctan \left( \frac{3}{\sqrt{3}}\right) \right] $$
+                            </div>
+                            <div class="calculation__text">
+                                por prop. de límites
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$\quad = \frac{\sqrt{3}}{3}\arctan \left( \frac{3}{\sqrt{3}}\right)-\frac{\sqrt{3}}{3}\left(-\frac{\pi}{2}\right)   $$
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$\quad \quad + \frac{\sqrt{3}}{3}\frac{\pi}{2}-\frac{\sqrt{3}}{3} \arctan \left( \frac{3}{\sqrt{3}}\right) $$
+                            </div>
+                            <div class="calculation__text">
+                                calculando límites
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$\quad = 2\frac{\sqrt{3}}{3}\left(\frac{\pi}{2}\right)=\frac{\sqrt{3}}{3}\pi. $$
+                            </div>
+                        </div>
+                    </div>
+                    <p class="paragraph">
+                        Finalmente, concluimos que $$\int_{-\infty}^\infty \frac{1}{x^2+6x+12}\,dx = \frac{\sqrt{3}}{3}\pi.$$
+                    </p>
+                    <div class="fancy-line"></div>
+                    <div class="change-page">
+                        <a href="./2.6-sust-trigonometrica.html" class="change-page__before">Anterior</a>
+                        <a href="#" class="change-page__next">Siguiente</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div class="modal" data-modal="theorem-1-6-2">
+        <div class="modal__background" data-modal-background="theorem-1-6-2"></div>
+        <div class="modal__content">
+            <div class="theorem">
+                <p class="paragraph">
+                    <strong class="theorem__title">Teorema 1.6.2. </strong>Si $f:[a,b]\to\mathbf{R}$ es una función continua, entonces $f$ es integrable en $[a,b]$.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="floating-box">
+        <button class="floating-box__btn btn-sm btn--blue" data-modal-btn="formules">&int;</button>
+        <button class="floating-box__btn btn-sm btn--blue" data-modal-btn="trigonometric">&theta;</button>
+    </div>
+    <div class="modal" data-modal="formules">
+        <div class="modal__background" data-modal-background="formules"></div>
+        <div class="modal__content">
+            <table class="math-table">
+                <thead>
+                    <tr>
+                        <th>Fórmulas básicas de integración</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            $$\int x^n\,dx=\frac{x^{n+1}}{n+1}+C \qquad \mbox{ con }n\in\mathbf{N} \setminus\{-1\} \mbox{ y }C\mbox{ una constante}.$$
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            $$\int e^{kx}\,dx=\frac{e^{kx}}{k}+C \qquad \mbox{con }C \mbox{ una constante.}$$
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            $$\int\frac{1}{x}\,dx=\ln x+C \qquad \mbox{con }C \mbox{ una constante.}$$
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            $$\int \cos x\,dx=\sin x+C \qquad \mbox{con }C \mbox{ una constante.}$$
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            $$\int \sin x\,dx=-\cos x+C \qquad \mbox{con }C \mbox{ una constante.}$$
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            \begin{split}
+                                \frac{d}{dx}\tan x &=\sec^2 x  \Rightarrow \int\sec^2 x\, dx=\tan x +C \\
+                                \frac{d}{dx}\cot x &=-\csc^2 x  \Rightarrow \int\csc^2 x\, dx=-\cot x +C \\
+                                \frac{d}{dx}\sec x &=\sec x \tan x  \Rightarrow \int\sec x \tan x\, dx=\sec x +C \\
+                                \frac{d}{dx}\csc x &=-\csc x \cot x  \Rightarrow \int\csc x \cot x\, dx=-\csc x +C
+                            \end{split}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            \begin{split}
+                                \frac{d}{dx}\arcsin x &=\frac{1}{\sqrt{1-x^2}}  \Rightarrow \int \frac{1}{\sqrt{1-x^2}} \, dx=\arcsin x +C \\
+                                \frac{d}{dx}\arccos x &=-\frac{1}{\sqrt{1-x^2}}  \Rightarrow \int \frac{1}{\sqrt{1-x^2}} \, dx=-\arccos x +C \\
+                                \frac{d}{dx}\arctan x &=\frac{1}{1+x^2}  \Rightarrow \int \frac{1}{1+x^2} \, dx=\arctan x +C 
+                            \end{split}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="modal" data-modal="trigonometric">
+        <div class="modal__background" data-modal-background="trigonometric"></div>
+        <div class="modal__content">
+            <table class="math-table">
+                <thead>
+                    <tr>
+                        <th>Identidades trigonométricas</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            \begin{equation*}
+                                \tan \theta=\frac{\sin \theta}{\cos \theta}, \quad \cot \theta=\frac{\cos \theta}{\sin \theta}, \quad \sec \theta = \frac{1}{\cos \theta}, \quad  \csc \theta=\frac{1}{\sin \theta},
+                            \end{equation*}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            \begin{equation} \cos^2\theta+\sin^2\theta=1 \qquad \mbox{ y } \qquad \tan^2\theta+1=\sec^2\theta. \end{equation}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            \begin{equation*}
+                                \begin{split}
+                                    \sin(A\pm B) & = \sin A \cos B \pm \sin B \cos A \\
+                                    \cos(A\pm B) & = \cos A \cos B \mp \sin A \sin B
+                                \end{split}
+                            \end{equation*}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            \begin{equation}\label{angdoble} \sin(2\theta)  = 2\sin \theta \cos \theta  \quad \mbox{ y } \quad \cos(2\theta) = \cos^2\theta - \sin^2 \theta.\end{equation}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            \begin{equation}\label{trig2} \cos^2 \theta  = \frac{1+\cos(2\theta)}{2}  \quad \mbox{ y } \quad \sin^2\theta = \frac{1-\cos (2\theta)}{2}.\end{equation}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            \begin{equation}
+                                \begin{matrix}
+                                    \cos^2\theta+\sin^2\theta=1 & \tan^2\theta+1=\sec^2\theta \\
+                                    \cos^2\theta=1-\sin^2\theta & \tan^2\theta=\sec^2\theta-1 \\
+                                    \cos \theta=\sqrt{1-\sin^2\theta} & \tan\theta=\sqrt{\sec^2\theta-1}\\
+                                    \sin^2\theta=1-\cos^2\theta & \sec\theta=\sqrt{\tan^2\theta+1}\\
+                                    \sin \theta=\sqrt{1-\cos^2\theta} &
+                                \end{matrix}
+                            \end{equation}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

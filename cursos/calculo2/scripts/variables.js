@@ -138,6 +138,16 @@ function identityFunction(x) {
     return x;
 }
 
+function example_3_1(x) {
+    return Math.exp(-x)
+}
+function example_3_1_1(x) {
+    return 1/Math.pow((4-x), 2)
+}
+function example_3_1_2(x) {
+    return 1/x
+}
+
 // function drawAxis(canvas, ctx, centerX, centerY) {
 function drawAxis(ctx, centerX, centerY) {
     ctx.translate(centerX, CANVAS_HEIGHT - centerY)
@@ -175,6 +185,29 @@ function drawFunction(ctx, axisX, axisY, x0, x1, scale, functionToDraw, backgrou
         // ctx.closePath()
         ctx.fill()
     }
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    resetoColor(ctx)
+}
+
+function drawFunctionBg(ctx, axisX, axisY, x0, x1, scale, functionToDraw) {
+    
+    var y
+    var x
+    
+    ctx.translate(axisX, CANVAS_HEIGHT - axisY)
+    ctx.beginPath()
+    ctx.moveTo(x0 , -functionToDraw(x0 / scale) * scale)
+    // ctx.moveTo(100, -100)
+    
+    for(var i = x0; i <= x1; ++i) {
+        y = -functionToDraw(i / scale) * scale
+        x = i
+        ctx.lineTo(x, y)
+    }
+    ctx.lineTo(x1, 0)
+    ctx.lineTo(x0, 0)
+    // ctx.closePath()
+    ctx.fill()
     ctx.setTransform(1, 0, 0, 1, 0, 0);
     resetoColor(ctx)
 }

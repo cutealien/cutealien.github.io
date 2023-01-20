@@ -840,6 +840,7 @@ div[data-anchor]:target::before {
   grid-column: 1/-1;
   font-style: italic;
   font-size: 1.6rem;
+  margin: 1rem;
 }
 .calculation__question {
   grid-column: 1/-1;

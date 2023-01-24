@@ -63,3 +63,23 @@
         border: 1px solid transparent;
     }
 }
+
+.form-group {
+    font-size: 2rem;
+    &__item {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 1rem;
+    }
+}
+// .input-radio {
+    // appearance: none;
+    // border: solid 2px var(--color-primary);
+    // border-radius: 50%;
+    // background: #fff;
+    // padding: .5rem;
+    // &:checked {
+    //     background-color: var(--color-primary-dark);
+    // }
+// }

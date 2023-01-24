@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/style.css">
+    
+    <script src="./scripts/variables.js" defer></script>
+    <script src="./scripts/3.3-graphics.js" defer></script>
+    <script src="./scripts/question.js" defer></script>
+    <script src="./scripts/modal.js" defer></script>
+    <script src="./scripts/menu-mobile.js" defer></script>
+
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+            loader: {load: ['input/asciimath', 'output/chtml']}
+        }
+    </script>
+    <script id="MathJax-script" async src="/scripts/MathJax-master/es5/tex-chtml.js"></script>
+
+    <title>Cálculo 2 | Más integrales impropias</title>
+</head>
+<body class="course">
+    <nav class="navbar">
+        <a href="/" class="navbar__logo-box">
+        </a>
+        <a href="/" class="navbar__link">
+            Inicio
+        </a>
+        <a href="/example.html" class="navbar__link">
+            Ejemplo
+        </a>
+        <a href="#" class="navbar__link navbar__link--active">
+            Cálculo 2
+        </a>
+        <button class="menu-mobile-btn burger-btn" data-menu-btn="menu-mobile"><span class="burger-icon"></span></button>
+    </nav>
+    <nav class="sidebar">
+        <ol class="subject-list">
+            <li class="subject-list__item">
+                <strong class="subject-list__title">1 La integral definida</strong>
+                <ol class="subject-list">
+                    <li class="subject-list__item"><a href="/cursos/calculo2/" class="subject-list__link">1.1 Introducción</a></li>
+                    <li class="subject-list__item">
+                        <a href="./1.2-Sumatoria.html" class="subject-list__link">1.2 El símbolo $\sum$</a>
+                        <ol class="subject-list">
+                            <li class="subject-list__item"><a href="./1.2-Sumatoria.html#1.2" class="subject-list__link">1.2.1 Formalizando el símbolo sumatorio</a></li>
+                            <li class="subject-list__item"><a href="./1.2.2-propiedades.html" class="subject-list__link">1.2.2 Propiedades del símbolo $\sum$</a></li>
+                        </ol>
+                    </li>
+                    <li class="subject-list__item"><a href="./1.3-calculo-de-areas.html" class="subject-list__link">1.3 Cálculo de  ́areas con rect. insc. y circuns.</a></li>
+                    <li class="subject-list__item">
+                        <a href="./1.4-integral-definida.html" class="subject-list__link">1.4 Construcción de la integral definida</a>
+                        <ol class="subject-list">
+                            <li class="subject-list__item"><a href="./1.4.1-integral-definida.html" class="subject-list__link">1.4.1 Construcción de la integral definida parte 2</a></li>
+                            <li class="subject-list__item"><a href="./1.4.2-integral-definida.html" class="subject-list__link">1.4.2 Construcción de la integral definida parte 3</a></li>
+                            <li class="subject-list__item"><a href="./1.4.3-integral-definida.html" class="subject-list__link">1.4.3 Construcción de la integral definida parte 4</a></li>
+                            <li class="subject-list__item"><a href="./1.4.4-integral-definida.html" class="subject-list__link">1.4.4 Construcción de la integral definida parte 5</a></li>
+                        </ol>
+                    </li>
+                    <li class="subject-list__item"><a href="./1.5-sumas-riemann.html" class="subject-list__link">1.5 Sumas de Riemann</a></li>
+                    <li class="subject-list__item"><a href="./1.6-teorema-fundamental.html" class="subject-list__link">1.6 Teorema fundamental del Cálculo y sus consecuencias</a></li>
+                    <li class="subject-list__item"><a href="#" class="subject-list__link">1.7 Ejercicios</a></li>
+                </ol>
+            </li>
+            <li class="subject-list__item">
+                <strong class="subject-list__title">2 La integral indefinida</strong>
+                <ol class="subject-list">
+                    <li class="subject-list__item"><a href="./2.1-introduccion.html" class="subject-list__link">2.1 Introducción</a></li>
+                    <li class="subject-list__item"><a href="./2.2-antiderivadas-inmediatas.html" class="subject-list__link">2.2 Antiderivadas inmediatas</a></li>
+                    <li class="subject-list__item">
+                        <a href="./2.3-metodo-sustitucion.html" class="subject-list__link">2.3 Método de int. por sust. o cambio de variable</a>
+                        <ol class="subject-list">
+                            <li class="subject-list__item"><a href="./2.3.1-metodo-sustitucion-parte-2.html" class="subject-list__link">2.3.1 Método de int. por sust. o cambio de variable parte 2</a></li>
+                        </ol>
+                    </li>
+                    <li class="subject-list__item"><a href="./2.4-integracion-por-partes.html" class="subject-list__link">2.4 Método de integración por partes</a></li>
+                    <li class="subject-list__item">
+                        <a href="./2.5-fracciones-parciales.html" class="subject-list__link">2.5 Método de integración por fracciones parciales</a>
+                        <ol class="subject-list">
+                            <li class="subject-list__item"><a href="./2.5.1-factores-lineales-no-repetidos.html" class="subject-list__link">2.5.1 El polinomio $Q(x)$ solo contiene factores lineales que no se repiten</a></li>     
+                            <li class="subject-list__item"><a href="./2.5.2-factores-lineales-repetidos.html" class="subject-list__link">2.5.2 El polinomio $Q(x)$ solo contiene factores lineales, pero algunos de ellos se repetidos</a></li>     
+                            <li class="subject-list__item"><a href="./2.5.3-factores-cuadraticos-irreducibles.html" class="subject-list__link">2.5.3 Integrales de funciones simples que involucran términos cuadráticos irreducibles</a></li>     
+                            <li class="subject-list__item"><a href="./2.5.4-factores-cuadraticos-no-repetidos.html" class="subject-list__link">2.5.4 El polinomio Q(x) contiene factores cuadráticos irreducibles que no se repiten</a></li>     
+                            <li class="subject-list__item"><a href="./2.5.5-factores-cuadraticos-repetidos.html" class="subject-list__link">2.5.5 El polinomio Q(x) contiene factores cuadráticos irreducibles que se repiten</a></li>     
+                        </ol>
+                    </li>
+                    <li class="subject-list__item"><a href="./2.6-sust-trigonometrica.html" class="subject-list__link">2.6 Met. de int. por sust. trigonométrica</a></li>     
+                </ol>
+            </li>
+            <li class="subject-list__item">
+                <strong class="subject-list__title">3 Integrales impropias y aplicaciones</strong>
+                <ol class="subject-list">
+                    <li class="subject-list__item"><a href="./3.1-integrales-impropias.html" class="subject-list__link">3.1 Integrales impropias</a></li>
+                    <li class="subject-list__item"><a href="./3.2-mas-integrales-impropias.html" class="subject-list__link">3.2 Más integrales impropias (para funciones discontinuas)</a></li>
+                    <li class="subject-list__item"><a href="./3.3-calculo-de-areas.html" class="subject-list__link subject-list__link--active">3.3 Cálculo de áreas de regiones acotadas pro curvas</a></li>   
+                </ol>
+            </li>
+            <li class="subject-list__item">
+                <strong class="subject-list__title">Anexo</strong>
+                <ol class="subject-list">
+                    <li class="subject-list__item"><a href="./anexo-conjuntos.html" class="subject-list__link">A1 Conjuntos</a></li>
+                </ol>
+            </li>
+        </ol>
+    </nav>
+    <div class="menu-mobile" data-menu="menu-mobile">
+        <div class="menu-mobile__bg" data-menu-bg="menu-mobile"></div>
+        <div class="menu-mobile__content" data-menu-content="menu-mobile">
+            <div class="menu-mobile__header">
+                <h3 class="header-tertiary">Cálculo 2</h3>
+                <button class="menu-mobile-btn burger-btn" data-menu-btn="menu-mobile"><span class="burger-icon burger-icon--pressed"></span></button>
+            </div>
+            <nav class="navbar-mobile">
+                <ol class="subject-list">
+                    <li class="subject-list__item">
+                        <strong class="subject-list__title">1 La integral definida</strong>
+                        <ol class="subject-list">
+                            <li class="subject-list__item"><a href="/cursos/calculo2/" class="subject-list__link">1.1 Introducción</a></li>
+                            <li class="subject-list__item">
+                                <a href="./1.2-Sumatoria.html" class="subject-list__link">1.2 El símbolo $\sum$</a>
+                                <ol class="subject-list">
+                                    <li class="subject-list__item"><a href="./1.2-Sumatoria.html#1.2" class="subject-list__link">1.2.1 Formalizando el símbolo sumatorio</a></li>
+                                    <li class="subject-list__item"><a href="./1.2.2-propiedades.html" class="subject-list__link">1.2.2 Propiedades del símbolo $\sum$</a></li>
+                                </ol>
+                            </li>
+                            <li class="subject-list__item"><a href="./1.3-calculo-de-areas.html" class="subject-list__link">1.3 Cálculo de  ́areas con rect. insc. y circuns.</a></li>
+                            <li class="subject-list__item">
+                                <a href="./1.4-integral-definida.html" class="subject-list__link">1.4 Construcción de la integral definida</a>
+                                <ol class="subject-list">
+                                    <li class="subject-list__item"><a href="./1.4.1-integral-definida.html" class="subject-list__link">1.4.1 Construcción de la integral definida parte 2</a></li>
+                                    <li class="subject-list__item"><a href="./1.4.2-integral-definida.html" class="subject-list__link">1.4.2 Construcción de la integral definida parte 3</a></li>
+                                    <li class="subject-list__item"><a href="./1.4.3-integral-definida.html" class="subject-list__link">1.4.3 Construcción de la integral definida parte 4</a></li>
+                                    <li class="subject-list__item"><a href="./1.4.4-integral-definida.html" class="subject-list__link">1.4.4 Construcción de la integral definida parte 5</a></li>
+                                </ol>
+                            </li>
+                            <li class="subject-list__item"><a href="./1.5-sumas-riemann.html" class="subject-list__link">1.5 Sumas de Riemann</a></li>
+                            <li class="subject-list__item"><a href="./1.6-teorema-fundamental.html" class="subject-list__link">1.6 Teorema fundamental del Cálculo y sus consecuencias</a></li>
+                            <li class="subject-list__item"><a href="#" class="subject-list__link">1.7 Ejercicios</a></li>
+                        </ol>
+                    </li>
+                    <li class="subject-list__item">
+                        <strong class="subject-list__title">2 La integral indefinida</strong>
+                        <ol class="subject-list">
+                            <li class="subject-list__item"><a href="./2.1-introduccion.html" class="subject-list__link">2.1 Introducción</a></li>
+                            <li class="subject-list__item"><a href="./2.2-antiderivadas-inmediatas.html" class="subject-list__link">2.2 Antiderivadas inmediatas</a></li>
+                            <li class="subject-list__item">
+                                <a href="./2.3-metodo-sustitucion.html" class="subject-list__link">2.3 Método de int. por sust. o cambio de variable</a>
+                                <ol class="subject-list">
+                                    <li class="subject-list__item"><a href="./2.3.1-metodo-sustitucion-parte-2.html" class="subject-list__link">2.3.1 Método de int. por sust. o cambio de variable parte 2</a></li>
+                                </ol>
+                            </li>
+                            <li class="subject-list__item"><a href="./2.4-integracion-por-partes.html" class="subject-list__link">2.4 Método de integración por partes</a></li>
+                            <li class="subject-list__item">
+                                <a href="./2.5-fracciones-parciales.html" class="subject-list__link">2.5 Método de integración por fracciones parciales</a>
+                                <ol class="subject-list">
+                                    <li class="subject-list__item"><a href="./2.5.1-factores-lineales-no-repetidos.html" class="subject-list__link">2.5.1 El polinomio $Q(x)$ solo contiene factores lineales que no se repiten</a></li>     
+                                    <li class="subject-list__item"><a href="./2.5.2-factores-lineales-repetidos.html" class="subject-list__link">2.5.2 El polinomio $Q(x)$ solo contiene factores lineales, pero algunos de ellos se repetidos</a></li>     
+                                    <li class="subject-list__item"><a href="./2.5.3-factores-cuadraticos-irreducibles.html" class="subject-list__link">2.5.3 Integrales de funciones simples que involucran términos cuadráticos irreducibles</a></li>     
+                                    <li class="subject-list__item"><a href="./2.5.4-factores-cuadraticos-no-repetidos.html" class="subject-list__link">2.5.4 El polinomio Q(x) contiene factores cuadráticos irreducibles que no se repiten</a></li>     
+                                    <li class="subject-list__item"><a href="./2.5.5-factores-cuadraticos-repetidos.html" class="subject-list__link">2.5.5 El polinomio Q(x) contiene factores cuadráticos irreducibles que se repiten</a></li>     
+                                </ol>
+                            </li>
+                            <li class="subject-list__item"><a href="./2.6-sust-trigonometrica.html" class="subject-list__link">2.6 Met. de int. por sust. trigonométrica</a></li>     
+                        </ol>
+                    </li>
+                    <li class="subject-list__item">
+                        <strong class="subject-list__title">3 Integrales impropias y aplicaciones</strong>
+                        <ol class="subject-list">
+                            <li class="subject-list__item"><a href="./3.1-integrales-impropias.html" class="subject-list__link">3.1 Integrales impropias</a></li>
+                            <li class="subject-list__item"><a href="./3.2-mas-integrales-impropias.html" class="subject-list__link">3.2 Más integrales impropias (para funciones discontinuas)</a></li>
+                            <li class="subject-list__item"><a href="./3.3-calculo-de-areas.html" class="subject-list__link subject-list__link--active">3.3 Cálculo de áreas de regiones acotadas pro curvas</a></li>   
+                        </ol>
+                    </li>
+                    <li class="subject-list__item">
+                        <strong class="subject-list__title">Anexo</strong>
+                        <ol class="subject-list">
+                            <li class="subject-list__item"><a href="./anexo-conjuntos.html" class="subject-list__link">Conjuntos</a></li>
+                        </ol>
+                    </li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <main class="main">
+        <section>
+            <h2 class="header-primary margin-bottom-md">
+                3.3 Cálculo de áreas de regiones acotadas por curvas
+            </h2>
+            <p class="paragraph">
+                Recordemos que vimos en la Unidad I, lo siguiente: Si $f$ es una función continua en $[a,b]$ y además $f(x)\geq 0$ para toda $x\in[a,b]$, 
+                se define el área bajo la curva como el límite de lo que ahora conocemos una suma de Riemann, esto se traduce, en términos que ahora manejamos como
+                $$A=\int_a^b f(x)\,dx.$$
+            </p>
+            <p class="paragraph">
+                Notemos que esta definición está dada para funciones que son no negativas. Esto nos permite extender las ideas de la noción de área bajo una curva, 
+                hacia el de área entre curvas de la siguiente manera.
+            </p>
+            <p class="paragraph">
+                Si tenemos dos funciones, $f,g$ definidas en el mismo intervalo $[a,b]$, que son integrables, no negativas y $f(x)\geq g(x)$, es posible definir el área entre esas curvas.
+            </p>
+            <p class="paragraph">
+                Primero analizamos qué sucede con el área bajo la curva de las funciones $f$ y $g.$ Sabemos que el área debajo de la función $f$ en el intervalo $[a,b]$, es 
+                $\int_a^b f(x)\,dx.$
+                El área debajo de la función $g$ en el intervalo $[a,b]$, es $\int_a^b g(x)\,dx.$
+            </p>
+            <p class="paragraph">
+                Esto nos permite darnos cuenta que es posible obtener el área que hay entre las curvas mediante la diferencia de las áreas de la curvas, 
+                a la más grande le quitamos la más chica: 
+                $$A=\int_a^b f(x)\,dx-\int_a^b g(x)\,dx=\int_a^b [f(x)-g(x)]\,dx=\int_a^b (f-g)(x)\,dx.$$
+            </p>
+            <p class="paragraph">
+                Lo cual nos conduce a que la región que queda comprendida entre las funciones $f$ y $g$ se puede obtener mediante la integral de una diferencia de funciones.
+            </p>
+            <div class="row">
+                <div class="col">
+                    <h3 class="header-tertiary">Selecciona una de las opciones para mostrar la gráfica.</h3>
+                    <form class="form-group" data-options="graphics-3-3-4" autocomplete="off">
+                        <div class="form-group__item">
+                            <input class="input-radio" type="radio" id="option-3-3-4-a" name="graphic-3-3-4" value="a" checked data-option="graphic-3-3-4">
+                            <label for="option-3-3-4-a">$$\int_a^b f(x)\,dx$$</label>
+                        </div>
+                        <div class="form-group__item">
+                            <input class="input-radio" type="radio" id="option-3-3-4-b" name="graphic-3-3-4" value="b" data-option="graphic-3-3-4">
+                            <label for="option-3-3-4-b">$$\int_a^b g(x)\,dx$$</label>
+                        </div>
+                        <div class="form-group__item">
+                            <input class="input-radio" type="radio" id="option-3-3-4-c" name="graphic-3-3-4" value="c" data-option="graphic-3-3-4">
+                            <label for="option-3-3-4-c">$$\int_a^b (f-g)(x)\,dx$$</label>
+                        </div>
+                    </form>
+                </div>
+                <div class="col">
+                    <div class="canvas-container">
+                        <canvas class="canvas" height="300" width="300" data-canvas="chapter-3-3-4"></canvas>
+                    </div>
+                </div>
+            </div>
+            <p class="paragraph">
+                Esto parece indicar que esa será nuestra definición de área entre curvas. Pero recordemos que acá estamos considerando que $f$ y $g$ son no negativas en el 
+                intervalo $[a,b]$. Esto nos sugiere algunas preguntas: ¿qué sucede si una o ambas funciones son negativas?, ¿será suficiente que $f$ quede por encima de $g$? 
+            </p>
+            <p class="paragraph">
+                Si sucediera que alguna función sea negativa, entonces podemos hacer una traslación de las gráfica, recordemos que las traslaciones es una de 
+                las transformaciones rígidas que se conocen y por lo tanto preservan áreas. Basta con encontrar una constante $K$ suficientemente grande, 
+                para trasladar las gráficas hacia arriba y que ambas sean positivas.
+            </p>
+            <div class="canvas-container">
+                <canvas class="canvas" height="300" width="300" data-canvas="chapter-3-3-5"></canvas>
+                <div class="picker">
+                    <label class="number-picker__label" for="constant-value">Valor de $K$:</label>
+                    <input class="input-number" type="number" id="constant-value" name="constant-value" min="0" max="3" value="0" data-picker="chapter-3-3-5" autocomplete="off">
+                </div>
+            </div>
+            <p class="paragraph">
+                El área encerrada entre las funciones $f+K$ y $g+K$ en el intervalo $[a,b]$, es $$A=\int_a^b [(f+K)-(g+K)](x)\,dx.$$ 
+                Pero notemos que:
+                
+            </p>
+            <div class="calculation">
+                <div class="calculation__formule--1">
+                    $$A$$
+                </div>
+                <div class="calculation__formule--2">
+                    <div>
+                        $$= \int_a^b [(f+K)-(g+K)](x)\,dx $$
+                    </div>
+                    <div class="calculation__text">
+                        por definición de área para funciones no negativas
+                    </div>
+                </div>
+                <div class="calculation__formule--2">
+                    <div>
+                        $$= \int_a^b [(f+K)(x)-(g+K)(x)]\,dx $$
+                    </div>
+                    <div class="calculation__text">
+                        por def. de resta de funciones
+                    </div>
+                </div>
+                <div class="calculation__formule--2">
+                    <div>
+                        $$= \int_a^b [(f(x)+K)-(g(x)+K)]\,dx $$
+                    </div>
+                    <div class="calculation__text">
+                        por def. de suma de una función y una cte
+                    </div>
+                </div>
+                <div class="calculation__formule--2">
+                    <div>
+                        $$= \int_a^b [f(x)-g(x)]\,dx $$
+                    </div>
+                    <div class="calculation__text">
+                        por algebrita
+                    </div>
+                </div>
+                <div class="calculation__formule--2">
+                    <div>
+                        $$= \int_a^b (f-g)(x)\,dx $$
+                    </div>
+                    <div class="calculation__text">
+                        por definición de resta de funciones.
+                    </div>
+                </div>
+            </div>
+            <p class="paragraph">
+                Esto justifica que, efectivamente, el valor del área no cambia, así que podemos dar nuestra definición de área entre curvas:
+            </p>
+            <div class="definition">
+                <p class="paragraph">
+                    <span class="definition__title">Definición 3.3.1.</span> Si $f$ y $g$ son funciones continuas en $[a,b]$ y además $g(x)\leq f(x),$ $\forall x\in[a,b],$ 
+                    definimos el área de la región acotada por las gráficas de $f$ y $g,$ y por las rectas verticales $x=a$ y $x=b$, como $$A=\int_a^b (f-g)(x)\,dx.$$
+                </p>
+            </div>
+            <p class="paragraph">
+                Ahora, como es costumbre, daremos ejemplos del cálculo de áreas.
+            </p>
+            <div class="fancy-line"></div>
+        </section>
+        <section>
+            <p class="paragraph example__paragraph">
+                <span class="example__title">Ejemplo 3.3.1.</span> Encontrar el área de la región acotada por las gráficas de las funciones $f(x)=x^2+2$ y $g(x)=-x$, y 
+                por las rectas verticales $x=0$ y $x=1$. 
+            </p>
+            <h3 class="header-tertiary">Solución.</h3>
+            <p class="paragraph">
+                Ayuda mucho primero graficar para entender qué estamos haciendo, así que lo ideal es graficar todos los elementos a considerar:
+            </p>
+            <div class="row">
+                <div class="col">
+                    <p class="paragraph">
+                        Debemos identificar cada elemento dentro del plano graficando todas las curvas involucradas en el problema. 
+                        La gráfica con línea roja es la función $f(x)=x^2+2$ y con la línea azul es $g(x)=-x.$
+                    </p>
+                </div>
+                <div class="col">
+                    <div class="canvas-container">
+                        <canvas class="canvas" height="300" width="300" data-canvas="chapter-3-3-6"></canvas>
+                    </div>
+                </div>
+            </div>
+            <p class="paragraph">
+                Después debemos analizar las gráficas para entender a qué región le vamos a calcular su área:
+            </p>
+            <div class="row">
+                <div class="col">
+                    <p class="paragraph">
+                        El área encerrada entre las funciones $f$ y $g$ en el intervalo $[0,1]$, es esta.
+                    </p>
+                </div>
+                <div class="col">
+                    <div class="canvas-container">
+                        <canvas class="canvas" height="300" width="300" data-canvas="chapter-3-3-7"></canvas>
+                    </div>
+                </div>
+            </div>
+            <p class="paragraph">
+                Ahora sí prodecemos a resolver el ejercicio.
+            </p>
+            <p class="paragraph">
+                Como $f(x)=x^2+2$ y $g(x)=-x$, tenemos que $f$ y $g$ son continuas en $\mathbb{R}$, en particular en $[0,1]$. 
+            </p>
+            <p class="paragraph">
+                Para poder aplicar la definición, debemos demostrar que $g(x)\leq f(x), \forall x\in[0,1]$. En efecto:
+                \begin{equation*}
+                    \begin{split}
+                        x\in[0,1] &\Rightarrow 0\leq x\leq1 \quad \mbox{ por definición de intervalo} \\
+                        &\Rightarrow -1\leq -x\leq 0 \quad \mbox{ por propiedades de }\mathbb{R} \\
+                        &\Rightarrow -1\leq g(x) \leq 0 \mbox{ por definición de la función }g.
+                    \end{split}
+                \end{equation*}
+                Además, sabemos que si $x\in[0,1]$, entonces $0\leq x^2$, por propiedades de $\mathbb{R}$, así se llega a que $2\leq x^2+2$, i.e., $2\leq f(x)$. 
+                Pero como $0\leq 2$, por transitividad concluimos que $$g(x)\leq f(x), \forall x\in[0,1].$$
+            </p>
+            <p class="paragraph">
+                Ahora, por la definición de área, tenemos que:
+            </p>
+            <div class="calculation">
+                <div class="calculation__formule--1">
+                    $$A$$
+                </div>
+                <div class="calculation__formule--2">
+                    <div>
+                        $$= \int_0^1 (f-g)(x)\,dx = \int_0^1 [(x^2+2)-(-x)]\,dx $$
+                    </div>
+                    <div class="calculation__text">
+                        por Definición 3.3.1
+                    </div>
+                </div>
+                <div class="calculation__formule--2">
+                    <div>
+                        $$= \int_0^1 (x^2+2+x)\,dx $$
+                    </div>
+                    <div class="calculation__text">
+                        por algebrita
+                    </div>
+                </div>
+                <div class="calculation__formule--2">
+                    <div>
+                        $$= \left[\frac{x^3}{3}+2x+\frac{x^2}{2}\right]\bigg|_0^1 $$
+                    </div>
+                    <div class="calculation__text">
+                        por TFC
+                    </div>
+                </div>
+                <div class="calculation__formule--2">
+                    <div>
+                        $$= \left( \frac{1^3}{3}+2\cdot1+\frac{1^2}{2} \right)-\left( \frac{0^3}{3}+2\cdot0+\frac{0^2}{2} \right) $$
+                    </div>
+                    <div class="calculation__text">
+                        por notación
+                    </div>
+                </div>
+                <div class="calculation__formule--2">
+                    <div>
+                        $$= \frac{1}{3}+2+\frac{1}{2}=\frac{17}{6}. $$
+                    </div>
+                </div>
+            </div>
+            <p class="paragraph">
+                Por lo tanto, el área buscada es $A=\frac{17}{6}$.
+            </p>
+            <div class="fancy-line"></div>
+        </section>
+        <section>
+            <p class="paragraph">
+                Ahora daremos un ejemplo un poco más complicado, en donde las funciones involucradas cambien de rol dependiendo del intervalo en donde estemos trabajando.
+            </p>
+            <p class="paragraph">
+                <span class="example__title">Ejemplo 3.3.3.</span> Calcular el área de la región acotada por las curvas $y=3x^3-x^2-10x$ e $y=-x^2+2x$. 
+            </p>
+            <h3 class="header-tertiary">Solución.</h3>
+            <p class="paragraph">
+                Primero graficamos las curvas para identificar qué función consideraremos en cada caso, probablemente la graficación sea de lo más complicado de hacer.
+            </p>
+            <div class="row">
+                <div class="col">
+                    <p class="paragraph">
+                        Las gráficas de las curvas quedan así. La gráfica roja es $y=3x^3-x^2-10x$ y la azul es $y=-x^2+2x.$
+                    </p>
+                </div>
+                <div class="col">
+                    <div class="canvas-container">
+                        <canvas class="canvas" height="300" width="300" data-canvas="chapter-3-3-8"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p class="paragraph">
+                        Así, la región a la cual le calcularemos el área es esta.
+                    </p>
+                </div>
+                <div class="col">
+                    <div class="canvas-container">
+                        <canvas class="canvas" height="300" width="300" data-canvas="chapter-3-3-9"></canvas>
+                    </div>
+                </div>
+            </div>
+            <p class="paragraph">
+                Notemos que podemos verla como dos regiones diferentes, ya que la curva, dependiendo del intervalo en el cual se trabaje, puede estar abajo o puede estar arriba. 
+                Además, hay 3 puntos de corte de las gráficas y necesitamos encontrar los puntos en donde se dan los cortes, o mejor dicho, 
+                qué valores de $x$ producen esos cortes. Así que primero igualamos las funciones para determinar esos valores de $x$.
+            </p>
+            <form class="question margin-top-sm" data-question="question-3-3-1" data-answer="b" autocomplete="off">
+                <h3 class="question__header margin-bottom-sm">
+                    ¿Qué valores de $x$ producen cortes en las gráficas?
+                </h3>
+                <div class="question__row">
+                    <div class="question__col-1">
+                        <div class="question__options">
+                            <div class="question__option">
+                                <input type="radio" id="answer-3-3-1-a" name="question-3-3-1" value="a" data-option="question-3-3-1">
+                                <label for="answer-3-3-1-a">$x=-1,\, x=0, \, x=2$</label>
+                            </div>
+                            <div class="question__option">
+                                <input type="radio" id="answer-3-3-1-b" name="question-3-3-1" value="b" data-option="question-3-3-1">
+                                <label for="answer-3-3-1-b">$x=-2,\, x=0, \, x=2$</label>
+                            </div>
+                            <div class="question__option">
+                                <input type="radio" id="answer-3-3-1-c" name="question-3-3-1" value="c" data-option="question-3-3-1">
+                                <label for="answer-3-3-1-c">$x=-\frac{5}{3},\, x=0, \, x=2$</label>
+                            </div>
+                            <div class="question__option">
+                                <input type="radio" id="answer-3-3-1-d" name="question-3-3-1" value="d" data-option="question-3-3-1">
+                                <label for="answer-3-3-1-d">$x=-\frac{5}{3},\, x=0, \, x=1$</label>
+                            </div>
+                        </div>
+                        <div class="question__btn-box">
+                            <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                            <button class="btn btn--blue" type="button" disabled data-btn-continue="step-1">Continuar</button>
+                        </div>
+                    </div>
+                    <div class="question__col-2">
+                        <p class="question__answer"></p>
+                    </div>
+                </div>
+            </form>
+            <div class="section--hidden" data-section="step-1">
+                <p class="paragraph">
+                    Los cortes de las funciones se dan en
+                    \begin{equation*}
+                        \begin{split}
+                            3x^3-x^2-10x &=-x^2+2x  \\
+                            \Leftrightarrow 3x^3-12x&=0 \\
+                            \Leftrightarrow x^3-4x&=0 \\
+                            \Leftrightarrow x(x^2-4)&=0 \\
+                            \Leftrightarrow x(x-2)(x+2)&=0 \\
+                            \Leftrightarrow  x=-2 \vee x=0 \vee x&=2.
+                        \end{split}
+                    \end{equation*}
+                </p>
+                <p class="paragraph">
+                    Así, los intervalos a considerar son $[-2,0]$ y $[0,2]$.
+                </p>
+                <form class="question margin-top-sm" data-question="question-3-3-2" data-answer="a" autocomplete="off">
+                    <h3 class="question__header margin-bottom-sm">
+                        Usando la gráfica anterior y considerando el intervalo $[-2,0]$ ¿qué función es $f_1$ en  la expresión $\int_{-2}^0 [f_1(x)-g_1(x)]\,dx$?
+                    </h3>
+                    <div class="question__row">
+                        <div class="question__col-1">
+                            <div class="question__options">
+                                <div class="question__option">
+                                    <input type="radio" id="answer-3-3-2-a" name="question-3-3-2" value="a" data-option="question-3-3-2">
+                                    <label for="answer-3-3-2-a">$y=3x^3-x^2-10x$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" id="answer-3-3-2-b" name="question-3-3-2" value="b" data-option="question-3-3-2">
+                                    <label for="answer-3-3-2-b">$y=-x^2+2x$</label>
+                                </div>
+                            </div>
+                            <div class="question__btn-box">
+                                <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                <button class="btn btn--blue" type="button" disabled data-btn-continue="step-2">Continuar</button>
+                            </div>
+                        </div>
+                        <div class="question__col-2">
+                            <p class="question__answer"></p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="section--hidden" data-section="step-2">
+                <p class="paragraph">
+                    El primer tramo de la región es en $[-2,0]$, aquí notamos que $y=3x^3-x^2-10x$ queda encima de $y=-x^2+2x$, de aquí deducimos que serán 
+                    $f_1(x)=3x^3-x^2-10x$ y $g_1(x)=-x^2+2x$.
+                </p>
+                <p class="paragraph">
+                    El segundo tramo de la región es en $[0,2]$, aquí notamos que $y=3x^3-x^2-10x$ queda debajo de $y=-x^2+2x$, de aquí deducimos quiénes serán $f_2$ y $g_2$.
+                </p>
+                <p class="paragraph">
+                    Entonces consideramos a las funciones $f_1(x)=3x^3-x^2-10x$ y $g_1(x)=-x^2+2x$, en el intervalo $[-2,0]$ y a las funciones $f_2(x)=-x^2+2x$ y $g_2=3x^3-x^2-10x$, en $[0,2]$. 
+                </p>
+                <p class="paragraph">
+                    Para poder aplicar la definición de área, debemos probar que efectivamente, $g_1(x)\leq f_1(x)$ en $[-2,0]$. En efecto:
+                    \begin{equation*}
+                        \begin{split}
+                            g_1(x) &\leq f_1(x) \\
+                            \Leftrightarrow  -x^2+2x &\leq 3x^3-x^2-10x \\
+                            \Leftrightarrow  2x &\leq 3x^3-10x \\
+                            \Leftrightarrow  0 &\leq 3x^3-12x \\
+                            \Leftrightarrow  0 &\leq 3x(x^2-4) \\
+                            \Leftrightarrow  0 &\leq 3x(x-2)(x+2)  
+                        \end{split}
+                    \end{equation*}
+                </p>
+                <p class="paragraph">
+                    Pero si $x\in[-2,0]$, entonces $-2 \leq x \leq 0$. De aquí deducimos varias cositas:
+                    \begin{align*} 
+                        -6 &\leq 3x \leq 0 \\ 
+                        -4 & \leq x-2 \leq -2  \\
+                        0 & \leq x+2 \leq 2
+                    \end{align*}
+                    Entonces $0\leq 3x(x^2-4)$ y por lo tanto $g_1(x)\leq f_1(x)$.
+                </p>
+                <p class="paragraph">
+                    Ahora debemos de verificar que $g_2(x)\leq f_2(x)$ en $[0,2]$. En efecto: 
+                    \begin{equation*}
+                        \begin{split}
+                            g_2(x) &\leq f_2(x) \\
+                            \Leftrightarrow 3x^3-x^2-10x  &\leq -x^2+2x \\
+                            \Leftrightarrow 3x^3-10x  &\leq 2x \\
+                            \Leftrightarrow 3x^3-12x  &\leq 0 \\
+                            \Leftrightarrow 3x(x^2-4)  &\leq 0 \\
+                            \Leftrightarrow 3x(x-2)(x+2) &\leq 0  
+                        \end{split}
+                    \end{equation*}
+                </p>
+                <p class="paragraph">
+                    Pero si $x\in[0,2]$, entonces $0 \leq x \leq 2$. De aquí deducimos varias cositas:
+                    \begin{align*} 
+                        0 &\leq 3x \leq 6  \\ 
+                        -2 & \leq x-2 \leq 0 \\
+                        2 & \leq x+2 \leq 4
+                    \end{align*}
+                    Entonces $3x(x^2-4)\leq 0$ y por lo tanto $g_2(x)\leq f_2(x)$.
+                </p>
+                <form class="question margin-top-sm" data-question="question-3-3-3" data-answer="c" autocomplete="off">
+                    <h3 class="question__header margin-bottom-sm">
+                        ¿Cuánto es el área total?
+                    </h3>
+                    <div class="question__row">
+                        <div class="question__col-1">
+                            <div class="question__options">
+                                <div class="question__option">
+                                    <input type="radio" id="answer-3-3-3-a" name="question-3-3-3" value="a" data-option="question-3-3-3">
+                                    <label for="answer-3-3-3-a">$A=25$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" id="answer-3-3-3-b" name="question-3-3-3" value="b" data-option="question-3-3-3">
+                                    <label for="answer-3-3-3-b">$A=21$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" id="answer-3-3-3-c" name="question-3-3-3" value="c" data-option="question-3-3-3">
+                                    <label for="answer-3-3-3-c">$A=24$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" id="answer-3-3-3-d" name="question-3-3-3" value="d" data-option="question-3-3-3">
+                                    <label for="answer-3-3-3-d">$A=22$</label>
+                                </div>
+                            </div>
+                            <div class="question__btn-box">
+                                <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                <button class="btn btn--blue" type="button" disabled data-btn-continue="step-3">Continuar</button>
+                            </div>
+                        </div>
+                        <div class="question__col-2">
+                            <p class="question__answer"></p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="section--hidden" data-section="step-3">
+                <p class="paragraph">
+                    Ahora es posible utilizar la definición de área en cada región, es decir, el área total es:
+                    \begin{equation*}
+                        \begin{split}
+                            A&= \int_{-2}^0 [f_1(x)-g_1(x)]\,dx + \int_0^2 [f_2(x)-g_2(x)]\,dx  \\
+                            &= \int_{-2}^0 [(3x^3-x^2-10x)-(-x^2+2x)]\,dx \\
+                            &\quad + \int_0^2 [(-x^2+2x)-(3x^3-x^2-10x)]\,dx \\
+                            &= \int_{-2}^0 (3x^3-12x)\,dx + \int_0^2 (-3x^3+12x)\,dx \\
+                            &= \left( \frac{3}{4}x^4-6x^2 \right)\bigg|_{-2}^0 + \left( -\frac{3}{4}x^4+6x^2 \right)\bigg|_0^2 \\
+                            &= \left(-\frac{3}{4}\cdot 16 +24\right)+\left(-\frac{3}{4}\cdot 16 +24\right) = 24.
+                        \end{split}
+                    \end{equation*}
+                </p>
+                <p class="paragraph">
+                    Finalmente, el área buscada es $A=24$.
+                </p>
+                <div>
+                    <button class="btn-sm btn--blue" type="button" data-btn-continue="step-4">Continuar</button>
+                </div>
+                <div class="fancy-line"></div>
+            </div>
+        </section>
+        <section class="section--hidden" data-section="step-4">
+            <p class="paragraph">
+                <span class="example__title">Ejemplo 3.3.4.</span> Encontrar el área de la región acotada por las gráficas de las curvas dadas por $x=3-y^2$ y $x=y+1$.
+            </p>
+            <h3 class="header-tertiary">Hint.</h3>
+            <p class="paragraph">
+                Nuevamente, es conveniente hacer la gráfica de las curvas involucradas.
+            </p>
+            <div class="row">
+                <div class="col">
+                    <p class="paragraph">
+                        Ahora las curvas están dadas como función de la variable $y$, cabe reconocer que vistas con la variable $x$, no son funciones.
+                    </p>
+                </div>
+                <div class="col">
+                    <div class="canvas-container">
+                        <canvas class="canvas" height="300" width="300" data-canvas="chapter-3-3-10"></canvas>
+                    </div>
+                </div>
+            </div>
+            <p class="paragraph">
+                Si quisiéramos ver a la región considerando funciones en $x$, deberíamos partir la región y considerar raíces negativas y positivas.
+            </p>
+            <p class="paragraph">
+                Pero si dejamos todo en función de $y$, es más fácil el análisis, pues el área de las curvas se puede definir en forma similar a lo que 
+                hicimos, ya que si tenemos que $g(y)\leq f(y)$ en el intervalo $[c,d]$, entonces es posible definir el área entre las curvas como 
+                $$A=\int_c^d [f(y)-g(y)]\,dy.$$
+            </p>
+            <form class="question margin-top-sm" data-question="question-3-3-4" data-answer="d" autocomplete="off">
+                <h3 class="question__header margin-bottom-sm">
+                    ¿Cuál es el área entre las curvas?
+                </h3>
+                <div class="question__row">
+                    <div class="question__col-1">
+                        <div class="question__options">
+                            <div class="question__option">
+                                <input type="radio" id="answer-3-3-4-a" name="question-3-3-4" value="a" data-option="question-3-3-4">
+                                <label for="answer-3-3-4-a">$A=\frac{7}{4}$</label>
+                            </div>
+                            <div class="question__option">
+                                <input type="radio" id="answer-3-3-4-b" name="question-3-3-4" value="b" data-option="question-3-3-4">
+                                <label for="answer-3-3-4-b">$A=\frac{9}{4}$</label>
+                            </div>
+                            <div class="question__option">
+                                <input type="radio" id="answer-3-3-4-c" name="question-3-3-4" value="c" data-option="question-3-3-4">
+                                <label for="answer-3-3-4-c">$A=\frac{7}{2}$</label>
+                            </div>
+                            <div class="question__option">
+                                <input type="radio" id="answer-3-3-4-d" name="question-3-3-4" value="d" data-option="question-3-3-4">
+                                <label for="answer-3-3-4-d">$A=\frac{9}{2}$</label>
+                            </div>
+                        </div>
+                        <div class="question__btn-box">
+                            <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                            <button class="btn btn--blue" type="button" disabled data-btn-continue="step-5">Continuar</button>
+                        </div>
+                    </div>
+                    <div class="question__col-2">
+                        <p class="question__answer"></p>
+                    </div>
+                </div>
+            </form>
+            <div class="section--hidden" data-section="step-5">
+                <p class="paragraph">
+                    El área encerrada entre las curvas es $A=\frac{9}{2}$.
+                </p>
+                <div class="fancy-line"></div>
+                <div class="change-page">
+                    <a href="./3.2-mas-integrales-impropias.html" class="change-page__before">Anterior</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div class="floating-box">
+        <button class="floating-box__btn btn-sm btn--blue" data-modal-btn="formules">&int;</button>
+        <button class="floating-box__btn btn-sm btn--blue" data-modal-btn="trigonometric">&theta;</button>
+    </div>
+    <div class="modal" data-modal="formules">
+        <div class="modal__background" data-modal-background="formules"></div>
+        <div class="modal__content">
+            <table class="math-table">
+                <thead>
+                    <tr>
+                        <th>Fórmulas básicas de integración</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            $$\int x^n\,dx=\frac{x^{n+1}}{n+1}+C \qquad \mbox{ con }n\in\mathbf{N} \setminus\{-1\} \mbox{ y }C\mbox{ una constante}.$$
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            $$\int e^{kx}\,dx=\frac{e^{kx}}{k}+C \qquad \mbox{con }C \mbox{ una constante.}$$
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            $$\int\frac{1}{x}\,dx=\ln x+C \qquad \mbox{con }C \mbox{ una constante.}$$
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            $$\int \cos x\,dx=\sin x+C \qquad \mbox{con }C \mbox{ una constante.}$$
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            $$\int \sin x\,dx=-\cos x+C \qquad \mbox{con }C \mbox{ una constante.}$$
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            \begin{split}
+                                \frac{d}{dx}\tan x &=\sec^2 x  \Rightarrow \int\sec^2 x\, dx=\tan x +C \\
+                                \frac{d}{dx}\cot x &=-\csc^2 x  \Rightarrow \int\csc^2 x\, dx=-\cot x +C \\
+                                \frac{d}{dx}\sec x &=\sec x \tan x  \Rightarrow \int\sec x \tan x\, dx=\sec x +C \\
+                                \frac{d}{dx}\csc x &=-\csc x \cot x  \Rightarrow \int\csc x \cot x\, dx=-\csc x +C
+                            \end{split}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            \begin{split}
+                                \frac{d}{dx}\arcsin x &=\frac{1}{\sqrt{1-x^2}}  \Rightarrow \int \frac{1}{\sqrt{1-x^2}} \, dx=\arcsin x +C \\
+                                \frac{d}{dx}\arccos x &=-\frac{1}{\sqrt{1-x^2}}  \Rightarrow \int \frac{1}{\sqrt{1-x^2}} \, dx=-\arccos x +C \\
+                                \frac{d}{dx}\arctan x &=\frac{1}{1+x^2}  \Rightarrow \int \frac{1}{1+x^2} \, dx=\arctan x +C 
+                            \end{split}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="modal" data-modal="trigonometric">
+        <div class="modal__background" data-modal-background="trigonometric"></div>
+        <div class="modal__content">
+            <table class="math-table">
+                <thead>
+                    <tr>
+                        <th>Identidades trigonométricas</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            \begin{equation*}
+                                \tan \theta=\frac{\sin \theta}{\cos \theta}, \quad \cot \theta=\frac{\cos \theta}{\sin \theta}, \quad \sec \theta = \frac{1}{\cos \theta}, \quad  \csc \theta=\frac{1}{\sin \theta},
+                            \end{equation*}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            \begin{equation} \cos^2\theta+\sin^2\theta=1 \qquad \mbox{ y } \qquad \tan^2\theta+1=\sec^2\theta. \end{equation}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            \begin{equation*}
+                                \begin{split}
+                                    \sin(A\pm B) & = \sin A \cos B \pm \sin B \cos A \\
+                                    \cos(A\pm B) & = \cos A \cos B \mp \sin A \sin B
+                                \end{split}
+                            \end{equation*}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            \begin{equation}\label{angdoble} \sin(2\theta)  = 2\sin \theta \cos \theta  \quad \mbox{ y } \quad \cos(2\theta) = \cos^2\theta - \sin^2 \theta.\end{equation}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            \begin{equation}\label{trig2} \cos^2 \theta  = \frac{1+\cos(2\theta)}{2}  \quad \mbox{ y } \quad \sin^2\theta = \frac{1-\cos (2\theta)}{2}.\end{equation}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            \begin{equation}
+                                \begin{matrix}
+                                    \cos^2\theta+\sin^2\theta=1 & \tan^2\theta+1=\sec^2\theta \\
+                                    \cos^2\theta=1-\sin^2\theta & \tan^2\theta=\sec^2\theta-1 \\
+                                    \cos \theta=\sqrt{1-\sin^2\theta} & \tan\theta=\sqrt{\sec^2\theta-1}\\
+                                    \sin^2\theta=1-\cos^2\theta & \sec\theta=\sqrt{\tan^2\theta+1}\\
+                                    \sin \theta=\sqrt{1-\cos^2\theta} &
+                                \end{matrix}
+                            \end{equation}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

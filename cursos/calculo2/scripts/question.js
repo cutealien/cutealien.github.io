@@ -4,7 +4,7 @@
 const questions = document.querySelectorAll('[data-question]')
 const continueBtns = document.querySelectorAll('[data-btn-continue]')
 
-questionEvaluation = function(question, btnAnswer, answer) {
+const questionEvaluation = function(question, btnAnswer, answer) {
 
     var data = new FormData(question)
     var message = 'Incorrecto'
@@ -42,7 +42,7 @@ questionEvaluation = function(question, btnAnswer, answer) {
     }
 }
 
-selectEvaluation = function(orderSelect, btnAnswer, answers) {
+const selectEvaluation = function(orderSelect, btnAnswer, answers) {
     
     var data = Array.from(new FormData(orderSelect))
 

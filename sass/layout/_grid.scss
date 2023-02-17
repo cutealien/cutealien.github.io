@@ -21,9 +21,5 @@
     }
     .col {
         flex: 1 1 0;
-        padding: 2rem;
-        @include responsive(phone-land) {
-            flex: 1 1 100%;
-        }
     }
 }

@@ -1,0 +1,92 @@
+[
+    {
+        "title": "Quiz test 1",
+        "questions": [
+            {
+                "question": "Calcula $\\int x dx\\,$",
+                "correctAnswer": "a",
+                "answers": [
+                    ["a", "$$\\frac{x^2}{2}$$"],
+                    ["b", "$$\\frac{x^3}{3}$$"],
+                    ["c", "$$\\frac{x}{2}$$"],
+                    ["d", "No sé"]
+                ]
+            },
+            {
+                "question": "Evalúa la integral $\\int_{0}^{1}\\frac{1}{\\sqrt[3]{x}}\\,dx$",
+                "correctAnswer": "a",
+                "answers": [
+                    ["a", "$$\\frac{3}{2}$$"],
+                    ["b", "$$\\frac{2}{3}$$"],
+                    ["c", "Diverge"],
+                    ["d", "No sé"]
+                ]
+            },
+            {
+                "question": "Calcula $\\int x^2 dx\\,$",
+                "correctAnswer": "a",
+                "answers": [
+                    ["a", "$$\\frac{x^3}{3}$$"],
+                    ["b", "$$4x^4$$"],
+                    ["c", "$$\\frac{x}{4}$$"],
+                    ["d", "No sé"]
+                ]
+            },
+            {
+                "question": "Calcula $\\int x^3 dx\\,$",
+                "correctAnswer": "a",
+                "answers": [
+                    ["a", "$$\\frac{x^4}{4}$$"],
+                    ["b", "$$4x^4$$"],
+                    ["c", "$$\\frac{x}{5}$$"],
+                    ["d", "No sé"]
+                ]
+            }
+        ]
+    },
+    {
+        "title": "Quiz test 2",
+        "questions": [
+            {
+                "question": "Calcula $\\int x dx\\,$",
+                "correctAnswer": "b",
+                "answers": [
+                    ["a", "$$\\frac{x^3}{3}$$"],
+                    ["b", "$$\\frac{x^2}{2}$$"],
+                    ["c", "$$\\frac{x}{2}$$"],
+                    ["d", "No sé"]
+                ]
+            },
+            {
+                "question": "Evalúa la integral $\\int_{0}^{1}\\frac{1}{\\sqrt[3]{x}}\\,dx$",
+                "correctAnswer": "b",
+                "answers": [
+                    ["a", "$$\\frac{2}{3}$$"],
+                    ["b", "$$\\frac{3}{2}$$"],
+                    ["c", "Diverge"],
+                    ["d", "No sé"]
+                ]
+            },
+            {
+                "question": "Calcula $\\int x^2 dx\\,$",
+                "correctAnswer": "b",
+                "answers": [
+                    ["a", "$$4x^4$$"],
+                    ["b", "$$\\frac{x^3}{3}$$"],
+                    ["c", "$$\\frac{x}{4}$$"],
+                    ["d", "No sé"]
+                ]
+            },
+            {
+                "question": "Calcula $\\int x^3 dx\\,$",
+                "correctAnswer": "b",
+                "answers": [
+                    ["a", "$$4x^4$$"],
+                    ["b", "$$\\frac{x^4}{4}$$"],
+                    ["c", "$$\\frac{x}{5}$$"],
+                    ["d", "No sé"]
+                ]
+            }
+        ]
+    }
+]

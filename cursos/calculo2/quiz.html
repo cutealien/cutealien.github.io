@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/style.css">
+    
+    <!-- <script src="./scripts/variables.js" defer></script>
+    <script src="./scripts/question.js" defer></script>
+    <script src="./scripts/menu-mobile.js" defer></script> -->
+    <script src="./scripts/modal.js" defer></script>
+    <script src="./scripts/quiz.js" defer></script>
+
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+            loader: {load: ['input/asciimath', 'output/chtml']}
+        }
+    </script>
+    <script id="MathJax-script" async src="/scripts/MathJax-master/es5/tex-chtml.js"></script>
+
+    <title>Cálculo 2 | El símbolo ∑</title>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="/" class="navbar__logo-box">
+        </a>
+        <a href="/" class="navbar__link">
+            Inicio
+        </a>
+        <a href="#" class="navbar__link navbar__link--active">
+            Cálculo 2
+        </a>
+        <button class="menu-mobile-btn burger-btn" data-menu-btn="menu-mobile"><span class="burger-icon"></span></button>
+    </nav>
+    
+    <main class="main">
+        <section>
+            <div id="app">
+                <form class="form form--login" data-form="login">
+                    <h3 class="header-tertiary text-center">Inicia sesión para contestar el quiz</h3>
+                    <div class="form__control">
+                        <label for="ca_email" class="input-label">Email:</label>
+                        <input id="ca_email" name="email" type="email" class="input-text" required>
+                    </div>
+                    <div class="form__control">
+                        <label for="ca_password" class="input-label">Password:</label>
+                        <input id="ca_password" name="password" type="password" class="input-text" required>
+                    </div>
+                    <div class="text-center">
+                        <button class="btn-sm btn--blue" type="submit">Login</button>
+                    </div>
+                </form>
+                <div class="loader-box text-center" data-loader="login">
+                    <div class="lds-dual-ring"></div>
+                </div>
+                <div id="quiz" class="quiz--hidden">
+                    <select class="select margin-bottom-md" id="quizList" data-picker="quiz" autocomplete="off">
+                        <option value="default" selected disabled hidden>Selecciona quiz</option>
+                    </select>
+                    <form class="quiz" autocomplete="off" data-quiz="quiz">
+                        <div class="row">
+                            <div class="col">
+                                <div class="quiz__option">
+                                    <label for="ca_name" class="input-label">Nombre:</label>
+                                    <input id="ca_name" name="nombre" type="text" class="input-text" minlength="5" maxlength="50" required>
+                                </div>
+                            </div>
+                            <div class="col hidden" data-btn-box="retry">
+                                <button class="btn-sm btn--blue" type="reset" data-btn="retry">Reintentar</button>
+                            </div>
+                        </div>
+                        <h2 class="header-secondary text-left margin-top-sm" data-title="title"></h2>
+                        <div class="fancy-line"></div>
+                        <div class="quiz__container" data-container="quiz">
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </section>
+    </main>
+    <div class="modal" data-modal="messages">
+        <div class="modal__background" data-modal-background="messages"></div>
+        <div class="modal__content" data-modal-content="messages">
+            
+        </div>
+    </div>
+</body>
+</html>

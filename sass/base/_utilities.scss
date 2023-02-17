@@ -40,6 +40,14 @@
     border: none;
 }
 
+.hidden {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
 div[data-anchor]{
     &:target::before {
         content: "";

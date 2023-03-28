@@ -612,7 +612,149 @@
             </p>
             <div class="theorem">
                 <p class="paragraph">
-                    <strong class="theorem__title">Teorema 1.6.7. </strong>Si $f:[a,b]\to\mathbf{R}$ es una función continua, entonces existe $c\in(a,b)$ tal que $$\int_a^b f(x)\,dx=f(c)\cdot(b-a).$$
+                    <strong class="theorem__title">Teorema 1.6.3. </strong>Si $f:[a,b]\to\mathbf{R}$ es una función continua, entonces existe $c\in(a,b)$ tal que $$\int_a^b f(x)\,dx=f(c)\cdot(b-a).$$
+                </p>
+            </div>
+            <div class="proof">
+                <h3 class="header-tertiary">
+                    Demostración.
+                </h3>
+                <p class="paragraph">
+                    Por hipótesis, $f$ es una función continua en $[a,b]$, por lo tanto alcanza mínimo y máximo dentro del intervalo, es decir, $\exists x_1,x_2 \in[a,b]$ 
+                    tales que $$f(x_1) \leq f(x) \leq f(x_2), \qquad \forall x\in[a,b].$$ Por 5) del <span class="modal__reference" data-modal-btn="theorem-1-5-4">Teorema 1.5.4</span>, tenemos que 
+                    $$f(x_1) (b-a) \leq \int_a^b f(x)\,dx \leq f(x_2)(b-a),$$ de lo cual se deduce que 
+                    $$f(x_1) \leq \frac{1}{b-a} \int_a^b f(x)\,dx \leq f(x_2).$$ 
+                    Entonces, por el Teorema del Valor Intermedio, $\exists c\in[a,b]$ tal que $$f(c)=\frac{1}{b-a} \int_a^b f(x)\,dx.$$ Finalmente, obtenemos que 
+                    $$\int_a^b f(x)\,dx=f(c)\cdot(b-a).$$
+                </p>
+            </div>
+            <div class="fancy-line"></div>
+            <p class="paragraph">
+                Una vez que hayamos dado algunos métodos para encontrar primitivas que nos permitan calcular las integrales definidas, entonces mostraremos un par de ejemplos acerca del uso de este teorema.
+            </p>
+            <p class="paragraph">
+                Otro de los resultados que es muy usado en la teoría de integración es el siguiente.
+            </p>
+            <div class="theorem">
+                <p class="paragraph">
+                    <strong class="theorem__title">Teorema 1.6.4. </strong>Si $f:[a,b]\to\mathbf{R}$ es una función continua, entonces $$\left| \int_a^b f(x)\,dx \right|\leq \int_a^b |f(x)|\,dx.$$
+                </p>
+            </div>
+            <div class="proof">
+                <h3 class="header-tertiary">
+                    Demostración.
+                </h3>
+                <p class="paragraph">
+                    Por hipótesis, la función $f$ es continua en $[a,b]$, y así la función $|f|$ también es continua en $[a,b]$, de donde se obtiene, 
+                    por el Teorema 1.6.2, que tanto $f$ como $|f|$ son integrables. Luego, por las propiedades del valor absoluto en $\mathbf{R}$, tenemos que 
+                    $$-|f(x)| \leq  f(x) \leq |f(x)|, \quad \forall x\in[a,b].$$ Aplicando el <span class="modal__reference" data-modal-btn="theorem-1-5-4">Teorema 1.5.4</span>, se deduce que 
+                    $$ - \int_a^b |f(x)| \,dx \leq \int_a^b f(x) \,dx \leq \int_a^b |f(x)|\, dx.$$ 
+                    Finalmente, nuevamente considerando las propiedades del valor absoluto, concluimos que
+                    $$\left| \int_a^b f(x)\,dx \right|\leq \int_a^b |f(x)|\,dx.$$
+                </p>
+            </div>
+        </section>
+        <section>
+            <div class="fancy-line"></div>
+            <p class="paragraph">
+                Otro de los resultados muy importante dentro del cálculo integral es la segunda parte del TFC.
+            </p>
+            <div class="theorem">
+                <p class="paragraph">
+                    <strong class="theorem__title">Teorema 1.6.5 (Teorema Fundamental del Cálculo, segunda parte). </strong>Sean $f:[a,b] \to\mathbf{R}$ una función integrable 
+                    en $[a,b]$ y $F:[a,b]\to\mathbf{R}$ una función diferenciable 
+                    en $(a,b)$. Si $F'(x)=f(x)$, $\forall x\in[a,b]$, entonces $$\int_a^b f(x)\,dx = F(b)-F(a).$$
+                </p>
+            </div>
+            <div class="proof">
+                <h3 class="header-tertiary">
+                    Demostración.
+                </h3>
+                <p class="paragraph">
+                    Sea $P=\{x_0,x_1,x_2,...,x_n\}$ una partición de $[a,b]$. Representamos al número $F(b)-F(a)$ como una suma telescópica, i.e.,
+                    $$F(b)-F(a)=F(x_n)-F(x_0)=\sum_{i=1}^n [F(x_i)-F(x_{i-1})],$$ pues $x_0=a$, $x_n=b$ y usamos el <span class="modal__reference" data-modal-btn="theorem-1-2-2">Teorema 1.2.2.</span> 
+                </p>
+                <p class="paragraph">
+                    Luego, en cada intervalo $[x_{i-1},x_i]$, tenemos que $F$ es una función continua en $[x_{i-1},x_i]$ y derivable en $(x_{i-1},x_i)$, entonces, 
+                    aplicando el Teorema del Valor Medio para derivadas, existe $\xi_i\in(x_{i-1},x_i)$ tal que $$F(x_i)-F(x_{i-1})=F'(\xi_i)(x_i-x_{i-1}),$$ 
+                    pero como $F'(\xi_i)=f(\xi_i)$ y $x_i-x_{i-1}=\Delta x_i$, entonces 
+                    $$F(x_i)-F(x_{i-1})=f(\xi_i)\,\Delta x_i.$$
+                </p>
+                <p class="paragraph">
+                    De todo esto se deduce que $$F(b)-F(a)=\sum_{i=1}^n f(\xi_i)\,\Delta x_i.$$
+                </p>
+                <p class="paragraph">
+                    Además, sabemos que si $m_i=\inf\{f(x):x\in[x_{i-1},x_i]\}$ y $M_i=\sup\{f(x):x\in[x_{i-1},x_i]\}$, para toda $i=\overline{1,n}$, entonces 
+                </p>
+                <div class="calculation">
+                    <div class="calculation__formule--1">
+                        $$m_i\leq f(\xi_i) \leq M_i$$
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$ \Rightarrow m_i \Delta x_i\leq f(\xi_i) \Delta x_i \leq M_i \Delta x_i $$
+                        </div>
+                        <div class="calculation__text">
+                            por c.p.s. $\leq$
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$ \Rightarrow \sum_{i=1}^n m_i \Delta x_i\leq \sum_{i=1}^n f(\xi_i) \Delta x_i \leq  \sum_{i=1}^n M_i \Delta x_i $$
+                        </div>
+                        <div class="calculation__text">
+                            por c.s.s. $\leq$
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$ \Rightarrow \underline{S}(f,P) \leq F(b)-F(a) \leq \overline{S}(f,P) $$
+                        </div>
+                        <div class="calculation__text">
+                            por def. de sumas inf. y sup.
+                        </div>
+                    </div>
+                </div>
+                <p class="paragraph">
+                    Luego, por la Ley de Generalización Universal, tenemos que 
+                    $$\underline{S}(f,P) \leq F(b)-F(a) \leq \overline{S}(f,P) \qquad \forall P \mbox{ partición de }[a,b],$$ 
+                    es decir, $F(b)-F(a)$ es una cota superior para todas las sumas inferiores y una cota inferior para todas las sumas superiores. 
+                    De lo cual se obtiene que 
+                    $${\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b f(x)\,dx \leq F(b)-F(a) \leq {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx.$$
+                </p>
+                <p class="paragraph">
+                    Pero, por hipótesis, sabemos que $f$ es integrable, es decir, 
+                    $${\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b f(x)\,dx={\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx,$$ 
+                    y simplemente lo denotamos por $\int_a^b f(x)\, dx$.
+                </p>
+                <p class="paragraph">
+                    Finalmente, $\int_a^b f(x)\, dx=F(b)-F(a)$.
+                </p>
+            </div>
+            <div class="fancy-line"></div>
+            <p class="paragraph">
+                La segunda parte del Teorema Fundamental del Cálculo nos permitirá calcular integrales definidas a través de la valuación de una primitiva en los extremos del intervalo de interés.
+            </p>
+            <p class="paragraph">
+                Para culminar esta primera unidad daremos el último resultado que estaremos utilizando en la siguiente unidad.
+            </p>
+            <div class="theorem">
+                <p class="paragraph">
+                    <strong class="theorem__title">Teorema 1.6.6. </strong>Si $f:[a,b]\to\mathbf{R}$ es una función continua, entonces $$\int_a^b f(x)\,dx = -\int_b^a f(x)\,dx.$$
+                </p>
+            </div>
+            <div class="proof">
+                <h3 class="header-tertiary">Demostración.</h3>
+                <p class="paragraph">
+                    Como $f$ es una función continua en $[a,b]$, entonces, por el Teorema 1.6.2, $f$ es integrable en $[a,b]$. Además, por el 
+                    Teorema 1.6.1, $$F(x)=\int_a^x f(t)\,dt \quad \forall x\in[a,b] \quad \mbox{ y } F(a)=0,$$ es decir, tenemos que 
+                    $$F(a)=\int_a^a f(t)\,dt = \int_a^a f(x)\,dx=0.$$        
+                </p>
+                <p class="paragraph">
+                    También, por el <span class="modal__reference" data-modal-btn="theorem-1-5-4">Teorema 1.5.4,</span> sabemos que $$\int_a^a f(x)\,dx = \int_a^b f(x)\,dx+ \int_b^a f(x)\,dx.$$
+                </p>
+                <p class="paragraph">
+                    Como $ \int_a^a f(x)\,dx=0$, entonces concluimos que $$\int_a^b f(x)\,dx = -\int_b^a f(x)\,dx.$$
                 </p>
             </div>
             <div class="fancy-line"></div>
@@ -661,6 +803,51 @@
                         $$
                     </li>
                 </ul>
+            </div>
+        </div>
+    </div>
+    <div class="modal" data-modal="theorem-1-5-4">
+        <div class="modal__background" data-modal-background="theorem-1-5-4"></div>
+        <div class="modal__content">
+            <div class="theorem">
+                <p class="paragraph">
+                    <strong class="theorem__title">Teorema 1.5.4.</strong> Si $f,g:[a,b]\to\mathbf{R}$ son funciones integrables y $\alpha \in \mathbf{R}$, entonces
+                </p>
+                <ol class="theorem__list">
+                    <li class="theorem__list--formule">
+                       $$\int_a^b (\alpha f)(x)\,dx=\alpha \int_a^b f(x)\,dx$$
+                    </li>
+                    <li class="theorem__list--formule">
+                        $$\int_a^b (f+g)(x)\,dx=\int_a^b f(x)\,dx+\int_a^b g(x)\,dx$$
+                    </li>
+                    <li class="theorem__list--formule">
+                        Si $0\leq f(x), \forall x\in[a,b]$, entonces $$0\leq \int_a^b f(x)\,dx.$$
+                    </li>
+                    <li class="theorem__list--formule">
+                        Si $g(x)\leq f(x), \forall x\in[a,b]$, entonces $$\int_a^b g(x)\,dx \leq \int_a^b f(x)\,dx.$$
+                    </li>
+                    <li class="theorem__list--formule">
+                        Si $m\leq f(x)\leq M, \forall x\in[a,b]$, con $m,M\in\mathbf{R}$, entonces $$m(b-a)\leq \int_a^b f(x)\,dx \leq M(b-a).$$
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <div class="modal" data-modal="theorem-1-2-2">
+        <div class="modal__background" data-modal-background="theorem-1-2-2"></div>
+        <div class="modal__content">
+            <div class="theorem">
+                <p class="paragraph">
+                    <strong class="theorem__title">Teorema 1.2.2 </strong>(Sumas telescópicas). Si $n ∈ \mathbf{N} $, y $a_i ∈ \mathbf{R} \; \; \forall i =$ <span class="overline">$1,n$</span>, entonces
+                </p>
+                <ol class="theorem__list">
+                    <li class="theorem__list--formule">
+                        $$\sum_{i=1}^{n} (a_{i+1} - a_i) = a_{n+1} - a_1.$$
+                    </li>
+                    <li class="theorem__list--formule">
+                        $$\sum_{i=1}^{n} [(i + 1)^2 - i^2) = (n + 1)^2 - 1.$$
+                    </li>
+                </ol>
             </div>
         </div>
     </div>

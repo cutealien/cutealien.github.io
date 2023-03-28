@@ -36,9 +36,13 @@
     padding: 1rem 0;
     &__paragraph {
         font-style: italic;
-        margin: 1rem 0 2rem;
+        // margin: 1rem 0 2rem;
+        padding: 1rem 0;
+        background-color: rgba(var(--color-primary-light-op), 0.1);
+        border: 2px solid var(--color-primary);
     }
     &__title {
+        color: var(--color-primary);
         font-weight: bold;
     }
 }

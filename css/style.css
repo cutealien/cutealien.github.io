@@ -765,9 +765,12 @@ div[data-anchor]:target::before {
 }
 .example__paragraph {
   font-style: italic;
-  margin: 1rem 0 2rem;
+  padding: 1rem 0;
+  background-color: rgba(var(--color-primary-light-op), 0.1);
+  border: 2px solid var(--color-primary);
 }
 .example__title {
+  color: var(--color-primary);
   font-weight: bold;
 }
 

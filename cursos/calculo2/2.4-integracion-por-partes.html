@@ -188,7 +188,1027 @@
             <h1 class="header-primary">
                 2.4 Método de integración por partes
             </h1>
+            <p class="paragraph">
+                El siguiente teorema contiene la fórmula en la que se basa el método de integración por partes y la fórmula de integración por partes para integrales definida.
+            </p>
+            <div class="theorem">
+                <p class="paragraph">
+                    <strong class="theorem__title">Teorema 2.4.1.</strong> Si $f$ y $g$ son funciones continuas con derivadas continuas (es decir, de clase $\mathscr{C}^1$), entonces 
+                </p>
+                <ul class="theorem__list">
+                    <li class="theorem__list-item">
+                        $\int f(x) g'(x)\,dx = f(x) g(x)-\int g(x) f'(x)\,dx$.
+                    </li>
+                    <li class="theorem__list-item">
+                        Si la continuidad de $f'$ y $g'$ es en $[a,b]$, entonces $$\int_a^b f(x) g'(x)\,dx = f(b) g(b)-f(a)g(a)-\int_a^b g(x) f'(x)\,dx.$$
+                    </li>
+                </ul>
+            </div>
+            <div class="proof">
+                <h3 class="header-tertiary">Demostración.</h3>
+                <p class="paragraph">
+                    1) Por hipótesis, $f$ y $g'$ son funciones continua, y así $fg'$ es continua y por lo tanto es integrable. Además, por la definición de primitiva, tenemos que 
+                    $$\dfrac{d}{dx} \int f(x)g'(x)\,dx = f(x)g'(x).$$
+                </p>
+                <p class="paragraph">
+                    Además, por hipótesis, $f'$ y $g$ son continuas, y así $f'g$ es continua y por lo tanto integrable. Luego,
+                </p>
+                <div class="calculation">
+                    <div class="calculation__formule--1">
+                        $$\dfrac{d}{dx} \left[ f(x)g(x)-\int g(x)f'(x)\,dx \right]$$
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \dfrac{d}{dx} [f(x)g(x)]-\dfrac{d}{dx}\int g(x)f'(x)\,dx $$
+                        </div>
+                        <div class="calculation__text">
+                            por propiedades de la derivada
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= f(x)g'(x)+g(x)f'(x)-g(x)f'(x) $$
+                        </div>
+                        <div class="calculation__text">
+                            por la def. de primitiva
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= f(x)g'(x). $$
+                        </div>
+                    </div>
+                </div>
+                <p class="paragraph">
+                    Por lo tanto, tenemos que las funciones $\int f(x)g'(x)\,dx$ y $f(x)g(x)-\int g(x)f'(x)\,dx$ son las primitvas más generales en el dominio más grande de la 
+                    función $fg'$ y así son iguales, es decir, $$\int f(x) g'(x)\,dx = f(x) g(x)-\int g(x) f'(x)\,dx.$$
+                </p>
+            </div>
+            <div class="fancy-line"></div>
+        </section>
+        <section>
+            <p class="paragraph">
+                En el modo práctico, si hacemos los cambios de variable $u=f(x)$ y $v=g(x)$, entonces obtenemos que $du=f'(x)dx$ y $dv=g'(x)dx$, y el 
+                Teorema 2.4.1 toma forma $$\int u\,dv = uv-\int v\,du.$$
+            </p>
+            <p class="paragraph">
+                El éxito de este teorema radica en hacer una buena elección de las funciones $u$ y $dv$. Una forma de elegirlas es tomando como $dv$ a la función 
+                que sea más fácil de integrar, de manera que al aplicar la fórmula de integración por partes resulte en una integral más fácil de resolver que la integral original.
+            </p>
+            <p class="paragraph">
+                Veamos algunos ejemplos de aplicación de este teorema.
+            </p>
+            <div class="example">
+                <p class="paragraph example__paragraph">
+                    <strong class="example__title">Ejemplo 2.4.1.</strong> Resolver $\int x\cos x\,dx$.
+                </p>
+                <p class="paragraph">
+                    Notemos que las funciones involucradas son $f(x)=x$ y $g'(x)=\cos x$, pues la función coseno es más fácil de integrar. Así, tomamos
+                    $$\begin{matrix}
+                    u=x & dv= \cos x \,dx \\
+                    du= dx & v= \sin x
+                    \end{matrix}$$
+                    donde las funciones $u$ y $v$ son funciones derivables con derivada continua en todo $\mathbf{R}.$ Así,
+                </p>
+                <div class="calculation">
+                    <div class="calculation__formule--1">
+                        $$\int x\cos x\,dx$$
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \int u\,dv $$
+                        </div>
+                        <div class="calculation__text">
+                            por la elección de $u$ y $v$
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= uv-\int v\,du $$
+                        </div>
+                        <div class="calculation__text">
+                            por Teorema 2.4.1
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= x\sin x - \int \sin x \,dx $$
+                        </div>
+                        <div class="calculation__text">
+                            por la def. de $u$ y $v$
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= x\sin x - (-\cos x)+C $$
+                        </div>
+                        <div class="calculation__text">
+                            por antiderivadas inmediatas
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= x\sin x + \cos x + C. $$
+                        </div>
+                    </div>
+                </div>
+                <p class="paragraph">
+                    Finalmente, $\int x\cos x\,dx=x\sin x + \cos x + C$.
+                </p>
+            </div>
+            <div class="fancy-line"></div>
+            <p class="paragraph">
+                Veamos otro ejemplo para seguir aclarando ideas de este nuevo método.
+            </p>
+        </section>
+        <section>
+            <div class="example">
+                <p class="paragraph example__paragraph">
+                    <span class="example__title">Ejemplo 2.4.2. </span>Calcular $\int x^2 \ln x \,dx$. 
+                </p>
+                <p class="paragraph">
+                    Notemos que las funciones involucradas son $x^2$ y $\ln x$, de las cuales, es más fácil de integrar la función $x^2$. Así que conviene reescribir la 
+                    integral original, es decir, $$\int x^2 \ln x \,dx=\int \ln (x)\,x^2  \,dx.$$ De aquí, hacemos la elección $f(x)=\ln x$ y $g'(x)=x^2.$ 
+                </p>
+                <form class="question margin-top-sm" data-question="question-2-4-1" data-answer="b" autocomplete="off">
+                    <h3 class="question__header margin-bottom-sm">
+                        ¿Cómo queda la integral después del cambio? 
+                    </h3>
+                    <div class="question__row">
+                        <div class="question__col-1">
+                            <div class="question__options">
+                                <div class="question__option">
+                                    <input type="radio" id="answer-2-4-1-a" name="question-2-4-1" value="a" data-option="question-2-4-1">
+                                    <label for="answer-2-4-1-a">$$x^2 \, \ln x-\dfrac{1}{3}\int x^2 \,dx$$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" id="answer-2-4-1-b" name="question-2-4-1" value="b" data-option="question-2-4-1">
+                                    <label for="answer-2-4-1-b">$$\dfrac{1}{3}x^3\ln x - \dfrac{1}{3}\int x^2 \,dx$$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" id="answer-2-4-1-c" name="question-2-4-1" value="c" data-option="question-2-4-1">
+                                    <label for="answer-2-4-1-c">$$2x\ln x - \dfrac{1}{3}\int x^3 \,dx$$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" id="answer-2-4-1-d" name="question-2-4-1" value="d" data-option="question-2-4-1">
+                                    <label for="answer-2-4-1-d">$$x^2\ln x - 2\int x \,dx$$</label>
+                                </div>
+                            </div>
+                            <div class="question__btn-box">
+                                <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                <button class="btn btn--blue" type="button" disabled data-btn-continue="step-1">Continuar</button>
+                            </div>
+                        </div>
+                        <div class="question__col-2">
+                            <p class="question__answer"></p>
+                        </div>
+                    </div>
+                </form>
+                <div class="section--hidden" data-section="step-1">
+                    <p class="paragraph">
+                        Nuestro cambio de variable es 
+                        $$\begin{matrix}
+                            u=\ln x & dv = x^2dx \\
+                            du= \dfrac{1}{x}dx & v = \dfrac{x^3}{3}
+                            \end{matrix}
+                        $$
+                        donde $u$ y $v$ son funciones continuas con derivada continua en $[a,b]\subseteq (0,\infty)$. 
+                        Entonces,
+                    </p>
+                    <div class="calculation">
+                        <div class="calculation__formule--1">
+                            $$\int x^2 \ln x \,dx$$
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= \int u\,dv $$
+                            </div>
+                            <div class="calculation__text">
+                                por la def. de $u$ y $v$
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= uv -\int v\, du $$
+                            </div>
+                            <div class="calculation__text">
+                                por Teorema 2.4.1
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= \ln x \, \dfrac{x^3}{3}-\int \dfrac{x^3}{3}\dfrac{1}{x}\,dx $$
+                            </div>
+                            <div class="calculation__text">
+                                por def. de $u$ y $v$
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= \dfrac{1}{3}x^3\ln x - \dfrac{1}{3}\int x^2 \,dx $$
+                            </div>
+                            <div class="calculation__text">
+                                por <span class="modal__reference" data-modal-btn="theorem-2-2-1">Teorema 2.2.1</span>
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= \dfrac{1}{3}x^3\ln x - \dfrac{1}{3} \dfrac{x^3}{3}+C $$
+                            </div>
+                            <div class="calculation__text">
+                                por antiderivadas inmediatas
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= \dfrac{1}{3}x^3\ln x - \dfrac{1}{9}x^3+C. $$
+                            </div>
+                        </div>
+                    </div>
+                    <p class="paragraph">
+                        Nótese que al aplicar el método de integración por partes resulta que debemos resolver una nueva integral. Algunas veces esa nueva integral 
+                        debe resolverse también usando integración por partes. Veamos el siguiente ejemplo:
+                    </p>
+                    <div>
+                        <button class="btn-sm btn--blue" type="button" data-btn-continue="step-2">Continuar</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section--hidden" data-section="step-2">
+            <div class="fancy-line"></div>
+            <div class="example">
+                <p class="paragraph example__paragraph">
+                    <span class="example__title">Ejemplo 2.4.3.</span> Hallar $\int x^2 \cos x \,dx.$
+                </p>
+                <p class="paragraph">
+                    Notemos que las funciones involucradas son $x^2$ y $\cos x$, y en este caso es más fácil de integrar a la función $\cos x$, es por eso que elegimos 
+                    $f(x)=x^2$ y $g'(x)= \cos x$.
+                </p>
+                <form class="question margin-top-sm" data-question="question-2-4-2" data-answer="d" autocomplete="off">
+                    <h3 class="question__header margin-bottom-sm">
+                        ¿Cómo queda la integral después del cambio?
+                    </h3>
+                    <div class="question__row">
+                        <div class="question__col-1">
+                            <div class="question__options">
+                                <div class="question__option">
+                                    <input type="radio" id="answer-2-4-2-a" name="question-2-4-2" value="a" data-option="question-2-4-2">
+                                    <label for="answer-2-4-2-a">$$2x\sin x-\frac{1}{3}\int x^3\sin x\,dx$$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" id="answer-2-4-2-b" name="question-2-4-2" value="b" data-option="question-2-4-2">
+                                    <label for="answer-2-4-2-b">$$x^2\sin x+2\int x\cos x\,dx$$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" id="answer-2-4-2-c" name="question-2-4-2" value="c" data-option="question-2-4-2">
+                                    <label for="answer-2-4-2-c">$$x\sin x-2\int x^2\sin x\,dx$$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" id="answer-2-4-2-d" name="question-2-4-2" value="d" data-option="question-2-4-2">
+                                    <label for="answer-2-4-2-d">$$x^2\sin x-2\int x\sin x\,dx$$</label>
+                                </div>
+                            </div>
+                            <div class="question__btn-box">
+                                <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                <button class="btn btn--blue" type="button" disabled data-btn-continue="step-3">Continuar</button>
+                            </div>
+                        </div>
+                        <div class="question__col-2">
+                            <p class="question__answer"></p>
+                        </div>
+                    </div>
+                </form>
+                <div class="section--hidden" data-section="step-3">
+                    <p class="paragraph">
+                        Hacemos el cambio de variable
+                        \[
+                        \begin{matrix}
+                        u = x^2 & dv = \cos x dx \\
+                        du= 2xdx & v=\sin x
+                        \end{matrix}
+                        \] donde $u$ y $v$ son funciones derivables con derivada continua en $[a,b]\subseteq \mathbf{R}$. Entonces 
+                    </p>
+                    <div class="calculation">
+                        <div class="calculation__formule--1">
+                            $$\int x^2 \cos x \,dx$$
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= \int u\,dv $$
+                            </div>
+                            <div class="calculation__text">
+                                por def. de $u$ y $v$
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= uv-\int v\,du $$
+                            </div>
+                            <div class="calculation__text">
+                                por Teorema 2.4.1
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= x^2 \sin x - \int \sin x\,2x\,dx $$
+                            </div>
+                            <div class="calculation__text">
+                                por def. de $u$ y $v$
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= x^2\sin x-2\int x\sin x\,dx $$
+                            </div>
+                            <div class="calculation__text">
+                                por <span class="modal__reference" data-modal-btn="theorem-2-2-1">Teorema 2.2.1</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="paragraph">
+                        Por lo tanto, por transitividad, tenemos que $\int x^2 \cos x \,dx=x^2\sin x-2\int x\sin x\,dx$. 
+                    </p>
+                    <p class="paragraph">
+                        Es claro que al aplicar integración por partes, surgió una nueva integral que también requiere que se haga usando la misma técnica.
+                    </p>
+                    <form class="question margin-top-sm" data-question="question-2-4-3" data-answer="d" autocomplete="off">
+                        <h3 class="question__header margin-bottom-sm">
+                            Calcula $\int x\sin x\,dx$
+                        </h3>
+                        <div class="question__row">
+                            <div class="question__col-1">
+                                <div class="question__options">
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-2-4-3-a" name="question-2-4-3" value="a" data-option="question-2-4-3">
+                                        <label for="answer-2-4-3-a">$$x\cos x+\cos x+C$$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-2-4-3-b" name="question-2-4-3" value="b" data-option="question-2-4-3">
+                                        <label for="answer-2-4-3-b">$$x\sin x+\sin x+C$$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-2-4-3-c" name="question-2-4-3" value="c" data-option="question-2-4-3">
+                                        <label for="answer-2-4-3-c">$$-x\sin x-\sin x+C$$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-2-4-3-d" name="question-2-4-3" value="d" data-option="question-2-4-3">
+                                        <label for="answer-2-4-3-d">$$-x\cos x+\sin x+C$$</label>
+                                    </div>
+                                </div>
+                                <div class="question__btn-box">
+                                    <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                    <button class="btn btn--blue" type="button" disabled data-btn-continue="step-4">Continuar</button>
+                                </div>
+                            </div>
+                            <div class="question__col-2">
+                                <p class="question__answer"></p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="section--hidden" data-section="step-4">
+                    <p class="paragraph">
+                        Para resolver $\int x\sin x\,dx$, hacemos 
+                        \[
+                            \begin{matrix}
+                            u = x & dv = \sin x dx \\
+                            du= dx & v=-\cos x
+                        \end{matrix}
+                        \] donde las nuevas funciones $u$ y $v$ también son derivables con derivada continua en $[a,b]\subseteq \mathbf{R}$, entonces 
+                    </p>
+                    <div class="calculation">
+                        <div class="calculation__formule--1">
+                            $$\int x \sin x \,dx$$
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= \int u\,dv $$
+                            </div>
+                            <div class="calculation__text">
+                                por def. de $u$ y $v$
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= uv-\int v\,du $$
+                            </div>
+                            <div class="calculation__text">
+                                por Teorema 2.4.1
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= x(-\cos x)-\int (-\cos x)\,dx $$
+                            </div>
+                            <div class="calculation__text">
+                                por def. de $u$ y $v$
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= -x\cos x+\int \cos x\,dx $$
+                            </div>
+                            <div class="calculation__text">
+                                por <span class="modal__reference" data-modal-btn="theorem-2-2-1">Teorema 2.2.1</span>
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= -x\cos x+\sin x+C $$
+                            </div>
+                            <div class="calculation__text">
+                                por antiderivadas inmediatas
+                            </div>
+                        </div>
+                    </div>
+                    <p class="paragraph">
+                        Luego, sustituyendo en la integral original, tenemos que 
+                        $$\int x^2 \cos x \,dx=x^2\sin x-2[-x\cos x+\sin x] + C=x^2\sin x+2x\cos x-2\sin x+C.$$
+                    </p>
+                    <p class="paragraph">
+                        Finalmente, por transitividad, $$\int x^2 \cos x \,dx=x^2\sin x+2x\cos x-2\sin x+C.$$
+                    </p>
+                    <div>
+                        <button class="btn-sm btn--blue" type="button" data-btn-continue="step-5">Continuar</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section--hidden" data-section="step-5">
+            <div class="fancy-line"></div>
+            <p class="paragraph">
+                En realidad, se puede hacer integración por partes de manera iterada tantas veces como se requiera.
+            </p>
+            <p class="paragraph">
+                Este método se aplica, generalmente, para producto de funciones. Sin embargo, habrá ocasiones en que haya una sola función cuya primitiva no pueda 
+                encontrarse con el método de cambio de variable, entonces conviene hacer que se note explícitamente una función que siempre está presente, 
+                y es la función constante 1.
+            </p>
+            <div class="example">
+                <form class="question margin-top-sm" data-question="question-2-4-4" data-answer="b" autocomplete="off">
+                    <h3 class="question__header margin-bottom-sm">
+                        Calcula $\int \ln x \,dx. $ (Hint: $g'(x)=1$)
+                    </h3>
+                    <div class="question__row">
+                        <div class="question__col-1">
+                            <div class="question__options">
+                                <div class="question__option">
+                                    <input type="radio" id="answer-2-4-4-a" name="question-2-4-4" value="a" data-option="question-2-4-4">
+                                    <label for="answer-2-4-4-a">$$x\ln x- \ln x+C$$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" id="answer-2-4-4-b" name="question-2-4-4" value="b" data-option="question-2-4-4">
+                                    <label for="answer-2-4-4-b">$$x\ln x- x+C$$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" id="answer-2-4-4-c" name="question-2-4-4" value="c" data-option="question-2-4-4">
+                                    <label for="answer-2-4-4-c">$$x\ln x+ x+C$$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" id="answer-2-4-4-d" name="question-2-4-4" value="d" data-option="question-2-4-4">
+                                    <label for="answer-2-4-4-d">$$x\ln x+ x\ln+C$$</label>
+                                </div>
+                            </div>
+                            <div class="question__btn-box">
+                                <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                <button class="btn btn--blue" type="button" disabled data-btn-continue="step-6">Continuar</button>
+                            </div>
+                        </div>
+                        <div class="question__col-2">
+                            <p class="question__answer"></p>
+                        </div>
+                    </div>
+                </form>
+                <div class="section--hidden" data-section="step-6">
+                    <p class="paragraph">
+                        Notemos que la integral puede reescribirse como $$\int \ln x \,dx = \int \ln x \, 1\,dx.$$ En este punto siempre será más fácil de integrar a 
+                        la constante 1, es por ese que elegimos $f(x)=\ln x$ y $g'(x)=1$, lo cual nos arroja el cambio de variable
+                        \[
+                            \begin{matrix}
+                                u= \ln x & dv=1dx \\
+                                du= \dfrac{1}{x}dx & v= x
+                            \end{matrix}
+                        \] donde las funciones $u$ y $v$ sn derivables con derivada continua en $[a,b]\subseteq (0,\infty)$. Entonces,
+                    </p>
+                    <p class="paragraph">
+                        \begin{equation*}
+                            \begin{split}
+                                \int \ln x\, 1 \,dx &= \int u\,dv \\
+                                &= uv-\int v\,du \\
+                                &= \ln(x) x-\int x\dfrac{1}{x}\,dx \\
+                                &= x\ln x-\int 1\,dx \\
+                                &= x\ln x- x+C 
+                            \end{split}
+                        \end{equation*}
+                    </p>
+                    <p class="paragraph">
+                        Finalmente, por transitividad, $$\int \ln x \,dx=x\ln x- x+C. $$
+                    </p>
+                    <div>
+                        <button class="btn-sm btn--blue" type="button" data-btn-continue="step-7">Continuar</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section--hidden" data-section="step-7">
+            <div class="fancy-line"></div>
+            <p class="paragraph">
+                Conviene mencionar que muchas veces la elección de las funciones $f(x)$ y $g'(x)$ para hacer los cambios de variable no es tan natural como parece, 
+                así que será parte de nuestro análisis e ingenio hacer una buena elección para resolver la integral en cuestión.
+            </p>
+            <p class="paragraph example__paragraph">
+                <span class="example__title">Ejemplo 2.4.6.</span> Hallar $\int \dfrac{x^3}{\sqrt{x^2+25}}\,dx.$
+            </p>
+            <p class="paragraph">
+                Notemos que las funciones involucradas son $x^3$ y $\dfrac{1}{\sqrt{x^2+25}}$, de donde sabemos que la segunda es difícil de integrar con lo que conocemos ahora, 
+                sin embargo, la derivada de lo que está dentro del radical es $2x$, por eso conviene reescribir la integral como: 
+                $$\int \dfrac{x^3}{\sqrt{x^2+25}}\,dx= \int x^2\dfrac{x}{\sqrt{x^2+25}}\,dx.$$ 
+            </p>
+            <p class="paragraph">
+                Ahora, elegimos a $f(x)=x^2$ y a $g'(x)=\dfrac{x}{\sqrt{x^2+25}}$, lo cual nos permite hacer los cambios de variable:
+                \[
+                    \begin{matrix}
+                        u= x^2 & dv=\dfrac{x}{\sqrt{x^2+25}}dx \\
+                        du= 2xdx & v=\mbox{¿ ?}
+                    \end{matrix}
+                \] Para hacer una buena propuesta de $v$, necesitamos primero encontrar una primitiva de $dv$, así 
+                $$v = \int \dfrac{x}{\sqrt{x^2+25}}\,dx=\int \dfrac{1}{\sqrt{x^2+25}}x\,dx. $$ 
+            </p>
+            <form class="question margin-top-sm" data-question="question-2-4-5" data-answer="a" autocomplete="off">
+                <h3 class="question__header margin-bottom-sm">
+                    Resuelve $\int \dfrac{x}{\sqrt{x^2+25}}\,dx$
+                </h3>
+                <div class="question__row">
+                    <div class="question__col-1">
+                        <div class="question__options">
+                            <div class="question__option">
+                                <input type="radio" id="answer-2-4-5-a" name="question-2-4-5" value="a" data-option="question-2-4-5">
+                                <label for="answer-2-4-5-a">$$\sqrt{x^2+25}+C$$</label>
+                            </div>
+                            <div class="question__option">
+                                <input type="radio" id="answer-2-4-5-b" name="question-2-4-5" value="b" data-option="question-2-4-5">
+                                <label for="answer-2-4-5-b">$$\frac{1}{x}\ln {\sqrt{x^2+25}}+C$$</label>
+                            </div>
+                            <div class="question__option">
+                                <input type="radio" id="answer-2-4-5-c" name="question-2-4-5" value="c" data-option="question-2-4-5">
+                                <label for="answer-2-4-5-c">$$x\sqrt{x^2+25}+C$$</label>
+                            </div>
+                            <div class="question__option">
+                                <input type="radio" id="answer-2-4-5-d" name="question-2-4-5" value="d" data-option="question-2-4-5">
+                                <label for="answer-2-4-5-d">$$\frac{1}{2}\sqrt{x^2+25}+C$$</label>
+                            </div>
+                        </div>
+                        <div class="question__btn-box">
+                            <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                            <button class="btn btn--blue" type="button" disabled data-btn-continue="step-8">Continuar</button>
+                        </div>
+                    </div>
+                    <div class="question__col-2">
+                        <p class="question__answer"></p>
+                    </div>
+                </div>
+            </form>
+            <div class="section--hidden" data-section="step-8">
+                <p class="paragraph">
+                    Resolveremos la integral usando cambio de variable, así, tomamos $w=x^2+25$, entonces $dw=2xdx$, de donde obtenemos $\dfrac{1}{2}dw=xdx$. Entonces,
+                </p>
+                <div class="calculation">
+                    <div class="calculation__formule--1">
+                        $$\int \dfrac{1}{\sqrt{x^2+25}}x\,dx$$
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \int \dfrac{1}{\sqrt{w}}\dfrac{1}{2}\,dw $$
+                        </div>
+                        <div class="calculation__text">
+                            por <span class="modal__reference" data-modal-btn="theorem-2-3-1">Teorema 2.3.1</span>
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \dfrac{1}{2}\int \dfrac{1}{w^{1/2}}\,dw $$
+                        </div>
+                        <div class="calculation__text">
+                            por <span class="modal__reference" data-modal-btn="theorem-2-2-1">Teorema 2.2.1</span>
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \dfrac{1}{2}\int w^{-1/2}\,dw $$
+                        </div>
+                        <div class="calculation__text">
+                            por algebrita
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \dfrac{1}{2}\dfrac{w^{1/2}}{1/2} + C $$
+                        </div>
+                        <div class="calculation__text">
+                            por antiderivadas inmediatas
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= w^{1/2}+ C = \sqrt{w}+ C $$
+                        </div>
+                        <div class="calculation__text">
+                            por algebrita
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \sqrt{x^2+25}+C $$
+                        </div>
+                        <div class="calculation__text">
+                            por definición de $w$.
+                        </div>
+                    </div>
+                </div>
+                <p class="paragraph">
+                    Así, obtenemos que
+                    \[
+                        \begin{matrix}
+                            u= x^2 & dv=\dfrac{x}{x^2+25}dx \\
+                            du= 2xdx & v=\sqrt{x^2 +25}
+                        \end{matrix}
+                    \] donde $u$ y $v$ son funciones derivables con derivada continua en $[a,b]\subseteq \mathbf{R}$. Luego,
+                </p>
+                <div class="calculation">
+                    <div class="calculation__formule--1">
+                        $$\int x^2\dfrac{x}{\sqrt{x^2+25}}\,dx$$
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \int u\,dv $$
+                        </div>
+                        <div class="calculation__text">
+                            por def. de $u$ y $v$
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= uv-\int v\,du $$
+                        </div>
+                        <div class="calculation__text">
+                            por Teorema 2.4.1
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= x^2 \sqrt{x^2+25}-\int \sqrt{x^2+25}2x\,dx $$
+                        </div>
+                        <div class="calculation__text">
+                            por def. de $u$ y $v.$
+                        </div>
+                    </div>
+                </div>
+                <p class="paragraph">
+                    Ahora necesitamos calcular $\int\sqrt{x^2+25}2x\,dx.$
+                </p>
+                <form class="question margin-top-sm" data-question="question-2-4-6" data-answer="a" autocomplete="off">
+                    <h3 class="question__header margin-bottom-sm">
+                        Calcula $\int\sqrt{x^2+25}2x\,dx.$
+                    </h3>
+                    <div class="question__row">
+                        <div class="question__col-1">
+                            <div class="question__options">
+                                <div class="question__option">
+                                    <input type="radio" id="answer-2-4-6-a" name="question-2-4-6" value="a" data-option="question-2-4-6">
+                                    <label for="answer-2-4-6-a">$$\dfrac{2}{3}(x^2+25)^{3/2} + C$$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" id="answer-2-4-6-b" name="question-2-4-6" value="b" data-option="question-2-4-6">
+                                    <label for="answer-2-4-6-b">$$\dfrac{3}{2}(x^2+25)^{2/3} + C$$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" id="answer-2-4-6-c" name="question-2-4-6" value="c" data-option="question-2-4-6">
+                                    <label for="answer-2-4-6-c">$$\dfrac{2}{3}x(x^2+25)^{3/2} + C$$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" id="answer-2-4-6-d" name="question-2-4-6" value="d" data-option="question-2-4-6">
+                                    <label for="answer-2-4-6-d">$$\dfrac{3}{2}x(x^2+25)^{2/3} + C$$</label>
+                                </div>
+                            </div>
+                            <div class="question__btn-box">
+                                <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                <button class="btn btn--blue" type="button" disabled data-btn-continue="step-9">Continuar</button>
+                            </div>
+                        </div>
+                        <div class="question__col-2">
+                            <p class="question__answer"></p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="section--hidden" data-section="step-9">
+                <p class="paragraph">
+                    Resolviendo por el método de integración por sustitución, eligiendo $z=x^2+25$, entonces $dz=2xdx$. Así,
+                </p>
+                <div class="calculation">
+                    <div class="calculation__formule--1">
+                        $$\int\sqrt{x^2+25}2x\,dx$$
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \int \sqrt{z}\,dz $$
+                        </div>
+                        <div class="calculation__text">
+                            por <span class="modal__reference" data-modal-btn="theorem-2-3-1">Teorema 2.3.1</span>
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \int z^{1/2}\,dz $$
+                        </div>
+                        <div class="calculation__text">
+                            por algebrita
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \dfrac{z^{3/2}}{3/2} +C $$
+                        </div>
+                        <div class="calculation__text">
+                            por antiderivada inmediata
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \dfrac{2}{3}(x^2+25)^{3/2} + C $$
+                        </div>
+                        <div class="calculation__text">
+                            por la def. de $z.$
+                        </div>
+                    </div>
+                </div>
+                <p class="paragraph">
+                    Finalmente, sustituyendo en la integral original, obtenemos que 
+                    $$\int \dfrac{x^3}{\sqrt{x^2+25}}\,dx= x^2 \sqrt{x^2+25} - \dfrac{2}{3}(x^2+25)^{3/2} + C.$$
+                </p>
+                <div>
+                    <button class="btn-sm btn--blue" type="button" data-btn-continue="step-10">Continuar</button>
+                </div>
+            </div>
+        </section>
+        <section class="section--hidden" data-section="step-10">
+            <div class="fancy-line"></div>
+            <p class="paragraph">
+                Otro caso de integrales en donde se ocupa esta técnica de integración, son las integrales que conocemos como cíclicas, las cuales 
+                tienen la característica de que cuando las integramos por partes, la integral inicial depende de ella misma, y en ese caso podremos despejar 
+                a la integral simplemente tomándola como una variable y resolviéndola como si se tratara de una ecuación.
+            </p>
+            <p class="paragraph example__paragraph">
+                <span class="example__title">Ejemplo 2.4.7.</span> Resolver $\int e^x \sin x\,dx.$
+            </p>
+            <p class="paragraph">
+                Notemos que las funciones involucradas son $e^x$ y $\sin x$, de las cuales, es más fácil integrar a $e^x$, 
+                pero será mejor hacer la elección $f(x)=e^x$ y $g'(x)=\sin x$. Para la integral posterior aplique el mismo método para resolverla.
+            </p>
+            <form class="question margin-top-sm" data-question="question-2-4-7-" data-answer="a" autocomplete="off">
+                <h3 class="question__header margin-bottom-sm">
+                    ¿Cuál es la solución de $\int e^x \sin x\,dx$?
+                </h3>
+                <div class="question__row">
+                    <div class="question__col-1">
+                        <div class="question__options">
+                            <div class="question__option">
+                                <input type="radio" id="answer-2-4-7--a" name="question-2-4-7-" value="a" data-option="question-2-4-7-">
+                                <label for="answer-2-4-7--a">$$-\dfrac{1}{2}e^x\cos x + \dfrac{1}{2}e^x \sin x+C$$</label>
+                            </div>
+                            <div class="question__option">
+                                <input type="radio" id="answer-2-4-7--b" name="question-2-4-7-" value="b" data-option="question-2-4-7-">
+                                <label for="answer-2-4-7--b">$$-e^x\sin x + e^x \cos x+C$$</label>
+                            </div>
+                            <div class="question__option">
+                                <input type="radio" id="answer-2-4-7--c" name="question-2-4-7-" value="c" data-option="question-2-4-7-">
+                                <label for="answer-2-4-7--c">$$\dfrac{1}{2}e^x\cos x - \dfrac{1}{2}e^x \sin x+C$$</label>
+                            </div>
+                            <div class="question__option">
+                                <input type="radio" id="answer-2-4-7--d" name="question-2-4-7-" value="d" data-option="question-2-4-7-">
+                                <label for="answer-2-4-7--d">$$\dfrac{1}{2}e^x\sin x - \dfrac{1}{2}e^x \cos x+C$$</label>
+                            </div>
+                        </div>
+                        <div class="question__btn-box">
+                            <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                            <button class="btn btn--blue" type="button" disabled data-btn-continue="step-11">Continuar</button>
+                        </div>
+                    </div>
+                    <div class="question__col-2">
+                        <p class="question__answer"></p>
+                    </div>
+                </div>
+            </form>
+            <div class="section--hidden" data-section="step-11">
+                <p class="paragraph">
+                    así hacemos los cambios de variable:
+                    \[
+                        \begin{matrix}
+                            u= e^x & dv=\sin x dx \\
+                            du= e^xdx & v=-\cos x
+                        \end{matrix}
+                    \] donde $u$ y $v$ son funciones derivables con derivada continua en $[a,b]\subseteq \mathbf{R}$. Luego,
+                </p>
+                <div class="calculation">
+                    <div class="calculation__formule--1">
+                        $$\int e^x \sin x \,dx$$
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \int u\,dv $$
+                        </div>
+                        <div class="calculation__text">
+                            por def. de $u$ y $v$
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= uv-\int v\,du $$
+                        </div>
+                        <div class="calculation__text">
+                            por Teorema 2.4.1
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= e^x (-\cos x)-\int (-\cos x)e^x\,dx $$
+                        </div>
+                        <div class="calculation__text">
+                            por def. de $u$ y $v$
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$=  -e^x\cos x+\int e^x \cos x\,dx $$
+                        </div>
+                        <div class="calculation__text">
+                            por <span class="modal__reference" data-modal-btn="theorem-2-2-1">Teorema 2.2.1</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="paragraph">
+                    Por transitividad, $$\int e^x \sin x \,dx=-e^x\cos x+\int e^x \cos x\,dx.$$
+                </p>
+                <p class="paragraph">
+                    A la integral $\int e^x \cos x\,dx $ también la vamos a resolver por el método de integración por partes, eligiendo:
+                    \[
+                        \begin{matrix}
+                            u= e^x & dv=\cos x dx \\
+                            du= e^xdx & v=\sin x
+                        \end{matrix}
+                    \] donde $u$ y $v$ son funciones derivables con derivada continua en $[a,b]\subseteq \mathbf{R}$. Entonces,
+                </p>
+                <div class="calculation">
+                    <div class="calculation__formule--1">
+                        $$\int e^x \cos x \,dx$$
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \int u\,dv $$
+                        </div>
+                        <div class="calculation__text">
+                            por def. de $u$ y $v$
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= uv-\int v\,du $$
+                        </div>
+                        <div class="calculation__text">
+                            por Teorema 2.4.1
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$=  e^x \sin x-\int (\sin x )e^x\,dx $$
+                        </div>
+                        <div class="calculation__text">
+                            por def. de $u$ y $v$
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= e^x \sin x-\int e^x \sin x\,dx $$
+                        </div>
+                        <div class="calculation__text">
+                            por conmutatividad en $\mathbf{R}.$
+                        </div>
+                    </div>
+                </div>
+                <p class="paragraph">
+                    Luego, sustituyendo en la integral original, obtenemos $$\int e^x \sin x \,dx=-e^x\cos x + e^x \sin x-\int e^x \sin x\,dx.$$ 
+                    Como la integral la tenemos en términos de ella misma, es posible despejarla como si de una ecuación se tratara, es decir, 
+                    $$\int e^x \sin x \,dx+\int e^x \sin x \,dx=-e^x\cos x + e^x \sin x.$$
+                </p>
+                <p class="paragraph">
+                    Finalmente, concluimos que, $$\int e^x \sin x \,dx=-\dfrac{1}{2}e^x\cos x + \dfrac{1}{2}e^x \sin x+C.$$
+                </p>
+                <div class="fancy-line"></div>
+                <div class="change-page">
+                    <a href="./2.3.1-metodo-sustitucion-parte-2.html" class="change-page__before">Anterior</a>
+                    <a href="./2.5-fracciones-parciales.html" class="change-page__next">Siguiente</a>
+                </div>
+            </div>
         </section>
     </main>
+    <div class="modal" data-modal="theorem-2-2-1">
+        <div class="modal__background" data-modal-background="theorem-2-2-1"></div>
+        <div class="modal__content">
+            <div class="theorem">
+                <p class="paragraph">
+                    <strong class="theorem__title">Teorema 2.2.1.</strong> Si $f$ y $g$ funciones integrables, entonces 
+                </p>
+                <ol class="theorem__list">
+                    <li class="theorem__list--formule">
+                        $$\int (f\pm g)(x)\, dx=\int f(x) \, dx \pm \int g(x) \, dx.$$
+                    </li>
+                    <li class="theorem__list--formule">
+                        $$\int (cf)(x) \, dx = c\int f(x) \, dx, \mbox{con} \, c \in\mathbf{R}.$$
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <div class="modal" data-modal="theorem-2-3-1">
+        <div class="modal__background" data-modal-background="theorem-2-3-1"></div>
+        <div class="modal__content">
+            <div class="theorem">
+                <p class="paragraph">
+                    <strong class="theorem__title">Teorema 2.3.1.</strong> Sean $f$ y $g$ funciones continuas.
+                </p>
+                <ol class="theorem__list">
+                    <li class="theorem__list-item">
+                        Si $f'$ y $g'$ son continuas y $H(u)=\int f(u)\,du$, entonces $$\int f(g(x))g'(x)\, dx=H(g(x)).$$
+                    </li>
+                    <li class="theorem__list-item">
+                        Si $\nu$ es una función derivable con derivada continua e invertible con inversa derivable, y  
+                        $H(x)=\int f(\nu(x))\nu'(x)\,dx$, entonces $$\int f(y)\,dy=H(\nu^{-1}(y)).$$
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <div class="floating-box">
+        <button class="floating-box__btn btn-sm btn--blue" data-modal-btn="formules">&int;</button>
+    </div>
+    <div class="modal" data-modal="formules">
+        <div class="modal__background" data-modal-background="formules"></div>
+        <div class="modal__content">
+            <table class="math-table">
+                <thead>
+                    <tr>
+                        <th>Fórmulas básicas de integración</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            $$\int x^n\,dx=\frac{x^{n+1}}{n+1}+C \qquad \mbox{ con }n\in\mathbf{N} \setminus\{-1\} \mbox{ y }C\mbox{ una constante}.$$
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            $$\int e^{kx}\,dx=\frac{e^{kx}}{k}+C \qquad \mbox{con }C \mbox{ una constante.}$$
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            $$\int\frac{1}{x}\,dx=\ln x+C \qquad \mbox{con }C \mbox{ una constante.}$$
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            $$\int \cos x\,dx=\sin x+C \qquad \mbox{con }C \mbox{ una constante.}$$
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            $$\int \sin x\,dx=-\cos x+C \qquad \mbox{con }C \mbox{ una constante.}$$
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            \begin{split}
+                                \frac{d}{dx}\tan x &=\sec^2 x  \Rightarrow \int\sec^2 x\, dx=\tan x +C \\
+                                \frac{d}{dx}\cot x &=-\csc^2 x  \Rightarrow \int\csc^2 x\, dx=-\cot x +C \\
+                                \frac{d}{dx}\sec x &=\sec x \tan x  \Rightarrow \int\sec x \tan x\, dx=\sec x +C \\
+                                \frac{d}{dx}\csc x &=-\csc x \cot x  \Rightarrow \int\csc x \cot x\, dx=-\csc x +C
+                            \end{split}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            \begin{split}
+                                \frac{d}{dx}\arcsin x &=\frac{1}{\sqrt{1-x^2}}  \Rightarrow \int \frac{1}{\sqrt{1-x^2}} \, dx=\arcsin x +C \\
+                                \frac{d}{dx}\arccos x &=-\frac{1}{\sqrt{1-x^2}}  \Rightarrow \int \frac{1}{\sqrt{1-x^2}} \, dx=-\arccos x +C \\
+                                \frac{d}{dx}\arctan x &=\frac{1}{1+x^2}  \Rightarrow \int \frac{1}{1+x^2} \, dx=\arctan x +C 
+                            \end{split}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </body>
 </html>

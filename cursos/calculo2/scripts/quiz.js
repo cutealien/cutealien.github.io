@@ -57,6 +57,7 @@ fetch(`/cursos/calculo2/scripts/quiz.json`, {...params, method: 'GET'})
 .then(data => data.json())
 .then(res => {
     quizList = res
+    if(!quizList || quizList.length < 0) throw new Error('Error al cargar la prueba.')
     quizList.forEach((item, i) => {
         let element = document.createElement('option')
         element.value = i
@@ -64,7 +65,7 @@ fetch(`/cursos/calculo2/scripts/quiz.json`, {...params, method: 'GET'})
         quizSelector.append(element)
     })
 })
-.catch(error => console.log(error))
+.catch(error => showModalMessage(error))
 
 const showModalMessage = function(message) {
     const messagesModal = document.querySelector('[data-modal=messages]')
@@ -77,53 +78,29 @@ const showModalMessage = function(message) {
     messagesModal.classList.add('modal--active')
 }
 
-loginForm.addEventListener('submit', (e) => {
-    e.preventDefault()
-    const loader = document.querySelector('[data-loader=login]')
-    loader.classList.add('loader-box--active')
-    let login = {}
-    var loginData = new FormData(loginForm)
-    for(const entry of loginData) {
-        login[entry[0]] = entry[1]
-    }
-    login['returnSecureToken'] = true
-    const paramsLogin = {
-        ...params,
-        body: JSON.stringify(login) 
-    }
-    fetch(authLogin, paramsLogin)
-    .then(data => data.json())
-    .then(res => {
-        loader.classList.remove('loader-box--active')
-        if(res.error) throw new Error('Credenciales incorrectas')
-        token = res.idToken
-        loginForm.classList.add('form--hidden')
-        document.querySelector('#quiz').classList.remove('quiz--hidden')
-    })
-    .catch(error => {
-        showModalMessage('Datos incorrectos')
-    })
-})
-
-quizSelector.addEventListener('change', (e) => {
-    currentQuiz = +e.target.value
-    generateQuiz(quiz, quizList[currentQuiz])
-})
-
-const inputChange = function(el) {
-    if(el.target.checked) {
-        el.target.parentElement.parentElement.classList.add('quiz__question--answered')
-    }
+const getRandomInt = function (max) {
+    return Math.floor(Math.random() * max);
 }
 
-removeChildNodes = function (parent) {
-    while (parent.firstChild) {
-        parent.removeChild(parent.lastChild);
+const generateRandomNumbersArray = function (maxNumber, totalNumbers) {
+    let i = 0
+    let indexes = []
+ 
+    while(i < totalNumbers) {
+        let newNumber = getRandomInt(maxNumber)
+        if(!indexes.includes(newNumber)){
+            indexes.push(newNumber)
+            ++i
+        }
     }
+    return indexes
 }
 
 const generateQuiz = function(quiz, data) {
     var container = quiz.querySelector('[data-container=quiz]') 
+    var quizLoader = quiz.querySelector('[data-loader=quiz]')
+
+    quizLoader.classList.add('loader-box--active')
 
     const inputs = document.querySelectorAll('[data-option]')
     if(inputs.length > 0) {
@@ -134,7 +111,11 @@ const generateQuiz = function(quiz, data) {
     removeChildNodes(container)
     
     quiz.querySelector('[data-title]').textContent = data.title
-    data.questions.forEach((question, i) => {
+    let quizQuestionIndex = generateRandomNumbersArray(data.questions.length, 4)
+    // data.questions.forEach((question, i) => {
+    quizQuestionIndex.forEach((selectedQuestionIndex, i) => {
+        let question = data.questions[selectedQuestionIndex]
+
         var newQuestion = document.createElement('div')
         newQuestion.classList.add('quiz__question')
         newQuestion.dataset.question = `question-${i}`
@@ -176,6 +157,15 @@ const generateQuiz = function(quiz, data) {
         var message = document.createElement('div')
         message.classList.add('quiz__answer')
         message.dataset.message = 'message'
+
+        var sectionLink = document.createElement('a')
+        sectionLink.dataset.sectionLink = data.questions[i].linkSection
+        sectionLink.setAttribute("href", `/cursos/calculo2/${data.questions[i].linkSection}.html`)
+        sectionLink.setAttribute("target", "_blank")
+        sectionLink.classList.add('quiz__link', 'hidden')
+        sectionLink.textContent = 'Sección: ' + data.questions[i].linkSection
+        
+        newQuestion.append(sectionLink)
         newQuestion.append(message)
     })
     var submitBtn = document.createElement('button')
@@ -183,6 +173,7 @@ const generateQuiz = function(quiz, data) {
     submitBtn.type = 'submit'
     submitBtn.textContent = 'Enviar'
     container.append(submitBtn)
+    quizLoader.classList.remove('loader-box--active')
 }
 
 const evaluateQuiz = function(quiz) {
@@ -199,6 +190,8 @@ const evaluateQuiz = function(quiz) {
     correctAnswers.forEach((element, i) => {
         // questions[i].classList.remove('quiz__question--answered')
         let message = questions[i].querySelector('[data-message]')
+        let sectionLink = questions[i].querySelector('[data-section-link]')
+        sectionLink.classList.remove('hidden')
         if(element[1] === userAnswer[i][1]) {
             score++
             message.classList.add('quiz__answer--correct')
@@ -214,8 +207,57 @@ const evaluateQuiz = function(quiz) {
         btn.disabled = true
     })
     quiz.querySelector('[type=submit]').disabled = true
+    document.querySelector('[data-btn-box=retry]').classList.remove('hidden')
     return {name, score, quizType: quizList[currentQuiz].title}
 }
+
+const inputChange = function(el) {
+    if(el.target.checked) {
+        el.target.parentElement.parentElement.classList.add('quiz__question--answered')
+    }
+}
+
+const removeChildNodes = function (parent) {
+    while (parent.firstChild) {
+        parent.removeChild(parent.lastChild);
+    }
+}
+
+loginForm.addEventListener('submit', (e) => {
+    e.preventDefault()
+    const loader = document.querySelector('[data-loader=login]')
+    loader.classList.add('loader-box--active')
+    let login = {}
+    var loginData = new FormData(loginForm)
+    for(const entry of loginData) {
+        login[entry[0]] = entry[1]
+    }
+    login['returnSecureToken'] = true
+    const paramsLogin = {
+        ...params,
+        body: JSON.stringify(login) 
+    }
+    fetch(authLogin, paramsLogin)
+    .then(data => data.json())
+    .then(res => {
+        loader.classList.remove('loader-box--active')
+        if(res.error) throw new Error('Credenciales incorrectas')
+        token = res.idToken
+        loginForm.classList.add('form--hidden')
+        document.querySelector('#quiz').classList.remove('quiz--hidden')
+    })
+    .catch(error => {
+        showModalMessage('Datos incorrectos')
+    })
+})
+
+quizSelector.addEventListener('change', (e) => {
+    currentQuiz = +e.target.value
+    if(quizList) {
+        generateQuiz(quiz, quizList[currentQuiz])
+    }
+})
+
 // questions.forEach(question => {
 //     const optionGroup = question.querySelectorAll('[data-option]')
 //     optionGroup.forEach(option => {
@@ -236,19 +278,21 @@ quiz.addEventListener('submit', (e) => {
     .then(data => data.json())
     .then(res => {
         if(res.error) throw new Error(res.error)
-        document.querySelector('[data-btn-box=retry]').classList.remove('hidden')
+        // document.querySelector('[data-btn-box=retry]').classList.remove('hidden')
         showModalMessage('Quiz enviado')
     })
     .catch(error => {
         showModalMessage(error)
     })
 })
+
 quiz.addEventListener('reset', (e) => {
     var input = quiz.querySelector('#ca_name')
     input.setAttribute('value', userName)
     const radioBtns = quiz.querySelectorAll('[data-option]')
     const questions = document.querySelectorAll('[data-question]')
     const messages = document.querySelectorAll('[data-message]')
+    const sectionLinks = document.querySelectorAll('[data-section-link]')
 
     radioBtns.forEach(btn => {
         btn.disabled = false
@@ -256,11 +300,13 @@ quiz.addEventListener('reset', (e) => {
     quiz.querySelector('[type=submit]').disabled = false
 
     messages.forEach(message => {
-        
         message.classList.remove('quiz__answer--correct', 'quiz__answer--incorrect')
         message.textContent = ''
     })
 
+    sectionLinks.forEach(link => {
+        link.classList.add('hidden')
+    })
     questions.forEach(question => {
         question.classList.remove('quiz__question--answered')
     })

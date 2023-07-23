@@ -844,6 +844,9 @@ div[data-anchor]:target::before {
   font-size: 1.6rem;
   margin-left: auto;
   transition: opacity 0.3s linear;
+  background: var(--color-primary-ultra-light);
+  border: 1px solid var(--color-primary);
+  padding: 1rem;
 }
 .calculation__text--hidden {
   opacity: 0;

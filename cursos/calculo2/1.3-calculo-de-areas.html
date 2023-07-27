@@ -226,15 +226,14 @@
                 El área $A(R_n)$ puede calcularse al sumar las áreas de los rectángulos que lo forman, así 
             </p>
             <p class="paragraph">
+                $$
                 \begin{equation*}
                     \begin{split}
-                        A(R_n) &=\left[\frac{8}{n^3}(0)^2+ \frac{8}{n^3}(1)^2+\cdots \frac{8}{n^3}(n-2)^2 + \frac{8}{n^3}(n-1)^2\right] \\
-                        &= \frac{8}{n^3}[1^2+2^2+3^3+\cdots +(n-2)^2+(n-2)^2] \\
-                        &= \frac{8}{n^3}\sum_{i=1}^{n-1}i^2 = \frac{8}{n^3}\frac{(n-1)n(2n-2+1)}{6} \\
-                        &=\frac{8}{6}\cdot \frac{(n-1)}{n}\cdot \frac{n}{n} \cdot \frac{(2n-1)}{n} \\
-                        &= \frac{4}{3}\left(1-\frac{1}{n} \right)\left(1 \right)\left(2-\frac{1}{n} \right).
+                        A(R_n) &=f(x_0)\Delta x+f(x_1)\Delta x+\cdots+f(x_{n-2})\Delta x+f(x_{n-1})\Delta x \\
+                        &= \sum_{i=0}^{n-1} f(x_i)\Delta x, \\
                     \end{split}
-                \end{equation*}
+                \end{equation*}                   
+                $$
             </p>
             <p class="paragraph">
                 pero dadas las condiciones tenemos que

@@ -1,6 +1,6 @@
 [
     {
-        "title": "Sección 1",
+        "title": "Sección 1. La Integral Definida",
         "questions": [
             {
                 "question": "Usando el símbolo sumatorio, escribe la siguiente suma explícita: \r\n $4+4+4+4+4+4.$",
@@ -155,7 +155,7 @@
         ]
     },
     {
-        "title": "Sección 2",
+        "title": "Sección 2. La Integral Definida",
         "questions": [
             {
                 "question": "Calcula $\\int_3^8 \\frac{\\sin (\\sqrt{x+1})}{\\sqrt{x+1}} dx.$",
@@ -358,7 +358,7 @@
         ]
     },
     {
-        "title": "Sección 3",
+        "title": "Sección 3. Integrales Impropias y Aplicaciones",
         "questions": [
             {
                 "question": "Evalúa la integral si converge $\\int_0^\\infty \\frac{1}{e^x+ e^{-x}}\\,dx.$",

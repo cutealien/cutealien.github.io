@@ -360,11 +360,12 @@ div[data-anchor]:target::before {
   margin-right: auto;
   height: 6rem;
   width: 6rem;
-  background-image: url("../assets/wp-content-uploads-2014-11-family-oriented-pups-blog.jpg");
-  background-size: cover;
+  background-image: url("../assets/navbar-logo.png");
+  background-size: 90%;
   border-radius: 50%;
   background-repeat: no-repeat;
   background-position: center;
+  background-color: #fff;
 }
 .navbar__logo {
   height: 6rem;
@@ -1037,20 +1038,6 @@ mjx-container[display=true] {
 .subject-list__item:not(:last-child) {
   margin: 1rem 0;
 }
-.subject-list__link, .subject-list__link:link, .subject-list__link:visited {
-  color: #000;
-  text-decoration: none;
-  transition: all 0.3s;
-  border-bottom: 1px solid transparent;
-}
-.subject-list__link:hover, .subject-list__link:link:hover, .subject-list__link:visited:hover {
-  color: var(--color-primary);
-  border-bottom: 1px solid var(--color-primary);
-}
-.subject-list__link--active, .subject-list__link--active:link, .subject-list__link--active:visited {
-  color: var(--color-primary);
-  border-bottom: 1px solid var(--color-primary);
-}
 
 .simple-list {
   font-size: 2rem;
@@ -1059,6 +1046,30 @@ mjx-container[display=true] {
   margin-bottom: 1rem;
   text-align: justify;
   padding-left: 2rem;
+}
+
+.index-list {
+  font-size: 2rem;
+  list-style: disc outside;
+  max-width: 72ch;
+  margin-bottom: 1rem;
+  text-align: left;
+  padding-left: 2rem;
+}
+
+.subject-list__link, .subject-list__link:link, .subject-list__link:visited, .index-list__link, .index-list__link:link, .index-list__link:visited {
+  color: #000;
+  text-decoration: none;
+  transition: all 0.3s;
+  border-bottom: 1px solid transparent;
+}
+.subject-list__link:hover, .subject-list__link:link:hover, .subject-list__link:visited:hover, .index-list__link:hover, .index-list__link:link:hover, .index-list__link:visited:hover {
+  color: var(--color-primary);
+  border-bottom: 1px solid var(--color-primary);
+}
+.subject-list__link--active, .subject-list__link--active:link, .subject-list__link--active:visited, .index-list__link--active, .index-list__link--active:link, .index-list__link--active:visited {
+  color: var(--color-primary);
+  border-bottom: 1px solid var(--color-primary);
 }
 
 .picker {
@@ -1102,7 +1113,7 @@ mjx-container[display=true] {
   transform: scale(0);
   visibility: hidden;
   transition: opacity 0.3s ease-in-out;
-  z-index: 10;
+  z-index: 20;
 }
 .modal--active {
   opacity: 1;

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/style.css">
+    
+    <script src="./scripts/variables.js" defer></script>
+    <script src="./scripts/1-1-introduction.js" defer></script>
+    <script src="./components/mobile-sidebar/mobile-sidebar.js" defer></script>
+    <script src="./components/sidebar/sidebar.js" defer></script>
+
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+            loader: {load: ['input/asciimath', 'output/chtml']}
+        }
+    </script>
+    <script id="MathJax-script" async src="/scripts/MathJax-master/es5/tex-chtml.js"></script>
+
+    <title>Cálculo 2 | Introducción</title>
+</head>
+<body class="course">
+    <nav class="navbar">
+        <a href="/" class="navbar__logo-box">
+        </a>
+        <a href="/" class="navbar__link">
+            Inicio
+        </a>
+        <a href="#" class="navbar__link navbar__link--active">
+            Cálculo 2
+        </a>
+        <a href="./quiz.html" class="navbar__link">
+            Quiz
+        </a>
+        <button class="menu-mobile-btn burger-btn" data-menu-btn="menu-mobile"><span class="burger-icon"></span></button>
+    </nav>
+    <alien-sidebar class="sidebar" id="sidebar"></alien-sidebar>
+    <alien-mobile-sidebar id="mobile-menu"></alien-mobile-sidebar>
+    
+    <main class="main">
+        <section>
+            <h2 class="header-primary margin-bottom-md">
+                Capítulo 1
+            </h2>
+            <h1 class="header-primary margin-bottom-md">LA INTEGRAL DEFINIDA</h1>
+            <h2 class="header-primary margin-bottom-md">
+                1.1 Introducción
+            </h2>
+            <p class="paragraph">
+                El problema de encontrar el ́area de regiones en el plano,
+                nos lleva al concepto de integral definida, y por lo tanto, al estudio del
+                Calculo Integral.
+            </p>
+            <p class="paragraph">
+                El problema de encontrar áreas no es tan grande cuando de polígonos se trata,
+                pues desde la primaria aprendemos fórmulas para ciertas figuras, principalmente
+                para rectángulos.
+            </p>
+            <div class="canvas-container">
+                <canvas class="canvas" height="300" width="300" data-canvas="chapter-1-1"></canvas>
+            </div>
+            <p class="paragraph">
+                Una vez que se tiene la fórmula para rectángulos, es posible obtener la fórmula
+                para paralelogramos.
+            </p>
+            <div class="canvas-container">
+                <canvas class="canvas" height="300" width="300" data-canvas="chapter-1-1"></canvas>
+                <span class="formule formule--top">
+                    $A = ab$
+                </span>
+                <span class="formule formule--canvas2-a">
+                    $a$
+                </span>
+                <span class="formule formule--canvas2-b">
+                    $b$
+                </span>
+            </div>
+            <p class="paragraph">
+                A través de los paralelogramos obtenemos fórmula para triángulos.
+            </p>
+            <div class="canvas-container">
+                <canvas class="canvas" height="300" width="300" data-canvas="chapter-1-1"></canvas>
+                <span class="formule formule--canvas3">
+                    $A_P = ab \Rightarrow A_T = \frac{ab} {2}$
+                </span>
+                <span class="formule formule--canvas2-a">
+                    $a$
+                </span>
+                <span class="formule formule--canvas2-b">
+                    $b$
+                </span>
+            </div>
+            <p class="paragraph">
+                Una vez que se tiene la fórmula para rectángulos, es posible obtener la fórmula
+                para paralelogramos. Una vez que se tiene fórmula para triángulos, es posible obtener el  ́area de
+                cualquier polígono, pues bastará descomponer la figura en triángulos y sumar todas
+                las áreas para obtener el área total.
+            </p>
+        </section>
+        <div class="fancy-line"></div>
+        <section>
+            <p class="paragraph">
+                Notemos que hacemos uso de 5 propiedades fundamentales:
+            </p>
+            <ol class="simple-list">
+                <li class="simple-list__item">El área de una región plana es un número real no negativo.</li>
+                <li class="simple-list__item">
+                    El área de un rectángulo es el producto de su largo por su ancho (ambos
+                    medidos en las mismas unidades cuando se hace uso de ellas).
+                </li>
+                <li class="simple-list__item">Regiones congruentes tienen áreas iguales.</li>
+                <li class="simple-list__item">
+                    El  ́area de dos regiones que se traslapan sólo en un segmento de recta es la
+                    suma de las  ́areas de las dos regiones (esto se generaliza a cualquer cantidad
+                    finita de regiones).
+                </li>
+                <li class="simple-list__item">
+                    Si una región está contenida en una segunda región, entonces el área de la
+                    primera es menor o igual que el área de la segunda (solo trabajamos con re-
+                    giones de área finita).
+                </li>
+            </ol>
+
+            <p class="paragraph">
+                Cuando consideramos una región curva el problema de asignar áreas es más complicado.
+                Sin embargo, hace más de 2000 años (en 287-212 a.C.), Arquímedes nos proporcionó la clave de la solución, la
+                cual está sustentada en el método de exhausión.
+            </p>
+            <p class="paragraph">
+                La idea básica consiste en considerar una sucesión de polígonos inscritos que
+                aproxima a la región curva con una precisión cada vez mayor.
+            </p>
+            <p class="paragraph">
+                En realidad, al trabajar con un círculo de radio 1, las áreas de los polígonos,
+                tanto inscritos como circunscritos dan aproximaciones numéricas a $\pi$, y entre más
+                lados tenga el polígono, la aproximación será mejor. En el límite, se obtiene el
+                valor de $\pi$.
+            </p>
+            <div class="canvas-container">
+                <canvas class="canvas" height="300" width="300" data-canvas="chapter-1-1"></canvas>
+                <div class="picker" id="picker-1">
+                    <label class="number-picker__label" for="sides">Lados (entre 3 y 100):</label>
+                    <input class="input-number" type="number" id="sides" name="sides" min="3" max="100" value="3" data-picker="chapter-1-1" autocomplete="off">
+                    <div class="calculation-canvas" data-calculation="polygon">
+                        <!-- Área del polígono =  -->
+                    </div>
+                </div>
+            </div>
+            <p class="paragraph">
+                Siguendo las ideas del método de exhausión determinaremos el área bajo una
+                región curva y lo haremos de la siguiente manera:
+            </p>
+            <ol class="simple-list">
+                <li class="simple-list__item">
+                    Aproximaremos la región $R$ por medio de $n$ rectángulos, en donde los $n$
+                    rectángulos juntos estén contenidos en $R$, es decir, tomaremos rectángulos inscritos 
+                    en la región, y juntos produzcan un polígono inscrito. O bien, que juntos
+                    contengan a $R$ (es decir, rectángulos circunscritos) y produzcan un polígono
+                    circunscrito.
+                    <div class="canvas-container">
+                        <canvas class="canvas" height="300" width="300" data-canvas="chapter-1-1"></canvas>
+                        <select class="picker select" name="graphic" id="graphic" data-picker="chapter-1-1" autocomplete="off">
+                            <option value="ins">Inscrito</option>
+                            <option value="cir">Circunscrito</option>
+                        </select>
+                    </div>
+                </li>
+                <li class="simple-list__item">
+                    Determinar el área de cada rectángulo.
+                </li>
+                <li class="simple-list__item">
+                    Sumar las áreas de los $n$ rectángulos.
+                </li>
+                <li class="simple-list__item">
+                    Tomar el límite cuando $n \rightarrow \infty .$
+                </li>
+            </ol>
+            <p class="paragraph">
+                Si los límites de las áreas de los polígonos inscritos y circunscritos coinciden,
+                entonces el área de la región será dicho límite.
+            </p>
+            <div class="fancy-line"></div>
+            <div class="change-page">
+                <!-- <a href="#" class="change-page__before">Anterior</a> -->
+                <a href="./1.2-Sumatoria.html" class="change-page__next">Siguiente</a>
+            </div>
+        </section>
+    </main>
+    
+</body>
+</html>

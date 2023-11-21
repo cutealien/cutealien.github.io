@@ -182,6 +182,7 @@ justificationProblems.forEach(problem => {
         })
         step++
         formdata.reset()
+        btnAnswer.disabled = true
         if(step >= answers.length){
             btnAnswer.disabled = true
             btnAnswer.nextElementSibling.style.display = 'inline-block'

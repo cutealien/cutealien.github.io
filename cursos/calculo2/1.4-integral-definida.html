@@ -7,7 +7,7 @@
 
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/css/style.css">
-    
+
     <script src="./scripts/question.js" defer></script>
     <script src="./scripts/modal.js" defer></script>
     <script src="./components/mobile-sidebar/mobile-sidebar.js" defer></script>
@@ -52,7 +52,22 @@
             <p class="paragraph">
                 En toda la construcción de la integral, consideraremos $f:[a,b]\to \mathbf{R}$ una función acotada definida en un intervalo cerrado, salvo que se diga lo contrario.
             </p>
-            <alien-math-template path="./components/theorems/definition-1.4.1.html"></alien-math-template>
+            <div class="definition">
+                <p class="paragraph">
+                    <strong class="definition__title">Definición 1.4.1.</strong> Sea $[a,b]\subseteq \mathbf{R}$ un intervalo cerrado.
+                </p>
+                <ul class="definition__list">
+                    <li class="definition__list-item">
+                        Decimos que $P=\{x_0,x_1,x_2,...,x_{n-1},x_n\}\subseteq[a,b]$, con $n\in \mathbf{N}$, es una partición de $[a,b]$ si $$a=x_0 < x_1 < x_2 < \cdots < x_{n-1}< x_n=b.$$
+                    </li>
+                    <li class="definition__list-item">
+                        Sea $P'$ otra partición de $[a,b]$, decimos que $P'$ es un refinamiento de $P$ si $P\subseteq P'$.
+                    </li>
+                    <li class="definition__list-item">
+                        Sea $P=\{x_0,x_1,x_2,...,x_{n-1},x_n\}$ una patición, al número $$\max\{x_i-x_{i-1}:i=\overline{1,n}\}$$ se le llama la norma de $P$ y se denota por $\|P\|$. A las diferencias $x_i-x_{i-1}$ se le denota por $\Delta x_i$. Con base en esto, obtenemos $$\|P\|=\max\{\Delta x_i:i=\overline{1,n}\}.$$
+                    </li>
+                </ul>
+             </div>
             <p class="paragraph">
                 Para tener un poco de claridad acerca de estos nuevos conceptos daremos un par de ejemplos.
             </p>
@@ -86,8 +101,28 @@
                 Hay un caso especial de particiones que hemos trabajado antes en este libro pero que no les habíamos asignado el nombre de particiones y 
                 son aquellas que dividen al intervalo en $n$ subintervalos del mismo tamaño.
             </p>
-            <alien-math-template path="./components/theorems/definition-1.4.2.html"></alien-math-template>
-            <alien-math-template path="./components/theorems/definition-1.4.3.html"></alien-math-template>
+            <div class="definition">
+                <p class="paragraph">
+                    <strong class="definition__title">Definición 1.4.2.</strong>
+                    Sea $[a,b]$ un intervalo cerrado. El conjunto $$P_n=\left\{x_i=a+i \frac{b-a}{n}:i=\overline{0,n}\right\}$$ 
+                    es una partición de $[a,b]$, y lo divide en $n$ subintervalos del mismo tamaño, es decir, de longitud $\frac{b-a}{n}$. Además, $\|P_n\|=\frac{b-a}{n}$.
+                </p>
+             </div>
+             <div class="definition">
+                <p class="paragraph">
+                    <strong class="definition__title">Definición 1.4.3.</strong> Sea $f:[a,b]\to \mathbf{R}$ una función acotada y $P=\{x_0,x_1,...,x_n\}$ una partición de $[a,b]$. Definimos:
+                </p>
+                <ul class="definition__list">
+                    <li class="definition__list-item">
+                        Para cada $i=\overline{1,n}$, donde $I_i=[x_{i-1},x_i]$, los números 
+                        $$m_i=\inf\{f(x):x\in I_i\} \qquad \mbox{y} \qquad M_i=\sup\{f(x):x\in I_i\}.$$
+                    </li>
+                    <li class="definition__list-item">
+                        La suma inferior y la suma superior de $f$ para la partición $P$, dadas por 
+                        $$ \underline{S}(f,P)=\sum_{i=1}^n m_i \Delta x_i \qquad \mbox{y} \qquad \overline{S}(f,P)=\sum_{i=1}^n M_i \Delta x_i,$$ respectivamente.
+                    </li>
+                </ul>
+             </div>
 
             <p class="paragraph">
                 Como $f$ es una función acotada en el intervalo $[a,b]$, entonces es acotada en cada subintervalo $I_i\subseteq [a,b]$, 

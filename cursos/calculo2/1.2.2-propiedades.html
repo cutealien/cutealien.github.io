@@ -8,11 +8,11 @@
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/css/style.css">
     
-    <!-- <script src="./scripts/variables.js" defer></script> -->
     <script src="./scripts/question.js" defer></script>
     <script src="./scripts/modal.js" defer></script>
     <script src="./components/mobile-sidebar/mobile-sidebar.js" defer></script>
     <script src="./components/sidebar/sidebar.js" defer></script>
+    <script src="./components/math-template.js" defer></script>
 
     <script>
         MathJax = {
@@ -50,23 +50,7 @@
             <h2 class="header-primary margin-bottom-sm">
                 1.2.2 Propiedades del símbolo $\sum\label{sumatorio}$
             </h2>
-            <div class="theorem">
-                <p class="paragraph">
-                    <strong class="theorem__title">Teorema 1.2.1 </strong>(Linealidad). Sean $n ∈ \mathbf{N}, a_i, b_i ∈ \mathbf{R}$, para toda $i = 1, n,$ y $c ∈ \mathbf{R}$,
-                    entonces:
-                </p>
-                <ol class="theorem__list">
-                    <li class="theorem__list--formule">
-                        $$\sum_{i=1}^{n} (ca_i) = c\sum_{i=1}^{n} a_i$$
-                    </li>
-                    <li class="theorem__list--formule">
-                        $$\sum_{i=1}^{n} (a_i + b_i) = \sum_{i=1}^{n} a_i + \sum_{i=1}^{n} a_i$$
-                    </li>
-                    <li class="theorem__list--formule">
-                        $$\sum_{i=1}^{n} (a_i - b_i) = \sum_{i=1}^{n} a_i - \sum_{i=1}^{n} a_i$$
-                    </li>
-                </ol>
-            </div>
+            <alien-math-template path="./components/theorems/theorem-1.2.1.html"></alien-math-template>
             <div class="proof">
                 <h3 class="header-tertiary">
                     Demostración.
@@ -345,44 +329,14 @@
                 A este tipo de suma se le conoce como suma telescópica. Una suma es telescópica, si al final de la suma solo quedan el primer término y
                 el último término, es decir, se cancelan casi todos.
             </p>
-            <div class="theorem">
-                <p class="paragraph">
-                    <strong class="theorem__title">Teorema 1.2.2 </strong>(Sumas telescópicas). Si $n ∈ \mathbf{N} $, y $a_i ∈ \mathbf{R} \; \; \forall i =$ <span class="overline">$1,n$</span>, entonces
-                </p>
-                <ol class="theorem__list">
-                    <li class="theorem__list--formule">
-                        $$\sum_{i=1}^{n} (a_{i+1} - a_i) = a_{n+1} - a_1.$$
-                    </li>
-                    <li class="theorem__list--formule">
-                        $$\sum_{i=1}^{n} [(i + 1)^2 - i^2) = (n + 1)^2 - 1.$$
-                    </li>
-                </ol>
-            </div>
+            <alien-math-template path="./components/theorems/theorem-1.2.2.html"></alien-math-template>
             <div class="proof">
                 <h3 class="header-tertiary">Demostración.</h3>
                 <p class="paragraph">
                     Se deja como ejercicio al lector.
                 </p>
             </div>
-            <div class="theorem">
-                <p class="paragraph">
-                    <strong class="theorem__title">Teorema 1.2.3 </strong>. Para toda $n ∈ \mathbf{N}$ se cumple que
-                </p>
-                <ol class="theorem__list">
-                    <li class="theorem__list--formule">
-                        $$\sum_{i=1}^{n} i = \frac{n(n+1)}{2};$$
-                    </li>
-                    <li class="theorem__list--formule">
-                        $$\sum_{i=1}^{n} i^2 = \frac{n(n+1)(2n+1)}{6};$$
-                    </li>
-                    <li class="theorem__list--formule">
-                        $$\sum_{i=1}^{n} i^3 = \left[ \frac{n(n+1)}{2} \right]^2;$$
-                    </li>
-                    <li class="theorem__list--formule">
-                        $$\sum_{i=1}^{n} i^4 = \frac{n(n+1)(2n+1)(3n^2+3n-1)}{30};$$
-                    </li>
-                </ol>
-            </div>
+            <alien-math-template path="./components/theorems/theorem-1.2.3.html"></alien-math-template>
             <div class="proof">
                 <h3 class="header-tertiary">Demostración.</h3>
                 <ol class="proof__step">
@@ -529,20 +483,7 @@
     <div class="modal" data-modal="definition-1-2-1">
         <div class="modal__background" data-modal-background="definition-1-2-1"></div>
         <div class="modal__content">
-            <div class="definition">
-                <p class="paragraph">
-                    <strong class="definition__title">Definición 1.2.1.</strong> El símbolo sumatorio $\sum$, queda determinado por
-                </p>
-                <p class="paragraph">
-                    1. Se define $\sum_{i=1}^{1} = a_1$
-                </p>
-                <p class="paragraph">
-                    2. Si el término $\sum_{i=1}^{n} = a_i$ está bien definido para un $n ≥ 1$ fijo, entonces se define: <br>
-                </p>
-                <p class="text-formule">
-                    $\sum_{i=1}^{n + 1} a_i = \sum_{i=1}^{n} a_i + a_{n+1}.$
-                </p>
-            </div>
+            <alien-math-template path="./components/theorems/definition-1.2.1.html"></alien-math-template>
         </div>
     </div>
     

@@ -10,7 +10,9 @@
     
     <script src="./scripts/variables.js" defer></script>
     <script src="./scripts/question.js" defer></script>
-    <script src="./scripts/menu-mobile.js" defer></script>
+    <script src="./components/mobile-sidebar/mobile-sidebar.js" defer></script>
+    <script src="./components/sidebar/sidebar.js" defer></script>
+    <script src="./components/math-template.js" defer></script>
 
     <script>
         MathJax = {
@@ -39,151 +41,8 @@
         </a>
         <button class="menu-mobile-btn burger-btn" data-menu-btn="menu-mobile"><span class="burger-icon"></span></button>
     </nav>
-    <nav class="sidebar">
-        <ol class="subject-list">
-            <li class="subject-list__item">
-                <strong class="subject-list__title">1 La integral definida</strong>
-                <ol class="subject-list">
-                    <li class="subject-list__item"><a href="/cursos/calculo2/" class="subject-list__link">1.1 Introducción</a></li>
-                    <li class="subject-list__item">
-                        <a href="./1.2-Sumatoria.html" class="subject-list__link subject-list__link--active">1.2 El símbolo $\sum$</a>
-                        <ol class="subject-list">
-                            <li class="subject-list__item"><a href="#1.2" class="subject-list__link subject-list__link--active">1.2.1 Formalizando el símbolo sumatorio</a></li>
-                            <li class="subject-list__item"><a href="./1.2.2-propiedades.html" class="subject-list__link">1.2.2 Propiedades del símbolo $\sum$</a></li>
-                        </ol>
-                    </li>
-                    <li class="subject-list__item"><a href="./1.3-calculo-de-areas.html" class="subject-list__link">1.3 Cálculo de  ́areas con rect. insc. y circuns.</a></li>
-                    <li class="subject-list__item">
-                        <a href="./1.4-integral-definida.html" class="subject-list__link">1.4 Construcción de la integral definida</a>
-                        <ol class="subject-list">
-                            <li class="subject-list__item"><a href="./1.4.1-integral-definida.html" class="subject-list__link">1.4.1 Construcción de la integral definida parte 2</a></li>
-                            <li class="subject-list__item"><a href="./1.4.2-integral-definida.html" class="subject-list__link">1.4.2 Construcción de la integral definida parte 3</a></li>
-                            <li class="subject-list__item"><a href="./1.4.3-integral-definida.html" class="subject-list__link">1.4.3 Construcción de la integral definida parte 4</a></li>
-                            <li class="subject-list__item"><a href="./1.4.4-integral-definida.html" class="subject-list__link">1.4.4 Construcción de la integral definida parte 5</a></li>
-                        </ol>
-                    </li>
-                    <li class="subject-list__item"><a href="./1.5-sumas-riemann.html" class="subject-list__link">1.5 Sumas de Riemann</a></li>
-                    <li class="subject-list__item"><a href="./1.6-teorema-fundamental.html" class="subject-list__link">1.6 Teorema fundamental del Cálculo y sus consecuencias</a></li>
-                </ol>
-            </li>
-            <li class="subject-list__item">
-                <strong class="subject-list__title">2 La integral indefinida</strong>
-                <ol class="subject-list">
-                    <li class="subject-list__item"><a href="./2.1-introduccion.html" class="subject-list__link">2.1 Introducción</a></li>
-                    <li class="subject-list__item"><a href="./2.2-antiderivadas-inmediatas.html" class="subject-list__link">2.2 Antiderivadas inmediatas</a></li>
-                    <li class="subject-list__item">
-                        <a href="./2.3-metodo-sustitucion.html" class="subject-list__link">2.3 Método de int. por sust. o cambio de variable</a>
-                        <ol class="subject-list">
-                            <li class="subject-list__item"><a href="./2.3.1-metodo-sustitucion-parte-2.html" class="subject-list__link">2.3.1 Método de int. por sust. o cambio de variable parte 2</a></li>
-                        </ol>
-                    </li>
-                    <li class="subject-list__item"><a href="./2.4-integracion-por-partes.html" class="subject-list__link">2.4 Método de integración por partes</a></li>
-                    <li class="subject-list__item">
-                        <a href="./2.5-fracciones-parciales.html" class="subject-list__link">2.5 Método de integración por fracciones parciales</a>
-                        <ol class="subject-list">
-                            <li class="subject-list__item"><a href="./2.5.1-factores-lineales-no-repetidos.html" class="subject-list__link">2.5.1 El polinomio $Q(x)$ solo contiene factores lineales que no se repiten</a></li>     
-                            <li class="subject-list__item"><a href="./2.5.2-factores-lineales-repetidos.html" class="subject-list__link">2.5.2 El polinomio $Q(x)$ solo contiene factores lineales, pero algunos de ellos se repetidos</a></li>     
-                            <li class="subject-list__item"><a href="./2.5.3-factores-cuadraticos-irreducibles.html" class="subject-list__link">2.5.3 Integrales de funciones simples que involucran términos cuadráticos irreducibles</a></li>     
-                            <li class="subject-list__item"><a href="./2.5.4-factores-cuadraticos-no-repetidos.html" class="subject-list__link">2.5.4 El polinomio Q(x) contiene factores cuadráticos irreducibles que no se repiten</a></li>     
-                            <li class="subject-list__item"><a href="./2.5.5-factores-cuadraticos-repetidos.html" class="subject-list__link">2.5.5 El polinomio Q(x) contiene factores cuadráticos irreducibles que se repiten</a></li>     
-                        </ol>
-                    </li>
-                    <li class="subject-list__item"><a href="./2.6-sust-trigonometrica.html" class="subject-list__link">2.6 Met. de int. por sust. trigonométrica</a></li>     
-                </ol>
-            </li>
-            <li class="subject-list__item">
-                <strong class="subject-list__title">3 Integrales impropias y aplicaciones</strong>
-                <ol class="subject-list">
-                    <li class="subject-list__item"><a href="./3.1-integrales-impropias.html" class="subject-list__link">3.1 Integrales impropias</a></li>
-                    <li class="subject-list__item"><a href="./3.2-mas-integrales-impropias.html" class="subject-list__link">3.2 Más integrales impropias (para funciones discontinuas)</a></li>
-                    <li class="subject-list__item"><a href="./3.3-calculo-de-areas.html" class="subject-list__link">3.3 Cálculo de áreas de regiones acotadas por curvas</a></li>   
-                </ol>
-            </li>
-            <li class="subject-list__item">
-                <strong class="subject-list__title">Anexo</strong>
-                <ol class="subject-list">
-                    <li class="subject-list__item"><a href="./anexo-conjuntos.html" class="subject-list__link">Conjuntos</a></li>
-                </ol>
-            </li>
-        </ol>
-    </nav>
-    <div class="menu-mobile" data-menu="menu-mobile">
-        <div class="menu-mobile__bg" data-menu-bg="menu-mobile"></div>
-        <div class="menu-mobile__content" data-menu-content="menu-mobile">
-            <div class="menu-mobile__header">
-                <h3 class="header-tertiary">Cálculo 2</h3>
-                <button class="menu-mobile-btn burger-btn" data-menu-btn="menu-mobile"><span class="burger-icon burger-icon--pressed"></span></button>
-            </div>
-            <nav class="navbar-mobile">
-                <ol class="subject-list">
-                    <li class="subject-list__item">
-                        <strong class="subject-list__title">1 La integral definida</strong>
-                        <ol class="subject-list">
-                            <li class="subject-list__item"><a href="/cursos/calculo2/" class="subject-list__link">1.1 Introducción</a></li>
-                            <li class="subject-list__item">
-                                <a href="#" class="subject-list__link subject-list__link--active">1.2 El símbolo $\sum$</a>
-                                <ol class="subject-list">
-                                    <li class="subject-list__item"><a href="#1.2" class="subject-list__link subject-list__link--active">1.2.1 Formalizando el símbolo sumatorio</a></li>
-                                    <li class="subject-list__item"><a href="./1.2.2-propiedades.html" class="subject-list__link">1.2.2 Propiedades del símbolo $\sum$</a></li>
-                                </ol>
-                            </li>
-                            <li class="subject-list__item"><a href="./1.3-calculo-de-areas.html" class="subject-list__link">1.3 Cálculo de  ́areas con rect. insc. y circuns.</a></li>
-                            <li class="subject-list__item">
-                                <a href="./1.4-integral-definida.html" class="subject-list__link">1.4 Construcción de la integral definida</a>
-                                <ol class="subject-list">
-                                    <li class="subject-list__item"><a href="./1.4.1-integral-definida.html" class="subject-list__link">1.4.1 Construcción de la integral definida parte 2</a></li>
-                                    <li class="subject-list__item"><a href="./1.4.2-integral-definida.html" class="subject-list__link">1.4.2 Construcción de la integral definida parte 3</a></li>
-                                    <li class="subject-list__item"><a href="./1.4.3-integral-definida.html" class="subject-list__link">1.4.3 Construcción de la integral definida parte 4</a></li>
-                                    <li class="subject-list__item"><a href="./1.4.4-integral-definida.html" class="subject-list__link">1.4.4 Construcción de la integral definida parte 5</a></li>
-                                </ol>
-                            </li>
-                            <li class="subject-list__item"><a href="./1.5-sumas-riemann.html" class="subject-list__link">1.5 Sumas de Riemann</a></li>
-                            <li class="subject-list__item"><a href="./1.6-teorema-fundamental.html" class="subject-list__link">1.6 Teorema fundamental del Cálculo y sus consecuencias</a></li>
-                        </ol>
-                    </li>
-                    <li class="subject-list__item">
-                        <strong class="subject-list__title">2 La integral indefinida</strong>
-                        <ol class="subject-list">
-                            <li class="subject-list__item"><a href="./2.1-introduccion.html" class="subject-list__link">2.1 Introducción</a></li>
-                            <li class="subject-list__item"><a href="./2.2-antiderivadas-inmediatas.html" class="subject-list__link">2.2 Antiderivadas inmediatas</a></li>
-                            <li class="subject-list__item">
-                                <a href="./2.3-metodo-sustitucion.html" class="subject-list__link">2.3 Método de int. por sust. o cambio de variable</a>
-                                <ol class="subject-list">
-                                    <li class="subject-list__item"><a href="./2.3.1-metodo-sustitucion-parte-2.html" class="subject-list__link">2.3.1 Método de int. por sust. o cambio de variable parte 2</a></li>
-                                </ol>
-                            </li>
-                            <li class="subject-list__item"><a href="./2.4-integracion-por-partes.html" class="subject-list__link">2.4 Método de integración por partes</a></li>
-                            <li class="subject-list__item">
-                                <a href="./2.5-fracciones-parciales.html" class="subject-list__link">2.5 Método de integración por fracciones parciales</a>
-                                <ol class="subject-list">
-                                    <li class="subject-list__item"><a href="./2.5.1-factores-lineales-no-repetidos.html" class="subject-list__link">2.5.1 El polinomio $Q(x)$ solo contiene factores lineales que no se repiten</a></li>     
-                                    <li class="subject-list__item"><a href="./2.5.2-factores-lineales-repetidos.html" class="subject-list__link">2.5.2 El polinomio $Q(x)$ solo contiene factores lineales, pero algunos de ellos se repetidos</a></li>     
-                                    <li class="subject-list__item"><a href="./2.5.3-factores-cuadraticos-irreducibles.html" class="subject-list__link">2.5.3 Integrales de funciones simples que involucran términos cuadráticos irreducibles</a></li>     
-                                    <li class="subject-list__item"><a href="./2.5.4-factores-cuadraticos-no-repetidos.html" class="subject-list__link">2.5.4 El polinomio Q(x) contiene factores cuadráticos irreducibles que no se repiten</a></li>     
-                                    <li class="subject-list__item"><a href="./2.5.5-factores-cuadraticos-repetidos.html" class="subject-list__link">2.5.5 El polinomio Q(x) contiene factores cuadráticos irreducibles que se repiten</a></li>     
-                                </ol>
-                            </li>
-                            <li class="subject-list__item"><a href="./2.6-sust-trigonometrica.html" class="subject-list__link">2.6 Met. de int. por sust. trigonométrica</a></li>     
-                        </ol>
-                    </li>
-                    <li class="subject-list__item">
-                        <strong class="subject-list__title">3 Integrales impropias y aplicaciones</strong>
-                        <ol class="subject-list">
-                            <li class="subject-list__item"><a href="./3.1-integrales-impropias.html" class="subject-list__link">3.1 Integrales impropias</a></li>
-                            <li class="subject-list__item"><a href="./3.2-mas-integrales-impropias.html" class="subject-list__link">3.2 Más integrales impropias (para funciones discontinuas)</a></li>
-                            <li class="subject-list__item"><a href="./3.3-calculo-de-areas.html" class="subject-list__link">3.3 Cálculo de áreas de regiones acotadas por curvas</a></li>   
-                        </ol>
-                    </li>
-                    <li class="subject-list__item">
-                        <strong class="subject-list__title">Anexo</strong>
-                        <ol class="subject-list">
-                            <li class="subject-list__item"><a href="./anexo-conjuntos.html" class="subject-list__link">Conjuntos</a></li>
-                        </ol>
-                    </li>
-                </ol>
-            </nav>
-        </div>
-    </div>
+    <alien-sidebar class="sidebar" id="sidebar"></alien-sidebar>
+    <alien-mobile-sidebar id="mobile-menu"></alien-mobile-sidebar>
     <main class="main">
         <section>
             <h2 class="header-primary margin-bottom-sm">
@@ -212,8 +71,8 @@
                 El símbolo $i$ puede reemplazarse por otro símbolo (particularmente por $j$, $k$, $l$, $m$, $n$).
                 Entonces la suma se puede esribir como $\sum_{j=1}^{n} a_j $ o $\sum_{n=1}^{m} a_n $
             </p>
+            <div class="fancy-line"></div>
         </section>
-        <div class="fancy-line"></div>
         <section>
             <h2 class="header-secondary margin-bottom-sm">
                 1.2.1 Formalizando el símbolo sumatoria
@@ -301,20 +160,7 @@
                 definiciones inductivas o por inducción, cuyas ideas principales son las mismas que
                 se utilizan cuando hacemos demostraciones por inducción.
             </p>
-            <div class="definition">
-                <p class="paragraph">
-                    <strong class="definition__title">Definición 1.2.1.</strong> El símbolo sumatorio $\sum$ , queda determinado por
-                </p>
-                <p class="paragraph">
-                    1. Se define $\sum_{i=1}^{1} = a_1$
-                </p>
-                <p class="paragraph">
-                    2. Si el término $\sum_{i=1}^{n} = a_i$ está bien definido para un $n ≥ 1$ fijo, entonces se define: <br>
-                </p>
-                <p class="text-formule">
-                    $$\sum_{i=1}^{n + 1} a_i = \sum_{i=1}^{n} a_i + a_{n+1}.$$
-                </p>
-            </div>
+            <alien-math-template path="./components/theorems/definition-1.2.1.html"></alien-math-template>
             <p class="paragraph">
                 De esta manera, haciendo uso de la definición y considerando $n = 1$ en el punto
                 2 de la definición, obtenemos que
@@ -379,7 +225,7 @@
             </div>
             <div class="fancy-line"></div>
             <div class="change-page">
-                <a href="#" class="change-page__before">Anterior</a>
+                <a href="./1.1-introduccion.html" class="change-page__before">Anterior</a>
                 <a href="./1.2.2-propiedades.html" class="change-page__next">Siguiente</a>
             </div>
         </section>

@@ -10,7 +10,9 @@
     
     <script src="./scripts/question.js" defer></script>
     <script src="./scripts/modal.js" defer></script>
-    <script src="./scripts/menu-mobile.js" defer></script>
+    <script src="./components/mobile-sidebar/mobile-sidebar.js" defer></script>
+    <script src="./components/sidebar/sidebar.js" defer></script>
+    <script src="./components/math-template.js" defer></script>
 
     <script>
         MathJax = {
@@ -39,151 +41,8 @@
         </a>
         <button class="menu-mobile-btn burger-btn" data-menu-btn="menu-mobile"><span class="burger-icon"></span></button>
     </nav>
-    <nav class="sidebar">
-        <ol class="subject-list">
-            <li class="subject-list__item">
-                <strong class="subject-list__title">1 La integral definida</strong>
-                <ol class="subject-list">
-                    <li class="subject-list__item"><a href="/cursos/calculo2/" class="subject-list__link">1.1 Introducción</a></li>
-                    <li class="subject-list__item">
-                        <a href="./1.2-Sumatoria.html" class="subject-list__link">1.2 El símbolo $\sum$</a>
-                        <ol class="subject-list">
-                            <li class="subject-list__item"><a href="./1.2-Sumatoria.html#1.2" class="subject-list__link">1.2.1 Formalizando el símbolo sumatorio</a></li>
-                            <li class="subject-list__item"><a href="./1.2.2-propiedades.html" class="subject-list__link">1.2.2 Propiedades del símbolo $\sum$</a></li>
-                        </ol>
-                    </li>
-                    <li class="subject-list__item"><a href="./1.3-calculo-de-areas.html" class="subject-list__link">1.3 Cálculo de  ́areas con rect. insc. y circuns.</a></li>
-                    <li class="subject-list__item">
-                        <a href="./1.4-integral-definida.html" class="subject-list__link">1.4 Construcción de la integral definida</a>
-                        <ol class="subject-list">
-                            <li class="subject-list__item"><a href="./1.4.1-integral-definida.html" class="subject-list__link">1.4.1 Construcción de la integral definida parte 2</a></li>
-                            <li class="subject-list__item"><a href="./1.4.2-integral-definida.html" class="subject-list__link">1.4.2 Construcción de la integral definida parte 3</a></li>
-                            <li class="subject-list__item"><a href="./1.4.3-integral-definida.html" class="subject-list__link">1.4.3 Construcción de la integral definida parte 4</a></li>
-                            <li class="subject-list__item"><a href="./1.4.4-integral-definida.html" class="subject-list__link">1.4.4 Construcción de la integral definida parte 5</a></li>
-                        </ol>
-                    </li>
-                    <li class="subject-list__item"><a href="./1.5-sumas-riemann.html" class="subject-list__link">1.5 Sumas de Riemann</a></li>
-                    <li class="subject-list__item"><a href="./1.6-teorema-fundamental.html" class="subject-list__link">1.6 Teorema fundamental del Cálculo y sus consecuencias</a></li>
-                </ol>
-            </li>
-            <li class="subject-list__item">
-                <strong class="subject-list__title">2 La integral indefinida</strong>
-                <ol class="subject-list">
-                    <li class="subject-list__item"><a href="./2.1-introduccion.html" class="subject-list__link">2.1 Introducción</a></li>
-                    <li class="subject-list__item"><a href="./2.2-antiderivadas-inmediatas.html" class="subject-list__link">2.2 Antiderivadas inmediatas</a></li>
-                    <li class="subject-list__item">
-                        <a href="./2.3-metodo-sustitucion.html" class="subject-list__link">2.3 Método de int. por sust. o cambio de variable</a>
-                        <ol class="subject-list">
-                            <li class="subject-list__item"><a href="./2.3.1-metodo-sustitucion-parte-2.html" class="subject-list__link">2.3.1 Método de int. por sust. o cambio de variable parte 2</a></li>
-                        </ol>
-                    </li>
-                    <li class="subject-list__item"><a href="./2.4-integracion-por-partes.html" class="subject-list__link">2.4 Método de integración por partes</a></li>
-                    <li class="subject-list__item">
-                        <a href="./2.5-fracciones-parciales.html" class="subject-list__link subject-list__link--active">2.5 Método de integración por fracciones parciales</a>
-                        <ol class="subject-list">
-                            <li class="subject-list__item"><a href="./2.5.1-factores-lineales-no-repetidos.html" class="subject-list__link">2.5.1 El polinomio $Q(x)$ solo contiene factores lineales que no se repiten</a></li>     
-                            <li class="subject-list__item"><a href="./2.5.2-factores-lineales-repetidos.html" class="subject-list__link">2.5.2 El polinomio $Q(x)$ solo contiene factores lineales, pero algunos de ellos se repetidos</a></li>     
-                            <li class="subject-list__item"><a href="./2.5.3-factores-cuadraticos-irreducibles.html" class="subject-list__link">2.5.3 Integrales de funciones simples que involucran términos cuadráticos irreducibles</a></li>     
-                            <li class="subject-list__item"><a href="./2.5.4-factores-cuadraticos-no-repetidos.html" class="subject-list__link">2.5.4 El polinomio Q(x) contiene factores cuadráticos irreducibles que no se repiten</a></li>     
-                            <li class="subject-list__item"><a href="./2.5.5-factores-cuadraticos-repetidos.html" class="subject-list__link">2.5.5 El polinomio Q(x) contiene factores cuadráticos irreducibles que se repiten</a></li>     
-                        </ol>
-                    </li>
-                    <li class="subject-list__item"><a href="./2.6-sust-trigonometrica.html" class="subject-list__link">2.6 Met. de int. por sust. trigonométrica</a></li>     
-                </ol>
-            </li>
-            <li class="subject-list__item">
-                <strong class="subject-list__title">3 Integrales impropias y aplicaciones</strong>
-                <ol class="subject-list">
-                    <li class="subject-list__item"><a href="./3.1-integrales-impropias.html" class="subject-list__link">3.1 Integrales impropias</a></li>
-                    <li class="subject-list__item"><a href="./3.2-mas-integrales-impropias.html" class="subject-list__link">3.2 Más integrales impropias (para funciones discontinuas)</a></li>
-                    <li class="subject-list__item"><a href="./3.3-calculo-de-areas.html" class="subject-list__link">3.3 Cálculo de áreas de regiones acotadas por curvas</a></li>   
-                </ol>
-            </li>
-            <li class="subject-list__item">
-                <strong class="subject-list__title">Anexo</strong>
-                <ol class="subject-list">
-                    <li class="subject-list__item"><a href="./anexo-conjuntos.html" class="subject-list__link">A1 Conjuntos</a></li>
-                </ol>
-            </li>
-        </ol>
-    </nav>
-    <div class="menu-mobile" data-menu="menu-mobile">
-        <div class="menu-mobile__bg" data-menu-bg="menu-mobile"></div>
-        <div class="menu-mobile__content" data-menu-content="menu-mobile">
-            <div class="menu-mobile__header">
-                <h3 class="header-tertiary">Cálculo 2</h3>
-                <button class="menu-mobile-btn burger-btn" data-menu-btn="menu-mobile"><span class="burger-icon burger-icon--pressed"></span></button>
-            </div>
-            <nav class="navbar-mobile">
-                <ol class="subject-list">
-                    <li class="subject-list__item">
-                        <strong class="subject-list__title">1 La integral definida</strong>
-                        <ol class="subject-list">
-                            <li class="subject-list__item"><a href="/cursos/calculo2/" class="subject-list__link">1.1 Introducción</a></li>
-                            <li class="subject-list__item">
-                                <a href="./1.2-Sumatoria.html" class="subject-list__link">1.2 El símbolo $\sum$</a>
-                                <ol class="subject-list">
-                                    <li class="subject-list__item"><a href="./1.2-Sumatoria.html#1.2" class="subject-list__link">1.2.1 Formalizando el símbolo sumatorio</a></li>
-                                    <li class="subject-list__item"><a href="./1.2.2-propiedades.html" class="subject-list__link">1.2.2 Propiedades del símbolo $\sum$</a></li>
-                                </ol>
-                            </li>
-                            <li class="subject-list__item"><a href="./1.3-calculo-de-areas.html" class="subject-list__link">1.3 Cálculo de  ́areas con rect. insc. y circuns.</a></li>
-                            <li class="subject-list__item">
-                                <a href="./1.4-integral-definida.html" class="subject-list__link">1.4 Construcción de la integral definida</a>
-                                <ol class="subject-list">
-                                    <li class="subject-list__item"><a href="./1.4.1-integral-definida.html" class="subject-list__link">1.4.1 Construcción de la integral definida parte 2</a></li>
-                                    <li class="subject-list__item"><a href="./1.4.2-integral-definida.html" class="subject-list__link">1.4.2 Construcción de la integral definida parte 3</a></li>
-                                    <li class="subject-list__item"><a href="./1.4.3-integral-definida.html" class="subject-list__link">1.4.3 Construcción de la integral definida parte 4</a></li>
-                                    <li class="subject-list__item"><a href="./1.4.4-integral-definida.html" class="subject-list__link">1.4.4 Construcción de la integral definida parte 5</a></li>
-                                </ol>
-                            </li>
-                            <li class="subject-list__item"><a href="./1.5-sumas-riemann.html" class="subject-list__link">1.5 Sumas de Riemann</a></li>
-                            <li class="subject-list__item"><a href="./1.6-teorema-fundamental.html" class="subject-list__link">1.6 Teorema fundamental del Cálculo y sus consecuencias</a></li>
-                        </ol>
-                    </li>
-                    <li class="subject-list__item">
-                        <strong class="subject-list__title">2 La integral indefinida</strong>
-                        <ol class="subject-list">
-                            <li class="subject-list__item"><a href="./2.1-introduccion.html" class="subject-list__link">2.1 Introducción</a></li>
-                            <li class="subject-list__item"><a href="./2.2-antiderivadas-inmediatas.html" class="subject-list__link">2.2 Antiderivadas inmediatas</a></li>
-                            <li class="subject-list__item">
-                                <a href="./2.3-metodo-sustitucion.html" class="subject-list__link">2.3 Método de int. por sust. o cambio de variable</a>
-                                <ol class="subject-list">
-                                    <li class="subject-list__item"><a href="./2.3.1-metodo-sustitucion-parte-2.html" class="subject-list__link">2.3.1 Método de int. por sust. o cambio de variable parte 2</a></li>
-                                </ol>
-                            </li>
-                            <li class="subject-list__item"><a href="./2.4-integracion-por-partes.html" class="subject-list__link">2.4 Método de integración por partes</a></li>
-                            <li class="subject-list__item">
-                                <a href="./2.5-fracciones-parciales.html" class="subject-list__link subject-list__link--active">2.5 Método de integración por fracciones parciales</a>
-                                <ol class="subject-list">
-                                    <li class="subject-list__item"><a href="./2.5.1-factores-lineales-no-repetidos.html" class="subject-list__link">2.5.1 El polinomio $Q(x)$ solo contiene factores lineales que no se repiten</a></li>     
-                                    <li class="subject-list__item"><a href="./2.5.2-factores-lineales-repetidos.html" class="subject-list__link">2.5.2 El polinomio $Q(x)$ solo contiene factores lineales, pero algunos de ellos se repetidos</a></li>     
-                                    <li class="subject-list__item"><a href="./2.5.3-factores-cuadraticos-irreducibles.html" class="subject-list__link">2.5.3 Integrales de funciones simples que involucran términos cuadráticos irreducibles</a></li>     
-                                    <li class="subject-list__item"><a href="./2.5.4-factores-cuadraticos-no-repetidos.html" class="subject-list__link">2.5.4 El polinomio Q(x) contiene factores cuadráticos irreducibles que no se repiten</a></li>     
-                                    <li class="subject-list__item"><a href="./2.5.5-factores-cuadraticos-repetidos.html" class="subject-list__link">2.5.5 El polinomio Q(x) contiene factores cuadráticos irreducibles que se repiten</a></li>     
-                                </ol>
-                            </li>
-                            <li class="subject-list__item"><a href="./2.6-sust-trigonometrica.html" class="subject-list__link">2.6 Met. de int. por sust. trigonométrica</a></li>     
-                        </ol>
-                    </li>
-                    <li class="subject-list__item">
-                        <strong class="subject-list__title">3 Integrales impropias y aplicaciones</strong>
-                        <ol class="subject-list">
-                            <li class="subject-list__item"><a href="./3.1-integrales-impropias.html" class="subject-list__link">3.1 Integrales impropias</a></li>
-                            <li class="subject-list__item"><a href="./3.2-mas-integrales-impropias.html" class="subject-list__link">3.2 Más integrales impropias (para funciones discontinuas)</a></li>
-                            <li class="subject-list__item"><a href="./3.3-calculo-de-areas.html" class="subject-list__link">3.3 Cálculo de áreas de regiones acotadas por curvas</a></li>   
-                        </ol>
-                    </li>
-                    <li class="subject-list__item">
-                        <strong class="subject-list__title">Anexo</strong>
-                        <ol class="subject-list">
-                            <li class="subject-list__item"><a href="./anexo-conjuntos.html" class="subject-list__link">Conjuntos</a></li>
-                        </ol>
-                    </li>
-                </ol>
-            </nav>
-        </div>
-    </div>
+    <alien-sidebar class="sidebar" id="sidebar"></alien-sidebar>
+    <alien-mobile-sidebar id="mobile-menu"></alien-mobile-sidebar>
     <main class="main">
         <section>
             <h1 class="header-primary">
@@ -231,35 +90,7 @@
             <div class="fancy-line"></div>
         </section>
         <section>
-            <div class="theorem">
-                <p class="paragraph">
-                    <span class="theorem__title">Teorema 2.5.1.</span> Toda función racional propia $\frac{P(x)}{Q(x)}$, escrita en su mínima expresión, 
-                    puede descomponerse en la suma de fracciones parciales de la siguiente forma:
-                </p>
-                <ol class="theorem__list">
-                    <li class="theorem__list-item">
-                        Si $Q(x)$ tiene un factor lineal no repetido de la forma $(x-\alpha)$, entonces la descomposición en fracciones parciales contiene un término de 
-                        la forma $\frac{A}{x-\alpha}$, donde $A$ es una constante a determinar.
-                    </li>
-                    <li class="theorem__list-item">
-                        Si $Q(x)$ tiene un factor lineal que se repite $k$ veces, es decir, un factor de la forma $(x-\alpha)^k$, entonces la descomposición en fracciones 
-                        parciales contiene un término de la forma 
-                        <div class="error">$$\frac{A_1}{x-\alpha_1}+\frac{A_2}{x-\alpha_2}+\cdots +\frac{A_k}{x-\alpha_k},$$ </div>
-                        $$\frac{A_1}{x-\alpha}+\frac{A_2}{(x-\alpha)^2}+\cdots +\frac{A_k}{(x-\alpha)^k},$$ 
-                        donde las constantes $A_1, A_2,\dots, A_k$ se deben determinar.
-                    </li>
-                    <li class="theorem__list-item">
-                        Si $Q(x)$ tiene un factor cuadrático irreducible de la forma $x^2+px+q$ que no se repite, entonces la descomposición en fracciones parciales 
-                        contiene un término de la forma $\frac{Ax+B}{x^2+px+q}$, donde $A$ y $B$ son las constantes a determinar.
-                    </li>
-                    <li class="theorem__list-item">
-                        Si $Q(x)$ tiene un factor cuadrático irreducible de la forma $x^2+px+q$ que se repite $k$ veces, es decir, un factor de la forma $(x^2+px+q)^k$, 
-                        entonces la descomposición en fracciones parciales contiene un término de la forma 
-                        $$\frac{A_1x+B_1}{x^2+px+q}+\frac{A_2x+B_2}{(x^2+px+q)^2}+\cdots+ \frac{A_kx+B_k}{(x^2+px+q)^k},$$ 
-                        donde las constantes $A_1, A_2,\dots, A_k, B_1, B_2,\dots B_k$ se deben determinar.
-                    </li>
-                </ol>
-            </div>
+            <alien-math-template path="./components/theorems/theorem-2.5.1.html"></alien-math-template>
             <p class="paragraph">
                 En este teorema se ve claramente que la descomposición enfracciones parciales solo involucra a funciones racionales simples. 
             </p>

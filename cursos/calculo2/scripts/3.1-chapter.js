@@ -2,7 +2,7 @@ var canvas_3_1 = document.querySelector('[data-canvas=example-3-1]')
 var ctx_3_1 = document.querySelector('[data-canvas=example-3-1]').getContext("2d")
 
 var scale = 135 //135px = 1u in graphic
-var x0 = -1 * scale
+var x0 = 0 * scale
 var x1 = 2 * scale
 // position of the axis counting from bottom left corner
 var axisX = 20 

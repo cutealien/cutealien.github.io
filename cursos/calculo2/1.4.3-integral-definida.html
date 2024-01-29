@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-MX">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,9 +10,10 @@
     
     <script src="./scripts/question.js" defer></script>
     <script src="./scripts/modal.js" defer></script>
-    <script src="./components/mobile-sidebar/mobile-sidebar.js" defer></script>
+    <script src="./components/component-loader.js" defer></script>
+    <!-- <script src="./components/mobile-sidebar/mobile-sidebar.js" defer></script>
     <script src="./components/sidebar/sidebar.js" defer></script>
-    <script src="./components/math-template.js" defer></script>
+    <script src="./components/math-template.js" defer></script> -->
 
     <script>
         MathJax = {
@@ -65,9 +66,8 @@
                 </p>
             </div>
             <div class="proof">
-                <h3 class="header-tertiary error">La demostración necesita ser revisada.</h3>
                 <h3 class="header-tertiary">Demostración.</h3>
-                <p class="paragraph">
+                <!-- <p class="paragraph">
                     Sean $P_1$ la partición regular con 2 puntos y $P$ una partición arbitraria de $[a,b]$.
                 </p>
                 <p class="paragraph">
@@ -95,11 +95,37 @@
                 <p class="paragraph">
                     Finalmente, por transitividad, 
                     $${\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx \leq {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b f(x)\,dx.$$
+                </p> -->
+                <p class="paragraph">
+                    Sean $P$ y $Q$ particiones arbitrarias de [a,b]. Por un lado, $\underline S (f,P) \leq \overline S (f,Q).$ Si fijamos la partición Q, $\overline S (f,Q)$ 
+                    es una cota superior de $$B = \left \{ \underline S (f,P): P \mbox { es partición de [a,b]} \right \}$$
+
+                    Así, por definición de supremo 
+                    \begin{equation*}
+                        \begin{split}
+                            \sup B &\leq \overline S (f,Q) \\
+                                {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx &\leq \overline S (f,Q).
+                            \end{split}
+                    \end{equation*}
+
+                    Si ahora variamos Q, tenemos que la integral inferior es cota inferior de 
+                    $C=\left \{\overline{S}:Q \mbox{ es partición de [a,b]} \right \},$ es decir,
+                    $${\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx \leq \inf C.$$
+                    Pero
+                    $$\inf C = {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b f(x)\,dx,$$
+                    entonces
+                    \begin{equation*}
+                        \begin{split}
+                            {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx &\leq \inf C \\
+                            {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx &\leq {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b f(x)\,dx.
+                        \end{split}
+                    \end{equation*}
                 </p>
             </div>
             <div class="fancy-line"></div>
             <p class="paragraph">
-                Una vez que hemos visto ejemplos de cómo calcular la integral inferior y la integral superior de una función acotada, nos percatamos que algunas veces esas integrales van a coincidir. En este caso es cuando diremos que la función es integrable.
+                Una vez que hemos visto ejemplos de cómo calcular la integral inferior y la integral superior de una función acotada 
+                (los de la <a href="./1.4.2-integral-definida.html" target="_blank" class="link-reference">sección 1.4.2</a href="./1.4.2-integral-definida.html" target="_blank"> ), nos percatamos que algunas veces esas integrales van a coincidir. En este caso es cuando diremos que la función es integrable.
             </p>
             <div class="definition">
                 <p class="paragraph">
@@ -146,9 +172,9 @@
                         {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx-\frac{\varepsilon}{2}<
                         \underline{S}(f,P).
                     $$ 
-                    De aquí deducimos que <span class="error">va doble $<<$ o solo un $<$</span>
+                    De aquí deducimos que 
                     $$
-                        \overline{S}(f,P)-\underline{S}(f,P)<<{\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b f(x)\,dx+
+                        \overline{S}(f,P)-\underline{S}(f,P) < {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b f(x)\,dx+
                         \frac{\varepsilon}{2}-
                         {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx
                         +\frac{\varepsilon}{2}.
@@ -162,7 +188,7 @@
                     $$\overline{S}(f,P)-\underline{S}(f,P) < \varepsilon.$$ 
                 </p>
                 <p class="paragraph">
-                    $\Leftarrow]$ Se deja como ejercicio.
+                    $\Leftarrow]$ Inténtelo usted mismo (Hint: Suponga que la función no es integrable y llegue a una contradicción ).
                 </p>
             </div>
             <div class="fancy-line"></div>

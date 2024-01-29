@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-MX">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,9 +10,10 @@
     
     <script src="./scripts/question.js" defer></script>
     <script src="./scripts/modal.js" defer></script>
-    <script src="./components/mobile-sidebar/mobile-sidebar.js" defer></script>
+    <script src="./components/component-loader.js" defer></script>
+    <!-- <script src="./components/mobile-sidebar/mobile-sidebar.js" defer></script>
     <script src="./components/sidebar/sidebar.js" defer></script>
-    <script src="./components/math-template.js" defer></script>
+    <script src="./components/math-template.js" defer></script> -->
 
     <script>
         MathJax = {
@@ -176,7 +177,7 @@
                         <span class="modal__reference" data-modal-btn="theorem-1-4-5">Teorema 1.4.5</span> y poder concluir que $f$ es integrable.
                     </p>
                     <p class="paragraph">
-                        Si $f$ es una función constante, entonces $f$ es integrable en $[a,b]$, por el <a href="./1.4.2-integral-definida.html#example-1.4.5" class="link-reference">Ejemplo 1.4.5</a>. 
+                        Si $f$ es una función constante, entonces $f$ es integrable en $[a,b]$, por el <a href="./1.4.2-integral-definida.html#example-1.4.5" target="_blank" class="link-reference">Ejemplo 1.4.5</a>. 
                         Entonces consideramos a $f$ una función creciente y no constante, lo cual nos garantiza que $f(a) < f(b)$. 
                     </p>
                     <p class="paragraph">
@@ -363,7 +364,7 @@
                 </div>
                 <div class="section--hidden" data-section="step-5">
                     <p class="paragraph">
-                        Finalmente, por el Teorema 1.4.5, la función $f$ es integrable en $[a,b]$.
+                        Finalmente, por el <span class="modal__reference" data-modal-btn="theorem-1-4-5">Teorema 1.4.5</span>, la función $f$ es integrable en $[a,b]$.
                     </p>
                     <p class="paragraph">
                         Si $f$ es decreciente, la demostración es análoga.

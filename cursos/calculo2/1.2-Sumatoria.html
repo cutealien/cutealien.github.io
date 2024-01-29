@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-MX">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,9 +10,10 @@
 
     <script src="./scripts/variables.js" defer></script>
     <script src="./scripts/question.js" defer></script>
-    <script src="./components/mobile-sidebar/mobile-sidebar.js" defer></script>
+    <script src="./components/component-loader.js" defer></script>
+    <!-- <script src="./components/mobile-sidebar/mobile-sidebar.js" defer></script>
     <script src="./components/sidebar/sidebar.js" defer></script>
-    <script src="./components/math-template.js" defer></script>
+    <script src="./components/math-template.js" defer></script> -->
 
     <script>
         MathJax = {
@@ -49,8 +50,7 @@
                 1.2 El símbolo sumatoria
             </h2>
             <p class="paragraph">
-                Consideremos la siguiente suma: <br>
-                $1+2+3+...+98+99+100$. <br>
+                Consideremos la siguiente suma: $1+2+3+...+98+99+100$.
                 La forma compacta de escribir la suma sería $\sum_{i=1}^{100} i $.
             </p>
             <p class="paragraph">
@@ -63,13 +63,13 @@
                 índice de la suma o como índice de sumación.
             </p>
             <p class="paragraph">
-                El índice de la suma siempre comienza en el entero que aparece debaje del símbolo
+                El índice de la suma siempre comienza en el entero que aparece debajo del símbolo
                 sumatorio, crece de 1 en 1 y finaliza en el entero que aparece encima del mismo
                 símbolo.
             </p>
             <p class="paragraph">
                 El símbolo $i$ puede reemplazarse por otro símbolo (particularmente por $j$, $k$, $l$, $m$, $n$).
-                Entonces la suma se puede esribir como $\sum_{j=1}^{n} a_j $ o $\sum_{n=1}^{m} a_n $
+                Entonces la suma se puede escribir como $\sum_{j=1}^{n} a_j $ o $\sum_{n=1}^{m} a_n .$
             </p>
             <div class="fancy-line"></div>
         </section>
@@ -105,7 +105,7 @@
                         </div>
                         <div class="question__btn-box">
                             <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Aceptar</button>
-                            <button class="btn btn--blue" type="button" disabled data-btn-continue="step-1">Continuar</button>
+                            <button class="btn btn--blue" type="button" disabled data-btn-continue="step-0">Continuar</button>
                         </div>
                     </div>
                     <div class="question__col-2">
@@ -113,10 +113,91 @@
                     </div>
                 </div>
             </form>
+            <div class="section--hidden margin-top-sm" data-section="step-0">
+                <form class="question margin-top-sm" data-question="question-1-2-0" data-answer="a">
+                    <h3 class="question__header margin-bottom-sm">
+                        ¿Cuál es la suma que representa $\sum_{m=3}^{7} m a_m?$
+                    </h3>
+                    <div class="question__row">
+                        <div class="question__col-1">
+                            <div class="question__options">
+                                <div class="question__option">
+                                    <input type="radio" autocomplete="off" id="answer-1-2-0-a" name="question-1-2-0" value="a" data-option="question-1-2-0">
+                                    <label for="answer-1-2-0-a">$3a_3 + 4a_4 + 5a_5 + 6a_6 + 7a_7$</label>
+                                </div>
+                
+                                <div class="question__option">
+                                    <input type="radio" autocomplete="off" id="answer-1-2-0-b" name="question-1-2-0" value="b" data-option="question-1-2-0">
+                                    <label for="answer-1-2-0-b">$ 4a_4 + 5a_5 + 6a_6 + 7a_7$</label>
+                                </div>
+                
+                                <div class="question__option">
+                                    <input type="radio" autocomplete="off" id="answer-1-2-0-c" name="question-1-2-0" value="c" data-option="question-1-2-0">
+                                    <label for="answer-1-2-0-c">$ma_3 + ma_4 + ma_5 + ma_6 + ma_7$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" autocomplete="off" id="answer-1-2-0-d" name="question-1-2-0" value="d" data-option="question-1-2-0">
+                                    <label for="answer-1-2-0-d">$a_3 + a_4 + a_5 + a_6 + a_7$</label>
+                                </div>
+                            </div>
+                            <div class="question__btn-box">
+                                <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Aceptar</button>
+                                <button class="btn btn--blue" type="button" disabled data-btn-continue="step-1">Continuar</button>
+                            </div>
+                        </div>
+                        <div class="question__col-2">
+                            <p class="question__answer"></p>
+                        </div>
+                    </div>
+                </form>
+            </div>
             <div class="section--hidden margin-top-sm" data-section="step-1">
+                <form class="question margin-top-sm" data-question="question-1-2-counter" data-answer="d">
+                    <h3 class="question__header margin-bottom-sm">
+                        ¿Cuántos elementos se suman en $\sum_{j=8}^{14} a_j$?
+                    </h3>
+                    <div class="question__row">
+                        <div class="question__col-1">
+                            <div class="question__options">
+                                <div class="question__option">
+                                    <input type="radio" autocomplete="off" id="answer-1-2-counter-a" name="question-1-2-counter" value="a" data-option="question-1-2-counter">
+                                    <label for="answer-1-2-counter-a">$14$</label>
+                                </div>
+                
+                                <div class="question__option">
+                                    <input type="radio" autocomplete="off" id="answer-1-2-counter-b" name="question-1-2-counter" value="b" data-option="question-1-2-counter">
+                                    <label for="answer-1-2-counter-b">$8$</label>
+                                </div>
+                
+                                <div class="question__option">
+                                    <input type="radio" autocomplete="off" id="answer-1-2-counter-c" name="question-1-2-counter" value="c" data-option="question-1-2-counter">
+                                    <label for="answer-1-2-counter-c">$6$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" autocomplete="off" id="answer-1-2-counter-d" name="question-1-2-counter" value="d" data-option="question-1-2-counter">
+                                    <label for="answer-1-2-counter-d">$7$</label>
+                                </div>
+                            </div>
+                            <div class="question__btn-box">
+                                <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Aceptar</button>
+                                <button class="btn btn--blue" type="button" disabled data-btn-continue="step-2">Continuar</button>
+                            </div>
+                        </div>
+                        <div class="question__col-2">
+                            <p class="question__answer"></p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="section--hidden margin-top-sm" data-section="step-2">
+                <p class="paragraph">
+                    La respuesta es clara si se desarrolla la sumatoria. Se comienza desde el 8 y se termina en el 14, lo que nos da que
+                    $$\sum_{j=8}^{14} a_j = a_8 + a_9 + a_{10} + a_{11} + a_{12} + a_{13} + a_{14}.$$
+                    Por lo que el total de términos es 7.
+                </p>
                 <form class="question margin-top-sm" data-question="question-1-2-2" data-answer="c">
                     <h3 class="question__header margin-bottom-sm">
-                        ¿Cuántos términos hay en la suma $\sum_{i=k}^{n} a_{n}$?
+                        ¿Cuántos términos hay en la suma $\sum_{i=k}^{n} a_{i}$?
                     </h3>
                     <div class="question__row">
                         <div class="question__col-1">
@@ -142,7 +223,7 @@
                             </div>
                             <div class="question__btn-box">
                                 <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Aceptar</button>
-                                <button class="btn btn--blue" type="button" disabled data-btn-continue="step-2">Continuar</button>
+                                <button class="btn btn--blue" type="button" disabled data-btn-continue="step-3">Continuar</button>
                             </div>
                         </div>
                         <div class="question__col-2">
@@ -152,9 +233,9 @@
                 </form>
             </div>
         </section>
-        <section class="section--hidden" data-section="step-2">
+        <section class="section--hidden" data-section="step-3">
             <p class="paragraph margin-top-sm">
-                Riguros y formalmente hablando, al representar sumas o sumaciones, ni los puntos suspensivos
+                Rigurosos y formalmente hablando, al representar sumas o sumaciones, ni los puntos suspensivos
                 y ni el símbolo sumatorio forman parte de los axiomas de los números
                 reales y por lo tanto tenemos que definirlas. Para lograr esto, haremos uso de las
                 definiciones inductivas o por inducción, cuyas ideas principales son las mismas que
@@ -166,7 +247,7 @@
                 2 de la definición, obtenemos que
             </p>
             <p class="text-formule">
-                $$\sum_{i=1}^{2} a_i = \sum_{i=1}^{1} a_i + a_2 = a_1 + a_2$$
+                $$\sum_{i=1}^{2} a_i = \sum_{i=1}^{1} a_i + a_2 = a_1 + a_2.$$
             </p>
             <p class="paragraph">
                 Una vez que tenemos definido a $\sum_{i=1}^{2} a_i$ volvemos a usar el punto 2 para $n = 2$ y
@@ -186,8 +267,48 @@
                 completa del símbolo sumatorio para cualquier número natural $n$. Se considera que
                 el uso de los puntos suspensivos es una forma, menos formal, del símbolo sumatorio.
             </p>
-            <div>
-                <form class="question margin-top-sm" data-question="question-1-2-3" data-answer="a">
+            <form class="question margin-top-sm" data-question="question-1-2-3" data-answer="a">
+                <h3 class="question__header margin-bottom-sm">
+                    Halla el valor numérico de la suma $\sum_{k=1}^{5} \frac{1}{k(k+1)}.$
+                </h3>
+                <div class="question__row">
+                    <div class="question__col-1">
+                        <div class="question__options">
+                            <div class="question__option">
+                                <input type="radio" autocomplete="off" id="answer-1-2-3-a" name="question-1-2-3" value="a" data-option="question-1-2-3">
+                                <label for="answer-1-2-3-a">$\frac{5}{6}$</label>
+                            </div>
+            
+                            <div class="question__option">
+                                <input type="radio" autocomplete="off" id="answer-1-2-3-b" name="question-1-2-3" value="b" data-option="question-1-2-3">
+                                <label for="answer-1-2-3-b">$\frac{5}{12}$</label>
+                            </div>
+            
+                            <div class="question__option">
+                                <input type="radio" autocomplete="off" id="answer-1-2-3-c" name="question-1-2-3" value="c" data-option="question-1-2-3">
+                                <label for="answer-1-2-3-c">$\frac{5}{30}$</label>
+                            </div>
+                            <div class="question__option">
+                                <input type="radio" autocomplete="off" id="answer-1-2-3-d" name="question-1-2-3" value="d" data-option="question-1-2-3">
+                                <label for="answer-1-2-3-d">$\frac{5}{20}$</label>
+                            </div>
+                        </div>
+                        <div class="question__btn-box">
+                            <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Aceptar</button>
+                            <button class="btn btn--blue" type="button" disabled data-btn-continue="step-4">Continuar</button>
+                        </div>
+                    </div>
+                    <div class="question__col-2">
+                        <p class="question__answer"></p>
+                    </div>
+                </div>
+            </form>
+            <div class="section--hidden" data-section="step-4">
+                <p class="paragraph">
+                    Desarrollando la suma, se tiene
+                    $$\sum_{k=1}^{5} \frac{1}{k(k+1)} = \frac{1}{2} + \frac{1}{6} + \frac{1}{12} + \frac{1}{20} + \frac{1}{30} = \frac{5}{6}$$
+                </p>
+                <form class="question margin-top-sm" data-question="question-1-2-4" data-answer="a">
                     <h3 class="question__header margin-bottom-sm">
                         Si $a_i = a$, ¿Cuál es el valor de $\sum_{i=1}^{n} a_i$?
                     </h3>
@@ -195,26 +316,27 @@
                         <div class="question__col-1">
                             <div class="question__options">
                                 <div class="question__option">
-                                    <input type="radio" autocomplete="off" id="answer-1-2-3-a" name="question-1-2-3" value="a" data-option="question-1-2-3">
-                                    <label for="answer-1-2-3-a">$na$</label>
+                                    <input type="radio" autocomplete="off" id="answer-1-2-4-a" name="question-1-2-4" value="a" data-option="question-1-2-4">
+                                    <label for="answer-1-2-4-a">$na$</label>
                                 </div>
                 
                                 <div class="question__option">
-                                    <input type="radio" autocomplete="off" id="answer-1-2-3-b" name="question-1-2-3" value="b" data-option="question-1-2-3">
-                                    <label for="answer-1-2-3-b">$ni$</label>
+                                    <input type="radio" autocomplete="off" id="answer-1-2-4-b" name="question-1-2-4" value="b" data-option="question-1-2-4">
+                                    <label for="answer-1-2-4-b">$ni$</label>
                                 </div>
                 
                                 <div class="question__option">
-                                    <input type="radio" autocomplete="off" id="answer-1-2-3-c" name="question-1-2-3" value="c" data-option="question-1-2-3">
-                                    <label for="answer-1-2-3-c">$n + a - i$</label>
+                                    <input type="radio" autocomplete="off" id="answer-1-2-4-c" name="question-1-2-4" value="c" data-option="question-1-2-4">
+                                    <label for="answer-1-2-4-c">$n + a - i$</label>
                                 </div>
                                 <div class="question__option">
-                                    <input type="radio" autocomplete="off" id="answer-1-2-3-d" name="question-1-2-3" value="d" data-option="question-1-2-3">
-                                    <label for="answer-1-2-3-d">$n + (a * i)$</label>
+                                    <input type="radio" autocomplete="off" id="answer-1-2-4-d" name="question-1-2-4" value="d" data-option="question-1-2-4">
+                                    <label for="answer-1-2-4-d">$n + (a * i)$</label>
                                 </div>
                             </div>
                             <div class="question__btn-box">
                                 <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Aceptar</button>
+                                <button class="btn btn--blue" type="button" disabled data-btn-continue="step-5">Continuar</button>
                             </div>
                         </div>
                         <div class="question__col-2">
@@ -223,10 +345,24 @@
                     </div>
                 </form>
             </div>
-            <div class="fancy-line"></div>
-            <div class="change-page">
-                <a href="./1.1-introduccion.html" class="change-page__before">Anterior</a>
-                <a href="./1.2.2-propiedades.html" class="change-page__next">Siguiente</a>
+            <div class="section--hidden" data-section="step-5">
+                <p class="paragraph">
+                    Puesto que $a_i = a$, la suma queda como
+                    $$
+                    \begin{equation*}
+                    \begin{split}
+                        \sum_{i=1}^{n} a_i &= a_1 + a_2 + ... + a_n \\
+                            &= a + a + ... + a\\
+                            &= na
+                    \end{split}
+                    \end{equation*}
+                    $$
+                </p>
+                <div class="fancy-line"></div>
+                <div class="change-page">
+                    <a href="./1.1-introduccion.html" class="change-page__before">Anterior</a>
+                    <a href="./1.2.2-propiedades.html" class="change-page__next">Siguiente</a>
+                </div>
             </div>
         </section>
     </main>

@@ -73,13 +73,9 @@ class AlienSidebar extends HTMLElement {
         super()
     }
 
-    connectedCallback() {
+    async connectedCallback() {
         let path = `./components/sidebar/sidebar.html`
-
-        const mathJaxScript = document.getElementById('MathJax-script')
-        mathJaxScript.addEventListener('load', e => {
-            this.#getHTML(path)
-        })
+        this.#getHTML(path)
     }
 
     /**
@@ -87,16 +83,9 @@ class AlienSidebar extends HTMLElement {
      * @param  {String} path The path to the external HTML
      */
     async #getHTML(path) {
-
-        // Get the page
-        // let request = await fetch(path);
-        // if (!request.ok) return;
-
-        // Get the HTML
-        // let text = await request.text();
         let text = HTML_SIDEBAR
 
-        await this.typeset(() => {
+        await typeset(() => {
             const sidebar = document.querySelector('#sidebar');
             sidebar.innerHTML = text;
             return [sidebar];
@@ -112,12 +101,12 @@ class AlienSidebar extends HTMLElement {
     /**
     * Mathjax example code (dynamic content)
     */
-    typeset(code) {
-        MathJax.startup.promise = MathJax.startup.promise
-            .then(() => MathJax.typesetPromise(code()))
-            .catch((err) => console.log('Typeset failed: ' + err.message));
-        return MathJax.startup.promise;
-    }
+    // typeset(code) {
+    //     MathJax.startup.promise = MathJax.startup.promise
+    //         .then(() => MathJax.typesetPromise(code()))
+    //         .catch((err) => console.log('Typeset failed: ' + err.message));
+    //     return MathJax.startup.promise;
+    // }
 }
 
 customElements.define("alien-sidebar", AlienSidebar);

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-MX">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,9 +10,10 @@
 
     <script src="./scripts/question.js" defer></script>
     <script src="./scripts/modal.js" defer></script>
-    <script src="./components/mobile-sidebar/mobile-sidebar.js" defer></script>
+    <script src="./components/component-loader.js" defer></script>
+    <!-- <script src="./components/mobile-sidebar/mobile-sidebar.js" defer></script>
     <script src="./components/sidebar/sidebar.js" defer></script>
-    <script src="./components/math-template.js" defer></script>
+    <script src="./components/math-template.js" defer></script> -->
 
     <script>
         MathJax = {
@@ -72,30 +73,31 @@
                 Para tener un poco de claridad acerca de estos nuevos conceptos daremos un par de ejemplos.
             </p>
             <div class="example">
-                <p class="paragraph example__paragraph">
+                <div class="paragraph">
                     <strong class="example__title">Ejemplo 1.4.1</strong> Consideremos el intervalo $[0,1]$. Definimos los conjuntos 
-                </p>
-                <ul class="example__list">
-                    <li class="example__list-item">$P=\{0,\frac{1}{2},1\}$;</li>
-                    <li class="example__list-item">$Q=\{0,0.3,\frac{1}{2}, 0.75,1\}$;</li>
-                    <li class="example__list-item">$R=\{0,0.1,0.3,0.5,0.75,0.9,1\}$.</li>
-                </ul>
-                <p class="paragraph example__paragraph">
+                    <ul class="example__list">
+                        <li class="example__list-item">$P=\{0,\frac{1}{2},1\}$;</li>
+                        <li class="example__list-item">$Q=\{0,0.3,\frac{1}{2}, 0.75,1\}$;</li>
+                        <li class="example__list-item">$R=\{0,0.1,0.3,0.5,0.75,0.9,1\}$.</li>
+                    </ul>
                     son particiones del intervalo $[0,1]$, pues todos los conjuntos tienen al 0 y al 1, además de que todos los elementos de cada conjunto 
                     están ordenados de forma creciente. Además, $P\subseteq Q\subseteq R$, es decir, $Q$ es un refinamiento de $P$, y $R$ es un refinamiento tanto de $P$ 
-                    como de $Q$. Más aún, recordemos que la norma se define como el máximo de las diferencias entre cada par de números consecutivos en las particiones, así
-                </p>
-                <ul class="example__list">
-                    <li class="example__list-item">$\|P\|=\max\{0.5,0.5\}=0.5$;</li>
-                    <li class="example__list-item">$\|Q\|=\max\{0.3,0.2,0.25,0.25\}=0.3$;</li>
-                    <li class="example__list-item">$\|R\|=\max\{0.1,0.2,0.2,0.25,0.15,0.1\}=0.25$.</li>
-                </ul>
+                    como de $Q$. Más aún, recordemos que la norma se define como el máximo de las diferencias entre cada par de números consecutivos en las particiones, así para $P$
+                    $x_0=0, x_1=\frac{1}{2}, x_2=1$, por lo que, $x_1 - x_0 = \frac{1}{2}$ y $x_2 - x_1 = \frac{1}{2}$. Para $Q$, $x_1 - x_0 = 0.3 - 0 = 0.3$, $x_2 -x_1 = 0.5 - 0.3 = 0.2,$
+                    $x_3 - x_2 = 0.75 - 0.5 = 0.25,$ $x_4 - x_3 = 1 - 0.75 = 0.25$. Para $R$ podemos aplicar el mismo procedimiento para finalmente obtener,
+                    <ul class="example__list">
+                        <li class="example__list-item">$\|P\|=\max\{0.5,0.5\}=0.5$;</li>
+                        <li class="example__list-item">$\|Q\|=\max\{0.3,0.2,0.25,0.25\}=0.3$;</li>
+                        <li class="example__list-item">$\|R\|=\max\{0.1,0.2,0.2,0.25,0.15,0.1\}=0.25$.</li>
+                    </ul>
+                </div>
             </div>
             <div class="fancy-line"></div>
         </section>
         <section>
             <p class="paragraph">
                 Debemos notar que si alguna de las condiciones de la definición de partición no se cumple, entonces el conjunto no puede ser una partición.
+                Por ejemplo, el conjunto $S=\{0,0.2,0.3,\frac{1}{4},0.5,0.75,1\}$ no es partición del intervalo $[0,1]$ porque los elementos no están ordenados de manera creciente.
             </p>
             <p class="paragraph">
                 Hay un caso especial de particiones que hemos trabajado antes en este libro pero que no les habíamos asignado el nombre de particiones y 
@@ -128,9 +130,43 @@
                 Como $f$ es una función acotada en el intervalo $[a,b]$, entonces es acotada en cada subintervalo $I_i\subseteq [a,b]$, 
                 de lo cual se garantiza la existencia de los números $m_i$ y $M_i$. Por lo tanto, las sumas inferiores y superiores siempre existen.
             </p>
+            <p class="paragraph">
+                <strong class="example__title">Ejemplo 1.4.2.</strong> Considere la función $f(x)=-x^2+5$ en el intervalo $[0,2].$ Calcule las sumas inferiores y superiores
+                con una partición regular $P = \left \{0,\frac{2}{5}, \frac{4}{5},\frac{6}{5}, \frac{8}{5}, 2\right \}.$ 
+            </p>
+            <p class="paragraph">
+                Tenemos que $x_0=0$, $x_1=\frac{2}{5},$ $x_2=\frac{4}{5},$ $x_3=\frac{6}{5},$ $x_4=\frac{8}{5}$ y $x_5= 2$. 
+                Los subintervalos formados por la partición $P$ son $I_1=\left [0, \frac{2}{5} \right ],$ $I_2=\left[\frac{2}{5}, \frac{4}{5} \right ],$ $I_3=\left[\frac{4}{5}, \frac{6}{5} \right ],$
+                $I_4=\left[\frac{6}{5}, \frac{8}{5} \right ],$ $I_5=\left[\frac{8}{5}, \frac{10}{5} \right ].$ También tenemos que $f'(x)=-2x \leq 0,$ en $[0,2]$ por lo que la función $f$ es decreciente.
+                Además, $m_i=f(x_i)$ y $M_i = f(x_{i-1})$ en cada subintervalo $I_i$ y $\Delta x_i = \frac{2}{5}$ para $i = {1,2,3,4,5}$. Calculando la suma inferior
+                \begin{equation*}
+                    \begin{split}
+                        \underline{S}(f,P) &= \sum_{i=1}^{5} m_i\Delta x_i \\
+                        &= \sum_{i=1}^{5}f(x_i) \Delta x_i\\
+                        &= \sum_{i=1}^{5} (-(x_i)^2+5) \left (\frac{2}{5} \right ) \\
+                        &= \frac{2}{5} \left ( -\left(\frac{2}{5} \right)^2 + 5  -\left(\frac{4}{5} \right)^2 + 5  -\left(\frac{6}{5} \right)^2 + 5  -\left(\frac{8}{5} \right)^2 + 5  -\left(2 \right)^2 + 5 \right ) \\
+                        &= \frac{2}{5} \left (25 -\frac{4 + 16 + 36 + 64 + 100}{25} \right)\\
+                        &= \frac{2}{5} \left ( \frac{ 625 - 220 }{25}\right ) \\
+                        &= \frac{2}{5} \left ( \frac{405}{25} \right) = \frac{162}{25}.
+                    \end{split}
+                \end{equation*}
+                Ahora calculando la suma superior
+                \begin{equation*}
+                    \begin{split}
+                        \overline{S}(f,P) &= \sum_{i=1}^{5} M_i\Delta x \\
+                        &= \sum_{i=1}^{5}f(x_{i-1}) \Delta x\\
+                        &= \sum_{i=1}^{5} (-(x_{i-1})^2+5) \left (\frac{2}{5} \right ) \\
+                        &= \frac{2}{5} \left ( -(0)^2 + 5 -\left(\frac{2}{5} \right)^2 + 5  -\left(\frac{4}{5} \right)^2 + 5  -\left(\frac{6}{5} \right)^2 + 5  -\left(\frac{8}{5} \right)^2 + 5  \right ) \\
+                        &= \frac{2}{5} \left (25 -\frac{4 + 16 + 36 + 64 }{25} \right)\\
+                        &= \frac{2}{5} \left ( \frac{ 625 - 120 }{25}\right ) \\
+                        &= \frac{2}{5} \left ( \frac{505}{25} \right) = \frac{202}{25}.
+                    \end{split}
+                \end{equation*}
+            </p>
+            <div class="fancy-line"></div>
             <form class="question" data-question="question-1-4-1" data-answer="c">
                 <h3 class="question__header margin-bottom-sm">
-                    <strong class="question__title">Ejemplo 1.4.3.</strong> Sean $f:[0,2]\to \mathbf{R}$ la función dada por $f(x)=4-x^2$ y $P=\{0,\frac{1}{2}, 1, \frac{3}{2}, 2\}$ una partición de $[0.2]$. Calcular $\underline{S}(f,P)$ y $\overline{S}(f,P)$.
+                    <strong class="question__title">Ejemplo 1.4.3.</strong> Sean $f:[0,2]\to \mathbf{R}$ la función dada por $f(x)=4-x^2$ y $P=\left \{0,\frac{1}{2}, 1, \frac{3}{2}, 2\right \}$ una partición de $[0.2]$. Calcular $\underline{S}(f,P)$ y $\overline{S}(f,P)$.
                 </h3>
                 <div class="question__row">
                     <div class="question__col-1">
@@ -154,7 +190,7 @@
                         </div>
                         <div class="question__btn-box">
                             <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Aceptar</button>
-                            <button class="btn btn--blue" type="button" disabled data-btn="solution" data-modal-btn="question-1-4-1">Ver solución</button>
+                            <button class="btn btn--blue" type="button" disabled data-btn-continue="step-0">Continuar</button>
                         </div>
                     </div>
                     <div class="question__col-2">
@@ -163,7 +199,50 @@
                 </div>
             </form>
         </section>
-        <section>
+        <section class="section--hidden" data-section="step-0">
+            <p class="paragraph">
+                <strong>Solución</strong>
+            </p>
+            <p class="paragraph">
+                Por la definición de la partición $P$, tenemos que $x_0=0$, $x_1=\frac{1}{2}$, $x_2=1$, $x_3=\frac{3}{2}$ y $x_4=2$. 
+                Así, $\forall i=\overline{1,4}: \Delta x_i=\frac{1}{2}$. Además, como $f(x)=4-x^2$ es continua y decreciente en $[0,2]$, pues $f'(x)=-2x\leq0$ para $x\in[0,2]$, 
+                entonces es decreciente en $I_i$, y por lo tanto alcanza su valor más pequeño en el extremo derecho del intervalo $I_i$ y su valor más grande en el extremo 
+                izquierdo del intervalo $I_i$, es decir,
+                $$m_i=\inf\{f(x):x\in I_i\}=f(x_i) \qquad \mbox{y} \qquad M_i=\sup\{f(x):x\in I_i\}=f(x_{i-1}).$$ Entonces,
+            </p>
+            <p class="paragraph">
+                \begin{equation*}
+                    \begin{split}
+                        \underline{S}(f,P)&=\sum_{i=1}^4 m_i \Delta x_i  \\
+                        &=\sum_{i=1}^4 f(x_i) \Delta x_i \\
+                        &= f(x_1)\Delta x_1+f(x_2)\Delta x_2+f(x_3)\Delta x_3+f(x_4)\Delta x_4 \\
+                        &= f\left(\frac{1}{2}\right)\left(\frac{1}{2}\right)+f(1)\left(\frac{1}{2}\right)+f\left(\frac{3}{2}\right)\left(\frac{1}{2}\right)+f(2)\left(\frac{1}{2}\right) \\
+                        &= \left[4-\left(\frac{1}{2}\right)^2\right]\left(\frac{1}{2}\right)+\left[4-(1)^2\right]\left(\frac{1}{2}\right)+\left[4-\left(\frac{3}{2}\right)^2\right]\left(\frac{1}{2}\right)+\left[4-(2)^2\right]\left(\frac{1}{2}\right)\\
+                        &= \left(\frac{15}{4}+3+\frac{7}{4}+0\right)\left(\frac{1}{2}\right)=\frac{17}{4}.
+                    \end{split}
+                \end{equation*}
+            </p>
+            <p class="paragraph">
+                Luego, por transitividad, tenemos que $\underline{S}(f,P)=\frac{17}{4}$.
+            </p>
+            <p class="paragraph">
+                Además,
+            </p>
+            <p class="paragraph">
+                    \begin{equation*}
+                    \begin{split}
+                        \underline{S}(f,P)&=\sum_{i=1}^4 M_i \Delta x_i \\
+                        &=\sum_{i=1}^4 f(x_{i-1}) \Delta x_i\\
+                        &= f(x_0)\Delta x_1+f(x_1)\Delta x_2+f(x_2)\Delta x_3+f(x_3)\Delta x_4  \\
+                        &= f\left(0\right)\left(\frac{1}{2}\right)+f\left(\frac{1}{2}\right)\left(\frac{1}{2}\right)+f(1)\left(\frac{1}{2}\right)+f\left(\frac{3}{2}\right)\left(\frac{1}{2}\right) \\
+                        &= \left[4-\left(0\right)^2\right]\left(\frac{1}{2}\right)+\left[4-\left(\frac{1}{2}\right)^2\right]\left(\frac{1}{2}\right)+\left[4-(1)^2\right]\left(\frac{1}{2}\right)+\left[4-\left(\frac{3}{2}\right)^2\right]\left(\frac{1}{2}\right)\\
+                        &= \left(4+\frac{15}{4}+3+\frac{7}{4}\right)\left(\frac{1}{2}\right)=\frac{25}{4}.
+                    \end{split}
+                \end{equation*}
+            </p>
+            <p class="paragraph">
+                Finalmente, por transitividad, tenemos que $\overline{S}(f,P)=\frac{25}{4}$.
+            </p>
             <div class="fancy-line"></div>
             <div class="example">
                 <p class="paragraph">
@@ -516,56 +595,6 @@
         </section>
     </main>
     <!-- modals -->
-    <div class="modal" data-modal="question-1-4-1">
-        <div class="modal__background" data-modal-background="question-1-4-1"></div>
-        <div class="modal__content">
-            <p class="paragraph">
-                <strong>Solución</strong>
-            </p>
-            <p class="paragraph">
-                Por la definición de la partición $P$, tenemos que $x_0=0$, $x_1=\frac{1}{2}$, $x_2=1$, $x_3=\frac{3}{2}$ y $x_4=2$. 
-                Así, $\forall i=\overline{1,4}: \Delta x_i=\frac{1}{2}$. Además, como $f(x)=4-x^2$ es continua y decreciente en $[0,2]$, pues $f'(x)=-2x\leq0$ para $x\in[0,2]$, 
-                entonces es decreciente en $I_i$, y por lo tanto alcanza su valos más pequño en el extremo derecho del intervalo $I_i$ y su valor más grande en el extremo 
-                izquierdo del intervalo $I_i$, es decir,
-                $$m_i=\inf\{f(x):x\in I_i\}=f(x_i) \qquad \mbox{y} \qquad M_i=\sup\{f(x):x\in I_i\}=f(x_{i-1}).$$ Entonces,
-            </p>
-            <p class="paragraph">
-                \begin{equation*}
-                    \begin{split}
-                        \underline{S}(f,P)&=\sum_{i=1}^4 m_i \Delta x_i \quad \mbox{por la definición de suma inferior} \\
-                        &=\sum_{i=1}^4 f(x_i) \Delta x_i\quad \mbox{por la definición de } m_i \\
-                        &= f(x_1)\Delta x_1+f(x_2)\Delta x_2+f(x_3)\Delta x_3+f(x_4)\Delta x_4  \quad \mbox{por la definición de }\Sigma \\
-                        &= f\left(\frac{1}{2}\right)\left(\frac{1}{2}\right)+f(1)\left(\frac{1}{2}\right)+f\left(\frac{3}{2}\right)\left(\frac{1}{2}\right)+f(2)\left(\frac{1}{2}\right) \quad \mbox{ por definición de }x_i\\
-                        &= \left[4-\left(\frac{1}{2}\right)^2\right]\left(\frac{1}{2}\right)+\left[4-(1)^2\right]\left(\frac{1}{2}\right)+\left[4-\left(\frac{3}{2}\right)^2\right]\left(\frac{1}{2}\right)+\left[4-(2)^2\right]\left(\frac{1}{2}\right)\\
-                        & \hspace{3in} \mbox{ por def. de }f\\
-                        &= \left(\frac{15}{4}+3+\frac{7}{4}+0\right)\left(\frac{1}{2}\right)=\frac{17}{4}.
-                    \end{split}
-                \end{equation*}
-            </p>
-            <p class="paragraph">
-                Luego, por transitividad, tenemos que $\underline{S}(f,P)=\frac{17}{4}$.
-            </p>
-            <p class="paragraph">
-                Además,
-            </p>
-            <p class="paragraph">
-                    \begin{equation*}
-                    \begin{split}
-                        \underline{S}(f,P)&=\sum_{i=1}^4 M_i \Delta x_i \quad \mbox{por la definición de suma superior} \\
-                        &=\sum_{i=1}^4 f(x_{i-1}) \Delta x_i\quad \mbox{por la definición de } M_i \\
-                        &= f(x_0)\Delta x_1+f(x_1)\Delta x_2+f(x_2)\Delta x_3+f(x_3)\Delta x_4  \quad \mbox{por la definición de }\Sigma \\
-                        &= f\left(0\right)\left(\frac{1}{2}\right)+f\left(\frac{1}{2}\right)\left(\frac{1}{2}\right)+f(1)\left(\frac{1}{2}\right)+f\left(\frac{3}{2}\right)\left(\frac{1}{2}\right) \quad \mbox{ por definición de }x_i\\
-                        &= \left[4-\left(0\right)^2\right]\left(\frac{1}{2}\right)+\left[4-\left(\frac{1}{2}\right)^2\right]\left(\frac{1}{2}\right)+\left[4-(1)^2\right]\left(\frac{1}{2}\right)+\left[4-\left(\frac{3}{2}\right)^2\right]\left(\frac{1}{2}\right)\\
-                        & \hspace{3in} \mbox{ por def. de }f\\
-                        &= \left(4+\frac{15}{4}+3+\frac{7}{4}\right)\left(\frac{1}{2}\right)=\frac{25}{4}.
-                    \end{split}
-                \end{equation*}
-            </p>
-            <p class="paragraph">
-                Finalmente, por transitividad, tenemos que $\overline{S}(f,P)=\frac{25}{4}$.
-            </p>
-        </div>
-    </div>
     <div class="modal" data-modal="theorem-1-2-1">
         <div class="modal__background" data-modal-background="theorem-1-2-1"></div>
         <div class="modal__content">

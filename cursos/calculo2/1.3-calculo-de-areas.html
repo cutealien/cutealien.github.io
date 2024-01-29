@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-MX">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,9 +12,10 @@
     <script src="./scripts/1-3-calculus-areas.js" defer></script>
     <script src="./scripts/question.js" defer></script>
     <script src="./scripts/modal.js" defer></script>
-    <script src="./components/mobile-sidebar/mobile-sidebar.js" defer></script>
+    <script src="./components/component-loader.js" defer></script>
+    <!-- <script src="./components/mobile-sidebar/mobile-sidebar.js" defer></script>
     <script src="./components/sidebar/sidebar.js" defer></script>
-    <script src="./components/math-template.js" defer></script>
+    <script src="./components/math-template.js" defer></script> -->
 
     <script>
         MathJax = {
@@ -68,7 +69,7 @@
             <p class="paragraph">
                 Así, tenemos que $x_0=0,$ $x_1=\Delta x=\frac{2}{n},$ $x_2=2\Delta x=\frac{4}{n},$ $\dots,$ $x_i=i\Delta x=\frac{2i}{n}$ $,\dots,$ $x_{n-1}=(n-1)\Delta x=\frac{(n-1)}{n},$ $x_n=n \Delta x=\frac{n \cdot 2}{n}=2.$  
                 Consideremos el rectángulo representativo con base $[x_{i-1},x_i]$ y altura $f(x_i)=x_{i-1}^2$.
-                Esos rectángulos forman al siguiente polígono inscrito.
+                Esos rectángulos forman el siguiente polígono inscrito.
             </p>
             <div class="canvas-container">
                 <canvas class="canvas" height="300" width="300" data-canvas="chapter-1-3-2"></canvas>
@@ -106,7 +107,7 @@
                 $$
                 \begin{equation*}
                     \begin{split}
-                        A(R_n) &=\left[\frac{8}{n^3}(0)^2+ \frac{8}{n^3}(1)^2+\cdots \frac{8}{n^3}(n-2)^2 + \frac{8}{n^3}(n-1)^2\right] \\
+                        A(R_n) &=\left[\frac{8}{n^3}(0)^2+ \frac{8}{n^3}(1)^2+\cdots + \frac{8}{n^3}(n-2)^2 + \frac{8}{n^3}(n-1)^2\right] \\
                         &= \frac{8}{n^3}[1^2+2^2+3^3+\cdots +(n-2)^2+(n-2)^2] \\
                         &= \frac{8}{n^3}\sum_{i=1}^{n-1}i^2 = \frac{8}{n^3}\frac{(n-1)n(2n-2+1)}{6} \\
                         &=\frac{8}{6}\cdot \frac{(n-1)}{n}\cdot \frac{n}{n} \cdot \frac{(2n-1)}{n} \\
@@ -116,7 +117,7 @@
                 $$
             </p>
             <p class="paragraph">
-                Primero aproximaremos el área con 6 decimales utilizando la expresión $A(R_n) = \frac{4}{3}\left(1-\frac{1}{n} \right)\left(2-\frac{1}{n} \right)$.
+                Primero aproximáremos el área con 6 decimales utilizando la expresión $A(R_n) = \frac{4}{3}\left(1-\frac{1}{n} \right)\left(2-\frac{1}{n} \right)$.
                 Cabe notar que los rectángulos que se grafican son $n-1$, esto se debe a que el primer valor es $x_0 = 0$, por lo que la altura del rectángulo es $f(x_0) = 0$.
             </p>
             <div class="canvas-container">
@@ -156,7 +157,7 @@
                     $$A(S_n)$$
                 </div>
                 <div class="calculation__formule--2">
-                    $$=\left[\frac{8}{n^3}(1)^2+\frac{8}{n^3}(2)^2+\frac{8}{n^3}(3)^2+\cdots \frac{8}{n^3}(n)^2\right]$$
+                    $$=\left[\frac{8}{n^3}(1)^2+\frac{8}{n^3}(2)^2+\frac{8}{n^3}(3)^2+\cdots + \frac{8}{n^3}(n)^2\right]$$
                 </div>
 
                 <div class="calculation__formule--2">
@@ -213,7 +214,7 @@
                 $$\lim_{n\to\infty}A(S_n)=\lim_{n\to\infty}\frac{4}{3}\left(1+\frac{1}{n}\right)\left(2+\frac{1}{n}\right)=\frac{4}{3}\cdot 1 \cdot 2=\frac{8}{3}.$$
             </p>
             <p class="paragraph">
-                Finalmente podemos decir que $$\lim_{n\to\infty}A(R_n)=A(R)=\lim_{n\to\infty}A(S_n).$$
+                Finalmente, podemos decir que $$\lim_{n\to\infty}A(R_n)=A(R)=\lim_{n\to\infty}A(S_n).$$
             </p>
             <p class="paragraph">
                 Ahora notemos que las aproximaciones del área son mayores a $\frac{8}{3} \approx 2.66666666$
@@ -228,7 +229,6 @@
                 Supongamos que $f(x)\geq 0$, $\forall x \in[a,b]$ y además que $f$ es continua en $[a,b]$. 
                 Comenzamos dividiendo el intervalo $[a,b]$ es $n$ piezas iguales, es decir en subintervalos de tamaño $\Delta x=\frac{b-a}{n}$ 
                 (donde $\Delta x$ significa un pequeño cambio en la variable $x$). 
-                <!-- Los puntos que generan la subdivisión son $$x_0=a, x_1=x_0+\Delta x, x_2=x_0+2\Delta x, \dots, x_i=x_0+i\Delta x, \dots x_n=x_0+n\Delta x=b.$$  -->
                 Los puntos que generan la subdivisión son $x_0=a, x_1=x_0+\Delta x, \dots, x_i=x_0+i\Delta x, \dots x_n=x_0+n\Delta x=b.$
                 Sobre cada subintervalo generado $[x_{i-1},x_i]$ construimos un rectángulo de altura $f(x_i)$ (siempre el lado derecho del subintervalo).
             </p>

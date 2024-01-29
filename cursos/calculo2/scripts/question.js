@@ -168,7 +168,6 @@ justificationProblems.forEach(problem => {
         texts[step].classList.remove('calculation__text--hidden')
         var nextStep = problem.querySelectorAll(`[data-justification-step='${step+1}']`)
         var t = problem.querySelector(`[value='${data}']`)
-        console.log(answers[step], data)
         if(answers[step] === data) {
             nextStep[0].classList.add('correct')
         }

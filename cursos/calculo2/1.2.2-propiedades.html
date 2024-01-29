@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-MX">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,9 +10,10 @@
     
     <script src="./scripts/question.js" defer></script>
     <script src="./scripts/modal.js" defer></script>
-    <script src="./components/mobile-sidebar/mobile-sidebar.js" defer></script>
+    <script src="./components/component-loader.js" defer></script>
+    <!-- <script src="./components/mobile-sidebar/mobile-sidebar.js" defer></script>
     <script src="./components/sidebar/sidebar.js" defer></script>
-    <script src="./components/math-template.js" defer></script>
+    <script src="./components/math-template.js" defer></script> -->
     
     <script>
         MathJax = {
@@ -55,144 +56,239 @@
                 <h3 class="header-tertiary">
                     Demostración.
                 </h3>
-                <ol class="proof__step">
-                    <li class="proof__step-item">
-                        Haremos la demostración por inducción sobre $n$.
-                        <ul class="proof__list">
-                            <li class="proof__list-item">
-                                Demostramos para $n = 1$, es decir, vamos a demostrar que
-                                <p class="text-formule">
-                                    $$\sum_{i=1}^{n} (ca_i) = c\sum_{i=1}^{n} a_i.$$
-                                </p>
-                                En efecto: Por un lado, por 1) de la 
-                                <span class="modal__reference" data-modal-btn="definition-1-2-1">Definición 1.2.1</span>,                                 
-                                sabemos que $\sum_{i=1}^{1} (ca_i) = ca_1$. 
-                                Por otro lado, nuevamente por 1) de la Definición 1.2.1, sabemos que $\sum_{i=1}^{1} (a_i) = a_1$. 
-                                Entonces, por la consistencia del producto sobre la igualdad, tenemos que $c\sum_{i=1}^{1} (a_i) = ca_1$. 
-                                Luego, por transitividad, concluimos que
-                                <p class="text-formule">
-                                    $$\sum_{i=1}^{n} (ca_i) = c\sum_{i=1}^{n} a_i.$$
-                                </p>
-                            </li>
-                            <li class="proof__list-item">
-                                Suponemos cierta la propiedad para $n = k$, es decir, suponemos que es cierta la igualdad
-                                $\sum_{i=1}^{k} (ca_i) = c\sum_{i=1}^{k} a_i$
-                                lo cual es nuestra hipótesis de inducción (H.I).
-                            </li>
-                            <li class="proof__list-item">
-                                Probaremos para $n = k + 1$, es decir, vamos a demostrar que
-                                <p class="text-formule">
-                                    $$\sum_{i=1}^{k+1} (ca_i) = c\sum_{i=1}^{k+1} a_i.$$
-                                </p>
-                                En efecto:
-                                <div class="calculation">
-                                    <div class="calculation__formule--1">
-                                        $$\sum_{i=1}^{k+1}(ca_i)$$
-                                    </div>
-                                    <div class="calculation__formule--2">
-                                        <div>
-                                            $$= \sum_{i=1}^{k}(ca_i)+ca_{k+1}$$
-                                        </div>
-                                        <div class="calculation__text">
-                                            por 2) de la Definición 1.2.1
-                                        </div>
-                                    </div>
-                                    <div class="calculation__formule--2">
-                                        <div>
-                                            $$= c\sum_{i=1}^k a_i + ca_{k+1} $$
-                                        </div>
-                                        <div class="calculation__text">
-                                            por la hipótesis de inducción
-                                        </div>
-                                    </div>
-                                    <div class="calculation__formule--2">
-                                        <div>
-                                            $$= c \left( \sum_{i=1}^k a_i + a_{k+1} \right) $$
-                                        </div>
-                                        <div class="calculation__text">
-                                            por distributividad
-                                        </div>
-                                    </div>
-                                    <div class="calculation__formule--2">
-                                        <div>
-                                            $$= c\sum_{i=1}^{k+1} a_i $$
-                                        </div>
-                                        <div class="calculation__text">
-                                            por 2) de la Definición 1.2.1
-                                        </div>
-                                    </div>
+                <p class="paragraph">
+                    1) Haremos la demostración por inducción sobre $n$.
+                </p>
+                <form class="question margin-top-sm" data-question="question-1-2-induc" data-answer="c" autocomplete="off">
+                    <h3 class="question__header margin-bottom-sm">
+                        ¿Cuál es el primer paso de inducción?
+                    </h3>
+                    <div class="question__row">
+                        <div class="question__col-1">
+                            <div class="question__options">
+                                <div class="question__option">
+                                    <input type="radio" id="answer-1-2-induc-a" name="question-1-2-induc" value="a" data-option="question-1-2-induc">
+                                    <label for="answer-1-2-induc-a">Demostrar que la afirmación es cierta para $n=k.$</label>
                                 </div>
-                                <p class="paragraph">
-                                    Luego por transitividad concluimos que $\sum_{i=1}^{k+1} (ca_i) = c\sum_{i=1}^{k+1} a_i$.
-                                </p>
-                                <p class="paragraph">
-                                    Finalmente por el principio de inducción matemática, tenemos que
-                                </p>
-                                <p class="text-formule">
-                                    $$ \forall n \in \\N : \sum_{i=1}^{n} (ca_i) = c\sum_{i=1}^{n} a_i.$$
-                                </p>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="proof__step-item">
-                        Se deja como ejercicio al lector.
-                    </li>
-                    <li class="proof__step-item">
-                        Haremos la prueba haciendo uso de los puntos anteriores. En efecto:
-                        <div class="calculation">
-                            <div class="calculation__formule--1">
-                                $$\sum_{i=1}^n(a_i-b_i)$$
-                            </div>
-                            <div class="calculation__formule--2">
-                                <div>
-                                    $$= \sum_{i=1}^n[a_i+(-b_i)] $$
+                                <div class="question__option">
+                                    <input type="radio" id="answer-1-2-induc-b" name="question-1-2-induc" value="b" data-option="question-1-2-induc">
+                                    <label for="answer-1-2-induc-b">Demostrar que $n=1$ implica que $n=k$ es cierto.</label>
                                 </div>
-                                <div class="calculation__text">
-                                    por definición de resta
+                                <div class="question__option">
+                                    <input type="radio" id="answer-1-2-induc-c" name="question-1-2-induc" value="c" data-option="question-1-2-induc">
+                                    <label for="answer-1-2-induc-c">Demostrar que la afirmación es cierta para $n=1.$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" id="answer-1-2-induc-d" name="question-1-2-induc" value="d" data-option="question-1-2-induc">
+                                    <label for="answer-1-2-induc-d">Probar que si la afirmación es cierta para $n=k$ entonces la afirmación es cierta para $n=k+1.$</label>
                                 </div>
                             </div>
-                            <div class="calculation__formule--2">
-                                <div>
-                                    $$= \sum_{i=1}^n a_i+\sum_{i=1}^n(-b_i) $$
-                                </div>
-                                <div class="calculation__text">
-                                    por 2) de este teorema
-                                </div>
-                            </div>
-                            <div class="calculation__formule--2">
-                                <div>
-                                    $$= \sum_{i=1}^n a_i+\sum_{i=1}^n[(-1)b_i] $$
-                                </div>
-                                <div class="calculation__text">
-                                    porque $-x=(-1)x$ para $x\in \mathbf{R} $
-                                </div>
-                            </div>
-                            <div class="calculation__formule--2">
-                                <div>
-                                    $$= \sum_{i=1}^n a_i+(-1)\sum_{i=1}^n b_i $$
-                                </div>
-                                <div class="calculation__text">
-                                    por 1) de este teorema
-                                </div>
-                            </div>
-                            <div class="calculation__formule--2">
-                                <div>
-                                    $$= \sum_{i=1}^n a_i-\sum_{i=1}^n b_i $$
-                                </div>
-                                <div class="calculation__text">
-                                    por definición de resta
-                                </div>
+                            <div class="question__btn-box">
+                                <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                <button class="btn btn--blue" type="button" disabled data-btn-continue="proof-1">Continuar</button>
                             </div>
                         </div>
-                        <p class="paragraph">
-                            Finalmente, por transitividad, tenemos que $\sum_{i=1}^{n} (a_i-b_i) = \sum_{i=1}^{n} a_i - \sum_{i=1}^{n} b_i$.
-                        </p>
-                    </li>
-                </ol>
+                        <div class="question__col-2">
+                            <p class="question__answer"></p>
+                        </div>
+                    </div>
+                </form>
+                <div class="section--hidden" data-section="proof-1">
+                    <p class="paragraph">
+                        Demostramos para $n = 1$, es decir, vamos a demostrar que
+                        $$\sum_{i=1}^{1} (ca_i) = c\sum_{i=1}^{1} a_i.$$
+                        En efecto: Por un lado, por 1) de la 
+                        <span class="modal__reference" data-modal-btn="definition-1-2-1">Definición 1.2.1</span>,
+                        sabemos que $\sum_{i=1}^{1} (ca_i) = ca_1$. 
+                        Por otro lado, nuevamente por 1) de la 
+                        <span class="modal__reference" data-modal-btn="definition-1-2-1">Definición 1.2.1,</span>
+                        sabemos que $\sum_{i=1}^{1} (a_i) = a_1$. 
+                        Entonces, por la consistencia del producto sobre la igualdad, tenemos que $c\sum_{i=1}^{1} (a_i) = ca_1$. 
+                        Luego, por transitividad, concluimos que
+                        $$\sum_{i=1}^{1} (ca_i) = c\sum_{i=1}^{1} a_i.$$
+                    </p>
+                    <form class="question margin-top-sm" data-question="question-1-2-2-induc" data-answer="b" autocomplete="off">
+                        <h3 class="question__header margin-bottom-sm">
+                            ¿Cuál es el siguiente paso?
+                        </h3>
+                        <div class="question__row">
+                            <div class="question__col-1">
+                                <div class="question__options">
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-1-2-2-induc-a" name="question-1-2-2-induc" value="a" data-option="question-1-2-2-induc">
+                                        <label for="answer-1-2-2-induc-a">Demostrar que $n=1$ implica $n=k.$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-1-2-2-induc-b" name="question-1-2-2-induc" value="b" data-option="question-1-2-2-induc">
+                                        <label for="answer-1-2-2-induc-b">Asumir que la proposición es cierta para $n=k.$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-1-2-2-induc-c" name="question-1-2-2-induc" value="c" data-option="question-1-2-2-induc">
+                                        <label for="answer-1-2-2-induc-c">Demostrar que la afirmación es cierta para $n=k.$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-1-2-2-induc-d" name="question-1-2-2-induc" value="d" data-option="question-1-2-2-induc">
+                                        <label for="answer-1-2-2-induc-d">Demostrar que la afirmación es cierta para $n=k+1.$</label>
+                                    </div>
+                                </div>
+                                <div class="question__btn-box">
+                                    <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                    <button class="btn btn--blue" type="button" disabled data-btn-continue="proof-2">Continuar</button>
+                                </div>
+                            </div>
+                            <div class="question__col-2">
+                                <p class="question__answer"></p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="section--hidden" data-section="proof-2">
+                    <p class="paragraph">
+                        Suponemos cierta la propiedad para $n = k$, es decir, suponemos que es cierta la igualdad
+                        $\sum_{i=1}^{k} (ca_i) = c\sum_{i=1}^{k} a_i$,
+                        lo cual, es nuestra hipótesis de inducción (H.I).
+                    </p>
+                    <form class="question margin-top-sm" data-question="question-1-2-3-induc" data-answer="a" autocomplete="off">
+                        <h3 class="question__header margin-bottom-sm">
+                            ¿Cuál es el siguiente paso?
+                        </h3>
+                        <div class="question__row">
+                            <div class="question__col-1">
+                                <div class="question__options">
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-1-2-3-induc-a" name="question-1-2-3-induc" value="a" data-option="question-1-2-3-induc">
+                                        <label for="answer-1-2-3-induc-a">Probar que si la proposición es cierta para $n=k$ implica que la proposición es cierta para $n=k+1.$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-1-2-3-induc-b" name="question-1-2-3-induc" value="b" data-option="question-1-2-3-induc">
+                                        <label for="answer-1-2-3-induc-b">Concluir que la afirmación es cierta para $n=k+1.$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-1-2-3-induc-c" name="question-1-2-3-induc" value="c" data-option="question-1-2-3-induc">
+                                        <label for="answer-1-2-3-induc-c">Demostrar que la afirmación es cierta para $n=k.$</label>
+                                    </div>
+                                </div>
+                                <div class="question__btn-box">
+                                    <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                    <button class="btn btn--blue" type="button" disabled data-btn-continue="proof-3">Continuar</button>
+                                </div>
+                            </div>
+                            <div class="question__col-2">
+                                <p class="question__answer"></p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="section--hidden" data-section="proof-3">
+                    <p class="paragraph">
+                        Probaremos para $n = k + 1$, es decir, vamos a demostrar que
+                        $$\sum_{i=1}^{k+1} (ca_i) = c\sum_{i=1}^{k+1} a_i.$$
+                        En efecto:                        
+                    </p>
+                    <div class="calculation">
+                        <div class="calculation__formule--1">
+                            $$\sum_{i=1}^{k+1}(ca_i)$$
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= \sum_{i=1}^{k}(ca_i)+ca_{k+1}$$
+                            </div>
+                            <div class="calculation__text">
+                                por 2) de la <span class="modal__reference" data-modal-btn="definition-1-2-1">definición 1.2.1</span>
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= c\sum_{i=1}^k a_i + ca_{k+1} $$
+                            </div>
+                            <div class="calculation__text">
+                                por la hipótesis de inducción
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= c \left( \sum_{i=1}^k a_i + a_{k+1} \right) $$
+                            </div>
+                            <div class="calculation__text">
+                                por distributividad
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= c\sum_{i=1}^{k+1} a_i $$
+                            </div>
+                            <div class="calculation__text">
+                                por 2) de la <span class="modal__reference" data-modal-btn="definition-1-2-1">definición 1.2.1</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="paragraph">
+                        Luego por transitividad concluimos que $\sum_{i=1}^{k+1} (ca_i) = c\sum_{i=1}^{k+1} a_i$.
+                        Finalmente, por el principio de inducción matemática, tenemos que
+                        $$ \forall n \in \\N : \sum_{i=1}^{n} (ca_i) = c\sum_{i=1}^{n} a_i.$$
+                    </p>
+                    <p class="paragraph">
+                        2) Inténtelo usted mismo (Hint: se puede aplicar inducción sobre $n$ de manera análoga al punto anterior). 
+                    </p>
+                    <p class="paragraph">
+                        3) Haremos la prueba haciendo uso de los puntos anteriores. En efecto:
+                    </p>                    
+                    <div class="calculation">
+                        <div class="calculation__formule--1">
+                            $$\sum_{i=1}^n(a_i-b_i)$$
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= \sum_{i=1}^n[a_i+(-b_i)] $$
+                            </div>
+                            <div class="calculation__text">
+                                por definición de resta
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= \sum_{i=1}^n a_i+\sum_{i=1}^n(-b_i) $$
+                            </div>
+                            <div class="calculation__text">
+                                por 2) de este teorema
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= \sum_{i=1}^n a_i+\sum_{i=1}^n[(-1)b_i] $$
+                            </div>
+                            <div class="calculation__text">
+                                porque $-x=(-1)x$ para $x\in \mathbf{R} $
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= \sum_{i=1}^n a_i+(-1)\sum_{i=1}^n b_i $$
+                            </div>
+                            <div class="calculation__text">
+                                por 1) de este teorema
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= \sum_{i=1}^n a_i-\sum_{i=1}^n b_i $$
+                            </div>
+                            <div class="calculation__text">
+                                por definición de resta
+                            </div>
+                        </div>
+                    </div>
+                    <p class="paragraph">
+                        Finalmente, por transitividad, tenemos que $\sum_{i=1}^{n} (a_i-b_i) = \sum_{i=1}^{n} a_i - \sum_{i=1}^{n} b_i$.
+                    </p>
+                    <div>
+                        <button class="btn-sm btn--blue" type="button" data-btn-continue="step-0">Continuar</button>
+                    </div>
+                    <div class="fancy-line"></div>
+                </div>
             </div>
         </section>
-        <div class="fancy-line"></div>
-        <section>
+        <section class="section--hidden" data-section="step-0">
             <form class="question margin-top-sm" data-question="question-1-2-4" data-answer="c" autocomplete="off">
                 <h3 class="question__header margin-bottom-sm">
                     Si $\sum_{i=1}^{100} a_i = 60$ y $\sum_{i=1}^{100} b_i = 11$, entonces calcula $\sum_{i=1}^{100} (2a_i - 3b_i + 4) = 60$
@@ -249,7 +345,7 @@
                                 $$= 2\sum_{i=1}^{100}a_i-3\sum_{i=1}^{100}b_i+\sum_{i=1}^{100}4 $$
                             </div>
                             <div class="calculation__text">
-                                por 1) del Teorema
+                                por 1) del Teorema 1.2.1
                             </div>
                         </div>
                         <div class="calculation__formule--2">
@@ -275,33 +371,33 @@
                         </div>
                     </div>
                 </div>
-                <form class="question margin-top-sm" data-question="question-1-2-5" data-answer="a">
+                <form class="question margin-top-sm" data-question="question-1-2-5-example" data-answer="d" autocomplete="off">
                     <h3 class="question__header margin-bottom-sm">
-                        Calcula la suma $\sum_{1}^{4} (a_{i+1+} - a_i)$
+                        Calcula $\sum_{n=1}^4 \left ( \frac{1}{2n-1} - \frac{1}{2n+1} \right ).$
                     </h3>
                     <div class="question__row">
                         <div class="question__col-1">
                             <div class="question__options">
                                 <div class="question__option">
-                                    <input type="radio" autocomplete="off" id="answer-1-2-5-a" name="question-1-2-5" value="a" data-option="question-1-2-5">
-                                    <label for="answer-1-2-5-a">$a_5 - a_1$</label>
+                                    <input type="radio" id="answer-1-2-5-example-a" name="question-1-2-5-example" value="a" data-option="question-1-2-5-example">
+                                    <label for="answer-1-2-5-example-a">$\frac{11}{9}$</label>
                                 </div>
                                 <div class="question__option">
-                                    <input type="radio" autocomplete="off" id="answer-1-2-5-b" name="question-1-2-5" value="b" data-option="question-1-2-5">
-                                    <label for="answer-1-2-5-b">$a_5 + a_4$</label>
+                                    <input type="radio" id="answer-1-2-5-example-b" name="question-1-2-5-example" value="b" data-option="question-1-2-5-example">
+                                    <label for="answer-1-2-5-example-b">$\frac{13}{9}$</label>
                                 </div>
                                 <div class="question__option">
-                                    <input type="radio" autocomplete="off" id="asnwer-1-2-5-c" name="question-1-2-5" value="c" data-option="question-1-2-5">
-                                    <label for="asnwer-1-2-5-c">$a_2 + a_1$</label>
+                                    <input type="radio" id="answer-1-2-5-example-c" name="question-1-2-5-example" value="c" data-option="question-1-2-5-example">
+                                    <label for="answer-1-2-5-example-c">$\frac{7}{9}$</label>
                                 </div>
                                 <div class="question__option">
-                                    <input type="radio" autocomplete="off" id="answer-1-2-5-d" name="question-1-2-5" value="d" data-option="question-1-2-5">
-                                    <label for="answer-1-2-5-d">$a_5 - a_4 - a_3 - a_2 - a_1$</label>
+                                    <input type="radio" id="answer-1-2-5-example-d" name="question-1-2-5-example" value="d" data-option="question-1-2-5-example">
+                                    <label for="answer-1-2-5-example-d">$\frac{8}{9}$</label>
                                 </div>
                             </div>
                             <div class="question__btn-box">
-                                <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Aceptar</button>
-                                <button class="btn btn--blue" type="button" disabled data-btn-continue="step-2">Continuar</button>
+                                <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                <button class="btn btn--blue" type="button" disabled data-btn-continue="example-1">Continuar</button>
                             </div>
                         </div>
                         <div class="question__col-2">
@@ -309,11 +405,59 @@
                         </div>
                     </div>
                 </form>
+                <div class="section--hidden" data-section="example-1">
+                    <p class="paragraph">
+                        Desarrollando la suma
+                        $$
+                        \begin{equation*}
+                            \begin{split}
+                                \sum_{n=1}^4 \left ( \frac{1}{2n-1} - \frac{1}{2n+1} \right ) &= \left ( \frac{1}{1} - \frac{1}{3} \right ) 
+                                + \left ( \frac{1}{3} - \frac{1}{5} \right ) + \left ( \frac{1}{5} - \frac{1}{7} \right ) + \left ( \frac{1}{7} - \frac{1}{9} \right ) \\
+                                &= 1 - \frac{1}{9} = \frac{8}{9}.
+                            \end{split}
+                        \end{equation*}
+                        $$
+                    </p>
+                    <form class="question margin-top-sm" data-question="question-1-2-5" data-answer="a">
+                        <h3 class="question__header margin-bottom-sm">
+                            Calcula la suma $\sum_{1}^{4} (a_{i+1} - a_i)$
+                        </h3>
+                        <div class="question__row">
+                            <div class="question__col-1">
+                                <div class="question__options">
+                                    <div class="question__option">
+                                        <input type="radio" autocomplete="off" id="answer-1-2-5-a" name="question-1-2-5" value="a" data-option="question-1-2-5">
+                                        <label for="answer-1-2-5-a">$a_5 - a_1$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" autocomplete="off" id="answer-1-2-5-b" name="question-1-2-5" value="b" data-option="question-1-2-5">
+                                        <label for="answer-1-2-5-b">$a_5 + a_4$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" autocomplete="off" id="asnwer-1-2-5-c" name="question-1-2-5" value="c" data-option="question-1-2-5">
+                                        <label for="asnwer-1-2-5-c">$a_2 + a_1$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" autocomplete="off" id="answer-1-2-5-d" name="question-1-2-5" value="d" data-option="question-1-2-5">
+                                        <label for="answer-1-2-5-d">$a_5 - a_4 - a_3 - a_2 - a_1$</label>
+                                    </div>
+                                </div>
+                                <div class="question__btn-box">
+                                    <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Aceptar</button>
+                                    <button class="btn btn--blue" type="button" disabled data-btn-continue="step-2">Continuar</button>
+                                </div>
+                            </div>
+                            <div class="question__col-2">
+                                <p class="question__answer"></p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
         </section>
         <section class="section--hidden" data-section="step-2">
             <p class="paragraph">
-                Desarrolando la suma:
+                Desarrollando la suma:
             </p>
             <p class="paragraph">
                 $$
@@ -333,144 +477,304 @@
             <div class="proof">
                 <h3 class="header-tertiary">Demostración.</h3>
                 <p class="paragraph">
-                    Se deja como ejercicio al lector.
+                    Intente demostrarla usted mismo. Se puede realizar desarrollando la suma y eliminando términos de manera similar a los ejemplos anteriores.
                 </p>
             </div>
             <alien-math-template path="./components/theorems/theorem-1.2.3.html"></alien-math-template>
             <div class="proof">
                 <h3 class="header-tertiary">Demostración.</h3>
-                <ol class="proof__step">
-                    <li class="proof__step-item">
-                        Notemos que $(i + 1)^2 - i^2 = 2i + 1$, luego
-                        <div class="calculation">
-                            <div class="calculation__formule--1">
-                                $$\sum_{i=1}^n [(i+1)^2-i^2]$$
-                            </div>
-                            <div class="calculation__formule--2">
-                                <div>
-                                    $$= \sum_{i=1}^n (2i+1) $$
-                                </div>
-                                <div class="calculation__text">
-                                    por consistencia de la suma sobre la "="
-                                </div>
-                            </div>
-                            <div class="calculation__formule--1">
-                                $$\Rightarrow \sum_{i=1}^n [(i+1)^2-i^2]$$
-                            </div>
-                            <div class="calculation__formule--2">
-                                <div>
-                                    $$= \sum_{i=1}^n i + \sum_{i=1}^n 1 $$
-                                </div>
-                                <div class="calculation__text">
-                                    por Teorema 1.2.1
-                                </div>
-                            </div>
-                            <div class="calculation__formule--1">
-                                $$\Rightarrow (n+1)^2-1^2$$
-                            </div>
-                            <div class="calculation__formule--2">
-                                <div>
-                                    $$= 2 \sum_{i=1}^n i + n $$
-                                </div>
-                                <div class="calculation__text">
-                                    por Teorema 1.2.2 y sumación constante
-                                </div>
-                            </div>
-                            <div class="calculation__formule--1">
-                                $$\Rightarrow n^2+2n$$
-                            </div>
-                            <div class="calculation__formule--2">
-                                <div>
-                                    $$= 2 \sum_{i=1}^n i + n $$
-                                </div>
-                                <div class="calculation__text">
-                                    desarrollando el binomio
-                                </div>
-                            </div>
-                            <div class="calculation__formule--1">
-                                $$\Rightarrow n^2+ n$$
-                            </div>
-                            <div class="calculation__formule--2">
-                                <div>
-                                    $$= 2 \sum_{i=1}^n i $$
-                                </div>
-                                <div class="calculation__text">
-                                    restando $n$ en ambos lados
-                                </div>
-                            </div>
-                            <div class="calculation__formule--1">
-                                $$\Rightarrow \sum_{i=1}^n i$$
-                            </div>
-                            <div class="calculation__formule--2">
-                                <div>
-                                    $$= \frac{n(n+1)}{2} $$
-                                </div>
-                                <div class="calculation__text">
-                                    despejando y asociando
-                                </div>
-                            </div>
+                <p class="paragraph">
+                    1) Notemos que $(i + 1)^2 - i^2 = 2i + 1$, luego
+                </p>
+                <div class="calculation">
+                    <div class="calculation__formule--1">
+                        $$\sum_{i=1}^n [(i+1)^2-i^2]$$
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \sum_{i=1}^n (2i+1) $$
                         </div>
-                    </li>
-                    <li class="proof__step-item">Ejercicio</li>
-                    <li class="proof__step-item">Ejercicio</li>
-                    <li class="proof__step-item">Ejercicio</li>
-                </ol>
-            </div>
-            <div class="fancy-line"></div>
-            <form class="question margin-top-sm" data-question="question-1-2-6" data-answer="d">
-                <h3 class="question__header margin-bottom-sm">
-                    Calcula el siguiente límite $\lim_{n \to \infty} \sum_{1}^{n}\frac{1}{n} (\frac{i}{n})^2$
-                </h3>
-                <div class="question__row">
-                    <div class="question__col-1">
-                        <div class="question__options">
-                            <div class="question__option">
-                                <input type="radio" autocomplete="off" id="answer-1-2-6-a" name="question-1-2-6" value="a" data-option="question-1-2-6">
-                                <label for="answer-1-2-6-a">$\frac{1}{2}$</label>
-                            </div>
-                            <div class="question__option">
-                                <input type="radio" autocomplete="off" id="answer-1-2-6-b" name="question-1-2-6" value="b" data-option="question-1-2-6">
-                                <label for="answer-1-2-6-b">$\frac{2}{3}$</label>
-                            </div>
-                            <div class="question__option">
-                                <input type="radio" autocomplete="off" id="answer-1-2-6-c" name="question-1-2-6" value="c" data-option="question-1-2-6">
-                                <label for="answer-1-2-6-c">$1$</label>
-                            </div>
-                            <div class="question__option">
-                                <input type="radio" autocomplete="off" id="answer-1-2-6-d" name="question-1-2-6" value="d" data-option="question-1-2-6">
-                                <label for="answer-1-2-6-d">$\frac{1}{3}$</label>
-                            </div>
-                        </div>
-                        <div class="question__btn-box">
-                            <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Aceptar</button>
-                            <button class="btn btn--blue" type="button" disabled data-btn-continue="step-3">Continuar</button>
+                        <div class="calculation__text">
+                            por consistencia de la suma sobre la "="
                         </div>
                     </div>
-                    <div class="question__col-2">
-                        <p class="question__answer"></p>
+                    <div class="calculation__formule--1">
+                        $$\Rightarrow \sum_{i=1}^n [(i+1)^2-i^2]$$
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \sum_{i=1}^n i + \sum_{i=1}^n 1 $$
+                        </div>
+                        <div class="calculation__text">
+                            por Teorema 1.2.1
+                        </div>
+                    </div>
+                    <div class="calculation__formule--1">
+                        $$\Rightarrow (n+1)^2-1^2$$
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= 2 \sum_{i=1}^n i + n $$
+                        </div>
+                        <div class="calculation__text">
+                            por Teorema 1.2.2 y sumación constante
+                        </div>
+                    </div>
+                    <div class="calculation__formule--1">
+                        $$\Rightarrow n^2+2n$$
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= 2 \sum_{i=1}^n i + n $$
+                        </div>
+                        <div class="calculation__text">
+                            desarrollando el binomio
+                        </div>
+                    </div>
+                    <div class="calculation__formule--1">
+                        $$\Rightarrow n^2+ n$$
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= 2 \sum_{i=1}^n i $$
+                        </div>
+                        <div class="calculation__text">
+                            restando $n$ en ambos lados
+                        </div>
+                    </div>
+                    <div class="calculation__formule--1">
+                        $$\Rightarrow \sum_{i=1}^n i$$
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \frac{n(n+1)}{2} $$
+                        </div>
+                        <div class="calculation__text">
+                            despejando y asociando
+                        </div>
                     </div>
                 </div>
-            </form>
+                <p class="paragraph">
+                    2) De manera similar al caso anterior se usa la identidad $k^3-(k-1)^3=3k^2-3k+1$. 
+                </p>
+                <form class="question margin-top-sm" data-question="question-theo-1.2.3" data-answer="d" autocomplete="off">
+                    <h3 class="question__header margin-bottom-sm">
+                        Calcula $\sum_{i=1}^n \left ( k^3-(k-1)^3 \right ).$
+                    </h3>
+                    <div class="question__row">
+                        <div class="question__col-1">
+                            <div class="question__options">
+                                <div class="question__option">
+                                    <input type="radio" id="answer-theo-1.2.3-a" name="question-theo-1.2.3" value="a" data-option="question-theo-1.2.3">
+                                    <label for="answer-theo-1.2.3-a">$n^3 -n^2 + 1 $</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" id="answer-theo-1.2.3-b" name="question-theo-1.2.3" value="b" data-option="question-theo-1.2.3">
+                                    <label for="answer-theo-1.2.3-b">$n^3 + 1 $</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" id="answer-theo-1.2.3-c" name="question-theo-1.2.3" value="c" data-option="question-theo-1.2.3">
+                                    <label for="answer-theo-1.2.3-c">$n^3 - 1 $</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" id="answer-theo-1.2.3-d" name="question-theo-1.2.3" value="d" data-option="question-theo-1.2.3">
+                                    <label for="answer-theo-1.2.3-d">$n^3$</label>
+                                </div>
+                            </div>
+                            <div class="question__btn-box">
+                                <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                <button class="btn btn--blue" type="button" disabled data-btn-continue="t-1-2-3">Continuar</button>
+                            </div>
+                        </div>
+                        <div class="question__col-2">
+                            <p class="question__answer"></p>
+                        </div>
+                    </div>
+                </form>
+                <div class="section--hidden margin-top-sm" data-section="t-1-2-3">
+                    <p class="paragraph">
+                        Por ser suma telescópica $\sum_{k=1}^n \left ( k^3-(k-1)^3 \right ) = n^3.$
+                    </p>
+                    <form class="question margin-top-sm" data-question="question-theo-1.2.3-2" data-answer="b" autocomplete="off">
+                        <h3 class="question__header margin-bottom-sm">
+                            ¿Cuál de las siguientes expresiones es correcta?
+                        </h3>
+                        <div class="question__row">
+                            <div class="question__col-1">
+                                <div class="question__options">
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-theo-1.2.3-2-a" name="question-theo-1.2.3-2" value="a" data-option="question-theo-1.2.3-2">
+                                        <label for="answer-theo-1.2.3-2-a">$\sum_{k=1}^n \left ( k^2 - 1\right ) = n^3 - 2n^2$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-theo-1.2.3-2-b" name="question-theo-1.2.3-2" value="b" data-option="question-theo-1.2.3-2">
+                                        <label for="answer-theo-1.2.3-2-b">$\sum_{k=1}^n \left ( 3k^2 - 3k + 1\right ) = n^3$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-theo-1.2.3-2-c" name="question-theo-1.2.3-2" value="c" data-option="question-theo-1.2.3-2">
+                                        <label for="answer-theo-1.2.3-2-c">$\sum_{k=1}^n \left ( 3k^2 - 3k + 1\right ) = 3n^2$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-theo-1.2.3-2-d" name="question-theo-1.2.3-2" value="d" data-option="question-theo-1.2.3-2">
+                                        <label for="answer-theo-1.2.3-2-d">$\sum_{k=1}^n \left ( 3k^2 - 3k + 1\right ) = n^3 -1$</label>
+                                    </div>
+                                </div>
+                                <div class="question__btn-box">
+                                    <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                    <button class="btn btn--blue" type="button" disabled data-btn-continue="t-1-2-3-1">Continuar</button>
+                                </div>
+                            </div>
+                            <div class="question__col-2">
+                                <p class="question__answer"></p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="section--hidden" data-section="t-1-2-3-1">
+                    <p class="paragraph">
+                        Usando la identidad $k^3-(k-1)^3=3k^2-3k+1$ y de manera similar al caso anterior,
+                    </p>
+                    <div class="calculation">
+                        <div class="calculation__formule--1">
+                            $$\sum_{k=1}^n \left ( 3k^2 - 3k + 1\right )$$
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= \sum_{k=1}^n \left ( k^3-(k-1)^3 \right ) $$
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= n^3 $$
+                            </div>
+                        </div>
+                    </div>
+                    <form class="question margin-top-sm" data-question="question-theo-1-2-3-3" data-answer="b" autocomplete="off">
+                        <h3 class="question__header margin-bottom-sm">
+                            ¿Hay información suficiente para terminar la demostración?
+                        </h3>
+                        <div class="question__row">
+                            <div class="question__col-1">
+                                <div class="question__options">
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-theo-1-2-3-3-a" name="question-theo-1-2-3-3" value="a" data-option="question-theo-1-2-3-3">
+                                        <label for="answer-theo-1-2-3-3-a">No</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-theo-1-2-3-3-b" name="question-theo-1-2-3-3" value="b" data-option="question-theo-1-2-3-3">
+                                        <label for="answer-theo-1-2-3-3-b">Si</label>
+                                    </div>
+                                </div>
+                                <div class="question__btn-box">
+                                    <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                    <button class="btn btn--blue" type="button" disabled data-btn-continue="t-1-2-3-2">Continuar</button>
+                                </div>
+                            </div>
+                            <div class="question__col-2">
+                                <p class="question__answer"></p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="section--hidden margin-top-sm" data-section="t-1-2-3-2">
+                    <p class="paragraph">
+                        Usando los resultados anteriores, se tiene
+                        $$
+                        \begin{equation*}
+                            \begin{split}
+                                \sum_{k=1}^n \left ( 3k^2 - 3k + 1\right ) &= n^3\\
+                                \Rightarrow 3\sum_{k=1}^n k^2 - 3\sum_{k=1}^n k + \sum_{k=1}^n 1 &= n^3 \\
+                                \Rightarrow 3\sum_{k=1}^n  k^2 - 3\frac{n(n+1)}{2} + n &=  n^3 \\
+                                \Rightarrow \sum_{k=1}^n  k^2 &= \frac{1}{3} \left ( n^3 + 3\frac{n(n+1)}{2} - n \right )\\
+                                \Rightarrow \sum_{k=1}^n  k^2 &= \frac{n(n+1)(2n+1)}{6}
+                            \end{split}
+                        \end{equation*}
+                        $$  
+                    </p>
+                    <p class="paragraph">
+                        3) Se puede demostrar usando la identidad $k^4 - (k-1)^4 = 4k^3-6k^2 + 4k -1$.
+                    </p>
+                    <p class="paragraph">
+                        4) La demostración del punto 1 se puede hacer con la identidad $k^2-(k-1)^2=2k-1$. Usando está identidad y la de los puntos 2 y 3
+                        proponga una identidad similar y demuestre la igualdad.
+                    </p>
+                    <div>
+                        <button class="btn-sm btn--blue" type="button" data-btn-continue="step-lim">Continuar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="section--hidden margin-top-sm" data-section="step-lim">
+                <div class="fancy-line"></div>
+                <form class="question margin-top-sm" data-question="question-1-2-6" data-answer="d">
+                    <h3 class="question__header margin-bottom-sm">
+                        Calcula el siguiente límite $\lim_{n \to \infty} \sum_{i=1}^{n}\frac{1}{n} (\frac{i}{n})^2$
+                    </h3>
+                    <div class="question__row">
+                        <div class="question__col-1">
+                            <div class="question__options">
+                                <div class="question__option">
+                                    <input type="radio" autocomplete="off" id="answer-1-2-6-a" name="question-1-2-6" value="a" data-option="question-1-2-6">
+                                    <label for="answer-1-2-6-a">$\frac{1}{2}$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" autocomplete="off" id="answer-1-2-6-b" name="question-1-2-6" value="b" data-option="question-1-2-6">
+                                    <label for="answer-1-2-6-b">$\frac{2}{3}$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" autocomplete="off" id="answer-1-2-6-c" name="question-1-2-6" value="c" data-option="question-1-2-6">
+                                    <label for="answer-1-2-6-c">$1$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" autocomplete="off" id="answer-1-2-6-d" name="question-1-2-6" value="d" data-option="question-1-2-6">
+                                    <label for="answer-1-2-6-d">$\frac{1}{3}$</label>
+                                </div>
+                            </div>
+                            <div class="question__btn-box">
+                                <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Aceptar</button>
+                                <button class="btn btn--blue" type="button" disabled data-btn-continue="step-3">Continuar</button>
+                            </div>
+                        </div>
+                        <div class="question__col-2">
+                            <p class="question__answer"></p>
+                        </div>
+                    </div>
+                </form>
+            </div>
             <div class="section--hidden margin-top-sm" data-section="step-3">
                 <p class="paragraph">
                     Para $n \in \mathbf{N}$, tenemos que
                 </p>
-                <p class="paragraph">
-                    $$
-                    \begin{equation*}
-                        \begin{split}
-                            \sum_1^n\frac{i}{n^3}&= \frac{1}{n^3}\sum_1^n i \qquad \mbox{ por 1) del Teo. 1.2.1} \\
-                            &= \frac{1}{n^3}\frac{n(n+1)}{2} \qquad \mbox{ por 1) del Teo. 1.2.3}\\
-                            &= \frac{1}{2}\cdot\frac{1}{n}\cdot\frac{n}{n}\cdot\frac{(n+1)}{n}=\frac{1}{2}\frac{1}{n}\left(1+\frac{1}{n}\right).
-                        \end{split}
-                    \end{equation*}
-                    $$                 
-                </p>
+                <div class="calculation">
+                    <div class="calculation__formule--1">
+                        $$\sum_{i=1}^n\frac{i}{n^3}$$
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$=  \frac{1}{n^3}\sum_{i=1}^n i$$
+                        </div>
+                        <div class="calculation__text">
+                            por 1) del Teo. 1.2.1
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \frac{1}{n^3}\frac{n(n+1)}{2} $$
+                        </div>
+                        <div class="calculation__text">
+                            por 1) del Teo. 1.2.3
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$=  \frac{1}{2}\cdot\frac{1}{n}\cdot\frac{n}{n}\cdot\frac{(n+1)}{n}=\frac{1}{2}\frac{1}{n}\left(1+\frac{1}{n}\right). $$
+                        </div>
+                    </div>
+                </div>
                 <p class="paragraph">
                     Entonces,
                 </p>
                 <p class="paragraph">
-                    $$\lim_{n\to \infty}\sum_1^n\frac{i}{n^3}=\lim_{n\to \infty}\frac{1}{2}\cancelto{0}{\frac{1}{n}}\left(1+\cancelto{0}{\frac{1}{n}}\quad\right)=0.$$
+                    $$\lim_{n\to \infty}\sum_{i=1}^n\frac{i}{n^3}=\lim_{n\to \infty}\frac{1}{2}\cancelto{0}{\frac{1}{n}}\left(1+\cancelto{0}{\frac{1}{n}}\quad\right)=0.$$
                 </p>
                 <div class="fancy-line"></div>
                 <div class="change-page">

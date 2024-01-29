@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-MX">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,8 +10,9 @@
 
     <script src="./scripts/variables.js" defer></script>
     <script src="./scripts/1-1-introduction.js" defer></script>
-    <script src="./components/mobile-sidebar/mobile-sidebar.js" defer></script>
-    <script src="./components/sidebar/sidebar.js" defer></script>
+    <script src="./components/component-loader.js" defer></script>
+    <!-- <script src="./components/mobile-sidebar/mobile-sidebar.js" defer></script>
+    <script src="./components/sidebar/sidebar.js" defer></script> -->
     
     <script>
         MathJax = {
@@ -55,7 +56,7 @@
             <p class="paragraph">
                 El problema de encontrar el ́area de regiones en el plano,
                 nos lleva al concepto de integral definida, y por lo tanto, al estudio del
-                Calculo Integral.
+                Cálculo Integral.
             </p>
             <p class="paragraph">
                 El problema de encontrar áreas no es tan grande cuando de polígonos se trata,
@@ -66,8 +67,9 @@
                 <canvas class="canvas" height="300" width="300" data-canvas="chapter-1-1"></canvas>
             </div>
             <p class="paragraph">
-                Una vez que se tiene la fórmula para rectángulos, es posible obtener la fórmula
-                para paralelogramos.
+                Una vez que se tiene la fórmula para rectángulos, es posible obtener la fórmula para paralelogramos. 
+                En la siguiente figura se muestra, con línea punteada, la creación de un triángulo rectángulo en el lado izquierdo del paralelogramo y 
+                al trasladarla hacia la derecha el triángulo, se forma un rectángulo de base $b$ y altura $a.$
             </p>
             <div class="canvas-container">
                 <canvas class="canvas" height="300" width="300" data-canvas="chapter-1-1"></canvas>
@@ -83,6 +85,10 @@
             </div>
             <p class="paragraph">
                 A través de los paralelogramos obtenemos fórmula para triángulos.
+                Esto se logra dividiendo el paralelogramo en dos triángulos, como se muestra en la siguiente figura. 
+                Los triángulos formados tienen las mismas dimensiones, por lo que sus áreas son iguales. En otras palabras, 
+                el área del paralelogramo es dos veces el área de uno de los triángulos. Si $A_P$ denota el área del paralelogramo y 
+                $A_T$ el área del triángulo, se tiene que $A_P=2A_T.$
             </p>
             <div class="canvas-container">
                 <canvas class="canvas" height="300" width="300" data-canvas="chapter-1-1"></canvas>
@@ -117,20 +123,19 @@
                 <li class="simple-list__item">Regiones congruentes tienen áreas iguales.</li>
                 <li class="simple-list__item">
                     El  ́area de dos regiones que se traslapan sólo en un segmento de recta es la
-                    suma de las  ́areas de las dos regiones (esto se generaliza a cualquer cantidad
+                    suma de las  ́areas de las dos regiones (esto se generaliza a cualquier cantidad
                     finita de regiones).
                 </li>
                 <li class="simple-list__item">
                     Si una región está contenida en una segunda región, entonces el área de la
-                    primera es menor o igual que el área de la segunda (solo trabajamos con re-
-                    giones de área finita).
+                    primera es menor o igual que el área de la segunda (solo trabajamos con regiones de área finita).
                 </li>
             </ol>
 
             <p class="paragraph">
                 Cuando consideramos una región curva el problema de asignar áreas es más complicado.
                 Sin embargo, hace más de 2000 años (en 287-212 a.C.), Arquímedes nos proporcionó la clave de la solución, la
-                cual está sustentada en el método de exhausión.
+                cual está sustentada en el método de exhaución.
             </p>
             <p class="paragraph">
                 La idea básica consiste en considerar una sucesión de polígonos inscritos que
@@ -142,23 +147,32 @@
                 lados tenga el polígono, la aproximación será mejor. En el límite, se obtiene el
                 valor de $\pi$.
             </p>
+            <p class="paragraph">
+                A continuación se muestran aproximaciones para el valor de $\pi,$ donde $I$ denota el área del polígono
+                inscrito y $C$ el área del polígono circunscrito. Las fórmulas utilizadas son $I = \frac{1}{2}nr^2 \sin\frac{2\pi}{n}$ y 
+                $C = n a^2 \tan \frac{\pi}{n}$, donde $n$ es el número de lados del polígono, $r$ es la distancia del centro del círculo
+                al vértice del polígono y $a$ es el apotema.
+            </p>
             <div class="canvas-container">
                 <canvas class="canvas" height="300" width="300" data-canvas="chapter-1-1"></canvas>
                 <div class="picker" id="picker-1">
                     <label class="number-picker__label" for="sides">Lados (entre 3 y 100):</label>
                     <input class="input-number" type="number" id="sides" name="sides" min="3" max="100" value="3" data-picker="chapter-1-1" autocomplete="off">
-                    <div class="calculation-canvas" data-calculation="polygon">
+                    <div class="calculation-canvas" data-calculation="polygon-ins">
+                        <!-- Área del polígono =  -->
+                    </div>
+                    <div class="calculation-canvas" data-calculation="polygon-circ">
                         <!-- Área del polígono =  -->
                     </div>
                 </div>
             </div>
             <p class="paragraph">
-                Siguendo las ideas del método de exhausión determinaremos el área bajo una
+                Siguiendo las ideas del método de exhaución determinaremos el área bajo una
                 región curva y lo haremos de la siguiente manera:
             </p>
             <ol class="simple-list">
                 <li class="simple-list__item">
-                    Aproximaremos la región $R$ por medio de $n$ rectángulos, en donde los $n$
+                    Se aproximará la región $R$ por medio de $n$ rectángulos, en donde los $n$
                     rectángulos juntos estén contenidos en $R$, es decir, tomaremos rectángulos inscritos 
                     en la región, y juntos produzcan un polígono inscrito. O bien, que juntos
                     contengan a $R$ (es decir, rectángulos circunscritos) y produzcan un polígono

@@ -55,20 +55,50 @@ function drawSquare(startX = 50, startY = 50, width = canvas.width / 2, height =
     resetoColor(ctx)
 }
 
+function coordinatesOfTheVertex(currentVertex, numberOfSides) {
+    return {
+        x: Math.cos(currentVertex * 2 * Math.PI / numberOfSides),
+        y: Math.sin(currentVertex * 2 * Math.PI / numberOfSides)
+    }
+}
 
-function drawPolygon (ctx, numberOfSides, size = 100, xCenter = 150, yCenter = 150) {
+
+function drawPolygonIns(ctx, numberOfSides, size = 100, xCenter = 150, yCenter = 150) {
 
     ctx.beginPath();
-    ctx.moveTo(xCenter +  size * Math.cos(0), yCenter +  size *  Math.sin(0));          
-    
+    ctx.moveTo(xCenter + size * Math.cos(0), yCenter + size * Math.sin(0));
+
     for (var i = 1; i <= numberOfSides; i += 1) {
-        ctx.lineTo (xCenter + size * Math.cos(i * 2 * Math.PI / numberOfSides), yCenter + size * Math.sin(i * 2 * Math.PI / numberOfSides));
+        let coords = coordinatesOfTheVertex(i, numberOfSides)
+        ctx.lineTo(xCenter + size * coords.x, yCenter + size * coords.y);
     }
     ctx.stroke();
 }
 
-function polygonArea(sides = 3, radio = 1) {
-    return (sides / 2) * Math.pow(radio, 2) * Math.sin((2 * Math.PI) / sides)
+function polygonAreaRadius(sides, radius) {
+    return (sides / 2) * Math.pow(radius, 2) * Math.sin((2 * Math.PI) / sides)
+}
+
+function polygonAreaLength(sides, baseLength) {
+    return sides * Math.pow(baseLength, 2) / (4 * Math.tan(Math.PI / sides))
+}
+
+function polygonAreaApotheme(sides, apotheme) {
+    return sides * apotheme * Math.tan(Math.PI / sides)
+}
+
+function drawPolygonCirc(ctx, numberOfSides, size = 100, xCenter = 150, yCenter = 150) {
+
+    // let radiusPolygon = size /(2 * Math.sin(Math.PI / numberOfSides))
+    let radiusPolygon = size / Math.cos(Math.PI / numberOfSides)
+    ctx.beginPath();
+    ctx.moveTo(xCenter + radiusPolygon, yCenter);
+
+    for (var i = 1; i <= numberOfSides; i += 1) {
+        let coords = coordinatesOfTheVertex(i, numberOfSides)
+        ctx.lineTo (xCenter + radiusPolygon * coords.x, yCenter + radiusPolygon * coords.y);
+    }
+    ctx.stroke();
 }
 
 function drawCircle(ctx, radius = 100, xCenter = 150, yCenter = 150) {
@@ -88,13 +118,13 @@ function drawCurve(ctx, mode = 'ins') {
 
     // ctx.moveTo(30, 30 * Math.sin(30 * 2 * Math.PI / 100) + 100)
     ctx.moveTo(0, 30 * Math.sin(0 * 2 * Math.PI / 100) + 100)
-    for(var i = 0; i <= 270; i += xCoord) {
+    for (var i = 0; i <= 270; i += xCoord) {
         var yCoord = 30 * Math.sin(i * 2 * Math.PI / 100) + 100
-        if(i % 48 === 0 && i !== 0) {
+        if (i % 48 === 0 && i !== 0) {
             yValues = []
             xValues = []
             ctx.fillStyle = COLOR_BROWN_LIGHT
-            for(var j = i - 48; j < i ; ++j) {
+            for (var j = i - 48; j < i; ++j) {
                 xValues.push(j)
                 yValues.push(30 * Math.sin(j * 2 * Math.PI / 100) + 100)
             }
@@ -110,17 +140,17 @@ function drawCurve(ctx, mode = 'ins') {
             ctx.strokeRect(i - 48, point, 48, 250 - yCoord)
         }
     }
-    for(var i = 0; i <= 270; i += xCoord) {
+    for (var i = 0; i <= 270; i += xCoord) {
         // ctx.moveTo(0, 30 * Math.sin(i * 2 * Math.PI / 100) + 100)
         var yCoord = 30 * Math.sin(i * 2 * Math.PI / 100) + 100
         ctx.strokeStyle = '#000'
         ctx.lineTo(i, yCoord)
         ctx.stroke()
-        if(i % 48 === 0 && i !== 0 && i % 5 === 0) {
+        if (i % 48 === 0 && i !== 0 && i % 5 === 0) {
             break
         }
     }
-    ctx.clearRect(0, 200, 300, 100)            
+    ctx.clearRect(0, 200, 300, 100)
 }
 
 
@@ -128,7 +158,7 @@ function parabole(x) {
     // return {x, y: Math.pow(x, 2)}
     return Math.pow(x, 2)
 }
-function example_1_3_5(x) {  
+function example_1_3_5(x) {
     return Math.sin(x) + 6
 }
 // function polynomial1(x) {
@@ -142,10 +172,10 @@ function example_3_1(x) {
     return Math.exp(-x)
 }
 function example_3_1_1(x) {
-    return 1/Math.pow((4-x), 2)
+    return 1 / Math.pow((4 - x), 2)
 }
 function example_3_1_2(x) {
-    return 1/x
+    return 1 / x
 }
 
 // function drawAxis(canvas, ctx, centerX, centerY) {
@@ -167,19 +197,19 @@ function drawFunction(ctx, axisX, axisY, x0, x1, scale, functionToDraw, backgrou
 
     // ctx.lineWidth = 3
     // ctx.globalAlpha = 0.5
-    
+
     ctx.translate(axisX, CANVAS_HEIGHT - axisY)
     ctx.beginPath()
-    ctx.moveTo(x0 , -functionToDraw(x0 / scale) * scale)
+    ctx.moveTo(x0, -functionToDraw(x0 / scale) * scale)
     // ctx.moveTo(100, -100)
-    
-    for(var i = x0; i <= x1; ++i) {
+
+    for (var i = x0; i <= x1; ++i) {
         y = -functionToDraw(i / scale) * scale
         x = i
         ctx.lineTo(x, y)
         ctx.stroke()
     }
-    if(background) {
+    if (background) {
         ctx.lineTo(x1, 0)
         ctx.lineTo(x0, 0)
         // ctx.closePath()
@@ -190,16 +220,16 @@ function drawFunction(ctx, axisX, axisY, x0, x1, scale, functionToDraw, backgrou
 }
 
 function drawFunctionBg(ctx, axisX, axisY, x0, x1, scale, functionToDraw) {
-    
+
     var y
     var x
-    
+
     ctx.translate(axisX, CANVAS_HEIGHT - axisY)
     ctx.beginPath()
-    ctx.moveTo(x0 , -functionToDraw(x0 / scale) * scale)
+    ctx.moveTo(x0, -functionToDraw(x0 / scale) * scale)
     // ctx.moveTo(100, -100)
-    
-    for(var i = x0; i <= x1; ++i) {
+
+    for (var i = x0; i <= x1; ++i) {
         y = -functionToDraw(i / scale) * scale
         x = i
         ctx.lineTo(x, y)
@@ -226,26 +256,26 @@ function drawFunctionRect(ctx, axisX, axisY, x0, x1, scale, subintervals, functi
     ctx.beginPath()
     ctx.moveTo(x0, - functionToDraw(x0 / scale) * scale)
 
-    for(var i = 0; i < subintervals; i++) {
-        if(mode === 'ins' || mode === 'cir') {
+    for (var i = 0; i < subintervals; i++) {
+        if (mode === 'ins' || mode === 'cir') {
             yValues = []
             xValues = []
 
-            for(var j = x0 + i * increment; j <= x0 + ((i +1) * increment); ++j) {
+            for (var j = x0 + i * increment; j <= x0 + ((i + 1) * increment); ++j) {
                 yValues.push(functionToDraw(j / scale) * scale)
                 xValues.push(j)
             }
-    
+
             y0 = mode === 'ins' ? Math.min(...yValues) : Math.max(...yValues)
             y = - y0
             x = x0 + i * increment
         }
-        if(mode === 'right') {
+        if (mode === 'right') {
             x = x0 + i * increment
             y = -functionToDraw((x + increment) / scale) * scale
         }
-        if(stroke) {
-            if(mode === 'cir' || mode === 'right') {
+        if (stroke) {
+            if (mode === 'cir' || mode === 'right') {
                 ctx.globalAlpha = 0.5
             }
             ctx.strokeRect(x, y, increment, -y)
@@ -260,9 +290,9 @@ function calculateFunctionArea(areaToCalculate, x0, x1, subintervals, mode, prec
     const increment = Math.floor(((x1 - x0) / subintervals) * precision) / precision
     var area = 0
 
-    for(var i = 0; i <= subintervals - 1; ++i) {
+    for (var i = 0; i <= subintervals - 1; ++i) {
         var yValues = []
-        for(var j = x0 + i * increment; j <= x0 + ((1 + i) * increment); j += 0.1) {
+        for (var j = x0 + i * increment; j <= x0 + ((1 + i) * increment); j += 0.1) {
             yValues.push(areaToCalculate(j))
         }
 
@@ -275,8 +305,8 @@ function calculateFunctionArea(areaToCalculate, x0, x1, subintervals, mode, prec
 }
 
 function paraboleSimple(n) {
-    return (4/3) * (1 - 1/n) * (2 - 1/n)
+    return (4 / 3) * (1 - 1 / n) * (2 - 1 / n)
 }
 function paraboleSimple2(n) {
-    return (4/3) * (1 + 1/n) * (2 + 1/n)
+    return (4 / 3) * (1 + 1 / n) * (2 + 1 / n)
 }

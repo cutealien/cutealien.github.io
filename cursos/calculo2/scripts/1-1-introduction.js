@@ -7,9 +7,9 @@ var ctx_1_1 = canvas_chapter_1_1[0].getContext("2d")
 setFont(ctx_1_1, '24px Fugaz One', '#000')
 
 drawSquare(
-    CANVAS_PADDING, 
-    CANVAS_HEIGHT * 0.25, 
-    CANVAS_WIDTH * 0.8, 
+    CANVAS_PADDING,
+    CANVAS_HEIGHT * 0.25,
+    CANVAS_WIDTH * 0.8,
     CANVAS_HEIGHT * 0.5,
     '#000',
     '#fff',
@@ -25,7 +25,7 @@ posY = CANVAS_HEIGHT * 0.5
 writeText('a', posX, posY, ctx_1_1)
 
 posX = CANVAS_WIDTH * .5
-posY = CANVAS_HEIGHT *( 0.25 + 0.5) + 25
+posY = CANVAS_HEIGHT * (0.25 + 0.5) + 25
 writeText('b', posX, posY, ctx_1_1)
 
 // canvas 2
@@ -50,19 +50,35 @@ ctx_1_2.stroke()
 ctx_1_2.fillStyle = COLOR_BROWN_LIGHT
 ctx_1_2.fill()
 
+// ctx_1_2.beginPath()
+// ctx_1_2.strokeStyle = '#000'
+// ctx_1_2.lineWidth = 3
+// ctx_1_2.moveTo(paralelogram.x1, paralelogram.y1)
+// ctx_1_2.lineTo(paralelogram.x1, paralelogram.y3)
+// ctx_1_2.lineTo(paralelogram.x3, paralelogram.y3)
+// ctx_1_2.lineTo(paralelogram.x3, paralelogram.y1)
+// ctx_1_2.lineTo(paralelogram.x1, paralelogram.y1)
+// ctx_1_2.setLineDash([15, 10])
+// ctx_1_2.stroke()
+
 ctx_1_2.beginPath()
-ctx_1_2.strokeStyle = '#000'
 ctx_1_2.lineWidth = 3
-ctx_1_2.moveTo(paralelogram.x1, paralelogram.y1)
-ctx_1_2.lineTo(paralelogram.x1, paralelogram.y3)
-ctx_1_2.setLineDash([15, 15])
+ctx_1_2.strokeStyle = '#000'
+ctx_1_2.moveTo(paralelogram.x2, paralelogram.y2)
+ctx_1_2.lineTo(paralelogram.x2, paralelogram.y3)
+ctx_1_2.lineTo(paralelogram.x3, paralelogram.y3)
+ctx_1_2.lineTo(paralelogram.x2, paralelogram.y2)
+ctx_1_2.setLineDash([10, 10])
 ctx_1_2.stroke()
 
 ctx_1_2.beginPath()
 ctx_1_2.lineWidth = 3
-ctx_1_2.moveTo(paralelogram.x2, paralelogram.y2)
-ctx_1_2.lineTo(paralelogram.x2, paralelogram.y3)
-ctx_1_2.lineTo(paralelogram.x3, paralelogram.y3)
+ctx_1_2.strokeStyle = '#000'
+ctx_1_2.moveTo(paralelogram.x1, paralelogram.y1)
+ctx_1_2.lineTo(paralelogram.x4, paralelogram.y4)
+ctx_1_2.lineTo(paralelogram.x1, paralelogram.y4)
+ctx_1_2.lineTo(paralelogram.x1, paralelogram.y1)
+ctx_1_2.setLineDash([10, 10])
 ctx_1_2.stroke()
 
 // writeText('A = ab', (paralelogram.x1 + paralelogram.x2) / 2 - 30, paralelogram.y1 - 5, ctx_1_2)
@@ -102,23 +118,27 @@ ctx_1_3.beginPath()
 ctx_1_3.moveTo(paralelogram.x1, paralelogram.y1)
 ctx_1_3.lineTo(paralelogram.x1, paralelogram.y3)
 // ctx_1_3.closePath()
-ctx_1_3.strokeStyle = '#000'
+ctx_1_3.strokeStyle = COLOR_RED
 ctx_1_3.stroke()
 
 
 // canvas 4 polygon
 var ctx_1_4 = canvas_chapter_1_1[3].getContext('2d')
 var numberPicker = pickers[0]
-var polygon = document.querySelector('[data-calculation=polygon]')
+var polygonIns = document.querySelector('[data-calculation=polygon-ins]')
+var polygonCirc = document.querySelector('[data-calculation=polygon-circ]')
 
-polygon.innerHTML = `Área del polígono = ${polygonArea().toFixed(6)}`
+polygonIns.innerHTML = `I = ${polygonAreaRadius(3, 1).toFixed(6)}`
+polygonCirc.innerHTML = `C = ${polygonAreaApotheme(3, 1).toFixed(6)}`
 ctx_1_4.strokeStyle = '#000'
 
 drawCircle(ctx_1_4)
 
 ctx_1_4.strokeStyle = COLOR_BROWN_DARK
 
-drawPolygon(ctx_1_4, 3)
+drawPolygonIns(ctx_1_4, 3)
+drawPolygonCirc(ctx_1_4, 3, 100 + 1 / Math.cos(Math.PI / 3))
+
 
 numberPicker.addEventListener('change', (e) => {
     const numberOfSides = +e.target.value
@@ -126,8 +146,10 @@ numberPicker.addEventListener('change', (e) => {
     ctx_1_4.strokeStyle = '#000'
     drawCircle(ctx_1_4)
     ctx_1_4.strokeStyle = COLOR_BROWN_DARK
-    drawPolygon(ctx_1_4, numberOfSides)
-    polygon.innerHTML = `Área del polígono = ${polygonArea(+e.target.value).toFixed(6)}`
+    drawPolygonIns(ctx_1_4, numberOfSides)
+    drawPolygonCirc(ctx_1_4, numberOfSides)
+    polygonIns.innerHTML = `I = ${polygonAreaRadius(+e.target.value, 1).toFixed(6)}`
+    polygonCirc.innerHTML = `C = ${polygonAreaApotheme(+e.target.value, 1).toFixed(6)}`
 })
 
 // canvas 5 graphs

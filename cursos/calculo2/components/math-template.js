@@ -3,15 +3,12 @@ class AlienMathTemplate extends HTMLElement {
       super()
    }
 
-   connectedCallback() {
+   async connectedCallback() {
       let path = this.getAttribute('path')
       
       if (!path) return
-
-      const mathJaxScript = document.getElementById('MathJax-script')
-      mathJaxScript.addEventListener('load', e => {
-         this.#getHTML(path)
-      })
+      
+      this.#getHTML(path)
    }
 
    /**
@@ -27,20 +24,10 @@ class AlienMathTemplate extends HTMLElement {
       // Get the HTML
       let text = await request.text();
 
-      await this.typeset(() => {
+      await typeset(() => {
          this.innerHTML = text
          return [this]
       });
-   }
-
-   /**
-   * Mathjax example code (dynamic content)
-   */
-   typeset(code) {
-      MathJax.startup.promise = MathJax.startup.promise
-         .then(() => MathJax.typesetPromise(code()))
-         .catch((err) => console.log('Typeset failed: ' + err.message));
-      return MathJax.startup.promise;
    }
 }
 

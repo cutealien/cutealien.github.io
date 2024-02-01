@@ -70,6 +70,7 @@ HTML_MOBILE_MENU = `
                    <strong class="subject-list__title">Anexo</strong>
                    <ol class="subject-list">
                        <li class="subject-list__item"><a href="./anexo-conjuntos.html" class="subject-list__link">Conjuntos</a></li>
+                       <li class="subject-list__item"><a href="./anexo-demostracion-teo-1.5.1.html" class="subject-list__link">Teorema 1.5.1</a></li> 
                    </ol>
                </li>
            </ol>

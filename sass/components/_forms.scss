@@ -202,3 +202,32 @@
         // display: none;
     }
 }
+
+.justification {
+    &__content {
+        font-size: 1.6rem;
+    }
+    &__block {
+        max-width: 30rem;
+    }
+    &__option {
+        transition: all 0.3 ease-in-out;
+        border: 1px solid transparent;
+        &--correct {
+            border: 1px solid $color-green;
+            background-color: $color-green-light;
+        }
+        &--error {
+            border: 1px solid $color-red;
+            background-color: $color-red-light;
+        }
+        input:disabled + label {
+            opacity: 0.5;
+        }
+        &:not(:last-child) {
+            margin-bottom: 1rem;
+        }
+    }
+
+
+}

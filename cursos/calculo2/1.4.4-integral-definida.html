@@ -92,7 +92,7 @@
                 </form>
                 <div class="section--hidden" data-section="step-1">
                     <p class="paragraph">
-                        El <span class="modal__reference" data-modal-btn="theorem-1-4-5">Teorema 1.4.5</span> nos dice como demostrar que una función es integrable.
+                        El <span class="modal__reference" data-modal-btn="theorem-1-4-5">Teorema 1.4.5</span> nos dice cómo demostrar que una función es integrable.
                     </p>
                     <form class="question margin-top-sm" data-question="question-1.4.4-2" data-answer="a">
                         <h3 class="question__header margin-bottom-sm">
@@ -133,7 +133,7 @@
                 <div class="section--hidden" data-section="step-2">
                     <p class="paragraph">
                         La condición del teorema que cumplimos es $f:[a,b]\to \mathbf{R}$ una función acotada. Entonces nos falta por demostrar que
-                        $f$ es integrable. De nuevo el <span class="modal__reference" data-modal-btn="theorem-1-4-5">Teorema 1.4.5</span> nos dice como.
+                        $f$ es integrable. De nuevo el <span class="modal__reference" data-modal-btn="theorem-1-4-5">Teorema 1.4.5</span> nos dice cómo.
                     </p>
                     <form class="question margin-top-sm" data-question="question-1.4.4-3" data-answer="d">
                         <h3 class="question__header margin-bottom-sm">
@@ -383,242 +383,409 @@
             <alien-math-template path="./components/theorems/theorem-1.4.7.html"></alien-math-template>
             <div class="proof">
                 <h3 class="header-tertiary">Demostración.</h3>
-                <ul class="proof__step">
-                    <li class="proof__step-item">
-                        Veamos la demostración para integrales inferiores.
-                        <!-- <p class="paragraph">
-                        </p> -->
-                        <p class="paragraph">
-                            Sean $P$ una partición de $[a,b]$ y $C\in[a,b]$. Tomemos la partición $Q=P\cup\{c\}$ de $[a,b]$ y definamos $Q_1=[a,c]\cap Q$ y $Q_2=[c,b]\cap Q$, 
-                            entonces $Q_1$ es una partición de $[a,c]$ y $Q_2$ es una partición de $[c,b]$. Notemos que por definición de $Q$, tenemos que $Q$ es un refinamiento 
-                            de $P$ y, por <span class="modal__reference" data-modal-btn="theorem-1-4-2">Teorema 1.4.2</span>, $\underline{S}(f,P)\leq \underline{S}(f,Q)$. 
-                            Además, es claro que $\underline{S}(f,Q)=\underline{S}(f,Q_1)+\underline{S}(f,Q_2)$. 
-                            Pero, por definición de integral inferior, sabemos que 
-                            $$
-                                \underline{S}(f,Q_1) \leq {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^c f(x)\,dx \quad y \quad 
-                                \underline{S}(f,Q_2) \leq {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_c^b f(x)\,dx.
-                            $$
-                            Luego, por transitividad, 
-                            $$
-                                \underline{S}(f,P)\leq {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^c f(x)\,dx + 
-                                {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_c^b f(x)\,dx.
-                            $$
-                        </p>
-                        <p class="paragraph">
-                            Como $P$ era una partición arbitraria, entonces 
-                            $$
-                                {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^c f(x)\,dx + 
-                                {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_c^b f(x)\,dx
-                            $$ 
-                            es una cota superior para el conjunto $\{\underline{S}(f,P): P \mbox{ es partición de }[a,b]\}$. 
-                            Por lo tanto, 
-                            $$
-                                {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx \leq {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^c f(x)\,dx + 
-                                {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_c^b f(x)\,dx.
-                            $$
-                        </p>
-                        <p class="paragraph">
-                            Ahora, como 
-                            $$
-                                {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^c f(x)\,dx=\sup\{\underline{S}(f,P): P \mbox{ es partición de }[a,c]\}
-                            $$
-                                y 
-                            $$
-                                {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_c^b f(x)\,dx=\sup\{\underline{S}(f,P): P \mbox{ es partición de }[c,b]\},
-                            $$
-                            dada $\varepsilon>0$, existen particiones $P_1$ de $[a,c]$ y $P_2$ de $[c,b]$, tales que 
-                            $$
-                                {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^c f(x)\,dx-\frac{\varepsilon}{2} < \underline{S}(f,P_1) \quad \mbox{ y } \quad 
-                                {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_c^b f(x)\,dx-\frac{\varepsilon}{2}< \underline{S}(f,P_2).
-                            $$
-                        </p>
-                        <p class="paragraph">
-                            Si $R=P_1\cup P_2$, entonces $R$ es una partición de $[a,b]$ y además $\underline{S}(f,P_1)+\underline{S}(f,P_2)=\underline{S}(f,R)$. 
-                            Pero, por definición de integral inferior, 
-                            $$
-                                \underline{S}(f,R)\leq {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx.
-                            $$
-                            Luego, por transitividad, 
-                            $$
-                                {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^c f(x)\,dx + 
-                                {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_c^b f(x)\,dx-\varepsilon < 
-                                {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx.
-                            $$
-                        </p>
-                        <p class="paragraph">
-                            Por lo tanto, $\forall \varepsilon>0:$ 
-                            $$
-                                {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^c f(x)\,dx + 
-                                {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_c^b f(x)\,dx-\varepsilon < 
-                                {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx.
-                            $$
-                            De lo cual se deduce que
-                            $$
-                                {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^c f(x)\,dx + 
-                                {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_c^b f(x)\,dx \leq 
-                                {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx.
-                            $$
-                        </p>
-                        <p class="paragraph">
-                            Finalmente, 
-                            $$
-                                {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx = 
-                                {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^c f(x)\,dx + 
-                                {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_c^b f(x)\,dx.
-                            $$
-                        </p>
-                        <p class="paragraph">
-                            El caso para integrales superiores se hace de manera análoga.
-                        </p>
-                    </li>
-                    <li class="proo__step-item">
-                        Se deja como ejercicio.
-                    </li>
-                    <li class="proo__step-item">
-                        Haremos la prueba integrales superiores. Sea $P=\{x_0,x_1,...,x_n\}$ una partición de $[a,b]$. Para cada $i=\overline{1,n}$, 
-                        consideremos $N_i=\sup\{(f+c)(x):x\in[x_{i-1},x_i]\}$ y $M_i=\sup\{f(x):x\in[x_{i-1},x_i]\}$. Notemos que, por propiedades del supremo, $N_i=M_i+c$. Luego,
-                        <div class="calculation">
-                            <div class="calculation__formule--1">
-                                $$\overline{S}(f+c,P)$$
-                            </div>
-                            <div class="calculation__formule--2">
-                                <div>
-                                    $$= \sum_{i=1}^n N_i \Delta x_i $$
+                <p class="paragraph">
+                    1) Veamos la demostración para integrales inferiores.
+                </p>
+                <p class="paragraph">
+                    Sean $P$ una partición de $[a,b]$ y $C\in[a,b]$. Tomemos la partición $Q=P\cup\{c\}$ de $[a,b]$ y definamos $Q_1=[a,c]\cap Q$ y $Q_2=[c,b]\cap Q$, 
+                    entonces $Q_1$ es una partición de $[a,c]$ y $Q_2$ es una partición de $[c,b]$. Notemos que por definición de $Q$, tenemos que $Q$ es un refinamiento 
+                    de $P.$
+                </p>
+                <form class="question margin-top-sm" data-question="question-thoerem1-4-7" data-answer="b" autocomplete="off">
+                    <h3 class="question__header margin-bottom-sm">
+                        ¿Cuál de las siguientes desigualdades es correcta?
+                    </h3>
+                    <div class="question__row">
+                        <div class="question__col-1">
+                            <div class="question__options">
+                                <div class="question__option">
+                                    <input type="radio" id="answer-thoerem1-4-7-a" name="question-thoerem1-4-7" value="a" data-option="question-thoerem1-4-7">
+                                    <label for="answer-thoerem1-4-7-a">$ \underline{S}(f,Q) \leq \underline{S}(f,P)$</label>
                                 </div>
-                                <div class="calculation__text">
-                                    por definición de suma superior
+                                <div class="question__option">
+                                    <input type="radio" id="answer-thoerem1-4-7-b" name="question-thoerem1-4-7" value="b" data-option="question-thoerem1-4-7">
+                                    <label for="answer-thoerem1-4-7-b">$\underline{S}(f,P)\leq \underline{S}(f,Q)$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" id="answer-thoerem1-4-7-c" name="question-thoerem1-4-7" value="c" data-option="question-thoerem1-4-7">
+                                    <label for="answer-thoerem1-4-7-c">$\overline{S}(f,P)\leq \underline{S}(f,Q)$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" id="answer-thoerem1-4-7-d" name="question-thoerem1-4-7" value="d" data-option="question-thoerem1-4-7">
+                                    <label for="answer-thoerem1-4-7-d">$\overline{S}(f,P)\leq \overline{S}(f,Q)$</label>
                                 </div>
                             </div>
-                            <div class="calculation__formule--2">
-                                <div>
-                                    $$= \sum_{i=1}^n (M_i+c) \Delta x_i $$
+                            <div class="question__btn-box">
+                                <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                <button class="btn btn--blue" type="button" disabled data-btn-continue="step-7">Continuar</button>
+                            </div>
+                        </div>
+                        <div class="question__col-2">
+                            <p class="question__answer"></p>
+                        </div>
+                    </div>
+                </form>
+                <div class="section--hidden" data-section="step-7">
+                    <p class="paragraph">
+                        Por <span class="modal__reference" data-modal-btn="theorem-1-4-2">Teorema 1.4.2</span>, $\underline{S}(f,P)\leq \underline{S}(f,Q)$. 
+                        Además, es claro que $\underline{S}(f,Q)=\underline{S}(f,Q_1)+\underline{S}(f,Q_2)$. 
+                    </p>
+                    <form class="question margin-top-sm" data-question="question-theorem-1-4-7-2" data-answer="a" autocomplete="off">
+                        <h3 class="question__header margin-bottom-sm">
+                            ¿Cuál de las siguientes desigualdades es correcta?
+                        </h3>
+                        <div class="question__row">
+                            <div class="question__col-1">
+                                <div class="question__options">
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-theorem-1-4-7-2-a" name="question-theorem-1-4-7-2" value="a" data-option="question-theorem-1-4-7-2">
+                                        <label for="answer-theorem-1-4-7-2-a">$$
+                                            \underline{S}(f,Q_1) \leq {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^c f(x)\,dx \quad y \quad 
+                                            \underline{S}(f,Q_2) \leq {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_c^b f(x)\,dx.
+                                        $$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-theorem-1-4-7-2-b" name="question-theorem-1-4-7-2" value="b" data-option="question-theorem-1-4-7-2">
+                                        <label for="answer-theorem-1-4-7-2-b">$$
+                                            \underline{S}(f,Q_1) \geq {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^c f(x)\,dx \quad y \quad 
+                                            \underline{S}(f,Q_2) \geq {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_c^b f(x)\,dx.
+                                        $$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-theorem-1-4-7-2-c" name="question-theorem-1-4-7-2" value="c" data-option="question-theorem-1-4-7-2">
+                                        <label for="answer-theorem-1-4-7-2-c">$$
+                                            \overline{S}(f,Q_1) \leq {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^c f(x)\,dx \quad y \quad 
+                                            \overline{S}(f,Q_2) \leq {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_c^b f(x)\,dx.
+                                        $$
+                                        </label>
+                                    </div>
                                 </div>
-                                <div class="calculation__text">
-                                    porque $N_i=M_i+c$
+                                <div class="question__btn-box">
+                                    <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                    <button class="btn btn--blue" type="button" disabled data-btn-continue="step-8">Continuar</button>
                                 </div>
                             </div>
-                            <div class="calculation__formule--2">
-                                <div>
-                                    $$= \sum_{i=1}^n M_i \Delta x_i + c\sum_{i=1}^n \Delta x_i $$
+                            <div class="question__col-2">
+                                <p class="question__answer"></p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="section--hidden" data-section="step-8">
+                    <p class="paragraph">
+                        Por definición de integral inferior, sabemos que 
+                        $$
+                            \underline{S}(f,Q_1) \leq {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^c f(x)\,dx \quad y \quad 
+                            \underline{S}(f,Q_2) \leq {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_c^b f(x)\,dx.
+                        $$
+                        Luego, por transitividad, 
+                        $$
+                            \underline{S}(f,P)\leq {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^c f(x)\,dx + 
+                            {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_c^b f(x)\,dx.
+                        $$
+                        Como $P$ era una partición arbitraria, entonces 
+                        $$
+                            {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^c f(x)\,dx + 
+                            {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_c^b f(x)\,dx
+                        $$ 
+                        es una cota superior para el conjunto $\{\underline{S}(f,P): P \mbox{ es partición de }[a,b]\}$. 
+                    </p>
+                    <form class="question margin-top-sm" data-question="question-theorem-1-4-7-3" data-answer="c" autocomplete="off">
+                        <h3 class="question__header margin-bottom-sm">
+                            ¿Qué implica lo anterior?
+                        </h3>
+                        <div class="question__row">
+                            <div class="question__col-1">
+                                <div class="question__options">
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-thequestion-theorem-1-4-7-3-a" name="question-theorem-1-4-7-3" value="a" data-option="question-theorem-1-4-7-3">
+                                        <label for="answer-thequestion-theorem-1-4-7-3-a">
+                                            $$
+                                            {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^c f(x)\,dx + {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_c^b f(x)\,dx
+                                            \leq {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx
+                                            $$
+                                        </label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-thequestion-theorem-1-4-7-3-b" name="question-theorem-1-4-7-3" value="b" data-option="question-theorem-1-4-7-3">
+                                        <label for="answer-thequestion-theorem-1-4-7-3-b">
+                                            $$
+                                            {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx \geq {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^c f(x)\,dx + 
+                                            {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_c^b f(x)\,dx.
+                                            $$
+                                        </label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-thequestion-theorem-1-4-7-3-c" name="question-theorem-1-4-7-3" value="c" data-option="question-theorem-1-4-7-3">
+                                        <label for="answer-thequestion-theorem-1-4-7-3-c">
+                                            $$
+                                            {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx \leq {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^c f(x)\,dx + 
+                                            {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_c^b f(x)\,dx.
+                                            $$
+                                        </label>
+                                    </div>
                                 </div>
-                                <div class="calculation__text">
-                                    por <span class="modal__reference" data-modal-btn="theorem-1-2-1">Teorema 1.2.1</span>
+                                <div class="question__btn-box">
+                                    <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                    <button class="btn btn--blue" type="button" disabled data-btn-continue="step-9">Continuar</button>
                                 </div>
                             </div>
-                            <div class="calculation__formule--2">
-                                <div>
-                                    $$= \overline{S}(f,P) + c\sum_{i=1}^n \Delta x_i $$
+                            <div class="question__col-2">
+                                <p class="question__answer"></p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="section--hidden" data-section="step-9">
+                    <p class="paragraph">
+                        Lo anterior implica que,
+                        $$
+                            {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx \leq {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^c f(x)\,dx + 
+                            {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_c^b f(x)\,dx.
+                        $$
+                        Ahora, como 
+                        $$
+                            {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^c f(x)\,dx=\sup\{\underline{S}(f,P): P \mbox{ es partición de }[a,c]\}
+                        $$
+                            y 
+                        $$
+                            {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_c^b f(x)\,dx=\sup\{\underline{S}(f,P): P \mbox{ es partición de }[c,b]\},
+                        $$
+                        dada $\varepsilon>0$, existen particiones $P_1$ de $[a,c]$ y $P_2$ de $[c,b]$, tales que 
+                        $$
+                            {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^c f(x)\,dx-\frac{\varepsilon}{2} < \underline{S}(f,P_1) \quad \mbox{ y } \quad 
+                            {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_c^b f(x)\,dx-\frac{\varepsilon}{2}< \underline{S}(f,P_2).
+                        $$
+                        Si $R=P_1\cup P_2$, entonces $R$ es una partición de $[a,b]$ y además $\underline{S}(f,P_1)+\underline{S}(f,P_2)=\underline{S}(f,R)$. 
+                        Pero, por definición de integral inferior, 
+                        $$
+                            \underline{S}(f,R)\leq {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx.
+                        $$
+                        Luego, por transitividad, 
+                        $$
+                            {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^c f(x)\,dx + 
+                            {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_c^b f(x)\,dx-\varepsilon < 
+                            {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx.
+                        $$
+                        Por lo tanto, $\forall \varepsilon>0:$ 
+                        $$
+                            {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^c f(x)\,dx + 
+                            {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_c^b f(x)\,dx-\varepsilon < 
+                            {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx.
+                        $$
+                    </p>
+                    <form class="question margin-top-sm" data-question="question-thoerem1-4-7-4" data-answer="a" autocomplete="off">
+                        <h3 class="question__header margin-bottom-sm">
+                            ¿Qué implica la desigualdad anterior?
+                        </h3>
+                        <div class="question__row">
+                            <div class="question__col-1">
+                                <div class="question__options">
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-thoequestion-thoerem1-4-7-4-a" name="question-thoerem1-4-7-4" value="a" data-option="question-thoerem1-4-7-4">
+                                        <label for="answer-thoequestion-thoerem1-4-7-4-a">
+                                            $$
+                                                {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^c f(x)\,dx + 
+                                                {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_c^b f(x)\,dx \leq 
+                                                {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx.
+                                            $$
+                                        </label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-thoequestion-thoerem1-4-7-4-b" name="question-thoerem1-4-7-4" value="b" data-option="question-thoerem1-4-7-4">
+                                        <label for="answer-thoequestion-thoerem1-4-7-4-b">
+                                            $$
+                                                {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_c^b f(x)\,dx \leq 
+                                                {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx + 
+                                                {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^c f(x)\,dx
+                                            $$
+                                        </label>
+                                    </div>
                                 </div>
-                                <div class="calculation__text">
-                                    por definición de suma superior
+                                <div class="question__btn-box">
+                                    <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                    <button class="btn btn--blue" type="button" disabled data-btn-continue="step-10">Continuar</button>
                                 </div>
                             </div>
-                            <div class="calculation__formule--2">
-                                <div>
-                                    $$= \overline{S}(f,P) + c\sum_{i=1}^n (x_i-x_{i-1}) $$
-                                </div>
-                                <div class="calculation__text">
-                                    por definición de $\Delta x_i$
-                                </div>
+                            <div class="question__col-2">
+                                <p class="question__answer"></p>
                             </div>
-                            <div class="calculation__formule--2">
-                                <div>
-                                    $$= \overline{S}(f,P) + c(x_n-x_0) $$
+                        </div>
+                    </form>
+                </div>
+                <div class="section--hidden" data-section="step-10">
+                    <p class="paragraph">
+                        La desigualdad anterior implica <a href="./anexo-conjuntos.html" target="_blank" class="modal__reference">(veáse Teorema 1).</a>
+                        $$
+                            {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^c f(x)\,dx + 
+                            {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_c^b f(x)\,dx \leq 
+                            {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx.
+                        $$
+                        Finalmente, 
+                        $$
+                            {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx = 
+                            {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^c f(x)\,dx + 
+                            {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_c^b f(x)\,dx.
+                        $$
+                        Finalmente, 
+                        $$
+                            {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx = 
+                            {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^c f(x)\,dx + 
+                            {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_c^b f(x)\,dx.
+                        $$
+                    </p>
+                    <p class="paragraph">
+                        El caso para integrales superiores se hace de manera análoga.
+                    </p>
+                    <p class="paragraph">
+                        2) Inténtelo usted mismo (Hint: Use la partición $P = \{a,b\}$).
+                    </p>
+                    <p class="paragraph">
+                        3) Haremos la prueba integrales superiores. Sea $P=\{x_0,x_1,...,x_n\}$ una partición de $[a,b]$. Para cada $i=\overline{1,n}$, 
+                        consideremos $N_i=\sup\{(f+c)(x):x\in[x_{i-1},x_i]\}$ y $M_i=\sup\{f(x):x\in[x_{i-1},x_i]\}$. Notemos que, por propiedades del supremo, $N_i=M_i+c$.
+                    </p>
+                    <form class="question margin-top-sm" data-j="jqp-1" data-answer="a_b_c_c_b_a">
+                    <h3 class="question__header margin-bottom-sm">Justifica Los pasos</h3>
+                    <div class="question__col-1">
+                        <div class="question__options">
+                            <div class="calculation">
+                                <div class="calculation__formule--1">
+                                    $$\overline{S}(f+c,P)$$
                                 </div>
-                                <div class="calculation__text">
-                                    por <span class="modal__reference" data-modal-btn="theorem-1-2-2">Teorema 1.2.2</span>
+                                <div class="calculation__formule--2">
+                                    <div>
+                                        $$= \sum_{i=1}^n N_i \Delta x_i $$
+                                    </div>
+                                    <div class="calculation__text">
+                                        por definición de suma superior
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="calculation__formule--2">
-                                <div>
-                                    $$= \overline{S}(f,P) + c(b-a) $$
+                                <div class="calculation__formule--2">
+                                    <div>
+                                        $$= \sum_{i=1}^n (M_i+c) \Delta x_i $$
+                                    </div>
+                                    <div class="justification__block margin-bottom-sm calculation__text" data-options-block="block-1">
+                                        <div class="justification__option question__option">
+                                            <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b1-a" name="jp1-b1" value="a" data-option="jp1-b1">
+                                            <label for="jp1-b1-a">porque $N_i=M_i+c$</label>
+                                        </div>
+                                        <div class="justification__option question__option">
+                                            <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b1-b" name="jp1-b1" value="b" data-option="jp1-b1">
+                                            <label for="jp1-b1-b">por <span class="modal__reference" data-modal-btn="theorem-1-2-1">Teorema 1.2.1</span></label>
+                                        </div>
+                                        <div class="justification__option question__option">
+                                            <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b1-c" name="jp1-b1" value="c" data-option="jp1-b1">
+                                            <label for="jp1-b1-c">por definición de suma superior</label>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="calculation__text">
-                                    por definición de partición
+                                <div class="calculation__formule--2">
+                                    <div>
+                                        $$= \sum_{i=1}^n M_i \Delta x_i + c\sum_{i=1}^n \Delta x_i $$
+                                    </div>
+                                    <div class="justification__block margin-bottom-sm calculation__text" data-options-block="block-2">
+                                        <div class="justification__option question__option">
+                                            <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b2-a" name="jp1-b2" value="a" data-option="jp1-b2">
+                                            <label for="jp1-b2-a">porque $N_i=M_i+c$</label>
+                                        </div>
+                                        <div class="justification__option question__option">
+                                            <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b2-b" name="jp1-b2" value="b" data-option="jp1-b2">
+                                            <label for="jp1-b2-b">por <span class="modal__reference" data-modal-btn="theorem-1-2-1">Teorema 1.2.1</span></label>
+                                        </div>
+                                        <div class="justification__option question__option">
+                                            <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b2-c" name="jp1-b2" value="c" data-option="jp1-b2">
+                                            <label for="jp1-b2-c">por definición de suma superior</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="calculation__formule--2">
+                                    <div>
+                                        $$= \overline{S}(f,P) + c\sum_{i=1}^n \Delta x_i $$
+                                    </div>
+                                    <div class="justification__block margin-bottom-sm calculation__text" data-options-block="block-3">
+                                        <div class="justification__option question__option">
+                                            <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b3-a" name="jp1-b3" value="a" data-option="jp1-b3">
+                                            <label for="jp1-b3-a">porque $N_i=M_i+c$</label>
+                                        </div>
+                                        <div class="justification__option question__option">
+                                            <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b3-b" name="jp1-b3" value="b" data-option="jp1-b3">
+                                            <label for="jp1-b3-b">por <span class="modal__reference" data-modal-btn="theorem-1-2-1">Teorema 1.2.1</span></label>
+                                        </div>
+                                        <div class="justification__option question__option">
+                                            <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b3-c" name="jp1-b3" value="c" data-option="jp1-b3">
+                                            <label for="jp1-b3-c">por definición de suma superior</label>
+                                        </div>
+                                    </div>                    
+                                </div>
+                                <div class="calculation__formule--2">
+                                    <div>
+                                        $$= \overline{S}(f,P) + c\sum_{i=1}^n (x_i-x_{i-1}) $$
+                                    </div>
+                                    <div class="justification__block margin-bottom-sm calculation__text" data-options-block="block-4">
+                                        <div class="justification__option question__option">
+                                            <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b4-a" name="jp1-b4" value="a" data-option="jp1-b4">
+                                            <label for="jp1-b4-a">por definición de partición</label>
+                                        </div>
+                                        <div class="justification__option question__option">
+                                            <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b4-b" name="jp1-b4" value="b" data-option="jp1-b4">
+                                            <label for="jp1-b4-b">por <span class="modal__reference" data-modal-btn="theorem-1-2-1">Teorema 1.2.1</span></label>
+                                        </div>
+                                        <div class="justification__option question__option">
+                                            <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b4-c" name="jp1-b4" value="c" data-option="jp1-b4">
+                                            <label for="jp1-b4-c">por definición de $\Delta x_i$</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="calculation__formule--2">
+                                    <div>
+                                        $$= \overline{S}(f,P) + c(x_n-x_0) $$
+                                    </div>
+                                    <div class="justification__block margin-bottom-sm calculation__text" data-options-block="block-5">
+                                        <div class="justification__option question__option">
+                                            <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b5-a" name="jp1-b5" value="a" data-option="jp1-b5">
+                                            <label for="jp1-b5-a">por definición de partición</label>
+                                        </div>
+                                        <div class="justification__option question__option">
+                                            <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b5-b" name="jp1-b5" value="b" data-option="jp1-b5">
+                                            <label for="jp1-b5-b">por <span class="modal__reference" data-modal-btn="theorem-1-2-1">Teorema 1.2.1</span></label>
+                                        </div>
+                                        <div class="justification__option question__option">
+                                            <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b5-c" name="jp1-b5" value="c" data-option="jp1-b5">
+                                            <label for="jp1-b5-c">por definición de $\Delta x_i$</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="calculation__formule--2">
+                                    <div>
+                                        $$= \overline{S}(f,P) + c(b-a) $$
+                                    </div>
+                                    <div class="justification__block margin-bottom-sm calculation__text" data-options-block="block-6">
+                                        <div class="justification__option question__option">
+                                            <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b6-a" name="jp1-b6" value="a" data-option="jp1-b6">
+                                            <label for="jp1-b6-a">por definición de partición</label>
+                                        </div>
+                                        <div class="justification__option question__option">
+                                            <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b6-b" name="jp1-b6" value="b" data-option="jp1-b6">
+                                            <label for="jp1-b6-b">por <span class="modal__reference" data-modal-btn="theorem-1-2-1">Teorema 1.2.1</span></label>
+                                        </div>
+                                        <div class="justification__option question__option">
+                                            <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b6-c" name="jp1-b6" value="c" data-option="jp1-b6">
+                                            <label for="jp1-b6-c">por definición de $\Delta x_i$</label>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <p class="paragraph">
-                            Esto justifica que 
-                        </p>
-                        <div class="calculation__formule--2">
-                            <div>
-                                $$ \{\overline{S}(f+c,P): P \mbox{ es partición de }[a,b]\}=\{\overline{S}(f,P)+c(b-a): P \mbox{ es partición de }[a,b]\} $$
-                            </div>
+                        <div class="question__btn-box">
+                            <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                            <button class="btn btn--blue" type="button" disabled data-btn-continue="step-11">Continuar</button>
                         </div>
-                        <p class="paragraph">
-                            Así,
-                        </p>
-                        <div class="calculation">
-                            <div class="calculation__formule--1">
-                                $${\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b [f(x)+c]\,dx =$$
-                            </div>
-                            <div class="calculation__formule--2">
-                                <div>
-                                    $$ {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b (f+c)(x)\,dx $$
-                                </div>
-                                <div class="calculation__text">
-                                    por definición de $f+c$
-                                </div>
-                            </div>
-                            <div class="calculation__formule--1">
-                                $$=$$
-                            </div>
-                            <div class="calculation__formule--2">
-                                <div>
-                                    $$ \inf\{\overline{S}(f+c,P): P \mbox{ es partición de }[a,b]\} $$
-                                </div>
-                                <div class="calculation__text">
-                                    por definición de integral superior
-                                </div>
-                            </div>
-                            <div class="calculation__formule--1">
-                                $$=$$
-                            </div>
-                            <div class="calculation__formule--2">
-                                <div>
-                                    $$ \inf\{\overline{S}(f,P)+c(b-a): P \mbox{ es partición de }[a,b]\} $$
-                                </div>
-                                <div class="calculation__text">
-                                    por lo anterior
-                                </div>
-                            </div>
-                            <div class="calculation__formule--1">
-                                $$=$$
-                            </div>
-                            <div class="calculation__formule--2">
-                                <div>
-                                    $$ \inf\{\overline{S}(f,P): P \mbox{ es partición de }[a,b]\}+c(b-a) $$
-                                </div>
-                                <div class="calculation__text">
-                                    por propiedades del ínfimo
-                                </div>
-                            </div>
-                            <div class="calculation__formule--1">
-                                $$=$$
-                            </div>
-                            <div class="calculation__formule--2">
-                                <div>
-                                    $$ {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b f(x)\,dx +c(b-a) $$
-                                </div>
-                                <div class="calculation__text">
-                                    por definición de integral inferior
-                                </div>
-                            </div>
-                        </div>
-                        <p class="paragraph">
-                            Finalmente, 
-                            $$
-                                {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b [f(x)+c]\,dx =
-                                {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b f(x)\,dx +c(b-a).
-                            $$
-                        </p>
-                        <p class="paragraph">
-                            El caso para integrales inferiores es análogo.
-                        </p>
-                    </li>
-                </ul>
+                    </div>
+                </div>
+                <div class="fancy-line"></div>
             </div>
+        </section>
+        <section class="section--hidden" data-section="step-11">
             <p class="paragraph">
                 Como resultado inmediato se obtienen propiedades de la integral definida para funciones integrables.
             </p>
@@ -632,6 +799,16 @@
                     <li class="theorem__list-item">Si $c\in \mathbf{R} $, entonces $$\int_a^b [f(x)+c]\,dx=\int_a^b f(x)\,dx+c(b-a).$$ </li>
                 </ul>
             </div>
+            <h3 class="header-tertiary">Demostración.</h3>
+            <p class="paragraph">
+                Puesto que $f$ es integrable, se tiene que
+                $$
+                    {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b f(x)\,dx =
+                    {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx =
+                    \int_a^b f(x)\,dx.
+                $$
+                Y por el teorema anterior, se cumple el corolario.
+            </p>
             <div class="fancy-line"></div>
             <div class="change-page">
                 <a href="./1.4.3-integral-definida.html" class="change-page__before">Anterior</a>
@@ -644,7 +821,6 @@
         <div class="modal__background" data-modal-background="theorem-1-2-1"></div>
         <div class="modal__content">
             <alien-math-template path="./components/theorems/theorem-1.2.1.html"></alien-math-template>
-
         </div>
     </div>
     <div class="modal" data-modal="theorem-1-2-3">

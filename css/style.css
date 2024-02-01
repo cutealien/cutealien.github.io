@@ -323,6 +323,18 @@ section {
   border: none;
 }
 
+.margin-left-auto {
+  margin-left: auto;
+}
+
+.w-20 {
+  width: 20rem;
+}
+
+.relative {
+  position: relative;
+}
+
 .hidden {
   display: none;
 }
@@ -1389,6 +1401,31 @@ mjx-container[display=true] {
   text-decoration: underline;
   font-size: 1.6rem;
   cursor: pointer;
+}
+
+.justification__content {
+  font-size: 1.6rem;
+}
+.justification__block {
+  max-width: 30rem;
+}
+.justification__option {
+  transition: all 0.3 ease-in-out;
+  border: 1px solid transparent;
+}
+.justification__option--correct {
+  border: 1px solid rgb(11, 124, 58);
+  background-color: rgb(20, 243, 131);
+}
+.justification__option--error {
+  border: 1px solid rgb(150, 18, 18);
+  background-color: rgb(243, 148, 148);
+}
+.justification__option input:disabled + label {
+  opacity: 0.5;
+}
+.justification__option:not(:last-child) {
+  margin-bottom: 1rem;
 }
 
 .lds-dual-ring {

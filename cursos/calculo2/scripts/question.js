@@ -42,40 +42,9 @@ const questionEvaluation = function(question, btnAnswer, answer) {
     }
 }
 
-const selectEvaluation = function(orderSelect, btnAnswer, answers) {
-    
-    var data = Array.from(new FormData(orderSelect))
-
-    var correct = true
-    var message = 'Correcto'
-    var answerText = orderSelect.querySelector('p')
-    var selects = orderSelect.querySelectorAll('select')
-
-    data.forEach((value, index) => {
-        if(value[1] !== answers[index]) {
-            correct = false
-        }
-    })
-
-    if(!correct) {
-        message = 'Incorrecto'
-        answerText.innerHTML = message
-        answerText.classList.remove('question__answer--success')
-        answerText.classList.add('question__answer--failed')
-    }
-    else {
-        answerText.innerHTML = message
-        answerText.classList.remove('question__answer--failed')
-        answerText.classList.add('question__answer--success')
-        
-    }
-    btnAnswer.nextElementSibling.disabled = false
-    btnAnswer.nextElementSibling.style.display = 'inline-block'
-    
-    selects.forEach(select => select.disabled = true)
-    btnAnswer.disabled = true
-}
-
+/**
+ * Continue Buttons
+ */
 continueBtns.forEach(btn => {
     btn.addEventListener('click', () => {
 		let section = document.querySelector(`[data-section=${btn.dataset.btnContinue}]`)
@@ -86,6 +55,9 @@ continueBtns.forEach(btn => {
     })
 })
 
+/**
+ * Question with mupltiple options
+ */
 questions.forEach(question => {
     const btnAnswer = question.querySelector('[data-btn-answer]')
     btnAnswer.disabled = true
@@ -112,35 +84,9 @@ questions.forEach(question => {
     })
 })
 
-const orderSelects = document.querySelectorAll('[data-order-select]')
-
-orderSelects.forEach(orderSelect => {
-    const btnAnswer = orderSelect.querySelector('[data-btn-answer]')
-
-    btnAnswer.disabled = true
-
-    const selects = orderSelect.querySelectorAll('select')
-
-    selects.forEach(select => {
-        select.addEventListener('change', (e) => {
-            let asnwersCount = 0
-            selects.forEach(select => {
-                if(!!select.value) {
-                    asnwersCount++
-                }
-            })
-            if(asnwersCount === selects.length) {
-                btnAnswer.disabled = false
-            }
-        })
-    })
-    orderSelect.addEventListener('submit', (e) => {
-        e.preventDefault()
-        selectEvaluation(orderSelect, btnAnswer, e.target.dataset.answer.split('_'))        
-
-    })
-})
-
+/**
+ * Vertical justification
+ */
 const justificationProblems = document.querySelectorAll('[data-justification]')
 
 justificationProblems.forEach(problem => {
@@ -189,4 +135,60 @@ justificationProblems.forEach(problem => {
             options.forEach(option => option.disabled = true)
         }
     })
+})
+
+/**
+ * Right sided justification
+ */
+const justificationO = document.querySelectorAll('[data-j]')
+
+const checkFormCompleted = (option, problem, totalQuestions) => {
+  option.addEventListener('change', () => {
+    const answers = Array.from(new FormData(problem))
+    if (answers.length === totalQuestions) {
+      problem.querySelector('[data-btn-answer]').disabled = false
+    }
+  })
+}
+
+const checkAnswers = (option, answer, correctAnswer) => {
+  option.disabled = true
+  if (option.value === correctAnswer) {
+    console.log('correcto')
+    option.parentElement.classList.add('justification__option--correct')
+  }
+  if (option.value === answer && option.value !== correctAnswer) {
+    option.parentElement.classList.add('justification__option--error')
+  }
+}
+
+justificationO.forEach(problem => {
+  const correctAnswers = problem.dataset.answer.split('_')
+  const optionsBlock = problem.querySelectorAll('[data-options-block]')
+  const btnSubmit = problem.querySelector('[data-btn-answer]')
+
+  optionsBlock.forEach(block => {
+    const options = block.querySelectorAll(`[data-option]`)
+    options.forEach(option => checkFormCompleted(option, problem, optionsBlock.length))
+  })
+
+  problem.addEventListener('submit', e => {
+    e.preventDefault()
+    console.log('asd')
+    const answers = Array.from(new FormData(problem))
+    if (answers.length !== optionsBlock.length) {
+      return
+    }
+    console.log(answers, correctAnswers)
+    btnSubmit.disabled = true
+    if (btnSubmit.nextElementSibling) {
+      btnSubmit.nextElementSibling.disabled = false
+      btnSubmit.nextElementSibling.style.display = 'inline-block'
+    }
+
+    optionsBlock.forEach((block, i) => {
+      const options = block.querySelectorAll(`[data-option]`)
+      options.forEach(option => checkAnswers(option, answers[i][1], correctAnswers[i]))
+    })
+  })
 })

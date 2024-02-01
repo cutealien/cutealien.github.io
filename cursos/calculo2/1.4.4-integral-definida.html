@@ -645,142 +645,143 @@
                         consideremos $N_i=\sup\{(f+c)(x):x\in[x_{i-1},x_i]\}$ y $M_i=\sup\{f(x):x\in[x_{i-1},x_i]\}$. Notemos que, por propiedades del supremo, $N_i=M_i+c$.
                     </p>
                     <form class="question margin-top-sm" data-j="jqp-1" data-answer="a_b_c_c_b_a">
-                    <h3 class="question__header margin-bottom-sm">Justifica Los pasos</h3>
-                    <div class="question__col-1">
-                        <div class="question__options">
-                            <div class="calculation">
-                                <div class="calculation__formule--1">
-                                    $$\overline{S}(f+c,P)$$
-                                </div>
-                                <div class="calculation__formule--2">
-                                    <div>
-                                        $$= \sum_{i=1}^n N_i \Delta x_i $$
+                        <h3 class="question__header margin-bottom-sm">Justifica Los pasos</h3>
+                        <div class="question__col-1">
+                            <div class="question__options">
+                                <div class="calculation">
+                                    <div class="calculation__formule--1">
+                                        $$\overline{S}(f+c,P)$$
                                     </div>
-                                    <div class="calculation__text">
-                                        por definición de suma superior
-                                    </div>
-                                </div>
-                                <div class="calculation__formule--2">
-                                    <div>
-                                        $$= \sum_{i=1}^n (M_i+c) \Delta x_i $$
-                                    </div>
-                                    <div class="justification__block margin-bottom-sm calculation__text" data-options-block="block-1">
-                                        <div class="justification__option question__option">
-                                            <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b1-a" name="jp1-b1" value="a" data-option="jp1-b1">
-                                            <label for="jp1-b1-a">porque $N_i=M_i+c$</label>
+                                    <div class="calculation__formule--2">
+                                        <div>
+                                            $$= \sum_{i=1}^n N_i \Delta x_i $$
                                         </div>
-                                        <div class="justification__option question__option">
-                                            <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b1-b" name="jp1-b1" value="b" data-option="jp1-b1">
-                                            <label for="jp1-b1-b">por <span class="modal__reference" data-modal-btn="theorem-1-2-1">Teorema 1.2.1</span></label>
-                                        </div>
-                                        <div class="justification__option question__option">
-                                            <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b1-c" name="jp1-b1" value="c" data-option="jp1-b1">
-                                            <label for="jp1-b1-c">por definición de suma superior</label>
+                                        <div class="calculation__text">
+                                            por definición de suma superior
                                         </div>
                                     </div>
-                                </div>
-                                <div class="calculation__formule--2">
-                                    <div>
-                                        $$= \sum_{i=1}^n M_i \Delta x_i + c\sum_{i=1}^n \Delta x_i $$
-                                    </div>
-                                    <div class="justification__block margin-bottom-sm calculation__text" data-options-block="block-2">
-                                        <div class="justification__option question__option">
-                                            <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b2-a" name="jp1-b2" value="a" data-option="jp1-b2">
-                                            <label for="jp1-b2-a">porque $N_i=M_i+c$</label>
+                                    <div class="calculation__formule--2">
+                                        <div>
+                                            $$= \sum_{i=1}^n (M_i+c) \Delta x_i $$
                                         </div>
-                                        <div class="justification__option question__option">
-                                            <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b2-b" name="jp1-b2" value="b" data-option="jp1-b2">
-                                            <label for="jp1-b2-b">por <span class="modal__reference" data-modal-btn="theorem-1-2-1">Teorema 1.2.1</span></label>
-                                        </div>
-                                        <div class="justification__option question__option">
-                                            <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b2-c" name="jp1-b2" value="c" data-option="jp1-b2">
-                                            <label for="jp1-b2-c">por definición de suma superior</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="calculation__formule--2">
-                                    <div>
-                                        $$= \overline{S}(f,P) + c\sum_{i=1}^n \Delta x_i $$
-                                    </div>
-                                    <div class="justification__block margin-bottom-sm calculation__text" data-options-block="block-3">
-                                        <div class="justification__option question__option">
-                                            <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b3-a" name="jp1-b3" value="a" data-option="jp1-b3">
-                                            <label for="jp1-b3-a">porque $N_i=M_i+c$</label>
-                                        </div>
-                                        <div class="justification__option question__option">
-                                            <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b3-b" name="jp1-b3" value="b" data-option="jp1-b3">
-                                            <label for="jp1-b3-b">por <span class="modal__reference" data-modal-btn="theorem-1-2-1">Teorema 1.2.1</span></label>
-                                        </div>
-                                        <div class="justification__option question__option">
-                                            <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b3-c" name="jp1-b3" value="c" data-option="jp1-b3">
-                                            <label for="jp1-b3-c">por definición de suma superior</label>
-                                        </div>
-                                    </div>                    
-                                </div>
-                                <div class="calculation__formule--2">
-                                    <div>
-                                        $$= \overline{S}(f,P) + c\sum_{i=1}^n (x_i-x_{i-1}) $$
-                                    </div>
-                                    <div class="justification__block margin-bottom-sm calculation__text" data-options-block="block-4">
-                                        <div class="justification__option question__option">
-                                            <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b4-a" name="jp1-b4" value="a" data-option="jp1-b4">
-                                            <label for="jp1-b4-a">por definición de partición</label>
-                                        </div>
-                                        <div class="justification__option question__option">
-                                            <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b4-b" name="jp1-b4" value="b" data-option="jp1-b4">
-                                            <label for="jp1-b4-b">por <span class="modal__reference" data-modal-btn="theorem-1-2-1">Teorema 1.2.1</span></label>
-                                        </div>
-                                        <div class="justification__option question__option">
-                                            <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b4-c" name="jp1-b4" value="c" data-option="jp1-b4">
-                                            <label for="jp1-b4-c">por definición de $\Delta x_i$</label>
+                                        <div class="justification__block margin-bottom-sm calculation__text" data-options-block="block-1">
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b1-a" name="jp1-b1" value="a" data-option="jp1-b1">
+                                                <label for="jp1-b1-a">porque $N_i=M_i+c$</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b1-b" name="jp1-b1" value="b" data-option="jp1-b1">
+                                                <label for="jp1-b1-b">por <span class="modal__reference" data-modal-btn="theorem-1-2-1">Teorema 1.2.1</span></label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b1-c" name="jp1-b1" value="c" data-option="jp1-b1">
+                                                <label for="jp1-b1-c">por definición de suma superior</label>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="calculation__formule--2">
-                                    <div>
-                                        $$= \overline{S}(f,P) + c(x_n-x_0) $$
+                                    <div class="calculation__formule--2">
+                                        <div>
+                                            $$= \sum_{i=1}^n M_i \Delta x_i + c\sum_{i=1}^n \Delta x_i $$
+                                        </div>
+                                        <div class="justification__block margin-bottom-sm calculation__text" data-options-block="block-2">
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b2-a" name="jp1-b2" value="a" data-option="jp1-b2">
+                                                <label for="jp1-b2-a">porque $N_i=M_i+c$</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b2-b" name="jp1-b2" value="b" data-option="jp1-b2">
+                                                <label for="jp1-b2-b">por <span class="modal__reference" data-modal-btn="theorem-1-2-1">Teorema 1.2.1</span></label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b2-c" name="jp1-b2" value="c" data-option="jp1-b2">
+                                                <label for="jp1-b2-c">por definición de suma superior</label>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="justification__block margin-bottom-sm calculation__text" data-options-block="block-5">
-                                        <div class="justification__option question__option">
-                                            <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b5-a" name="jp1-b5" value="a" data-option="jp1-b5">
-                                            <label for="jp1-b5-a">por definición de partición</label>
+                                    <div class="calculation__formule--2">
+                                        <div>
+                                            $$= \overline{S}(f,P) + c\sum_{i=1}^n \Delta x_i $$
                                         </div>
-                                        <div class="justification__option question__option">
-                                            <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b5-b" name="jp1-b5" value="b" data-option="jp1-b5">
-                                            <label for="jp1-b5-b">por <span class="modal__reference" data-modal-btn="theorem-1-2-1">Teorema 1.2.1</span></label>
+                                        <div class="justification__block margin-bottom-sm calculation__text" data-options-block="block-3">
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b3-a" name="jp1-b3" value="a" data-option="jp1-b3">
+                                                <label for="jp1-b3-a">porque $N_i=M_i+c$</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b3-b" name="jp1-b3" value="b" data-option="jp1-b3">
+                                                <label for="jp1-b3-b">por <span class="modal__reference" data-modal-btn="theorem-1-2-1">Teorema 1.2.1</span></label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b3-c" name="jp1-b3" value="c" data-option="jp1-b3">
+                                                <label for="jp1-b3-c">por definición de suma superior</label>
+                                            </div>
+                                        </div>                    
+                                    </div>
+                                    <div class="calculation__formule--2">
+                                        <div>
+                                            $$= \overline{S}(f,P) + c\sum_{i=1}^n (x_i-x_{i-1}) $$
                                         </div>
-                                        <div class="justification__option question__option">
-                                            <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b5-c" name="jp1-b5" value="c" data-option="jp1-b5">
-                                            <label for="jp1-b5-c">por definición de $\Delta x_i$</label>
+                                        <div class="justification__block margin-bottom-sm calculation__text" data-options-block="block-4">
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b4-a" name="jp1-b4" value="a" data-option="jp1-b4">
+                                                <label for="jp1-b4-a">por definición de partición</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b4-b" name="jp1-b4" value="b" data-option="jp1-b4">
+                                                <label for="jp1-b4-b">por <span class="modal__reference" data-modal-btn="theorem-1-2-1">Teorema 1.2.1</span></label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b4-c" name="jp1-b4" value="c" data-option="jp1-b4">
+                                                <label for="jp1-b4-c">por definición de $\Delta x_i$</label>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="calculation__formule--2">
-                                    <div>
-                                        $$= \overline{S}(f,P) + c(b-a) $$
+                                    <div class="calculation__formule--2">
+                                        <div>
+                                            $$= \overline{S}(f,P) + c(x_n-x_0) $$
+                                        </div>
+                                        <div class="justification__block margin-bottom-sm calculation__text" data-options-block="block-5">
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b5-a" name="jp1-b5" value="a" data-option="jp1-b5">
+                                                <label for="jp1-b5-a">por definición de partición</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b5-b" name="jp1-b5" value="b" data-option="jp1-b5">
+                                                <label for="jp1-b5-b">por <span class="modal__reference" data-modal-btn="theorem-1-2-1">Teorema 1.2.1</span></label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b5-c" name="jp1-b5" value="c" data-option="jp1-b5">
+                                                <label for="jp1-b5-c">por definición de $\Delta x_i$</label>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="justification__block margin-bottom-sm calculation__text" data-options-block="block-6">
-                                        <div class="justification__option question__option">
-                                            <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b6-a" name="jp1-b6" value="a" data-option="jp1-b6">
-                                            <label for="jp1-b6-a">por definición de partición</label>
+                                    <div class="calculation__formule--2">
+                                        <div>
+                                            $$= \overline{S}(f,P) + c(b-a) $$
                                         </div>
-                                        <div class="justification__option question__option">
-                                            <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b6-b" name="jp1-b6" value="b" data-option="jp1-b6">
-                                            <label for="jp1-b6-b">por <span class="modal__reference" data-modal-btn="theorem-1-2-1">Teorema 1.2.1</span></label>
-                                        </div>
-                                        <div class="justification__option question__option">
-                                            <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b6-c" name="jp1-b6" value="c" data-option="jp1-b6">
-                                            <label for="jp1-b6-c">por definición de $\Delta x_i$</label>
+                                        <div class="justification__block margin-bottom-sm calculation__text" data-options-block="block-6">
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b6-a" name="jp1-b6" value="a" data-option="jp1-b6">
+                                                <label for="jp1-b6-a">por definición de partición</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b6-b" name="jp1-b6" value="b" data-option="jp1-b6">
+                                                <label for="jp1-b6-b">por <span class="modal__reference" data-modal-btn="theorem-1-2-1">Teorema 1.2.1</span></label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b6-c" name="jp1-b6" value="c" data-option="jp1-b6">
+                                                <label for="jp1-b6-c">por definición de $\Delta x_i$</label>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <div class="question__btn-box">
+                                <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                <button class="btn btn--blue" type="button" disabled data-btn-continue="step-11">Continuar</button>
+                            </div>
                         </div>
-                        <div class="question__btn-box">
-                            <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
-                            <button class="btn btn--blue" type="button" disabled data-btn-continue="step-11">Continuar</button>
-                        </div>
-                    </div>
+                    </form>
                 </div>
                 <div class="fancy-line"></div>
             </div>

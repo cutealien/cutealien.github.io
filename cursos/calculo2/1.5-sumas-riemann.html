@@ -93,7 +93,7 @@
                 </p>
             </div>
             <div class="proof">
-                <h3 class="header-tertiary"><a href="./anexo-demostración-teo-1.5.1.html" class="modal__reference">Demostración (click aquí).</a></h3>
+                <h3 class="header-tertiary"><a href="./anexo-demostracion-teo-1.5.1.html" class="modal__reference" target="_blank">Demostración (click aquí).</a></h3>
             </div>
             <p class="paragraph">
                 Ahora veremos la definición de sumas de Riemann, las cuales nos permiten ver a la integral como un límite, el cual será un límite especial, pero primero necesitamos unos conceptos extra.
@@ -214,7 +214,7 @@
                     </p>
                     <form class="question margin-top-sm" data-question="question-1-5-3" data-answer="c">
                         <h3 class="question__header margin-bottom-sm">
-                            Calcula $\lim_{n\to\infty}S(f,A_n,P_n)=\frac{3}{2}$
+                            Calcula $\lim_{n\to\infty}S(f,A_n,P_n)$
                         </h3>
                         <div class="question__row">
                             <div class="question__col-1">
@@ -382,99 +382,349 @@
                 </div>
                 <div class="proof">
                     <h3 class="header-tertiary">Demostración.</h3>
-                    <ol class="proof__step">
-                        <li class="proof__step-item">
-                            Ejercicio
-                        </li>
-                        <li class="proof__step-item">
-                            Si $\alpha=0$, entonces $S(\alpha f,A, P)=0$ para toda $P$ partición de $[a,b]$ y toda selección $A$ de la partición $P$. 
-                            Así tendremos que $\lim_{\|P\|\to 0}S(f,A,P)=0$ y por lo tanto la igualdad se da de manera inmediata. Así que vamos a suponer que $\alpha\neq 0$. 
-                            Por hipótesis, $\lim_{\|P\|\to 0}S(f,A,P)$ existe y digamos que es $L$. Sea $\varepsilon>0$, como $\lim_{\|P\|\to 0}S(f,A,P)=L$, para $\frac{\varepsilon}{|\alpha|}>0$, 
-                            $\exists \delta_0>0$ tal que $\forall P$ partición de $[a,b]$ con $\|P\|<\delta$ y $\forall A$ selección de $P$, se tiene que 
-                            $$
-                                |S(f,A,P)-L|<\frac{\varepsilon}{|\alpha|} \cdots &#x1F600
-                            $$
-                            <p class="paragraph">
-                                Consideremos $\delta=\delta_0>0$. Sean $P=\{x_0,x_1,...,x_n\}$ una partición de $[a,b]$ con $\|P\|<\delta$ y $A=\{\xi_i: \xi_i\in[x_{i-1},x_i], i=\overline{1,n}\}$ 
-                                una selección de $P$. Entonces
-                            </p>
-                            <div class="calculation">
-                                <div class="calculation__formule--1">
-                                    $$\left|S(\alpha f,A,P)-\alpha L \right|$$
+                    <p class="paragraph">
+                        1) Inténtelo usted mismo (Hint: suponga que hay dos y llegue a una contradicción).
+                    </p>
+                    <div class="paragraph">
+                        2) Si $\alpha=0$, entonces $S(\alpha f,A, P)=0$ para toda $P$ partición de $[a,b]$ y toda selección $A$ de la partición $P$. 
+                        Así tendremos que $\lim_{\|P\|\to 0}S(f,A,P)=0$ y por lo tanto la igualdad se da de manera inmediata. Así que vamos a suponer que $\alpha\neq 0$. 
+                        Por hipótesis, $\lim_{\|P\|\to 0}S(f,A,P)$ existe y digamos que es $L$. Sea $\varepsilon>0$, como $\lim_{\|P\|\to 0}S(f,A,P)=L$, para $\frac{\varepsilon}{|\alpha|}>0$, 
+                        $\exists \delta_0>0$ tal que $\forall P$ partición de $[a,b]$ con $\|P\|<\delta$ y $\forall A$ selección de $P$, se tiene que 
+                        $$
+                            |S(f,A,P)-L|<\frac{\varepsilon}{|\alpha|} \cdots &#x1F600
+                        $$                        
+                        Consideremos $\delta=\delta_0>0$. Sean $P=\{x_0,x_1,...,x_n\}$ una partición de $[a,b]$ con $\|P\|<\delta$ y $A=\{\xi_i: \xi_i\in[x_{i-1},x_i], i=\overline{1,n}\}$ 
+                        una selección de $P$. Entonces
+                        <div class="calculation">
+                            <div class="calculation__formule--1">
+                                $$\left|S(\alpha f,A,P)-\alpha L \right|$$
+                            </div>
+                            <div class="calculation__formule--2">
+                                <div>
+                                    $$= \left| \sum_{i=1}^n (\alpha f)(\xi_i) \Delta x_i - \alpha L \right| $$
                                 </div>
-                                <div class="calculation__formule--2">
-                                    <div>
-                                        $$= \left| \sum_{i=1}^n (\alpha f)(\xi_i) \Delta x_i - \alpha L \right| $$
-                                    </div>
-                                    <div class="calculation__text">
-                                        por Definición 1.5.1
-                                    </div>
+                                <div class="calculation__text">
+                                    por Definición 1.5.1
                                 </div>
-                                <div class="calculation__formule--2">
-                                    <div>
-                                        $$= \left| \sum_{i=1}^n [\alpha \cdot f(\xi_i)] \Delta x_i - \alpha L \right| $$
-                                    </div>
-                                    <div class="calculation__text">
-                                        por definición de  \alpha f
-                                    </div>
+                            </div>
+                            <div class="calculation__formule--2">
+                                <div>
+                                    $$= \left| \sum_{i=1}^n [\alpha \cdot f(\xi_i)] \Delta x_i - \alpha L \right| $$
                                 </div>
-                                <div class="calculation__formule--2">
-                                    <div>
-                                        $$= \left| \alpha \sum_{i=1}^n f(\xi_i) \Delta x_i - \alpha L \right| $$
-                                    </div>
-                                    <div class="calculation__text">
-                                        por <span class="modal__reference" data-modal-btn="theorem-1-2-1">Teorema 1.2.1</span>
-                                    </div>
+                                <div class="calculation__text">
+                                    por definición de  $\alpha f$
                                 </div>
-                                <div class="calculation__formule--2">
-                                    <div>
-                                        $$= \left| \alpha S(f,A,P) - \alpha L \right| $$
-                                    </div>
-                                    <div class="calculation__text">
-                                        por Definición 1.5.1
-                                    </div>
+                            </div>
+                            <div class="calculation__formule--2">
+                                <div>
+                                    $$= \left| \alpha \sum_{i=1}^n f(\xi_i) \Delta x_i - \alpha L \right| $$
                                 </div>
-                                <div class="calculation__formule--2">
-                                    <div>
-                                        $$= |\alpha| \cdot \left| S(f,A,P) - L \right| $$
-                                    </div>
-                                    <div class="calculation__text">
-                                        por propiedades del valor absoluto
-                                    </div>
+                                <div class="calculation__text">
+                                    por <span class="modal__reference" data-modal-btn="theorem-1-2-1">Teorema 1.2.1</span>
                                 </div>
-                                <div class="calculation__formule--2">
-                                    <div>
-                                        $$ < |\alpha| \cdot \frac{\varepsilon}{|\alpha|} $$
-                                    </div>
-                                    <div class="calculation__text">
-                                        por &#x1F600
-                                    </div>
+                            </div>
+                            <div class="calculation__formule--2">
+                                <div>
+                                    $$= \left| \alpha S(f,A,P) - \alpha L \right| $$
                                 </div>
-                                <div class="calculation__formule--2">
-                                    <div>
-                                        $$= \varepsilon $$
+                                <div class="calculation__text">
+                                    por Definición 1.5.1
+                                </div>
+                            </div>
+                            <div class="calculation__formule--2">
+                                <div>
+                                    $$= |\alpha| \cdot \left| S(f,A,P) - L \right| $$
+                                </div>
+                                <div class="calculation__text">
+                                    por propiedades del valor absoluto
+                                </div>
+                            </div>
+                            <div class="calculation__formule--2">
+                                <div>
+                                    $$ < |\alpha| \cdot \frac{\varepsilon}{|\alpha|} $$
+                                </div>
+                                <div class="calculation__text">
+                                    por &#x1F600
+                                </div>
+                            </div>
+                            <div class="calculation__formule--2">
+                                <div>
+                                    $$= \varepsilon $$
+                                </div>
+                            </div>
+                        </div>
+                        Finalmente, por transitividad, tenemos que $\forall \varepsilon>0 $, $\exists \delta>0$, tal que $\forall P$ partición de $[a,b]$ con $\|P\|<\delta$ y 
+                        $\forall A$ selección de $P$, se tiene que 
+                        $$|S(\alpha f,A,P)-\alpha L| < \varepsilon,$$ 
+                        es decir, $\lim_{\|P\|\to 0}S(\alpha f,A,P)=\alpha L$, y por lo tanto, 
+                        $$\lim_{\|P\|\to 0}S(\alpha f,A,P)=\alpha \lim_{\|P\|\to 0}S(f,A,P).$$
+                    </div>
+                    <p class="paragraph">
+                        3) Sea $\varepsilon>0$. Por hipótesis, $\lim_{\|P\|\to 0}S(f,A,P)$ y $\lim_{\|P\|\to 0}S(g,A,P)$ existen, entonces podemos decir que 
+                        $\lim_{\|P\|\to 0}S(f,A,P)=L$ y $\lim_{\|P\|\to 0}S(g,A,P)=T$. Considerando $\frac{\varepsilon}{2}>0$, entonces existen $\delta_1,\delta_2>0$ tales que  
+                        $\forall P$ partición de $[a,b]$, con $\|P\|<\delta_1$ y $\|P\|<\delta_2$, y $\forall A$ selección de $P$, se tiene que 
+                        $$|S(f,A,P)-L|<\frac{\varepsilon}{2} \quad \mbox{y} \quad  |S(g,A,P)-L|<\frac{\varepsilon}{2} \cdots &#128533;. $$
+                        Tomamos $\delta=\min\{\delta_1,\delta_2\}>0$. Sean $P=\{x_0,x_1,...,x_n\}$ una partición de $[a,b]$ con $\|P\|<\delta$ y $A=\{\xi_i: \xi_i\in[x_{i-1},x_i], i=\overline{1,n}\}$ una selección de $P$. Entonces 
+                    </p>
+                    <form class="question margin-top-sm" data-j="jqp-1" data-answer="a_b_c_a_d_e_f">
+                        <h3 class="question__header margin-bottom-sm">Justifica Los pasos</h3>
+                        <div class="question__col-1">
+                            <div class="question__options">
+                                <div class="calculation">
+                                    <div class="calculation__formule--1">
+                                        $$\left|S(f+g,A,P) -(L+T) \right|$$
+                                    </div>
+                                    
+                                    <div class="calculation__formule--2">
+                                        <div>
+                                            $$= \left| \sum_{i=1}^n (f+g)(\xi_i) \Delta x_i - (L+T) \right| $$
+                                        </div>
+                                        <div class="justification__block margin-bottom-sm calculation__text" data-options-block="block-2">
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b2-d" name="jp1-b2" value="d" data-option="jp1-b2">
+                                                <label for="jp1-b2-d">por asociatividad</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b2-a" name="jp1-b2" value="a" data-option="jp1-b2">
+                                                <label for="jp1-b2-a">por Definición 1.5.1</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b2-f" name="jp1-b2" value="f" data-option="jp1-b2">
+                                                <label for="jp1-b2-f">por &#128533;</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b2-b" name="jp1-b2" value="b" data-option="jp1-b2">
+                                                <label for="jp1-b2-b">por definición de $f+g$</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b2-e" name="jp1-b2" value="e" data-option="jp1-b2">
+                                                <label for="jp1-b2-e">por desigualdad del triángulo</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b2-c" name="jp1-b2" value="c" data-option="jp1-b2">
+                                                <label for="jp1-b2-c">por <span class="modal__reference" data-modal-btn="theorem-1-2-1">Teorema 1.2.1</span></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="calculation__formule--2">
+                                        <div>
+                                            $$= \left| \sum_{i=1}^n [f(\xi_i)+g(\xi_i)] \Delta x_i - (L+T) \right| $$
+                                        </div>
+                                        <div class="justification__block margin-bottom-sm calculation__text" data-options-block="block-3">
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b3-d" name="jp1-b3" value="d" data-option="jp1-b3">
+                                                <label for="jp1-b3-d">por asociatividad</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b3-a" name="jp1-b3" value="a" data-option="jp1-b3">
+                                                <label for="jp1-b3-a">por Definición 1.5.1</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b3-f" name="jp1-b3" value="f" data-option="jp1-b3">
+                                                <label for="jp1-b3-f">por &#128533;</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b3-b" name="jp1-b3" value="b" data-option="jp1-b3">
+                                                <label for="jp1-b3-b">por definición de $f+g$</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b3-e" name="jp1-b3" value="e" data-option="jp1-b3">
+                                                <label for="jp1-b3-e">por desigualdad del triángulo</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b3-c" name="jp1-b3" value="c" data-option="jp1-b3">
+                                                <label for="jp1-b3-c">por <span class="modal__reference" data-modal-btn="theorem-1-2-1">Teorema 1.2.1</span></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="calculation__formule--2">
+                                        <div>
+                                            $$= \left| \sum_{i=1}^n f(\xi_i) \Delta x_i + \sum_{i=1}^n g(\xi_i) \Delta x_i - (L+T) \right| $$
+                                        </div>
+                                        <div class="justification__block margin-bottom-sm calculation__text" data-options-block="block-4">
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b4-d" name="jp1-b4" value="d" data-option="jp1-b4">
+                                                <label for="jp1-b4-d">por asociatividad</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b4-a" name="jp1-b4" value="a" data-option="jp1-b4">
+                                                <label for="jp1-b4-a">por Definición 1.5.1</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b4-f" name="jp1-b4" value="f" data-option="jp1-b4">
+                                                <label for="jp1-b4-f">por &#128533;</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b4-b" name="jp1-b4" value="b" data-option="jp1-b4">
+                                                <label for="jp1-b4-b">por definición de $f+g$</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b4-e" name="jp1-b4" value="e" data-option="jp1-b4">
+                                                <label for="jp1-b4-e">por desigualdad del triángulo</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b4-c" name="jp1-b4" value="c" data-option="jp1-b4">
+                                                <label for="jp1-b4-c">por <span class="modal__reference" data-modal-btn="theorem-1-2-1">Teorema 1.2.1</span></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="calculation__formule--2">
+                                        <div>
+                                            $$= \left|S(f,A,P)+S(g,A,P)-(L+T) \right| $$
+                                        </div>
+                                        <div class="justification__block margin-bottom-sm calculation__text" data-options-block="block-5">
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b5-d" name="jp1-b5" value="d" data-option="jp1-b5">
+                                                <label for="jp1-b5-d">por asociatividad</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b5-a" name="jp1-b5" value="a" data-option="jp1-b5">
+                                                <label for="jp1-b5-a">por Definición 1.5.1</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b5-f" name="jp1-b5" value="f" data-option="jp1-b5">
+                                                <label for="jp1-b5-f">por &#128533;</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b5-b" name="jp1-b5" value="b" data-option="jp1-b5">
+                                                <label for="jp1-b5-b">por definición de $f+g$</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b5-e" name="jp1-b5" value="e" data-option="jp1-b5">
+                                                <label for="jp1-b5-e">por desigualdad del triángulo</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b5-c" name="jp1-b5" value="c" data-option="jp1-b5">
+                                                <label for="jp1-b5-c">por <span class="modal__reference" data-modal-btn="theorem-1-2-1">Teorema 1.2.1</span></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="calculation__formule--2">
+                                        <div>
+                                            $$= \left|\left[S(f,A,P)-L \right]+\left[S(g,A,P)-T\right] \right| $$
+                                        </div>
+                                        <div class="justification__block margin-bottom-sm calculation__text" data-options-block="block-6">
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b6-d" name="jp1-b6" value="d" data-option="jp1-b6">
+                                                <label for="jp1-b6-d">por asociatividad</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b6-a" name="jp1-b6" value="a" data-option="jp1-b6">
+                                                <label for="jp1-b6-a">por Definición 1.5.1</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b6-f" name="jp1-b6" value="f" data-option="jp1-b6">
+                                                <label for="jp1-b6-f">por &#128533;</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b6-b" name="jp1-b6" value="b" data-option="jp1-b6">
+                                                <label for="jp1-b6-b">por definición de $f+g$</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b6-e" name="jp1-b6" value="e" data-option="jp1-b6">
+                                                <label for="jp1-b6-e">por desigualdad del triángulo</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b6-c" name="jp1-b6" value="c" data-option="jp1-b6">
+                                                <label for="jp1-b6-c">por <span class="modal__reference" data-modal-btn="theorem-1-2-1">Teorema 1.2.1</span></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="calculation__formule--2">
+                                        <div>
+                                            $$ \leq \left|S(f,A,P)-L \right|+\left|S(g,A,P)-T \right| $$
+                                        </div>
+                                        <div class="justification__block margin-bottom-sm calculation__text" data-options-block="block-7">
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b7-d" name="jp1-b7" value="d" data-option="jp1-b7">
+                                                <label for="jp1-b7-d">por asociatividad</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b7-a" name="jp1-b7" value="a" data-option="jp1-b7">
+                                                <label for="jp1-b7-a">por Definición 1.5.1</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b7-f" name="jp1-b7" value="f" data-option="jp1-b7">
+                                                <label for="jp1-b7-f">por &#128533;</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b7-b" name="jp1-b7" value="b" data-option="jp1-b7">
+                                                <label for="jp1-b7-b">por definición de $f+g$</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b7-e" name="jp1-b7" value="e" data-option="jp1-b7">
+                                                <label for="jp1-b7-e">por desigualdad del triángulo</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b7-c" name="jp1-b7" value="c" data-option="jp1-b7">
+                                                <label for="jp1-b7-c">por <span class="modal__reference" data-modal-btn="theorem-1-2-1">Teorema 1.2.1</span></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="calculation__formule--2">
+                                        <div>
+                                            $$ < \frac{\varepsilon}{2}+\frac{\varepsilon}{2} $$
+                                        </div>
+                                        <div class="justification__block margin-bottom-sm calculation__text" data-options-block="block-8">
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b8-d" name="jp1-b8" value="d" data-option="jp1-b8">
+                                                <label for="jp1-b8-d">por asociatividad</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b8-a" name="jp1-b8" value="a" data-option="jp1-b8">
+                                                <label for="jp1-b8-a">por Definición 1.5.1</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b8-f" name="jp1-b8" value="f" data-option="jp1-b8">
+                                                <label for="jp1-b8-f">por &#128533;</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b8-b" name="jp1-b8" value="b" data-option="jp1-b8">
+                                                <label for="jp1-b8-b">por definición de $f+g$</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b8-e" name="jp1-b8" value="e" data-option="jp1-b8">
+                                                <label for="jp1-b8-e">por desigualdad del triángulo</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b8-c" name="jp1-b8" value="c" data-option="jp1-b8">
+                                                <label for="jp1-b8-c">por <span class="modal__reference" data-modal-btn="theorem-1-2-1">Teorema 1.2.1</span></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="calculation__formule--2">
+                                        <div>
+                                            $$= \varepsilon $$
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <p class="paragraph">
-                                Finalmente, por transitividad, tenemos que $\forall \varepsilon>0 $, $\exists \delta>0$, tal que $\forall P$ partición de $[a,b]$ con $\|P\|<\delta$ y 
-                                $\forall A$ selección de $P$, se tiene que 
-                                $$|S(\alpha f,A,P)-\alpha L| < \varepsilon,$$ 
-                                es decir, $\lim_{\|P\|\to 0}S(\alpha f,A,P)=\alpha L$, y por lo tanto, 
-                                $$\lim_{\|P\|\to 0}S(\alpha f,A,P)=\alpha \lim_{\|P\|\to 0}S(f,A,P).$$
-                            </p>
-                        </li>
-                        <li class="proof__step-item">Ejercicio</li>
-                        <li class="proof__step-item">Ejercicio</li>
-                        <li class="proof__step-item">Ejercicio</li>
-                    </ol>
-                </div>
-                <div>
-                    <button class="btn-sm btn--blue" type="button" data-btn-continue="step-5">Continuar</button>
+                            <div class="question__btn-box">
+                                <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                <button class="btn btn--blue" type="button" disabled data-btn-continue="step-5">Continuar</button>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="section--hidden" data-section="step-5">
+                        <p class="paragraph">
+                            4) Inténtelo usted mismo. Hint: Por hipótesis, $0\leq f(x), \forall x \in[a,b]$, así para cualquier $P$ partición de $[a,b]$ y cualquier $A$ selección de $P$, 
+                            se tiene que $0\leq S(f,A,P)$. Queremos probar que $0 \leq \lim_{\|P\|\to 0}S(f,A,P)$, pero por hipótesis sabemos que $\lim_{\|P\|\to 0}S(f,A,P)$ existe, 
+                            digamos que $\lim_{\|P\|\to 0}S(f,A,P)=L$. Es decir, queremos probar que $0\leq L$. Suponga que $L< 0 $ y encuentre una contradicción.
+                        </p>
+                        <p class="paragraph">
+                            5) Inténtelo usted mismo. Hint: Defina $h(x)=f(x)-g(x) \geq 0$ y use el punto anterior.
+                        </p>
+                        <p class="paragraph">
+                            6) Inténtelo usted mismo.
+                        </p>
+                        <div>
+                            <button class="btn-sm btn--blue" type="button" data-btn-continue="step-6">Continuar</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
-        <section class="section--hidden" data-section="step-5">
+        <section class="section--hidden" data-section="step-6">
             <div class="fancy-line"></div>
             <p class="paragraph">
                 Ahora veamos que en realidad, este límite que definimos es la integral definida que hemos construido.
@@ -488,7 +738,7 @@
                 </p>
             </div>
             <div class="proof">
-                <h3 class="header-tertiary">Demostración en clase.</h3>
+                <h3 class="header-tertiary"><a class="modal__reference" href="./anexo-demostracion-teo-1.5.3.html" target="_blank">Demostración (click aquí).</a></h3>
             </div>
             <p class="paragraph">
                 Ahora combinamos los Teoremas 1.5.2 y 1.5.3, para deducir el siguiente resultado.

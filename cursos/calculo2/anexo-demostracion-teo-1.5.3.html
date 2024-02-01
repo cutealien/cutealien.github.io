@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+      <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+      <link rel="stylesheet" href="/css/style.css" />
+
+      <script src="./scripts/question.js" defer></script>
+      <script src="./scripts/modal.js" defer></script>
+      <script src="./components/component-loader.js" defer></script>
+
+      <script>
+         MathJax = {
+            tex: {
+               inlineMath: [
+                  ["$", "$"],
+                  ["\\(", "\\)"],
+               ],
+            },
+            loader: { load: ["input/asciimath", "output/chtml"] },
+         };
+      </script>
+      <script
+         id="MathJax-script"
+         async
+         src="/scripts/MathJax-master/es5/tex-chtml.js"
+      ></script>
+
+      <title>Cálculo 2 | Factores cuadráticos irreducibles</title>
+   </head>
+   <body class="course">
+      <nav class="navbar">
+         <a href="/" class="navbar__logo-box"> </a>
+         <a href="/" class="navbar__link"> Inicio </a>
+         <a href="#" class="navbar__link navbar__link--active"> Cálculo 2 </a>
+         <a href="./quiz.html" class="navbar__link"> Quiz </a>
+         <button class="menu-mobile-btn burger-btn" data-menu-btn="menu-mobile">
+            <span class="burger-icon"></span>
+         </button>
+      </nav>
+      <alien-sidebar class="sidebar" id="sidebar"></alien-sidebar>
+      <alien-mobile-sidebar id="mobile-menu"></alien-mobile-sidebar>
+      <main class="main">
+         <section>
+            <div class="theorem">
+               <p class="paragraph">
+                  <strong class="theorem__title">Teorema 1.5.3.</strong> Sea
+                  $f:[a,b]\to\mathbb{R}$ una función acotada. La función $f$ es
+                  integrable en $[a,b]$ si y sólo si $\lim_{\|P\|\to 0}S(f,A,P)$
+                  existe. Además, si el límite existe, entonces $$
+                  \lim_{\|P\|\to 0}S(f,A,P)=\int_a^b f(x)\,dx. $$
+               </p>
+            </div>
+            <div class="proof">
+               <h3 class="header-tertiary">Demostración.</h3>
+               <p class="paragraph">
+                  pendiente...
+               </p>
+            </div>
+            <div class="fancy-line"></div>
+         </section>
+      </main>
+      <div class="modal" data-modal="lema-1-5-1">
+         <div
+            class="modal__background"
+            data-modal-background="lema-1-5-1"
+         ></div>
+         <div class="modal__content">
+            <div class="theorem">
+               <p class="paragraph">
+                  <strong class="theorem__title">Lema 1.5.1. </strong> $\forall
+                  r\in\mathbf{R}_+$, $\exists R$, partición de $[a,b]$, tal que
+                  $$
+                  {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu}
+                  \int_a^b f(x)\,dx-r < \underline{S}(f,R) \qquad \mbox{ y }
+                  \qquad \overline{S}(f,R) <
+                  {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu}
+                  \int_a^b f(x)\, dx+r. $$
+               </p>
+            </div>
+         </div>
+      </div>
+      <div class="modal" data-modal="theo-1-4-2">
+         <div
+            class="modal__background"
+            data-modal-background="theo-1-4-2"
+         ></div>
+         <div class="modal__content">
+            <alien-math-template
+               path="./components/theorems/theorem-1.4.2.html"
+            ></alien-math-template>
+         </div>
+      </div>
+      <div class="modal" data-modal="theorem-1-2-1">
+         <div
+            class="modal__background"
+            data-modal-background="theorem-1-2-1"
+         ></div>
+         <div class="modal__content">
+            <alien-math-template
+               path="./components/theorems/theorem-1.2.1.html"
+            ></alien-math-template>
+         </div>
+      </div>
+   </body>
+</html>

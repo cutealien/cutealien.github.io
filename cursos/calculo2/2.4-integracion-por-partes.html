@@ -54,7 +54,7 @@
             </p>
             <div class="theorem">
                 <p class="paragraph">
-                    <strong class="theorem__title">Teorema 2.4.1.</strong> Si $f$ y $g$ son funciones continuas con derivadas continuas (es decir, de clase $\mathscr{C}^1$), entonces 
+                    <strong class="theorem__title">Teorema 2.4.1.</strong> Si $f$ y $g$ son funciones derivables con derivada continua (es decir, de clase $\mathscr{C}^1$), entonces 
                 </p>
                 <ul class="theorem__list">
                     <li class="theorem__list-item">
@@ -68,7 +68,7 @@
             <div class="proof">
                 <h3 class="header-tertiary">Demostración.</h3>
                 <p class="paragraph">
-                    1) Por hipótesis, $f$ y $g'$ son funciones continua, y así $fg'$ es continua y por lo tanto es integrable. Además, por la definición de primitiva, tenemos que 
+                    1) Por hipótesis, $f$ y $g'$ son funciones continuas, y así $fg'$ es continua y por lo tanto es integrable. Además, por la definición de primitiva, tenemos que 
                     $$\dfrac{d}{dx} \int f(x)g'(x)\,dx = f(x)g'(x).$$
                 </p>
                 <p class="paragraph">
@@ -101,8 +101,44 @@
                     </div>
                 </div>
                 <p class="paragraph">
-                    Por lo tanto, tenemos que las funciones $\int f(x)g'(x)\,dx$ y $f(x)g(x)-\int g(x)f'(x)\,dx$ son las primitvas más generales en el dominio más grande de la 
+                    Por lo tanto, tenemos que las funciones $\int f(x)g'(x)\,dx$ y $f(x)g(x)-\int g(x)f'(x)\,dx$ son las primitivas más generales en el dominio más grande de la 
                     función $fg'$ y así son iguales, es decir, $$\int f(x) g'(x)\,dx = f(x) g(x)-\int g(x) f'(x)\,dx.$$
+                </p>
+                <p class="paragraph">
+                    2) Por la parte 1) de este teorema, sabemos que la función $f(x) g(x)-\int g(x) f'(x)\,dx$ es una primitiva de la función $f(x)g'(x)$. 
+                    Como la continuidad de las funciones y sus derivadas es en $[a,b]$, entonces
+                </p>
+                <div class="calculation">
+                    <div class="calculation__formule--1">
+                        $$\int_a^b f(x)g'(x)\,dx$$
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \left[ f(x) g(x)-\int g(x) f'(x)\,dx \right] \bigg|_a^b $$
+                        </div>
+                        <div class="calculation__text">
+                            por TFC
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= f(b)g(b)-f(a)g(a)-\int g(x)f'(x)\,dx\bigg|_a^b $$
+                        </div>
+                        <div class="calculation__text">
+                            por notación
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= f(b)g(b)-f(a)g(a)-\int_a^b g(x)f'(x)\,dx $$
+                        </div>
+                        <div class="calculation__text">
+                            por notación
+                        </div>
+                    </div>
+                </div>
+                <p class="paragraph">
+                    Finalmente, por transitividad tenemos que $$\int_a^b f(x) g'(x)\,dx = f(b) g(b)-f(a)g(a)-\int_a^b g(x) f'(x)\,dx.$$
                 </p>
             </div>
             <div class="fancy-line"></div>
@@ -544,7 +580,7 @@
                 <div class="section--hidden" data-section="step-6">
                     <p class="paragraph">
                         Notemos que la integral puede reescribirse como $$\int \ln x \,dx = \int \ln x \, 1\,dx.$$ En este punto siempre será más fácil de integrar a 
-                        la constante 1, es por ese que elegimos $f(x)=\ln x$ y $g'(x)=1$, lo cual nos arroja el cambio de variable
+                        la constante 1, es por eso que elegimos $f(x)=\ln x$ y $g'(x)=1$, lo cual nos arroja el cambio de variable
                         \[
                             \begin{matrix}
                                 u= \ln x & dv=1dx \\

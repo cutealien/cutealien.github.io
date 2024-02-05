@@ -60,10 +60,10 @@
                     $\frac{d}{dx}\frac{x^{n+1}}{n+1}=x^n$, con $n\neq -1$. Así, la función $F(x)=\frac{x^{n+1}}{n+1}$ es una primitiva de la función $f(x)=x^n$. 
                     Pero sabemos que $\int x^n$ es la primitiva más general en su dominio más grande de la función $f(x)=x^n$. 
                     Luego, por el <span class="modal__reference" data-modal-btn="theorem-2-1-2">Teorema 2.1.2,</span> concluimos que 
-                    $$\int x^n\,dx=\frac{x^{n+1}}{n+1}+C \qquad \mbox{ con }n\in\mathbf{N} \setminus\{-1\} \mbox{ y }C\mbox{ una constante}.$$
+                    $$\int x^n\,dx=\frac{x^{n+1}}{n+1}+C \qquad \mbox{ con }n\in\mathbf{Z} \setminus\{-1\} \mbox{ y }C\mbox{ una constante}.$$
                 </li>
                 <li class="example__step-item">
-                    También, sabemos que $\frac{d}{dx}e^x=e^x$, entonces tenemmos que $$\int e^x=e^x+C \qquad \mbox{ con }C \mbox{ una constante.}$$
+                    También, sabemos que $\frac{d}{dx}e^x=e^x$, entonces tenemos que $$\int e^x \,dx=e^x+C \qquad \mbox{ con }C \mbox{ una constante.}$$
                     Más aún, si $k\in\mathbf{R} $, entonces $\frac{d}{dx}e^{kx}=ke^x$. Entonces $\frac{1}{k}\frac{d}{dx}e^{kx}=e^{kx}$ con $k\neq 0$. 
                     Luego, por las propiedades de la derivada, obtenemos que $\frac{d}{dx}\frac{e^{kx}}{k}=e^{kx}$. Finalmente,
                     $$\int e^{kx}\,dx=\frac{e^{kx}}{k}+C \qquad \mbox{con }C \mbox{ una constante.}$$
@@ -110,48 +110,99 @@
                 <p class="paragraph">
                     1) Por un lado, por la definición de antiderivada, tenemos que $$\frac{d}{dx}\int (f\pm g)(x) \,dx=(f\pm g)(x).$$ Por otro lado, tenemos
                 </p>
-                <div class="calculation">
-                    <div class="calculation__formule--1">
-                        $$\frac{d}{dx} \left[ \int f(x)\, dx \pm \int g(x) \, dx \right]$$
+                <form class="question margin-top-sm" data-j="jqp-2-1" data-answer="c_b_a">
+                    <h3 class="question__header margin-bottom-sm">
+                        Justifica los pasos.
+                    </h3>
+                    <div class="question__col-1">
+                        <div class="question__options">
+                            <div class="calculation">
+                                <div class="calculation__formule--1">
+                                    $$\frac{d}{dx} \left[ \int f(x)\, dx \pm \int g(x) \, dx \right]$$
+                                </div>
+                                <div class="calculation__formule--2">
+                                    <div>
+                                        $$= \frac{d}{dx}\int f(x)\, dx \pm \frac{d}{dx}  \int g(x)\, dx $$
+                                    </div>
+                                    <div class="justification__block margin-bottom-sm calculation__text" data-options-block="block-1">
+                                        <div class="justification__option question__option">
+                                            <input class="question__option--start" type="radio" autocomplete="off" id="jqp-2-1-b1-a" name="jqp-2-1-b1" value="a" data-option="jqp-2-1-b1">
+                                            <label for="jqp-2-1-b1-a">por la definición de suma y resta de funciones</label>
+                                        </div>
+                                        <div class="justification__option question__option">
+                                            <input class="question__option--start" type="radio" autocomplete="off" id="jqp-2-1-b1-b" name="jqp-2-1-b1" value="b" data-option="jqp-2-1-b1">
+                                            <label for="jqp-2-1-b1-b">por la definición de antiderivada</label>
+                                        </div>
+                                        <div class="justification__option question__option">
+                                            <input class="question__option--start" type="radio" autocomplete="off" id="jqp-2-1-b1-c" name="jqp-2-1-b1" value="c" data-option="jqp-2-1-b1">
+                                            <label for="jqp-2-1-b1-c">por las reglas de derivación</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="calculation__formule--2">
+                                    <div>
+                                        $$=  f(x) \pm g(x) $$
+                                    </div>
+                                    <div class="justification__block margin-bottom-sm calculation__text" data-options-block="block-2">
+                                        <div class="justification__option question__option">
+                                            <input class="question__option--start" type="radio" autocomplete="off" id="jqp-2-1-b2-a" name="jqp-2-1-b2" value="a" data-option="jqp-2-1-b2">
+                                            <label for="jqp-2-1-b2-a">por la definición de suma y resta de funciones</label>
+                                        </div>
+                                        <div class="justification__option question__option">
+                                            <input class="question__option--start" type="radio" autocomplete="off" id="jqp-2-1-b2-b" name="jqp-2-1-b2" value="b" data-option="jqp-2-1-b2">
+                                            <label for="jqp-2-1-b2-b">por la definición de antiderivada</label>
+                                        </div>
+                                        <div class="justification__option question__option">
+                                            <input class="question__option--start" type="radio" autocomplete="off" id="jqp-2-1-b2-c" name="jqp-2-1-b2" value="c" data-option="jqp-2-1-b2">
+                                            <label for="jqp-2-1-b2-c">por las reglas de derivación</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="calculation__formule--2">
+                                    <div>
+                                        $$= (f\pm g)(x) $$
+                                    </div>
+                                    <div class="justification__block margin-bottom-sm calculation__text" data-options-block="block-3">
+                                        <div class="justification__option question__option">
+                                            <input class="question__option--start" type="radio" autocomplete="off" id="jqp-2-1-b3-a" name="jqp-2-1-b3" value="a" data-option="jqp-2-1-b3">
+                                            <label for="jqp-2-1-b3-a">por la definición de suma y resta de funciones</label>
+                                        </div>
+                                        <div class="justification__option question__option">
+                                            <input class="question__option--start" type="radio" autocomplete="off" id="jqp-2-1-b3-b" name="jqp-2-1-b3" value="b" data-option="jqp-2-1-b3">
+                                            <label for="jqp-2-1-b3-b">por la definición de antiderivada</label>
+                                        </div>
+                                        <div class="justification__option question__option">
+                                            <input class="question__option--start" type="radio" autocomplete="off" id="jqp-2-1-b3-c" name="jqp-2-1-b3" value="c" data-option="jqp-2-1-b3">
+                                            <label for="jqp-2-1-b3-c">por las reglas de derivación</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="question__btn-box">
+                            <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                            <button class="btn btn--blue" type="button" disabled data-btn-continue="s-1">Continuar</button>
+                        </div>
                     </div>
-                    <div class="calculation__formule--2">
-                        <div>
-                            $$= \frac{d}{dx}\int f(x)\, dx \pm \frac{d}{dx}  \int g(x)\, dx $$
-                        </div>
-                        <div class="calculation__text">
-                            por las reglas de derivación
-                        </div>
-                    </div>
-                    <div class="calculation__formule--2">
-                        <div>
-                            $$=  f(x) \pm g(x) $$
-                        </div>
-                        <div class="calculation__text">
-                            por la definición de antiderivada
-                        </div>
-                    </div>
-                    <div class="calculation__formule--2">
-                        <div>
-                            $$= (f\pm g)(x) $$
-                        </div>
-                        <div class="calculation__text">
-                            por la definición de suma y resta de funciones.
-                        </div>
+                </form>
+                <div class="section--hidden" data-section="s-1">
+                    <p class="paragraph">
+                        De aquí se deduce que $\int (f\pm g)(x)\, dx$ y $\int f(x) \, dx \pm \int g(x) \, dx$ son primitivas generales en su dominio más general de la 
+                        función $(f\pm g)(x)$, y por lo tanto son iguales, es decir, $$\int (f\pm g)(x)\, dx=\int f(x) \, dx \pm \int g(x) \, dx.$$
+                    </p>
+                    <p class="paragraph">
+                        2) La prueba es análoga y se invita al lector a realizarla.
+                    </p>
+                    <p class="paragraph">
+                        Daremos un par de ejemplos para ejemplificar el uso de este teorema.
+                    </p>
+                    <div>
+                        <button class="btn-sm btn--blue" type="button" data-btn-continue="s-2">Continuar</button>
                     </div>
                 </div>
-                <p class="paragraph">
-                    De aquí se deduce que $\int (f\pm g)(x)\, dx$ y $\int f(x) \, dx \pm \int g(x) \, dx$ son primitivas generales en su dominio más general de la 
-                    función $(f\pm g)(x)$, y por lo tanto son iguales, es decir, $$\int (f\pm g)(x)\, dx=\int f(x) \, dx \pm \int g(x) \, dx.$$
-                </p>
-                <p class="paragraph">
-                    2) La prueba es análoga y se deja como ejercicio.
-                </p>
             </div>
-            <p class="paragraph">
-                Daremos un par de ejemplos para ejemplificar el uso de este teorema.
-            </p>
         </section>
-        <section>
+        <section class="section--hidden" data-section="s-2">
             <div class="fancy-line"></div>
             <div class="example">
                 <p class="paragraph example__paragraph">
@@ -194,10 +245,13 @@
                 <p class="paragraph">
                     Finalmente, tenemos que $$\int \left(3x^4-2x^2+5e^{3x}-\frac{1}{x^5}\right) \,dx=\frac{3}{5}x^5-\frac{2}{3}x^3+\frac{5}{3}e^{3x}+\frac{1}{4x^4}+C.$$
                 </p>
+                <div>
+                    <button class="btn-sm btn--blue" type="button" data-btn-continue="s-3">Continuar</button>
+                </div>
             </div>
             <div class="fancy-line"></div>
         </section>
-        <section>
+        <section class="section--hidden" data-section="s-3">
             <form class="question margin-top-sm" data-question="question-2-2-1" data-answer="a">
                 <h3 class="question__header margin-bottom-sm">
                     Calcula $\int \left(3\cos x+6\sin x-\frac{3}{x}+9\sec x \tan x -\frac{7}{1+x^2}\right) \,dx$.

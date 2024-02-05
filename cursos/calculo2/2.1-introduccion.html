@@ -55,8 +55,8 @@
             </h2>
             <p class="paragraph">
                 En la unidad anterior construimos la integral definida de una función acotada. 
-                Como vimos, calcular el valor de la integral es súmamente complicado e imposible algunas veces. Según el Teorema Fundamental del Cálculo. Si $f$ es integrable en 
-                $[a,b]$, $F$ es derivable y además $F(x)=f(x),\,\forall x\in[a,b]$ <span class="error">$F'(x)=f(x)$</span>, entonces $\int_a^b=F(b)-F(a)$ <span class="doubt">siento que falta justificación</span>. En esta unidad desarrollaremos técnicas para hallar primitivas. 
+                Como vimos, calcular el valor de la integral es súmamente complicado e imposible algunas veces. Según el Teorema Fundamental del Cálculo, si $f$ es integrable en 
+                $[a,b]$, $F$ es derivable y además $F'(x)=f(x),\,\forall x\in[a,b]$, entonces $\int_a^b f(t)\,td=F(b)-F(a)$ por el Teorema Fundamental del Cálculo. En esta unidad desarrollaremos técnicas para hallar primitivas. 
             </p>
             <div class="definition">
                 <p class="paragraph">
@@ -71,18 +71,18 @@
             </p>
             <p class="paragraph">
                 Sin embargo no todas las funciones integrables tienen primitivas, pero si las podemos hallar, aseguramos el cálculo de sus integrales definidas. 
-                Es más, si $F'(x)=f(x)$, sabemos que $\int_a^b f(x)\,dx=F(b)-F(a)$, así que de ahora en delante, bajo estas condiciones, denotaremos 
+                Es más, si $F'(x)=f(x)$, sabemos que $\int_a^b f(x)\,dx=F(b)-F(a)$, así que de ahora en adelante, bajo estas condiciones, denotaremos 
                 $$\int_a^b f(x)\,dx=F(b)-F(a)=F(x)\bigg|_a^b.$$
             </p>
             <p class="paragraph">
                 Por supuesto, la primitiva de una función es única, salvo una constante, pero hallar la forma genérica de una primitiva de una función dada es importante. 
-                Denotaremos por $\int f(x)\,dx$ a la primitiva de $f$ en su forma más general  y con su dominio lo más grande posible. Así, tendremos que 
-                $$\frac{d}{dx}\int f(x)\,dx=f(x).$$
             </p>
             <div class="definition">
                 <p class="paragraph">
-                    <span class="definition__title">Definición 2.1.2.</span> Sea $f$ una función integrable. Definimos como integral definida de $f$ a la primitiva de $f$ en su 
+                    <span class="definition__title">Definición 2.1.2.</span> Sea $f$ una función integrable. Definimos como integral indefinida de $f$ a la primitiva de $f$ en su 
                     forma más general y con dominio lo más grande posible, y la denotaremos por $$\int f(x)\,dx.$$
+                    Así, tendremos que 
+                    $$\frac{d}{dx}\int f(x)\,dx=f(x).$$
                 </p>
             </div>
             <p class="paragraph">

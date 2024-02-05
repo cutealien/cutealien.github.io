@@ -51,10 +51,8 @@
             </h1>
             <p class="paragraph">
                 Si $Q(x)$ contiene un factor cuadrático irreducible que se repite $k$ veces, entonces este factor aportará $k$ fracciones simples a la descomposición, i.e., 
-                si $f(x)$ tiene la forma $f(x)=\frac{P(x)}{\cdots (x^2+px+q)^k \cdots}$ <span class="error">$f(x)=\frac{P(x)}{ (x^2+px+q)^k}$ va sin puntos, no?</span>, donde $x^2+px+q$ es un polinomio cuadrático irredcible, entonces 
+                si $f(x)$ tiene la forma $f(x)=\frac{P(x)}{\cdots (x^2+px+q)^k \cdots}$, donde $x^2+px+q$ es un polinomio cuadrático irreducible, entonces 
                 $$f(x)=\cdots+\frac{A_1x+B_1}{x^2+px+q}+\frac{A_2x+B_2}{(x^2+px+q)^2}+\cdots+\frac{A_kx+B_k}{(x^2+px+q)^k}+\cdots$$
-                <span class="error">$$f(x)=\frac{A_1x+B_1}{x^2+px+q}+\frac{A_2x+B_2}{(x^2+px+q)^2}+\cdots+\frac{A_kx+B_k}{(x^2+px+q)^k}$$</span>
-                <span class="error">no lleva puntos al inicio</span>
             </p>
             <p class="paragraph">
                 Por ejemplo, si $P(x)$ es un polinomio con $grad P(x) < 6$, entonces
@@ -67,14 +65,14 @@
                         &\quad +\frac{Fx+G}{x^2+2x+8}+\frac{Hx+I}{(x^2+2x+8)^2}.
                     \end{split}
                 \end{equation*}
-                Notemos que aquí se obtienen fracciones simples que ya hemos discutido antes y cuyas integrales sabeos cómo atacarlas.
+                Notemos que aquí se obtienen fracciones simples que ya hemos discutido antes y cuyas integrales sabemos cómo atacarlas.
             </p>
             <p class="paragraph">
                 Daremos un ejemplo para indicar de qué manera se resolverán estas integrales, sin embargo hay riesgo de que aparezcan integrales que aún no sabemos resolver.
             </p>
             <div class="fancy-line"></div>
             <div class="example">
-                <p class="paragraph">
+                <p class="paragraph example__paragraph">
                     <strong class="example__title">Ejemplo 2.5.9.</strong> Hallar $\int \frac{x^3+2}{x^4+18x^2+81}\,dx$.
                 </p>
                 <h3 class="header-tertiary">Solución.</h3>
@@ -226,7 +224,7 @@
                 <div class="section--hidden" data-section="step-3">
                     <p class="paragraph">
                         Integramos haciendo uso de lo explicado en las subsecciones anteriores, obligando algebraicamente que en el numerador aparezca la derivada 
-                        del denominador o que aprezca el arcotangente,
+                        del denominador o que aparezca la derivada del arcotangente,
                     </p>
                     <div class="calculation">
                         <div class="calculation__formule--2">
@@ -287,7 +285,7 @@
                         Por lo tanto, $$\int \frac{x^3+2}{x^4+18x^2+81}\,dx=\frac{1}{2}\ln (x^2+9) + \frac{9}{2(x^2+9)} + 2\int \frac{1}{(x^2+9)^2}\,dx.$$
                     </p>
                     <p class="paragraph">
-                        Sin emabargo, esta última integral no la podemos resolver con las técnicas que hemos visto, así que requerimos una técnica nueva: la de sustitución trigonométrica.
+                        Sin embargo, esta última integral no la podemos resolver con las técnicas que hemos visto, así que requerimos una técnica nueva: la de sustitución trigonométrica.
                     </p>
                     <div class="fancy-line"></div>
                     <div class="change-page">

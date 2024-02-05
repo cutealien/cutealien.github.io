@@ -50,7 +50,7 @@
                 2.5.1 El polinomio $Q(x)$ solo contiene factores lineales que no se repiten
             </h1>
             <p class="paragraph">
-                En esta sección y en las posteriores puedes presionsar el botón con $\frac{a}{b}$ en la parte derecha para ver la descomposición en fracciones parciales.
+                En esta sección y en las posteriores puedes presionar el botón con $\frac{a}{b}$ en la parte derecha para ver la descomposición en fracciones parciales.
             </p>
             <p class="paragraph">
                 Si $f(x)$ es de la forma $f(x)=\frac{P(x)}{(x-\alpha_1)(x-\alpha_2)}$, donde $grad P(x)< 2 $, entonces $$f(x)=\frac{A}{x-\alpha_1}+\frac{B}{x-\alpha_2}.$$
@@ -72,7 +72,7 @@
                     Notemos que $f(x)=\frac{1}{x^2-9}$, con $P(x)=1$ y $Q(x)=x^2-9$. Como el grado de $P(x)$ es 0 y el grado de $Q(x)$ es 2, entonces $f(x)$ es una 
                     función racional propia y así procedemos a factorizar a $Q(x)$:
                     $$Q(x)=x^2-9=(x-3)(x+3).$$
-                    Dado que $Q(x)$ se factoriza como producto de dos factores lineales que no se repiten, entoces cada factor aporta una fracción simple a la descomposición, es decir,
+                    Dado que $Q(x)$ se factoriza como producto de dos factores lineales que no se repiten, entonces cada factor aporta una fracción simple a la descomposición, es decir,
                     $$f(x)=\frac{1}{x^2-9}=\frac{1}{(x+3)(x-3)}=\frac{A}{x+3}+\frac{B}{x-3}=\frac{A(x-3)+B(x+3)}{(x+3)(x-3)}.$$
                     De aquí se deduce que $$1=A(x-3)+B(x+3), \qquad \forall x\in\mathbf{R}.$$
                     Es posible deducir las constantes dando valores especiales a $x$, de hecho, elegimos valores que hagan un factor cero para obtener rápidamente las constantes buscadas.
@@ -332,61 +332,174 @@
                     <p class="paragraph">
                         Integrando,
                     </p>
-                    <div class="calculation">
-                        <div class="calculation__formule--1">
-                            $$\int \frac{2x^2+3x-1}{x^3-6x^2+5x}\,dx$$
+                    <form class="question margin-top-sm" data-j="jqp-2-1" data-answer="b_a_c_e_d">
+                        <h3 class="question__header margin-bottom-sm">
+                            Justifica los pasos.
+                        </h3>
+                        <div class="question__col-1">
+                            <div class="question__options">
+                                <div class="calculation">
+                                    <div class="calculation__formule--1">
+                                        $$\int \frac{2x^2+3x-1}{x^3-6x^2+5x}\,dx$$
+                                    </div>
+                                    <div class="calculation__formule--2">
+                                        <div>
+                                            $$= \int \left( \frac{-\frac{1}{5}}{x}+\frac{-1}{x-1}+\frac{\frac{16}{5}}{x-5} \right)\,dx $$
+                                        </div>
+                                        <div class="justification__block margin-bottom-sm calculation__text" data-options-block="b1">
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jqp-2-5-1-b1-a" name="jqp-2-5-1-b1" value="a" data-option="jqp-2-5-1-b1">
+                                                <label for="jqp-2-5-1-b1-a">por <span class="modal__reference" data-modal-btn="theorem-2-2-1">Teorema 2.2.1</span></label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jqp-2-5-1-b1-b" name="jqp-2-5-1-b1" value="b" data-option="jqp-2-5-1-b1">
+                                                <label for="jqp-2-5-1-b1-b">por fracciones parciales</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jqp-2-5-1-b1-c" name="jqp-2-5-1-b1" value="c" data-option="jqp-2-5-1-b1">
+                                                <label for="jqp-2-5-1-b1-c">por <span class="modal__reference" data-modal-btn="theorem-2-3-1">Teorema 2.3.1</span></label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jqp-2-5-1-b1-d" name="jqp-2-5-1-b1" value="d" data-option="jqp-2-5-1-b1">
+                                                <label for="jqp-2-5-1-b1-d">por los cambios de variable</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jqp-2-5-1-b1-e" name="jqp-2-5-1-b1" value="e" data-option="jqp-2-5-1-b1">
+                                                <label for="jqp-2-5-1-b1-e">integrando</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="calculation__formule--2">
+                                        <div>
+                                            $$= -\frac{1}{5}\int \frac{1}{x} \,dx - \int \frac{1}{x-1} \,dx +\frac{16}{5}\int \frac{1}{x-5} $$
+                                        </div>
+                                        <div class="justification__block margin-bottom-sm calculation__text" data-options-block="b2">
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jqp-2-5-1-b2-a" name="jqp-2-5-1-b2" value="a" data-option="jqp-2-5-1-b2">
+                                                <label for="jqp-2-5-1-b2-a">por <span class="modal__reference" data-modal-btn="theorem-2-2-1">Teorema 2.2.1</span></label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jqp-2-5-1-b2-b" name="jqp-2-5-1-b2" value="b" data-option="jqp-2-5-1-b2">
+                                                <label for="jqp-2-5-1-b2-b">por fracciones parciales</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jqp-2-5-1-b2-c" name="jqp-2-5-1-b2" value="c" data-option="jqp-2-5-1-b2">
+                                                <label for="jqp-2-5-1-b2-c">por <span class="modal__reference" data-modal-btn="theorem-2-3-1">Teorema 2.3.1</span></label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jqp-2-5-1-b2-d" name="jqp-2-5-1-b2" value="d" data-option="jqp-2-5-1-b2">
+                                                <label for="jqp-2-5-1-b2-d">por los cambios de variable</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jqp-2-5-1-b2-e" name="jqp-2-5-1-b2" value="e" data-option="jqp-2-5-1-b2">
+                                                <label for="jqp-2-5-1-b2-e">integrando</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="calculation__formule--2">
+                                        <div class="calculation__text margin-bottom-sm">
+                                            hacemos $u=x-1$ y $w=x-5$, entonces $du=dx$ y $dw=dx$
+                                        </div>
+                                    </div>
+                                    <div class="calculation__formule--2">
+                                        <div>
+                                            $$= -\frac{1}{5}\int \frac{1}{x} \,dx - \int \frac{1}{u} \,du +\frac{16}{5}\int \frac{1}{w} \,dw $$
+                                        </div>
+                                        <div class="justification__block margin-bottom-sm calculation__text" data-options-block="b3">
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jqp-2-5-1-b3-a" name="jqp-2-5-1-b3" value="a" data-option="jqp-2-5-1-b3">
+                                                <label for="jqp-2-5-1-b3-a">por <span class="modal__reference" data-modal-btn="theorem-2-2-1">Teorema 2.2.1</span></label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jqp-2-5-1-b3-b" name="jqp-2-5-1-b3" value="b" data-option="jqp-2-5-1-b3">
+                                                <label for="jqp-2-5-1-b3-b">por fracciones parciales</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jqp-2-5-1-b3-c" name="jqp-2-5-1-b3" value="c" data-option="jqp-2-5-1-b3">
+                                                <label for="jqp-2-5-1-b3-c">por <span class="modal__reference" data-modal-btn="theorem-2-3-1">Teorema 2.3.1</span></label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jqp-2-5-1-b3-d" name="jqp-2-5-1-b3" value="d" data-option="jqp-2-5-1-b3">
+                                                <label for="jqp-2-5-1-b3-d">por los cambios de variable</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jqp-2-5-1-b3-e" name="jqp-2-5-1-b3" value="e" data-option="jqp-2-5-1-b3">
+                                                <label for="jqp-2-5-1-b3-e">integrando</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="calculation__formule--2">
+                                        <div>
+                                            $$= -\frac{1}{5} \ln x - \ln u + \frac{16}{5}\ln w +C $$
+                                        </div>
+                                        <div class="justification__block margin-bottom-sm calculation__text" data-options-block="b4">
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jqp-2-5-1-b4-a" name="jqp-2-5-1-b4" value="a" data-option="jqp-2-5-1-b4">
+                                                <label for="jqp-2-5-1-b4-a">por <span class="modal__reference" data-modal-btn="theorem-2-2-1">Teorema 2.2.1</span></label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jqp-2-5-1-b4-b" name="jqp-2-5-1-b4" value="b" data-option="jqp-2-5-1-b4">
+                                                <label for="jqp-2-5-1-b4-b">por fracciones parciales</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jqp-2-5-1-b4-c" name="jqp-2-5-1-b4" value="c" data-option="jqp-2-5-1-b4">
+                                                <label for="jqp-2-5-1-b4-c">por <span class="modal__reference" data-modal-btn="theorem-2-3-1">Teorema 2.3.1</span></label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jqp-2-5-1-b4-d" name="jqp-2-5-1-b4" value="d" data-option="jqp-2-5-1-b4">
+                                                <label for="jqp-2-5-1-b4-d">por los cambios de variable</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jqp-2-5-1-b4-e" name="jqp-2-5-1-b4" value="e" data-option="jqp-2-5-1-b4">
+                                                <label for="jqp-2-5-1-b4-e">integrando</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="calculation__formule--2">
+                                        <div>
+                                            $$= -\frac{1}{5} \ln x - \ln (x-1) + \frac{16}{5}\ln (x-5) +C $$
+                                        </div>
+                                        <div class="justification__block margin-bottom-sm calculation__text" data-options-block="b5">
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jqp-2-5-1-b5-a" name="jqp-2-5-1-b5" value="a" data-option="jqp-2-5-1-b5">
+                                                <label for="jqp-2-5-1-b5-a">por <span class="modal__reference" data-modal-btn="theorem-2-2-1">Teorema 2.2.1</span></label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jqp-2-5-1-b5-b" name="jqp-2-5-1-b5" value="b" data-option="jqp-2-5-1-b5">
+                                                <label for="jqp-2-5-1-b5-b">por fracciones parciales</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jqp-2-5-1-b5-c" name="jqp-2-5-1-b5" value="c" data-option="jqp-2-5-1-b5">
+                                                <label for="jqp-2-5-1-b5-c">por <span class="modal__reference" data-modal-btn="theorem-2-3-1">Teorema 2.3.1</span></label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jqp-2-5-1-b5-d" name="jqp-2-5-1-b5" value="d" data-option="jqp-2-5-1-b5">
+                                                <label for="jqp-2-5-1-b5-d">por los cambios de variable</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jqp-2-5-1-b5-e" name="jqp-2-5-1-b5" value="e" data-option="jqp-2-5-1-b5">
+                                                <label for="jqp-2-5-1-b5-e">integrando</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="question__btn-box">
+                                <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                <button class="btn btn--blue" type="button" disabled data-btn-continue="step-5">Continuar</button>
+                            </div>
                         </div>
-                        <div class="calculation__formule--2">
-                            <div>
-                                $$= \int \left( \frac{-\frac{1}{5}}{x}+\frac{-1}{x-1}+\frac{\frac{16}{5}}{x-5} \right)\,dx $$
-                            </div>
-                            <div class="calculation__text">
-                                por fracciones parciales
-                            </div>
+                    </form>
+                    <div class="section--hidden" data-section="step-5">
+                        <p class="paragraph">
+                            Por lo tanto,
+                            $$\int \frac{2x^2+3x-1}{x^3-6x^2+5x}\,dx=-\frac{1}{5} \ln x - \ln (x-1) + \frac{16}{5}\ln (x-5) +C.$$
+                        </p>
+                        <div class="fancy-line"></div>
+                        <div class="change-page">
+                            <a href="./2.5-fracciones-parciales.html" class="change-page__before">Anterior</a>
+                            <a href="./2.5.2-factores-lineales-repetidos.html" class="change-page__next">Siguiente</a>
                         </div>
-                        <div class="calculation__formule--2">
-                            <div>
-                                $$= -\frac{1}{5}\int \frac{1}{x} \,dx - \int \frac{1}{x-1} \,dx +\frac{16}{5}\int \frac{1}{x-5} $$
-                            </div>
-                            <div class="calculation__text">
-                                por <span class="modal__reference" data-modal-btn="theorem-2-2-1">Teorema 2.2.1</span>
-                            </div>
-                        </div>
-                        <div class="calculation__formule--2">
-                            <div class="calculation__text">
-                                hacemos $u=x-1$ y $w=x-5$, entonces $du=dx$ y $dw=dx$
-                            </div>
-                        </div>
-                        <div class="calculation__formule--2">
-                            <div>
-                                $$= -\frac{1}{5}\int \frac{1}{x} \,dx - \int \frac{1}{u} \,du +\frac{16}{5}\int \frac{1}{w} \,dw $$
-                            </div>
-                            <div class="calculation__text">
-                                por <span class="modal__reference" data-modal-btn="theorem-2-3-1">Teorema 2.3.1</span>
-                            </div>
-                        </div>
-                        <div class="calculation__formule--2">
-                            <div>
-                                $$= -\frac{1}{5} \ln x - \ln u + \frac{16}{5}\ln w +C $$
-                            </div>
-                        </div>
-                        <div class="calculation__formule--2">
-                            <div>
-                                $$= -\frac{1}{5} \ln x - \ln (x-1) + \frac{16}{5}\ln (x-5) +C $$
-                            </div>
-                            <div class="calculation__text">
-                                por los cambios de variable
-                            </div>
-                        </div>
-                    </div>
-                    <p class="paragraph">
-                        Por lo tanto,
-                        $$\int \frac{2x^2+3x-1}{x^3-6x^2+5x}\,dx=-\frac{1}{5} \ln x - \ln (x-1) + \frac{16}{5}\ln (x-5) +C.$$
-                    </p>
-                    <div class="fancy-line"></div>
-                    <div class="change-page">
-                        <a href="./2.5-fracciones-parciales.html" class="change-page__before">Anterior</a>
-                        <a href="./2.5.2-factores-lineales-repetidos.html" class="change-page__next">Siguiente</a>
                     </div>
                 </div>
             </div>

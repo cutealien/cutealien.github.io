@@ -249,7 +249,7 @@
                 </div>
                 <div class="section--hidden" data-section="step-3">
                     <p class="paragraph">
-                        Haciendo los calculos, tenemos
+                        Haciendo los cálculos, tenemos
                     </p>
                     <div class="calculation">
                         <div class="calculation__formule--1">
@@ -467,7 +467,7 @@
                         Tomamos $\delta=\min\{\delta_1,\delta_2\}>0$. Sean $P=\{x_0,x_1,...,x_n\}$ una partición de $[a,b]$ con $\|P\|<\delta$ y $A=\{\xi_i: \xi_i\in[x_{i-1},x_i], i=\overline{1,n}\}$ una selección de $P$. Entonces 
                     </p>
                     <form class="question margin-top-sm" data-j="jqp-1" data-answer="a_b_c_a_d_e_f">
-                        <h3 class="question__header margin-bottom-sm">Justifica Los pasos</h3>
+                        <h3 class="question__header margin-bottom-sm">Justifica los pasos</h3>
                         <div class="question__col-1">
                             <div class="question__options">
                                 <div class="calculation">
@@ -746,35 +746,120 @@
             <alien-math-template path="./components/theorems/theorem-1.5.4.html"></alien-math-template>
             <div class="proof">
                 <h3 class="header-tertiary">Demostración.</h3>
-                <ol class="proof__step">
-                    <li class="proof__step-item">
-                        Por hipótesis, $f$ es integrable y $\alpha \in\mathbf{R}$, así que por Teorema 1.5.3, existe $\lim_{\|P\|\to 0}S(f,A,P)$ y además 
-                        $\lim_{\|P\|\to 0}S(f,A,P)=\int_a^b f(x)\,dx$. Luego, por 2) del Teorema 1.5.2, $\lim_{\|P\|\to 0}S(\alpha f,A,P)$ existe y además, 
-                        $\lim_{\|P\|\to 0}S(\alpha f,A,P)=\alpha \lim_{\|P\|\to 0}S(f,A,P)$. 
-                        Pero, por Teorema 1.5.3, $\lim_{\|P\|\to 0}S(\alpha f,A,P)=\int_a^b (\alpha f)(x)\,dx$. 
-                        Finalmente, se obtiene que $$\int_a^b (\alpha f)(x)\,dx=\alpha \int_a^b f(x)\,dx.$$
-                    </li>
-                    <li class="proof__step-item">
-                        Por hipótesis, $f$ y $g$ son funciones integrables en $[a,b]$. Luego, por Teorema 1.5.3, existen $\lim_{\|P\|\to 0}S(f,A,P)$ y 
+                <p class="paragraph">
+                    1) Por hipótesis, $f$ es integrable y $\alpha \in\mathbf{R}$, así que por Teorema 1.5.3, existe $\lim_{\|P\|\to 0}S(f,A,P)$ y además 
+                    $\lim_{\|P\|\to 0}S(f,A,P)=\int_a^b f(x)\,dx$.    
+                </p>
+                <form class="question margin-top-sm" data-question="question-theo-1-5-4" data-answer="d" autocomplete="off">
+                    <h3 class="question__header margin-bottom-sm">
+                        ¿Cuál de las siguientes expresiones es ciera?
+                    </h3>
+                    <div class="question__row">
+                        <div class="question__col-1">
+                            <div class="question__options">
+                                <div class="question__option">
+                                    <input type="radio" id="answer-theo-1-5-4-a" name="question-theo-1-5-4" value="a" data-option="question-theo-1-5-4">
+                                    <label for="answer-theo-1-5-4-a">$\lim_{\|P\|\to \alpha}S(f,A,P)= \lim_{\|P\|\to 0}S(f,A, P)$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" id="answer-theo-1-5-4-b" name="question-theo-1-5-4" value="b" data-option="question-theo-1-5-4">
+                                    <label for="answer-theo-1-5-4-b">$\lim_{\|P\|\to 0}S( f,A,P)= \lim_{\alpha \to 0}S(\alpha f,A, P)$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" id="answer-theo-1-5-4-c" name="question-theo-1-5-4" value="c" data-option="question-theo-1-5-4">
+                                    <label for="answer-theo-1-5-4-c">$\lim_{\|P\|\to 0}S(\alpha f,A,P)= \lim_{\|P\|\to 0}S(f,\alpha A,\alpha P)$. </label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" id="answer-theo-1-5-4-d" name="question-theo-1-5-4" value="d" data-option="question-theo-1-5-4">
+                                    <label for="answer-theo-1-5-4-d">$\lim_{\|P\|\to 0}S(\alpha f,A,P)=\alpha \lim_{\|P\|\to 0}S(f,A,P)$</label>
+                                </div>
+                            </div>
+                            <div class="question__btn-box">
+                                <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                <button class="btn btn--blue" type="button" disabled data-btn-continue="step-7">Continuar</button>
+                            </div>
+                        </div>
+                        <div class="question__col-2">
+                            <p class="question__answer"></p>
+                        </div>
+                    </div>
+                </form>
+                <div class="section--hidden margin-top-sm" data-section="step-7">
+                    <p class="paragraph">
+                        Luego, por 2) del Teorema 1.5.2, $\lim_{\|P\|\to 0}S(\alpha f,A,P)$ existe y además, 
+                    $\lim_{\|P\|\to 0}S(\alpha f,A,P)=\alpha \lim_{\|P\|\to 0}S(f,A,P)$. 
+                    Pero, por Teorema 1.5.3, $\lim_{\|P\|\to 0}S(\alpha f,A,P)=\int_a^b (\alpha f)(x)\,dx$. 
+                    Finalmente, se obtiene que $$\int_a^b (\alpha f)(x)\,dx=\alpha \int_a^b f(x)\,dx.$$
+                    </p>
+                    <div>
+                        <button class="btn-sm btn--blue" type="button" data-btn-continue="step-8">Continuar</button>
+                    </div>
+                </div>
+                <div class="section--hidden paragraph" data-section="step-8">
+                    <p class="paragraph">
+                        2) Por hipótesis, $f$ y $g$ son funciones integrables en $[a,b]$. Luego, por Teorema 1.5.3, existen $\lim_{\|P\|\to 0}S(f,A,P)$ y 
                         $\lim_{\|P\|\to 0}S(g,A,P)$, y además $\lim_{\|P\|\to 0}S(f,A,P)=\int_a^b f(x)\,dx$ y $\lim_{\|P\|\to 0}S(g,A,P)=\int_a^b g(x)\,dx$. 
+                    </p>
+                    <form class="question margin-top-sm" data-question="question-theo-1-5-4-b" data-answer="b" autocomplete="off">
+                        <h3 class="question__header margin-bottom-sm">
+                            ¿Cuál de las siguientes expresiones es cierta?
+                        </h3>
+                        <div class="question__row">
+                            <div class="question__col-1">
+                                <div class="question__options">
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-theo-1-5-4-b-a" name="question-theo-1-5-4-b" value="a" data-option="question-theo-1-5-4-b">
+                                        <label for="answer-theo-1-5-4-b-a">$\lim_{\|P\|\to \alpha}S(f+g,A,P)=\lim_{\|P\|\to 0}S(\alpha f,A,P)+\lim_{\|P\|\to 0}S(\alpha g,A,P)$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-theo-1-5-4-b-b" name="question-theo-1-5-4-b" value="b" data-option="question-theo-1-5-4-b">
+                                        <label for="answer-theo-1-5-4-b-b">$\lim_{\|P\|\to 0}S(f+g,A,P)=\lim_{\|P\|\to 0}S(f,A,P)+\lim_{\|P\|\to 0}S(g,A,P)$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-theo-1-5-4-b-c" name="question-theo-1-5-4-b" value="c" data-option="question-theo-1-5-4-b">
+                                        <label for="answer-theo-1-5-4-b-c">$\lim_{\|P\|\to 0}S(f+g,A,P)=\alpha \lim_{\|P\|\to 0}S(f,A,P)+\alpha\lim_{\|P\|\to 0}S(g,A,P)$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-theo-1-5-4-b-d" name="question-theo-1-5-4-b" value="d" data-option="question-theo-1-5-4-b">
+                                        <label for="answer-theo-1-5-4-b-d">$\lim_{\|P\|\to \alpha}S(f+g,A,P)=\alpha \int_a^b \left( f+g \right )\,dx$</label>
+                                    </div>
+                                </div>
+                                <div class="question__btn-box">
+                                    <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                    <button class="btn btn--blue" type="button" disabled data-btn-continue="step-9">Continuar</button>
+                                </div>
+                            </div>
+                            <div class="question__col-2">
+                                <p class="question__answer"></p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="section--hidden paragraph" data-section="step-9">
+                    <p class="paragraph">
                         Entonces, por 3) del Teorema 1.5.2,  existe $\lim_{\|P\|\to 0}S(f+g,A,P)$ y 
                         $\lim_{\|P\|\to 0}S(f+g,A,P)=\lim_{\|P\|\to 0}S(f,A,P)+\lim_{\|P\|\to 0}S(g,A,P)$. 
                         Por el Teorema 1.5.3, $\lim_{\|P\|\to 0}S(f+g,A,P)=\int_a^b (f+g)(x)\,dx$. 
                         Finalmente, por transitividad, $$\int_a^b (f+g)(x)\,dx=\int_a^b f(x)\,dx+\int_a^b g(x)\,dx.$$
-                    </li>
-                </ol>
+                    </p>
+                    <div>
+                        <button class="btn-sm btn--blue" type="button" data-btn-continue="step-10">Continuar</button>
+                    </div>
+                </div>
             </div>
-            <p class="paragraph">
-                3), 4) y 5) quedan como ejercicio (se trabajan de manera análoga).
-            </p>
-            <p class="paragraph">
-                Una vez que hemos visto las propiedades algebraicas más importantes de las integrales definidas, es el momento de ampliar la clase de funciones integrables y 
-                para eso debemos ver el Teorema Fundamental del Cálculo.
-            </p>
-            <div class="fancy-line"></div>
-            <div class="change-page">
-                <a href="./1.4.4-integral-definida.html" class="change-page__before">Anterior</a>
-                <a href="./1.6-teorema-fundamental.html" class="change-page__next">Siguiente</a>
+            <div class="section--hidden" data-section="step-10">
+                <p class="paragraph">
+                    3), 4) y 5) Intentélo usted mismo. Se trabajan de manera análoga.
+                </p>
+                <p class="paragraph">
+                    Una vez que hemos visto las propiedades algebraicas más importantes de las integrales definidas, es el momento de ampliar la clase de funciones integrables y 
+                    para eso debemos ver el Teorema Fundamental del Cálculo.
+                </p>
+                <div class="fancy-line"></div>
+                <div class="change-page">
+                    <a href="./1.4.4-integral-definida.html" class="change-page__before">Anterior</a>
+                    <a href="./1.6-teorema-fundamental.html" class="change-page__next">Siguiente</a>
+                </div>
             </div>
         </section>
     </main>

@@ -78,7 +78,8 @@ body {
                         "sidebar main main main"
     ;
 
-    @media only screen and (max-width: 1000px) {
+    // @media only screen and (max-width: 1200px) {
+    @include responsive(tab-land) {
         grid-template-areas: 
                         "nav nav  nav  nav"
                         "main main main main"
@@ -96,8 +97,8 @@ body {
         position: sticky;
         top: 8rem;
         left: 0;
-        @media only screen and (max-width: 1000px) {
-            display: none;
+        @include responsive(tab-land) {
+            display: none;   
         }
     }
 }
@@ -108,10 +109,10 @@ body {
     // max-width: 1200px;
     // max-height: calc(100vh - 10rem);
     // margin: 0 auto;
-    padding: 2rem 5%;
-    @include responsive(tab-land) {
-        padding: 2rem;
-    }
+    padding: 2rem;
+    // @include responsive(tab-land) {
+    //     padding: 2rem;
+    // }
 }
 
 section {

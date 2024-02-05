@@ -76,295 +76,608 @@
                 <h3 class="header-tertiary">
                     Demostración.
                 </h3>
-                <ul class="proof__step">
-                    <li class="prof__step-item">
-                        Sea $x\in[a,b]$, en donde $f$ es continua o continua por la izquierda o continua por la derecha, pues $f$ es continua por hipótesis. Tenemos que
-                        <div class="calculation">
-                            <div class="calculation__formule--1">
-                                $$\frac{F(x+h)-F(x)}{h}$$
+                <p class="paragraph">
+                    Sea $x\in[a,b]$, en donde $f$ es continua o continua por la izquierda o continua por la derecha, pues $f$ es continua por hipótesis. Tenemos que
+                </p>
+                <div class="calculation">
+                    <div class="calculation__formule--1">
+                        $$\frac{F(x+h)-F(x)}{h}$$
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$=  \frac{1}{h}[F(x+h)-F(x)] $$
+                        </div>
+                        <div class="calculation__text">
+                            por suma de fracciones
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$=  \frac{1}{h} \left[ {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^{x+h} f(t)\,dt - {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^x f(t)\,dt \right]$$
+                        </div>
+                        <div class="calculation__text">
+                            por definición de $F$
+                        </div>
+                    </div>
+                </div>
+                <form class="question margin-top-sm" data-question="question-t-1-6-1-a" data-answer="b" autocomplete="off">
+                    <h3 class="question__header margin-bottom-sm">
+                        Para $h>0$, suficientemente pequeña, tal que $a\leq x < x+h< b $, tenemos que
+                    </h3>
+                    <div class="question__row">
+                        <div class="question__col-1">
+                            <div class="question__options">
+                                <div class="question__option">
+                                    <input type="radio" id="answer-t-1-6-1-a-a" name="question-t-1-6-1-a" value="a" data-option="question-t-1-6-1-a">
+                                    <label for="answer-t-1-6-1-a-a">$$ {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^{x+h} f(t)\,dt =  0$$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" id="answer-t-1-6-1-a-b" name="question-t-1-6-1-a" value="b" data-option="question-t-1-6-1-a">
+                                    <label for="answer-t-1-6-1-a-b">$$ {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^{x+h} f(t)\,dt =  {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^x f(t)\,dt+ {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_x^{x+h} f(t)\,dt,$$ </label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" id="answer-t-1-6-1-a-c" name="question-t-1-6-1-a" value="c" data-option="question-t-1-6-1-a">
+                                    <label for="answer-t-1-6-1-a-c">$$ {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^{x+h} f(t)\,dt =  2{\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^x f(t)\,dt$$ </label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" id="answer-t-1-6-1-a-d" name="question-t-1-6-1-a" value="d" data-option="question-t-1-6-1-a">
+                                    <label for="answer-t-1-6-1-a-d">$$ {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^{x+h} f(t)\,dt =  2{\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_x^{x+h} f(t)\,dt,$$ </label>
+                                </div>
                             </div>
-                            <div class="calculation__formule--2">
-                                <div>
-                                    $$=  \frac{1}{h}[F(x+h)-F(x)] $$
-                                </div>
-                                <div class="calculation__text">
-                                    por suma de fracciones
-                                </div>
-                            </div>
-                            <div class="calculation__formule--2">
-                                <div>
-                                    $$=  \frac{1}{h} \left[ {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^{x+h} f(t)\,dt - {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^x f(t)\,dt \right]$$
-                                </div>
-                                <div class="calculation__text">
-                                    por definición de $F$
-                                </div>
+                            <div class="question__btn-box">
+                                <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                <button class="btn btn--blue" type="button" disabled data-btn-continue="s-1">Continuar</button>
                             </div>
                         </div>
+                        <div class="question__col-2">
+                            <p class="question__answer"></p>
+                        </div>
+                    </div>
+                </form>
+                <div class="section--hidden" data-section="s-1">
+                    <p class="paragraph">
                         Para $h>0$, suficientemente pequeña, tal que $a\leq x < x+h< b $, por 1) del <span class="modal__reference" data-modal-btn="theorem-1-4-7">Teorema 1.4.7</span> ,  tenemos que 
                         $$ {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^{x+h} f(t)\,dt =  {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^x f(t)\,dt+ {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_x^{x+h} f(t)\,dt,$$ 
                         de lo cual se deduce que 
-
-                        <div class="calculation">
-                            <div class="calculation__formule--1">
-                                $$\frac{F(x+h)-F(x)}{h}$$
+                    </p>
+                    <div class="calculation">
+                        <div class="calculation__formule--1">
+                            $$\frac{F(x+h)-F(x)}{h}$$
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= \frac{1}{h} {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_x^{x+h} f(t)\,dt. $$
                             </div>
-                            <div class="calculation__formule--2">
-                                <div>
-                                    $$= \frac{1}{h} {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_x^{x+h} f(t)\,dt. $$
-                                </div>
-                                <div class="calculation__text">
-                                    (1.1)
-                                </div>
+                            <div class="calculation__text">
+                                (1.1)
                             </div>
                         </div>
+                    </div>
+                    <p class="paragraph">
                         Por otro lado, como $h>0$, por 3) del <span class="modal__reference" data-modal-btn="theorem-1-4-7">Teorema 1.4.7</span>, tenemos que 
                         $${\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_x^{x+h} [f(t)-f(x)]\,dt={\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_x^{x+h} f(t)\,dt-hf(x).$$ 
                         Y así,
-                        <div class="calculation">
-                            <div class="calculation__formule--1">
-                                $$f(x)$$
+                    </p>
+                    <div class="calculation">
+                        <div class="calculation__formule--1">
+                            $$f(x)$$
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= \frac{1}{h} {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_x^{x+h} f(t)\,dt - \frac{1}{h} {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_x^{x+h} [f(t)-f(x)]\,dt $$
                             </div>
-                            <div class="calculation__formule--2">
-                                <div>
-                                    $$= \frac{1}{h} {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_x^{x+h} f(t)\,dt - \frac{1}{h} {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_x^{x+h} [f(t)-f(x)]\,dt $$
-                                </div>
-                                <div class="calculation__text">
-                                    (1.2)
-                                </div>
+                            <div class="calculation__text">
+                                (1.2)
                             </div>
                         </div>
-
-                        Entonces, por (1.1) y (1.2),
-                        <div class="calculation">
-                            <div class="calculation__formule--1">
-                                $$\frac{F(x+h)-F(x)}{h}-f(x)$$
-                            </div>
-                            <div class="calculation__formule--2">
-                                <div>
-                                    $$= \frac{1}{h} {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_x^{x+h} f(t)\,dt -\frac{1}{h} {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_x^{x+h} f(t)\,dt + \frac{1}{h} {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_x^{x+h} [f(t)-f(x)]\,dt $$
+                    </div>
+                    <form class="question margin-top-sm" data-question="question-t-1-6-1-b" data-answer="a" autocomplete="off">
+                        <h3 class="question__header margin-bottom-sm">
+                            Usando 1.1 y 1.2, ¿a qué es igual $\frac{F(x+h)-F(x)}{h}-f(x)$?
+                        </h3>
+                        <div class="question__row">
+                            <div class="question__col-1">
+                                <div class="question__options">
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-tquestion-t-1-6-1-b-a" name="question-t-1-6-1-b" value="a" data-option="question-t-1-6-1-b">
+                                        <label for="answer-tquestion-t-1-6-1-b-a">$$ \frac{1}{h} {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_x^{x+h} [f(t)-f(x)]\,dt.$$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-tquestion-t-1-6-1-b-b" name="question-t-1-6-1-b" value="b" data-option="question-t-1-6-1-b">
+                                        <label for="answer-tquestion-t-1-6-1-b-b">$$ \frac{1}{h} {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_x^{x+h} f(t+h)\,dt.$$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-tquestion-t-1-6-1-b-c" name="question-t-1-6-1-b" value="c" data-option="question-t-1-6-1-b">
+                                        <label for="answer-tquestion-t-1-6-1-b-c">$$ \frac{1}{h} {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_x^{x+h} f'(x+h)]\,dt.$$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-tquestion-t-1-6-1-b-d" name="question-t-1-6-1-b" value="d" data-option="question-t-1-6-1-b">
+                                        <label for="answer-tquestion-t-1-6-1-b-d">$$ \frac{1}{h} {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_x^{x+h} [f'(t)-f'(x)]\,dt.$$</label>
+                                    </div>
+                                </div>
+                                <div class="question__btn-box">
+                                    <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                    <button class="btn btn--blue" type="button" disabled data-btn-continue="s-2">Continuar</button>
                                 </div>
                             </div>
-                            <div class="calculation__formule--2">
-                                <div>
-                                    $$= \frac{1}{h} {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_x^{x+h} [f(t)-f(x)]\,dt.$$
-                                </div>
-                                <div class="calculation__text">
-                                    (1.3)
-                                </div>
+                            <div class="question__col-2">
+                                <p class="question__answer"></p>
                             </div>
                         </div>
+                    </form>
+                </div>
+                <div class="section--hidden" data-section="s-2">
+                    <p class="paragraph">
+                        Por (1.1) y (1.2),
+                    </p>
+                    <div class="calculation">
+                        <div class="calculation__formule--1">
+                            $$\frac{F(x+h)-F(x)}{h}-f(x)$$
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= \frac{1}{h} {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_x^{x+h} f(t)\,dt -\frac{1}{h} {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_x^{x+h} f(t)\,dt + \frac{1}{h} {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_x^{x+h} [f(t)-f(x)]\,dt $$
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= \frac{1}{h} {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_x^{x+h} [f(t)-f(x)]\,dt.$$
+                            </div>
+                            <div class="calculation__text">
+                                (1.3)
+                            </div>
+                        </div>
+                    </div>
+                    <p class="paragraph">
                         Definiendo el conjunto $A_h=\{f(t)-f(x):t\in[x,x+h]\}$, para $h>0$, entonces
-                        <div class="calculation">
-                            <div class="calculation__formule--1">
-                                $$ h\inf A_h $$
+                    </p>
+                    <form class="question margin-top-sm" data-j="jqp-6a" data-answer="d_a_c_b">
+                        <h3 class="question__header margin-bottom-sm">Justifica los pasos</h3>
+                        <div class="question__col-1">
+                            <div class="question__options">
+                                <div class="calculation">
+                                    <div class="calculation__formule--1">
+                                        $$ h\inf A_h $$
+                                    </div>
+                                    <div class="calculation__formule--2">
+                                        <div>
+                                            $$ \leq {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_x^{x+h} [f(t)-f(x)]\,dt \leq h\sup A_h$$
+                                        </div>
+                                        <div class="justification__block margin-bottom-sm calculation__text" data-options-block="block-1">
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b1-a" name="jp1-b1" value="a" data-option="jp1-b1">
+                                                <label for="jp1-b1-a">dividiendo todo entre $h$</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b1-b" name="jp1-b1" value="b" data-option="jp1-b1">
+                                                <label for="jp1-b1-b">por prop. de límites</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b1-c" name="jp1-b1" value="c" data-option="jp1-b1">
+                                                <label for="jp1-b1-c">por $(1.3)$</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b1-d" name="jp1-b1" value="d" data-option="jp1-b1">
+                                                <label for="jp1-b1-d">2) del <span class="modal__reference" data-modal-btn="theorem-1-4-7">Teorema 1.4.7</span></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="calculation__formule--1">
+                                        $$\Leftrightarrow \inf A_h$$
+                                    </div>
+                                    <div class="calculation__formule--2">
+                                        <div>
+                                            $$ \leq \frac{1}{h}{\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_x^{x+h} [f(t)-f(x)]\,dt \leq \sup A_h, $$
+                                        </div>
+                                        <div class="justification__block margin-bottom-sm calculation__text" data-options-block="block-2">
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b2-a" name="jp1-b2" value="a" data-option="jp1-b2">
+                                                <label for="jp1-b2-a">dividiendo todo entre $h$</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b2-b" name="jp1-b2" value="b" data-option="jp1-b2">
+                                                <label for="jp1-b2-b">por prop. de límites</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b2-c" name="jp1-b2" value="c" data-option="jp1-b2">
+                                                <label for="jp1-b2-c">por $(1.3)$</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b2-d" name="jp1-b2" value="d" data-option="jp1-b2">
+                                                <label for="jp1-b2-d">2) del <span class="modal__reference" data-modal-btn="theorem-1-4-7">Teorema 1.4.7</span></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="calculation__formule--1">
+                                        $$\Leftrightarrow \inf A_h$$
+                                    </div>
+                                    <div class="calculation__formule--2">
+                                        <div>
+                                            $$ \leq \frac{F(x+h)-F(x)}{h}-f(x) \leq \sup A_h, $$
+                                        </div>
+                                        <div class="justification__block margin-bottom-sm calculation__text" data-options-block="block-3">
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b3-a" name="jp1-b3" value="a" data-option="jp1-b3">
+                                                <label for="jp1-b3-a">dividiendo todo entre $h$</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b3-b" name="jp1-b3" value="b" data-option="jp1-b3">
+                                                <label for="jp1-b3-b">por prop. de límites</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b3-c" name="jp1-b3" value="c" data-option="jp1-b3">
+                                                <label for="jp1-b3-c">por $(1.3)$</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b3-d" name="jp1-b3" value="d" data-option="jp1-b3">
+                                                <label for="jp1-b3-d">2) del <span class="modal__reference" data-modal-btn="theorem-1-4-7">Teorema 1.4.7</span></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="calculation__formule--1">
+                                        $$\Leftrightarrow \lim_{h\to0^+}\inf A_h$$
+                                    </div>
+                                    <div class="calculation__formule--2">
+                                        <div>
+                                            $$ \leq \lim_{h\to0^+}\left[\frac{F(x+h)-F(x)}{h}-f(x)\right] \leq \lim_{h\to0^+}\sup A_h, $$
+                                        </div>
+                                        <div class="justification__block margin-bottom-sm calculation__text" data-options-block="block-4">
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b4-a" name="jp1-b4" value="a" data-option="jp1-b4">
+                                                <label for="jp1-b4-a">dividiendo todo entre $h$</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b4-b" name="jp1-b4" value="b" data-option="jp1-b4">
+                                                <label for="jp1-b4-b">por prop. de límites</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b4-c" name="jp1-b4" value="c" data-option="jp1-b4">
+                                                <label for="jp1-b4-c">por $(1.3)$</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp1-b4-d" name="jp1-b4" value="d" data-option="jp1-b4">
+                                                <label for="jp1-b4-d">2) del <span class="modal__reference" data-modal-btn="theorem-1-4-7">Teorema 1.4.7</span></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="calculation__formule--2">
-                                <div>
-                                    $$ \leq {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_x^{x+h} [f(t)-f(x)]\,dt \leq h\sup A_h$$
-                                </div>
-                                <div class="calculation__text">
-                                    2) del <span class="modal__reference" data-modal-btn="theorem-1-4-7">Teorema 1.4.7</span>
-                                </div>
-                            </div>
-                            <div class="calculation__formule--1">
-                                $$\Leftrightarrow \inf A_h$$
-                            </div>
-                            <div class="calculation__formule--2">
-                                <div>
-                                    $$ \leq \frac{1}{h}{\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_x^{x+h} [f(t)-f(x)]\,dt \leq \sup A_h, $$
-                                </div>
-                                <div class="calculation__text">
-                                    dividiendo todo entre $h$
-                                </div>
-                            </div>
-                            <div class="calculation__formule--1">
-                                $$\Leftrightarrow \inf A_h$$
-                            </div>
-                            <div class="calculation__formule--2">
-                                <div>
-                                    $$ \leq \frac{F(x+h)-F(x)}{h}-f(x) \leq \sup A_h, $$
-                                </div>
-                                <div class="calculation__text">
-                                    por $(1.3)$
-                                </div>
-                            </div>
-                            <div class="calculation__formule--1">
-                                $$\Leftrightarrow \lim_{h\to0^+}\inf A_h$$
-                            </div>
-                            <div class="calculation__formule--2">
-                                <div>
-                                    $$ \leq \lim_{h\to0^+}\left[\frac{F(x+h)-F(x)}{h}-f(x)\right] \leq \lim_{h\to0^+}\sup A_h, $$
-                                </div>
-                                <div class="calculation__text">
-                                    por prop. de límites
-                                </div>
+                            <div class="question__btn-box">
+                                <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                <button class="btn btn--blue" type="button" disabled data-btn-continue="s-3">Continuar</button>
                             </div>
                         </div>
+                    </form>
+                </div>
+                <div class="section--hidden" data-section="s-3">
+                    <p class="paragraph">
                         Como $f$ es una función continua a la derecha en $x$, entonces $\lim_{h\to0^+}\inf A_h=0=\lim_{h\to0^+}\sup A_h$. 
                         De donde se obtiene que $\lim_{h\to0^+}\left[\frac{F(x+h)-F(x)}{h}-f(x)\right]=0$, es decir, 
                         $$\lim_{h\to0^+}\frac{F(x+h)-F(x)}{h}=f(x) \cdots &#x1F600$$
-                        
-                        <p class="paragraph">
-                            Si ahora tomamos $h < 0 $ tal que $a\leq x+h < x \leq b$, entonces 
-                        </p>
-                        <div class="calculation">
-                            <div class="calculation__formule--1">
-                                $$\frac{1}{h} {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^{x+h} f(t)\,dt$$
-                            </div>
-                            <div class="calculation__formule--2">
-                                <div>
-                                    $$= \frac{1}{h} {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^{x+h} f(t)\,dt+\frac{1}{h} {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_{x+h}^x f(t)\,dt-\frac{1}{h} {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_{x+h}^x f(t)\,dt $$
+                    </p>
+                    <form class="question margin-top-sm" data-question="question-t-1-6-1-c" data-answer="c" autocomplete="off">
+                        <h3 class="question__header margin-bottom-sm">
+                            Si ahora tomamos $h < 0 $ tal que $a\leq x+h < x \leq b$, entonces
+                        </h3>
+                        <div class="question__row">
+                            <div class="question__col-1">
+                                <div class="question__options">
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-t-1question-t-1-6-1-c-a" name="question-t-1-6-1-c" value="a" data-option="question-t-1-6-1-c">
+                                        <label for="answer-t-1question-t-1-6-1-c-a">$$\frac{1}{h} {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^{x+h} f(t)\,dt=  \frac{1}{h} {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^x f(t)\,dt-\frac{1}{h} {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_{x+h}^b f(t)\,dt $$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-t-1question-t-1-6-1-c-b" name="question-t-1-6-1-c" value="b" data-option="question-t-1-6-1-c">
+                                        <label for="answer-t-1question-t-1-6-1-c-b">$$\frac{1}{h} {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^{x+h} f(t)\,dt=  \frac{1}{h} {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_{x+h}^x f(t)\,dt $$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-t-1question-t-1-6-1-c-c" name="question-t-1-6-1-c" value="c" data-option="question-t-1-6-1-c">
+                                        <label for="answer-t-1question-t-1-6-1-c-c">$$\frac{1}{h} {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^{x+h} f(t)\,dt=  \frac{1}{h} {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^x f(t)\,dt-\frac{1}{h} {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_{x+h}^x f(t)\,dt $$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-t-1question-t-1-6-1-c-d" name="question-t-1-6-1-c" value="d" data-option="question-t-1-6-1-c">
+                                        <label for="answer-t-1question-t-1-6-1-c-d">$$\frac{1}{h} {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^{x+h} f(t)\,dt=  \frac{1}{h} {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^x f(t+h)\,dt $$</label>
+                                    </div>
+                                </div>
+                                <div class="question__btn-box">
+                                    <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                    <button class="btn btn--blue" type="button" disabled data-btn-continue="s-4">Continuar</button>
                                 </div>
                             </div>
-                            <div class="calculation__formule--2">
-                                <div>
-                                    $$= \frac{1}{h} {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^x f(t)\,dt-\frac{1}{h} {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_{x+h}^x f(t)\,dt $$
-                                </div>
-                                <div class="calculation__text">
-                                    por <span class="modal__reference" data-modal-btn="theorem-1-4-7">Teorema 1.4.7</span>
-                                </div>
+                            <div class="question__col-2">
+                                <p class="question__answer"></p>
                             </div>
                         </div>
+                    </form>
+                </div>
+                <div class="section--hidden" data-section="s-4">
+                    <p class="paragraph">
+                        Realizando calculos, tenemos
+                    </p>                    
+                    <div class="calculation">
+                        <div class="calculation__formule--1">
+                            $$\frac{1}{h} {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^{x+h} f(t)\,dt$$
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= \frac{1}{h} {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^{x+h} f(t)\,dt+\frac{1}{h} {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_{x+h}^x f(t)\,dt-\frac{1}{h} {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_{x+h}^x f(t)\,dt $$
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= \frac{1}{h} {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^x f(t)\,dt-\frac{1}{h} {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_{x+h}^x f(t)\,dt $$
+                            </div>
+                            <div class="calculation__text">
+                                por <span class="modal__reference" data-modal-btn="theorem-1-4-7">Teorema 1.4.7</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="paragraph">
                         Usando esto y la definición de $F$, en analogía con (1.1), se tiene que
-                        <div class="calculation">
-                            <div class="calculation__formule--1">
-                                $$\frac{F(x+h)-F(x)}{h}$$
+                    </p>
+                    <div class="calculation">
+                        <div class="calculation__formule--1">
+                            $$\frac{F(x+h)-F(x)}{h}$$
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= -\frac{1}{h}{\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_{x+h}^x f(t)\,dt. $$
                             </div>
-                            <div class="calculation__formule--2">
-                                <div>
-                                    $$= -\frac{1}{h}{\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_{x+h}^x f(t)\,dt. $$
-                                </div>
-                                <div class="calculation__text">
-                                    (1.4)
-                                </div>
+                            <div class="calculation__text">
+                                (1.4)
                             </div>
                         </div>
+                    </div>
+                    <p class="paragraph">
                         Como $h< 0 $, por 3) del <span class="modal__reference" data-modal-btn="theorem-1-4-7">Teorema 1.4.7</span>, 
                         $${\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_{x+h}^x [f(t)-f(x)]\,dt={\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_{x+h}^x f(t)\,dt-(-h)f(x).$$ 
                         De donde obtenemos
-                        <div class="calculation">
-                            <div class="calculation__formule--1">
-                                $$f(x)$$
+                    </p>
+                    <div class="calculation">
+                        <div class="calculation__formule--1">
+                            $$f(x)$$
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= -\frac{1}{h}{\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_{x+h}^x f(t)\,dt+\frac{1}{h} {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_{x+h}^x [f(t)-f(x)]\,dt $$
                             </div>
-                            <div class="calculation__formule--2">
-                                <div>
-                                    $$= -\frac{1}{h}{\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_{x+h}^x f(t)\,dt+\frac{1}{h} {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_{x+h}^x [f(t)-f(x)]\,dt $$
-                                </div>
-                                <div class="calculation__text">
-                                    (1.5)
-                                </div>
-                            </div>
-                        </div>      
-                        Luego, usando (1.4) y (1.5), se deduce                  
-                        <div class="calculation">
-                            <div class="calculation__formule--1">
-                                $$\frac{F(x+h)-F(x)}{h}-f(x)$$
-                            </div>
-                            <div class="calculation__formule--2">
-                                <div>
-                                    $$= -\frac{1}{h} {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_{x+h}^x f(t)\,dt +\frac{1}{h} {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_{x+h}^x f(t)\,dt - \frac{1}{h} {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_{x+h}^x [f(t)-f(x)]\,dt $$
-                                </div>
-                            </div>
-                            <div class="calculation__formule--2">
-                                <div>
-                                    $$= -\frac{1}{h} {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_{x+h}^x [f(t)-f(x)]\,dt. $$
-                                </div>
-                                <div class="calculation__text">
-                                    (1.6)
-                                </div>
+                            <div class="calculation__text">
+                                (1.5)
                             </div>
                         </div>
+                    </div>
+                    <form class="question margin-top-sm" data-question="question-t-1-6-1-d" data-answer="b" autocomplete="off">
+                        <h3 class="question__header margin-bottom-sm">
+                            Usando (1.4) y (1.5), ¿a qué es igual $\frac{F(x+h)-F(x)}{h}-f(x)$?
+                        </h3>
+                        <div class="question__row">
+                            <div class="question__col-1">
+                                <div class="question__options">
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-tquestion-t-1-6-1-d-a" name="question-t-1-6-1-d" value="a" data-option="question-t-1-6-1-d">
+                                        <label for="answer-tquestion-t-1-6-1-d-a">$$-\frac{1}{h} {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_{0}^h [f(t-h)-f(x-h)]\,dt.$$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-tquestion-t-1-6-1-d-b" name="question-t-1-6-1-d" value="b" data-option="question-t-1-6-1-d">
+                                        <label for="answer-tquestion-t-1-6-1-d-b">$$-\frac{1}{h} {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_{x+h}^x [f(t)-f(x)]\,dt.$$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-tquestion-t-1-6-1-d-c" name="question-t-1-6-1-d" value="c" data-option="question-t-1-6-1-d">
+                                        <label for="answer-tquestion-t-1-6-1-d-c">$$-\frac{1}{h} {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_{x+h}^x f(t-h)\,dt.$$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-tquestion-t-1-6-1-d-d" name="question-t-1-6-1-d" value="d" data-option="question-t-1-6-1-d">
+                                        <label for="answer-tquestion-t-1-6-1-d-d">$$-\frac{1}{h} {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_{h}^0 [f(t)-f(x)]\,dt.$$</label>
+                                    </div>
+                                </div>
+                                <div class="question__btn-box">
+                                    <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                    <button class="btn btn--blue" type="button" disabled data-btn-continue="s-5">Continuar</button>
+                                </div>
+                            </div>
+                            <div class="question__col-2">
+                                <p class="question__answer"></p>
+                            </div>
+                        </div>
+                    </form>   
+                </div>
+                <div class="section--hidden" data-section="s-5">
+                    <p class="paragraph">
+                        Usando (1.4) y (1.5), se deduce
+                    </p>
+                    <div class="calculation">
+                        <div class="calculation__formule--1">
+                            $$\frac{F(x+h)-F(x)}{h}-f(x)$$
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= -\frac{1}{h} {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_{x+h}^x f(t)\,dt +\frac{1}{h} {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_{x+h}^x f(t)\,dt - \frac{1}{h} {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_{x+h}^x [f(t)-f(x)]\,dt $$
+                            </div>
+                        </div>
+                        <div class="calculation__formule--2">
+                            <div>
+                                $$= -\frac{1}{h} {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_{x+h}^x [f(t)-f(x)]\,dt. $$
+                            </div>
+                            <div class="calculation__text">
+                                (1.6)
+                            </div>
+                        </div>
+                    </div>
+                    <p class="paragraph">
                         Ahora, definiendo el conjunto $B_h=\{f(t)-f(x):t\in[x+h,x]\}$, para $h < 0$, entonces
-                        <div class="calculation">
-                            <div class="calculation__formule--1">
-                                $$-h\inf B_h$$
+                    </p>
+                    <form class="question margin-top-sm" data-j="jqp-6b" data-answer="c_b_a_d">
+                        <h3 class="question__header margin-bottom-sm">Justifica los pasos</h3>
+                        <div class="question__col-1">
+                            <div class="question__options">
+                                <div class="calculation">
+                                    <div class="calculation__formule--1">
+                                        $$ -h\inf B_h $$
+                                    </div>
+                                    <div class="calculation__formule--2">
+                                        <div>
+                                            $$\leq {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_{x+h}^x [f(t)-f(x)]\,dt \leq -h\sup B_h, $$
+                                        </div>
+                                        <div class="justification__block margin-bottom-sm calculation__text" data-options-block="block-1">
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp2-b1-a" name="jp2-b1" value="a" data-option="jp2-b1">
+                                                <label for="jp2-b1-a">por $(1.6)$</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp2-b1-b" name="jp2-b1" value="b" data-option="jp2-b1">
+                                                <label for="jp2-b1-b">dividiendo todo entre $-h$</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp2-b1-c" name="jp2-b1" value="c" data-option="jp2-b1">
+                                                <label for="jp2-b1-c">2) del <span class="modal__reference" data-modal-btn="theorem-1-4-7">Teorema 1.4.7</span></label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp2-b1-d" name="jp2-b1" value="d" data-option="jp2-b1">
+                                                <label for="jp2-b1-d">por prop. de límites</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="calculation__formule--1">
+                                        $$\Leftrightarrow \inf B_h$$
+                                    </div>
+                                    <div class="calculation__formule--2">
+                                        <div>
+                                            $$ \leq -\frac{1}{h}{\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_{x+h}^x [f(t)-f(x)]\,dt \leq \sup B_h, $$
+                                        </div>
+                                        <div class="justification__block margin-bottom-sm calculation__text" data-options-block="block-2">
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp2-b2-a" name="jp2-b2" value="a" data-option="jp2-b2">
+                                                <label for="jp2-b2-a">por $(1.6)$</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp2-b2-b" name="jp2-b2" value="b" data-option="jp2-b2">
+                                                <label for="jp2-b2-b">dividiendo todo entre $-h$</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp2-b2-c" name="jp2-b2" value="c" data-option="jp2-b2">
+                                                <label for="jp2-b2-c">2) del <span class="modal__reference" data-modal-btn="theorem-1-4-7">Teorema 1.4.7</span></label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp2-b2-d" name="jp2-b2" value="d" data-option="jp2-b2">
+                                                <label for="jp2-b2-d">por prop. de límites</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="calculation__formule--1">
+                                        $$\Leftrightarrow \inf B_h$$
+                                    </div>
+                                    <div class="calculation__formule--2">
+                                        <div>
+                                            $$ \leq \frac{F(x+h)-F(x)}{h}-f(x) \leq \sup B_h, $$
+                                        </div>
+                                        <div class="justification__block margin-bottom-sm calculation__text" data-options-block="block-3">
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp2-b3-a" name="jp2-b3" value="a" data-option="jp2-b3">
+                                                <label for="jp2-b3-a">por $(1.6)$</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp2-b3-b" name="jp2-b3" value="b" data-option="jp2-b3">
+                                                <label for="jp2-b3-b">dividiendo todo entre $-h$</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp2-b3-c" name="jp2-b3" value="c" data-option="jp2-b3">
+                                                <label for="jp2-b3-c">2) del <span class="modal__reference" data-modal-btn="theorem-1-4-7">Teorema 1.4.7</span></label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp2-b3-d" name="jp2-b3" value="d" data-option="jp2-b3">
+                                                <label for="jp2-b3-d">por prop. de límites</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="calculation__formule--1">
+                                        $$ \Leftrightarrow \lim_{h\to0^-}\inf B_h$$
+                                    </div>
+                                    <div class="calculation__formule--2">
+                                        <div>
+                                            $$ \leq \lim_{h\to0^-}\left[\frac{F(x+h)-F(x)}{h}-f(x)\right] \leq \lim_{h\to0^-}\sup B_h, $$
+                                        </div>
+                                        <div class="justification__block margin-bottom-sm calculation__text" data-options-block="block-4">
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp2-b4-a" name="jp2-b4" value="a" data-option="jp2-b4">
+                                                <label for="jp2-b4-a">por $(1.6)$</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp2-b4-b" name="jp2-b4" value="b" data-option="jp2-b4">
+                                                <label for="jp2-b4-b">dividiendo todo entre $-h$</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp2-b4-c" name="jp2-b4" value="c" data-option="jp2-b4">
+                                                <label for="jp2-b4-c">2) del <span class="modal__reference" data-modal-btn="theorem-1-4-7">Teorema 1.4.7</span></label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp2-b4-d" name="jp2-b4" value="d" data-option="jp2-b4">
+                                                <label for="jp2-b4-d">por prop. de límites</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="calculation__formule--2">
-                                <div>
-                                    $$\leq {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_{x+h}^x [f(t)-f(x)]\,dt \leq -h\sup B_h, $$
-                                </div>
-                                <div class="calculation__text">
-                                    2) del <span class="modal__reference" data-modal-btn="theorem-1-4-7">Teorema 1.4.7</span>
-                                </div>
-                            </div>
-                            <div class="calculation__formule--1">
-                                $$\Leftrightarrow \inf B_h$$
-                            </div>
-                            <div class="calculation__formule--2">
-                                <div>
-                                    $$ \leq -\frac{1}{h}{\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_{x+h}^x [f(t)-f(x)]\,dt \leq \sup B_h, $$
-                                </div>
-                                <div class="calculation__text">
-                                    dividiendo todo entre $-h$
-                                </div>
-                            </div>
-                            <div class="calculation__formule--1">
-                                $$\Leftrightarrow \inf B_h$$
-                            </div>
-                            <div class="calculation__formule--2">
-                                <div>
-                                    $$ \leq \frac{F(x+h)-F(x)}{h}-f(x) \leq \sup B_h, $$
-                                </div>
-                                <div class="calculation__text">
-                                    por (1.6)
-                                </div>
-                            </div>
-                            <div class="calculation__formule--1">
-                                $$ \Leftrightarrow \lim_{h\to0^-}\inf B_h$$
-                            </div>
-                            <div class="calculation__formule--2">
-                                <div>
-                                    $$ \leq \lim_{h\to0^-}\left[\frac{F(x+h)-F(x)}{h}-f(x)\right] \leq \lim_{h\to0^-}\sup B_h, $$
-                                </div>
-                                <div class="calculation__text">
-                                    por prop. de límites
-                                </div>
+                            <div class="question__btn-box">
+                                <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                <button class="btn btn--blue" type="button" disabled data-btn-continue="s-6">Continuar</button>
                             </div>
                         </div>
+                    </form>
+                </div>
+                <div class="section--hidden" data-section="s-6">
+                    <p class="paragraph">
                         Como $f$ es una función continua a la izquierda en $x$, entonces $\lim_{h\to0^-}\inf B_h=0=\lim_{h\to0^-}\sup B_h$. 
                         De donde se obtiene que $\lim_{h\to0^-}\left[\frac{F(x+h)-F(x)}{h}-f(x)\right]=0$, es decir, 
                         $$\lim_{h\to0^-}\frac{F(x+h)-F(x)}{h}=f(x) \cdots &#x1F626; $$
-
+        
                         Finalmente, por &#x1F600; y &#x1F626;, se deduce que $$\lim_{h\to0}\frac{F(x+h)-F(x)}{h}=f(x).$$
-                    </li>
-                    <li class="proof__step-item">Se demuestra de forma análoga.</li>
-                </ul>
+                    </p>
+                    <p class="paragraph">
+                        2) Se demuestra de forma análoga.
+                    </p>
+                    <div>
+                        <button class="btn-sm btn--blue" type="button" data-btn-continue="s-7">Continuar</button>
+                    </div>
+                    <div class="fancy-line"></div>
+                </div>
             </div>
-            <p class="paragraph">
-                <strong>Nota: </strong>En realidad lo que se demuestra en este Teorema es que $F'(x)=f(x)$ y $G'(x)=f(x)$, para toda $x\in[a,b]$, entendiendo que en $a$ y en $b$ se usa derivada lateral.
-            </p>
-            <p class="paragraph">
-                Una de las primeras consecuencias del Teorema Fundamental del Cálculo que toda función continua definida en un intervalo cerrado es integrable.
-            </p>
-            <p class="paragraph">
-                Una de las primeras consecuencias del Teorema Fundamental del Cálculo que toda función continua definida en un intervalo cerrado es integrable.
-            </p>
-            <alien-math-template path="./components/theorems/theorem-1.6.2.html"></alien-math-template>
-            <div class="proof">
-                <h3 class="header-tertiary">Demostración</h3>
+            <div class="section--hidden" data-section="s-7">
                 <p class="paragraph">
-                    Por el Teorema 1.6.1, usando las funciones $F$ y $G$ definidas en ese Teorema, tenemos que $\forall x\in[a,b]:F'(x)=G'(x)$. Del Teorema del Valor Medio para derivadas, obtenemos que $\forall x\in[a,b]:F(x)=G(x)+C$, con $C$ una constante arbitraria. 
+                    <strong>Nota: </strong>En realidad lo que se demuestra en este Teorema es que $F'(x)=f(x)$ y $G'(x)=f(x)$, para toda $x\in[a,b]$, entendiendo que en $a$ y en $b$ se usa derivada lateral.
                 </p>
                 <p class="paragraph">
-                    Además, por el Teorema 1.6.1, sabemos que $F(a)=0$ y $G(a)=0$, esto indica que $C=0$. Luego, $\forall x\in[a,b]:F(x)=G(x)$. En particular, tenemos que $F(b)=G(b)$, es decir, 
-                    $${\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b f(x)\,dx={\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx,$$
-                    y por lo tanto $f$ es integrable en $[a,b]$.
+                    Una de las primeras consecuencias del Teorema Fundamental del Cálculo es que toda función continua definida en un intervalo cerrado es integrable.
                 </p>
+                <alien-math-template path="./components/theorems/theorem-1.6.2.html"></alien-math-template>
+                <div class="proof">
+                    <h3 class="header-tertiary">Demostración</h3>
+                    <p class="paragraph">
+                        Por el Teorema 1.6.1, usando las funciones $F$ y $G$ definidas en ese Teorema, tenemos que $\forall x\in[a,b]:F'(x)=G'(x)$. 
+                        El teorema del Valor Medio para derivadas nos dice que si $F'(x)=G'(x)$ para toda $x$ en el intervalo $(a,b)$, entonces la función $F-G$ es constante,
+                        es decir, $\forall x\in[a,b]:F(x)=G(x)+C$, con $C$ una constante arbitraria.
+                    </p>
+                    <p class="paragraph">
+                        Además, por el Teorema 1.6.1, sabemos que $F(a)=0$ y $G(a)=0$, esto indica que $C=0$. Luego, $\forall x\in[a,b]:F(x)=G(x)$. En particular, tenemos que $F(b)=G(b)$, es decir, 
+                        $${\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b f(x)\,dx={\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx,$$
+                        y por lo tanto $f$ es integrable en $[a,b].$
+                    </p>
+                </div>
+                <div>
+                    <button class="btn-sm btn--blue" type="button" data-btn-continue="s-8">Continuar</button>
+                </div>
             </div>
         </section>
-        <section>
+        <section class="section--hidden" data-section="s-8">
             <div class="fancy-line"></div>
             <p class="paragraph">
                 Puede reescribirse el TFC usando el Teorema 1.6.1 y queda de una forma más compacta.
             </p>
             <div class="theorem">
                 <p class="paragraph">
-                    <strong class="theorem__title">Corolario 1.6.1. </strong>Si $f:[a,b]\to\mathbf{R}$ es una función continua entonces la función $F:[a,b]\to\mathbf{R}$, dada por $F(x)=\int_a^x f(t)\,dt$, es derivable y además $F'(x)=f(x), \forall x\in[a,b]$.
+                    <strong class="theorem__title">Corolario 1.6.1. </strong>Si $f:[a,b]\to\mathbf{R}$ es una función continua entonces la función $F:[a,b]\to\mathbf{R}$, dada por $F(x)=\int_a^x f(t)\,dt$, es derivable y además $F'(x)=f(x), \forall x\in[a,b].$
+                    Escrito de otra forma,  $$\frac{d}{dx}\int_a^x f(t)\,dt=f(x).$$
                 </p>
             </div>
-            <p class="paragraph">
-                <strong>Nota: </strong>El corolario en realidad indica que $\frac{d}{dx}\int_a^x f(t)\,dt=f(x)$.
-            </p>
             <div class="example">
                 <p class="paragraph example__paragraph">
                     <strong class="example__title">Ejemplo 1.6.1. </strong>Encuentra la derivada de la integral $\int_a^x \frac{\sin t}{2+\sin^2 t}\,dt$.
@@ -374,7 +687,7 @@
                 </p>
                 <div class="calculation">
                     <div class="calculation__formule--1">
-                        $$\frac{d}{x}\int_a^x \frac{\sin t}{2+\sin^2 t}\,dt$$
+                        $$\frac{d}{dx}\int_a^x \frac{\sin t}{2+\sin^2 t}\,dt$$
                     </div>
                     <div class="calculation__formule--2">
                         <div>
@@ -465,55 +778,208 @@
                     Finalmente, por transitividad, $$\frac{d}{dx}\int_0^{x^2} e^{t^2}\,dt=2xe^{x^4}. $$
                 </p>
             </div>
-            <p class="paragraph">
-                Ahora veamos uno de los resultados que nos permiten calcular la integral evaluando en un punto especial.
-            </p>
-            <div class="theorem">
-                <p class="paragraph">
-                    <strong class="theorem__title">Teorema 1.6.3. </strong>Si $f:[a,b]\to\mathbf{R}$ es una función continua, entonces existe $c\in(a,b)$ tal que $$\int_a^b f(x)\,dx=f(c)\cdot(b-a).$$
-                </p>
-            </div>
-            <div class="proof">
-                <h3 class="header-tertiary">
-                    Demostración.
+            <form class="question margin-top-sm" data-question="question-e-1-6-3" data-answer="d" autocomplete="off">
+                <h3 class="question__header margin-bottom-sm">
+                    Halla la derivada de $F(x)=\int_0^{x^2}(1+t^2)^{-3}\,dt$
                 </h3>
+                <div class="question__row">
+                    <div class="question__col-1">
+                        <div class="question__options">
+                            <div class="question__option">
+                                <input type="radio" id="answer-e-1-6-3-a" name="question-e-1-6-3" value="a" data-option="question-e-1-6-3">
+                                <label for="answer-e-1-6-3-a">$f'(x)=(1+x^4)^{-4}$</label>
+                            </div>
+                            <div class="question__option">
+                                <input type="radio" id="answer-e-1-6-3-b" name="question-e-1-6-3" value="b" data-option="question-e-1-6-3">
+                                <label for="answer-e-1-6-3-b">$f'(x)=(2x)(1+x^2)^{-4}$</label>
+                            </div>
+                            <div class="question__option">
+                                <input type="radio" id="answer-e-1-6-3-c" name="question-e-1-6-3" value="c" data-option="question-e-1-6-3">
+                                <label for="answer-e-1-6-3-c">$f'(x)=(1+x^4)^{-3}$</label>
+                            </div>
+                            <div class="question__option">
+                                <input type="radio" id="answer-e-1-6-3-d" name="question-e-1-6-3" value="d" data-option="question-e-1-6-3">
+                                <label for="answer-e-1-6-3-d">$f'(x)=(2x)(1+x^4)^{-3}$</label>
+                            </div>
+                        </div>
+                        <div class="question__btn-box">
+                            <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                            <button class="btn btn--blue" type="button" disabled data-btn-continue="s-9">Continuar</button>
+                        </div>
+                    </div>
+                    <div class="question__col-2">
+                        <p class="question__answer"></p>
+                    </div>
+                </div>
+            </form>
+            <div class="section--hidden" data-section="s-9">
                 <p class="paragraph">
-                    Por hipótesis, $f$ es una función continua en $[a,b]$, por lo tanto alcanza mínimo y máximo dentro del intervalo, es decir, $\exists x_1,x_2 \in[a,b]$ 
-                    tales que $$f(x_1) \leq f(x) \leq f(x_2), \qquad \forall x\in[a,b].$$ Por 5) del <span class="modal__reference" data-modal-btn="theorem-1-5-4">Teorema 1.5.4</span>, tenemos que 
-                    $$f(x_1) (b-a) \leq \int_a^b f(x)\,dx \leq f(x_2)(b-a),$$ de lo cual se deduce que 
-                    $$f(x_1) \leq \frac{1}{b-a} \int_a^b f(x)\,dx \leq f(x_2).$$ 
-                    Entonces, por el Teorema del Valor Intermedio, $\exists c\in[a,b]$ tal que $$f(c)=\frac{1}{b-a} \int_a^b f(x)\,dx.$$ Finalmente, obtenemos que 
-                    $$\int_a^b f(x)\,dx=f(c)\cdot(b-a).$$
+                    De manera similar al ejercicio anterior, sea $f(x)=(1+x^2)^{-3},$ $G(y)=\int_0^{y}(1+t^2)^{-3}\,dt$ y $u(x)=x^2.$
+                    Entonces tenemos que $G'(y)=f(y)$ y  $F(x)=G(u(x))$, por la regla de la cadena
                 </p>
+                <div class="calculation">
+                    <div class="calculation__formule--1">
+                        $$\frac{d}{dx}F(x)$$
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= \frac{d}{dx}G(u(x)) $$
+                        </div>
+                        <div class="calculation__text">
+                            por la definición de $F,G$ y $u$
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= G'(u(x))\cdot u'(x) $$
+                        </div>
+                        <div class="calculation__text">
+                            por la regla de la cadena
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= f(u(x))\cdot 2x $$
+                        </div>
+                        <div class="calculation__text">
+                            por el Teorema 1.6.1
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= f(x^2)\cdot 2x $$
+                        </div>
+                        <div class="calculation__text">
+                            por la definición de $u$
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= (1+x^2)^{-3}\cdot 2x $$
+                        </div>
+                        <div class="calculation__text">
+                            por la definición de $f$
+                        </div>
+                    </div>
+                    <div class="calculation__formule--2">
+                        <div>
+                            $$= (2x)(1+x^2)^{-3} $$
+                        </div>
+                    </div>
+                </div>
+                <form class="question margin-top-sm" data-question="question-e-1-6-3-b" data-answer="a" autocomplete="off">
+                    <h3 class="question__header margin-bottom-sm">
+                        Calcula $f(2)$ si $f$ es continua y satisface $\int_0^{x^2} f(t)\, dt = x^2(1+x).$
+                    </h3>
+                    <div class="question__row">
+                        <div class="question__col-1">
+                            <div class="question__options">
+                                <div class="question__option">
+                                    <input type="radio" id="answer-1-6-3question-e-1-6-3-b-a" name="question-e-1-6-3-b" value="a" data-option="question-e-1-6-3-b">
+                                    <label for="answer-1-6-3question-e-1-6-3-b-a">$f(2)=\frac{3\sqrt{2}}{2} + 1$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" id="answer-1-6-3question-e-1-6-3-b-b" name="question-e-1-6-3-b" value="b" data-option="question-e-1-6-3-b">
+                                    <label for="answer-1-6-3question-e-1-6-3-b-b">$f(2)=16$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" id="answer-1-6-3question-e-1-6-3-b-c" name="question-e-1-6-3-b" value="c" data-option="question-e-1-6-3-b">
+                                    <label for="answer-1-6-3question-e-1-6-3-b-c">$f(2)=\frac{\sqrt{32}}{2}$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" id="answer-1-6-3question-e-1-6-3-b-d" name="question-e-1-6-3-b" value="d" data-option="question-e-1-6-3-b">
+                                    <label for="answer-1-6-3question-e-1-6-3-b-d">$f(2)=\frac{\sqrt{2}}{2} + 1$</label>
+                                </div>
+                            </div>
+                            <div class="question__btn-box">
+                                <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                <button class="btn btn--blue" type="button" disabled data-btn-continue="s-10">Continuar</button>
+                            </div>
+                        </div>
+                        <div class="question__col-2">
+                            <p class="question__answer"></p>
+                        </div>
+                    </div>
+                </form>
             </div>
-            <div class="fancy-line"></div>
-            <p class="paragraph">
-                Una vez que hayamos dado algunos métodos para encontrar primitivas que nos permitan calcular las integrales definidas, entonces mostraremos un par de ejemplos acerca del uso de este teorema.
-            </p>
-            <p class="paragraph">
-                Otro de los resultados que es muy usado en la teoría de integración es el siguiente.
-            </p>
-            <div class="theorem">
+            <div class="section--hidden" data-section="s-10">
                 <p class="paragraph">
-                    <strong class="theorem__title">Teorema 1.6.4. </strong>Si $f:[a,b]\to\mathbf{R}$ es una función continua, entonces $$\left| \int_a^b f(x)\,dx \right|\leq \int_a^b |f(x)|\,dx.$$
+                    Simplificando y derivando ambos lados,
+                    \begin{equation*}
+                        \begin{split}
+                            \int_0^{x^2} f(t)\, dt &= x^2(1+x)\\
+                            \int_0^{x^2} f(t)\, dt &= x^3 +x^2\\
+                            2xf(x^2) &= 3x^2 + 2x\\
+                            f(x^2) &= \frac{3x}{2} + 1.\\
+                        \end{split}
+                    \end{equation*}
+                    Por lo que si $x=\sqrt{2}$, tenemos
+                    \begin{equation*}
+                        \begin{split}
+                            f\left ( (\sqrt 2)^2 \right ) &= f(2)\\
+                            &= \frac{3\sqrt 2}{2} + 1.\\
+                        \end{split}
+                    \end{equation*}
                 </p>
+                <div>
+                    <button class="btn-sm btn--blue" type="button" data-btn-continue="s-11">Continuar</button>
+                </div>
+                <div class="fancy-line"></div>
             </div>
-            <div class="proof">
-                <h3 class="header-tertiary">
-                    Demostración.
-                </h3>
+            <div class="section--hidden" data-section="s-11">
                 <p class="paragraph">
-                    Por hipótesis, la función $f$ es continua en $[a,b]$, y así la función $|f|$ también es continua en $[a,b]$, de donde se obtiene, 
-                    por el Teorema 1.6.2, que tanto $f$ como $|f|$ son integrables. Luego, por las propiedades del valor absoluto en $\mathbf{R}$, tenemos que 
-                    $$-|f(x)| \leq  f(x) \leq |f(x)|, \quad \forall x\in[a,b].$$ Aplicando el <span class="modal__reference" data-modal-btn="theorem-1-5-4">Teorema 1.5.4</span>, se deduce que 
-                    $$ - \int_a^b |f(x)| \,dx \leq \int_a^b f(x) \,dx \leq \int_a^b |f(x)|\, dx.$$ 
-                    Finalmente, nuevamente considerando las propiedades del valor absoluto, concluimos que
-                    $$\left| \int_a^b f(x)\,dx \right|\leq \int_a^b |f(x)|\,dx.$$
+                    Ahora veamos uno de los resultados que nos permiten calcular la integral evaluando en un punto especial.
                 </p>
+                <div class="theorem">
+                    <p class="paragraph">
+                        <strong class="theorem__title">Teorema 1.6.3. </strong>Si $f:[a,b]\to\mathbf{R}$ es una función continua, entonces existe $c\in(a,b)$ tal que $$\int_a^b f(x)\,dx=f(c)\cdot(b-a).$$
+                    </p>
+                </div>
+                <div class="proof">
+                    <h3 class="header-tertiary">
+                        Demostración.
+                    </h3>
+                    <p class="paragraph">
+                        Por hipótesis, $f$ es una función continua en $[a,b]$, por lo tanto alcanza mínimo y máximo dentro del intervalo, es decir, $\exists x_1,x_2 \in[a,b]$ 
+                        tales que $$f(x_1) \leq f(x) \leq f(x_2), \qquad \forall x\in[a,b].$$ Por 5) del <span class="modal__reference" data-modal-btn="theorem-1-5-4">Teorema 1.5.4</span>, tenemos que 
+                        $$f(x_1) (b-a) \leq \int_a^b f(x)\,dx \leq f(x_2)(b-a),$$ de lo cual se deduce que 
+                        $$f(x_1) \leq \frac{1}{b-a} \int_a^b f(x)\,dx \leq f(x_2).$$ 
+                        Entonces, por el Teorema del Valor Intermedio, $\exists c\in[a,b]$ tal que $$f(c)=\frac{1}{b-a} \int_a^b f(x)\,dx.$$ Finalmente, obtenemos que 
+                        $$\int_a^b f(x)\,dx=f(c)\cdot(b-a).$$
+                    </p>
+                </div>
+                <div class="fancy-line"></div>
+                <p class="paragraph">
+                    Una vez que hayamos dado algunos métodos para encontrar primitivas que nos permitan calcular las integrales definidas, entonces mostraremos un par de ejemplos acerca del uso de este teorema.
+                </p>
+                <p class="paragraph">
+                    Otro de los resultados que es muy usado en la teoría de integración es el siguiente.
+                </p>
+                <div class="theorem">
+                    <p class="paragraph">
+                        <strong class="theorem__title">Teorema 1.6.4. </strong>Si $f:[a,b]\to\mathbf{R}$ es una función continua, entonces $$\left| \int_a^b f(x)\,dx \right|\leq \int_a^b |f(x)|\,dx.$$
+                    </p>
+                </div>
+                <div class="proof">
+                    <h3 class="header-tertiary">
+                        Demostración.
+                    </h3>
+                    <p class="paragraph">
+                        Por hipótesis, la función $f$ es continua en $[a,b]$, y así la función $|f|$ también es continua en $[a,b]$, de donde se obtiene, 
+                        por el Teorema 1.6.2, que tanto $f$ como $|f|$ son integrables. Luego, por las propiedades del valor absoluto en $\mathbf{R}$, tenemos que 
+                        $$-|f(x)| \leq  f(x) \leq |f(x)|, \quad \forall x\in[a,b].$$ Aplicando el <span class="modal__reference" data-modal-btn="theorem-1-5-4">Teorema 1.5.4</span>, se deduce que 
+                        $$ - \int_a^b |f(x)| \,dx \leq \int_a^b f(x) \,dx \leq \int_a^b |f(x)|\, dx.$$ 
+                        Finalmente, nuevamente considerando las propiedades del valor absoluto, concluimos que
+                        $$\left| \int_a^b f(x)\,dx \right|\leq \int_a^b |f(x)|\,dx.$$
+                    </p>
+                    <div>
+                        <button class="btn-sm btn--blue" type="button" data-btn-continue="s-12">Continuar</button>
+                    </div>
+                    <div class="fancy-line"></div>
+                </div>
             </div>
         </section>
-        <section>
-            <div class="fancy-line"></div>
+        <section class="section--hidden" data-section="s-12">
             <p class="paragraph">
                 Otro de los resultados muy importante dentro del cálculo integral es la segunda parte del TFC.
             </p>
@@ -609,7 +1075,7 @@
                     $$F(a)=\int_a^a f(t)\,dt = \int_a^a f(x)\,dx=0.$$        
                 </p>
                 <p class="paragraph">
-                    También, por el <span class="modal__reference" data-modal-btn="theorem-1-5-4">Teorema 1.5.4,</span> sabemos que $$\int_a^a f(x)\,dx = \int_a^b f(x)\,dx+ \int_b^a f(x)\,dx.$$
+                    También, por el <span class="modal__reference" data-modal-btn="theorem-1-4-7">Teorema 1.4.7,</span> sabemos que $$\int_a^a f(x)\,dx = \int_a^b f(x)\,dx+ \int_b^a f(x)\,dx.$$
                 </p>
                 <p class="paragraph">
                     Como $ \int_a^a f(x)\,dx=0$, entonces concluimos que $$\int_a^b f(x)\,dx = -\int_b^a f(x)\,dx.$$

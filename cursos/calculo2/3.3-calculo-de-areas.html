@@ -218,20 +218,41 @@
                 </div>
             </div>
             <p class="paragraph">
-                Ahora sí prodecemos a resolver el ejercicio.
+                Ahora sí, procedemos a resolver el ejercicio.
             </p>
             <p class="paragraph">
                 Como $f(x)=x^2+2$ y $g(x)=-x$, tenemos que $f$ y $g$ son continuas en $\mathbb{R}$, en particular en $[0,1]$. 
             </p>
+            <div class="calculation">
+                <div class="calculation__formule--1">
+                    $$x\in[0,1]$$
+                </div>
+                <div class="calculation__formule--2">
+                    <div>
+                        $$ \Rightarrow 0\leq x\leq1 $$
+                    </div>
+                    <div class="calculation__text margin-bottom-xm margin-top-xm">
+                        por definición de intervalo
+                    </div>
+                </div>
+                <div class="calculation__formule--2">
+                    <div>
+                        $$ \Rightarrow -1\leq -x\leq 0 $$
+                    </div>
+                    <div class="calculation__text margin-bottom-xm margin-top-xm">
+                        por propiedades de $\mathbb{R}$
+                    </div>
+                </div>
+                <div class="calculation__formule--2">
+                    <div>
+                        $$ \Rightarrow -1\leq g(x) \leq 0 $$
+                    </div>
+                    <div class="calculation__text margin-bottom-xm margin-top-xm">
+                        por definición de la función $g.$
+                    </div>
+                </div>
+            </div>
             <p class="paragraph">
-                Para poder aplicar la definición, debemos demostrar que $g(x)\leq f(x), \forall x\in[0,1]$. En efecto:
-                \begin{equation*}
-                    \begin{split}
-                        x\in[0,1] &\Rightarrow 0\leq x\leq1 \quad \mbox{ por definición de intervalo} \\
-                        &\Rightarrow -1\leq -x\leq 0 \quad \mbox{ por propiedades de }\mathbb{R} \\
-                        &\Rightarrow -1\leq g(x) \leq 0 \mbox{ por definición de la función }g.
-                    \end{split}
-                \end{equation*}
                 Además, sabemos que si $x\in[0,1]$, entonces $0\leq x^2$, por propiedades de $\mathbb{R}$, así se llega a que $2\leq x^2+2$, i.e., $2\leq f(x)$. 
                 Pero como $0\leq 2$, por transitividad concluimos que $$g(x)\leq f(x), \forall x\in[0,1].$$
             </p>
@@ -520,9 +541,8 @@
             <p class="paragraph example__paragraph">
                 <span class="example__title">Ejemplo 3.3.4.</span> Encontrar el área de la región acotada por las gráficas de las curvas dadas por $x=3-y^2$ y $x=y+1$.
             </p>
-            <h3 class="header-tertiary">Hint.</h3>
             <p class="paragraph">
-                Nuevamente, es conveniente hacer la gráfica de las curvas involucradas.
+                <strong>Hint.</strong> Nuevamente, es conveniente hacer la gráfica de las curvas involucradas.
             </p>
             <div class="row">
                 <div class="col">

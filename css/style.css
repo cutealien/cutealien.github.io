@@ -305,12 +305,20 @@ section {
   margin-bottom: 2rem;
 }
 
+.margin-bottom-xm {
+  margin-bottom: 1rem;
+}
+
 .margin-bottom-md {
   margin-bottom: 4rem;
 }
 
 .margin-top-sm {
   margin-top: 2rem;
+}
+
+.margin-top-xm {
+  margin-top: 1rem;
 }
 
 .box-shadow {

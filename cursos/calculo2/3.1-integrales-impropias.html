@@ -61,9 +61,9 @@
                 3.1 Integrales Impropia
             </h2>
             <p class="paragraph">
-                Cuando vimos la definición de integral definida, uno de los teoremas más importantes para garantizar de la integral de algunas funciones, en el cual hemos basado 
+                Cuando vimos la definición de integral definida, uno de los teoremas más importantes para garantizar la integral de algunas funciones, en el cual hemos basado 
                 otros teoremas y gran parte de nuestros ejercicios (incluyendo las tareas), fue el <span class="modal__reference" data-modal-btn="theorem-1-6-2">Teorema 1.6.2</span> de la Unidad 1, 
-                el cual nos indica que para que una función sea integrable en un intervalo cerrado es que la función en cuestión sea continua en dicho intervalo 
+                el cual nos indica que para que una función sea integrable en un intervalo cerrado, es suficiente que la función en cuestión sea continua en dicho intervalo 
                 cerrado (fue indispensable que el intervalo fuera finito, i.e, de la forma $[a,b]$ con $a,b\in\mathbb{R}$).
             </p>
             <p class="paragraph">
@@ -201,7 +201,7 @@
                             <div class="question__options">
                                 <div class="question__option">
                                     <input type="radio" id="answer-3-1-1-a" name="question-3-1-1" value="a" data-option="question-3-1-1">
-                                    <label for="answer-3-1-1-a">$$\lim_{c\to-0}\int_{-\infty}^c x\,dx +\lim_{c\to-0}\int_c^\infty x\,dx$$</label>
+                                    <label for="answer-3-1-1-a">$$\lim_{x\to-0}\int_{-\infty}^c x\,dx +\lim_{x\to-0}\int_c^\infty x\,dx$$</label>
                                 </div>
                                 <div class="question__option">
                                     <input type="radio" id="answer-3-1-1-b" name="question-3-1-1" value="b" data-option="question-3-1-1">
@@ -226,51 +226,139 @@
                     <p class="paragraph">
                         Por 3) de la Definición 3.1.1
                     </p>
-                    <div class="calculation">
-                        <div class="calculation__formule--1">
-                            $$\int_{-\infty}^\infty x\,dx$$
+                    <form class="question margin-top-sm" data-j="jqp-31a" data-answer="b_b_a_d_c">
+                        <h3 class="question__header margin-bottom-sm">Justifica los pasos</h3>
+                        <div class="question__col-1">
+                            <div class="question__options">
+                                <div class="calculation">
+                                    <div class="calculation__formule--1">
+                                        $$\int_{-\infty}^\infty x\,dx$$
+                                    </div>
+                                    <div class="calculation__formule--2">
+                                        <div>
+                                            $$= \int_{-\infty}^0 x\,dx +\int_0^\infty x\,dx $$
+                                        </div>
+                                        <div class="justification__block margin-bottom-sm calculation__text" data-options-block="b1">
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp-31a-b1-a" name="jp-31a-b1" value="a" data-option="jp-31a-b1">
+                                                <label for="jp-31a-b1-a">por TFC</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp-31a-b1-b" name="jp-31a-b1" value="b" data-option="jp-31a-b1">
+                                                <label for="jp-31a-b1-b">por Definición 3.1.1</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp-31a-b1-c" name="jp-31a-b1" value="c" data-option="jp-31a-b1">
+                                                <label for="jp-31a-b1-c">por neutro aditivo</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp-31a-b1-d" name="jp-31a-b1" value="d" data-option="jp-31a-b1">
+                                                <label for="jp-31a-b1-d">por notación</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="calculation__formule--2">
+                                        <div>
+                                            $$= \lim_{a\to-\infty}\int_a^0 x\,dx+\lim_{b\to\infty}\int_0^b x\,dx $$
+                                        </div>
+                                        <div class="justification__block margin-bottom-sm calculation__text" data-options-block="b2">
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp-31a-b2-a" name="jp-31a-b2" value="a" data-option="jp-31a-b2">
+                                                <label for="jp-31a-b2-a">por TFC</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp-31a-b2-b" name="jp-31a-b2" value="b" data-option="jp-31a-b2">
+                                                <label for="jp-31a-b2-b">por Definición 3.1.1</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp-31a-b2-c" name="jp-31a-b2" value="c" data-option="jp-31a-b2">
+                                                <label for="jp-31a-b2-c">por neutro aditivo</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp-31a-b2-d" name="jp-31a-b2" value="d" data-option="jp-31a-b2">
+                                                <label for="jp-31a-b2-d">por notación</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="calculation__formule--2">
+                                        <div>
+                                            $$= \lim_{a\to-\infty} \left[\frac{x^2}{2}\bigg|_a^0 \right]+ \lim_{b\to\infty} \left[\frac{x^2}{2}\bigg|_0^b \right] $$
+                                        </div>
+                                        <div class="justification__block margin-bottom-sm calculation__text" data-options-block="b3">
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp-31a-b3-a" name="jp-31a-b3" value="a" data-option="jp-31a-b3">
+                                                <label for="jp-31a-b3-a">por TFC</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp-31a-b3-b" name="jp-31a-b3" value="b" data-option="jp-31a-b3">
+                                                <label for="jp-31a-b3-b">por Definición 3.1.1</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp-31a-b3-c" name="jp-31a-b3" value="c" data-option="jp-31a-b3">
+                                                <label for="jp-31a-b3-c">por neutro aditivo</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp-31a-b3-d" name="jp-31a-b3" value="d" data-option="jp-31a-b3">
+                                                <label for="jp-31a-b3-d">por notación</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="calculation__formule--2">
+                                        <div>
+                                            $$= \lim_{a\to-\infty}\left[\frac{0^2}{2}-\frac{a^2}{2} \right]+\lim_{b\to\infty} \left[\frac{b^2}{2}-\frac{0^2}{2} \right] $$
+                                        </div>
+                                        <div class="justification__block margin-bottom-sm calculation__text" data-options-block="b4">
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp-31a-b4-a" name="jp-31a-b4" value="a" data-option="jp-31a-b4">
+                                                <label for="jp-31a-b4-a">por TFC</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp-31a-b4-b" name="jp-31a-b4" value="b" data-option="jp-31a-b4">
+                                                <label for="jp-31a-b4-b">por Definición 3.1.1</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp-31a-b4-c" name="jp-31a-b4" value="c" data-option="jp-31a-b4">
+                                                <label for="jp-31a-b4-c">por neutro aditivo</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp-31a-b4-d" name="jp-31a-b4" value="d" data-option="jp-31a-b4">
+                                                <label for="jp-31a-b4-d">por notación</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="calculation__formule--2">
+                                        <div>
+                                            $$= \lim_{a\to-\infty}\left[-\frac{a^2}{2} \right]+\lim_{b\to\infty} \left[\frac{b^2}{2} \right] $$
+                                        </div>
+                                        <div class="justification__block margin-bottom-sm calculation__text" data-options-block="b5">
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp-31a-b5-a" name="jp-31a-b5" value="a" data-option="jp-31a-b5">
+                                                <label for="jp-31a-b5-a">por TFC</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp-31a-b5-b" name="jp-31a-b5" value="b" data-option="jp-31a-b5">
+                                                <label for="jp-31a-b5-b">por Definición 3.1.1</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp-31a-b5-c" name="jp-31a-b5" value="c" data-option="jp-31a-b5">
+                                                <label for="jp-31a-b5-c">por neutro aditivo</label>
+                                            </div>
+                                            <div class="justification__option question__option">
+                                                <input class="question__option--start" type="radio" autocomplete="off" id="jp-31a-b5-d" name="jp-31a-b5" value="d" data-option="jp-31a-b5">
+                                                <label for="jp-31a-b5-d">por notación</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="calculation__formule--2">
-                            <div>
-                                $$= \int_{-\infty}^0 x\,dx +\int_0^\infty x\,dx $$
-                            </div>
-                            <div class="calculation__text">
-                                por Definición 3.1.1
-                            </div>
+                        <div class="question__btn-box">
+                            <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                            <button class="btn btn--blue" type="button" disabled data-btn-continue="s-a">Continuar</button>
                         </div>
-                        <div class="calculation__formule--2">
-                            <div>
-                                $$= \lim_{a\to-\infty}\int_a^0 x\,dx+\lim_{b\to\infty}\int_0^b x\,dx $$
-                            </div>
-                            <div class="calculation__text">
-                                por Definición 3.1.1
-                            </div>
-                        </div>
-                        <div class="calculation__formule--2">
-                            <div>
-                                $$= \lim_{a\to-\infty} \left[\frac{x^2}{2}\bigg|_a^0 \right]+ \lim_{b\to\infty} \left[\frac{x^2}{2}\bigg|_0^b \right] $$
-                            </div>
-                            <div class="calculation__text">
-                                por TFC
-                            </div>
-                        </div>
-                        <div class="calculation__formule--2">
-                            <div>
-                                $$= \lim_{a\to-\infty}\left[\frac{0^2}{2}-\frac{a^2}{2} \right]+\lim_{b\to\infty} \left[\frac{b^2}{2}-\frac{0^2}{2} \right] $$
-                            </div>
-                            <div class="calculation__text">
-                                por notación
-                            </div>
-                        </div>
-                        <div class="calculation__formule--2">
-                            <div>
-                                $$= \lim_{a\to-\infty}\left[-\frac{a^2}{2} \right]+\lim_{b\to\infty} \left[\frac{b^2}{2} \right] $$
-                            </div>
-                            <div class="calculation__text">
-                                por neutro aditivo
-                            </div>
-                        </div>
-                    </div>
+                    </form>
+                </div>
+                <div class="section--hidden" data-section="s-a">
                     <form class="question margin-top-sm" data-question="question-3-1-2" data-answer="a" autocomplete="off">
                         <h3 class="question__header margin-bottom-sm">
                             ¿La integral converge o diverge?
@@ -562,11 +650,176 @@
                     <p class="paragraph">
                         Finalmente, concluimos que $$\int_{-\infty}^\infty \frac{1}{x^2+6x+12}\,dx = \frac{\sqrt{3}}{3}\pi.$$
                     </p>
-                    <div class="fancy-line"></div>
-                    <div class="change-page">
-                        <a href="./2.6-sust-trigonometrica.html" class="change-page__before">Anterior</a>
-                        <a href="./3.2-mas-integrales-impropias.html" class="change-page__next">Siguiente</a>
+                    <div>
+                        <button class="btn-sm btn--blue" type="button" data-btn-continue="step-7">Continuar</button>
                     </div>
+                    <div class="fancy-line"></div>
+                </div>
+            </div>
+            <div class="section--hidden" data-section="step-7">
+                <div class="example">
+                    <p class="paragraph example__paragraph">
+                        Determinar si $\int_1^\infty (1-x)e^{-x}\,dx$ converge o diverge.
+                    </p>
+                    <h3 class="header-tertiary">Solución.</h3>
+                    <p class="paragraph">
+                        Notemos que la función $f(x)=(1-x)e^{-x}$ es continua en $\mathbb{R}$, pues $1-x$ es un polinomio de grado 1 y por lo tanto una función continua, y $e^{-x}$ es 
+                        continua en $\mathbb{R}$. Así, producto de funciones continuas es continua por propiedades de continuidad. En particular, es continua en $[1,\infty)$. 
+                        Luego, tiene sentido verificar la convergencia de la integral.
+                    </p>
+                    <form class="question margin-top-sm" data-question="question-3-1-6" data-answer="a" autocomplete="off">
+                        <h3 class="question__header margin-bottom-sm">
+                            Calcula la integral $\int_1^\infty (1-x)e^{-x}\,dx.$
+                        </h3>
+                        <div class="question__row">
+                            <div class="question__col-1">
+                                <div class="question__options">
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-3-1-6-a" name="question-3-1-6" value="a" data-option="question-3-1-6">
+                                        <label for="answer-3-1-6-a">$-\frac{1}{e}$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-3-1-6-b" name="question-3-1-6" value="b" data-option="question-3-1-6">
+                                        <label for="answer-3-1-6-b">$-\frac{1}{e^2}$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-3-1-6-c" name="question-3-1-6" value="c" data-option="question-3-1-6">
+                                        <label for="answer-3-1-6-c">$\frac{b}{e}$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-3-1-6-d" name="question-3-1-6" value="d" data-option="question-3-1-6">
+                                        <label for="answer-3-1-6-d">diverge</label>
+                                    </div>
+                                </div>
+                                <div class="question__btn-box">
+                                    <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                    <button class="btn btn--blue" type="button" disabled data-btn-continue="step-8">Continuar</button>
+                                </div>
+                            </div>
+                            <div class="question__col-2">
+                                <p class="question__answer"></p>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="section--hidden" data-section="step-8">
+                        <div class="calculation">
+                            <div class="calculation__formule--1">
+                                $$\int_1^\infty (1-x)e^{-x}\,dx $$
+                            </div>
+                            <div class="calculation__formule--2">
+                                <div>
+                                    $$= = \lim_{b\to\infty} \int_1^b (1-x)e^{-x}\,dx $$
+                                </div>
+                                <div class="calculation__text">
+                                    por 1) de la Definición 3.1.1
+                                </div>
+                            </div>
+                            <div class="calculation__formule--2">
+                                <div class="calculation__text">
+                                    hacemos $u=1-x$ y $dv=e^{-x}dx,$ por lo que $du=-dx$ y $v=-e^{-x}$
+                                </div>
+                            </div>
+                            <div class="calculation__formule--2">
+                                <div>
+                                    $$= \lim_{b\to\infty} \left[ -(1-x)e^{-x}\bigg|_1^b -\int_1^b e^{-x}\,dx \right] $$
+                                </div>
+                                <div class="calculation__text">
+                                    integrando por partes
+                                </div>
+                            </div>
+                            <div class="calculation__formule--2">
+                                <div>
+                                    $$= \lim_{b\to\infty} \left[ -(1-x)e^{-x}\bigg|_1^b -(- e^{-x})\bigg|_1^b \right]  $$
+                                </div>
+                            </div>
+                            <div class="calculation__formule--2">
+                                <div>
+                                    $$= \lim_{b\to\infty} \left[ -(1-b)e^{-b}+(1-1)e^{-1} +e^{-b}-e^{-1}\right] $$
+                                </div>
+                                <div class="calculation__text">
+                                    por notación
+                                </div>
+                            </div>
+                            <div class="calculation__formule--2">
+                                <div>
+                                    $$= \lim_{b\to\infty} \left[ be^{-b}-e^{-1}\right] $$
+                                </div>
+                                <div class="calculation__text">
+                                    por algebrita
+                                </div>
+                            </div>
+                            <div class="calculation__formule--2">
+                                <div>
+                                    $$= \lim_{b\to\infty} \left[ \frac{b}{e^b}-\frac{1}{e}\right] $$
+                                </div>
+                                <div class="calculation__text">
+                                    por leyes de exponentes
+                                </div>
+                            </div>
+                            <div class="calculation__formule--2">
+                                <div>
+                                    $$= -\frac{1}{e} $$
+                                </div>
+                                <div class="calculation__text">
+                                    por L'Hopital
+                                </div>
+                            </div>
+                        </div>
+                        <p class="paragraph">
+                            Por lo tanto, $$\int_1^\infty (1-x)e^{-x}\,dx=-\frac{1}{e}.$$
+                        </p>
+                        <div>
+                            <button class="btn-sm btn--blue" type="button" data-btn-continue="step-9">Continuar</button>
+                        </div>
+                        <div class="fancy-line"></div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="section--hidden" data-section="step-9">
+                <form class="question margin-top-sm" data-question="question-3-1-7" data-answer="c" autocomplete="off">
+                    <h3 class="question__header margin-bottom-sm">
+                        Determinar la convergencia de $\int_{-\infty}^\infty \frac{e^x}{1+e^{2x}}\,dx$.
+                    </h3>
+                    <div class="question__row">
+                        <div class="question__col-1">
+                            <div class="question__options">
+                                <div class="question__option">
+                                    <input type="radio" id="answer-3-1-7-a" name="question-3-1-7" value="a" data-option="question-3-1-7">
+                                    <label for="answer-3-1-7-a">$\frac{\pi}{2}$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" id="answer-3-1-7-b" name="question-3-1-7" value="b" data-option="question-3-1-7">
+                                    <label for="answer-3-1-7-b">$\frac{\pi}{3}$ </label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" id="answer-3-1-7-c" name="question-3-1-7" value="c" data-option="question-3-1-7">
+                                    <label for="answer-3-1-7-c">$\frac{\pi}{4}$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" id="answer-3-1-7-d" name="question-3-1-7" value="d" data-option="question-3-1-7">
+                                    <label for="answer-3-1-7-d">diverge</label>
+                                </div>
+                            </div>
+                            <div class="question__btn-box">
+                                <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                <button class="btn btn--blue" type="button" disabled data-btn-continue="step-10">Continuar</button>
+                            </div>
+                        </div>
+                        <div class="question__col-2">
+                            <p class="question__answer"></p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="section--hidden" data-section="step-10">
+                <h3 class="header-tertiary margin-bottom-sm">
+                    Respuesta: $\frac{\pi}{4}.$ 
+                </h3>
+                <div class="fancy-line"></div>
+                <div class="change-page">
+                    <a href="./2.6-sust-trigonometrica.html" class="change-page__before">Anterior</a>
+                    <a href="./3.2-mas-integrales-impropias.html" class="change-page__next">Siguiente</a>
                 </div>
             </div>
         </section>

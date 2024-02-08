@@ -729,89 +729,198 @@
                 <p class="paragraph">
                     Si hacemos el cambio de variable $u(x)=x^2$, entonces $F(x)=G(u(x))$. Luego,
                 </p>
-                <div class="calculation">
-                    <div class="calculation__formule--1">
-                        $$\frac{d}{dx}F(x)$$
-                    </div>
-                    <div class="calculation__formule--2">
-                        <div>
-                            $$= \frac{d}{dx}G(u(x)) $$
-                        </div>
-                        <div class="calculation__text">
-                            por la definición de $F,G$ y $u$
-                        </div>
-                    </div>
-                    <div class="calculation__formule--2">
-                        <div>
-                            $$= G'(u(x))\cdot u'(x) $$
-                        </div>
-                        <div class="calculation__text">
-                            por la regla de la cadena
-                        </div>
-                    </div>
-                    <div class="calculation__formule--2">
-                        <div>
-                            $$= f(u(x))\cdot 2x $$
-                        </div>
-                        <div class="calculation__text">
-                            por el Teorema 1.6.1
-                        </div>
-                    </div>
-                    <div class="calculation__formule--2">
-                        <div>
-                            $$= f(x^2)\cdot 2x $$
-                        </div>
-                        <div class="calculation__text">
-                            por la definición de $u$
-                        </div>
-                    </div>
-                    <div class="calculation__formule--2">
-                        <div>
-                            $$= e^{x^4}\cdot 2x $$
-                        </div>
-                        <div class="calculation__text">
-                            por la definición de $f$
-                        </div>
-                    </div>
-                </div>
-                <p class="paragraph">
-                    Finalmente, por transitividad, $$\frac{d}{dx}\int_0^{x^2} e^{t^2}\,dt=2xe^{x^4}. $$
-                </p>
-            </div>
-            <form class="question margin-top-sm" data-question="question-e-1-6-3" data-answer="d" autocomplete="off">
-                <h3 class="question__header margin-bottom-sm">
-                    Halla la derivada de $F(x)=\int_0^{x^2}(1+t^2)^{-3}\,dt$
-                </h3>
-                <div class="question__row">
+                <form class="question margin-top-sm" data-j="jqp-6c" data-answer="e_a_c_b_d">
+                    <h3 class="question__header margin-bottom-sm">Justifica los pasos</h3>
                     <div class="question__col-1">
                         <div class="question__options">
-                            <div class="question__option">
-                                <input type="radio" id="answer-e-1-6-3-a" name="question-e-1-6-3" value="a" data-option="question-e-1-6-3">
-                                <label for="answer-e-1-6-3-a">$f'(x)=(1+x^4)^{-4}$</label>
-                            </div>
-                            <div class="question__option">
-                                <input type="radio" id="answer-e-1-6-3-b" name="question-e-1-6-3" value="b" data-option="question-e-1-6-3">
-                                <label for="answer-e-1-6-3-b">$f'(x)=(2x)(1+x^2)^{-4}$</label>
-                            </div>
-                            <div class="question__option">
-                                <input type="radio" id="answer-e-1-6-3-c" name="question-e-1-6-3" value="c" data-option="question-e-1-6-3">
-                                <label for="answer-e-1-6-3-c">$f'(x)=(1+x^4)^{-3}$</label>
-                            </div>
-                            <div class="question__option">
-                                <input type="radio" id="answer-e-1-6-3-d" name="question-e-1-6-3" value="d" data-option="question-e-1-6-3">
-                                <label for="answer-e-1-6-3-d">$f'(x)=(2x)(1+x^4)^{-3}$</label>
+                            <div class="calculation">
+                                <div class="calculation__formule--1">
+                                    $$\frac{d}{dx}F(x)$$
+                                </div>
+                                <div class="calculation__formule--2">
+                                    <div>
+                                        $$= \frac{d}{dx}G(u(x)) $$
+                                    </div>
+                                    <div class="justification__block margin-bottom-sm calculation__text" data-options-block="b1">
+                                        <div class="justification__option question__option">
+                                            <input class="question__option--start" type="radio" autocomplete="off" id="jp3-b1-a" name="jp3-b1" value="a" data-option="jp3-b1">
+                                            <label for="jp3-b1-a">por la regla de la cadena</label>
+                                        </div>
+                                        <div class="justification__option question__option">
+                                            <input class="question__option--start" type="radio" autocomplete="off" id="jp3-b1-b" name="jp3-b1" value="b" data-option="jp3-b1">
+                                            <label for="jp3-b1-b">por la definición de $u$</label>
+                                        </div>
+                                        <div class="justification__option question__option">
+                                            <input class="question__option--start" type="radio" autocomplete="off" id="jp3-b1-c" name="jp3-b1" value="c" data-option="jp3-b1">
+                                            <label for="jp3-b1-c">por el Teorema 1.6.1</label>
+                                        </div>
+                                        <div class="justification__option question__option">
+                                            <input class="question__option--start" type="radio" autocomplete="off" id="jp3-b1-d" name="jp3-b1" value="d" data-option="jp3-b1">
+                                            <label for="jp3-b1-d">por la definición de $f$</label>
+                                        </div>
+                                        <div class="justification__option question__option">
+                                            <input class="question__option--start" type="radio" autocomplete="off" id="jp3-b1-e" name="jp3-b1" value="e" data-option="jp3-b1">
+                                            <label for="jp3-b1-e">por la definición de $F,G$ y $u$</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="calculation__formule--2">
+                                    <div>
+                                        $$= G'(u(x))\cdot u'(x) $$
+                                    </div>
+                                    <div class="justification__block margin-bottom-sm calculation__text" data-options-block="b2">
+                                        <div class="justification__option question__option">
+                                            <input class="question__option--start" type="radio" autocomplete="off" id="jp3-b2-a" name="jp3-b2" value="a" data-option="jp3-b2">
+                                            <label for="jp3-b2-a">por la regla de la cadena</label>
+                                        </div>
+                                        <div class="justification__option question__option">
+                                            <input class="question__option--start" type="radio" autocomplete="off" id="jp3-b2-b" name="jp3-b2" value="b" data-option="jp3-b2">
+                                            <label for="jp3-b2-b">por la definición de $u$</label>
+                                        </div>
+                                        <div class="justification__option question__option">
+                                            <input class="question__option--start" type="radio" autocomplete="off" id="jp3-b2-c" name="jp3-b2" value="c" data-option="jp3-b2">
+                                            <label for="jp3-b2-c">por el Teorema 1.6.1</label>
+                                        </div>
+                                        <div class="justification__option question__option">
+                                            <input class="question__option--start" type="radio" autocomplete="off" id="jp3-b2-d" name="jp3-b2" value="d" data-option="jp3-b2">
+                                            <label for="jp3-b2-d">por la definición de $f$</label>
+                                        </div>
+                                        <div class="justification__option question__option">
+                                            <input class="question__option--start" type="radio" autocomplete="off" id="jp3-b2-e" name="jp3-b2" value="e" data-option="jp3-b2">
+                                            <label for="jp3-b2-e">por la definición de $F,G$ y $u$</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="calculation__formule--2">
+                                    <div>
+                                        $$= f(u(x))\cdot 2x $$
+                                    </div>
+                                    <div class="justification__block margin-bottom-sm calculation__text" data-options-block="b3">
+                                        <div class="justification__option question__option">
+                                            <input class="question__option--start" type="radio" autocomplete="off" id="jp3-b3-a" name="jp3-b3" value="a" data-option="jp3-b3">
+                                            <label for="jp3-b3-a">por la regla de la cadena</label>
+                                        </div>
+                                        <div class="justification__option question__option">
+                                            <input class="question__option--start" type="radio" autocomplete="off" id="jp3-b3-b" name="jp3-b3" value="b" data-option="jp3-b3">
+                                            <label for="jp3-b3-b">por la definición de $u$</label>
+                                        </div>
+                                        <div class="justification__option question__option">
+                                            <input class="question__option--start" type="radio" autocomplete="off" id="jp3-b3-c" name="jp3-b3" value="c" data-option="jp3-b3">
+                                            <label for="jp3-b3-c">por el Teorema 1.6.1</label>
+                                        </div>
+                                        <div class="justification__option question__option">
+                                            <input class="question__option--start" type="radio" autocomplete="off" id="jp3-b3-d" name="jp3-b3" value="d" data-option="jp3-b3">
+                                            <label for="jp3-b3-d">por la definición de $f$</label>
+                                        </div>
+                                        <div class="justification__option question__option">
+                                            <input class="question__option--start" type="radio" autocomplete="off" id="jp3-b3-e" name="jp3-b3" value="e" data-option="jp3-b3">
+                                            <label for="jp3-b3-e">por la definición de $F,G$ y $u$</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="calculation__formule--2">
+                                    <div>
+                                        $$= f(x^2)\cdot 2x $$
+                                    </div>
+                                    <div class="justification__block margin-bottom-sm calculation__text" data-options-block="b4">
+                                        <div class="justification__option question__option">
+                                            <input class="question__option--start" type="radio" autocomplete="off" id="jp3-b4-a" name="jp3-b4" value="a" data-option="jp3-b4">
+                                            <label for="jp3-b4-a">por la regla de la cadena</label>
+                                        </div>
+                                        <div class="justification__option question__option">
+                                            <input class="question__option--start" type="radio" autocomplete="off" id="jp3-b4-b" name="jp3-b4" value="b" data-option="jp3-b4">
+                                            <label for="jp3-b4-b">por la definición de $u$</label>
+                                        </div>
+                                        <div class="justification__option question__option">
+                                            <input class="question__option--start" type="radio" autocomplete="off" id="jp3-b4-c" name="jp3-b4" value="c" data-option="jp3-b4">
+                                            <label for="jp3-b4-c">por el Teorema 1.6.1</label>
+                                        </div>
+                                        <div class="justification__option question__option">
+                                            <input class="question__option--start" type="radio" autocomplete="off" id="jp3-b4-d" name="jp3-b4" value="d" data-option="jp3-b4">
+                                            <label for="jp3-b4-d">por la definición de $f$</label>
+                                        </div>
+                                        <div class="justification__option question__option">
+                                            <input class="question__option--start" type="radio" autocomplete="off" id="jp3-b4-e" name="jp3-b4" value="e" data-option="jp3-b4">
+                                            <label for="jp3-b4-e">por la definición de $F,G$ y $u$</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="calculation__formule--2">
+                                    <div>
+                                        $$= e^{x^4}\cdot 2x $$
+                                    </div>
+                                    <div class="justification__block margin-bottom-sm calculation__text" data-options-block="b5">
+                                        <div class="justification__option question__option">
+                                            <input class="question__option--start" type="radio" autocomplete="off" id="jp3-b5-a" name="jp3-b5" value="a" data-option="jp3-b5">
+                                            <label for="jp3-b5-a">por la regla de la cadena</label>
+                                        </div>
+                                        <div class="justification__option question__option">
+                                            <input class="question__option--start" type="radio" autocomplete="off" id="jp3-b5-b" name="jp3-b5" value="b" data-option="jp3-b5">
+                                            <label for="jp3-b5-b">por la definición de $u$</label>
+                                        </div>
+                                        <div class="justification__option question__option">
+                                            <input class="question__option--start" type="radio" autocomplete="off" id="jp3-b5-c" name="jp3-b5" value="c" data-option="jp3-b5">
+                                            <label for="jp3-b5-c">por el Teorema 1.6.1</label>
+                                        </div>
+                                        <div class="justification__option question__option">
+                                            <input class="question__option--start" type="radio" autocomplete="off" id="jp3-b5-d" name="jp3-b5" value="d" data-option="jp3-b5">
+                                            <label for="jp3-b5-d">por la definición de $f$</label>
+                                        </div>
+                                        <div class="justification__option question__option">
+                                            <input class="question__option--start" type="radio" autocomplete="off" id="jp3-b5-e" name="jp3-b5" value="e" data-option="jp3-b5">
+                                            <label for="jp3-b5-e">por la definición de $F,G$ y $u$</label>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="question__btn-box">
                             <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
-                            <button class="btn btn--blue" type="button" disabled data-btn-continue="s-9">Continuar</button>
+                            <button class="btn btn--blue" type="button" disabled data-btn-continue="s-a">Continuar</button>
                         </div>
                     </div>
-                    <div class="question__col-2">
-                        <p class="question__answer"></p>
+                </form>
+            </div>
+            <div class="section--hidden" data-section="s-a">
+                <p class="paragraph">
+                    Finalmente, por transitividad, $$\frac{d}{dx}\int_0^{x^2} e^{t^2}\,dt=2xe^{x^4}. $$
+                </p>
+                <div class="fancy-line"></div>
+                <form class="question margin-top-sm" data-question="question-e-1-6-3" data-answer="d" autocomplete="off">
+                    <h3 class="question__header margin-bottom-sm">
+                        Halla la derivada de $F(x)=\int_0^{x^2}(1+t^2)^{-3}\,dt$
+                    </h3>
+                    <div class="question__row">
+                        <div class="question__col-1">
+                            <div class="question__options">
+                                <div class="question__option">
+                                    <input type="radio" id="answer-e-1-6-3-a" name="question-e-1-6-3" value="a" data-option="question-e-1-6-3">
+                                    <label for="answer-e-1-6-3-a">$f'(x)=(1+x^4)^{-4}$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" id="answer-e-1-6-3-b" name="question-e-1-6-3" value="b" data-option="question-e-1-6-3">
+                                    <label for="answer-e-1-6-3-b">$f'(x)=(2x)(1+x^2)^{-4}$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" id="answer-e-1-6-3-c" name="question-e-1-6-3" value="c" data-option="question-e-1-6-3">
+                                    <label for="answer-e-1-6-3-c">$f'(x)=(1+x^4)^{-3}$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" id="answer-e-1-6-3-d" name="question-e-1-6-3" value="d" data-option="question-e-1-6-3">
+                                    <label for="answer-e-1-6-3-d">$f'(x)=(2x)(1+x^4)^{-3}$</label>
+                                </div>
+                            </div>
+                            <div class="question__btn-box">
+                                <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                <button class="btn btn--blue" type="button" disabled data-btn-continue="s-9">Continuar</button>
+                            </div>
+                        </div>
+                        <div class="question__col-2">
+                            <p class="question__answer"></p>
+                        </div>
                     </div>
-                </div>
-            </form>
+                </form>
+            </div>
             <div class="section--hidden" data-section="s-9">
                 <p class="paragraph">
                     De manera similar al ejercicio anterior, sea $f(x)=(1+x^2)^{-3},$ $G(y)=\int_0^{y}(1+t^2)^{-3}\,dt$ y $u(x)=x^2.$

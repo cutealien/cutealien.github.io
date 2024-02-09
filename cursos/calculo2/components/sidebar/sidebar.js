@@ -57,6 +57,7 @@ HTML_SIDEBAR = `
                <li class="subject-list__item"><a href="./3.1-integrales-impropias.html" class="subject-list__link">3.1 Integrales impropias</a></li>
                <li class="subject-list__item"><a href="./3.2-mas-integrales-impropias.html" class="subject-list__link">3.2 Más integrales impropias (para funciones discontinuas)</a></li>
                <li class="subject-list__item"><a href="./3.3-calculo-de-areas.html" class="subject-list__link">3.3 Cálculo de áreas de regiones acotadas por curvas</a></li>   
+               <li class="subject-list__item"><a href="./3.4-calculo-de-volumenes.html" class="subject-list__link">3.4 Cálculo de volúmenes</a></li>   
            </ol>
        </li>
        <li class="subject-list__item">

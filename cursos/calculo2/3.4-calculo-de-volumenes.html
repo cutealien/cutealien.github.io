@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/style.css">
+    
+    <script src="./scripts/variables.js" defer></script>
+    <script src="./scripts/question.js" defer></script>
+    <script src="./scripts/modal.js" defer></script>
+    <script src="./components/component-loader.js" defer></script>
+    <!-- <script src="./components/mobile-sidebar/mobile-sidebar.js" defer></script>
+    <script src="./components/sidebar/sidebar.js" defer></script>
+    <script src="./components/math-template.js" defer></script> -->
+
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+            loader: {load: ['input/asciimath', 'output/chtml']}
+        }
+    </script>
+    <script id="MathJax-script" async src="/scripts/MathJax-master/es5/tex-chtml.js"></script>
+
+    <title>Cálculo 2 | Cálculo de volúmenes</title>
+</head>
+<body class="course">
+    <nav class="navbar">
+        <a href="/" class="navbar__logo-box">
+        </a>
+        <a href="/" class="navbar__link">
+            Inicio
+        </a>
+        <a href="#" class="navbar__link navbar__link--active">
+            Cálculo 2
+        </a>
+        <a href="./quiz.html" class="navbar__link">
+            Quiz
+        </a>
+        <button class="menu-mobile-btn burger-btn" data-menu-btn="menu-mobile"><span class="burger-icon"></span></button>
+    </nav>
+    <alien-sidebar class="sidebar" id="sidebar"></alien-sidebar>
+    <alien-mobile-sidebar id="mobile-menu"></alien-mobile-sidebar>
+    <main class="main">
+        <section>
+            <h1 class="header-primary margin-bottom-md">
+                Cálculo de volúmenes
+            </h1>
+            <h2 class="header-secondary">
+                Método de los discos
+            </h2>
+            <p class="paragraph">
+                Si una región en el plano es girada alrededor de una línea, el sólido resultante se le llama sólido de revolunción y a la línea se le llama eje de revolución. 
+                El sólido más simple es un cilindro circular recto o disco, el cual se forma al girar un rectángulo alrededor de un eje adyacente a un lado del rectángulo. 
+                El volumen $V$ del disco es
+                $$V = (\mbox{área del disco})(\mbox{ancho del disco})$$
+            </p>
+            <p class="paragraph">
+                Para encontrar el volumen de un sólido de revolución, consideremos un sólido de revolución formado al rotar una región del plano alrededor de un eje. 
+                Para determinar el volumen de este sólido, considere un rectángulo representativo en el plano, como se muestra en la siguiente imágen.
+            </p>
+            <div class="text-center margin-top-sm margin-bottom-sm">
+                <img class="img" src="./assets/graph-plane.png" alt="Plano representativo">
+            </div>
+            <p class="paragraph">
+                Como se muestra en la siguiente imagen, cuando este rectángulo es rotado alrededor del eje de revolución, genera un disco representativo cuyo volumen es  
+                $$\Delta V = \pi R^2 \Delta x.$$
+            </p>
+            <div class="text-center margin-top-sm margin-bottom-sm">
+                <img class="img" src="./assets/graph-disc.png" alt="Disco representativo">
+            </div>
+            <p class="paragraph">
+                Aproximando el volumen $V$ del sólido con $n$ de estos discos con ancho $\Delta x$ y radio $R(x_i)$ tenemos,
+                \begin{equation*}
+                    \begin{split}
+                        V &\approx \sum_{i=1}^n \pi [R(x_i)]^2 \Delta x \\
+                        & = \pi \sum_{i=1}^n [R(x_i)]^2 \Delta x
+                    \end{split}
+                \end{equation*}
+            </p>
+            <p class="paragraph">
+                La aproximación parece mejorar cuando $\|\Delta x\| \to 0,$ es decir, $n \to \infty.$ Entonces, podemos definir el volumen del sólido como: 
+                $$V = \lim_{\|\Delta x\| \to 0} \pi \sum_{i=1}^n [R(x_i)]^2 \Delta x = \pi \int_a^b [R(x)]^2 \,dx. $$
+                En la siguiente imagen se da un ejemplo de un ejemplo de un sólido de revolución.
+            </p>
+            <div class="text-center margin-top-sm margin-bottom-sm">
+                <img class="img" src="./assets/graph-solid.png" alt="Sólido de revolución">
+            </div>
+            <p class="paragraph">
+                Similarmente se puede derivar una fórmula si el eje de revolución es vertical.
+            </p>
+            <div class="definition">
+                <p class="paragraph">
+                    <span class="definition__title">Definición 3.4.1.</span> Sea $f$ una función definida en el intervalo [a, b]. Si f es continua en [a, b] y $f(x) \geq 0$, $\forall x \in [a, b]$, definimos el volumen del sólido de revolución al rotar la curva  $y=f(x)$ sobre el eje x en [a, b] como:
+                    $$V = \pi \int_a^b [R(x)]^2 \,dx, $$
+                    y si se gira sobre el eje y como:
+                    $$V = \pi \int_a^b [R(y)]^2 \,dy. $$
+                </p>
+            </div>
+            <div class="fancy-line"></div>
+            <div class="example">
+                <p class="paragraph example__paragraph">
+                    <span class="example__title">Ejemplo 3.4.1.</span> Calcular el volumen del sólido formado al rotar la función $f(x)=\sqrt{r^2-x^2}$ para $-r \leq x \leq r,$ alrededor del eje $x.$
+                </p>
+                <h3 class="header-tertiary">
+                    Solución.
+                </h3>
+                <p class="paragraph">
+                    El sólido formado por esta función es una esfera de radio $r$. Su volumen es igual a:
+                    \begin{equation*}
+                        \begin{split}
+                            V &= \pi \int_{-r}^{r} [f(x)]^2 \,dx = \pi \int_{-r}^{r} (r^2-x^2) \,dx \\
+                            &= \pi \left [r^2 x - \frac{1}{3}x^3 \right ]_{-r}^{r} \\
+                            &= \pi \left [r^3 - \frac{1}{3}r^3 - (-r^3 + \frac{1}{3}r^3) \right ] \\
+                            &= \frac{4}{3}\pi r^3. 
+                        \end{split}    
+                    \end{equation*}
+                </p>
+            </div>
+            <div class="fancy-line"></div>
+            <p class="paragraph">
+                También es posible formar un sólido al rotar una región del plano alrededor de una línea que no es un eje. Veamos un ejemplo.
+            </p>
+            <div class="example">
+                <p class="paragraph example__paragraph">
+                    <span class="example__title">Ejemplo 3.4.2.</span> Calcular el volumen del sólido formado al rotar la región formada por $f(x)=2-x^2$ y $g(x)=1$ alrededor de la línea $y=1$.
+                </p>
+                <h3 class="header-tertiary">
+                    Solución.
+                </h3>
+                <p class="paragraph">
+                    En la siguiente imagen se muestra el plano representativo del sólido.
+                </p>
+                <div class="text-center margin-top-sm margin-bottom-sm">
+                    <img class="img" src="./assets/example-2-part-1.png" alt="Plano representativo">
+                </div>
+                <form class="question margin-top-sm" data-question="question-3-4-a" data-answer="b" autocomplete="off">
+                    <h3 class="question__header margin-bottom-sm">
+                        ¿En qué valores de $x$ se intersectan las gráficas $f$ y $g$?
+                    </h3>
+                    <div class="question__row">
+                        <div class="question__col-1">
+                            <div class="question__options">
+                                <div class="question__option">
+                                    <input type="radio" id="answer-3-4-a-a" name="question-3-4-a" value="a" data-option="question-3-4-a">
+                                    <label for="answer-3-4-a-a">$x=1$ y $x=0$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" id="answer-3-4-a-b" name="question-3-4-a" value="b" data-option="question-3-4-a">
+                                    <label for="answer-3-4-a-b">$x=\pm 1$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" id="answer-3-4-a-c" name="question-3-4-a" value="c" data-option="question-3-4-a">
+                                    <label for="answer-3-4-a-c">$x=- 1$ y $x= 0$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" id="answer-3-4-a-d" name="question-3-4-a" value="d" data-option="question-3-4-a">
+                                    <label for="answer-3-4-a-d">$x= 0$ y $x= \pm 1$</label>
+                                </div>
+                            </div>
+                            <div class="question__btn-box">
+                                <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                <button class="btn btn--blue" type="button" disabled data-btn-continue="s1">Continuar</button>
+                            </div>
+                        </div>
+                        <div class="question__col-2">
+                            <p class="question__answer"></p>
+                        </div>
+                    </div>
+                </form>
+                <div class="section--hidden" data-section="s1">
+                    <p class="paragraph">
+                        La intersección de las gráficas $f(x)$ y $g(x)$ se da en $x=\pm 1.$ El radio del sólido es $R(x)=f(x)-g(x)=1-x^2.$ Para calcular el volumen integramos de $-1$ a $1$.
+                    </p>
+                    <form class="question margin-top-sm" data-question="question-3-4-b" data-answer="c" autocomplete="off">
+                        <h3 class="question__header margin-bottom-sm">
+                            ¿Cuál es el radio del círculo?
+                        </h3>
+                        <div class="question__row">
+                            <div class="question__col-1">
+                                <div class="question__options">
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-3-4-b-a" name="question-3-4-b" value="a" data-option="question-3-4-b">
+                                        <label for="answer-3-4-b-a">$R(x)=x^2+1$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-3-4-b-b" name="question-3-4-b" value="b" data-option="question-3-4-b">
+                                        <label for="answer-3-4-b-b">$R(x)=1$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-3-4-b-c" name="question-3-4-b" value="c" data-option="question-3-4-b">
+                                        <label for="answer-3-4-b-c">$R(x)=1-x^2$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-3-4-b-d" name="question-3-4-b" value="d" data-option="question-3-4-b">
+                                        <label for="answer-3-4-b-d">$R(x)=x^2$</label>
+                                    </div>
+                                </div>
+                                <div class="question__btn-box">
+                                    <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                    <button class="btn btn--blue" type="button" disabled data-btn-continue="s2">Continuar</button>
+                                </div>
+                            </div>
+                            <div class="question__col-2">
+                                <p class="question__answer"></p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="section--hidden" data-section="s2">
+                    <p class="paragraph">
+                        El radio del sólido es $R(x)=f(x)-g(x)=1-x^2.$ En la imagen siguiente se muestra el sólido formado.
+                    </p>
+                    <div class="text-center margin-top-sm margin-bottom-sm">
+                        <img class="img" src="./assets/example-2-part-2.png" alt="Sólido de revolución">
+                    </div>
+                    <form class="question margin-top-sm" data-question="question-3-4-c" data-answer="c" autocomplete="off">
+                        <h3 class="question__header margin-bottom-sm">
+                            ¿Cuál es la integral que nos da el volúmen del sólido?
+                        </h3>
+                        <div class="question__row">
+                            <div class="question__col-1">
+                                <div class="question__options">
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-3-4-c-a" name="question-3-4-c" value="a" data-option="question-3-4-c">
+                                        <label for="answer-3-4-c-a">$$\int_{-1}^{1} (1-x^2)^2 \,dx$$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-3-4-c-b" name="question-3-4-c" value="b" data-option="question-3-4-c">
+                                        <label for="answer-3-4-c-b">$$ \pi^2 \int_{0}^{1} (1+x^2)^2 \,dx$$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-3-4-c-c" name="question-3-4-c" value="c" data-option="question-3-4-c">
+                                        <label for="answer-3-4-c-c">$$ \pi \int_{-1}^{1} (1-x^2)^2 \,dx$$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-3-4-c-d" name="question-3-4-c" value="d" data-option="question-3-4-c">
+                                        <label for="answer-3-4-c-d">$$ \pi \int_{0}^{1} (1-x^2)^2 \,dx$$</label>
+                                    </div>
+                                </div>
+                                <div class="question__btn-box">
+                                    <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                    <button class="btn btn--blue" type="button" disabled data-btn-continue="s3">Continuar</button>
+                                </div>
+                            </div>
+                            <div class="question__col-2">
+                                <p class="question__answer"></p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="section--hidden" data-section="s3">
+                    <p class="paragraph">
+                        Para calcular el volumen integramos de $-1$ a $1$, por lo que el volúmen $V$ del sólido es
+                        $$V = \pi \int_{-1}^{1} \left [ R(x) \right ]^2 \,dx = \pi \int_{-1}^{1} (1-x^2)^2 \,dx $$
+                    </p>
+                    <form class="question margin-top-sm" data-question="question-3-4-d" data-answer="a" autocomplete="off">
+                        <h3 class="question__header margin-bottom-sm">
+                            Calcula el volúmen del sólido
+                        </h3>
+                        <div class="question__row">
+                            <div class="question__col-1">
+                                <div class="question__options">
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-3-4-d-a" name="question-3-4-d" value="a" data-option="question-3-4-d">
+                                        <label for="answer-3-4-d-a">$\frac{16}{15}\pi$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-3-4-d-b" name="question-3-4-d" value="b" data-option="question-3-4-d">
+                                        <label for="answer-3-4-d-b">$\frac{19}{15}\pi$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-3-4-d-c" name="question-3-4-d" value="c" data-option="question-3-4-d">
+                                        <label for="answer-3-4-d-c">$\frac{7}{15}\pi$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-3-4-d-d" name="question-3-4-d" value="d" data-option="question-3-4-d">
+                                        <label for="answer-3-4-d-d">$\frac{9}{15}\pi$</label>
+                                    </div>
+                                </div>
+                                <div class="question__btn-box">
+                                    <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                    <button class="btn btn--blue" type="button" disabled data-btn-continue="s4">Continuar</button>
+                                </div>
+                            </div>
+                            <div class="question__col-2">
+                                <p class="question__answer"></p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="section--hidden" data-section="s4">
+                    <p class="paragraph">
+                        Calculando el volúmen del sólido
+                        \begin{equation*}
+                            \begin{split}
+                                V &= \pi \int_{-1}^{1} [R(x)]^2 \,dx = \pi \int_{-1}^{1} (1-x^2)^2 \,dx \\
+                                &= \pi \int_{-1}^{1} \left ( 1-2x^2+x^4 \right ) \, dx \\
+                                &= \pi \left [ x-\frac{2}{3}x^3+\frac{1}{5}x^5 \right ]_{-1}^{1}\\
+                                &= \frac{16}{15}\pi.         
+                            \end{split}
+                        \end{equation*}
+                    </p>
+                    <div>
+                        <button class="btn-sm btn--blue" type="button" data-btn-continue="s5">Continuar</button>
+                    </div>
+                    <div class="fancy-line"></div>
+                </div>
+            </div>
+        </section>
+        <section class="section--hidden" data-section="s5">
+            <h2 class="header-secondary">
+                Método de las arandelas
+            </h2>
+            <p class="paragraph">
+                Ahora supongamos que tenemos dos funciones no negativas $f$ y $g$ que son integrables en un intervalo $[a, b]$ y que satisfacen $g \leq f$ en $[a, b].$ 
+                Cuando la región entre sus gráficas se hace rotar, crea un solido de revolución tal que cada sección producida por un plano perpendicular al eje x forma 
+                una arandela (o anillo).
+            </p>
+            <p class="paragraph">
+                De manera similar al método de los discos podemos aproximar el volumen del sólido mediante anillos de ancho $\Delta x$ y con radio interior $r$ igual a $g(x_i)$ y 
+                radio exterior $R$ igual a $f(x_i)$, para algún $x_i$ en $[a.b]$, en la siguiente imagen se muestra el plano representativo. 
+            </p>
+            <div class="text-center margin-top-sm margin-bottom-sm">
+                <img class="img" src="./assets/arandelas-plane.png" alt="Sólido de revolución">
+            </div>
+            <p class="paragraph">
+                El volumen de este anillo se puede calcular restando el volumen del anillo interior al exterior, es decir,
+                $$\mbox{Volumen del arandela}=\pi(R^2-r^2).$$
+                Por lo que una aproximación al volumen total del sólido está dada por,
+                $$ V \approx \pi \sum_{i=1}^n \left ( [f(x_i)]^2 - [g(x_i)]^2 \right) \Delta x.$$
+                En la siguiente imagen se muestra el disco representativo.
+            </p>
+            <div class="text-center margin-top-sm margin-bottom-sm">
+                <img class="img" src="./assets/arandelas-3d.png" alt="Sólido de revolución">
+            </div>
+            <p class="paragraph">
+                Como en el caso anterior, mejoramos la aproximación cuando $\|\Delta x\| \to 0,$ es decir, $n \to \infty.$ Entonces si $f^2-g^2$ es integrable, 
+                el volumen de este sólido está dado por
+                $$V=\pi \int_a^b \left ( [f(x)]^2 - [g(x)]^2 \right )\, dx.$$
+            </p>
+            <div class="fancy-line"></div>
+            <div class="example">
+                <p class="paragraph example__paragraph">
+                    <span class="example__title">Ejemplo 3.4.3.</span> Encuentra el volumen del sólido de revolución formado por las gráficas $y=\sqrt{x}$ y $y=x^2$ alrededor del eje $x$.
+                </p>
+                <h3 class="header-tertiary">
+                    Solución.
+                </h3>
+                <p class="paragraph">
+                    Las intersecciones se dan en $\sqrt{x}=x^2$, es decir, $x=0$ y $x=1$. Además, se tiene que $x^2 \leq \sqrt {x}$ para $x$ en $[0,1]$.
+                    Por lo que $f(x)=\sqrt{x}$ y $g(x)=x^2.$ Entonces el volumen es:
+                    \begin{equation*}
+                        \begin{split}
+                            V &= \pi \int_0^1 \left ( [f(x)]^2 - [g(x)]^2 \right )\, dx. \\
+                            &= \pi \int_0^1 \left ( x - x^4 \right )\, dx.
+                            = \pi \left [ \frac{x^2}{2} - \frac{x^5}{5} \right ]_0^1 \, \\
+                            &= \pi \left (\frac{1}{2} - \frac{1}{5} \right ) = \frac{3}{10}\pi        
+                        \end{split}
+                    \end{equation*}
+                </p>
+                <div class="fancy-line"></div>
+            </div>
+            <div class="example">
+                <p class="paragraph example__paragraph">
+                    <span class="example__title">Ejemplo 3.4.4.</span> Encuentra el volumen del sólido formado al rotar la región determinada por las gráficas $y=x^2+1$, $y=0$, $x=0$ y $x=1$ alrededor del eje $y$.
+                </p>
+                <h3 class="header-tertiary">
+                    Solución.
+                </h3>
+                <p class="paragraph">
+                    Como se aprecia en la siguiente imagen, es más sencillo calcular el volumen si dividimos la región del plano en dos partes.
+                </p>
+                <div class="text-center margin-top-sm margin-bottom-sm">
+                    <img class="img" src="./assets/example-integration-y-plane.png" alt="Plano representativo">
+                </div>
+                <form class="question margin-top-sm" data-question="question-3-4-e" data-answer="d" autocomplete="off">
+                    <h3 class="question__header margin-bottom-sm">
+                        ¿Cuál es el volúmen del sólido formado por la región $C$?
+                    </h3>
+                    <div class="question__row">
+                        <div class="question__col-1">
+                            <div class="question__options">
+                                <div class="question__option">
+                                    <input type="radio" id="answer-3-4-e-a" name="question-3-4-e" value="a" data-option="question-3-4-e">
+                                    <label for="answer-3-4-e-a">$2\pi$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" id="answer-3-4-e-b" name="question-3-4-e" value="b" data-option="question-3-4-e">
+                                    <label for="answer-3-4-e-b">$\pi^2$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" id="answer-3-4-e-c" name="question-3-4-e" value="c" data-option="question-3-4-e">
+                                    <label for="answer-3-4-e-c">$\frac{\pi}{2}$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" id="answer-3-4-e-d" name="question-3-4-e" value="d" data-option="question-3-4-e">
+                                    <label for="answer-3-4-e-d">$\pi$</label>
+                                </div>
+                            </div>
+                            <div class="question__btn-box">
+                                <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                <button class="btn btn--blue" type="button" disabled data-btn-continue="s6">Continuar</button>
+                            </div>
+                        </div>
+                        <div class="question__col-2">
+                            <p class="question__answer"></p>
+                        </div>
+                    </div>
+                </form>
+                <div class="section--hidden" data-section="s6">
+                    <p class="paragraph">
+                        Cuando $0 \leq y \leq 1$, el sólido formado es un cilindro circular recto de radio $r=1$ y altura $h=1$ cuyo volumen es $V_1 = \pi h r^2 = \pi$. 
+                    </p>
+                    <form class="question margin-top-sm" data-question="question-3-4-f" data-answer="a" autocomplete="off">
+                        <h3 class="question__header margin-bottom-sm">
+                            ¿Qué funciones determinan los radios para la región $D$? ¿Cuál es el intervalo de integración?
+                        </h3>
+                        <div class="question__row">
+                            <div class="question__col-1">
+                                <div class="question__options">
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-3-4-f-a" name="question-3-4-f" value="a" data-option="question-3-4-f">
+                                        <label for="answer-3-4-f-a">$y=x^2+1,$ $x=1$, $[1,2]$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-3-4-f-b" name="question-3-4-f" value="b" data-option="question-3-4-f">
+                                        <label for="answer-3-4-f-b">$y=1,$ $y=2$, $[0,1]$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-3-4-f-c" name="question-3-4-f" value="c" data-option="question-3-4-f">
+                                        <label for="answer-3-4-f-c">$y=x^2+1,$ $x=0$, $[0,2]$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-3-4-f-d" name="question-3-4-f" value="d" data-option="question-3-4-f">
+                                        <label for="answer-3-4-f-d">$y=x^2+1,$ $y=1$, $[0,1]$</label>
+                                    </div>
+                                </div>
+                                <div class="question__btn-box">
+                                    <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                    <button class="btn btn--blue" type="button" disabled data-btn-continue="s7">Continuar</button>
+                                </div>
+                            </div>
+                            <div class="question__col-2">
+                                <p class="question__answer"></p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="section--hidden" data-section="s7">
+                    <p class="paragraph">
+                        Cuando $1 \leq y \leq 2$, el radio exterior está determidado por $x=1$ y el radio interior esta determinado por $y= x^2+1$.        
+                    </p>
+                    <form class="question margin-top-sm" data-question="question-3-4-g" data-answer="b" autocomplete="off">
+                        <h3 class="question__header margin-bottom-sm">
+                            ¿Cuál es la integral que nos da el volumen $V_2$ del sólido formado por la región $D$?
+                        </h3>
+                        <div class="question__row">
+                            <div class="question__col-1">
+                                <div class="question__options">
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-3-4-g-a" name="question-3-4-g" value="a" data-option="question-3-4-g">
+                                        <label for="answer-3-4-g-a">$$V = \pi \int_1^2 \left ( \left [\sqrt{y-1} \right ]^2 - 1^2  \right )\, dy$$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-3-4-g-b" name="question-3-4-g" value="b" data-option="question-3-4-g">
+                                        <label for="answer-3-4-g-b">$$V = \pi \int_1^2 \left ( 1^2 - \left [\sqrt{y-1} \right ]^2 \right )\, dy$$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-3-4-g-c" name="question-3-4-g" value="c" data-option="question-3-4-g">
+                                        <label for="answer-3-4-g-c">$$V = \pi \int_0^2 \left ( 1^2 - \left [\sqrt{y-1} \right ]^2 \right )\, dy$$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-3-4-g-d" name="question-3-4-g" value="d" data-option="question-3-4-g">
+                                        <label for="answer-3-4-g-d">$$V = \pi \int_0^2 \left ( \left [\sqrt{y-1} \right ]^2 - 1^2 \right )\, dy$$</label>
+                                    </div>
+                                </div>
+                                <div class="question__btn-box">
+                                    <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                    <button class="btn btn--blue" type="button" disabled data-btn-continue="s8">Continuar</button>
+                                </div>
+                            </div>
+                            <div class="question__col-2">
+                                <p class="question__answer"></p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="section--hidden" data-section="s8">
+                    <p class="paragraph">
+                        Cuando $1 \leq y \leq 2$, el radio exterior es $R=1$ y el radio interior esta determinado por $y= x^2+1$, lo que implica que $r=\sqrt{y-1}$.
+                        Por lo tanto el volúmen del sólido $V_2$ es
+                        $$V = \pi \int_1^2 \left ( 1^2 - \left [\sqrt{y-1} \right ]^2 \right )\, dy.$$
+                        La siguiente imagen muestra el sólido formado por la región.
+                    </p>
+                    <div class="text-center margin-top-sm margin-bottom-sm">
+                        <img class="img" src="./assets/example-integration-y-3d.png" alt="Plano representativo">
+                    </div>
+                    <form class="question margin-top-sm" data-question="question-3-4-h" data-answer="d" autocomplete="off">
+                        <h3 class="question__header margin-bottom-sm">
+                            Calcula $V_2.$
+                        </h3>
+                        <div class="question__row">
+                            <div class="question__col-1">
+                                <div class="question__options">
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-3-4-h-a" name="question-3-4-h" value="a" data-option="question-3-4-h">
+                                        <label for="answer-3-4-h-a">$\pi$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-3-4-h-b" name="question-3-4-h" value="b" data-option="question-3-4-h">
+                                        <label for="answer-3-4-h-b">$\frac{1}{4}\pi$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-3-4-h-c" name="question-3-4-h" value="c" data-option="question-3-4-h">
+                                        <label for="answer-3-4-h-c">$\frac{3}{2}\pi$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-3-4-h-d" name="question-3-4-h" value="d" data-option="question-3-4-h">
+                                        <label for="answer-3-4-h-d">$\frac{1}{2}\pi$</label>
+                                    </div>
+                                </div>
+                                <div class="question__btn-box">
+                                    <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                    <button class="btn btn--blue" type="button" disabled data-btn-continue="s9">Continuar</button>
+                                </div>
+                            </div>
+                            <div class="question__col-2">
+                                <p class="question__answer"></p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="section--hidden" data-section="s9">
+                    <p class="paragraph">
+                        El volumen $V_2$ de estar parte del sólido está dado por
+                        \begin{equation*}
+                            \begin{split}
+                                V &= \pi \int_1^2 \left ( 1^2 - \left [\sqrt{y-1} \right ]^2 \right )\, dy. \\
+                                &= \pi \int_1^2 \left ( 2 -y \right )\, dy. \\
+                                &= \pi \left [ 2x - \frac{y^2}{2} \right ]_1^2 \, \\
+                                &= \pi (4 - 2 - 2 + \frac{1}{2}) = \frac{3}{10}\pi = \frac{1}{2}\pi        
+                            \end{split}
+                        \end{equation*}
+                        Por lo tanto, el volúmen total del sólido es $$V = V_1 + V_2 = \pi + \frac{1}{2}\pi = \frac{3}{2}\pi.$$
+                    </p>
+                    <div>
+                        <button class="btn-sm btn--blue" type="button" data-btn-continue="s10">Continuar</button>
+                    </div>
+                    <div class="fancy-line"></div>
+                </div>
+            </div>
+        </section>
+        <section class="section--hidden" data-section="s10">
+            <h2 class="header-secondary">Envolventes cilíndricas</h2>
+            <p class="paragraph">
+                Ahora se presenta un método alternativo para calcular volúmenes que consiste en usar envolventes cilíndricas. Considere el siguiente cilíndro.
+            </p>
+            <div class="text-center margin-top-sm margin-bottom-sm">
+                <img class="img-sm" src="./assets/cylinder.png" alt="Cilíndro">
+            </div>
+            <p class="paragraph">
+                Este cilíndro se puede formar rotando un rectángulo de altura $h,$ ancho $w$ alrededor de un eje cuya distancia al centro del rectángulo es $p.$
+                Cuando el rectángulo es rotado se forma un tubo con grosor $w.$ Para calcular el volúmen del tubo hay que considerar dos cilíndros. 
+                El radio del cilíndro más grande es el radio exterior de la envolvente y el radio interior es el radio del cilíndro más pequeño.
+                Entonces el radio exterior es $p+\frac{w}{2}$ y el radio interior es $p-\frac{w}{2}.$ Así, el volúmen $V$ de la envolvente es la diferencia
+                entre el volúmen del cilíndro mayor y el cilíndro menor, es decir,
+                \begin{equation*}
+                    \begin{split}
+                        V &= \pi \left (p+\frac{w}{2} \right)^2 h  - \pi \left (p-\frac{w}{2} \right)^2 h\\
+                        &= 2\pi p h w.\\  
+                    \end{split}
+                \end{equation*}
+                Donde $p$ es el radio promedio, $h$ la altura y $w$ el grosor del tubo.
+            </p>
+            <p class="paragraph">
+                Considere un rectángulo horizontal con ancho $\Delta y.$ Entonces cuando la región del
+                plano es rotada alrededor de una línea paralela al eje $y$, el rectángulo genera una envolvente cuyo volúmen es
+                $$ \Delta V = 2\pi \left [p(x)h(x) \right ]\Delta x.$$
+                Por lo tanto, se puede aproximar el volúmen del sólido con $n$ envolventes de grosor $\Delta x,$ altura $h(x_i)$ y radio promedio $p(x_i).$
+            </p>
+            <div class="calculation">
+                <div class="calculation__formule--1">
+                    Volúmen del sólido
+                </div>
+                <div class="calculation__formule--2">
+                    <div>
+                        $$\approx \sum_{i=1}^n 2\pi \left [p(x_i)h(x_i) \right ]\Delta x$$
+                    </div>
+                </div>
+                <div class="calculation__formule--2">
+                    <div>
+                        $$ \approx 2\pi \sum_{i=1}^n \left [p(x_i)h(x_i) \right ]\Delta x $$
+                    </div>
+                </div>
+            </div>
+            <p class="paragraph">
+                La aproximación mejora cuando $\| {\Delta} \| \to 0.$ Entonces el volúmen $V$ del sólido es
+            </p>
+            <div class="calculation">
+                <div class="calculation__formule--1">
+                    Volúmen del sólido
+                </div>
+                <div class="calculation__formule--2">
+                    <div>
+                        $$= \lim_{\| {\Delta} \| \to 0} \sum_{i=1}^n 2\pi \left [p(x_i)h(x_i) \right ]\Delta x$$
+                    </div>
+                </div>
+                <div class="calculation__formule--2">
+                    <div>
+                        $$= 2\pi \lim_{\| {\Delta} \| \to 0} \sum_{i=1}^n \left [p(x_i)h(x_i) \right ]\Delta x $$
+                    </div>
+                </div>
+                <div class="calculation__formule--2">
+                    <div>
+                        $$= 2\pi \int_a^b \left [p(x)h(x) \right ] \,dx $$
+                    </div>
+                </div>
+            </div>
+            <div class="definition">
+                <p class="paragraph">
+                    <span class="definition__title">Definición 3.4.2.</span> Sea $f$ una función definida en el intervalo [a, b]. 
+                    Si f es continua en [a, b] y $f(x) \geq 0$, $\forall x \in [a, b]$, definimos el volumen del sólido de revolución al rotar la curva  
+                    $y=f(x)$ sobre el eje y en [a, b] como:
+                    $$V = 2\pi \int_a^b \left [p(x)h(x) \right ] \,dx $$
+                    y si se gira sobre el eje y como:
+                    $$V = 2\pi \int_a^b \left [p(y)h(y) \right ] \,dy. $$
+                </p>
+            </div>
+            <div class="fancy-line"></div>
+            <div class="example">
+                <p class="paragraph example__paragraph">
+                    <span class="example__title"> Ejemplo 3.4.5.</span> Calcula el volúmen del sólido formado al girar la región formada por la gráfica
+                    $y=2x-x^2$ y el eje $x$ al ser rotada alrededor del eje $y.$
+                </p>
+                <h3 class="header-tertiary">
+                    Solución.
+                </h3>
+                <p class="paragraph">
+                    En este caso el radio es $p(x)=x$ y la altura es $h(x)= 2x-x^2.$ El intervalo de integración está dado por las intersecciones de $h(x)$ con el eje $x$, las
+                    cuales son $x=0$  y $x=2.$ Entonces el volúmen es 
+                    \begin{equation*}
+                        \begin{split}
+                            V &= 2\pi \int_0^2 x (2x-x^2)\,dx \\
+                            &= 2\pi \int_0^2 (2x^2-x^3)\,dx \\
+                            &= 2\pi \left [ \frac{2}{3}x^3 - \frac{1}{4}x^4\right ]_0^2
+                            &= \frac{8}{3}\pi
+                        \end{split}
+                    \end{equation*}
+                </p>
+                <p class="paragraph">
+                    El volúmen se puede calcular con el método de los discos, pero eso implica que hay que expresar $x$ en términos de $y.$
+                </p>
+                <div class="fancy-line"></div>
+            </div>
+            <div class="example">
+                <p class="paragraph example__paragraph">
+                    <span class="example__title">Ejemplo 3.4.6.</span> Encuentra el volumen del sólido formado al rotar la región determinada por las gráficas $y=x^2+1$, $y=0$, $x=0$ y $x=1$ alrededor del eje $y$.
+                </p>
+                <h3 class="header-tertiary">
+                    Solución.
+                </h3>
+                <form class="question margin-top-sm" data-question="question-3-4-i" data-answer="b" autocomplete="off">
+                    <h3 class="question__header margin-bottom-sm">
+                        Señale cuáles son función es $p(x)$ y $h(x)$ y el intervalo de integración.
+                    </h3>
+                    <div class="question__row">
+                        <div class="question__col-1">
+                            <div class="question__options">
+                                <div class="question__option">
+                                    <input type="radio" id="answer-3-4-i-a" name="question-3-4-i" value="a" data-option="question-3-4-i">
+                                    <label for="answer-3-4-i-a">$p(x)=x^2,$ $h(x)=x^2+1$ y $[-1,1]$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" id="answer-3-4-i-b" name="question-3-4-i" value="b" data-option="question-3-4-i">
+                                    <label for="answer-3-4-i-b">$p(x)=x,$  $h(x)=x^2+1$ y $[0,1]$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" id="answer-3-4-i-c" name="question-3-4-i" value="c" data-option="question-3-4-i">
+                                    <label for="answer-3-4-i-c">$p(x)=x^2+1,$ $h(x)=x$ y $[0,1]$</label>
+                                </div>
+                                <div class="question__option">
+                                    <input type="radio" id="answer-3-4-i-d" name="question-3-4-i" value="d" data-option="question-3-4-i">
+                                    <label for="answer-3-4-i-d">$p(x)=1,$ $h(x)=x^2+1$ y $[0,1]$</label>
+                                </div>
+                            </div>
+                            <div class="question__btn-box">
+                                <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                <button class="btn btn--blue" type="button" disabled data-btn-continue="s11">Continuar</button>
+                            </div>
+                        </div>
+                        <div class="question__col-2">
+                            <p class="question__answer"></p>
+                        </div>
+                    </div>
+                </form>
+                <div class="section--hidden" data-section="s11">
+                    <p class="paragraph">
+                        En este caso $p(x)=x,$  $h(x)=x^2+1$ y $[0,1].$
+                    </p>
+                    <form class="question margin-top-sm" data-question="question-3-4-j" data-answer="d" autocomplete="off">
+                        <h3 class="question__header margin-bottom-sm">
+                            ¿Cuál es la integral que da el volúmen del sólido?
+                        </h3>
+                        <div class="question__row">
+                            <div class="question__col-1">
+                                <div class="question__options">
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-3-4-j-a" name="question-3-4-j" value="a" data-option="question-3-4-j">
+                                        <label for="answer-3-4-j-a">$$2\pi \int_0^1 \left [ (x^2+1)^2 - x^2 \right ]\, dx$$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-3-4-j-b" name="question-3-4-j" value="b" data-option="question-3-4-j">
+                                        <label for="answer-3-4-j-b">$$2\pi \int_0^1 \left [x -(x^2+1) \right ] \, dx$$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-3-4-j-c" name="question-3-4-j" value="c" data-option="question-3-4-j">
+                                        <label for="answer-3-4-j-c">$$ \int_0^1 x(x^2+1)\, dx$$</label>
+                                    </div>
+                                    <div class="question__option">
+                                        <input type="radio" id="answer-3-4-j-d" name="question-3-4-j" value="d" data-option="question-3-4-j">
+                                        <label for="answer-3-4-j-d">$$2\pi \int_0^1 x(x^2+1)\, dx$$</label>
+                                    </div>
+                                </div>
+                                <div class="question__btn-box">
+                                    <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                                    <button class="btn btn--blue" type="button" disabled data-btn-continue="s12">Continuar</button>
+                                </div>
+                            </div>
+                            <div class="question__col-2">
+                                <p class="question__answer"></p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="section--hidden" data-section="s12">
+                    <p class="paragraph">
+                        La integral que nos da el volúmen es $$2\pi \int_0^1 x(x^2+1)\, dx.$$
+                    </p>
+                    <h3 class="header-tertiary margin-bottom-sm">
+                        Calcula la integral anterior.
+                    </h3>
+                    <div>
+                        <button class="btn-sm btn--blue" type="button" data-btn-continue="s13">Respuesta</button>
+                    </div>
+                    <div class="fancy-line"></div>
+                </div>
+                <div class="section--hidden" data-section="s13">
+                    <p class="paragraph">
+                        El sólido formado es el mismo que el <span class="example__title">Ejercicio 3.4.4.</span> Note que con este método el volúmen se pudo calcular
+                        sin necesidad de resolver dos integrales.
+                    </p>
+                    <div class="fancy-line"></div>
+                    <div class="change-page">
+                        <a href="./3.3-calculo-de-areas.html" class="change-page__before">Anterior</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div class="floating-box">
+        <button class="floating-box__btn btn-sm btn--blue" data-modal-btn="formules">&int;</button>
+        <button class="floating-box__btn btn-sm btn--blue" data-modal-btn="trigonometric">&theta;</button>
+    </div>
+    <div class="modal" data-modal="formules">
+        <div class="modal__background" data-modal-background="formules"></div>
+        <div class="modal__content">
+            <alien-math-template path="./components/formules/integration-formules.html"></alien-math-template>
+        </div>
+    </div>
+    <div class="modal" data-modal="trigonometric">
+        <div class="modal__background" data-modal-background="trigonometric"></div>
+        <div class="modal__content">
+            <alien-math-template path="./components/formules/trigonometric.html"></alien-math-template>
+        </div>
+    </div>
+</body>
+</html>

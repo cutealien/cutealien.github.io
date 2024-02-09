@@ -1,9 +1,3 @@
-// Code from stackoverflow
-window.addEventListener('load', e => {
-    // const mathJaxScript = waitForElm('#MathJax-script').then(e => {
-    // })
-})
-
 // const mathJaxScript = document.querySelector('#MathJax-script')
 const scriptsToLoad = [
     './components/mobile-sidebar/mobile-sidebar.js',

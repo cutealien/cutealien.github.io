@@ -1,10 +1,18 @@
+// .img {
+//    width: 80%;
+//    max-width: 80rem;
+//    height: auto;
+// }
 .img {
-   width: 80%;
+   width: auto;
+   max-height: 40rem;
    max-width: 80rem;
-   height: auto;
 }
-.img-sm {
-   width: 60%;
+.img-label {
+   display: block;
+   padding: 1rem 2rem;
+   margin-left: 2rem;
+   width: auto;
+   max-height: 20rem;
    max-width: 80rem;
-   height: auto;
 }

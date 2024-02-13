@@ -54,9 +54,6 @@
                Método de los discos
             </h2>
             <p class="paragraph">
-               $$p\quad w \quad h$$
-            </p>
-            <p class="paragraph">
                Si una región en el plano es girada alrededor de una línea, el sólido resultante se le llama sólido de revolución y a la línea se le llama eje de revolución. 
                El sólido más simple es un cilindro circular recto o disco, el cual se forma al girar un rectángulo alrededor de un eje adyacente a un lado del rectángulo. 
                El volumen $V$ del disco es
@@ -99,12 +96,12 @@
             <div class="definition">
                <p class="paragraph">
                   <span class="definition__title">Definición 3.5.1.</span> Sea $f$ una función definida en el intervalo [a, b]. 
-                  Si f es continua en [a, b] y $f(x) \geq 0$, $\forall x \in [a, b]$, 
+                  Si $f$ es continua en [a, b] y $f(x) \geq 0$, $\forall x \in [a, b]$, 
                   definimos el volumen del sólido de revolución generado al rotar la curva $y=f(x)$ sobre el eje x en [a, b] como:
                   $$V = \pi \int_a^b [R(x)]^2 \,dx, $$
                   y si se gira sobre el eje y como:
                   $$V = \pi \int_a^b [R(y)]^2 \,dy. $$
-                  Si el eje de rotación está determidado por la recta $g(x)=k$, entonces $R(x)=f(x)-g(x),$ la $R(x)=f(x)-g(x)$.
+                  Si el eje de rotación está determinado por la recta $g(x)=k$, entonces $R(x)=f(x)-g(x).$
                </p>
             </div>
             <div class="fancy-line"></div>
@@ -324,7 +321,7 @@
             </h2>
             <p class="paragraph">
                Ahora supongamos que tenemos dos funciones no negativas $f$ y $g$ que son integrables en un intervalo $[a, b]$ y que satisfacen $g(x) \leq f(x)$ en $[a, b].$ 
-               Cuando la región entre sus gráficas se hace rotar, crea un sólido de revolución tal que cada sección producida por un plano perpendicular al eje x forma 
+               Cuando la región entre sus gráficas se hace rotar, crea un sólido de revolución tal que cada sección producida por un plano perpendicular al eje $x$ forma 
                una arandela (o anillo).
             </p>
             <p class="paragraph">
@@ -337,13 +334,15 @@
             <p class="paragraph">
                El volumen de este anillo se puede calcular restando el volumen del anillo interior al exterior, es decir,
                $$\mbox{Volumen de la arandela}=\pi(R^2-r^2).$$
-               Por lo que una aproximación al volumen total del sólido está dada por,
-               $$ V \approx \pi \sum_{i=1}^n \left ( [f(x_i)]^2 - [g(x_i)]^2 \right) \Delta x.$$
                En la siguiente imagen se muestra el disco representativo.
             </p>
             <div class="text-center margin-top-sm margin-bottom-sm">
                <img class="img" src="./assets/arandelas-3d.png" alt="Sólido de revolución">
             </div>
+            <p class="paragraph">
+               Por lo que una aproximación al volumen total del sólido está dada por,
+               $$ V \approx \pi \sum_{i=1}^n \left ( [f(x_i)]^2 - [g(x_i)]^2 \right) \Delta x.$$   
+            </p>
             <p class="paragraph">
                Como en el caso anterior, mejoramos la aproximación cuando $\|\Delta x\| \to 0,$ es decir, $n \to \infty.$ Entonces si $f^2-g^2$ es integrable, 
                el volumen de este sólido está dado por
@@ -647,7 +646,7 @@
                </div>
                <div class="calculation__formule--2">
                   <div>
-                        $$ \approx 2\pi \sum_{i=1}^n \left [p(x_i)h(x_i) \right ]\Delta x $$
+                        $$ = 2\pi \sum_{i=1}^n \left [p(x_i)h(x_i) \right ]\Delta x $$
                   </div>
                </div>
             </div>

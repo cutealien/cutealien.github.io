@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+   <link rel="stylesheet" href="/css/style.css">
+   
+   <script src="./scripts/variables.js" defer></script>
+   <script src="./scripts/question.js" defer></script>
+   <script src="./scripts/modal.js" defer></script>
+   <script src="./components/component-loader.js" defer></script>
+   <!-- <script src="./components/mobile-sidebar/mobile-sidebar.js" defer></script>
+   <script src="./components/sidebar/sidebar.js" defer></script>
+   <script src="./components/math-template.js" defer></script> -->
+
+   <script>
+      MathJax = {
+            tex: {
+               inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+            loader: {load: ['input/asciimath', 'output/chtml']}
+      }
+   </script>
+   <script id="MathJax-script" async src="/scripts/MathJax-master/es5/tex-chtml.js"></script>
+
+   <title>Cálculo 2 | Álgebra de sucesiones</title>
+</head>
+<body class="course">
+   <nav class="navbar">
+      <a href="/" class="navbar__logo-box">
+      </a>
+      <a href="/" class="navbar__link">
+            Inicio
+      </a>
+      <a href="#" class="navbar__link navbar__link--active">
+            Cálculo 2
+      </a>
+      <a href="./quiz.html" class="navbar__link">
+            Quiz
+      </a>
+      <button class="menu-mobile-btn burger-btn" data-menu-btn="menu-mobile"><span class="burger-icon"></span></button>
+   </nav>
+   <alien-sidebar class="sidebar" id="sidebar"></alien-sidebar>
+   <alien-mobile-sidebar id="mobile-menu"></alien-mobile-sidebar>
+   <main class="main">
+      <section>
+         <h2 class="header-primary margin-bottom-md">
+            4.3 Más ejemplos de sucesiones
+         </h2>
+         <p class="paragraph">
+            En esta sección se presentan ejemplos variados de como trabajar con sucesiones.
+         </p>
+         <div class="example">
+            <p class="paragraph example__paragraph">
+               <span class="example__title">Ejemplo 4.3.1. </span>Considera la sucesión definida por $f(n)$ definida por
+               $$f(n)=\frac{n^2}{n+1}-\frac{n^2+1}{n}.$$
+               Determina si la sucesión converge diverge, y si converge calcula y demuestra su límite.
+            </p>
+         </div>
+         <form class="question margin-top-sm" data-question="question-4-3-1" data-answer="b" autocomplete="off">
+            <h3 class="question__header margin-bottom-sm">
+               ¿Cuál es un buen candidato para el límite? (Hint: Reescribe la expresión)
+            </h3>
+            <div class="question__row">
+               <div class="question__col-1">
+                  <div class="question__options">
+                     <div class="question__option">
+                        <input type="radio" id="answer-4-3-1-a" name="question-4-3-1" value="a" data-option="question-4-3-1">
+                        <label for="answer-4-3-1-a">$1$</label>
+                     </div>
+                     <div class="question__option">
+                        <input type="radio" id="answer-4-3-1-b" name="question-4-3-1" value="b" data-option="question-4-3-1">
+                        <label for="answer-4-3-1-b">$-1$</label>
+                     </div>
+                     <div class="question__option">
+                        <input type="radio" id="answer-4-3-1-c" name="question-4-3-1" value="c" data-option="question-4-3-1">
+                        <label for="answer-4-3-1-c">$0$</label>
+                     </div>
+                     <div class="question__option">
+                        <input type="radio" id="answer-4-3-1-d" name="question-4-3-1" value="d" data-option="question-4-3-1">
+                        <label for="answer-4-3-1-d">$\frac{1}{2}$</label>
+                     </div>
+                  </div>
+                  <div class="question__btn-box">
+                     <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                     <button class="btn btn--blue" type="button" disabled data-btn-continue="s-43-1">Continuar</button>
+                  </div>
+               </div>
+               <div class="question__col-2">
+                  <p class="question__answer"></p>
+               </div>
+            </div>
+         </form>
+         <div class="section--hidden" data-section="s-43-1">
+            <p class="paragraph">
+               Reescibriendo $f(n)$, se tiene
+               \begin{equation*}
+                  \begin{split}
+                     f(n) &=\frac{n^2}{n+1}-\frac{n^2+1}{n}\\
+                     &=\frac{n^3-(n^3+n^2+n+1)}{n^2+n}\\
+                     &= -\frac{n^2+n+1}{n^2+n}\\
+                     &= -\frac{1+\frac{1}{n}+\frac{1}{n^2}}{1+\frac{1}{n}}. \\
+                  \end{split}
+               \end{equation*}
+               Por lo que un buen candidato al límite es $-1$.
+            </p>
+            <form class="question margin-top-sm" data-question="question-4-3-2" data-answer="c" autocomplete="off">
+               <h3 class="question__header margin-bottom-sm">
+                  ¿Cómo demostramos que el límite es $-1$?
+               </h3>
+               <div class="question__row">
+                  <div class="question__col-1">
+                     <div class="question__options">
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-3-2-a" name="question-4-3-2" value="a" data-option="question-4-3-2">
+                           <label for="answer-4-3-2-a">El límite es $-1$ si y sólo si para todo $N>0$ existe un $\varepsilon$ tal que para $n\geq \varepsilon$ se cumple que $\left | \frac{n^2}{n+1}-\frac{n^2+1}{n} + 1 \right | < \varepsilon$</label>
+                        </div>
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-3-2-b" name="question-4-3-2" value="b" data-option="question-4-3-2">
+                           <label for="answer-4-3-2-b">El límite es $-1$ si y sólo si para todo $\varepsilon>0$ existe un $N$ tal que para $N\geq \varepsilon$ se cumple que $\left | \frac{n^2}{n+1}-\frac{n^2+1}{n} + 1 \right | < n$</label>
+                        </div>
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-3-2-c" name="question-4-3-2" value="c" data-option="question-4-3-2">
+                           <label for="answer-4-3-2-c">El límite es $-1$ si y sólo si para todo $\varepsilon>0$ existe un $N$ tal que para $n\geq N$ se cumple que $\left | \frac{n^2}{n+1}-\frac{n^2+1}{n} + 1 \right | < \varepsilon$</label>
+                        </div>
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-3-2-d" name="question-4-3-2" value="d" data-option="question-4-3-2">
+                           <label for="answer-4-3-2-d">El límite es $-1$ si y sólo si para todo $n>0$ existe un $\varepsilon$ tal que para $n \geq \varepsilon$ se cumple que $\left | \frac{n^2}{n+1}-\frac{n^2+1}{n} + 1 \right | < \varepsilon$</label>
+                        </div>
+                     </div>
+                     <div class="question__btn-box">
+                        <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                        <button class="btn btn--blue" type="button" disabled data-btn-continue="s-43-2">Continuar</button>
+                     </div>
+                  </div>
+                  <div class="question__col-2">
+                     <p class="question__answer"></p>
+                  </div>
+               </div>
+            </form>
+         </div>
+         <div class="section--hidden" data-section="s-43-2">
+            <p class="paragraph">
+               Recordando <span class="modal__reference" data-modal-btn="d-4-2-4">definición de límite,</span> hay que encontar un $N$ tal que para $n \geq N$ se cumple
+               $\left | \frac{n^2}{n+1}-\frac{n^2+1}{n} + 1 \right | < \varepsilon$ para todo $\varepsilon >0.$ Para esto hagamos primero un análisis preliminar.
+            </p>
+            <h3 class="header-tertiary">Análisis preliminar.</h3>
+            <form class="question margin-top-sm" data-question="question-4-3-3" data-answer="a" autocomplete="off">
+               <h3 class="question__header margin-bottom-sm">
+                  Simplifica $\left | \frac{n^2}{n+1}-\frac{n^2+1}{n} + 1 \right |$
+               </h3>
+               <div class="question__row">
+                  <div class="question__col-1">
+                     <div class="question__options">
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-3-3-a" name="question-4-3-3" value="a" data-option="question-4-3-3">
+                           <label for="answer-4-3-3-a">$$\frac{1}{n^2+n}$$</label>
+                        </div>
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-3-3-b" name="question-4-3-3" value="b" data-option="question-4-3-3">
+                           <label for="answer-4-3-3-b">$$\frac{1}{n^2-n}$$</label>
+                        </div>
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-3-3-c" name="question-4-3-3" value="c" data-option="question-4-3-3">
+                           <label for="answer-4-3-3-c">$$\frac{-1}{n^2+n}$$</label>
+                        </div>
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-3-3-d" name="question-4-3-3" value="d" data-option="question-4-3-3">
+                           <label for="answer-4-3-3-d">$$\frac{-1}{n^2-n}$$</label>
+                        </div>
+                     </div>
+                     <div class="question__btn-box">
+                        <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                        <button class="btn btn--blue" type="button" disabled data-btn-continue="s-43-3">Continuar</button>
+                     </div>
+                  </div>
+                  <div class="question__col-2">
+                     <p class="question__answer"></p>
+                  </div>
+               </div>
+            </form>
+         </div>
+         <div class="section--hidden" data-section="s-43-3">
+            <p class="paragraph">
+               Realizando cálculos,
+               \begin{equation*}
+                  \begin{split}
+                     \left | \frac{n^2}{n+1}-\frac{n^2+1}{n} + 1 \right | &= \left |1 -\frac{n^2+n+1}{n^2+n} \right | \\
+                     &=\left | \frac{n^2+n-n^2-n-1}{n^2+n} \right | \\
+                     &= \frac{1}{n^2+n}\\
+                  \end{split}
+               \end{equation*}
+            </p>
+            <p class="paragraph">
+               Si $n \geq 1,$ se tiene que $n+1 \geq 2$, por lo que $\frac{1}{n} \leq 1$ y $\frac{2}{n+1}\leq 1$. Lo anterior nos implica que,
+               $$\frac{1}{n^2+n} = \frac{1}{n} \frac{1}{n+1} \leq \frac{2}{n+1} < \frac{2}{n}.$$
+               
+               Entonces, si tomamos $\varepsilon>0$, tenemos
+               $$\left | \frac{n^2}{n+1}-\frac{n^2+1}{n} + 1 \right | < \varepsilon \Leftrightarrow  \frac{2}{n} < \varepsilon \Leftrightarrow  \frac{2}{\varepsilon}< n.$$
+               La última desigualdad se puede expresar como $2< n \varepsilon$. Procedemos a dar la prueba.
+            </p>
+            <form class="question margin-top-sm" data-question="question-4-3-4" data-answer="b" autocomplete="off">
+               <h3 class="question__header margin-bottom-sm">
+                  Basándose en lo anterior ¿cuál es una buena selección de $N$?
+               </h3>
+               <div class="question__row">
+                  <div class="question__col-1">
+                     <div class="question__options">
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-3-4-a" name="question-4-3-4" value="a" data-option="question-4-3-4">
+                           <label for="answer-4-3-4-a">$N=\left[ \frac{2}{\varepsilon}\right ]$</label>
+                        </div>
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-3-4-b" name="question-4-3-4" value="b" data-option="question-4-3-4">
+                           <label for="answer-4-3-4-b">$N=\left[ \frac{2}{\varepsilon}\right ] + 1$</label>
+                        </div>
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-3-4-c" name="question-4-3-4" value="c" data-option="question-4-3-4">
+                           <label for="answer-4-3-4-c">$N=1$</label>
+                        </div>
+                     </div>
+                     <div class="question__btn-box">
+                        <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                        <button class="btn btn--blue" type="button" disabled data-btn-continue="s-43-4">Continuar</button>
+                     </div>
+                  </div>
+                  <div class="question__col-2">
+                     <p class="question__answer"></p>
+                  </div>
+               </div>
+            </form>
+         </div>
+         <div class="section--hidden" data-section="s-43-4">
+            <p class="paragraph">
+               Sea $\varepsilon > 0$ y tomamos $N=\left[ \frac{2}{\varepsilon}\right] + 1$. 
+            </p>
+            <form class="question margin-top-sm" data-question="question-4-3-5" data-answer="a" autocomplete="off">
+               <h3 class="question__header margin-bottom-sm">
+                  Si $n \geq N,$ entonces $n \geq1$, por definición de $N$ y por el análisis ¿qué obtenemos?
+               </h3>
+               <div class="question__row">
+                  <div class="question__col-1">
+                     <div class="question__options">
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-3-5-a" name="question-4-3-5" value="a" data-option="question-4-3-5">
+                           <label for="answer-4-3-5-a">$$\left | \frac{n^2}{n+1}-\frac{n^2+1}{n} + 1 \right | < \frac{2}{n}$$</label>
+                        </div>
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-3-5-b" name="question-4-3-5" value="b" data-option="question-4-3-5">
+                           <label for="answer-4-3-5-b">$$\left | \frac{n^2}{n+1}-\frac{n^2+1}{n} + 1 \right | < \varepsilon$$</label>
+                        </div>
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-3-5-c" name="question-4-3-5" value="c" data-option="question-4-3-5">
+                           <label for="answer-4-3-5-c">$$\left | \frac{n^2}{n+1}-\frac{n^2+1}{n} + 1 \right | < N$$</label>
+                        </div>
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-3-5-d" name="question-4-3-5" value="d" data-option="question-4-3-5">
+                           <label for="answer-4-3-5-d">$$\left | \frac{n^2}{n+1}-\frac{n^2+1}{n} + 1 \right | < n$$</label>
+                        </div>
+                     </div>
+                     <div class="question__btn-box">
+                        <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                        <button class="btn btn--blue" type="button" disabled data-btn-continue="s-43-5">Continuar</button>
+                     </div>
+                  </div>
+                  <div class="question__col-2">
+                     <p class="question__answer"></p>
+                  </div>
+               </div>
+            </form>
+         </div>
+         <div class="section--hidden" data-section="s-43-5">
+            <p class="paragraph">
+               Por el análisis preliminar y por la definición de $N$, tenemos
+               $$\left | \frac{n^2}{n+1}-\frac{n^2+1}{n} + 1 \right | < \frac{2}{n}.$$
+            </p>
+            <form class="question margin-top-sm" data-question="question-4-3-6" data-answer="b" autocomplete="off">
+               <h3 class="question__header margin-bottom-sm">
+                  ¿Cuál de las siguientes expresiones es cierta?
+               </h3>
+               <div class="question__row">
+                  <div class="question__col-1">
+                     <div class="question__options">
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-3-6-a" name="question-4-3-6" value="a" data-option="question-4-3-6">
+                           <label for="answer-4-3-6-a">$\left [ \frac{2}{\varepsilon}\right ] + 1<  N \leq n$</label>
+                        </div>
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-3-6-b" name="question-4-3-6" value="b" data-option="question-4-3-6">
+                           <label for="answer-4-3-6-b">$\frac{2}{\varepsilon} < \left [ \frac{2}{\varepsilon} \right ] + 1 = N \leq n $</label>
+                        </div>
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-3-6-c" name="question-4-3-6" value="c" data-option="question-4-3-6">
+                           <label for="answer-4-3-6-c">$\frac{2}{\varepsilon} < \left [ \frac{2}{\varepsilon} \right ] + 1 = n \leq N$</label>
+                        </div>
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-3-6-d" name="question-4-3-6" value="d" data-option="question-4-3-6">
+                           <label for="answer-4-3-6-d">$\frac{2}{\varepsilon} < n + 1 = N \leq n$</label>
+                        </div>
+                     </div>
+                     <div class="question__btn-box">
+                        <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                        <button class="btn btn--blue" type="button" disabled data-btn-continue="s-43-6">Continuar</button>
+                     </div>
+                  </div>
+                  <div class="question__col-2">
+                     <p class="question__answer"></p>
+                  </div>
+               </div>
+            </form>
+         </div>
+         <div class="section--hidden" data-section="s-43-6">
+            <p class="paragraph">
+               Por definición de $N$ y por las propiedades de la parte entera, tenemos
+               $$\frac{2}{\varepsilon} < \left [ \frac{2}{\varepsilon} \right ] + 1 = N \leq n, $$
+               de lo cual se deduce que $\frac{2}{\varepsilon} < n$ y, recordando que en el análisis preliminar obtuvimos $2 < n\varepsilon$, se tiene
+               $$\left | \frac{n^2}{n+1}-\frac{n^2+1}{n} + 1 \right | < \frac{2}{n} < \frac{n\varepsilon}{n} = \varepsilon.$$
+               Finalmente concluimos que 
+               $$\left | \frac{n^2}{n+1}-\frac{n^2+1}{n} + 1 \right | < \varepsilon.$$
+               Lo que demuestra que 
+               $$\lim_{n \to \infty}\frac{n^2}{n+1}-\frac{n^2+1}{n}=-1.$$
+            </p>
+            <div>
+               <button class="btn-sm btn--blue" type="button" data-btn-continue="s-43-7">Continuar</button>
+            </div>
+            <div class="fancy-line"></div>
+         </div>
+      </section>
+      <section class="section--hidden" data-section="s-43-7">
+         <form class="question margin-top-sm" data-question="question-4-3-7" data-answer="b" autocomplete="off">
+            <h3 class="question__header margin-bottom-sm">
+               <span class="example__title">Ejemplo 4.3.2.</span> Determina si la sucesión $a_n=1+(-1)^n$ converge o diverge.
+            </h3>
+            <div class="question__row">
+               <div class="question__col-1">
+                  <div class="question__options">
+                     <div class="question__option">
+                        <input type="radio" id="answer-4-3-7-a" name="question-4-3-7" value="a" data-option="question-4-3-7">
+                        <label for="answer-4-3-7-a">Converge</label>
+                     </div>
+                     <div class="question__option">
+                        <input type="radio" id="answer-4-3-7-b" name="question-4-3-7" value="b" data-option="question-4-3-7">
+                        <label for="answer-4-3-7-b">Diverge</label>
+                     </div>
+                  </div>
+                  <div class="question__btn-box">
+                     <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                     <button class="btn btn--blue" type="button" disabled data-btn-continue="s-43-8">Continuar</button>
+                  </div>
+               </div>
+               <div class="question__col-2">
+                  <p class="question__answer"></p>
+               </div>
+            </div>
+         </form>
+         <div class="section--hidden" data-section="s-43-8">
+            <p class="paragraph">
+               Usando el <span class="modal__reference" data-modal-btn="t-4-2-4">Teorema 4.2.4,</span> la sucesión es acotada, pero no es monótona, por lo tanto 
+               no converge.               
+            </p>
+            <p class="paragraph">
+               Se puede dar una prueba alternativa usando la <span class="modal__reference" data-modal-btn="d-4-2-4">definición de límite.</span> Basta con
+               encontar un $\varepsilon$ para el que la expresión $\left |a_n - L \right | < \varepsilon$ cause una contradicción. Se muestra un ejemplo usando la sucesión anterior.
+            </p>
+            <p class="paragraph">
+               Supongamos que el límite existe, es decir, que existe un $L$ y un entero positivo $N$ tal que si $n \geq N$, se tiene $\left |a_n - L \right | < \varepsilon$ para todo $\varepsilon >0.$
+            </p> 
+            <p class="paragraph">
+               Puesto que $N>0,$ entonces $2N>N$ y $2N+1>N.$ Tomemos $\varepsilon = \frac{1}{2},$ (cualquier número menor y positivo funciona) tenemos
+               $$\left |a_{2N} - L \right | =\left |2 - L \right |  < \frac{1}{2}$$
+               y también
+               $$\left |a_{2N+1} - L \right | =\left |0 - L \right |=|L|  < \frac{1}{2}$$
+            </p>
+            <p class="paragraph">
+               Ahora causaremos una contradicción,
+               $$2=|2|=\left |2-L+L \right| \leq |2-L| + |L| < \frac{1}{2} + \frac{1}{2} = 1,$$
+               por lo que $2< 1$. Y la sucesión no converge.
+            </p>
+            <div>
+               <button class="btn-sm btn--blue" type="button" data-btn-continue="s-43-9">Continuar</button>
+            </div>
+            <div class="fancy-line"></div>
+         </div>
+      </section>
+      <section class="section--hidden" data-section="s-43-9">
+         <form class="question margin-top-sm" data-question="question-4-3-8" data-answer="b" autocomplete="off">
+            <h3 class="question__header margin-bottom-sm">
+               <span class="example__title">Ejemplo 4.3.3.</span> Determina si la sucesión $a_n=\cos \frac{n\pi}{2}$ converge o diverge.
+            </h3>
+            <div class="question__row">
+               <div class="question__col-1">
+                  <div class="question__options">
+                     <div class="question__option">
+                        <input type="radio" id="answer-4-3-8-a" name="question-4-3-8" value="a" data-option="question-4-3-8">
+                        <label for="answer-4-3-8-a">Converge</label>
+                     </div>
+                     <div class="question__option">
+                        <input type="radio" id="answer-4-3-8-b" name="question-4-3-8" value="b" data-option="question-4-3-8">
+                        <label for="answer-4-3-8-b">Diverge</label>
+                     </div>
+                  </div>
+                  <div class="question__btn-box">
+                     <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                     <button class="btn btn--blue" type="button" disabled data-btn-continue="s-43-10">Continuar</button>
+                  </div>
+               </div>
+               <div class="question__col-2">
+                  <p class="question__answer"></p>
+               </div>
+            </div>
+         </form>
+         <div class="section--hidden" data-section="s-43-10">
+            <p class="paragraph">
+               La sucesión diverge. Lo probaremos mediante la definición. Note que en el ejemplo anterior, los valores de la sucesión
+               "saltaban" entre $2$ y $0$, y estos valores son ambos cotas y usamos esas cotas para causar una contradicción. En este ejemplo tenemos que 
+               $-1 \leq \cos \frac{n\pi}{2} \leq 1,$ lo que nos da una pista para causar una contradicción.
+            </p>
+            <form class="question margin-top-sm" data-question="question-4-3-9" data-answer="c" autocomplete="off">
+               <h3 class="question__header margin-bottom-sm">
+                  ¿Qué valores para $n$ nos dan las cotas de la sucesión intervalo?
+               </h3>
+               <div class="question__row">
+                  <div class="question__col-1">
+                     <div class="question__options">
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-3-9-a" name="question-4-3-9" value="a" data-option="question-4-3-9">
+                           <label for="answer-4-3-9-a">$n=2N+1$ y $n=2N$</label>
+                        </div>
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-3-9-b" name="question-4-3-9" value="b" data-option="question-4-3-9">
+                           <label for="answer-4-3-9-b">$n=2N$ y $n=4N$</label>
+                        </div>
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-3-9-c" name="question-4-3-9" value="c" data-option="question-4-3-9">
+                           <label for="answer-4-3-9-c">$n=4N$ y $n=4N+2$</label>
+                        </div>
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-3-9-d" name="question-4-3-9" value="d" data-option="question-4-3-9">
+                           <label for="answer-4-3-9-d">$n=2N+\frac{1}{2}$ y $n=2N-\frac{1}{2}$</label>
+                        </div>
+                     </div>
+                     <div class="question__btn-box">
+                        <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                        <button class="btn btn--blue" type="button" disabled data-btn-continue="s-43-11">Continuar</button>
+                     </div>
+                  </div>
+                  <div class="question__col-2">
+                     <p class="question__answer"></p>
+                  </div>
+               </div>
+            </form>
+         </div>
+         <div class="section--hidden" data-section="s-43-11">
+            <p class="paragraph">
+               Observamos que $a_{4n} = \cos \frac{4N\pi}{2} = 1$ y $a_{4n} = \cos \frac{(4N+2)\pi}{2} = -1.$ Si escojemos $n=2N$,
+               tendriamos $a_{2N}= \cos \frac{2N\pi}{2} = (-1)^N$ y tendriamos que considerar dos casos de $N$, cuando es par y cuando es impar, razón por la cual
+               se escogieron $4N$ y $4N+2$.
+            </p>
+            <p class="paragraph">
+               Comenzamos con la prueba. Supongamos que el límite existe, es decir, que existe un $L$ y un entero positivo $N$ tal que si $n \geq N$, se tiene
+               $\left |a_n - L \right | < \varepsilon$ para todo $\varepsilon >0.$ Puesto que $N>0$ entonces $4N>N$ y $4N+2>N$. Tomemos $\varepsilon = \frac{1}{2}.$
+            </p>
+            <form class="question margin-top-sm" data-question="question-4-3-10" data-answer="a" autocomplete="off">
+               <h3 class="question__header margin-bottom-sm">
+                  ¿Qué desigualdades se forman usando estos valores para $n$ y $\varepsilon$?
+               </h3>
+               <div class="question__row">
+                  <div class="question__col-1">
+                     <div class="question__options">
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-3-10-a" name="question-4-3-10" value="a" data-option="question-4-3-10">
+                           <label for="answer-4-3-10-a">$|1-L|< \frac{1}{2}$ y $|1+L|< \frac{1}{2} $</label>
+                        </div>
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-3-10-b" name="question-4-3-10" value="b" data-option="question-4-3-10">
+                           <label for="answer-4-3-10-b">$|1-L|< \frac{1}{2}$ y $|1-L|< \frac{1}{2} $</label>
+                        </div>
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-3-10-c" name="question-4-3-10" value="c" data-option="question-4-3-10">
+                           <label for="answer-4-3-10-c">$|1-L|< 1$ y $|1+L|< 1 $</label>
+                        </div>
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-3-10-d" name="question-4-3-10" value="d" data-option="question-4-3-10">
+                           <label for="answer-4-3-10-d">$|1-\varepsilon|< \frac{1}{2}$ y $|1+\varepsilon|< \frac{1}{2} $</label>
+                        </div>
+                     </div>
+                     <div class="question__btn-box">
+                        <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                        <button class="btn btn--blue" type="button" disabled data-btn-continue="s-43-12">Continuar</button>
+                     </div>
+                  </div>
+                  <div class="question__col-2">
+                     <p class="question__answer"></p>
+                  </div>
+               </div>
+            </form>
+         </div>
+         <div class="section--hidden" data-section="s-43-12">
+            <p class="paragraph">
+               Para $n=4N,$ $|a_{4N}-L|=|1-L| < \frac{1}{2}$ y para $n=4N+2$, $|a_{4N+2}-L|=|-1-L|= |1+L| < \frac{1}{2}$.
+               La contradicción se causa de manera similar al ejercicio anterior,
+               $$2=|2|=|1-L+1+L| \leq | 1-L | + |1+L| < \frac{1}{2} + \frac{1}{2} = 1$$
+            </p>
+            <div>
+               <button class="btn-sm btn--blue" type="button" data-btn-continue="s-43-13">Continuar</button>
+            </div>
+            <div class="fancy-line"></div>
+         </div>
+      </section>
+      <section class="section--hidden" data-section="s-43-13">
+         <form class="question margin-top-sm" data-question="question-4-3-11" data-answer="d" autocomplete="off">
+            <h3 class="question__header margin-bottom-sm">
+               <span class="example__title">Ejemplo 4.3.4.</span> Determina si la sucesión $a_n=\frac{1+(-1)^n}{n}$ converge o diverge y si converge calcula el límite.
+            </h3>
+            <div class="question__row">
+               <div class="question__col-1">
+                  <div class="question__options">
+                     <div class="question__option">
+                        <input type="radio" id="answer-4-3-11-a" name="question-4-3-11" value="a" data-option="question-4-3-11">
+                        <label for="answer-4-3-11-a">Diverge</label>
+                     </div>
+                     <div class="question__option">
+                        <input type="radio" id="answer-4-3-11-b" name="question-4-3-11" value="b" data-option="question-4-3-11">
+                        <label for="answer-4-3-11-b">Converge a $1$</label>
+                     </div>
+                     <div class="question__option">
+                        <input type="radio" id="answer-4-3-11-c" name="question-4-3-11" value="c" data-option="question-4-3-11">
+                        <label for="answer-4-3-11-c">Converge a $\frac{1}{2}$</label>
+                     </div>
+                     <div class="question__option">
+                        <input type="radio" id="answer-4-3-11-d" name="question-4-3-11" value="d" data-option="question-4-3-11">
+                        <label for="answer-4-3-11-d">Converge a $0$</label>
+                     </div>
+                  </div>
+                  <div class="question__btn-box">
+                     <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                     <button class="btn btn--blue" type="button" disabled data-btn-continue="s-43-14">Continuar</button>
+                  </div>
+               </div>
+               <div class="question__col-2">
+                  <p class="question__answer"></p>
+               </div>
+            </div>
+         </form>
+         <div class="section--hidden" data-section="s-43-14">
+            <p class="paragraph">
+               La sucesión converge a $0$. Demuéstralo usando el teorema del sandwich para límites y el hecho que $0 \leq 1+(-1)^n \leq 2.$
+            </p>
+            <div class="margin-bottom-xm">
+               <button class="btn-sm btn--blue" type="button" data-btn-continue="s-43-15">Continuar</button>
+            </div>
+         </div>
+         <div class="section--hidden" data-section="s-43-15">
+            <p class="paragraph">
+               Tenemos que 
+               $$0 \leq \frac{1+(-1)^2}{2} \leq \frac{2}{n},$$
+               Por lo que 
+               $$\lim_{n \to \infty} 0 \leq \lim_{n \to \infty} \frac{1+(-1)^2}{2} \leq \lim_{n \to \infty} \frac{2}{n}.$$
+               Usando el <span class="modal__reference" data-modal-btn="t-4-2-3">Teorema 4.2.3,</span> $\lim_{n \to \infty} \frac{2}{n}=0,$
+               pues $\lim_{x \to \infty} \frac{2}{x}=0$. Por lo tanto $ \lim_{n \to \infty} \frac{1+(-1)^2}{2}=0.$
+            </p>
+            <div class="margin-bottom-xm">
+               <button class="btn-sm btn--blue" type="button" data-btn-continue="s-43-16">Continuar</button>
+            </div>
+            <div class="fancy-line"></div>
+         </div>
+      </section>
+      <section class="section--hidden" data-section="s-43-16">
+         <div class="example">
+            <p class="paragraph example__paragraph">
+               <span class="example__title">Ejemplo 4.3.5. </span>Considera la sucesión $f(n)=\frac{n^2}{n+1}-\frac{n^2+1}{n}$ del <span class="example__title">Ejemplo 4.3.1.</span>
+               Encuentra una $N$ tal que la sucesión este dentro de $\varepsilon$ de su límite si $\varepsilon = 0.01$.
+            </p>
+         </div>
+         <form class="question margin-top-sm" data-question="question-4-3-12" data-answer="a" autocomplete="off">
+            <h3 class="question__header margin-bottom-sm">
+               Usando el $\varepsilon$ del <span class="example__title">Ejemplo 4.3.1.</span> ¿cuál es el valor de $N$?
+            </h3>
+            <div class="question__row">
+               <div class="question__col-1">
+                  <div class="question__options">
+                     <div class="question__option">
+                        <input type="radio" id="answer-4-3-12-a" name="question-4-3-12" value="a" data-option="question-4-3-12">
+                        <label for="answer-4-3-12-a">$N=200$</label>
+                     </div>
+                     <div class="question__option">
+                        <input type="radio" id="answer-4-3-12-b" name="question-4-3-12" value="b" data-option="question-4-3-12">
+                        <label for="answer-4-3-12-b">$N=100$</label>
+                     </div>
+                     <div class="question__option">
+                        <input type="radio" id="answer-4-3-12-c" name="question-4-3-12" value="c" data-option="question-4-3-12">
+                        <label for="answer-4-3-12-c">$N=10$</label>
+                     </div>
+                     <div class="question__option">
+                        <input type="radio" id="answer-4-3-12-d" name="question-4-3-12" value="d" data-option="question-4-3-12">
+                        <label for="answer-4-3-12-d">$N=20$</label>
+                     </div>
+                  </div>
+                  <div class="question__btn-box">
+                     <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                     <button class="btn btn--blue" type="button" disabled data-btn-continue="s-43-17">Continuar</button>
+                  </div>
+               </div>
+               <div class="question__col-2">
+                  <p class="question__answer"></p>
+               </div>
+            </div>
+         </form>
+         <div class="section--hidden" data-section="s-43-17">
+            <p class="paragraph">
+               Puesto que $\frac{2}{\varepsilon} < n$ en el <span class="example__title">Ejemplo 4.3.1.</span> con $\varepsilon = 0.01,$ tenemos que $N = 200,$
+               es decir, para $n > 200$ se satisface $|f(n)+1| < 0.01.$
+            </p>
+            <p class="paragraph">
+               No se necesita que el número $N$ sea tan grande. En el <span class="example__title">Ejemplo 4.3.1.</span> se usaron las desigualdades
+               $$\frac{1}{n^2+n} = \frac{1}{n} \frac{1}{n+1} \leq \frac{2}{n+1} < \frac{2}{n}.$$
+               Pero podemos usar la siguiente
+               $$\frac{1}{n^2+n} < \frac{1}{n^2},$$
+               Y escojer $N$ de tal forma que $\frac{1}{n^2}< \varepsilon,$ lo que nos da que $\frac{1}{\sqrt{\varepsilon}} < n.$ Entonces al hacer $\varepsilon = 0.01$, obtenemos $n>10$.
+               Por lo que para $n>10$ también satisface $|f(n)+1| < 0.01,$ pues tomando $n=11$
+               $$|f(11)+1| = \left | \frac{121}{12}-\frac{122}{11} + 1 \right | = 0.007< 0.01.$$
+               Es decir, este valor $11$ es el valor mínimo de $N$ en la <span class="modal__reference" data-modal-btn="d-4-2-4">definición de límite</span>
+               y para $n \geq N$ se cumple la definición de límite. Este ejmplo muestra como $N$ depende $\varepsilon$.
+            </p>
+            <div class="margin-bottom-xm">
+               <button class="btn-sm btn--blue" type="button" data-btn-continue="s-43-18">Continuar</button>
+            </div>
+            <div class="fancy-line"></div>
+         </div>
+      </section>
+      <section class="section--hidden" data-section="s-43-18">
+         <div class="example">
+            <p class="paragraph example__paragraph">
+               <span class="example__title">Ejemplo 4.3.6 </span>Considere la sucesión $a_1=\sqrt{2}$ y $a_{n+1}=\sqrt{2 + a_n}$. Demuestre que es creciente acotada por $2$,
+               pruebe que tiene límite y calcule $\lim_{n\to \infty }a_n.$
+            </p>
+            <p class="paragraph">
+               <strong>Hint:</strong> Use inducción para demostrar que es creciente. En el paso de inducción suponga $a_{k-1} < a_k$, sume $2$ en ambos lados. De manera similar se puede demostrar
+               que está acotada por $2.$ Para calcular el límite use el hecho de que $\lim_{n\to \infty }a_n = \lim_{n\to \infty }a_{n+1},$ forme una ecuación y resuelva.
+            </p>
+         </div>
+         <div class="fancy-line"></div>
+         <div class="change-page">
+            <a href="./4.2-algebra-de-sucesiones.html" class="change-page__before">Anterior</a>
+            <!-- <a href="./4.3-ejemplos-de-sucesiones.html" class="change-page__next">Siguiente</a> -->
+         </div>
+      </section>
+   </main>
+   <div class="modal" data-modal="d-4-2-4">
+      <div class="modal__background" data-modal-background="d-4-2-4"></div>
+      <div class="modal__content">
+         <alien-math-template path="./components/theorems/definition-4.2.4.html"></alien-math-template>
+      </div>
+   </div>
+   <div class="modal" data-modal="t-4-2-4">
+      <div class="modal__background" data-modal-background="t-4-2-4"></div>
+      <div class="modal__content">
+         <alien-math-template path="./components/theorems/theorem-4.2.4.html"></alien-math-template>
+      </div>
+   </div>
+   <div class="modal" data-modal="t-4-2-3">
+      <div class="modal__background" data-modal-background="t-4-2-3"></div>
+      <div class="modal__content">
+         <alien-math-template path="./components/theorems/theorem-4.2.3.html"></alien-math-template>
+      </div>
+   </div>
+</body>
+</html>

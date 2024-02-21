@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+   <link rel="stylesheet" href="/css/style.css">
+   
+   <script src="./scripts/variables.js" defer></script>
+   <script src="./scripts/question.js" defer></script>
+   <script src="./scripts/modal.js" defer></script>
+   <script src="./components/component-loader.js" defer></script>
+   <!-- <script src="./components/mobile-sidebar/mobile-sidebar.js" defer></script>
+   <script src="./components/sidebar/sidebar.js" defer></script>
+   <script src="./components/math-template.js" defer></script> -->
+
+   <script>
+      MathJax = {
+            tex: {
+               inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+            loader: {load: ['input/asciimath', 'output/chtml']}
+      }
+   </script>
+   <script id="MathJax-script" async src="/scripts/MathJax-master/es5/tex-chtml.js"></script>
+
+   <title>Cálculo 2 | Álgebra de sucesiones</title>
+</head>
+<body class="course">
+   <nav class="navbar">
+      <a href="/" class="navbar__logo-box">
+      </a>
+      <a href="/" class="navbar__link">
+            Inicio
+      </a>
+      <a href="#" class="navbar__link navbar__link--active">
+            Cálculo 2
+      </a>
+      <a href="./quiz.html" class="navbar__link">
+            Quiz
+      </a>
+      <button class="menu-mobile-btn burger-btn" data-menu-btn="menu-mobile"><span class="burger-icon"></span></button>
+   </nav>
+   <alien-sidebar class="sidebar" id="sidebar"></alien-sidebar>
+   <alien-mobile-sidebar id="mobile-menu"></alien-mobile-sidebar>
+   <main class="main">
+      <section>
+         <h2 class="header-primary margin-bottom-md">
+            4.2 Álgebra de sucesiones, límites y álgebra de límites
+         </h2>
+         <p class="paragraph">
+            Recordemos que cuando dos funciones tienen tienen mismo dominio es posible definir álgebra de funciones de manera puntual. Esta propiedad 
+            se puede trasladar a las sucesiones, dado que son funciones con dominio el conjunto de los números naturales.
+         </p>
+         <div class="definition">
+            <p class="paragraph">
+               <span class="definition__title">Definición 4.2.1 </span>Sean $\{a_n\}_{n\in\mathbf{N}}$ y $\{b_n\}_{n\in\mathbf{N}}$ sucesiones. Entonces, 
+            </p>
+            <ul class="simple-list">
+               <li>Decimos que las sucesiones $\{a_n\}_{n\in\mathbf{N}}$ y $\{b_n\}_{n\in\mathbf{N}}$ son iguales, lo denotamos por  $\{a_n\}_{n\in\mathbf{N}}=\{b_n\}_{n\in\mathbf{N}}$,  si y sólo si $\forall n\in\mathbf{N}: a_n=b_n$.</li>
+               <li>Definimos la suma de sucesiones como $\{a_n\}_{n\in\mathbf{N}}+\{b_n\}_{n\in\mathbf{N}}:=\{a_n+b_n\}_{n\in\mathbf{N}}$.</li>
+               <li>Definimos el producto de sucesiones como $\{a_n\}_{n\in\mathbf{N}}\cdot\{b_n\}_{n\in\mathbf{N}}:=\{a_n \cdot b_n\}_{n\in\mathbf{N}}$. </li>
+               <li>Si $\{b_n\}_{n\in\mathbf{N}}$ cumple que $\forall b_n\neq 0$, entonces definimos $$\frac{1}{\{b_n\}_{n\in\mathbf{N}}}:=\left\{\frac{1}{b_n}\right\}_{n\in\mathbf{N}}.$$
+                  Entonces, definimos el cociente de sucesiones como $$\frac{\{a_n\}_{n\in\mathbf{N}}}{\{b_n\}_{n\in\mathbf{N}}}:=\{a_n\}_{n\in\mathbf{N}}\cdot \frac{1}{\{b_n\}_{n\in\mathbf{N}}}.$$
+               </li>
+            </ul>
+         </div>
+         <div class="example example__paragraph margin-bottom-sm">
+            <p class="paragraph">
+               <span class="example__title">Ejemplo 4.2.1. </span>Consideremos las ucesiones $\{\frac{1}{n!}\}_{n\in\mathbf{N}}$ y $\{\frac{1}{n}\}_{n\in\mathbf{N}}$. 
+               Entonces, siguiendo la definición 4.2.1, tenemos que:
+            </p>
+            <ul class="simple-list">
+               <li>$\{\frac{1}{n!}\}_{n\in\mathbf{N}}+\{\frac{1}{n}\}_{n\in\mathbf{N}}=\{\frac{1}{n!}+\frac{1}{n}\}_{n\in\mathbf{N}}$.</li>
+               <li>$\{\frac{1}{n!}\}_{n\in\mathbf{N}}\cdot\{\frac{1}{n}\}_{n\in\mathbf{N}}=\{\frac{1}{n!\cdot n}\}_{n\in\mathbf{N}}$</li>
+               <li>$\frac{1}{\{\frac{1}{n!}\}_{n\in\mathbf{N}}}=\{n!\}_{n\in\mathbf{N}}$</li>
+            </ul>
+         </div>
+         <p class="paragraph">
+            Gracias a las propiedades de los número naturales, sabemos que todo conunto finito tiene un elemento máximo, lo cual nos permite dar la siguiente definición.
+         </p>
+         <div class="definition">
+            <p class="paragraph">
+               <span class="definition__title">Definición 4.2.2. </span>Sea  $\{a_n\}_{n\in\mathbf{N}}$ una sucesión. Diremos que la sucesión cumple la propiedad $C$, 
+               salvo para un número finito de términos, si $\exists N\in\mathbf{N}$, tal que si $n\geq N$, entonces el término $a_n$ cumple la propiedad $C$.
+            </p>
+         </div>
+         <p class="paragraph">
+            Esto nos permite dar definiciones análogas a las vistas en la sección 4.1 excluyendo a un conjunto finito de términos.
+         </p>
+         <div class="definition">
+            <p class="paragraph">
+               <span class="definition__title">Definición 4.2.3. </span>Sean $\{a_n\}_{n\in\mathbf{N}}$ y  $\{b_n\}_{n\in\mathbf{N}}$ sucesiones. Diremos que:
+            </p>
+            <ul class="simple-list">
+               <li>$\{a_n\}_{n\in\mathbf{N}}$ es una sucesión monótona creciente, salvo para un número finito de términos, si $\exists N\in\mathbf{N}$ tal que si $n\geq N$, entonces $a_n\leq a_{n+1}$.</li>
+               <li>$\{a_n\}_{n\in\mathbf{N}}$ es una sucesión monótona decreciente, salvo para un número finito de términos, si $\exists N\in\mathbf{N}$ tal que si $n\geq N$, entonces $a_{n+1}\geq a_{n}$.</li>
+               <li>$\{a_n\}_{n\in\mathbf{N}}$ es una sucesión monótona, salvo para un número finito de términos, si cumple 1) o 2) de esta definición.</li>
+               <li>$\{a_n\}_{n\in\mathbf{N}}$ y  $\{b_n\}_{n\in\mathbf{N}}$ son iguales, salvo para un número finito de términos, si $\exists N\in\mathbf{N}$ tal que si $n\geq N$, entonces $a_n= b_n$.</li>
+               <li>Las sucesiones $\{a_n\}_{n\in\mathbf{N}}$ y  $\{b_n\}_{n\in\mathbf{N}}$ satisfacen la relación $a_n\leq b_n,$ salvo para un número finito de términos, si $\exists N\in\mathbf{N}$ tal que si $n\geq N$, entonces $a_n\leq b_n$.</li>
+            </ul>
+         </div>
+         <p class="paragraph">
+            Para esta nueva definición, tenemos el siguiente ejemplo.
+         </p>
+         <div class="example example__paragraph margin-bottom-xm">
+            <p class="paragraph">
+               <span class="example__title">Ejemplo 4.2.1. </span>Tomemos la sucesión $\{n\}_{n\in\mathbf{N}}$ y $C$ la propiedad de ser mayor o igual que 1000. 
+               Es claro que todos los términos de la sucesión tienen esa propiedad, excepto para $n=1,2,3,...,999$, es decirm excepto para una cantidad finita de términos, 
+               pues si $n\geq 1000$, entonces $a_n$ tendrá la propiedad $C$.
+            </p>
+         </div>
+         <p class="paragraph">
+            Algunas sucesiones parecen "estacionarse" en un punto, es decir, muestran un comportamiento particular, de manera que a medida que tomamos naturales más grande, 
+            el término de la sucesión se "parece más" a un número real fijo. Por ejemplo, si consideramos la suecesión $\{\frac{1}{n}\}_{n\in\mathbf{N}}$, entonces, a medida que
+            tomamos valores de $n$ más grandes, entonces el término $\frac{1}{n}$ se acerca más al número 0. Esta idea de "parecerse" o "estar muy cercano" es lo que hay detrás
+            del concepto de límite. 
+         </p>
+         <p class="paragraph">
+            Esto podemos establecerlo como: conforme $n$ crece, entonces la distancia que hay entre los elementos de la sucesión y un número real fijo, 
+            es cada vez más pequeña. Cabe señalar que la formalización de estos conceptos, tal y como los conocemos ahora, fue en el trancurso del siglo XIX.            
+         </p>
+         <alien-math-template path="./components/theorems/definition-4.2.4.html"></alien-math-template>
+         <div class="note">
+            <p class="paragraph">
+               <span class="note__title">Nota: </span>El término $N$ en la definición, generalmente dependerá de $\varepsilon$, es decir, podemos reprsentarlo como $N(\varepsilon)$.
+            </p>
+         </div>
+         <p class="paragraph">
+            Una de las primeras propiedades y de las más importantes es la unicidad del límite.
+         </p>
+         <div class="theorem">
+            <p class="paragraph">
+               <span class="theorem__title">Teorema 4.2.1. </span>Si la sucesión $\{a_n\}_{n\in\mathbf{N}}$ tiene límite, entonces este es único.
+            </p>
+         </div>
+         <h3 class="header-tertiary">
+            Demostración
+         </h3>
+         <div class="proof">
+            <p class="paragraph">
+               Por hipótesis, sabemos que la sucesión $\{a_n\}_{n\in\mathbf{N}}$ tiene límite. Para probar la unicidad, vamos a suponer que tiene dos límites, $L_1$ y $L_2$, con $L_1\neq L_2$. 
+               Por definición de límite,  para $\varepsilon=\frac{|L_1-L_2|}{2}$, tenemos que
+               $$ \exists N_1\in\mathbf{N}: n\geq N_1 \Rightarrow |a_n-L_1|<\frac{|L_1-L_2|}{2}$$
+               $$ \exists N_2\in\mathbf{N}: n\geq N_2 \Rightarrow |a_n-L_2|<\frac{|L_1-L_2|}{2}.$$
+               Sea $N=\max\{N_1,N_2\}\in\mathbf{N}$. Tomamos $n\geq N$, entonces $$|L_1-L_2|=|(L_1-a_n) +(a_n-L_2)|\leq |L_1-a_n|+|a_n-L_2|=|a_n-L_1|+|a_n-L_2|<|L_1-L_2|.$$ Lo cual es una contradicción, la cual llega de suponer que $L_1 \neq L_2$, por lo tanto $L_1=L_2$, es decir, el límite es único.
+            </p>
+         </div>
+         <div class="fancy-line"></div>
+      </section>
+      <section>
+         <p class="paragraph">
+            Una vez que se ha establecido la unicidad, entonces tenemos la siguiente definición.
+         </p>
+         <div class="definition">
+            <p class="paragraph">
+               <span class="definition__title">Definición 4.2.5. </span>Sean $\{a_n\}_{n\in\mathbf{N}}$ una sucesión y $L\in\mathbf{R}$. Si la sucesión  $\{a_n\}_{n\in\mathbf{N}}$ tiene límite y es $L$, 
+               entonces diremos que la sucesión  $\{a_n\}_{n\in\mathbf{N}}$ es convergente y que converge a $L$, lo cual lo denotaremos por $\lim_{n\to \infty}a_n=L$. 
+               Si la sucesión no tiene límite, entonces diremos que es divergente.
+            </p>
+         </div>
+         <p class="paragraph">
+            Notemos que $L$ es el límite de la sucesión  $\{a_n\}_{n\in\mathbf{N}}$, si y sólo si $\forall \varepsilon>0, \exists N\in\mathbf{N}: n\geq N \Rightarrow |a_n-L|<\varepsilon$. 
+            Pero $$|a_n-L|<\varepsilon \Leftrightarrow -\varepsilon< a_n-L< \varepsilon \Leftrightarrow L-\varepsilon< a_n< L+\varepsilon \Leftrightarrow a_n\in(L-\varepsilon,L+\varepsilon).$$ 
+            Así, tendremos que $$\forall \varepsilon>0, \exists N\in\mathbf{N}: n\geq N \Rightarrow a_n\in(L-\varepsilon,L+\varepsilon).$$ Es decir, que dado $\varepsilon>0$, 
+            salvo una cantidad finita de términos, todos los elementos de la sucesión están en la vecindad $(L-\varepsilon,L+\varepsilon)$, lo cual, geométricamente, 
+            simboliza que todos están muy cercanos al número $L$.
+         </p>
+         <div class="example">
+            <p class="paragraph example__paragraph">
+               <span class="example__title">Ejemplo 4.2.2. </span>Consideremos la sucesión $\{\frac{n}{n+1}\}_{n\in\mathbf{N}}$. Determina el límite y demuestra que lo es.
+            </p>
+            <h3 class="header-tertiary">Solución.</h3>
+            <p class="paragraph">
+               Comencemos reescribiendo el término $a_n=\frac{n}{n+1} = 1 -\frac{1}{n+1}.$ Esto nos indica que para valores muy grandes de $n$, el término $\frac{1}{n+1}$ 
+               se hace cada vez más pequeño. Entonces podemos conjeturar que $\lim_{n\to \infty}a_n=\lim_{n\to \infty}\frac{n}{n+1}=1$. 
+            </p>
+            <p class="paragraph">
+               Para demostrarlo, hacemos un análisis preliminar.
+            </p>
+            <p class="paragraph">
+               <strong>Análisis Preliminar:</strong> Sea $n$ un número natural, entonces
+               $$|a_n-1|=\bigg|\left(1-\frac{1}{n+1}\right)-1\bigg|=\bigg|-\frac{1}{n+1}\bigg|=\bigg|\frac{1}{n+1}\bigg|=\frac{1}{n+1}.$$ 
+               Así, si tomamos $\varepsilon>0$, entonces 
+               $$|a_n-1|< \varepsilon \Leftrightarrow \frac{1}{n+1}< \varepsilon \Leftrightarrow \frac{1}{\varepsilon}< n+1 \Leftrightarrow \frac{1}{\varepsilon}-1< n.$$
+            </p>
+            <p class="paragraph">
+               Ahora sí estamos en condiciones de dar la prueba: Sea $\varepsilon>0$, tomamos $N=\max\{\left[\frac{1}{\varepsilon}-1 \right]+1,1\}$. Si $n\geq N$, entonces, 
+               por definición de $N$ y por propiedades de la parte entera de un real, tenemos que $$\frac{1}{\varepsilon}-1<\left[\frac{1}{\varepsilon}-1 \right]+1\leq N\leq n $$ 
+               de lo cual se deduce que $\frac{1}{\varepsilon}-1< n$, y, por el análisis preliminar, esto es equivalente a tener que $|a_n-1|<\varepsilon$. 
+               Esto prueba que $\lim_{n\to \infty}a_n=\lim_{n\to \infty}\frac{n}{n+1}=1.$
+            </p>
+         </div>
+         <div class="fancy-line"></div>
+         <div class="note">
+            <p class="paragraph">
+               <span class="note__title">Nota: </span>Es necesario hacer notar un par de cosas desarrolladas en la solución. Se toma la parte entera porque el número 
+               $\frac{1}{\varepsilon}-1$ es un número real, no tiene por qué ser un natural, ya que $\varepsilon\in\mathbf{R}$, de esta forma aseguramos que al menos sea un entero. 
+               Luego sumamos el uno pra garantizar que se tenga la desigualdad final del análisis preliminar hecho, pues para todo $r\in\mathbf{R}: [r]\leq r \leq [r]+1$. 
+               Como todo depende de $\varepsilon$, aún tomando $\left[\frac{1}{\varepsilon}-1 \right]+1$, no podemos asegurar que eso sea un número natural, pues si $\varepsilon=2$, 
+               eso no sería un natural. Es por eso que en la propuesta de $N$ agregamos un 1, para garantizar que $N$ sí sea natural.
+            </p>
+         </div>
+         <p class="paragraph">
+            Las técnicas para determinar el límite y su consecuente demostración son muy variadas y nunca hay una forma especial de encontrar al límite o a la $N$ que 
+            haga funcionar la definición, es por eso que presentamos un ejercicio más, en donde se usen otros artificios propios del curso de Cálculo Diferencial e Integral.
+         </p>
+         <div class="example">
+            <p class="paragraph example__paragraph">
+               <span class="example__title">Ejemplo 4.2.3. </span>Demuestra que la sucesión $\left\{\frac{n^2-1}{n^2+n+1}\right\}_{n\in\mathbf{N}}$ converge. 
+            </p>
+         </div>
+         <h3 class="header-tertiary">Solución.</h3>
+         <p class="paragraph">
+            Comencemos reescribiendo el término $a_n.$
+         </p>
+         <form class="question margin-top-sm" data-question="question-4-2-1" data-answer="d" autocomplete="off">
+            <h3 class="question__header margin-bottom-sm">
+               ¿A qué es equivalente el término $a_n$?
+            </h3>
+            <div class="question__row">
+               <div class="question__col-1">
+                  <div class="question__options">
+                     <div class="question__option">
+                        <input type="radio" id="answer-4-2-1-a" name="question-4-2-1" value="a" data-option="question-4-2-1">
+                        <label for="answer-4-2-1-a">$\frac{n-\frac{1}{n}}{\left (1+\frac{1}{n} \right ) \left(\frac{1}{n^2} \right )}$</label>
+                     </div>
+                     <div class="question__option">
+                        <input type="radio" id="answer-4-2-1-b" name="question-4-2-1" value="b" data-option="question-4-2-1">
+                        <label for="answer-4-2-1-b">$\frac{(n+1)(n-1)}{(n+1)^2}$</label>
+                     </div>
+                     <div class="question__option">
+                        <input type="radio" id="answer-4-2-1-c" name="question-4-2-1" value="c" data-option="question-4-2-1">
+                        <label for="answer-4-2-1-c">$\frac{(n+1)(n-1)}{(n+1)(n-1)}$</label>
+                     </div>
+                     <div class="question__option">
+                        <input type="radio" id="answer-4-2-1-d" name="question-4-2-1" value="d" data-option="question-4-2-1">
+                        <label for="answer-4-2-1-d">$\frac{1-\frac{1}{n^2}}{1+\frac{1}{n}+\frac{1}{n^2}}$</label>
+                     </div>
+                  </div>
+                  <div class="question__btn-box">
+                     <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                     <button class="btn btn--blue" type="button" disabled data-btn-continue="q-42-1">Continuar</button>
+                  </div>
+               </div>
+               <div class="question__col-2">
+                  <p class="question__answer"></p>
+               </div>
+            </div>
+         </form>
+         <div class="section--hidden" data-section="q-42-1">
+            <p class="paragraph">
+               Multiplicando numerador y denominador por $\frac{1}{n^2}$, tenemos
+               $$\frac{n^2-1}{n^2+n+1}=\frac{\frac{n^2}{n^2}-\frac{1}{n^2}}{\frac{n^2}{n^2}+\frac{n}{n^ 2}+\frac{1}{n^2}}=\frac{1-\frac{1}{n^2}}{1+\frac{1}{n}+\frac{1}{n^2}}$$
+               y cuando $n$ se hace muy grande, entonces los términos $\frac{1}{n}$ y $\frac{1}{n^2}$ son demasiado pequeños. Por lo tanto, proponemos que el límite de la sucesión 
+               sea 1. Es decir, vamos a probar que $\lim_{n\to \infty}\frac{n^2-1}{n^2+n+1}=1$. Primero hacemos un análisis preliminar.
+            </p>
+            <h3 class="header-tertiary">
+               Análisis preliminar.
+            </h3>
+            <form class="question margin-top-sm" data-question="question-4-2-2" data-answer="d" autocomplete="off">
+               <h3 class="question__header margin-bottom-sm">
+                  Simplifica la expresión $ \left|\frac{n^2-1}{n^2+n+1}-1 \right |.$
+               </h3>
+               <div class="question__row">
+                  <div class="question__col-1">
+                     <div class="question__options">
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-2-2-a" name="question-4-2-2" value="a" data-option="question-4-2-2">
+                           <label for="answer-4-2-2-a">$\frac{n+2}{n^2+1}$</label>
+                        </div>
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-2-2-b" name="question-4-2-2" value="b" data-option="question-4-2-2">
+                           <label for="answer-4-2-2-b">$\frac{2n}{n^2+n+1}$</label>
+                        </div>
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-2-2-c" name="question-4-2-2" value="c" data-option="question-4-2-2">
+                           <label for="answer-4-2-2-c">$\frac{n-2}{n^2+n+1}$</label>
+                        </div>
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-2-2-d" name="question-4-2-2" value="d" data-option="question-4-2-2">
+                           <label for="answer-4-2-2-d">$\frac{n+2}{n^2+n+1}$</label>
+                        </div>
+                     </div>
+                     <div class="question__btn-box">
+                        <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                        <button class="btn btn--blue" type="button" disabled data-btn-continue="q-42-2">Continuar</button>
+                     </div>
+                  </div>
+                  <div class="question__col-2">
+                     <p class="question__answer"></p>
+                  </div>
+               </div>
+            </form>
+         </div>
+         <div class="section--hidden" data-section="q-42-2">
+            <p class="paragraph">
+               Si $n\in\mathbf{N}$, entonces $$\left|\frac{n^2-1}{n^2+n+1}-1\right|=\left|\frac{n^2-1-n^2-n-1}{n^2+n+1}\right|=\left|\frac{-n-2}{n^2+n+1}\right|=\frac{n+2}{n^2+n+1}.$$
+               Ahora no trabajaremos como lo hicimos antes, sino que vamos a establecer algunas desigualdades. Si $n\geq 2$, entonces $n+2\leq 2n$ y $n^2< n^2+n+1$, 
+               de lo cual se deduce que $n+2\leq 2n$ y $\frac{1}{n^2+n+1}< \frac{1}{n^2}$. 
+            </p>
+            <form class="question margin-top-sm" data-question="question-4-2-3" data-answer="c" autocomplete="off">
+               <h3 class="question__header margin-bottom-sm">
+                  ¿Cuál de las siguientes expresiones es cierta?
+               </h3>
+               <div class="question__row">
+                  <div class="question__col-1">
+                     <div class="question__options">
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-2-3-a" name="question-4-2-3" value="a" data-option="question-4-2-3">
+                           <label for="answer-4-2-3-a">$$\frac{n+2}{n^2+n+1} < \frac{1}{2+n}$$</label>
+                        </div>
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-2-3-b" name="question-4-2-3" value="b" data-option="question-4-2-3">
+                           <label for="answer-4-2-3-b">$$\frac{n+2}{n^2+n+1} < \frac{2-n}{n^2+n+1}$$</label>
+                        </div>
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-2-3-c" name="question-4-2-3" value="c" data-option="question-4-2-3">
+                           <label for="answer-4-2-3-c">$$\frac{n+2}{n^2+n+1} < \frac{2}{n}$$</label>
+                        </div>
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-2-3-d" name="question-4-2-3" value="d" data-option="question-4-2-3">
+                           <label for="answer-4-2-3-d">$$\frac{n+2}{n^2+n+1} < \frac{2n+1}{n^2+n+1}$$</label>
+                        </div>
+                     </div>
+                     <div class="question__btn-box">
+                        <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                        <button class="btn btn--blue" type="button" disabled data-btn-continue="q-42-3">Continuar</button>
+                     </div>
+                  </div>
+                  <div class="question__col-2">
+                     <p class="question__answer"></p>
+                  </div>
+               </div>
+            </form>
+         </div>
+         <div class="section--hidden" data-section="q-42-3">
+            <p class="paragraph">
+               Se cumple que $$\left|\frac{n^2-1}{n^2+n+1}-1\right|=\frac{n+2}{n^2+n+1}\leq \frac{2n}{n^2+n+1}< \frac{2n}{n^2}=\frac{2}{n}.$$ 
+               Luego, tenemos que $$\frac{2}{n}< \varepsilon \Leftrightarrow \frac{2}{\varepsilon}< n.$$ 
+               Notemos que la $N$ que debemos elegir debe ser mayor o igual que $\frac{2}{\varepsilon}$ y que 2.
+            </p>
+            <p class="paragraph">
+               Nuevamente, estamos en condiciones de dar la demostración: Sea $\varepsilon>0$ y tomamos $N=\max\left\{\left[\frac{2}{\varepsilon}\right]+1,2\right\}$. 
+            </p>
+            <form class="question margin-top-sm" data-question="question-4-2-4" data-answer="a" autocomplete="off">
+               <h3 class="question__header margin-bottom-sm">
+                  Si $n\geq N$, entonces, $n\geq 2$ y por definición de $N$ ¿qué nos dice el análisis preliminar?
+               </h3>
+               <div class="question__row">
+                  <div class="question__col-1">
+                     <div class="question__options">
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-2-4-a" name="question-4-2-4" value="a" data-option="question-4-2-4">
+                           <label for="answer-4-2-4-a">$\left|\frac{n^2-1}{n^2+n+1}-1\right|<\frac{2}{n}$</label>
+                        </div>
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-2-4-b" name="question-4-2-4" value="b" data-option="question-4-2-4">
+                           <label for="answer-4-2-4-b">$\left|\frac{n^2-1}{n^2+n+1}-1\right|<\frac{n^2}{2}$</label>
+                        </div>
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-2-4-c" name="question-4-2-4" value="c" data-option="question-4-2-4">
+                           <label for="answer-4-2-4-c">$\left|\frac{n^2-1}{n^2+n+1}-1\right|<\frac{2}{n+1}$</label>
+                        </div>
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-2-4-d" name="question-4-2-4" value="d" data-option="question-4-2-4">
+                           <label for="answer-4-2-4-d">$\left|\frac{n^2-1}{n^2+n+1}-1\right|<\frac{2+n}{n^2+1}$</label>
+                        </div>
+                     </div>
+                     <div class="question__btn-box">
+                        <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                        <button class="btn btn--blue" type="button" disabled data-btn-continue="q-42-4">Continuar</button>
+                     </div>
+                  </div>
+                  <div class="question__col-2">
+                     <p class="question__answer"></p>
+                  </div>
+               </div>
+            </form>               
+         </div>
+         <div class="section--hidden" data-section="q-42-4">
+            <p class="paragraph">
+               Si $n\geq N$, entonces, $n\geq 2$, por definición de $N$, y por el análisis preliminar se obtiene que $$\left|\frac{n^2-1}{n^2+n+1}-1\right|<\frac{2}{n}.$$ 
+               Además, por definición de $N$ y por las propiedades de la parte entera, tenemos que 
+               $$\frac{2}{\varepsilon} < \left[\frac{2}{\varepsilon}\right]+1\leq N \leq n,$$ de lo cual se deduce que $\frac{2}{\varepsilon}< n$, 
+               y por el análisis preliminar se tiene que esto es equivalente a $\frac{2}{n}<\varepsilon$. Finalmente, obtenemos que 
+               $\left|\frac{n^2-1}{n^2+n+1}-1\right|<\varepsilon$. Lo cual demuestra que $\lim_{n\to \infty}\frac{n^2-1}{n^2+n+1}=1$. 
+            </p>
+            <p class="paragraph">
+               Por lo tanto, la sucesión converge.
+            </p>
+            <div>
+               <button class="btn-sm btn--blue" type="button" data-btn-continue="q-42-5">Continuar</button>
+            </div>
+            <div class="fancy-line"></div>
+         </div>
+      </section>
+      <section class="section--hidden" data-section="q-42-5">
+         <p class="paragraph">
+            Las sucesiones convergentes son muy importantes dentro del análisis matemático por la cantidad de propiedades que poseen. 
+            Nos centraremos en las propiedades más importantes que nos permitirán establecer criterios de convergencia de series.
+         </p>
+         <div class="theorem">
+            <p class="paragraph">
+               <span class="theorem__title">Teorema 4.2.2. </span>Si $\{a_n\}_{n\in\mathbf{N}}$ es una suecesión convergente, entonces es acotada.
+            </p>
+         </div>
+         <h3 class="header-tertiary">Solución.</h3>
+         <div class="proof">
+            <p class="paragraph">
+               Como la sucesión $\{a_n\}_{n\in\mathbf{N}}$ converge, podemos suponer que converge a $L$, es decir, tenemos que $\lim_{n\to \infty}a_n=L$. 
+               Si $\varepsilon=1$, entonces, por definición de límite, existe $N\in\mathbf{N}$ tal que si $n\geq N$, entonces $|a_n-L|< 1$. 
+               Pero sabemos que $|a_n|-|L|\leq |a_n-L|$, entonces tenemos que: $$n\geq N \Rightarrow |a_n|-|L|< 1 \Rightarrow |a_n|< |L|+1.$$
+            </p>
+            <p class="paragraph">
+               Sea $M=\max\{|a_1|,|a_2|,...,|a_{N-1}|\}$, entonces para $n\leq N-1$, se cumple que $|a_n|\leq M$, por definición de máximo. 
+            </p>
+            <p class="paragraph">
+               Luego, tomando $T=\max\{M, |L|+1\}$, tenemos que $$\forall n\in\mathbf{N}: |a_n|\leq T.$$ Finalmente, por <span class="modal__reference" data-modal-btn="t-4-1-1">Teorema 4.2.1</span>, tenemos que la sucesión es acotada.
+            </p>
+         </div>
+         <div class="fancy-line"></div>
+         <p class="paragraph">
+            La importancia de este teorema radica en que nos proporciona un criterio para determinar si una sucesión puede converger o no, ya que si tenemos una sucesión no acotada, entonces no puede ser convergente.
+         </p>
+         <div class="example">
+            <p class="paragraph example__paragraph">
+               <span class="example__title">Ejemplo 4.2.5. </span>La sucesión $\{n\}_{n\in\mathbf{N}}$ no converge, porque no es acotada.
+            </p>
+         </div>
+         <p class="paragraph">
+            Un criterio de convergencia de sucesiones se puede establecer a partir de la convergencia de funciones.
+         </p>
+         <div class="theorem">
+            <p class="paragraph">
+               <span class="theorem__title">Teorema 4.2.3 </span>Sean $f$ una función real de variable real, $\{a_n\}_{n\in\mathbf{N}}$ una sucesión, $L\in\mathbf{R}$, y además existe 
+               $K \in \mathbf{N}$ tal que si $n\geq K$, entonces $f(n)=a_n$. Si  $\lim_{x\to\infty}f(x)=L$, entonces  $\lim_{n\to\infty}a_n=L$. 
+            </p>
+         </div>
+         <div class="proof">
+            <h3 class="header-tertiary">Demostración.</h3>
+            <p class="paragraph">
+               Sea $\varepsilon>0$. Como $\lim_{x\to\infty}f(x)=L$, entonces existe $M\in\mathbf{R}$, con $M>0$, tal que si $M< x$, 
+               entonces $|f(x)-L|< \varepsilon$, por definición de límite al infinito.
+            </p>
+            <p class="paragraph">
+               Además, por hipótesis, tenemos que existe $K \in \mathbf{N}$ tal que si $n\geq K$, entonces $f(n)=a_n$.
+            </p>
+            <p class="paragraph">
+               Tomamos $N=\max\{[M]+1,K\}\in\mathbf{N}$. Si $n\geq N$, entonces $$M< [M]+1 \leq N \leq n \quad \mbox{ y }\quad K\leq n,$$ de lo cual obtenemos que $M< n$ 
+               y $K\leq n$. Luego $|f(x)-L|<\varepsilon \quad  \mbox{ y } \quad f(n)=a_n$. De donde se obtiene que $|a_n-L|=|f(n)-L|<\varepsilon$.
+            </p>
+            <p class="paragraph">
+               Por lo tanto, $\lim_{n\to\infty}a_n=L$.
+            </p>
+         </div>
+         <div class="fancy-line"></div>
+         <p class="paragraph">
+            Este teorema no sólo nos dice que la sucesión converge, sino que también nos indica a dónde converge a tarvés de la convergencia de una función real de variable real.
+         </p>
+         <div class="example">
+            <p class="paragraph example__paragraph">
+               <span class="example__title">Ejemplo 4.2.6. </span>Determinar el límite de la sucesión $\left\{\left(1+\frac{1}{n}\right)^n\right\}_{n\in\mathbf{N}}$.
+            </p>
+         </div>
+         <h3 class="header-tertiary">Solución.</h3>
+         <p class="paragraph">
+            Consideremos la función $f(x)=\left(1+\frac{1}{x}\right)^x$, para la cual sabemos que $\lim_{x\to\infty}f(x)=e.$ 
+            Además, notemos que considerando la sucesión  $\{a_n\}_{n\in\mathbf{N}}=\left\{\left(1+\frac{1}{n}\right)^n\right\}_{n\in\mathbf{N}}$, tenemos que $\forall n\in\mathbf{N}: f(n)=a_n$. 
+            Entonces por el <span class="example__title">Teorema 4.2.3</span>, tenemos que $\lim_{n\to\infty}a_n=e$, es decir, la sucesión $\left\{\left(1+\frac{1}{n}\right)^n\right\}_{n\in\mathbf{N}}$ converge a $e$. 
+         </p>
+         <p class="paragraph">
+            El <span class="example__title">Teorema 4.2.3</span> nos permite hacer uso de técnicas propias del Cálculo Diferencial para determinar límites, por ejemplo el Teorema de L'Hopital.
+         </p>
+         <div class="example">
+            <p class="paragraph example__paragraph">
+               <span class="example__title">Ejemplo 4.2.7 </span>Demuestra que la sucesión $\left\{\frac{n^2}{e^n-1}\right\}_{n\in\mathbf{N}}$ converge.
+            </p>
+         </div>
+         <h3 class="header-tertiary">Solución.</h3>
+         <p class="paragraph">
+            Tomemos $f(x)=\frac{x^2}{e^x-1}$ y consideremos la sucesión $\{a_n\}_{n\in\mathbf{N}}=\left\{\frac{n^2}{e^n-1}\right\}_{n\in\mathbf{N}}$. Notemos $\forall n\in\mathbf{N}: f(n)= a_n$.
+         </p>
+         <form class="question margin-top-sm" data-question="question-4-2-5" data-answer="b" autocomplete="off">
+            <h3 class="question__header margin-bottom-sm">
+               Aplica el teorema de L'Hopital para calcular $f(x)=\frac{x^2}{e^x-1}.$
+            </h3>
+            <div class="question__row">
+               <div class="question__col-1">
+                  <div class="question__options">
+                     <div class="question__option">
+                        <input type="radio" id="answer-4-2-5-a" name="question-4-2-5" value="a" data-option="question-4-2-5">
+                        <label for="answer-4-2-5-a">$\frac{1}{e}$</label>
+                     </div>
+                     <div class="question__option">
+                        <input type="radio" id="answer-4-2-5-b" name="question-4-2-5" value="b" data-option="question-4-2-5">
+                        <label for="answer-4-2-5-b">$0$</label>
+                     </div>
+                     <div class="question__option">
+                        <input type="radio" id="answer-4-2-5-c" name="question-4-2-5" value="c" data-option="question-4-2-5">
+                        <label for="answer-4-2-5-c">$1$</label>
+                     </div>
+                     <div class="question__option">
+                        <input type="radio" id="answer-4-2-5-d" name="question-4-2-5" value="d" data-option="question-4-2-5">
+                        <label for="answer-4-2-5-d">$\frac{1}{2}$</label>
+                     </div>
+                  </div>
+                  <div class="question__btn-box">
+                     <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                     <button class="btn btn--blue" type="button" disabled data-btn-continue="q-42-6">Continuar</button>
+                  </div>
+               </div>
+               <div class="question__col-2">
+                  <p class="question__answer"></p>
+               </div>
+            </div>
+         </form>
+         <div class="section--hidden" data-section="q-42-6">
+            <p class="paragraph">
+               aplicando el Teorema de L'Hopital dos veces, obtenemos que 
+               $$\lim_{x\to\infty}f(x)=\lim_{x\to\infty}\frac{x^2}{e^x-1}= \lim_{x\to\infty}\frac{2x}{e^x}= \lim_{x\to\infty}\frac{2}{e^x}=0.$$ 
+               Entonces, por el <span class="example__title">Teorema 4.2.3</span>, tenemos que $\lim_{n\to\infty}a_n=0$, es decir, $\lim_{n\to\infty}\frac{n^2}{e^n-1}=0$. 
+               Por lo tanto, la sucesión $\left\{\frac{n^2}{e^n-1}\right\}_{n\in\mathbf{N}}$ converge a 0.
+            </p>
+            <div>
+               <button class="btn-sm btn--blue" type="button" data-btn-continue="q-42-7">Continuar</button>
+            </div>
+            <div class="fancy-line"></div>
+         </div>
+      </section>
+      <section class="section--hidden" data-section="q-42-7">
+         <p class="paragraph">
+            Otra de las propiedades importantes es la siguiente.
+         </p>
+         <alien-math-template path="./components/theorems/theorem-4.2.4.html"></alien-math-template>
+         <h3 class="header-tertiary">Demostración.</h3>
+         <p class="paragraph">
+            Por hipótesis, la sucesión $\{a_n\}_{n\in\mathbf{N}}$ es monótona, podemos suponer que la sucesión es creciente. Además, por hipótesis es acotada, en particular, 
+            es acotada superiormente. Definamos al conjunto $A=\{a_n: n\in\mathbf{N}\}$, el cual es un subconjunto de $\mathbf{R}$, acotado y no vacío, entonces existe $\sup A$, por el 
+            axioma del supremo.
+         </p>
+         <p class="paragraph">
+            Definimos $L=\sup A$ y probaremos que $\lim_{n\to\infty}a_n=L$. En efecto: Sea $\varepsilon>0$. Entonces $L-\varepsilon< L$, luego, 
+            por las propiedades del supremo, existe $N\in \mathbf{N}$ tal que $L-\varepsilon< a_N\leq L$. Como la sucesión es creciente, entonces para toda $n\geq N$, 
+            se tiene que $a_N\leq a_n$ y como $L$, es el supremo de $A$, entonces $a_n\leq L$. Así, tenemos que 
+            $$n\geq N \Rightarrow L-\varepsilon < a_N \leq a_n \leq L < L+\varepsilon \Rightarrow L-\varepsilon < a_n < L+\varepsilon \Rightarrow |a_n-L|<\varepsilon.$$ 
+            Por lo tanto, tenemos que $\lim_{n\to\infty}a_n=L$.
+         </p>
+         <p class="paragraph">
+            Si la sucesión es decreciente, se trabaja de manera análoga, sólo que se trabajan con propiedades del ínfimo de un conjunto.
+         </p>
+         <div class="fancy-line"></div>
+         <p class="paragraph">
+            Uno de los resultados con mayor impacto en el estudio de las sucesiones convergentes es el álgebra tales sucesiones.
+         </p>
+         <div class="theorem">
+            <p class="paragraph">
+               <span class="theorem__title">Teorema 4.2.5. </span>Si $\{a_n\}_{n\in\mathbf{N}}$ y $\{b_n\}_{n\in\mathbf{N}}$ son sucesiones convergentes, tales que $\lim_{n\to\infty}a_n=L$ y $\lim_{n\to\infty}b_n=K$, con $L,K\in\mathbf{R}$, entonces:
+            </p>
+            <ul class="simple-list">
+               <li>$\lim_{n\to\infty}(a_n+b_n)=L+K$;</li>
+               <li>$\lim_{n\to\infty}(a_n-b_n)=L-K$;</li>
+               <li>$\lim_{n\to\infty}(a_n\cdot b_n)=L\cdot K$;</li>
+               <li>$\lim_{n\to\infty} \frac{1}{b_n}=\frac{1}{K}$, si $K, b_n\neq 0$, para toda $n$, salvo una cantidad finita de términos;</li>
+               <li>$\lim_{n\to\infty}\frac{a_n}{b_n}=\frac{L}{K}$, si $K, b_n\neq 0$, para toda $n$, salvo una cantidad finita de términos;;</li>
+            </ul>
+         </div>
+         <p class="paragraph">
+            En la siguiente sección se desarrolan más ejemplos sobre sucesiones.
+         </p>
+         <div class="fancy-line"></div>
+         <div class="change-page">
+            <a href="./4.1-sucesiones.html" class="change-page__before">Anterior</a>
+            <a href="./4.3-ejemplos-de-sucesiones.html" class="change-page__next">Siguiente</a>
+         </div>
+      </section>
+   </main>
+   <div class="modal" data-modal="t-4-2-1">
+      <div class="modal__background" data-modal-background="t-4-1-1"></div>
+      <div class="modal__content">
+         <alien-math-template path="./components/theorems/theorem-4.1.1.html"></alien-math-template>
+      </div>
+   </div>
+</body>
+</html>

@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+   <link rel="stylesheet" href="/css/style.css">
+   
+   <script src="./scripts/variables.js" defer></script>
+   <script src="./scripts/question.js" defer></script>
+   <script src="./scripts/modal.js" defer></script>
+   <script src="./components/component-loader.js" defer></script>
+   <!-- <script src="./components/mobile-sidebar/mobile-sidebar.js" defer></script>
+   <script src="./components/sidebar/sidebar.js" defer></script>
+   <script src="./components/math-template.js" defer></script> -->
+
+   <script>
+      MathJax = {
+            tex: {
+               inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+            loader: {load: ['input/asciimath', 'output/chtml']}
+      }
+   </script>
+   <script id="MathJax-script" async src="/scripts/MathJax-master/es5/tex-chtml.js"></script>
+
+   <title>Cálculo 2 | Sucesiones</title>
+</head>
+<body class="course">
+   <nav class="navbar">
+      <a href="/" class="navbar__logo-box">
+      </a>
+      <a href="/" class="navbar__link">
+            Inicio
+      </a>
+      <a href="#" class="navbar__link navbar__link--active">
+            Cálculo 2
+      </a>
+      <a href="./quiz.html" class="navbar__link">
+            Quiz
+      </a>
+      <button class="menu-mobile-btn burger-btn" data-menu-btn="menu-mobile"><span class="burger-icon"></span></button>
+   </nav>
+   <alien-sidebar class="sidebar" id="sidebar"></alien-sidebar>
+   <alien-mobile-sidebar id="mobile-menu"></alien-mobile-sidebar>
+   <main class="main">
+      <section>
+         <h2 class="header-primary margin-bottom-md">
+            Capítulo 4
+         </h2>
+         <h1 class="header-primary margin-bottom-md">
+               SERIES Y SUCESIONES
+         </h1>
+         <h2 class="header-primary margin-bottom-md">
+               4.1 Sucesiones
+         </h2>
+         <p class="paragraph">
+            Uno de los pilares del cálculo es el concepto de límite, el cual, en su forma más simple, se presenta como "límite de una sucesión de números reales", 
+            la cual se entiende como una lista ordenada e infinita de números reales. Una lista la podemos definir como una colección de números reales en la cual cada uno de 
+            ellos viene con una etiqueta que indica su lugar en la lista.
+         </p>
+         <p class="paragraph">
+            Es importante mencionar que la lista a la cual hacemos referencia tiene tres elementos básicos: el conjunto de números que indican los lugares de la lista, 
+            los númneros que forman la lista y la regla que indica qué número ocupa el lugar de la lista. En resumen, podemos entender una sucesión como una lista 
+            interminable de números reales (no necesariamente distintos) dispuestos en un orden determinado.
+         </p>
+         <div class="example">
+            <div class="paragraph example__paragraph">
+               <span class="example__title">Ejemplo 4.1.1</span> Presentamos distintas listas de números que son sucesiones:
+            </div>
+            <ul class="index-list">
+               <li>$-1,1,-1,1,-1,1,...$, el -1 y el 1 se alternan infinitamente. </li>
+               <li>$1,-1,1,-1,1,-1,1,...$, el 1 y el -1 se alternan infinitamente.</li>
+               <li>$2,4,6,8,...$, es la lista de números pares.</li>
+               <li>$1,\frac{1}{2}, \frac{1}{3}, \frac{1}{4}, \frac{1}{5},...$</li>
+               <li>$2,5,8,11,14,17,20,23,...$</li>
+            </ul>
+         </div>
+         <div class="note">
+            <p class="paragraph">
+               <span class="note__title">Nota:</span> Nótese que los dos primeros ejemplos son sucesiones diferentes, pues el orden de la lista es importante.
+               Los números que se usan en una sucesión no tienen por qué ser un conjunto infinito, pues basta un cantidad finita de números para generar sucesiones.
+            </p>
+         </div>
+         <p class="paragraph">
+            Una forma en la que se puede dar una sucesión (como lo hicimos en el Ejemplo anterior), es a través de una lista de tal forma que se indiquen los primeros términos 
+            de la sucesión y usando puntos suspensivos para sugerir que la sucesión continúa de forma clara.
+         </p>
+         <p class="paragraph">
+            Es justo hacer notar que esta no es la mejor forma aunque es muy usual, pues realmente la sucesión podría seguir con cualquier número.
+            Otra forma, que es más convencional, es indicando una regla que nos diga de qué forma se van generando los elementos de la sucesión.
+         </p>
+         <div class="example">
+            <div class="paragraph example__paragraph">
+               <span class="example__title">Ejemplo 4.1.2.</span> La sucesión dada por la regla $a_n=n(n+1), \forall n\in\mathbf {N}$, tiene como primeros elementos:
+               \begin{equation*}
+                  \begin{split}
+                     a_1 &=1(1+1)=2;\\
+                     a_2 &= 2(2+1) = 6; \\
+                     a_3 &= 3(3+1) = 12; \\
+                     \vdots &= \vdots
+                  \end{split}
+               \end{equation*}
+               El elemento 50 de la sucesión es cuando $n=50$, es decir, es $a_{50}=50(50+1)=2550$. 
+            </div>
+         </div>
+         <p class="paragraph">
+            Muchas veces, aunque la sucesión sea bastante entendible, no resulta tan sencillo obetener la regla general que la genere. Una de las sucesiones más estudiadas, 
+            debido a su uso en sistemas dinámicos, es la sucesión de Fibonacci, la cual se presenta en el siguiente ejemplo.
+         </p>
+         <div class="example">
+            <div class="paragraph example__paragraph">
+               <span class="example__title">Ejemplo 4.1.3.</span> La sucesión de Fibonacci, es la sucesión que tiene como primeros términos: $$1,1,2,3,5,8,13,21,34,...$$ 
+               Esta sucesión comienza con dos unos y después se genera sumando los dos elementos anteriores. A pesar de que es fácil de comprender el comportamiento de esta sucesión, 
+               no es fácil darse cuenta que la fórmula que genera a todos los elementos es: 
+               $$F_n=\frac{1+\sqrt{5}^n-(1-\sqrt{5})^n}{2^n\sqrt{5}}.$$
+            </div>
+         </div>
+         <p class="paragraph">
+            El ejemplo anterior forma parte de una clase especial de sucesiones las llamadas sucesiones recurrentes.
+            La regla general de estas sucesiones puede darse a través de fórmulas de recurrencia, las cuales se establecen mostrando los primeros $k$ términos y dando una función $F$ 
+            con $k$ parámetros que se evalúe en sobre los $k$ términos dados.
+         </p>
+         <div class="example">
+            <div class="paragraph example__paragraph">
+               <span class="example__title">Ejemplo 4.1.4.</span> La sucesión de Fibonacci, mostrada en el <span class="example__title">Ejemplo 4.2.3</span>, puede expresarse a través de la fórmula de recurrencia:
+               $$F_n= \left\{ \begin{array}{lcc}
+                           F_1=1 &     &  
+                           \\ F_2=1 &   &  
+                           \\ F_n=F_{n-2}+F_{n-1} &  \mbox{ para }  & n \geq 3
+                           \end{array}
+                 \right.$$
+            </div>
+         </div>
+         <p class="paragraph">
+            A pesar de que sería muy importante que cualquier sucesión pudiera representarse por una regla o una fórmula general a través de expresiones algebraicas, 
+            sabemos que este no es posible, pues existen sucesiones para las cuales no podríamos encontrar su regla general.
+         </p>
+         <div class="example">
+            <div class="paragraph example__paragraph">
+               <span class="example__title">Ejemplo 4.1.5.</span> Las siguientes sucesiones no admiten una regla general que las genere:
+            </div>
+            <ul class="index-list">
+               <li>La sucesión que genera los dígitos de $\pi:$ $$3,1,4,1,5,9,2,6,5,3,...$$ </li>
+               <li>La sucesión que genera a todos los números primos de forma ordenada: $$2,3,5,7,11,13,17,19,23,...$$</li>
+            </ul>
+         </div>
+         <div class="fancy-line"></div>
+      </section>
+      <section>
+         <p class="paragraph">
+            Para fines prácticos, es suficiente analizar a las sucesiones como listas infinitas de números reales, sin embargo, en aras del formalismo, es importante dar la definición formal de sucesión.
+         </p>
+         <div class="definition">
+            <p class="paragraph">
+               <span class="definition__title">Definición 4.1.1.</span> Una sucesión es una función $f:\mathbf{N} \to\mathbf{R}$. Diremos que el $n$-ésimo término es $f(n)$.
+            </p>
+         </div>
+         <p class="paragraph">
+            Los primeros elementos de la sucesión queda expresada como $$f(1), f(2), f(3), f(4), ...$$
+         </p>
+         <p class="paragraph">
+            Así, teniendo una sucesión $f:\mathbf{N}\to \mathbf{R}$, podemos establecer la regla $f(n):=a_n$ y para referirnos a una sucesión usaremos la 
+            notación $\{a_n\}_{n\in\mathbf{N}}$ o $\{a_n\}_{n=1}^\infty$, entendiendo la asignación que acabamos de mencionar.
+         </p>
+         <div class="note">
+            <p class="paragraph">
+               <span class="note__title">Nota:</span> Algunas sucesiones no están definidas para los primeros naturales, 
+               por ejemplo la sucesión dada por la regla de correspondencia $f(n)=\frac{1}{n-5}$, 
+               la cual está definida para $n\in\mathbf{N}$ con $n\geq 6$. En este caso, podemos definir una función auxiliar $g:\mathbf{N}\to \mathbf{R}$ dada por $g(n)=f(n+5)$, 
+               entonces la expresión $\left\{\frac{1}{n-5}\right\}_{n=6}^\infty$ sigue siendo una sucesión.
+            </p>
+         </div>
+         <p class="paragraph">
+            Con base en esta observación, establecemos la siguiente definición.
+         </p>
+         <div class="definition">
+            <p class="paragraph">
+               <span class="definition__title">Definición 4.1.2.</span> Si $k\in\mathbf{N}$ y $A=\{n\in\mathbf{N}:n>k\}$, entonces la función $f:A\to \mathbf{N}$ define la sucesión 
+               $g:\mathbf{N}\to\mathbf{R}$ dada por $g(n)=f(n+k)$, la cual denotaremos por $\{a_n\}_{n=k+1}^\infty$. 
+            </p>
+         </div>
+         <p class="paragraph">
+            El definir las sucesiones a través de funciones nos permite heredarles algunas propiedades que son básicas de las funciones y tomando en cuenta que tenemos como dominio
+            a los naturales, podemos hablar de números consecutivos, lo cual nos permite dar la siguiente definición.
+         </p>
+         <div class="definition">
+            <div class="paragraph">
+               <span class="definition__title">Definición 4.1.3.</span> Sea $\{a_n\}_{n\in\mathbf{N}}$ una sucesión. Se dice que la sucesión es:
+            </div>
+            <ul class="simple-list">
+               <li>Creciente o monótona creciente, si y sólo si, $\forall n\in\mathbf{N}: a_n\leq a_{n+1}.$</li>
+               <li>Estrictamente creciente, si y sólo si, $\forall n\in\mathbf{N}: a_n < a_{n+1}.$</li>
+               <li>Decreciente o monótona decreciente, si y sólo si, $\forall n\in\mathbf{N}: a_{n+1}\leq a_n.$</li>
+               <li>Estrictamente decreciente, si y sólo si, $\forall n\in\mathbf{N}: a_{n+1} < a_n.$</li>
+            </ul> 
+         </div>
+         <div class="example example__paragraph margin-top-sm">
+            <p class="paragraph">
+               <span class="example__title">Ejemplo 4.1.5.</span> 
+            </p>
+            <ul class="simple-list">
+               <li>La sucesión $\{5\}_{n\in\mathbf{N}}$ es creciente, de hecho es la sucesión constante.</li>
+               <li>La sucesión $\{n\}_{n\in\mathbf{N}}$ es estrictamente creciente.</li>
+               <li>La sucesión $\{\frac{1}{n}\}_{n\in\mathbf{N}}$ es decreciente.</li>
+               <li>La sucesión $\{1+\frac{1}{n}\}_{n\in\mathbf{N}}$ es estrictamente decreciente.</li>
+            </ul>
+         </div>
+         <div class="example example__paragraph margin-top-sm">
+            <p class="paragraph">
+               <span class="example__title">Ejemplo 4.1.6.</span> La sucesión $\{(-1)^n\}_{n\in\mathbf{N}}$ no es creciente ni decreciente, mucho menos estrictamente creciente ni estrictamente decreciente. 
+            </p>
+         </div>
+         <div class="fancy-line"></div>
+         <p class="paragraph">
+            Unas de las sucesiones más importantes son las acotadas, porque estas serán un caso especial de sucesiones que tengan límite.
+         </p>
+         <div class="definition">
+            <p class="paragraph">
+               <span class="definition__title">Definición 4.1.4.</span> Sea $\{a_n\}_{n\in\mathbf{N}}$ una sucesión. Se dice que la sucesión es:
+            </p>
+            <ul class="simple-list">
+               <li>Acotada superiormente, si y sólo si, existe $M\in\mathbf{R}$ tal que $\forall n\in\mathbf{N}: a_n\leq M$. Al número $M$ le llamamos una cota superior.</li>
+               <li>Acotada inferiormente, si y sólo si, existe $K\in\mathbf{R}$ tal que $\forall n\in\mathbf{N}: K \leq a_n$. Al número $L$ le llamamos una cota inferior.</li>
+               <li>Acotada si y sólo si está acotada superiormente e inferiormente.</li>
+            </ul>
+         </div>
+         <p class="paragraph">
+            Una caracterización de las sucesiones acotadas se da en el siguiente teorema.
+         </p>
+         <alien-math-template path="./components/theorems/theorem-4.1.1.html"></alien-math-template>
+         <div class="proof">
+            <h3 class="header-tertiary">Demostración.</h3>
+            <p class="paragraph">
+               Sea $\{a_n\}_{n\in\mathbf{N}}$ una sucesión acotada, entonces es acotada superiormente e inferiormente, por la <span class="theorem__title">Definición 4.1.4.</span> 
+               Luego, existen $M,K\in\mathbf{R}$, tales que $$\forall n\in\mathbf{N}: K\leq a_n \leq M.$$ Sea $T=\max\{|M|,|K|\}+1$, entonces $\forall n\in\mathbf{N}: -T\leq K\leq a_n \leq M\leq T$, 
+               es decir, $$\forall n\in\mathbf{N}: |a_n|\leq T.$$
+            </p>
+            <p class="paragraph">
+               Supongamos ahora que existe $T\in\mathbf{R}$, con $T>0$, tal que $\forall n\in\mathbf{N}: |a_n|\leq T$, entonces $\forall n\in\mathbf{N}: -T \leq a_n\leq T$. 
+               Lo cual es equivalente a tener que $$\forall n\in\mathbf{N}: -T\leq a_n \quad \mbox{ y } \quad \forall n\in\mathbf{N}: a_n\leq T,$$ es decir, 
+               que la sucesión es acotada inferiormente y superiormente, y por lo tanto es acotada.
+            </p>
+         </div>
+         <div class="fancy-line"></div>
+      </section>
+      <section>
+         <p class="paragraph">
+            A continuación se verán algunos ejemplos para aclarar lo discutido anteriormente.
+         </p>
+         <form class="question margin-top-sm" data-question="question-4-1-1" data-answer="b" autocomplete="off">
+            <h3 class="question__header margin-bottom-sm">
+               Determina si la sucesión $a_n = \frac{2n}{n+1}$ es creciente o decreciente.
+            </h3>
+            <div class="question__row">
+               <div class="question__col-1">
+                  <div class="question__options">
+                     <div class="question__option">
+                        <input type="radio" id="answer-4-1-1-a" name="question-4-1-1" value="a" data-option="question-4-1-1">
+                        <label for="answer-4-1-1-a">Decreciente</label>
+                     </div>
+                     <div class="question__option">
+                        <input type="radio" id="answer-4-1-1-b" name="question-4-1-1" value="b" data-option="question-4-1-1">
+                        <label for="answer-4-1-1-b">Creciente</label>
+                     </div>
+                     <div class="question__option">
+                        <input type="radio" id="answer-4-1-1-c" name="question-4-1-1" value="c" data-option="question-4-1-1">
+                        <label for="answer-4-1-1-c">Ninguna de las anteriores</label>
+                     </div>
+                  </div>
+                  <div class="question__btn-box">
+                     <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                     <button class="btn btn--blue" type="button" disabled data-btn-continue="q-1">Continuar</button>
+                  </div>
+               </div>
+               <div class="question__col-2">
+                  <p class="question__answer"></p>
+               </div>
+            </div>
+         </form>
+         <div class="section--hidden" data-section="q-1">
+            <p class="paragraph">
+               Si la sucesión es creciente se debe cumplir que $a_n < a_{n+1}$, entonces
+               \begin{equation*}
+                  \begin{split}
+                     \frac{2n}{n+1} &< \frac{2(n+1)}{n+2}\\
+                     2n(n+2) &< (2n+2)(n+1)\\
+                     2n^2 + 4n &< 2n^2 + 4n +2\\
+                     0 &< 2.
+                  \end{split}
+               \end{equation*}
+               Puesto que los pasos son reversibles, se concluye que la sucesión es creciente.
+            </p>
+            <p class="paragraph">
+               Notemos que si se hubiera supuesto $a_{n+1} < a_n$, se hubiera obtenido $2 < 0 $, lo cual es una contradicción.
+               Alternativamente se puede demostrar considerando la función $f(x) =\frac{2x}{x+1}.$ La derivada es $f'(x)=\frac{2}{(x+1)^2},$ la cual
+               es positiva para todo $x.$ Entonces $f(x)$ es creciente, por lo que si $x_0 < x_1,$ se tiene que $f(x_0) < f(x_1).$ Lo anterior se cumple en particular
+               para $n$ y $n+1,$ lo que implica que $a_n < a_{n+1}.$
+            </p>
+            <div>
+               <button class="btn-sm btn--blue" type="button" data-btn-continue="q-2">Continuar</button>
+           </div>
+         </div>
+         <div class="section--hidden" data-section="q-2">
+            <form class="question margin-top-sm" data-question="question-4-1-2" data-answer="b" autocomplete="off">
+               <h3 class="question__header margin-bottom-sm">
+                  ¿Es $\frac{3}{2}$ una cota superior para la sucesión definida por $a_n=\frac{2n}{n+1}$ ?
+               </h3>
+               <div class="question__row">
+                  <div class="question__col-1">
+                     <div class="question__options">
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-1-2-a" name="question-4-1-2" value="a" data-option="question-4-1-2">
+                           <label for="answer-4-1-2-a">Cierto</label>
+                        </div>
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-1-2-b" name="question-4-1-2" value="b" data-option="question-4-1-2">
+                           <label for="answer-4-1-2-b">Falso</label>
+                        </div>
+                     </div>
+                     <div class="question__btn-box">
+                        <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                        <button class="btn btn--blue" type="button" disabled data-btn-continue="q-3">Continuar</button>
+                     </div>
+                  </div>
+                  <div class="question__col-2">
+                     <p class="question__answer"></p>
+                  </div>
+               </div>
+            </form>
+         </div>
+         <div class="section--hidden" data-section="q-3">
+            <p class="paragraph">
+               Tomando $n=4$ se tiene que $a_4=\frac{8}{5}=\frac{16}{10} > \frac{15}{10} = \frac{3}{2}.$ Por lo que $\frac{3}{2}$ no es una cota superior.
+            </p>
+            <form class="question margin-top-sm" data-question="question-4-1-3" data-answer="a" autocomplete="off">
+               <h3 class="question__header margin-bottom-sm">
+                  ¿Es $2$ una cota superior para la sucesión definida por $a_n=\frac{2n}{n+1}$?
+               </h3>
+               <div class="question__row">
+                  <div class="question__col-1">
+                     <div class="question__options">
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-1-3-a" name="question-4-1-3" value="a" data-option="question-4-1-3">
+                           <label for="answer-4-1-3-a">Cierto</label>
+                        </div>
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-1-3-b" name="question-4-1-3" value="b" data-option="question-4-1-3">
+                           <label for="answer-4-1-3-b">Falso</label>
+                        </div>
+                     </div>
+                     <div class="question__btn-box">
+                        <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                        <button class="btn btn--blue" type="button" disabled data-btn-continue="q-4">Continuar</button>
+                     </div>
+                  </div>
+                  <div class="question__col-2">
+                     <p class="question__answer"></p>
+                  </div>
+               </div>
+            </form>
+         </div>
+         <div class="section--hidden" data-section="q-4">
+            <p class="paragraph">
+               Si $2$ es cota superior, se debe cumplir $a_n < 2$ para $n \in \mathbf{N}$, es decir,
+               \begin{equation*}
+                  \begin{split}
+                     \frac{2n}{n+1} &< 2\\
+                     2n &< 2(n+1)\\
+                     0 &< 2.
+                  \end{split}
+               \end{equation*}
+               Puesto que los pasos son reversibles, se concluye que $2$ es una cota superior.
+            </p>
+            <p class="paragraph">
+               Alternativamente se puede demostrar de la siguiente manera
+               \begin{equation*}
+                  \begin{split}
+                     \frac{2n}{n+1} &< \frac{2n+2}{n+1}\\
+                      &= 2\frac{n+1}{n+1}\\
+                      &= 2.\\
+                  \end{split}
+               \end{equation*}
+            </p>
+            <div class="fancy-line"></div>
+            <div class="change-page">
+               <a href="./3.5-mas-calculo-de-volumenes.html" class="change-page__before">Anterior</a>
+               <a href="./4.2-algebra-de-sucesiones.html" class="change-page__next">Siguiente</a>
+            </div>
+         </div>
+      </section>
+   </main>
+</body>
+</html>

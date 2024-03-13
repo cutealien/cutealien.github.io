@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+   <link rel="stylesheet" href="/css/style.css">
+   
+   <script src="./scripts/variables.js" defer></script>
+   <script src="./scripts/question.js" defer></script>
+   <script src="./scripts/modal.js" defer></script>
+   <script src="./components/component-loader.js" defer></script>
+   <!-- <script src="./components/mobile-sidebar/mobile-sidebar.js" defer></script>
+   <script src="./components/sidebar/sidebar.js" defer></script>
+   <script src="./components/math-template.js" defer></script> -->
+
+   <script>
+      MathJax = {
+            tex: {
+               inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+            loader: {load: ['input/asciimath', 'output/chtml']}
+      }
+   </script>
+   <script id="MathJax-script" async src="/scripts/MathJax-master/es5/tex-chtml.js"></script>
+
+   <title>Cálculo 2 | Criterios de convergencia</title>
+</head>
+<body class="course">
+   <nav class="navbar">
+      <a href="/" class="navbar__logo-box">
+      </a>
+      <a href="/" class="navbar__link">
+            Inicio
+      </a>
+      <a href="#" class="navbar__link navbar__link--active">
+            Cálculo 2
+      </a>
+      <a href="./quiz.html" class="navbar__link">
+            Quiz
+      </a>
+      <button class="menu-mobile-btn burger-btn" data-menu-btn="menu-mobile"><span class="burger-icon"></span></button>
+   </nav>
+   <alien-sidebar class="sidebar" id="sidebar"></alien-sidebar>
+   <alien-mobile-sidebar id="mobile-menu"></alien-mobile-sidebar>
+   <main class="main">
+      <section>
+         <h1 class="header-primary margin-bottom-md">
+            4.5 Criterios de convergencia
+         </h1>
+         <p class="paragraph">
+            Para determinar la convergencia de las series trabajadas hasta ahora, se ha considerado las primeras sumas parciales $S_n$ y después ver si tienen límite finito
+            cuando $n \to \infty$. Sin embargo, no siempre es posible encontrar una expresión para $S_n$ de manera que resulte sencillo evaluar el límite cuando $n \to \infty$, 
+            lo que hace difícil establecer la convergencia de la serie.
+         </p>
+         <p class="paragraph">
+            Es posible establecer la convergencia o divergencia de una serie sin tener conocimiento explícito de las sumas parciales, para esto se han desarrollado criterios de convergencia.
+            El primer criterio que se da, es una condición <strong>necesaria</strong> para la convergencia.
+         </p>
+         <div class="theorem">
+            <p class="paragraph">
+               <span class="theorem__title">Teorema 4.5.1. </span>Si la serie $\sum_{n=0}^\infty a_n$ converge, el $n$-ésimo término tiende a cero.
+            </p>
+         </div>
+         <div class="proof">
+            <h3 class="header-tertiary">Demostración.</h3>
+            <p class="paragraph">
+               Sea $S_n = a_1 + a_2 + \cdots a_n$, entonces $a_n = S_n - S_{n-1}$. Cuando $n \to \infty$, $S_n$ y $S_{n-1}$ tienen el mismo límite y por lo tanto, $a_n \to 0.$
+            </p>
+         </div>
+         <div class="fancy-line"></div>
+         <h2 class="header-secondary">Criterios de convergencia para series de términos no negativos.</h2>
+         <div class="theorem">
+            <p class="paragraph">
+               <span class="theorem__title">Teorema 4.5.2. </span>Si $a_n \geq 0 $ para cada $n geq 1$, la serie $\sum_{n=0}^\infty a_n$ converge si y sólo si la sucesión de sumas
+               parciales está acotada superiormente.
+            </p>
+         </div>
+         <div class="proof">
+            <h3 class="header-tertiary">Demostración.</h3>
+            <p class="paragraph">
+               Puesto que las sumas parciales son monótonas crecientes, se aplica el <span class="modal__reference" data-modal-btn="t-4-2-3">Teorema 4.2.3</span> para obtener
+               la condición necesaria y suficiente de convergencia. Recuerde que una serie es una sucesion $\{S_n \}$ donde $S_n = a_1 + a_2 + \cdots + a_n$.
+            </p>
+         </div>
+         <div class="fancy-line"></div>
+
+         <h3>Temas</h3>
+         <ul class="index-list">
+            <li>comparacion</li>
+            <li>comparacion paso al limite</li>
+            <li>criterio integral</li>
+            <li>raiz</li>
+            <li>cociente</li>
+            <li>convergencia absoluta y condicional</li>
+         </ul>
+      </section>
+   </main>
+   <div class="modal" data-modal="t-4-2-3">
+      <div class="modal__background" data-modal-background="t-4-2-3"></div>
+      <div class="modal__content">
+         <alien-math-template path="./components/theorems/theorem-4.2.3.html"></alien-math-template>
+      </div>
+   </div>
+</body>
+</html>

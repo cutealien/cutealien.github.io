@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+   <link rel="stylesheet" href="/css/style.css">
+   
+   <script src="./scripts/variables.js" defer></script>
+   <script src="./scripts/question.js" defer></script>
+   <script src="./scripts/modal.js" defer></script>
+   <script src="./components/component-loader.js" defer></script>
+   <!-- <script src="./components/mobile-sidebar/mobile-sidebar.js" defer></script>
+   <script src="./components/sidebar/sidebar.js" defer></script>
+   <script src="./components/math-template.js" defer></script> -->
+
+   <script>
+      MathJax = {
+            tex: {
+               inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+            loader: {load: ['input/asciimath', 'output/chtml']}
+      }
+   </script>
+   <script id="MathJax-script" async src="/scripts/MathJax-master/es5/tex-chtml.js"></script>
+
+   <title>Cálculo 2 | Series</title>
+</head>
+<body class="course">
+   <nav class="navbar">
+      <a href="/" class="navbar__logo-box">
+      </a>
+      <a href="/" class="navbar__link">
+            Inicio
+      </a>
+      <a href="#" class="navbar__link navbar__link--active">
+            Cálculo 2
+      </a>
+      <a href="./quiz.html" class="navbar__link">
+            Quiz
+      </a>
+      <button class="menu-mobile-btn burger-btn" data-menu-btn="menu-mobile"><span class="burger-icon"></span></button>
+   </nav>
+   <alien-sidebar class="sidebar" id="sidebar"></alien-sidebar>
+   <alien-mobile-sidebar id="mobile-menu"></alien-mobile-sidebar>
+   <main class="main">
+      <section>
+         <h2 class="header-primary margin-bottom-md">
+            4.4 Series
+         </h2>
+         <p class="paragraph">
+            Supongamos que tenemos una sucesión de números reales $$ a_1, a_2, \cdots , a_n, \cdots.$$
+            A partir de esa sucesión podemos formar una nueva sucesión, $$ S_1=a_1, \quad S_2 = a_1 + a_2, \quad S_3 = a_1 + a_2 + a_3,$$
+            y así sucesivamente, estando la suma parcial de los $n$ primeros términos dada por $$S_n=a_1 + a_2 + \cdots + a_n= \sum_{k=1}^n a_k.$$
+         </p>
+         <div class="definition">
+            <p class="paragraph">
+               <span class="definition__title">Definición 4.4.1. </span>La sucesión ${S_n}$ de las sumas parciales se llama serie infinita o simplemente serie y 
+               se denota por $\sum_{k=1}^{\infty} a_k.$ La $n$-ésima suma parcial está dada por 
+               $$S_n=a_1 + a_2 + \cdots + a_n= \sum_{k=1}^n a_k.$$
+               Si la secuencia de sumas parciales ${S_n}$ converge a $S$, entonces la serie $\sum_{k=1}^{\infty} a_k$ converge, escrito en símbolos
+               $$\sum_{k=1}^{\infty} a_k = \lim_{n \to \infty} \{S_n\} = \lim_{n \to \infty} \sum_{k=1}^{n} a_k = S.$$
+               El límite $S$ es llamado la suma de la serie.
+               Si ${S_n}$ diverge, entonces la serie diverge.
+            </p>
+         </div>
+         <p class="paragraph">
+            Se mostrarán algunos ejemplos para ilustrar el manejo se series.
+         </p>
+         <div class="example">
+            <p class="paragraph example__paragraph">
+               <span class="example__title">Ejemplo 4.4.1 Serie Geométrica. </span> La serie geométrica se forma sumando términos de una progresión geométrica,
+               es conveniente empezar esta serie desde cero, de manera que su $n$-ésima suma está dada por $S_n= a + ax + ax^2 + \cdots + ax^{n-1}.$ 
+            </p>
+         </div>
+         <p class="paragraph">
+            Para saber si la serie converge, primero supongamos que $x=1,$ entonces $S_n=na$. Por lo tanto, 
+            $$\sum_{k=0}^{\infty}a = \lim_{n \to \infty} \{S_n\} = \lim_{n \to \infty} \sum_{k=0}^n a = \lim_{n \to \infty} na $$ y este límite no esxiste.
+            Ahora supongamos que $x \neq 1,$ se tiene que
+            \begin{equation*}
+               \begin{split}
+                  S_n &= a + ax + ax^2 + \cdots + ax^{n-1}\\
+                  xS_n &= ax + ax^2 + ax^3 + \cdots + ax^{n},
+               \end{split}
+            \end{equation*}
+            restando la segunda ecuación a la primera,
+            \begin{equation*}
+               \begin{split}
+                  S_n - xS_n &= a - ax^n\\
+                  S_n &= \frac{a - ax^n}{1-x},
+               \end{split}
+            \end{equation*}
+            Cuando $-1 < x < 1, $ $\lim_{n \to \infty} x^n = 0,$ por lo que 
+            $$\lim_{n \to \infty} S_n = \lim_{n \to \infty} \frac{a - ax^n}{1-x} = \frac{a}{1-x} - \frac{a}{1-x} \lim_{n \to \infty} x^n = \frac{a}{1-x},$$
+            y cuando $x > 1$ o $x < -1$ , la sucesión ${x^n}$ diverge, por lo que $\lim_{n \to \infty} \{S_n\}$ no existe.
+         </p>
+         <div class="fancy-line"></div>
+         <div class="example">
+            <p class="paragraph example__paragraph">
+               <span class="example__title">Ejemplo 4.4.2. </span> Una serie de la forma 
+               $$\sum_{n=1}^\infty \frac{1}{n^p}=\frac{1}{1^p}+\frac{1}{2^p}+\frac{1}{3^p}+\frac{1}{4^p}+\cdots$$ es una serie $p$ donde $p$ es un número real positivo. 
+               Si $p=1$, entonces la serie se llama armónica, es decir, la serie armónica es  
+               $$\sum_{n=1}^\infty \frac{1}{n}=\frac{1}{1}+\frac{1}{2}+\frac{1}{3}+\frac{1}{4}+\cdots$$
+            </p>
+            <p class="paragraph">
+               Para determinar si la serie armónica converge o diverge, primero consideramos las sumas parciales
+               \begin{equation*}
+                  \begin{split}
+                     S_1 &= 1\\
+                     S_2 &= 1 + \frac{1}{2}\\
+                     S_4 &= 1 + \frac{1}{2} (\frac{1}{3} + \frac{1}{4}) > 1 + \frac{1}{2} (\frac{1}{4} + \frac{1}{4}) = 1 + \frac{2}{2}\\
+                     S_8 &= 1 + \frac{1}{2} (\frac{1}{3} + \frac{1}{4}) + (\frac{1}{5} + \frac{1}{6} + \frac{1}{7} + \frac{1}{8}) \\
+                         &> 1 + \frac{1}{2} (\frac{1}{4} + \frac{1}{4}) + (\frac{1}{8} + \frac{1}{8} + \frac{1}{8} + \frac{1}{8}) \\
+                         &= 1 + \frac{1}{2} + \frac{1}{2} + \frac{1}{2} +\frac{1}{2} = 1 + \frac{3}{2}\\
+                     S_{16} &= 1 + \frac{1}{2} (\frac{1}{3} + \frac{1}{4}) + (\frac{1}{5} + \cdots + \frac{1}{8}) + (\frac{1}{9} + \cdots + \frac{1}{16})\\
+                        &> 1 + \frac{1}{2} (\frac{1}{4} + \frac{1}{4}) + (\frac{1}{8} + \cdots + \frac{1}{8}) + (\frac{1}{16} + \cdots + \frac{1}{16})\\
+                        &= 1 + \frac{1}{2} + \frac{1}{2} + \frac{1}{2} + \frac{1}{2} = 1 + \frac{4}{2}
+                  \end{split}
+               \end{equation*}
+               Continuando $S_{32} > 1 + \frac{5}{2}$ y $S_{64} > 1 + \frac{6}{2},$ y en general $$S_{2^n} > 1 + \frac{n}{2}.$$
+               Esto muestra que $S_{2^n} \to \infty$ cuando $n \to \infty$, por lo tanto, la sucesión $\{S_n\}$ diverge.
+            </p>
+            <div class="fancy-line"></div>
+         </div>
+         <form class="question margin-top-sm" data-question="question-4-4-1" data-answer="b" autocomplete="off">
+            <h3 class="question__header margin-bottom-sm">
+               <span class="example__title">Ejemplo 4.4.3. </span>Determinar la convergencia de $\sum_{n=1}^{\infty}2^{2n}3^{1-n}.$
+            </h3>
+            <div class="question__row">
+               <div class="question__col-1">
+                  <div class="question__options">
+                     <div class="question__option">
+                        <input type="radio" id="answer-4-4-1-a" name="question-4-4-1" value="a" data-option="question-4-4-1">
+                        <label for="answer-4-4-1-a">Diverge</label>
+                     </div>
+                     <div class="question__option">
+                        <input type="radio" id="answer-4-4-1-b" name="question-4-4-1" value="b" data-option="question-4-4-1">
+                        <label for="answer-4-4-1-b">Converge</label>
+                     </div>
+                  </div>
+                  <div class="question__btn-box">
+                     <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                     <button class="btn btn--blue" type="button" disabled data-btn-continue="s-1">Continuar</button>
+                  </div>
+               </div>
+               <div class="question__col-2">
+                  <p class="question__answer"></p>
+               </div>
+            </div>
+         </form>
+         <div class="section--hidden" data-section="s-1">
+            <h3 class="header-tertiary">Solución.</h3>
+            <p class="paragraph">
+               Para deteriminar la convergencia, resulta conveniente reescribir el término $a_n$ de manera que quede como una serie geométrica, es decir, 
+               de la forma $ax^n$.
+            </p>
+            <form class="question margin-top-sm" data-question="question-4-4-2" data-answer="c" autocomplete="off">
+               <h3 class="question__header margin-bottom-sm">
+                  Reescribe al término $a_n$.
+               </h3>
+               <div class="question__row">
+                  <div class="question__col-1">
+                     <div class="question__options">
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-4-2-a" name="question-4-4-2" value="a" data-option="question-4-4-2">
+                           <label for="answer-4-4-2-a">$\frac{2^n}{3^{1-n}}$</label>
+                        </div>
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-4-2-b" name="question-4-4-2" value="b" data-option="question-4-4-2">
+                           <label for="answer-4-4-2-b">$\frac{4^2n}{3^{n-1}}$</label>
+                        </div>
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-4-2-c" name="question-4-4-2" value="c" data-option="question-4-4-2">
+                           <label for="answer-4-4-2-c">$4\frac{4^{n-1}}{3^{n-1}}$</label>
+                        </div>
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-4-2-d" name="question-4-4-2" value="d" data-option="question-4-4-2">
+                           <label for="answer-4-4-2-d">$2\frac{2^n}{3^{1-n}}$</label>
+                        </div>
+                     </div>
+                     <div class="question__btn-box">
+                        <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                        <button class="btn btn--blue" type="button" disabled data-btn-continue="s-2">Continuar</button>
+                     </div>
+                  </div>
+                  <div class="question__col-2">
+                     <p class="question__answer"></p>
+                  </div>
+               </div>
+            </form>
+         </div>
+         <div class="section--hidden" data-section="s-2">
+            <p class="paragraph">
+               Se tiene que 
+               $$a_n = 2^{2n}3^{1-n} = (2^2)^n 3^{-(n-1)} = \frac{4^n}{3^{n-1}} = 4\frac{4^{n-1}}{3^{n-1}},$$
+               por lo que la serie se puede reescribir como,
+               $$\sum_{n=1}^{\infty}2^{2n}3^{1-n} = \sum_{n=1}^{\infty} 4\frac{4^{n-1}}{3^{n-1}}.$$
+               Esta es una serie geométrica con $a=4$ y $x=\frac{4}{3}$, por lo tanto, diverge pues $x > 1$.
+            </p>
+            <div class="note">
+               <p class="paragraph">
+                  <span class="note__title">Nota: </span>La defifinición que se dio de serie geométrica comienza con $n=0$, pero esta serie empieza con
+                  $n=1$. Lo importante es que el primer exponente del término $x$ sea cero, es decir, que la serie tenga la forma $ax^0+ax^1+ax^2+\cdots.$
+               </p>
+            </div>
+            <div class="margin-bottom-xm">
+               <button class="btn-sm btn--blue" type="button" data-btn-continue="s-3">Continuar</button>
+            </div>
+            <div class="fancy-line"></div>
+         </div>
+      </section>
+      <section class="section--hidden" data-section="s-3">
+         <p class="paragraph">
+            Usando series es posible encontrar representación decimal infinita como cociente de dos enteros. 
+         </p>
+         <div class="example">
+            <p class="paragraph example__paragraph">
+               <span class="example__title">Ejemplo 4.4.4. </span>Expresa el número $x=2.020202...$ como cociente de dos enteros.
+            </p>
+         </div>
+         <h3 class="header-tertiary">Solución.</h3>
+         <p class="paragraph">
+            Primero expresamos al número $x$ como una serie infinita
+            \begin{equation*}
+               \begin{split}
+                  x &= 2.020202...\\
+                  x &= 2 + 0.02 + 0.0002 + .000002 + ...
+               \end{split}
+            \end{equation*}
+            y luego calculamos el valor de la serie.
+         </p>
+         <form class="question margin-top-sm" data-question="question-4-4-3" data-answer="d" autocomplete="off">
+            <h3 class="question__header margin-bottom-sm">
+               Exprese $x$ como una serie geométrica.
+            </h3>
+            <div class="question__row">
+               <div class="question__col-1">
+                  <div class="question__options">
+                     <div class="question__option">
+                        <input type="radio" id="answer-4-4-3-a" name="question-4-4-3" value="a" data-option="question-4-4-3">
+                        <label for="answer-4-4-3-a">$$\sum_{n=0}^{\infty} \left (\frac{2}{10} \right )^n$$</label>
+                     </div>
+                     <div class="question__option">
+                        <input type="radio" id="answer-4-4-3-b" name="question-4-4-3" value="b" data-option="question-4-4-3">
+                        <label for="answer-4-4-3-b">$$\sum_{n=0}^{\infty} \frac{2}{10^2} \left (\frac{1}{100} \right )^n$$</label>
+                     </div>
+                     <div class="question__option">
+                        <input type="radio" id="answer-4-4-3-c" name="question-4-4-3" value="c" data-option="question-4-4-3">
+                        <label for="answer-4-4-3-c">$$\sum_{n=0}^{\infty} \frac{2}{10} \left (\frac{1}{10^2} \right )^{n}$$</label>
+                     </div>
+                     <div class="question__option">
+                        <input type="radio" id="answer-4-4-3-d" name="question-4-4-3" value="d" data-option="question-4-4-3">
+                        <label for="answer-4-4-3-d">$$\sum_{n=0}^{\infty} 2\left (\frac{1}{100} \right )^{n}$$</label>
+                     </div>
+                  </div>
+                  <div class="question__btn-box">
+                     <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                     <button class="btn btn--blue" type="button" disabled data-btn-continue="s-4">Continuar</button>
+                  </div>
+               </div>
+               <div class="question__col-2">
+                  <p class="question__answer"></p>
+               </div>
+            </div>
+         </form>
+         <div class="section--hidden" data-section="s-4">
+            <p class="paragraph">
+               Podemos expresar $x$ como sigue,
+               \begin{equation*}
+                  \begin{split}
+                     x &= 2.020202...\\
+                     x &= 2 + 0.02 + 0.0002 + .000002 + \cdots\\
+                     x &= 2 + \frac{2}{10^2} + \frac{2}{10^4} + \frac{2}{10^6} + \cdots\\
+                     x &= 2 \left (\frac{1}{10^2} \right )^0 + 2\left( \frac{1}{10^2} \right )^1 + 2\left(\frac{1}{10^2} \right )^2 + 2\left(\frac{1}{10^2} \right )^3 + \cdots\\
+                     x &= 2 \left (\frac{1}{100} \right )^0 + 2\left( \frac{1}{100} \right )^1 + 2\left(\frac{1}{100} \right )^2 + 2\left(\frac{1}{100} \right )^3 + \cdots\\
+                     x &= \sum_{n=0}^{\infty} 2 \left (\frac{1}{100} \right )^n,
+                  \end{split}
+               \end{equation*}
+               y esta es una serie geométrica con $a=2$ y $x=\frac{1}{100}$. Por lo tanto, 
+               $$x=\frac{2}{1-\frac{1}{100}}=\frac{200}{99}.$$
+            </p>
+            <div class="margin-bottom-xm">
+               <button class="btn-sm btn--blue" type="button" data-btn-continue="s-5">Continuar</button>
+            </div>
+            <div class="fancy-line"></div>
+         </div>
+      </section>
+      <section class="section--hidden" data-section="s-5">
+         <div class="theorem">
+            <p class="paragraph">
+               <span class="theorem__title">Teorema 4.4.1. </span>Sean $\sum_{n=1}^\infty a_n$ y $\sum_{n=1}^\infty b_n$ series infinitas convergentes de números reales y sean 
+               $\alpha$ y $\beta$ dos constantes reales. Entonces la serie $\sum_{n=1}^\infty (\alpha a_n + \beta b_n)$ también converge, y su suma viene dada por
+               $$\sum_{n=1}^\infty (\alpha a_n + \beta b_n) = \alpha \sum_{n=1}^\infty a_n + \beta \sum_{n=1}^\infty b_n.$$
+            </p>
+         </div>
+         <h3 class="header-tertiary">Demostración.</h3>
+         <p class="paragraph">
+            Puesto que $\sum_{n=1}^\infty a_n$ y $\sum_{n=1}^\infty b_n$ son convergentes, supongamos que $\sum_{n=1}^\infty a_n = A$ y $\sum_{n=1}^\infty b_n = B$. Por linealidad de las sumatorias
+            $$\sum_{n=1}^N (\alpha a_n + \beta b_n) = \alpha \sum_{n=1}^N a_n + \beta \sum_{n=1}^N b_n,$$
+            entonces cuando $N \to \infty$, el primer término del segundo miembro de la ecuación anterior tiende a $\alpha A$ y el segundo término a $ \beta B$. 
+            Por lo tanto, el primer miembro tiende a la suma $\alpha A + \beta B$, y esto prueba que la serie $\sum_{n=1}^\infty (\alpha a_n + \beta b_n)$ converge a la suma 
+            $\alpha \sum_{n=1}^\infty a_n + \beta \sum_{n=1}^\infty b_n.$
+         </p>
+         <div class="fancy-line"></div>
+         <div class="theorem">
+            <p class="paragraph">
+               <span class="theorem__title">Teorema 4.4.2. </span>Si $\sum_{n=1}^\infty a_n$ converge y $\sum_{n=1}^\infty b_n$ diverge, entonces $\sum_{n=1}^\infty ( a_n + b_n)$ diverge.
+            </p>
+         </div>
+         <h3 class="header-tertiary">Demostración.</h3>
+         <p class="paragraph">
+            Puesto que $b_n = (b_n - a_n) + a_n$ y puesto que $\sum_{n=1}^\infty a_n$ converge, por el <strong class="theorem__title">Teorema 4.4.1</strong> la convergencia de
+            $\sum_{n=1}^\infty ( a_n + b_n)$ implica la convergencia de $\sum_{n=1}^\infty b_n$. Por lo tanto, $\sum_{n=1}^\infty ( a_n + b_n)$ no puede converger si 
+            $\sum_{n=1}^\infty b_n$ diverge.
+         </p>
+         <div class="margin-bottom-xm">
+            <button class="btn-sm btn--blue" type="button" data-btn-continue="s-6">Continuar</button>
+         </div>
+         <div class="fancy-line"></div>         
+      </section>
+      <section class="section--hidden" data-section="s-6">
+         <p class="paragraph">
+            Una propiedad de las sumas teléscopicas es que $\sum_{k=1}^n (b_k - b_{k+1}) = b_1 - b_{n+1}$. Para extender esta propiedad a las series infinitas se ha de considerar aquellas
+            series $\sum_{n=1}^\infty a_n$ donde cada término $a_n$ pueda ser expredado como una diferencia, es decir, $a_n = b_n - b_{n+1}$. Estas series se llaman series teléscopicas.
+         </p>
+         <div class="theorem">
+            <p class="paragraph">
+               <span class="theorem__title">Teorema 4.4.3. </span>Sean $\{a_n \}$ y $\{b_n\}$ dos sucesiones de números reales tales que $a_n = b_n - b_{n+1}$ para $n=1,2,3...$.
+               Entonces la serie $\sum_{n=1}^\infty a_n$ converge si y sólo si la sucesión $\{b_n\}$ converge, en cuyo caso tenemos
+               $$\sum_{n=1}^\infty a_n = b_1 - L,$$
+               donde $lim_{n \to \infty } b_n = L.$
+            </p>
+         </div>
+         <h3 class="header-tertiary">Demostración.</h3>
+         <p class="paragraph">
+            La $N$-ésima suma parcial $S_n$ de $\sum_{n=1}^\infty a_n$ es 
+            $$S_n=\sum_{n=1}^N a_n=b_1 - b_{N+1}.$$
+            Por lo tanto, las sucesiones $\{S_n\}$ y $\{b_n\}$ o ambas convergen o ambas divergen, y además si $b_n \to L$ cuando $N \to \infty$ entonces $S_n = b_1 - L$, lo cual
+            demuestra el teorema.
+         </p>
+         <div class="fancy-line"></div>
+         <div class="example">
+            <p class="paragraph example__paragraph">
+               <span class="example__title">Ejemplo 4.4.5. </span>Encuentra el valor de $\sum_{n=1}^\infty \frac{1}{n^2+n}$.
+            </p>
+         </div>
+         <h3 class="header-tertiary">Solución.</h3>
+         <p class="paragraph">
+            Una forma de proceder es separar el término $a_n=\frac{1}{n^2+n}$ en un resta y aplicar el <strong class="theorem__title">Teorema 4.4.3.</strong>
+         </p>
+         <form class="question margin-top-sm" data-question="question-4-4-4" data-answer="d" autocomplete="off">
+            <h3 class="question__header margin-bottom-sm">
+               ¿Cuál es el valor de $\sum_{n=1}^\infty \frac{1}{n^2+n}$?
+            </h3>
+            <div class="question__row">
+               <div class="question__col-1">
+                  <div class="question__options">
+                     <div class="question__option">
+                        <input type="radio" id="answer-4-4-4-a" name="question-4-4-4" value="a" data-option="question-4-4-4">
+                        <label for="answer-4-4-4-a">$\frac{3}{2}$</label>
+                     </div>
+                     <div class="question__option">
+                        <input type="radio" id="answer-4-4-4-b" name="question-4-4-4" value="b" data-option="question-4-4-4">
+                        <label for="answer-4-4-4-b">$0$</label>
+                     </div>
+                     <div class="question__option">
+                        <input type="radio" id="answer-4-4-4-c" name="question-4-4-4" value="c" data-option="question-4-4-4">
+                        <label for="answer-4-4-4-c">$\frac{1}{2}$</label>
+                     </div>
+                     <div class="question__option">
+                        <input type="radio" id="answer-4-4-4-d" name="question-4-4-4" value="d" data-option="question-4-4-4">
+                        <label for="answer-4-4-4-d">$1$</label>
+                     </div>
+                  </div>
+                  <div class="question__btn-box">
+                     <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                     <button class="btn btn--blue" type="button" disabled data-btn-continue="s-7">Continuar</button>
+                  </div>
+               </div>
+               <div class="question__col-2">
+                  <p class="question__answer"></p>
+               </div>
+            </div>
+         </form>
+         <div class="section--hidden" data-section="s-7">
+            <p class="paragraph">
+               El término $a_n$ se puede reescribir como $$a_n=\frac{1}{n^2+n}=\frac{1}{n(n+1)}=\frac{1}{n} - \frac{1}{n+1},$$
+               lo cual indica que la serie es una serie teléscopica. También tenemos que $\lim_{n \to \infty }\frac{1}{n+1} = 0$. 
+               Entonces, por el <strong class="theorem__title">Teorema 4.4.3.</strong>
+               $$\sum_{n=1}^\infty \frac{1}{n^2+n} = \sum_{n=1}^\infty \left (\frac{1}{n} - \frac{1}{n+1} \right ) = 1 - 0 = 1.$$
+            </p>
+            <div class="margin-bottom-xm">
+               <button class="btn-sm btn--blue" type="button" data-btn-continue="s-8">Continuar</button>
+            </div>
+            <div class="fancy-line"></div>
+         </div>         
+      </section>
+      <section class="section--hidden" data-section="s-8">
+         <form class="question margin-top-sm" data-question="question-4-4-5" data-answer="a" autocomplete="off">
+            <h3 class="question__header margin-bottom-sm">
+               <span class="example__title">Ejemplo 4.4.6. </span>Encuentra el valor de $\sum_{n=1}^\infty \left ( \frac{3}{4^n} - \frac{2}{5^{n-1}} \right )$.
+            </h3>
+            <div class="question__row">
+               <div class="question__col-1">
+                  <div class="question__options">
+                     <div class="question__option">
+                        <input type="radio" id="answer-4-4-5-a" name="question-4-4-5" value="a" data-option="question-4-4-5">
+                        <label for="answer-4-4-5-a">$-\frac{3}{2}$</label>
+                     </div>
+                     <div class="question__option">
+                        <input type="radio" id="answer-4-4-5-b" name="question-4-4-5" value="b" data-option="question-4-4-5">
+                        <label for="answer-4-4-5-b">$-1$</label>
+                     </div>
+                     <div class="question__option">
+                        <input type="radio" id="answer-4-4-5-c" name="question-4-4-5" value="c" data-option="question-4-4-5">
+                        <label for="answer-4-4-5-c">$\frac{1}{2}$</label>
+                     </div>
+                     <div class="question__option">
+                        <input type="radio" id="answer-4-4-5-d" name="question-4-4-5" value="d" data-option="question-4-4-5">
+                        <label for="answer-4-4-5-d">$1$</label>
+                     </div>
+                  </div>
+                  <div class="question__btn-box">
+                     <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                     <button class="btn btn--blue" type="button" disabled data-btn-continue="s-9">Continuar</button>
+                  </div>
+               </div>
+               <div class="question__col-2">
+                  <p class="question__answer"></p>
+               </div>
+            </div>
+         </form>
+         <div class="section--hidden" data-section="s-9">
+            <h3 class="header-tertiary">Solución.</h3>
+            <p class="paragraph">
+               Tomando las primeras $n$ sumas parciales, se tiene que 
+               \begin{equation*}
+                  \begin{split}
+                     S_n &= \sum_{k=1}^n \left ( \frac{3}{4^n} - \frac{2}{5^{n-1}} \right ) \\
+                      &= \sum_{k=1}^n \left ( \frac{3}{4} \frac{1}{4^{n-1}} - \frac{1}{5^{n-1}} \right ),
+                  \end{split}
+               \end{equation*}
+               de esto notamos que la serie es una suma de dos series geométricas convergentes, por lo que 
+               \begin{equation*}
+                  \begin{split}
+                     \sum_{n=1}^\infty \left ( \frac{3}{4^n} - \frac{2}{5^{n-1}} \right ) &= \frac{3}{4}\sum_{n=1}^\infty \frac{1}{4^{n-1}} - 2 \sum_{n=1}^\infty \frac{1}{5^{n-1}}\\
+                     &= \frac{3}{4}\frac{1}{1-\frac{1}{4}} - 2\frac{1}{1-\frac{1}{5}} = \frac{3}{4}\frac{1}{\frac{3}{4}} - 2 \frac{1}{\frac{4}{5}} = 1- \frac{5}{2} = -\frac{3}{2}.
+                  \end{split}
+               \end{equation*}
+            </p>
+            <div class="fancy-line"></div>
+            <div class="change-page">
+               <a href="./4.3-ejemplos-de-sucesiones.html" class="change-page__before">Anterior</a>
+               <a href="./4.5-criterios-de-convergencia.html" class="change-page__next">Siguiente</a>
+            </div>
+         </div>
+      </section>
+   </main>
+   <!-- <div class="modal" data-modal="d-4-2-4">
+      <div class="modal__background" data-modal-background="d-4-2-4"></div>
+      <div class="modal__content">
+         <alien-math-template path="./components/theorems/definition-4.2.4.html"></alien-math-template>
+      </div>
+   </div> -->
+</body>
+</html>

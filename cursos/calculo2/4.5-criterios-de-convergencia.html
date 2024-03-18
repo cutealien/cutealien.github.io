@@ -61,7 +61,7 @@
          </p>
          <div class="theorem">
             <p class="paragraph">
-               <span class="theorem__title">Teorema 4.5.1. </span>Si la serie $\sum_{n=0}^\infty a_n$ converge, el $n$-ésimo término tiende a cero.
+               <span class="theorem__title">Teorema 4.5.1. </span>Si la serie $\sum_{n=0}^\infty a_n$ converge, el $n$-simo término tiende a cero.
             </p>
          </div>
          <div class="proof">
@@ -74,7 +74,7 @@
          <h2 class="header-secondary">Criterios de convergencia para series de términos no negativos.</h2>
          <div class="theorem">
             <p class="paragraph">
-               <span class="theorem__title">Teorema 4.5.2. </span>Si $a_n \geq 0 $ para cada $n geq 1$, la serie $\sum_{n=0}^\infty a_n$ converge si y sólo si la sucesión de sumas
+               <span class="theorem__title">Teorema 4.5.2. </span>Si $a_n \geq 0 $ para cada $n \geq 1$, la serie $\sum_{n=0}^\infty a_n$ converge si y sólo si la sucesión de sumas
                parciales está acotada superiormente.
             </p>
          </div>
@@ -86,16 +86,465 @@
             </p>
          </div>
          <div class="fancy-line"></div>
-
-         <h3>Temas</h3>
-         <ul class="index-list">
-            <li>comparacion</li>
-            <li>comparacion paso al limite</li>
-            <li>criterio integral</li>
-            <li>raiz</li>
-            <li>cociente</li>
-            <li>convergencia absoluta y condicional</li>
-         </ul>
+         <div class="example">
+            <p class="paragraph example__paragraph">
+               <span class="example__title">Ejemplo 4.5.1. </span>Determine si la serie $\sum_{n=1}^\infty \frac{1}{n!}$ converge o diverge.
+            </p>
+         </div>
+         <h3 class="header-tertiary">Solución.</h3>
+         <p class="paragraph">
+            Comenzamos con notando que $k-1$ factores de $k!$ son mayores o iguales a dos, es decir,
+            $$2^{k-1} = 1 \cdot 2 \cdot  2  ...  2 \leq 1 \cdot 2 \cdot 3  ... k = k!,$$
+            por lo que $\frac{1}{n!} \leq \frac{1}{2^{k-1}}.$ Entonces,
+            $$\sum_{k=1}^n \frac{1}{k!} \leq \sum_{k=1}^n \frac{1}{2^{k-1}},$$
+            de donde
+            \begin{equation*}
+               \begin{split}
+                  \sum_{k=1}^\infty \frac{1}{k!} &= \lim_{n \to \infty} \sum_{k=1}^n \frac{1}{k!}\\
+                  &\leq \lim_{n \to \infty} \sum_{k=1}^n \frac{1}{2^{k-1}}\\
+                  &= \sum_{k=1}^\infty \frac{1}{2^{k-1}} = \frac{1}{1-\frac{1}{2}} = 2.
+               \end{split}
+            \end{equation*}
+            Por lo tanto, la serie $\sum_{n=1}^\infty \frac{1}{n!}$ converge y su valor es menor o igual a dos.
+            <div class="fancy-line"></div>
+         </p>
+      </section>
+      <section>
+         <p class="paragraph">
+            El ejemplo anterior nos da un ejemplo del primer criterio de convergencia.
+         </p>
+         <div class="theorem">
+            <p class="paragraph">
+               <span class="theorem__title">Teorema 4.5.3 Criterio de comparación. </span>
+               Si existe $N\in\mathbf{N}$ tal que $0 < a_n \leq b_n$ para toda $n\in\mathbf{N}$ con $N \leq n$, entonces la convergencia de 
+               $\sum_{n=1}^\infty b_n$ implica la de $\sum_{n=1}^\infty a_n.$
+            </p>
+         </div>
+         <div class="proof">
+            <h3 class="header-tertiary">Demostración.</h3>
+            <p class="paragraph">
+               Sea $s_n = a_1 +a_2 + \cdots + a_n$ y $t_n = b_1 + b_2 + \cdots + b_n$. La hipótesis implica que $s_n \leq t_n + s_N.$ Si $\sum_{n=1}^\infty b_n$ converge, entonces 
+               sus sumas parciales están acotadas, es decir, existe un $M$ talque $s_n \leq M + s_N$. Por lo tanto, $\sum_{n=1}^\infty a_n$ es también convergente porque sus 
+               sumas parciales están acotadas por $M + s_N$.
+            </p>
+            <p class="paragraph">
+               El teorema anterior se puede formular como sigue: <strong  class="hint">La divergencia de $\sum_{n=1}^\infty a_n$ implica la divergencia de $\sum_{n=1}^\infty b_n.$</strong>
+               Esta proposición es lógicamente equivalente al teorema anterior.
+            </p>
+            <div class="fancy-line"></div>
+         </div>
+         <div class="theorem">
+            <p class="paragraph">
+               <span class="theorem__title">Teorema 4.5.4. Criterio de comparación por paso al límite. </span>
+               Si $0< a_n$ y $0 < b_n$ para toda $n\in\mathbf{N}$ y $\lim_{n\to\infty}\frac{a_n}{b_n}=L$, donde $L$ es finito y positivo, entonces las dos series 
+               $\sum_{n=1}^\infty a_n$ y $\sum_{n=1}^\infty b_n$ convergen o las dos series divergen.
+            </p>
+         </div>
+         <div class="proof">
+            <h3 class="header-tertiary">Demostración.</h3>
+            <p class="paragraph">
+               Sea $m$ y $M$ dos números positivos tales que $m < c < M.$ Puesto que $\frac{a_n}{b_n}$ está cercano a $c$ para valores grandes de $n$, existe un entero $N$ tal que
+               para $n  > N$
+               $$m < \frac{a_n}{b_n} < M,$$
+               de donde 
+               $$m b_n < a_n < M b_n.$$
+               Si $\sum_{n=1}^\infty b_n$ converge, también lo hace $\sum_{n=1}^\infty M b_n,$  entonces por el <strong class="hint">Teorema de comparación</strong> $\sum_{n=1}^\infty a_n$
+               converge. Si $\sum_{n=1}^\infty b_n$ diverge, también lo hace $\sum_{n=1}^\infty a_n$ el <strong class="hint">Teorema de comparación.</strong>
+            </p>
+            <div class="fancy-line"></div>
+            <!-- <div class="definition">
+               <p class="paragraph">
+                  <span class="definition__title">Definición 4.5.1. </span>Se dice que dos sucesiones $\{a_n\}$ y $ \{b_n\}$ de números reales son asintóticamente iguales si 
+                  $$\lim_{n \to \infty} \frac{a_n}{b_n}=1.$$
+                  Esta relación se indica como $a_n \sim b_n$ cuando $n \to \infty.$
+               </p>
+            </div> -->
+         </div>
+         <div class="example">
+            <p class="paragraph example__paragraph">
+               <span class="example__title">Ejemplo 4.5.2. </span>Determine si la serie $\sum_{n=1}^\infty\frac{1}{\sqrt{n(n+10)}}$ converge o diverge.
+            </p>
+         </div>
+         <h3 class="header-tertiary">Solución.</h3>
+         <p class="paragraph">
+            Puesto que $\sqrt{n^2 + 10n}$ y $\sqrt{n^2}=n$ son similares, parece razonable comparar la serie $\sum_{n=1}^\infty\frac{1}{\sqrt{n(n+10)}}$ con la 
+            serie $\sum_{n=1}^\infty \frac{1}{n}.$
+         </p>
+         <form class="question margin-top-sm" data-question="question-4-5-1" data-answer="a" autocomplete="off">
+            <h3 class="question__header margin-bottom-sm">
+               ¿La serie $\sum_{n=1}^\infty\frac{1}{\sqrt{n(n+10)}}$ converge o diverge?
+            </h3>
+            <div class="question__row">
+               <div class="question__col-1">
+                  <div class="question__options">
+                     <div class="question__option">
+                        <input type="radio" id="answer-4-5-1-a" name="question-4-5-1" value="a" data-option="question-4-5-1">
+                        <label for="answer-4-5-1-a">Diverge</label>
+                     </div>
+                     <div class="question__option">
+                        <input type="radio" id="answer-4-5-1-b" name="question-4-5-1" value="b" data-option="question-4-5-1">
+                        <label for="answer-4-5-1-b">Converge</label>
+                     </div>
+                  </div>
+                  <div class="question__btn-box">
+                     <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                     <button class="btn btn--blue" type="button" disabled data-btn-continue="s1">Continuar</button>
+                  </div>
+               </div>
+               <div class="question__col-2">
+                  <p class="question__answer"></p>
+               </div>
+            </div>
+         </form>
+         <div class="section--hidden" data-section="s1">
+            <p class="paragraph">
+               La serie diverge, para esto comparamos los $n$-simos términos de las series
+               \begin{equation*}
+                  \begin{split}
+                     \lim_{n \to \infty } \frac{\frac{1}{n}}{\frac{1}{\sqrt{n(n+10)}}} &= \lim_{n \to \infty } \frac{\sqrt{n^2+10n}}{n}\\
+                     &= \lim_{n \to \infty } \frac{n\sqrt{1 + \frac{10}{n}}}{n} \\
+                     &= \lim_{n \to \infty }\sqrt{1 + \frac{10}{n}} = 1.
+                  \end{split}
+               \end{equation*}
+               Por lo tanto, la serie $\sum_{n=1}^\infty\frac{1}{\sqrt{n(n+10)}}$ diverge.
+            </p>
+            <div class="margin-bottom-xm">
+               <button class="btn-sm btn--blue" type="button" data-btn-continue="s2">Continuar</button>
+            </div>
+            <div class="fancy-line"></div>
+         </div>
+      </section>
+      <section class="section--hidden" data-section="s2">
+         <p class="paragraph">
+            Para aplicar el criterio de comparación, es útil tener series cuyo comportamiento es conocido. Hasta este momento conocemos la serie geométrica y la serie armónica,
+            el siguiente criterio nos proporciona más ejemplos acerca del comportamiento de algunas series.
+         </p>
+         <div class="theorem">
+            <p class="paragraph">
+               <span class="theorem__title">Teorema 4.5.5 Criterio integral. </span>Sea $f$ una función positiva decreciente, definida para todo real $x \geq 1.$ 
+               Para cada $n \geq 1,$ sea $s_n = \sum_{k=1}^n f(k)$ y $t_n = \int_1^n f(x)\, dx,$ entonces las sucesiones $\{s_n\}$ y $\{t_n\}$ o ambas convergen o ambas divergen.               
+            </p>
+         </div>
+         <div class="proof">
+            <h3 class="header-tertiary">Demostración.</h3>
+            <p class="paragraph">
+               Puesto que $f$ es decreciente, para $x \in [k, k+1]$, se verifica $f(k+1) \leq f(x) \leq f(k).$ Integrando de $k$ a $k+1$, deducimos que
+               $$f(k+1) \leq \int_k^{k+1} f(x) \leq f(k).$$
+               Sumando estas desigualdades desde $k=1$ hasta $k=n-1$, tenemos
+               $$\sum_{k=2}^n f(k) \leq \int_1^{n} f(x) \leq \sum_{k=1}^{n-1} f(k),$$
+               escrito de otra forma 
+               $$s_n - f(1) \leq \int_1^{n} f(x) \leq s_{n-1}.$$
+               Puesto que las dos sucesiones $\{s_n\}$ y $\{t_n\}$ son monótonas crecientes, estas desigualdades prueban que o ambas están acotadas superiormente o ambas no están
+               acotadas. Por lo tanto, las dos sucesiones convergen o las dos sucesiones divergen.
+            </p>
+            <p class="paragraph">
+               Lo que este criterio nos dice es que la serie $\sum_{n=1}^\infty f(n)$ y la integral $\int_1^\infty f(x)\,dx$ ambas convergen o ambas divergen.
+            </p>
+            <div class="fancy-line"></div>
+         </div>
+         <p class="paragraph">
+            Con el criterio integral podemos probar la convergencia de la serie $p.$
+         </p>
+         <div class="example">
+            <p class="paragraph example__paragraph">
+               <span class="example__title">Ejemplo 4.5.3. </span>Determine si la series $p$ convergen o divergen.
+            </p>
+         </div>
+         <h3 class="header-tertiary">Solución.</h3>
+         <p class="paragraph">
+            La divergencia de la serie cuando $p=1$ fue probada en la sección anterior, usando el criterio integral se da una demostración alternativa. 
+            Se tiene que 
+            $$t_n = \int_1^n \frac{1}{n^p} = \begin{cases}
+            \frac{n^{1-p}}{1-p} & \mbox{si} \quad n \neq 1\\
+            \log n & \mbox{si} \quad n=1
+            \end{cases}.$$
+            Por el criterio integral, si $n > 1$, $\{t_n\}$ converge porque el término $n^{1-s} \to 0$ cuando $n \to \infty$.
+            Si $n < 1,$ entonces $\{t_n\} \to \infty$ y la serie diverge. El caso $n=1$ ya se estudio en la sección anterior.
+         </p>
+         <div class="fancy-line"></div>
+         <form class="question margin-top-sm" data-question="question-4-5-2" data-answer="b" autocomplete="off">
+            <h3 class="question__header margin-bottom-sm">
+               <strong class="hint">Ejemplo 4.5.4.</strong> Determina la convergencia de la serie $\sum_{n=1}^\infty \frac{1}{n^2+1}$.
+            </h3>
+            <div class="question__row">
+               <div class="question__col-1">
+                  <div class="question__options">
+                     <div class="question__option">
+                        <input type="radio" id="answer-4-5-2-a" name="question-4-5-2" value="a" data-option="question-4-5-2">
+                        <label for="answer-4-5-2-a">Diverge</label>
+                     </div>
+                     <div class="question__option">
+                        <input type="radio" id="answer-4-5-2-b" name="question-4-5-2" value="b" data-option="question-4-5-2">
+                        <label for="answer-4-5-2-b">Converge</label>
+                     </div>
+                  </div>
+                  <div class="question__btn-box">
+                     <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                     <button class="btn btn--blue" type="button" disabled data-btn-continue="s3">Continuar</button>
+                  </div>
+               </div>
+               <div class="question__col-2">
+                  <p class="question__answer"></p>
+               </div>
+            </div>
+         </form>
+         <div class="section--hidden" data-section="s3">
+            <h3 class="header-tertiary">Solución.</h3>
+            <p class="paragraph">
+               La función $f(x)=\frac{1}{x^2 +1}$ es continua y decreciente en $[1, \infty)$, por lo que podemos usar el criterio inegral,
+               \begin{equation*}
+                  \begin{split}
+                     \int_1^\infty \frac{1}{x^2+1}\, dx &= \lim_{t \to \infty} \int_1^t \frac{1}{x^2+1}\, dx\\
+                     &= \lim_{t \to \infty} \arctan t \big |_1^t = \lim_{t \to \infty} \left ( \arctan t - \frac{\pi}{4} \right )\\
+                     &= \frac{\pi}{2} - \frac{\pi}{4} = \frac{\pi}{4}.
+                  \end{split}
+               \end{equation*}
+               Puesto que la integral $\int_1^\infty \frac{1}{x^2+1}\, dx$ converge, entonces el criterio integral nos dice que la serie $\sum_{n=1}^\infty \frac{1}{n^2+1}$ converge.
+            </p>
+            <div class="margin-bottom-xm">
+               <button class="btn-sm btn--blue" type="button" data-btn-continue="s4">Continuar</button>
+            </div>
+            <div class="fancy-line"></div>
+         </div>
+      </section>
+      <section class="section--hidden" data-section="s4">
+         <p class="paragraph">
+            Supoongamos que $0 < x < 1$ y que los elementos $a_n$ de la serie $\sum_{n=1}^\infty a_n$ satisfacen (a partir de uno de ellos) una desigualdad de la forma 
+            $0 \leq a_n \leq x.$ Aplicando el criterio de comparación, la serie $\sum_{n=1}^\infty a_n$ converge, las desigualdades anteriores son equivalentes a 
+            $0 \leq (a_n)^{\frac{1}{n}} \leq x.$ Esta idea da el nombre al siguiente criterio de convergencia.
+         </p>
+         <div class="theorem">
+            <p class="paragraph">
+               <span class="theorem__title">Teorema 4.5.6 Criterio de la raíz. </span>Sea $\sum_{n=1}^\infty a_n$ una serie de términos no negativos tales que 
+               $a_n^{\frac{1}{n}} \to R$ cuando $n \to \infty.$ <br>
+               a) Si $R < 1$, la serie converge.   <br>
+               b) Si $R > 1$, la serie diverge. <br>
+               c) Si $R=1$, el criterio no decide. 
+            </p>
+         </div>
+         <div class="proof">
+            <h3 class="header-tertiary">Demostración.</h3>
+            <p class="paragraph">
+               Si $R< 1 $, elijamos $x$ de manera que $R < x < 1.$ Entonces se satisface $0 \leq (a_n)^{\frac{1}{n}} \leq x$ para todo $n \geq N$ a partir de un $N,$ es decir,
+               $a_n < x^n.$ Puesto $0 < x < 1,$ la serie $\sum_{n=1}^\infty x^n$ es convergente, entonces por el criterio de comparación $\sum_{n=1}^\infty a_n$ es convergente.
+            </p>
+            <p class="paragraph">
+               Si $R>1$, tomamos $x$ como $1 < x < R.$ Entonces, se satisface $1 < x <  (a_n)^{\frac{1}{n}}$ para todo $n \geq N$ a partir de un $N,$ es decir, $a_n > x^n.$ De lo
+               anterior el término $a_n$ no puede tender a cero, por el <strong class="hint">Teorema 4.5.1</strong>, $\sum_{n=1}^\infty a_n$ diverge.
+            </p>
+            <p class="paragraph">
+               Para $R=1,$ tomamos las series $\sum_{n=1}^\infty \frac{1}{n}$ y $\sum_{n=1}^\infty \frac{1}{n^2}.$ Entonces, para el primer caso
+               $$\left ( \frac{1}{n} \right )^{\frac{1}{n}} = \frac{1}{n^{\frac{1}{n}}},$$
+               por lo que cuando $n \to \infty$, $\frac{1}{n^{\frac{1}{n}}} \to 1$. De manera similar $\left (\frac{1}{n^2} \right )^\frac{1}{n} \to 1$ cuando $n \to \infty.$
+               Pero, la primera serie diverge y la segunda converge.
+            </p>
+            <div class="fancy-line"></div>
+         </div>
+         <div class="example">
+            <p class="paragraph example__paragraph">
+               <span class="example__title">Ejemplo 4.5.5. </span>Determina si la serie $\sum_{n=1}^1 \left ( \frac{n}{n+1} \right)^{n^2}$ converge o diverge.
+            </p>
+         </div>
+         <h3 class="header-tertiary">Solución.</h3>
+         <p class="paragraph">
+            Aplicando el criterio de la raíz, 
+            $$(a_n)^\frac{1}{n} = \left ( \frac{n}{n+1} \right )^n = \left ( \frac{1}{1+\frac{1}{n}} \right )^n.$$
+            Por lo que, $(a_n)^\frac{1}{n} \to \frac{1}{e}$ cuando $n \to \infty.$ Puesto que $\frac{1}{e} < 1,$ la serie converge.
+         </p>
+         <div class="fancy-line"></div>
+         <form class="question margin-top-sm" data-question="question-4-5-3" data-answer="a" autocomplete="off">
+            <h3 class="question__header margin-bottom-sm">
+               Determine si la sere $\sum_{n=1}^\infty \left (\frac{n^2-1}{n^2}\right )^{2n^3-2n}$ converge o diverge.
+            </h3>
+            <div class="question__row">
+               <div class="question__col-1">
+                  <div class="question__options">
+                     <div class="question__option">
+                        <input type="radio" id="answer-4-5-3-a" name="question-4-5-3" value="a" data-option="question-4-5-3">
+                        <label for="answer-4-5-3-a">Converge</label>
+                     </div>
+                     <div class="question__option">
+                        <input type="radio" id="answer-4-5-3-b" name="question-4-5-3" value="b" data-option="question-4-5-3">
+                        <label for="answer-4-5-3-b">Diverge</label>
+                     </div>
+                  </div>
+                  <div class="question__btn-box">
+                     <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                     <button class="btn btn--blue" type="button" disabled data-btn-continue="s5">Continuar</button>
+                  </div>
+               </div>
+               <div class="question__col-2">
+                  <p class="question__answer"></p>
+               </div>
+            </div>
+         </form>
+         <div class="section--hidden" data-section="s5">
+            <h3 class="header-tertiary">Solución.</h3>
+            <p class="paragraph">
+               Aplicando el criterio de la raíz, se tiene que
+               \begin{equation*}
+                  \begin{split}
+                     (a_n)^{\frac{1}{n}} &= \left( \left (\frac{n^2-1}{n^2}\right )^{2n^3-2n} \right ) ^\frac{1}{n} \\
+                     &= \left ( \frac {n^2-1}{n^2} \right )^{2n^2} \left ( \frac{n^2}{n^2-1}\right )^2\\
+                     &= \left [ \left ( 1 - \frac {1}{n^2} \right )^{n^2} \right ]^2 \left ( \frac{n^2}{n^2-1}\right )^2\\
+                     \lim_{n \to \infty} (a_n)^{\frac{1}{n}} &= \lim_{n \to \infty} \left [ \left ( 1 - \frac {1}{n^2} \right )^{n^2} \right ]^2 \left ( \frac{n^2}{n^2-1}\right )^2\\
+                     &= e^{-2}.
+                  \end{split}
+               \end{equation*}
+               Puesto que $e^{-2} < 1,$ la serie converge.
+            </p>
+            <div class="margin-bottom-xm">
+               <button class="btn-sm btn--blue" type="button" data-btn-continue="s6">Continuar</button>
+            </div>
+            <div class="fancy-line"></div>
+         </div>
+      </section>
+      <section class="section--hidden" data-section="s6">
+         <p class="paragraph">
+            Cuando no tenemos alguna otra serie con qué comparar y nuestros criterios anteriores no aplican, podemos aplicar el criterio del cociente.
+         </p>
+         <div class="theorem">
+            <p class="paragraph">
+               <span class="theorem__title">Teorema 4.5.7. Criterio del cociente. </span>Sea $\sum_{n=1}^\infty a_n$ una serie de números positivos tales que 
+               $\frac{a_{n+1}}{a_n} \to L$ cuando $n \to \infty.$ <br>
+               a) Si $L < 1$, la serie converge.   <br>
+               b) Si $L > 1$, la serie diverge. <br>
+               c) Si $L=1$, el criterio no decide. 
+            </p>
+         </div>
+         <div class="proof">
+            <h3 class="header-tertiary">Demostración.</h3>
+            <p class="paragraph">
+               Si $L < 1$, elijamos un $x$ de manera que $L < x < 1.$ Entonces ha de existir un $N$ tal que $\frac{a_{n+1}}{a_n} < x$ para todo $n \geq N.$ Puesto que 
+               $x=\frac{x^{n+1}}{x^n}$, tenemos que para todo $n \geq N$
+               $$\frac{a_{n+1}}{x^n+1} < \frac{a_n}{x^n}.$$
+               Es decir, la sucesión $\{\frac{a_n}{x_n}\}$ es decreciente para $n \geq N.$ En particular, cuando $n \geq N$ ha de ser $\frac{a_n}{x_n} \leq \frac{a_N}{x_N},$ o de otro modo
+               $$a_n \leq \frac{ a_N}{x^N} x^n.$$
+               Puesto que la serie $\sum_{n=1}^\infty x^n$ es convergente, por el criterio de comparación $\sum_{n=1}^\infty a_n$ es convergente.
+            </p>
+            <p class="paragraph">
+               Si $L > 1$, tomamos ahora in $x$ de manera que $1 < x < L.$ Entonces ha de existir un $N$ tal que $ x < \frac{a_{n+1}}{a_n}$ para todo $n \geq N.$ Entonces para todo $n \geq N$
+               $$\frac{a^n}{x^n} < \frac{a_{n+1}}{x^{n+1}}.$$
+               Por lo tanto, la suseción $\{\frac{a^n}{x^n}\}$ es creciente. Cuando $n \geq N$ ha de ser $\frac{a_N}{x_N} \leq \frac{a_n}{x_n},$ o de otro modo
+               $$\frac{a_N}{x_N} x^n \leq a_n.$$
+               Como $x>1$, el término $a_n$ no puede tender a cero, por lo cual $\sum_{n=1}^\infty a_n$ diverge.
+            </p>
+            <p class="paragraph">
+               El caso $L=1$ se puede probar con los mismos ejemplos que el <strong class="hint">Teorema 4.5.7.</strong>
+            </p>
+            <div class="fancy-line"></div>
+         </div>
+         <div class="example">
+            <p class="paragraph example__paragraph">
+               <span class="example__title">Ejemplo 4.5.7. </span>Determina la convergencia de la serie $\sum_{n=1}^\infty \frac{n!}{n^n}.$
+            </p>
+         </div>
+         <h3 class="header-tertiary">Solución.</h3>
+         <p class="paragraph">
+            La razón de dos términos consecutivos es
+            \begin{equation*}
+               \begin{split}
+                  \frac{a_{n+1}}{a_n} &= \frac{\frac{(n+1)!}{(n+1)^{n+1}}}{\frac{n!}{n^n}} = \frac{(n+1)!n^n}{n!(n+1)^{n+1}}\\
+                  &= \frac{(n+1)n^n}{(n+1)^{n+1}} = \frac{n^n}{(n+1)^n}\\
+                  &= \frac{1}{\left (1 + \frac{1}{n} \right )^n} \to \frac{1}{e} \quad \mbox{cuando} \quad n \to \infty.
+               \end{split}
+            \end{equation*}
+            Puesto que $\frac{1}{e} < 1,$ la serie converge.
+         </p>
+         <div class="margin-bottom-xm">
+            <button class="btn-sm btn--blue" type="button" data-btn-continue="s7">Continuar</button>
+         </div>
+         <div class="fancy-line"></div>
+      </section>
+      <section class="section--hidden" data-section="s7">
+         <p class="paragraph">
+            Una serie alternante es aquella cuyos signos se van alternando, es decir, contienen términos con signos positivos y negativos de manera alternada. 
+            Puede suceder que los términos de posición impar sean negativos y los de posición par sean positivos o que los términos de posición impar sean positivos y 
+            los de posición par sean negativos, es decir, son de la forma 
+            $$\sum_{n=1}^\infty (-1)^n a_n \qquad \mbox{ o } \qquad \sum_{n=1}^\infty (-1)^{n+1} a_n.$$
+         </p>
+         <div class="theorem">
+            <p class="paragraph">
+               <span class="theorem__title">Teorema 4.5.8 Criterio de la serie alternante. </span>Si $0< a_n$ para toda $n\in\mathbf{N}$, $\lim_{n\to\infty} a_n$ y la sucesión $\{a_n\}$ 
+               es monótona decreciente, entonces la serie alternante converge. Si $S$ designa su suma y $A_n$ su suma parcial $n$-sima, para todo $n\in\mathbf{N}$ se verifica
+               $$|S- A_n| < a_{n+1}$$
+            </p>
+         </div>
+         <div class="proof">
+            <h3 class="header-tertiary">Demostración.</h3>
+            <p class="paragraph">
+               Se probara el caso $\sum_{n=1}^\infty (-1)^{n+1} a_n$.
+               La sucesión $\{A_{2n}\}$ (número par de términos) es creciente puesto que $A_{2n+2}-A_{2n} = a_{2n+1} - a_{2n + 2} > 0.$ Análogamente la $\{A_{2n-1}\}$ es una sucesión
+               decreciente. Como $A_2 \leq A_{2n} \leq A_{2n-1} \leq A_1,$ se deduce que ambas sucesiones convergen hacia un límite porque están acotadas, es decir,
+               $A_{2n} \to S_1$ y $A_{2n-1} \to S_2$, entonces
+               $$S_1 - S_2 = \lim_{n \to \infty} A_{2n} - \lim_{n \to \infty} A_{2n-1} = \lim_{n \to \infty} \left ( A_{2n} - A_{2n-1} \right ) = \lim_{n \to \infty} (-a_{2n}) = 0.$$
+               Por lo tanto, $S_1 = S_2$ y la serie converge, se denota el límite de la serie con $S.$
+            </p>
+            <p class="paragraph">
+               Para las desigualdades, usamos el hecho de que $\{A_{2n}\} $ es creciente y $\{A_{2n-1}\}$ es decreciente. Tenemos que 
+               $$A_{2n} < A_{2n+2} < S \quad \mbox{y} \quad S < A_{2n+1} < A_{2n-1},$$
+               por lo que
+               $$0 < S - A_{2n} < A_{2n+1} - A_{2n} = a_{2n+1} \quad \mbox{y} \quad -a_{2n} < S - A_{2n-1} < 0.$$
+               Usando las dos desigualdades conjuntamente se verifica $|S- A_n| \leq a_{n+1}.$
+            </p>
+            <div class="fancy-line"></div>
+         </div>
+         <div class="example">
+            <p class="paragraph example__paragraph">
+               <span class="example__title">Ejemplo 4.5.8. </span>Determina la convergencia de $\sum_{n=1}^\infty (-1)^{n+1}\frac{1}{n}.$
+            </p>
+         </div>
+         <h3 class="header-tertiary">Solución.</h3>
+         <p class="paragraph">
+            Los terminos $a_n = \frac{1}{n}$ son decrecientes y $\frac{1}{n} \to 0$ cuando $n \to \infty,$ por lo tanto converge.
+         </p>
+         <div class="margin-bottom-xm">
+            <button class="btn-sm btn--blue" type="button" data-btn-continue="s8">Continuar</button>
+         </div>
+         <div class="fancy-line"></div>
+      </section>
+      <section class="section--hidden" data-section="s8">
+         <p class="paragraph">
+            Puede suceder que no sea posible aplicarle algún criterio de convergencia a una serie, pero que cuando tomemos valores absolutos de los elementos de la serie, 
+            esa nueva serie sea más fácil de trabajar, entonces tenemos el siguiente criterio.
+         </p>
+         <div class="theorem">
+            <p class="paragraph">
+               <span class="theorem__title">Teorema 4.5.9 Convergencia absoluta. </span>Si la serie $\sum_{n=1}^\infty |a_n|$ converge, entonces la serie $\sum_{n=1}^\infty a_n$ converge.
+            </p>
+         </div>
+         <div class="proof">
+            <h3 class="header-tertiary">Demostración.</h3>
+            <p class="paragraph">
+               Sea $b_n = a_n + |a_n|$. Por la definición de $b_n,$ se tiene que $0 \leq b_n \leq 2|a_n|,$ entonces por el teorema de comparación 
+               $$\sum_{n=1}^\infty b_n \leq \sum_{n=1}^\infty 2|a_n|.$$
+               Puesto que $\sum_{n=1}^\infty |a_n|$ converge, la serie $\sum_{n=1}^\infty b_n$ converge. También se tiene que $a_n = |a_n| - b_n,$ entonces la serie 
+               $$\sum_{n=1}^\infty a_n =  \sum_{n=1}^\infty (|a_n| - b_n)$$ es una suma de dos sumas convergentes, y por lo tanto, converge.
+            </p>
+            <div class="fancy-line"></div>
+         </div>
+         <div class="definition">
+            <p class="paragraph">
+               <span class="definition__title">Definición 4.5.1. </span>Sea $\sum_{n=1}^\infty a_n$ una serie. Diremos que la serie es:
+               <ul class="simple-list">
+                  <li>Absolutamente convergente si $\sum_{n=1}^\infty |a_n|$ es convergente.</li>
+                  <li>Condicionalmente convergente si $\sum_{n=1}^\infty a_n$ converge pero $\sum_{n=1}^\infty |a_n|$ diverge.</li>
+               </ul>
+            </p>
+         </div>
+         <div class="example">
+            <p class="paragraph">
+               <span class="example__title">Ejemplo 4.5.9. </span>La serie $\sum_{n=1}^\infty (-1)^{n+1}\frac{1}{n^p}$ es absolutamente convergente para $p>1,$ porque
+               $\sum_{n=1}^\infty \left | (-1)^{n+1}\frac{1}{n^p} \right | = \sum_{n=1}^\infty \frac{1}{n^p}$ es convergente.
+               La serie $\sum_{n=1}^\infty (-1)^{n+1}\frac{1}{n}$ es condicionalmente convergente porque
+               $\sum_{n=1}^\infty \left | (-1)^{n+1}\frac{1}{n} \right | = \sum_{n=1}^\infty \frac{1}{n}$ diverge.
+            </p>
+         </div>
+         <div class="fancy-line"></div>
+         <div class="change-page">
+            <a href="./4.4-series.html" class="change-page__before">Anterior</a>
+            <a href="./4.6-convergencia-absoluta-condicional.html" class="change-page__next">Siguiente</a>
+         </div>
       </section>
    </main>
    <div class="modal" data-modal="t-4-2-3">

@@ -75,8 +75,8 @@ HTML_MOBILE_MENU = `
                             <li class="subject-list__item"><a href="./4.2-algebra-de-sucesiones.html" class="subject-list__link">4.2 Álgebra de sucesiones</a></li>
                             <li class="subject-list__item"><a href="./4.3-ejemplos-de-sucesiones.html" class="subject-list__link">4.3 Más ejemplos de sucesiones</a></li>
                             <li class="subject-list__item"><a href="./4.4-series.html" class="subject-list__link">4.4 Series</a></li>
-                            <li class="subject-list__item"><a href="./4.5-criterios-de-convergencia.html" class="subject-list__link">4.4 Series</a></li>
-                            <li class="subject-list__item"><a href="./4.6-convergencia-absoluta-condicional.html" class="subject-list__link">4.4 Series</a></li>
+                            <li class="subject-list__item"><a href="./4.5-criterios-de-convergencia.html" class="subject-list__link">4.5 Criterios de convergencia</a></li>
+                <li class="subject-list__item"><a href="./4.6-convergencia-absoluta-condicional.html" class="subject-list__link">4.6 Más ejemplos de series</a></li>
                         </ol>
                     </li>
                 <li class="subject-list__item">

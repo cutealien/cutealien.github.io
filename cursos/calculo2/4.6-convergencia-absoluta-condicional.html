@@ -55,7 +55,7 @@
          </p>
          <form class="question margin-top-sm" data-question="question-4-6-1" data-answer="b" autocomplete="off">
             <h3 class="question__header margin-bottom-sm">
-               Determina la convergencia o divergencia de  $\sum_{i=1}^\infty \frac{1}{2+3^n}$.
+               Determina la convergencia o divergencia de  $\sum_{n=1}^\infty \frac{1}{2+3^n}$.
             </h3>
             <div class="question__row">
                <div class="question__col-1">
@@ -82,11 +82,11 @@
          <div class="section--hidden" data-section="s1">
             <h3 class="header-tertiary">Solución.</h3>
             <p class="paragraph">
-               Notemos que la serie $\sum_{i=1}^\infty \frac{1}{2+3^n}$ se parece mucho a la serie $\sum_{i=1}^\infty \frac{1}{3^n}$. 
-               Además, como $3^n < 2+3^n$ para toda $n\in\mathbf{N}$, entonces $0< \frac{1}{2+3^n}<\frac{1}{3^n}$. Pero sabemos que la serie $\sum_{i=1}^\infty \frac{1}{3^n}$ 
+               Notemos que la serie $\sum_{n=1}^\infty \frac{1}{2+3^n}$ se parece mucho a la serie $\sum_{n=1}^\infty \frac{1}{3^n}$. 
+               Además, como $3^n < 2+3^n$ para toda $n\in\mathbf{N}$, entonces $0< \frac{1}{2+3^n}<\frac{1}{3^n}$. Pero sabemos que la serie $\sum_{n=1}^\infty \frac{1}{3^n}$ 
                es una serie geométrica con $a=1$ y $r=\frac{1}{3}$, pues
-               $$\sum_{i=1}^\infty \frac{1}{3^n}=\sum_{i=1}^\infty \left(\frac{1}{3}\right)^n,$$ y por lo tanto es una serie convergente, ya que $|r|< 1$. 
-               Finalmente, por el criterio de comparación directa, la serie $\sum_{i=1}^\infty \frac{1}{2+3^n}$ converge. 
+               $$\sum_{n=1}^\infty \frac{1}{3^n}=\sum_{n=1}^\infty \left(\frac{1}{3}\right)^n,$$ y por lo tanto es una serie convergente, ya que $|r|< 1$. 
+               Finalmente, por el criterio de comparación directa, la serie $\sum_{n=1}^\infty \frac{1}{2+3^n}$ converge. 
             </p>
             <div class="margin-bottom-xm">
                <button class="btn-sm btn--blue" type="button" data-btn-continue="s2">Continuar</button>
@@ -134,7 +134,7 @@
                Sin embargo estamos acotando por arriba con una serie que no converge y esto no nos dice nada. 
             </p>
             <p class="paragraph">
-               Sin embargo, intentaremos comparar nuestra serie con la serie $\sum_{n=1}^\infty \frac{1}{n}$. Ahora, notemos que $3+\sqrt{n}\leq n$ para toda $n\in\mathbf{N}$ 
+               Intentaremos comparar nuestra serie con la serie $\sum_{n=1}^\infty \frac{1}{n}$. Ahora, notemos que $3+\sqrt{n}\leq n$ para toda $n\in\mathbf{N}$ 
                con $6\leq n$, y así $0<\frac{1}{n}\leq \frac{1}{3+\sqrt{n}}$ para $n\geq 6$. Pero la serie $\sum_{n=1}^\infty \frac{1}{n}$ diverge, 
                pues es la serie armónica, y por lo tanto, por el <strong class="hint">Criterio de comparación</strong>, la serie $\sum_{n=1}^\infty \frac{1}{3 +\sqrt{n}}$ diverge.
             </p>
@@ -329,7 +329,7 @@
          <div class="section--hidden" data-section="s12">
             <form class="question margin-top-sm" data-question="question-4-6-7" data-answer="a" autocomplete="off">
                <h3 class="question__header margin-bottom-sm">
-                  Clasifica la serie $\sum_{n=1}^\infty \frac{(-1)^n}{\sqrt{n}}$ como convergente absolutamente o condcionalmente convergente.
+                  Clasifica la serie $\sum_{n=1}^\infty \frac{(-1)^n}{\sqrt{n}}$ como absolutamente convergente o condicionalmente convergente.
                </h3>
                <div class="question__row">
                   <div class="question__col-1">
@@ -357,7 +357,7 @@
          <div class="section--hidden" data-section="s13">
             <h3 class="header-tertiary">Solución.</h3>
             <p class="paragraph">
-               Notemos que la serie $\sum_{n=1}^\infty \frac{(-1)^n}{\sqrt{n}}$ es una serie alternada y podemos aplicarle el criterio de series alternandas para demostrar que converge.
+               Notemos que la serie $\sum_{n=1}^\infty \frac{(-1)^n}{\sqrt{n}}$ es una serie alternante y podemos aplicarle el criterio de series alternantes para demostrar que converge.
             </p>
             <p class="paragraph">
                Además, como $a_n=\frac{(-1)^n}{\sqrt{n}}$, entonces $|a_n|=\frac{1}{\sqrt{n}}$, lo cual nos muestra que 

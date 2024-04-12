@@ -60,7 +60,7 @@
                <span class="definition__title">Definición 4.4.1. </span>La sucesión ${S_n}$ de las sumas parciales se llama serie infinita o simplemente serie y 
                se denota por $\sum_{k=1}^{\infty} a_k.$ La $n$-ésima suma parcial está dada por 
                $$S_n=a_1 + a_2 + \cdots + a_n= \sum_{k=1}^n a_k.$$
-               Si la secuencia de sumas parciales ${S_n}$ converge a $S$, entonces la serie $\sum_{k=1}^{\infty} a_k$ converge, escrito en símbolos
+               Si la sucesión de sumas parciales ${S_n}$ converge a $S$, entonces la serie $\sum_{k=1}^{\infty} a_k$ converge, escrito en símbolos
                $$\sum_{k=1}^{\infty} a_k = \lim_{n \to \infty} \{S_n\} = \lim_{n \to \infty} \sum_{k=1}^{n} a_k = S.$$
                El límite $S$ es llamado la suma de la serie.
                Si ${S_n}$ diverge, entonces la serie diverge.
@@ -77,7 +77,7 @@
          </div>
          <p class="paragraph">
             Para saber si la serie converge, primero supongamos que $x=1,$ entonces $S_n=na$. Por lo tanto, 
-            $$\sum_{k=0}^{\infty}a = \lim_{n \to \infty} \{S_n\} = \lim_{n \to \infty} \sum_{k=0}^n a = \lim_{n \to \infty} na $$ y este límite no esxiste.
+            $$\sum_{k=0}^{\infty}a = \lim_{n \to \infty} \{S_n\} = \lim_{n \to \infty} \sum_{k=0}^n a = \lim_{n \to \infty} na $$ y este límite no existe.
             Ahora supongamos que $x \neq 1,$ se tiene que
             \begin{equation*}
                \begin{split}
@@ -201,7 +201,7 @@
             </p>
             <div class="note">
                <p class="paragraph">
-                  <span class="note__title">Nota: </span>La defifinición que se dio de serie geométrica comienza con $n=0$, pero esta serie empieza con
+                  <span class="note__title">Nota: </span>La definición que se dio de serie geométrica comienza con $n=0$, pero esta serie empieza con
                   $n=1$. Lo importante es que el primer exponente del término $x$ sea cero, es decir, que la serie tenga la forma $ax^0+ax^1+ax^2+\cdots.$
                </p>
             </div>
@@ -213,7 +213,7 @@
       </section>
       <section class="section--hidden" data-section="s-3">
          <p class="paragraph">
-            Usando series es posible encontrar representación decimal infinita como cociente de dos enteros. 
+            Usando series, es posible encontrar la representación de números decimales periódicos infinitos como cociente de dos enteros. 
          </p>
          <div class="example">
             <p class="paragraph example__paragraph">
@@ -297,7 +297,7 @@
          </div>
          <h3 class="header-tertiary">Demostración.</h3>
          <p class="paragraph">
-            Puesto que $\sum_{n=1}^\infty a_n$ y $\sum_{n=1}^\infty b_n$ son convergentes, supongamos que $\sum_{n=1}^\infty a_n = A$ y $\sum_{n=1}^\infty b_n = B$. Por linealidad de las sumatorias
+            Puesto que $\sum_{n=1}^\infty a_n$ y $\sum_{n=1}^\infty b_n$ son convergentes, supongamos que $\sum_{n=1}^\infty a_n = A$ y $\sum_{n=1}^\infty b_n = B$. Por linealidad de las sumas
             $$\sum_{n=1}^N (\alpha a_n + \beta b_n) = \alpha \sum_{n=1}^N a_n + \beta \sum_{n=1}^N b_n,$$
             entonces cuando $N \to \infty$, el primer término del segundo miembro de la ecuación anterior tiende a $\alpha A$ y el segundo término a $ \beta B$. 
             Por lo tanto, el primer miembro tiende a la suma $\alpha A + \beta B$, y esto prueba que la serie $\sum_{n=1}^\infty (\alpha a_n + \beta b_n)$ converge a la suma 
@@ -311,7 +311,7 @@
          </div>
          <h3 class="header-tertiary">Demostración.</h3>
          <p class="paragraph">
-            Puesto que $b_n = (b_n - a_n) + a_n$ y puesto que $\sum_{n=1}^\infty a_n$ converge, por el <strong class="theorem__title">Teorema 4.4.1</strong> la convergencia de
+            Puesto que $b_n = (b_n - a_n) + a_n$ y $\sum_{n=1}^\infty a_n$ converge, por el <strong class="theorem__title">Teorema 4.4.1</strong> la convergencia de
             $\sum_{n=1}^\infty ( a_n + b_n)$ implica la convergencia de $\sum_{n=1}^\infty b_n$. Por lo tanto, $\sum_{n=1}^\infty ( a_n + b_n)$ no puede converger si 
             $\sum_{n=1}^\infty b_n$ diverge.
          </p>
@@ -323,7 +323,7 @@
       <section class="section--hidden" data-section="s-6">
          <p class="paragraph">
             Una propiedad de las sumas teléscopicas es que $\sum_{k=1}^n (b_k - b_{k+1}) = b_1 - b_{n+1}$. Para extender esta propiedad a las series infinitas se ha de considerar aquellas
-            series $\sum_{n=1}^\infty a_n$ donde cada término $a_n$ pueda ser expredado como una diferencia, es decir, $a_n = b_n - b_{n+1}$. Estas series se llaman series teléscopicas.
+            series $\sum_{n=1}^\infty a_n$ donde cada término $a_n$ pueda ser expresado como una diferencia, es decir, $a_n = b_n - b_{n+1}$. Estas series se llaman series teléscopicas.
          </p>
          <div class="theorem">
             <p class="paragraph">

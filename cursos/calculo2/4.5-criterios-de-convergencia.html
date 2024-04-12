@@ -51,7 +51,7 @@
             4.5 Criterios de convergencia
          </h1>
          <p class="paragraph">
-            Para determinar la convergencia de las series trabajadas hasta ahora, se ha considerado las primeras sumas parciales $S_n$ y después ver si tienen límite finito
+            Para determinar la convergencia de las series trabajadas hasta ahora, se han considerado las primeras sumas parciales $S_n$ y después ver si tienen límite finito
             cuando $n \to \infty$. Sin embargo, no siempre es posible encontrar una expresión para $S_n$ de manera que resulte sencillo evaluar el límite cuando $n \to \infty$, 
             lo que hace difícil establecer la convergencia de la serie.
          </p>
@@ -61,13 +61,13 @@
          </p>
          <div class="theorem">
             <p class="paragraph">
-               <span class="theorem__title">Teorema 4.5.1. </span>Si la serie $\sum_{n=0}^\infty a_n$ converge, el $n$-simo término tiende a cero.
+               <span class="theorem__title">Teorema 4.5.1. </span>Si la serie $\sum_{n=0}^\infty a_n$ converge, el $n$-ésimo término tiende a cero.
             </p>
          </div>
          <div class="proof">
             <h3 class="header-tertiary">Demostración.</h3>
             <p class="paragraph">
-               Sea $S_n = a_1 + a_2 + \cdots a_n$, entonces $a_n = S_n - S_{n-1}$. Cuando $n \to \infty$, $S_n$ y $S_{n-1}$ tienen el mismo límite y por lo tanto, $a_n \to 0.$
+               Sea $S_n = a_1 + a_2 + \cdots + a_n$, entonces $a_n = S_n - S_{n-1}$. Cuando $n \to \infty$, $S_n$ y $S_{n-1}$ tienen el mismo límite y por lo tanto, $a_n \to 0.$
             </p>
          </div>
          <div class="fancy-line"></div>
@@ -93,7 +93,7 @@
          </div>
          <h3 class="header-tertiary">Solución.</h3>
          <p class="paragraph">
-            Comenzamos con notando que $k-1$ factores de $k!$ son mayores o iguales a dos, es decir,
+            Comenzamos notando que $k-1$ factores de $k!$ son mayores o iguales a dos, es decir,
             $$2^{k-1} = 1 \cdot 2 \cdot  2  ...  2 \leq 1 \cdot 2 \cdot 3  ... k = k!,$$
             por lo que $\frac{1}{n!} \leq \frac{1}{2^{k-1}}.$ Entonces,
             $$\sum_{k=1}^n \frac{1}{k!} \leq \sum_{k=1}^n \frac{1}{2^{k-1}},$$
@@ -123,7 +123,14 @@
          <div class="proof">
             <h3 class="header-tertiary">Demostración.</h3>
             <p class="paragraph">
-               Sea $s_n = a_1 +a_2 + \cdots + a_n$ y $t_n = b_1 + b_2 + \cdots + b_n$. La hipótesis implica que $s_n \leq t_n + s_N.$ Si $\sum_{n=1}^\infty b_n$ converge, entonces 
+               Sea $s_n = a_1 +a_2 + \cdots + a_n$ y $t_n = b_1 + b_2 + \cdots + b_n$. Puesto que los términos $s_n$ y $t_n$ son postivos, se tiene que
+               \begin{equation*}
+                  \begin{split}
+                     S_n &= S_N + S_{N+1} + \cdots + S_n \leq S_N + b_{N+1} + \cdots + b_n\\
+                        &\leq S_N + t_n.
+                  \end{split}
+               \end{equation*}
+               Si $\sum_{n=1}^\infty b_n$ converge, entonces 
                sus sumas parciales están acotadas, es decir, existe un $M$ talque $s_n \leq M + s_N$. Por lo tanto, $\sum_{n=1}^\infty a_n$ es también convergente porque sus 
                sumas parciales están acotadas por $M + s_N$.
             </p>
@@ -143,7 +150,7 @@
          <div class="proof">
             <h3 class="header-tertiary">Demostración.</h3>
             <p class="paragraph">
-               Sea $m$ y $M$ dos números positivos tales que $m < c < M.$ Puesto que $\frac{a_n}{b_n}$ está cercano a $c$ para valores grandes de $n$, existe un entero $N$ tal que
+               Sea $m$ y $M$ dos números positivos tales que $m < L < M.$ Puesto que $\frac{a_n}{b_n}$ está cercano a $L$ para valores grandes de $n$, existe un entero $N$ tal que
                para $n  > N$
                $$m < \frac{a_n}{b_n} < M,$$
                de donde 
@@ -198,7 +205,7 @@
          </form>
          <div class="section--hidden" data-section="s1">
             <p class="paragraph">
-               La serie diverge, para esto comparamos los $n$-simos términos de las series
+               La serie diverge, para esto comparamos los $n$-ésimos términos de las series
                \begin{equation*}
                   \begin{split}
                      \lim_{n \to \infty } \frac{\frac{1}{n}}{\frac{1}{\sqrt{n(n+10)}}} &= \lim_{n \to \infty } \frac{\sqrt{n^2+10n}}{n}\\
@@ -252,14 +259,15 @@
          </div>
          <h3 class="header-tertiary">Solución.</h3>
          <p class="paragraph">
+            Para que se cumpla la condición necesaria de convergencia, se debe cumplir que $p>0,$ de lo contrario el término $\frac{1}{n^p}$ no tiende a cero cuando $n \to \infty$.
             La divergencia de la serie cuando $p=1$ fue probada en la sección anterior, usando el criterio integral se da una demostración alternativa. 
             Se tiene que 
             $$t_n = \int_1^n \frac{1}{n^p} = \begin{cases}
             \frac{n^{1-p}}{1-p} & \mbox{si} \quad n \neq 1\\
             \log n & \mbox{si} \quad n=1
             \end{cases}.$$
-            Por el criterio integral, si $n > 1$, $\{t_n\}$ converge porque el término $n^{1-s} \to 0$ cuando $n \to \infty$.
-            Si $n < 1,$ entonces $\{t_n\} \to \infty$ y la serie diverge. El caso $n=1$ ya se estudio en la sección anterior.
+            Por el criterio integral, si $p > 1$, $\{t_n\}$ converge porque el término $n^{1-p} \to 0$ cuando $n \to \infty$.
+            Si $p < 1,$ entonces $\{t_n\} \to \infty$ y la serie diverge. El caso $p=1$ ya se estudio en la sección anterior.
          </p>
          <div class="fancy-line"></div>
          <form class="question margin-top-sm" data-question="question-4-5-2" data-answer="b" autocomplete="off">
@@ -291,7 +299,7 @@
          <div class="section--hidden" data-section="s3">
             <h3 class="header-tertiary">Solución.</h3>
             <p class="paragraph">
-               La función $f(x)=\frac{1}{x^2 +1}$ es continua y decreciente en $[1, \infty)$, por lo que podemos usar el criterio inegral,
+               La función $f(x)=\frac{1}{x^2 +1}$ es continua y decreciente en $[1, \infty)$, por lo que podemos usar el criterio integral,
                \begin{equation*}
                   \begin{split}
                      \int_1^\infty \frac{1}{x^2+1}\, dx &= \lim_{t \to \infty} \int_1^t \frac{1}{x^2+1}\, dx\\
@@ -309,8 +317,8 @@
       </section>
       <section class="section--hidden" data-section="s4">
          <p class="paragraph">
-            Supoongamos que $0 < x < 1$ y que los elementos $a_n$ de la serie $\sum_{n=1}^\infty a_n$ satisfacen (a partir de uno de ellos) una desigualdad de la forma 
-            $0 \leq a_n \leq x.$ Aplicando el criterio de comparación, la serie $\sum_{n=1}^\infty a_n$ converge, las desigualdades anteriores son equivalentes a 
+            Supongamos que $0 < x < 1$ y que los elementos $a_n$ de la serie $\sum_{n=1}^\infty a_n$ satisfacen (a partir de uno de ellos) una desigualdad de la forma 
+            $0 \leq a_n \leq x^n.$ Aplicando el criterio de comparación, la serie $\sum_{n=1}^\infty a_n$ converge, las desigualdades anteriores son equivalentes a 
             $0 \leq (a_n)^{\frac{1}{n}} \leq x.$ Esta idea da el nombre al siguiente criterio de convergencia.
          </p>
          <div class="theorem">
@@ -425,7 +433,7 @@
             <p class="paragraph">
                Si $L > 1$, tomamos ahora in $x$ de manera que $1 < x < L.$ Entonces ha de existir un $N$ tal que $ x < \frac{a_{n+1}}{a_n}$ para todo $n \geq N.$ Entonces para todo $n \geq N$
                $$\frac{a^n}{x^n} < \frac{a_{n+1}}{x^{n+1}}.$$
-               Por lo tanto, la suseción $\{\frac{a^n}{x^n}\}$ es creciente. Cuando $n \geq N$ ha de ser $\frac{a_N}{x_N} \leq \frac{a_n}{x_n},$ o de otro modo
+               Por lo tanto, la sucesión $\{\frac{a^n}{x^n}\}$ es creciente. Cuando $n \geq N$ ha de ser $\frac{a_N}{x_N} \leq \frac{a_n}{x_n},$ o de otro modo
                $$\frac{a_N}{x_N} x^n \leq a_n.$$
                Como $x>1$, el término $a_n$ no puede tender a cero, por lo cual $\sum_{n=1}^\infty a_n$ diverge.
             </p>
@@ -466,8 +474,8 @@
          <div class="theorem">
             <p class="paragraph">
                <span class="theorem__title">Teorema 4.5.8 Criterio de la serie alternante. </span>Si $0< a_n$ para toda $n\in\mathbf{N}$, $\lim_{n\to\infty} a_n$ y la sucesión $\{a_n\}$ 
-               es monótona decreciente, entonces la serie alternante converge. Si $S$ designa su suma y $A_n$ su suma parcial $n$-sima, para todo $n\in\mathbf{N}$ se verifica
-               $$|S- A_n| < a_{n+1}$$
+               es monótona decreciente, entonces la serie alternante converge. Si $S$ designa su suma y $A_n$ su suma parcial $n$-ésima, para todo $n\in\mathbf{N}$ se verifica
+               $$|S- A_n| < a_{n+1}.$$
             </p>
          </div>
          <div class="proof">
@@ -496,7 +504,7 @@
          </div>
          <h3 class="header-tertiary">Solución.</h3>
          <p class="paragraph">
-            Los terminos $a_n = \frac{1}{n}$ son decrecientes y $\frac{1}{n} \to 0$ cuando $n \to \infty,$ por lo tanto converge.
+            Los términos $a_n = \frac{1}{n}$ son decrecientes y $\frac{1}{n} \to 0$ cuando $n \to \infty,$ por lo tanto converge.
          </p>
          <div class="margin-bottom-xm">
             <button class="btn-sm btn--blue" type="button" data-btn-continue="s8">Continuar</button>

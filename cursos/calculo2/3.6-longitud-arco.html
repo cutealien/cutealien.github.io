@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+   <link rel="stylesheet" href="/css/style.css">
+   
+   <script src="./scripts/variables.js" defer></script>
+   <script src="./scripts/question.js" defer></script>
+   <script src="./scripts/modal.js" defer></script>
+   <script src="./components/component-loader.js" defer></script>
+   <!-- <script src="./components/mobile-sidebar/mobile-sidebar.js" defer></script>
+   <script src="./components/sidebar/sidebar.js" defer></script>
+   <script src="./components/math-template.js" defer></script> -->
+
+   <script>
+      MathJax = {
+            tex: {
+               inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+            loader: {load: ['input/asciimath', 'output/chtml']}
+      }
+   </script>
+   <script id="MathJax-script" async src="/scripts/MathJax-master/es5/tex-chtml.js"></script>
+
+   <title>Cálculo 2 | Longitud de arco y áreas de superficie de revolución</title>
+</head>
+<body class="course">
+   <nav class="navbar">
+      <a href="/" class="navbar__logo-box">
+      </a>
+      <a href="/" class="navbar__link">
+            Inicio
+      </a>
+      <a href="#" class="navbar__link navbar__link--active">
+            Cálculo 2
+      </a>
+      <a href="./quiz.html" class="navbar__link">
+            Quiz
+      </a>
+      <button class="menu-mobile-btn burger-btn" data-menu-btn="menu-mobile"><span class="burger-icon"></span></button>
+   </nav>
+   <alien-sidebar class="sidebar" id="sidebar"></alien-sidebar>
+   <alien-mobile-sidebar id="mobile-menu"></alien-mobile-sidebar>
+   <main class="main">
+      <section>
+         <h1 class="header-primary margin-bottom-md">
+            3.6 Longitud de arco y áreas de superficie de revolución
+         </h1>
+         <h2 class="header-secondary">
+            Longitud de arco
+         </h2>
+         <p class="paragraph">
+            Considere una función $f$ derivable con derivada continua en el intervalo $[a.b]$. Se puede obtener una aproximación de la longitud de la curva mediante lineas poligonales, como se muestra en la siguiente imagen. 
+         </p>
+         <div class="text-center margin-top-sm margin-bottom-sm">
+            <img class="img" src="./assets/polygonal-line.png" alt="Linea poligonal">
+        </div>
+         <p class="paragraph">
+            Tomemos una partición del intervalo $[a,b]$ de $n$ elementos y sea $\Delta x_i = x_i - x_{i-1}$ y $\Delta y_i = f(x_i) - f(x_{i-1})$. 
+            La distancia $d$ entre el punto $\left ( x_{i-1}, f(x_{i-1}) \right )$ y $\left ( x_{i}, f(x_{i}) \right )$ para $i=1,2,\cdots ,n$ es 
+            \begin{align*}
+               d &= \sqrt{(x_{i}-x_{i-1})^2 + (f(x_{i}) - f(x_{i-1})^2}\\
+               &= \sqrt{(\Delta x_i)^2 +(\Delta y_i)^2}.\\
+            \end{align*}
+         </p>
+         <p class="paragraph">
+            Ahora, sumamos todas las distancias para obtener una aproximación de la longitud de la curva, 
+            \begin{align*}
+               s &\approx \sum_{i=1}^n \sqrt{(\Delta x_i)^2 +(\Delta y)^2}\\
+               &\approx \sum_{i=1}^n \sqrt{(\Delta x_i)^2 +\frac{(\Delta y_i)^2}{(\Delta x_i)^2}}\\
+               &\approx \sum_{i=1}^n \sqrt{(\Delta x_i)^2 +\frac{(\Delta y_i)^2}{(\Delta x_i)^2}(\Delta x_i)^2}\\
+               &\approx \sum_{i=1}^n \sqrt{1 +\frac{(\Delta y_i)^2}{(\Delta x_i)^2}}(\Delta x_i).\\
+            \end{align*}
+            Esta aproximación mejora cuando $\| \Delta \| \to 0$, es decir, $n \to \infty$. Entonces, la longitud de la curva es
+            $$s = \lim_{| \Delta \| \to 0} \sum_{i=1}^n \sqrt {1 +\frac{(\Delta y_i)^2}{(\Delta x_i)^2}}(\Delta x_i).$$
+         </p>
+         <p class="paragraph">
+            Puesto que $f'(x)$ existe en $(x_{i-1}, x_i)$, el teorema del valor medio para derivadas garantiza la existencia de una constante $c_i$ en $(x_{i-1}, x_i)$ tal que 
+            \begin{align*}
+               f(x_i) - f(x_{i-1}) &= f'(c_i)(x_i - x_{i-1})\\
+               \frac{\Delta y_i}{\Delta x_i}&=f'(c_i).
+            \end{align*}
+            La función $\sqrt{1+[f'(x)]^2}$ es continua por ser $f'(x)$ y, por lo tanto, integrable en $[a,b]$, lo que implica que
+            \begin{align*}
+               s &= \lim_{| \Delta \| \to 0} \sum_{i=1}^n \sqrt {1 +[f'(c_i)]^2}(\Delta x_i)\\
+               &= \int_a^b \sqrt {1 +[f'(x)]^2}\, dx,
+            \end{align*}
+            donde $s$ es llamada longitud de arco.
+         </p>
+         <div class="definition">
+            <p class="paragraph">
+               <span class="definition__title">Definición 3.6.1. </span>Sea $y=f(x)$ una función de clase $C^1$ en el intervalo $[a,b]$. La longitud de arco de $f$ entre $a$ y $b$ es 
+               $$s= \int_a^b \sqrt {1 +[f'(x)]^2}\, dx.$$
+               Similarmente, si $x=g(y)$  es de clase $C^1$, la longitud de arco entre $c$ y $d$ es
+               $$s= \int_c^d \sqrt {1 +[g'(x)]^2}\, dy.$$
+            </p>
+         </div>
+         <div class="fancy-line"></div>
+         <div class="example">
+            <p class="paragraph example__paragraph">
+               <span class="example__title">Ejemplo 3.6.1. </span>Encuentra la longitud de arco de la curva $f(x)=\ln(cos x)$ de $x=0$ a $x=\frac{\pi}{3}$.
+            </p>
+         </div>
+         <h3 class="header-tertiary">Solución.</h3>
+         <p class="paragraph">
+            Tenemos que $f'(x)=-\frac{\sin x}{\cos x}=-\tan x$ y $[f'(x)]^2 = \tan^2 x$, por lo que la longitud de arco es
+            \begin{align*}
+               s &= \int_{0}^{\frac{\pi}{3}} \sqrt {1 +\tan^2 x}\, dx \\
+               &= \int_{0}^{\frac{\pi}{3}} \sec x \, dx \\
+               &= \Big [ \ln | \sec x + \tan x | \Big ]_0^\frac{\pi}{3}\\
+               &= \ln ( 2 + \sqrt {3}) - \ln (1)\\
+               &= \ln ( 2 + \sqrt {3}).
+            \end{align*} 
+         </p>
+         <div>
+            <button class="btn-sm btn--blue" type="button" data-btn-continue="s1">Continuar</button>
+         </div>
+         <div class="fancy-line"></div>
+      </section>
+      <section data-section="s1">
+            <h2 class="header-secondary">
+               Áreas de superficies de revolución
+            </h2>
+            <p class="paragraph">
+               Una superficie de revolución se forma cuando una curva es rotada alrededor de una línea. Esta figura es el límite lateral de una superficie de revolución. En esta sección se muestra como calcular el área de esta superficie.
+            </p>
+            <p class="paragraph">
+               Considere un cono circular hueco con base $r$ y altura de inclinación $l$. Ahora, realice un corte vertical desde la punta del cono hasta la base del cono, como muestra la linea roja en la siguiente imagen.
+            </p>
+            <div class="text-center margin-top-sm margin-bottom-sm">
+               <img class="img" src="./assets/cone.png" alt="Cono">
+         </div>
+         <p class="paragraph">
+               La figura resultante se es un sector circular de radio $l$, ángulo central $\alpha = \frac{2r\pi}{l}$, donde $2r\pi$ es la longitud de la circunferencia del cono, se observa en la siguiente imagen. El área $A$ de una región circular con ángulo central $\alpha$ y radio $l$ es $A=\frac{\alpha l^2}{2}$, por lo que en este caso el área es 
+               $$A=\frac{\alpha l^2}{2} = \left (\frac{2r\pi}{l} \right ) \frac{l^2}{2}=\pi r l.$$
+         </p>
+         <div class="text-center margin-top-sm margin-bottom-sm">
+               <img class="img" src="./assets/cone-surface.png" alt="Cono">
+            </div>
+         <p class="paragraph">
+               Para calcular el área de una superficie de revolución más complicada, de manera similar a la longitud de arco, aproximamos a la curva mediante líneas poligonales. Al rotar las líneas poligonales, se crean figuras más simples cuya área es más fácil calcular.
+         </p>
+         <p class="paragraph">
+               La siguiente imagen muestra la "banda" formada en el intervalo $[x_{i-1},x_i]$.
+         </p>
+         <div class="text-center margin-top-sm margin-bottom-sm">
+            <img class="img" src="./assets/surface-part.png" alt="Cono">
+         </div>
+         <p class="paragraph">
+            Estas bandas son parte de un cono, la siguiente imagen muestra el cono formado.
+         </p>
+         <div class="text-center margin-top-sm margin-bottom-sm">
+            <img class="img" src="./assets/surface-cone.png" alt="Cono">
+         </div>
+         <p class="paragraph">
+            Supongamos que la banda tiene altura de inclinación $l$, radio superior $r_1$ y radio superior $r_2$. El área $A$ de la banda se obtiene restando el área de la superficie de dos conos. Supongamos que el primer cono tiene altura de inclinación $l_1$ y el segundo $l_2$, de lo anterior, $l_2 = l_1 + l$, esto se muestra en la siguiente imagen.
+         </p>
+         <div class="text-center margin-top-sm margin-bottom-sm">
+            <img class="img" src="./assets/surface-cone-heights.png" alt="Cono">
+         </div>
+         <p class="paragraph">
+            Entonces, el área de la banda es 
+
+            $$A = \pi r_2(l_1 + l) - \pi r_1 l_1 = \pi \left [ (r_2 - r_1)l_1 + r_2l\right ],$$
+            usando triángulos similares
+            $$\frac{l_1}{r_1} = \frac{l1_+l}{r_2},$$
+            de donde 
+            $$(r_2-r_1)l_1 = r_1 l,$$
+            por lo que el área de la banda es 
+            $$A = \pi(r_1 l + r_2 l) = 2\pi r l,$$
+            con $r=\frac{r_1+r_2}{2}$. Ahora ya podemos calcular el área de la superficie formada al rotar la curva alrededor de un eje.
+         </p>  
+         <p class="paragraph">
+            Sea $f$ una función de clase $C^1$ en el intervalo $[a,b]$ que es rotada alrededor del eje $x$. Tomemos una partición del intervalo $[a,b]$ de $n$ elementos y sea $\Delta x_i = x_i - x_{i-1}$ y $\Delta y_i = f(x_i) - f(x_{i-1})$. Entonces, el segmento de línea que va del punto $\left ( x_{i-1}, f(x_{i-1}) \right )$ y $\left ( x_{i}, f(x_{i}) \right )$ tiene longitud
+            $$\Delta l_i = \sqrt{(\Delta x_i)^2 +(\Delta y_i)^2}.$$
+         </p>
+         <p class="paragraph">
+            Estos segmentos de recta generan una banda que es una parte de un cono. Sea $r_i$ el promedio del radio de la banda. Por el teorema del valor intermedio, existe un punto $c_i$ en $(x_{i_1}, x_i)$ tal que $r_i=f(d_i)$ (recuerde que los radios de la banda están dados por $f(x)$). El área $\Delta s_i$ de la $i$-ésima banda es
+            \begin{align*}
+               \Delta s_i &= 2\pi r_i \Delta l_i \\
+               &= 2\pi f(d_i) \sqrt{(\Delta x_i)^2 +(\Delta y_i)^2}\\
+               &= 2\pi f(d_i) \sqrt{1 +\left (\frac{\Delta y_i}{\Delta x_i} \right )^2}\Delta x_i.
+            \end{align*}
+         </p>
+         <p class="paragraph">
+            Por el teorema del valor medio para derivadas, existe un $c_i$ en $(x_{i_1}, x_i)$ tal que
+            $$f'(c_i) = \frac{f(x_i) - f(x_{i-1})} {(x_i - x_{i-1})} = \frac{\Delta y_i}{\Delta x_i}.$$
+            Por lo que $$\Delta s_i = 2\pi f(d_i) \sqrt{1 +\left (f'(c_i)\right )^2}\Delta x_i$$ y el área $S$ de la superficie puede ser aproximada mediante
+            $$ S \approx \sum_{i=1}^n 2\pi f(d_i) \sqrt{1 +\left (f'(c_i)\right )^2}\Delta x_i.$$
+         </p>
+         <p class="paragraph">
+            La aproximación mejora cuando $\| \Delta \| \to 0$, lo que nos da que
+            $$ S = \int_a^b 2\pi f(x) \sqrt{1 +\left (f'(x)\right )^2}\, dx.$$
+            De manera similar, si la gráfica es rotada alrededor del eje $y$ el área de la superficie es
+            $$ S = \int_a^b 2\pi x \sqrt{1 +\left (f'(x)\right )^2}\Delta x_i,$$
+            en esta rotación el radio es $r=x$.
+         </p>
+         <div class="definition">
+            <p class="paragraph">
+               <span class="definition__title">Definición 3.6.2. </span>Sea $y=f(x)$ una función de clase $C^1$ en el intervalo $[a,b]$. El área de la superficie de revolución formada al rotar $f$ alrededor del eje $x$ entre $a$ y $b$ es 
+               $$S = 2\pi\int_a^b r(x) \sqrt{1 +\left (f'(x)\right )^2}\, dx,$$
+               donde $r(x)$ es la distancia de la gráfica de $f$ al eje de revolución.
+               Similarmente, si $x=g(y)$  es de clase $C^1$, el área de la superficie de revolución formada al rotar $g(y)$ alrededor del eje $y$ entre $c$ y $d$ es
+               $$S = 2\pi\int_c^d r(y) \sqrt{1 +\left (g'(y)\right )^2}\, dx,$$
+               donde $r(x)$ es la distancia de la gráfica de $g$ al eje de revolución.
+            </p>
+         </div>
+         <div class="fancy-line"></div>
+         <div class="example">
+            <p class="paragraph example__paragraph">
+               <span class="example__title">Ejempo 3.6.1. </span> Calcule el área de la superficie de revolución formada al rotar la gráfica $f(x)=x^2$ alrededor del eje $y$ en el intervalo $\left [0,\sqrt{2} \right ]$.
+            </p>
+         </div>
+         <h3 class="header-tertiary">Solución.</h3>
+         <p class="paragraph">
+            En este caso la distancia del eje $y$ a la gráfica de $f$ es $r(x)=x$. También $f'(x)=2x$, por lo que
+            \begin{align*}
+               S &= 2\pi\int_a^b r(x) \sqrt{1 +\left (f'(x)\right )^2}\, dx\\
+               &= 2\pi\int_0^{\sqrt{2}} x \sqrt{1 +4x^2}\, dx\\
+               &= \frac{2\pi}{8}\int_0^{\sqrt{2}} 8x \sqrt{1 +4x^2}\, dx\\
+               &= \frac{\pi}{4} \frac{2}{3}\Big [(1 +4x^2)^\frac{3}{2} \Big]_0^{\sqrt{2}}\\
+               &= \frac{\pi}{6} (27-1)\\
+               &= \frac{13\pi}{3}.
+            \end{align*}
+         </p>
+         <div class="fancy-line"></div>
+         <form class="question margin-top-sm" data-question="question-3-6-1" data-answer="b" autocomplete="off">
+            <h3 class="question__header margin-bottom-sm">
+               <span class="modal__reference"></span> Calcula el área de la superficie obtenida al rotar la función $y=\sqrt{4-x^2}$, en el intervalor $-1 \leq x \leq 1.$ 
+            </h3>
+            <div class="question__row">
+               <div class="question__col-1">
+                  <div class="question__options">
+                     <div class="question__option">
+                        <input type="radio" id="answer-3-6-1-a" name="question-3-6-1" value="a" data-option="question-3-6-1">
+                        <label for="answer-3-6-1-a">$9\pi$</label>
+                     </div>
+                     <div class="question__option">
+                        <input type="radio" id="answer-3-6-1-b" name="question-3-6-1" value="b" data-option="question-3-6-1">
+                        <label for="answer-3-6-1-b">$8\pi$</label>
+                     </div>
+                     <div class="question__option">
+                        <input type="radio" id="answer-3-6-1-c" name="question-3-6-1" value="c" data-option="question-3-6-1">
+                        <label for="answer-3-6-1-c">$7\pi$</label>
+                     </div>
+                     <div class="question__option">
+                        <input type="radio" id="answer-3-6-1-d" name="question-3-6-1" value="d" data-option="question-3-6-1">
+                        <label for="answer-3-6-1-d">$6\pi$</label>
+                     </div>
+                  </div>
+                  <div class="question__btn-box">
+                     <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                     <button class="btn btn--blue" type="button" disabled data-btn-continue="s2">Continuar</button>
+                  </div>
+               </div>
+               <div class="question__col-2">
+                  <p class="question__answer"></p>
+               </div>
+            </div>
+         </form>
+         <div data-section="s2">
+            <p class="paragraph">
+               En este caso el radio de las bandas es $r(x)=f(x)$ y $f'(x)=\frac{-x}{\sqrt{4-x^2}}.$ Entonce, el área $S$ de la superficie es
+               \begin{align*}
+                  S &= 2\pi \int_{-1}^{1} \sqrt{4-x^2}\sqrt{1 + \frac{x^2}{4-x^2}} \, dx\\
+                  &= 2\pi \int_{-1}^{1} \sqrt{4} \, dx \\
+                  &=8\pi
+               \end{align*}
+            </p>
+            <div>
+               <button class="btn-sm btn--blue" type="button" data-btn-continue="s3">Continuar</button>
+            </div>
+            <div class="fancy-line"></div>
+         </div>
+         <div data-section="s3">
+            <form class="question margin-top-sm" data-question="question-3-6-2" data-answer="c" autocomplete="off">
+               <h3 class="question__header margin-bottom-sm">
+                  Plantea las integrales para calcular el área de la superficie formada por la función $y=x^4$ en el intervalo $0 \leq x \leq 1$ al rotar 
+                  alrededor del eje $x$ y alrededor del eje $y$.
+               </h3>
+               <div class="question__row">
+                  <div class="question__col-1">
+                     <div class="question__options">
+                        <div class="question__option">
+                           <input type="radio" id="answer-3-6-2-a" name="question-3-6-2" value="a" data-option="question-3-6-2">
+                           <label for="answer-3-6-2-a">Alrededor dele eje $x$, $S=2\pi \int_0^1 x \sqrt{1+x^{8}} \, dx$. Alrededor dele eje $y$, $S=2\pi \int_0^1 x \sqrt{1+16x^{6}} \, dx$</label>
+                        </div>
+                        <div class="question__option">
+                           <input type="radio" id="answer-3-6-2-b" name="question-3-6-2" value="b" data-option="question-3-6-2">
+                           <label for="answer-3-6-2-b">Alrededor dele eje $x$, $S=2\pi \int_0^1 x^4 \sqrt{1+16x^{6}} \, dx$. Alrededor dele eje $y$, $S=2\pi \int_0^1 y \sqrt{1+y^{8}} \, dy$</label>
+                        </div>
+                        <div class="question__option">
+                           <input type="radio" id="answer-3-6-2-c" name="question-3-6-2" value="c" data-option="question-3-6-2">
+                           <label for="answer-3-6-2-c">Alrededor dele eje $x$, $S=2\pi \int_0^1 x^4 \sqrt{1+16x^{6}} \, dx$. Alrededor dele eje $y$, $S=2\pi \int_0^1 x \sqrt{1+16x^{6}} \, dx$</label>
+                        </div>
+                        <div class="question__option">
+                           <input type="radio" id="answer-3-6-2-d" name="question-3-6-2" value="d" data-option="question-3-6-2">
+                           <label for="answer-3-6-2-d">Alrededor dele eje $x$, $S=2\pi \int_0^1 x \sqrt{1+16x^{6}} \, dx$. Alrededor dele eje $y$, $S=2\pi \int_0^1 \sqrt y \sqrt{1+16y^{6}} \, dy$</label>
+                        </div>
+                     </div>
+                     <div class="question__btn-box">
+                        <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                        <button class="btn btn--blue" type="button" disabled data-btn-continue="s4">Continuar</button>
+                     </div>
+                  </div>
+                  <div class="question__col-2">
+                     <p class="question__answer"></p>
+                  </div>
+               </div>
+            </form>
+         </div>
+         <div data-section="s4">
+            <p class="paragraph">
+               Si se gira alrededor del eje $x$, el radio es $r(x)=x^4$ y si se gira alrededor del eje $y$ el radio es $r(x)=x$. También, $f'(x)=4x^3,$ por lo que el área de la superficie alrededor
+               del eje $x$ es
+               $$S=2\pi \int_0^1 x^4 \sqrt{1+16x^{6}} \, dx,$$
+               y alrededor del eje $y$
+               $$S=2\pi \int_0^1 x \sqrt{1+16x^{6}} \, dx.$$
+            </p>
+            <div>
+               <button class="btn-sm btn--blue" type="button" data-btn-continue="s5">Continuar</button>
+            </div>
+            <div class="fancy-line"></div>
+         </div>
+         <div data-section="s5">
+            <form class="question margin-top-sm" data-question="question-3-6-3" data-answer="d" autocomplete="off">
+               <h3 class="question__header margin-bottom-sm">
+                  Plantea dos integrales, una en términos de $x$ y otra en términos de $y$ para calcular el área de la superficie formada
+                  al rotar la curva $y=x^3$ alrededor del eje $x$ en el intervalo $0 \leq x \leq 2.$
+               </h3>
+               <div class="question__row">
+                  <div class="question__col-1">
+                     <div class="question__options">
+                        <div class="question__option">
+                           <input type="radio" id="answer-3-6-3-a" name="question-3-6-3" value="a" data-option="question-3-6-3">
+                           <label for="answer-3-6-3-a">En términos de $x$, $S=2\pi \int_0^2 \sqrt{1+9x^4}\, dx$. En términos de $y$, $S = \int_0^2 y \sqrt{1 + \frac{1}{9y^{\frac{4}{3}}}} \, dy.$</label>
+                        </div>
+                        <div class="question__option">
+                           <input type="radio" id="answer-3-6-3-b" name="question-3-6-3" value="b" data-option="question-3-6-3">
+                           <label for="answer-3-6-3-b">En términos de $x$, $S=2\pi \int_0^2 x \sqrt{1+9x^4}\, dx$. En términos de $y$, $S = \int_0^2 \sqrt[3]{y} \sqrt{1 + \frac{1}{9y^{\frac{4}{3}}}} \, dy.$</label>
+                        </div>
+                        <div class="question__option">
+                           <input type="radio" id="answer-3-6-3-c" name="question-3-6-3" value="c" data-option="question-3-6-3">
+                           <label for="answer-3-6-3-c">En términos de $x$, $S=2\pi \int_0^2 x^3 \sqrt{1+9x^4}\, dx$. En términos de $y$, $S = \int_0^8 y \sqrt{1 + y^{\frac{1}{6}}} \, dy.$</label>
+                        </div>
+                        <div class="question__option">
+                           <input type="radio" id="answer-3-6-3-d" name="question-3-6-3" value="d" data-option="question-3-6-3">
+                           <label for="answer-3-6-3-d">En términos de $x$, $S=2\pi \int_0^2 x^3 \sqrt{1+9x^4}\, dx$. En términos de $y$, $S = \int_0^8 y \sqrt{1 + \frac{1}{9y^{\frac{4}{3}}}} \, dy.$</label>
+                        </div>
+                     </div>
+                     <div class="question__btn-box">
+                        <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                        <button class="btn btn--blue" type="button" disabled data-btn-continue="s6">Continuar</button>
+                     </div>
+                  </div>
+                  <div class="question__col-2">
+                     <p class="question__answer"></p>
+                  </div>
+               </div>
+            </form>
+         </div>
+         <div data-section="s6">
+            <p class="paragraph">
+               Puesto que se gira alrededor del eje $x$, el radio es $r(x)=x^3$. También, $f'(x)=3x^2$ por lo que la integral en términos de $x$ es,
+               $$S=2\pi \int_0^2 x^3 \sqrt{1+9x^4}\, dx.$$
+               El intervalo de integración en $y$ es $0 \leq y \leq 8.$ El radio en este caso es $r(y)=y$ y $g(y)= \sqrt[3]{y}, $ de donde $g'(y)=\frac{1}{3y^{\frac{2}{3}}}.$
+               Entonces la integral es 
+               $$S = \int_0^8 y \sqrt{1 + \frac{1}{9y^{\frac{4}{3}}}} \, dy.$$
+            </p>
+            <div class="fancy-line"></div>
+            <div class="change-page">
+               <a href="./3.5-mas-calculo-de-volumenes.html" class="change-page__before">Anterior</a>
+               <a href="./4.1-sucesiones.html" class="change-page__next">Siguiente</a>
+            </div>
+         </div>
+      </section>
+
+   </main>
+   <div class="floating-box">
+      <button class="floating-box__btn btn-sm btn--blue" data-modal-btn="formules">&int;</button>
+      <button class="floating-box__btn btn-sm btn--blue" data-modal-btn="trigonometric">&theta;</button>
+   </div>
+   <div class="modal" data-modal="formules">
+      <div class="modal__background" data-modal-background="formules"></div>
+      <div class="modal__content">
+            <alien-math-template path="./components/formules/integration-formules.html"></alien-math-template>
+      </div>
+   </div>
+   <div class="modal" data-modal="trigonometric">
+      <div class="modal__background" data-modal-background="trigonometric"></div>
+      <div class="modal__content">
+            <alien-math-template path="./components/formules/trigonometric.html"></alien-math-template>
+      </div>
+   </div>
+</body>
+</html>

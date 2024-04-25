@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+   <link rel="stylesheet" href="/css/style.css">
+   
+   <script src="./scripts/variables.js" defer></script>
+   <script src="./scripts/question.js" defer></script>
+   <script src="./scripts/modal.js" defer></script>
+   <script src="./components/component-loader.js" defer></script>
+   <!-- <script src="./components/mobile-sidebar/mobile-sidebar.js" defer></script>
+   <script src="./components/sidebar/sidebar.js" defer></script>
+   <script src="./components/math-template.js" defer></script> -->
+
+   <script>
+      MathJax = {
+            tex: {
+               inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+            loader: {load: ['input/asciimath', 'output/chtml']}
+      }
+   </script>
+   <script id="MathJax-script" async src="/scripts/MathJax-master/es5/tex-chtml.js"></script>
+
+   <title>Cálculo 2 | Series de potencias</title>
+</head>
+<body class="course">
+   <nav class="navbar">
+      <a href="/" class="navbar__logo-box">
+      </a>
+      <a href="/" class="navbar__link">
+            Inicio
+      </a>
+      <a href="#" class="navbar__link navbar__link--active">
+            Cálculo 2
+      </a>
+      <a href="./quiz.html" class="navbar__link">
+            Quiz
+      </a>
+      <button class="menu-mobile-btn burger-btn" data-menu-btn="menu-mobile"><span class="burger-icon"></span></button>
+   </nav>
+   <alien-sidebar class="sidebar" id="sidebar"></alien-sidebar>
+   <alien-mobile-sidebar id="mobile-menu"></alien-mobile-sidebar>
+   <main class="main">
+      <section>
+         <h1 class="header-primary margin-bottom-md">
+            4.7 Series de potencias
+         </h1>
+         
+      </section>
+   </main>
+</body>
+</html>

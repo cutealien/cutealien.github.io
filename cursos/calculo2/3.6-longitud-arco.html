@@ -121,7 +121,7 @@
          </div>
          <div class="fancy-line"></div>
       </section>
-      <section data-section="s1">
+      <section class="section--hidden" data-section="s1">
             <h2 class="header-secondary">
                Áreas de superficies de revolución
             </h2>
@@ -206,13 +206,13 @@
                donde $r(x)$ es la distancia de la gráfica de $f$ al eje de revolución.
                Similarmente, si $x=g(y)$  es de clase $C^1$, el área de la superficie de revolución formada al rotar $g(y)$ alrededor del eje $y$ entre $c$ y $d$ es
                $$S = 2\pi\int_c^d r(y) \sqrt{1 +\left (g'(y)\right )^2}\, dx,$$
-               donde $r(x)$ es la distancia de la gráfica de $g$ al eje de revolución.
+               donde $r(y)$ es la distancia de la gráfica de $g$ al eje de revolución.
             </p>
          </div>
          <div class="fancy-line"></div>
          <div class="example">
             <p class="paragraph example__paragraph">
-               <span class="example__title">Ejempo 3.6.1. </span> Calcule el área de la superficie de revolución formada al rotar la gráfica $f(x)=x^2$ alrededor del eje $y$ en el intervalo $\left [0,\sqrt{2} \right ]$.
+               <span class="example__title">Ejempo 3.6.2. </span> Calcule el área de la superficie de revolución formada al rotar la gráfica $f(x)=x^2$ alrededor del eje $y$ en el intervalo $\left [0,\sqrt{2} \right ]$.
             </p>
          </div>
          <h3 class="header-tertiary">Solución.</h3>
@@ -230,7 +230,7 @@
          <div class="fancy-line"></div>
          <form class="question margin-top-sm" data-question="question-3-6-1" data-answer="b" autocomplete="off">
             <h3 class="question__header margin-bottom-sm">
-               <span class="modal__reference"></span> Calcula el área de la superficie obtenida al rotar la función $y=\sqrt{4-x^2}$, en el intervalor $-1 \leq x \leq 1.$ 
+               <span class="example__title">Ejemplo 3.6.3.</span> Calcula el área de la superficie obtenida al rotar la función $y=\sqrt{4-x^2}$, en el intervalor $-1 \leq x \leq 1.$ 
             </h3>
             <div class="question__row">
                <div class="question__col-1">
@@ -262,13 +262,13 @@
                </div>
             </div>
          </form>
-         <div data-section="s2">
+         <div class="section--hidden" data-section="s2">
             <p class="paragraph">
                En este caso el radio de las bandas es $r(x)=f(x)$ y $f'(x)=\frac{-x}{\sqrt{4-x^2}}.$ Entonce, el área $S$ de la superficie es
                \begin{align*}
                   S &= 2\pi \int_{-1}^{1} \sqrt{4-x^2}\sqrt{1 + \frac{x^2}{4-x^2}} \, dx\\
                   &= 2\pi \int_{-1}^{1} \sqrt{4} \, dx \\
-                  &=8\pi
+                  &=8\pi.
                \end{align*}
             </p>
             <div>
@@ -276,10 +276,10 @@
             </div>
             <div class="fancy-line"></div>
          </div>
-         <div data-section="s3">
+         <div class="section--hidden" data-section="s3">
             <form class="question margin-top-sm" data-question="question-3-6-2" data-answer="c" autocomplete="off">
                <h3 class="question__header margin-bottom-sm">
-                  Plantea las integrales para calcular el área de la superficie formada por la función $y=x^4$ en el intervalo $0 \leq x \leq 1$ al rotar 
+                  <span class="example__title">Ejemplo 3.6.4.</span> Plantea las integrales para calcular el área de la superficie formada por la función $y=x^4$ en el intervalo $0 \leq x \leq 1$ al rotar 
                   alrededor del eje $x$ y alrededor del eje $y$.
                </h3>
                <div class="question__row">
@@ -287,19 +287,19 @@
                      <div class="question__options">
                         <div class="question__option">
                            <input type="radio" id="answer-3-6-2-a" name="question-3-6-2" value="a" data-option="question-3-6-2">
-                           <label for="answer-3-6-2-a">Alrededor dele eje $x$, $S=2\pi \int_0^1 x \sqrt{1+x^{8}} \, dx$. Alrededor dele eje $y$, $S=2\pi \int_0^1 x \sqrt{1+16x^{6}} \, dx$</label>
+                           <label for="answer-3-6-2-a">Alrededor del eje $x$, $S=2\pi \int_0^1 x \sqrt{1+x^{8}} \, dx$. Alrededor dele eje $y$, $S=2\pi \int_0^1 x \sqrt{1+16x^{6}} \, dx$</label>
                         </div>
                         <div class="question__option">
                            <input type="radio" id="answer-3-6-2-b" name="question-3-6-2" value="b" data-option="question-3-6-2">
-                           <label for="answer-3-6-2-b">Alrededor dele eje $x$, $S=2\pi \int_0^1 x^4 \sqrt{1+16x^{6}} \, dx$. Alrededor dele eje $y$, $S=2\pi \int_0^1 y \sqrt{1+y^{8}} \, dy$</label>
+                           <label for="answer-3-6-2-b">Alrededor del eje $x$, $S=2\pi \int_0^1 x^4 \sqrt{1+16x^{6}} \, dx$. Alrededor dele eje $y$, $S=2\pi \int_0^1 y \sqrt{1+y^{8}} \, dy$</label>
                         </div>
                         <div class="question__option">
                            <input type="radio" id="answer-3-6-2-c" name="question-3-6-2" value="c" data-option="question-3-6-2">
-                           <label for="answer-3-6-2-c">Alrededor dele eje $x$, $S=2\pi \int_0^1 x^4 \sqrt{1+16x^{6}} \, dx$. Alrededor dele eje $y$, $S=2\pi \int_0^1 x \sqrt{1+16x^{6}} \, dx$</label>
+                           <label for="answer-3-6-2-c">Alrededor del eje $x$, $S=2\pi \int_0^1 x^4 \sqrt{1+16x^{6}} \, dx$. Alrededor dele eje $y$, $S=2\pi \int_0^1 x \sqrt{1+16x^{6}} \, dx$</label>
                         </div>
                         <div class="question__option">
                            <input type="radio" id="answer-3-6-2-d" name="question-3-6-2" value="d" data-option="question-3-6-2">
-                           <label for="answer-3-6-2-d">Alrededor dele eje $x$, $S=2\pi \int_0^1 x \sqrt{1+16x^{6}} \, dx$. Alrededor dele eje $y$, $S=2\pi \int_0^1 \sqrt y \sqrt{1+16y^{6}} \, dy$</label>
+                           <label for="answer-3-6-2-d">Alrededor del eje $x$, $S=2\pi \int_0^1 x \sqrt{1+16x^{6}} \, dx$. Alrededor dele eje $y$, $S=2\pi \int_0^1 \sqrt y \sqrt{1+16y^{6}} \, dy$</label>
                         </div>
                      </div>
                      <div class="question__btn-box">
@@ -313,12 +313,13 @@
                </div>
             </form>
          </div>
-         <div data-section="s4">
+         <div class="section--hidden" data-section="s4">
             <p class="paragraph">
-               Si se gira alrededor del eje $x$, el radio es $r(x)=x^4$ y si se gira alrededor del eje $y$ el radio es $r(x)=x$. También, $f'(x)=4x^3,$ por lo que el área de la superficie alrededor
+               Si se gira alrededor del eje $x$, el radio es $r(x)=x^4$ y si se gira alrededor del eje $y$, el radio es $r(x)=x$. También, $f'(x)=4x^3,$ 
+               por lo que el área de la superficie rotada alrededor
                del eje $x$ es
                $$S=2\pi \int_0^1 x^4 \sqrt{1+16x^{6}} \, dx,$$
-               y alrededor del eje $y$
+               y rotada alrededor del eje $y$
                $$S=2\pi \int_0^1 x \sqrt{1+16x^{6}} \, dx.$$
             </p>
             <div>
@@ -326,10 +327,10 @@
             </div>
             <div class="fancy-line"></div>
          </div>
-         <div data-section="s5">
+         <div class="section--hidden" data-section="s5">
             <form class="question margin-top-sm" data-question="question-3-6-3" data-answer="d" autocomplete="off">
                <h3 class="question__header margin-bottom-sm">
-                  Plantea dos integrales, una en términos de $x$ y otra en términos de $y$ para calcular el área de la superficie formada
+                  <span class="example__title">Ejemplo 3.6.5.</span> Plantea dos integrales, una en términos de $x$ y otra en términos de $y$ para calcular el área de la superficie formada
                   al rotar la curva $y=x^3$ alrededor del eje $x$ en el intervalo $0 \leq x \leq 2.$
                </h3>
                <div class="question__row">
@@ -363,9 +364,9 @@
                </div>
             </form>
          </div>
-         <div data-section="s6">
+         <div class="section--hidden" data-section="s6">
             <p class="paragraph">
-               Puesto que se gira alrededor del eje $x$, el radio es $r(x)=x^3$. También, $f'(x)=3x^2$ por lo que la integral en términos de $x$ es,
+               Puesto que se gira alrededor del eje $x$, el radio es $r(x)=x^3$. También, $f'(x)=3x^2$, por lo que la integral en términos de $x$ es,
                $$S=2\pi \int_0^2 x^3 \sqrt{1+9x^4}\, dx.$$
                El intervalo de integración en $y$ es $0 \leq y \leq 8.$ El radio en este caso es $r(y)=y$ y $g(y)= \sqrt[3]{y}, $ de donde $g'(y)=\frac{1}{3y^{\frac{2}{3}}}.$
                Entonces la integral es 

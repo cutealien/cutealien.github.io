@@ -59,7 +59,7 @@ HTML_SIDEBAR = `
                 <li class="subject-list__item"><a href="./3.3-calculo-de-areas.html" class="subject-list__link">3.3 Cálculo de áreas de regiones acotadas por curvas</a></li>   
                 <li class="subject-list__item"><a href="./3.4-calculo-de-volumenes.html" class="subject-list__link">3.4 Cálculo de volúmenes</a></li>   
                 <li class="subject-list__item"><a href="./3.5-mas-calculo-de-volumenes.html" class="subject-list__link">3.5 Más cálculos de volúmenes</a></li>   
-                <li class="subject-list__item"><a href="./3.6-longitud-arco.html" class="subject-list__link">3.6 Longitud de arco</a></li>   
+                <li class="subject-list__item"><a href="./3.6-longitud-arco.html" class="subject-list__link">3.6 Longitud de arco y áreas de superficies de revolución</a></li>   
             </ol>
         </li>
         <li class="subject-list__item">

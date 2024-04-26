@@ -66,7 +66,7 @@ HTML_MOBILE_MENU = `
                         <li class="subject-list__item"><a href="./3.3-calculo-de-areas.html" class="subject-list__link">3.3 Cálculo de áreas de regiones acotadas por curvas</a></li>   
                         <li class="subject-list__item"><a href="./3.4-calculo-de-volumenes.html" class="subject-list__link">3.4 Cálculo de volúmenes</a></li>   
                         <li class="subject-list__item"><a href="./3.5-mas-calculo-de-volumenes.html" class="subject-list__link">3.5 Más cálculos de volúmenes</a></li>   
-                        <li class="subject-list__item"><a href="./3.6-longitud-arco.html" class="subject-list__link">3.6 Longitud de arco</a></li>   
+                        <li class="subject-list__item"><a href="./3.6-longitud-arco.html" class="subject-list__link">3.6 Longitud de arco y áreas de superficies de revolución</a></li>   
                     </ol>
                 </li>
                 <li class="subject-list__item">
@@ -77,7 +77,9 @@ HTML_MOBILE_MENU = `
                             <li class="subject-list__item"><a href="./4.3-ejemplos-de-sucesiones.html" class="subject-list__link">4.3 Más ejemplos de sucesiones</a></li>
                             <li class="subject-list__item"><a href="./4.4-series.html" class="subject-list__link">4.4 Series</a></li>
                             <li class="subject-list__item"><a href="./4.5-criterios-de-convergencia.html" class="subject-list__link">4.5 Criterios de convergencia</a></li>
-                <li class="subject-list__item"><a href="./4.6-convergencia-absoluta-condicional.html" class="subject-list__link">4.6 Más ejemplos de series</a></li>
+                            <li class="subject-list__item"><a href="./4.6-convergencia-absoluta-condicional.html" class="subject-list__link">4.6 Más ejemplos de series</a></li>
+                            <li class="subject-list__item"><a href="./4.7-series-potencias.html" class="subject-list__link">4.7 Series de potencias</a></li>
+                            <li class="subject-list__item"><a href="./4.8-series-taylor-mclaurin.html" class="subject-list__link">4.8 Series de Tayloy y McLaurin</a></li>
                         </ol>
                     </li>
                 <li class="subject-list__item">

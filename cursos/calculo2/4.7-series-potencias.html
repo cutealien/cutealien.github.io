@@ -50,7 +50,503 @@
          <h1 class="header-primary margin-bottom-md">
             4.7 Series de potencias
          </h1>
-         
+         <p class="paragraph">
+            Una serie de potencias es una serie de la forma 
+            $$\sum_{n=0}^\infty c_n x^n = c_0 + c_1 x + c_2 x^2 \cdots,$$
+            donde $x$ es una variable y $c_n$ son constantes llamadas coeficientes de la serie.
+         </p>
+         <p class="paragraph">
+            La serie de potencias puede converger para ciertos valores de $x$ y divergir para otros. La suma de la serie es una función
+            $$f(x) = c_0 + c_1 x + c_2 x^2 \cdots + c_n x^n \cdots  $$
+            cuyo dominio es el conjunto de todas las $x$ para las cuales la serie converge.  Por ejemplo, la serie geométrica 
+            $$\sum_{n=0}^\infty c_n x^n$$
+            se obtiene cuando $c_n = 1$, la cual converge cuando $-1< x < 1$ y diverge cuando $|x|>1$.
+         </p>
+         <p class="paragraph">
+            De manera más general, la serie
+            $$\sum_{n=0}^\infty c_n (x-a)^n = c_0 + c_1(x-a) + c_2 (x-a)^2 + \cdots$$
+            es llamada serie de potencias centrada en $a$ o serie de potencias alrededor de $a$. Se adopta la convención de escribir $(x-a)^0 = 1$ incluso cuando $x=a$.
+         </p>
+         <div class="fancy-line"></div>
+         <div class="theorem">
+            <div class="paragraph paragraph--noindent">
+               <span class="theorem__title">Teorema 4.7.1. </span>
+               <ul class="simple-list">
+                  <li>Si una serie de potencias $\sum_{n=0}^\infty c_n x^n$ converge cuando $x=b$, con $b \neq 0$, entonces converge cuando $|x|< b$.</li>
+                  <li>Si una serie de potencias $\sum_{n=0}^\infty c_n x^n$ diverge cuando $x=d$, con $d \neq 0$, entonces diverge cuando $|x|>d$.</li>
+               </ul>
+            </div>
+         </div>
+         <div class="proof">
+            <h3 class="header-tertiary">Demostración.</h3>
+            <p class="paragraph">
+               Supongamos que $\sum_{n=0}^\infty c_n b^n$ converge, entonces tenemos que $\lim_{n \to \infty} c_n b^n = 0$. De acuerdo a la definición de límite con $\varepsilon = 1$, existe un $N$ tal que $|c_n b^n|< 1$ para todo $n \leq N$. Por lo que, para $n \leq N$, tenemos 
+               $$ |c_n x^n| = \Big | \frac{c_n b^n x^n}{b^n} \Big | = |c_n b^n| \Big | \frac{x}{b} \Big |^n < \Big | \frac{x}{b} \Big |^n. $$
+               Si $|x|<|b|$, $\Big | \frac{x}{b} \Big |< 1 $, por lo que $\sum_{n=0}^\infty \Big | \frac{x}{b} \Big |^n$ es una serie convergente. Así, por el teorema de comparación, la serie $\sum_{n=0}^\infty| c_n x^n | $ es convergente y, por lo tanto, la serie $\sum_{n=0}^\infty c_n x^n  $ es absolutamente convergente y, en consecuencia, es convergente. 
+            </p>
+            <p class="paragraph">
+               Ahora, supongamos que la serie $\sum_{n=0}^\infty c_n d^n$ diverge. Si $x$ es un número tal que $|x| > |d|$, entonces la serie $\sum_{n=0}^\infty c_n x^n$ no puede converger, por la parte anterior, la convergencia de $\sum_{n=0}^\infty c_n x^n$ implicaría la convergencia de $\sum_{n=0}^\infty c_n d^n$. Por lo tanto, $\sum_{n=0}^\infty c_n x^n$ diverge cuando $|x|>|d|$.
+            </p>
+            <div class="fancy-line"></div>
+         </div>
+         <div class="theorem">
+            <div class="paragraph paragraph--noindent">
+               <span class="theorem__title">Teorema 4.7.2. </span>Para una serie $\sum_{n=0}^\infty c_n x^n$ sólo hay tres posibilidades:
+               <ul class="simple-list">
+                  <li>La serie converge cuando $x=0$.</li>
+                  <li>La serie converge para todo $x$.</li>
+                  <li>Existe un número positivo $R$ tal que la serie converge cuando $|x|< R$ y diverge cuando $|x|>R$.</li>
+               </ul>
+            </div>
+         </div>
+         <div class="proof">
+            <h3 class="header-tertiary">Demostración.</h3>
+            <p class="paragraph">
+               Supongamos que ni es el caso 1 ni el 2 es verdad, entonces, existen dos números $b$ y $d$ diferentes de cero tal que $\sum_{n=0}^\infty c_n x^n$ converge cuando $x=b$ y 
+               diverge cuando $x=d$, por lo que el conjunto  $S = \{ x: \sum_{n=0}^\infty c_n x^n \mbox{ converge} \}$ no es vacío. Por el teorema anterior, la serie diverge si 
+               $|x|>|d|$, entonces $|x| \leq |d|$ para todo $x \in S$. Esto dice que $|d|$ es una cota superior de $S$. Por el teorema de completitud, el conjunto $S$ tiene un 
+               supremo $R$. Si $|x|>R$, entonces $x \notin S$, así $ \sum_{n=0}^\infty c_n x^n$ diverge. Si $|x|< R$, entonces $x$ no es una cota superior de $S$, por lo que existe 
+               $b \in S$ tal que $|x|<|b|$. Puesto que $b \in S$ la serie $ \sum_{n=0}^\infty c_n b^n$ converge y, por el teorema anterior $ \sum_{n=0}^\infty c_n x^n$ converge.
+            </p>
+            <div class="fancy-line"></div>
+         </div>
+         <p class="paragraph">
+            El número $R$ es llamado radio de convergencia. En el caso 1, el radio de convergencia es cero y tenemos que $\sum_{n=0}^\infty c_n x^n = c_0$. 
+            En el caso 2, el radio de convergencia es $R=\infty$. El conjunto de todos los valores $x$ para los cuales la serie converge se llama intervalo de convergencia.
+         </p>
+         <p class="paragraph">
+            Considere la serie $\sum_{n=0}^\infty c_n (x-a)^n$. Haciendo el cambio de variable $u=x-a$, la serie se convierte en $\sum_{n=0}^\infty c_n u^n$. 
+            Aplicando el teorema anterior, la serie converge cuando $|u|< R$ y diverge cuando $|u|>R$. Por lo tanto, tenemos convergencia cuando $|x-a|< R$ y divergencia cuando 
+            $|x-a|>R$. Lo anterior se resume en el siguiente teorema.
+         </p>
+         <div class="theorem">
+            <div class="paragraph">
+               <span class="theorem__title">Teorema 4.7.3. </span> Para una serie $\sum_{n=0}^\infty c_n (x-a)^n$ sólo hay tres posibilidades:
+               <ul class="simple-list">
+                  <li>La serie converge cuando $x=a$.</li>
+                  <li>La serie converge para todo $x$.</li>
+                  <li>Existe un número positivo $R$ tal que la serie converge cuando $|x-a|< R$ y diverge cuando $|x-a|>R$.</li>
+               </ul>
+            </div>
+         </div>
+         <div>
+            <button class="btn-sm btn--blue" type="button" data-btn-continue="s1">Continuar</button>
+         </div>
+         <div class="fancy-line"></div>
+      </section>
+      <section class="section--hidden" data-section="s1">
+         <p class="paragraph">
+            Para obtener los valores de $x$ para los cuales la serie de potencias converge, podemos usar el criterio del cociente.
+         </p>
+         <div class="example">
+            <p class="paragraph example__paragraph">
+               <span class="example__title">Ejemplo 4.7.1. </span>Encuentre los valores de $x$ para los cuales la serie $\sum_{n=0}^\infty \frac{(x-3)^n}{n}$ converge.
+            </p>
+         </div>
+         <h3 class="header-tertiary">Solución.</h3>
+         <p class="paragraph">
+            En este caso $a_n = \frac{(x-3)^n}{n}$, por lo que 
+            \begin{align*}
+               \Big | \frac{a_{n+1}}{ a_n} \Big | &= \frac{\frac{(x-3)^{n+1}}{n+1}}{\frac{(x-3)^n}{n}} \\
+               &= \frac{n}{n+1}|x-3| \\
+               &= \frac{1}{1 + \frac{1}{n}}|x-3|,
+            \end{align*}
+            por lo que 
+            $$\lim_{n \to \infty}\Big | \frac{a_{n+1}}{ a_n} \Big | = |x-3|.$$
+         </p>
+         <p class="paragraph">
+            El criterio del cociente nos dice que, para que la serie converja, se debe cumplir que $|x-3|< 1$, o bien $2< x< 4$. Por lo que la serie converge cuando $2< x< 4$ y 
+            diverge cuando $x< 2$ o $4 < x$.
+         </p>
+         <p class="paragraph">
+            Los casos $x=2$ y $x=4$ se tratan por separado porque el criterio del cociente no nos dice nada. Para $x=2$ se obtiene la serie $\sum_{n=0}^\infty \frac{(-1)^n}{n},$
+            la cual converge. Para $x=4$ se obtiene la serie $\sum_{n=0}^\infty \frac{1^n}{n}$, la cual diverge. Finalmente, la serie converge cuando $2 \leq x < 4$.
+         </p>
+         <div>
+            <button class="btn-sm btn--blue" type="button" data-btn-continue="s2">Continuar</button>
+         </div>
+         <div class="fancy-line"></div>
+         <div class="section--hidden" data-section="s2">
+            <form class="question margin-top-sm" data-question="question-4-7-1" data-answer="a" autocomplete="off">
+               <h3 class="question__header margin-bottom-sm">
+                  <span class="example__title">Ejemplo 4.7.2. </span>Encuentre el radio de convergencia de la serie $\sum_{n=0}^\infty n!x^n$.
+               </h3>
+               <div class="question__row">
+                  <div class="question__col-1">
+                     <div class="question__options">
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-7-1-a" name="question-4-7-1" value="a" data-option="question-4-7-1">
+                           <label for="answer-4-7-1-a">$R=0$</label>
+                        </div>
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-7-1-b" name="question-4-7-1" value="b" data-option="question-4-7-1">
+                           <label for="answer-4-7-1-b">$R=\frac{1}{2}$</label>
+                        </div>
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-7-1-c" name="question-4-7-1" value="c" data-option="question-4-7-1">
+                           <label for="answer-4-7-1-c">$R=2$</label>
+                        </div>
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-7-1-d" name="question-4-7-1" value="d" data-option="question-4-7-1">
+                           <label for="answer-4-7-1-d">$R=1$</label>
+                        </div>
+                     </div>
+                     <div class="question__btn-box">
+                        <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                        <button class="btn btn--blue" type="button" disabled data-btn-continue="s3">Continuar</button>
+                     </div>
+                  </div>
+                  <div class="question__col-2">
+                     <p class="question__answer"></p>
+                  </div>
+               </div>
+            </form>
+         </div>   
+         <div class="section--hidden" data-section="s3">
+            <p class="paragraph">
+               Para $x=0$, se tiene que 
+               $$f(0)=\sum_{n=0}^\infty n!0^n=1 + 0 +0 +\cdots = 1.$$
+               Usando el criterio del cociente para cualquier valor de $x$ con $a_n = n!x^n$, obtenemos
+               \begin{align*}
+                  \lim_{n \to \infty} \Big | \frac{a_{n+1}}{ a_n} \Big | &= \lim_{n \to \infty} 
+                  \Big | \frac{(n+1)x^{n+1}}{n!x^n} \Big |\\
+                  &= |x|\lim_{n \to \infty}(n+1) = \infty.
+               \end{align*}
+               Entonces, por la prueba del cociente, la serie diverge cuando $|x|>0$ y sólo converge cuando $x=0$. Por lo tanto, el radio de convergencia es $R=0$.
+            </p>
+            <div>
+               <button class="btn-sm btn--blue" type="button" data-btn-continue="s4">Continuar</button>
+            </div>
+            <div class="fancy-line"></div>
+         </div>
+         <div class="section--hidden" data-section="s4">
+            <form class="question margin-top-sm" data-question="question-4-7-2" data-answer="d" autocomplete="off">
+               <h3 class="question__header margin-bottom-sm">
+                  <span class="example__title">Ejemplor 4.7.3.</span> Encuentre el intervalo de convergencia de $\sum_{n=0}^\infty \frac{(n!)^2}{(2n)!} (x+5)^n$.
+               </h3>
+               <div class="question__row">
+                  <div class="question__col-1">
+                     <div class="question__options">
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-7-2-a" name="question-4-7-2" value="a" data-option="question-4-7-2">
+                           <label for="answer-4-7-2-a">$-9 \leq x \leq -1 $</label>
+                        </div>
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-7-2-b" name="question-4-7-2" value="b" data-option="question-4-7-2">
+                           <label for="answer-4-7-2-b">$-9 \leq x < -1 $</label>
+                        </div>
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-7-2-c" name="question-4-7-2" value="c" data-option="question-4-7-2">
+                           <label for="answer-4-7-2-c">$-9< x \leq -1 $</label>
+                        </div>
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-7-2-d" name="question-4-7-2" value="d" data-option="question-4-7-2">
+                           <label for="answer-4-7-2-d">$-9< x < -1 $</label>
+                        </div>
+                     </div>
+                     <div class="question__btn-box">
+                        <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                        <button class="btn btn--blue" type="button" disabled data-btn-continue="s5">Continuar</button>
+                     </div>
+                  </div>
+                  <div class="question__col-2">
+                     <p class="question__answer"></p>
+                  </div>
+               </div>
+            </form>
+         </div>
+         <div class="section--hidden" data-section="s5">
+            <p class="paragraph">
+               Usamos nuevamente el criterio del cociente con $a_n= \frac{(n!)^2}{(2n)!} (x+5)^n$, entonces
+               \begin{align*}
+                  \lim_{n \to \infty} \Big | \frac{a_{n+1}}{ a_n} \Big | &= \lim_{n \to \infty} 
+                  \left | \frac{ (2n)! \left ( (n+1)!\right )^2(x+5)^{n+1}}{(2n+2)!(n!)^2(x+5)^n} \right |\\
+                  &= \lim_{n \to \infty} \left | \frac{(n+1)^2(x+5)}{(2n+1)(2n+2)} \right |\\
+                  &= \lim_{n \to \infty} \left | \frac{(n+1)(x+5)}{2(2n+1)}  \right |\\
+                  &= \lim_{n \to \infty} \left | \frac{(1+\frac{1}{n})(x+5)}{2(n+\frac{1}{n})} \right |\\
+                  &= \lim_{n \to \infty} \frac{1}{4}|x+5|.
+               \end{align*}
+               Por el criterio del cociente, la serie converge cuando $|x+5|< 4$ y diverge cuando $|x+5|>4,$ es decir, el radio de convergencia es $R=4$. Ahora consideremos el caso $|x+5|=4$. Primero observamos que $2n-1 < 2n$, por lo que $\frac{1}{2} < \frac{n}{2n-1}$, entonces
+               \begin{align*}
+                  \frac{(n!)^2}{(2n)!} &= \frac{1 \cdot 1 \cdot 2 \cdot 2 \cdot 3 \cdot 3 \cdot \ldots \cdot n \cdot n}{1 \cdot 2 \cdot 3 \cdot 4 \cdot 5 \cdot 6 \ldots (2n-1) \cdot 2n} \\
+                  &=\frac{1 \cdot 2 \cdot 3 \ldots n}{1 \cdot 4 \cdot6 \ldots 2n} \frac{1 \cdot 2 \cdot 3 \cdots n}{1 \cdot 3 \cdot 4 \ldots (2n-1)} \\
+                  &> \left (\frac{1}{2^n} \frac{1}{2^n} \right ) = \frac{1}{4^n}.
+               \end{align*}
+               Por lo tanto,
+               $$ \Big | \frac{(n!)^2(x+5)^n}{(2n)!} \Big | > \frac{1}{4^n}4^n = 1.$$
+               Así, cuando $|x+5|=4,$ el término $a_n$ de la serie no tiende a cero. Finalmente, el intervalo de convergencia es $-9< x<-1$.
+            </p>
+            <div>
+               <button class="btn-sm btn--blue" type="button" data-btn-continue="s6">Continuar</button>
+            </div>
+            <div class="fancy-line"></div>
+         </div>
+         <div class="section--hidden" data-section="s6">
+            <form class="question margin-top-sm" data-question="question-4-7-3" data-answer="c" autocomplete="off">
+               <h3 class="question__header margin-bottom-sm">
+                  <span class="example__title">Ejemplo 4.7.4. </span>Encuentra el intervalo de convergencia de $\sum_{n=0}^\infty\frac{x^n}{n!}.$
+               </h3>
+               <div class="question__row">
+                  <div class="question__col-1">
+                     <div class="question__options">
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-7-3-a" name="question-4-7-3" value="a" data-option="question-4-7-3">
+                           <label for="answer-4-7-3-a">$(-\infty, 0)$</label>
+                        </div>
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-7-3-b" name="question-4-7-3" value="b" data-option="question-4-7-3">
+                           <label for="answer-4-7-3-b">$(0, \infty)$</label>
+                        </div>
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-7-3-c" name="question-4-7-3" value="c" data-option="question-4-7-3">
+                           <label for="answer-4-7-3-c">$(-\infty, \infty)$</label>
+                        </div>
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-7-3-d" name="question-4-7-3" value="d" data-option="question-4-7-3">
+                           <label for="answer-4-7-3-d">$0$</label>
+                        </div>
+                     </div>
+                     <div class="question__btn-box">
+                        <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                        <button class="btn btn--blue" type="button" disabled data-btn-continue="s7">Continuar</button>
+                     </div>
+                  </div>
+                  <div class="question__col-2">
+                     <p class="question__answer"></p>
+                  </div>
+               </div>
+            </form>
+         </div>
+         <div class="section--hidden" data-section="s7">
+            <p class="paragraph">
+               En este caso $a_n=\frac{x^n}{n!}$, entonces
+               \begin{align*}
+                  \lim_{n \to \infty} \Big | \frac{a_{n+1}}{a_n} \Big | &= \lim_{n \to \infty}  \Big | \frac{n!\, x^{n+1}}{(n+1)!\,x^n} \Big | \\
+                  &= \lim_{n \to \infty}  |x|\frac{1}{n} = 0
+               \end{align*}
+               Por el criterio del cociente, la serie converge para todo $x$. Por consiguiente, el intervalo es $(-\infty, \infty).$
+            </p>
+            <div>
+               <button class="btn-sm btn--blue" type="button" data-btn-continue="s8">Continuar</button>
+            </div>
+            <div class="fancy-line"></div>
+         </div>
+      </section>
+      <section class="section--hidden" data-section="s8">
+         <h2 class="header-secondary">Representación de funciones como series de potencias</h2>
+         <p class="paragraph">
+            Intentemos expresar la función $\frac{1}{1+x^2}$ como una serie de potencias, recordando que si $|x|< 1$, entonces
+            $$\frac{1}{1-x}=1+x+x^2+\cdots=\sum_{n=0}^\infty x^n.$$
+            Ahora, cambiando $x$ por $-x^2$, se tiene que
+            $$\frac{1}{1+x^2}=\frac{1}{1-(-x^2)}=1-x^2+x^4-x^6+\cdots=\sum_{n=0}^\infty (-1)^{n}x^{2n}.$$
+            El radio de convergencia se da cuando $|-x^2|< 1$, porque es una serie geométrica, es decir, cuando $|x|< 1$. Así, el intervalo de convergencia es $(-1,1)$.
+         </p>
+         <div class="example">
+            <p class="paragraph example__paragraph">
+               <span class="example__title">Ejemplo 4.7.5. </span>Representa la función $\frac{1}{x+2}$ como serie de potencias
+            </p>
+         </div>
+         <h3 class="header-tertiary">Solución.</h3>
+         <p class="paragraph">
+            Para logra resto, reescribimos el denominador para que se asemeje a una serie geométrica como sigue,
+            \begin{align*}
+               \frac{1}{2+x} &=\frac{1}{2 \left (1 + \frac{x}{2} \right ) }  
+               =\frac{1}{2}\frac{1}{1- \left ( - \frac{x}{2} \right ) } \\
+               &=\frac{1}{2}\sum_{n=0}^\infty \left (-\frac{x}{2} \right )^n 
+               = \frac{1}{2} \sum_{n=0}^\infty \frac{(-1)^n}{2^n} x^n \\
+               &= \sum_{n=0}^\infty \frac{(-1)^n}{2^{n+1}} x^n .
+            \end{align*}
+            La serie converge cuando $\left |-\frac{x}{2} \right |< 1$, es decir, $|x|< 2$. Por lo tanto, su intervalo de convergencia es $(-2,2)$
+         </p>
+         <div class="fancy-line"></div>
+         <p class="paragraph">
+            Los ejemplos anteriores son representaciones de funciones centradas alrededor del cero. Es posible representar funciones alrededor de otro punto.
+         </p>
+         <form class="question margin-top-sm" data-question="question-4-7-4" data-answer="d" autocomplete="off">
+            <h3 class="question__header margin-bottom-sm">
+               <span class="example__title">Ejemplo 4.7.6. </span>Representa la función $f(x)=\frac{1}{x}$ alrededor del punto $x=1.$ 
+               <span class="hint">Hint: $x=1-(1-x).$</span>
+            </h3>
+            <div class="question__row">
+               <div class="question__col-1">
+                  <div class="question__options">
+                     <div class="question__option">
+                        <input type="radio" id="answer-4-7-4-a" name="question-4-7-4" value="a" data-option="question-4-7-4">
+                        <label for="answer-4-7-4-a">$\sum_{n=0}^\infty (-1)^{n}(x+1)^{n}$</label>
+                     </div>
+                     <div class="question__option">
+                        <input type="radio" id="answer-4-7-4-b" name="question-4-7-4" value="b" data-option="question-4-7-4">
+                        <label for="answer-4-7-4-b">$\sum_{n=0}^\infty (-1)^{n}(x)^{n}$</label>
+                     </div>
+                     <div class="question__option">
+                        <input type="radio" id="answer-4-7-4-c" name="question-4-7-4" value="c" data-option="question-4-7-4">
+                        <label for="answer-4-7-4-c">$\sum_{n=0}^\infty (x-1)^{n}$</label>
+                     </div>
+                     <div class="question__option">
+                        <input type="radio" id="answer-4-7-4-d" name="question-4-7-4" value="d" data-option="question-4-7-4">
+                        <label for="answer-4-7-4-d">$\sum_{n=0}^\infty (-1)^{n}(x-1)^{n}$</label>
+                     </div>
+                  </div>
+                  <div class="question__btn-box">
+                     <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                     <button class="btn btn--blue" type="button" disabled data-btn-continue="s9">Continuar</button>
+                  </div>
+               </div>
+               <div class="question__col-2">
+                  <p class="question__answer"></p>
+               </div>
+            </div>
+         </form>
+         <div class="section--hidden" data-section="s9">
+            <p class="paragraph">
+               Procedemos de manera similar al ejemplo anterior
+               \begin{align*}
+                  \frac{1}{x} &= \frac{1}{1-(1-x)} = \sum_{n=0}^\infty (1-x)^n\\
+                  &= \sum_{n=0}^\infty (-1)^{n}(x-1)^{n}\\
+                  &=1-(x-1)+(x-1)^2-(x-1)^3+\cdots.
+               \end{align*}
+               Esta serie converge cuando $|x-1|< 1$, por lo que su intervalo de convergencia es $(0,2)$.
+            </p>
+            <div>
+               <button class="btn-sm btn--blue" type="button" data-btn-continue="s10">Continuar</button>
+            </div>
+            <div class="fancy-line"></div>
+         </div>
+      </section>
+      <section class="section--hidden" data-section="s10">
+         <p class="paragraph">
+            Una propiedad importante de las series de potencias es que pueden ser diferenciadas e integradas como polinomios, se enuncia en el siguiente teorema sin demostración. 
+         </p>
+         <div class="theorem">
+            <div class="paragraph">
+               <span class="theorem__title">Teorema 4.7.4. </span>Si la serie de potencias $\sum_{n=0}^\infty c_n (x-a)^n$ tiene radio de convergencia $R>0$, entonces la función $f$ definida por
+               $$f(x)=c_0 + c_1(x-a) + c_2(x-a)^2+\cdots = \sum_{n=0}^\infty c_n(x-a)^n$$
+               es diferenciable en el intervalo $(a-R, a+R)$ y
+               <ul class="simple-list paragraph--noindent">
+                  <li>$f'(x)= \sum_{n=0}^\infty nc_n(x-a)^{n-1}.$</li>
+                  <li>$\int f(x)\, dx = C + \sum_{n=0}^\infty c_n\frac{(x-a)^{n+1}}{n+1}.$</li>
+               </ul>
+               El radio de convergencia de las dos ecuaciones anteriores es $R$.
+            </div>
+         </div>
+         <div class="example">
+            <p class="paragraph example__paragraph">
+               <span class="example__title">Ejemplo 4.7.7. </span>Derive la función $f$ definida por $f(x)\sum_{n=0}^\infty\frac{x^n}{n!}.$
+            </p>
+         </div>
+         <h3 class="header-tertiary">Solución.</h3>
+         <p class="paragraph">
+            Tenemos que 
+            $$f(x) =\sum_{n=0}^\infty \frac{x^n}{n!} = 1 +x + \frac{x^2}{2} + \frac{x^3}{3!} + \cdots,$$
+            por lo que
+            \begin{align*}
+               f'(x)&= 1 + 2\frac{x^1}{2} + 3\frac{x^2}{3!} + 4\frac{x^3}{4!}\cdots\\
+               &= 1 +x + \frac{x^2}{2} + \frac{x^3}{3!} + \cdots\\
+               &=\sum_{n=0}^\infty \frac{x^{n}}{n!}\\
+               &= f(x).
+            \end{align*}
+         </p>
+         <div class="fancy-line"></div>
+         <form class="question margin-top-sm" data-question="question-4-7-5" data-answer="a" autocomplete="off">
+            <h3 class="question__header margin-bottom-sm">
+               <span class="example__title">Ejemplo 4.7.8. </span> Expresa $\frac{1}{(1-x)^2}$ como serie de potencias. <span class="hint">Hint: derive $\frac{1}{1-x}.$</span>
+            </h3>
+            <div class="question__row">
+               <div class="question__col-1">
+                  <div class="question__options">
+                     <div class="question__option">
+                        <input type="radio" id="answer-4-7-5-a" name="question-4-7-5" value="a" data-option="question-4-7-5">
+                        <label for="answer-4-7-5-a">$\sum_{n=0}^\infty (n+1)x^{n}$</label>
+                     </div>
+                     <div class="question__option">
+                        <input type="radio" id="answer-4-7-5-b" name="question-4-7-5" value="b" data-option="question-4-7-5">
+                        <label for="answer-4-7-5-b">$\sum_{n=0}^\infty (n+1)(x+1)^{n}$</label>
+                     </div>
+                     <div class="question__option">
+                        <input type="radio" id="answer-4-7-5-c" name="question-4-7-5" value="c" data-option="question-4-7-5">
+                        <label for="answer-4-7-5-c">$\sum_{n=0}^\infty (n+1)(x-1)^{n}$</label>
+                     </div>
+                     <div class="question__option">
+                        <input type="radio" id="answer-4-7-5-d" name="question-4-7-5" value="d" data-option="question-4-7-5">
+                        <label for="answer-4-7-5-d">$\sum_{n=0}^\infty (n+1)x^{2n}$</label>
+                     </div>
+                  </div>
+                  <div class="question__btn-box">
+                     <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                     <button class="btn btn--blue" type="button" disabled data-btn-continue="s11">Continuar</button>
+                  </div>
+               </div>
+               <div class="question__col-2">
+                  <p class="question__answer"></p>
+               </div>
+            </div>
+         </form>
+         <div class="section--hidden" data-section="s11">
+            <p class="paragraph">
+               Recordando que 
+               $$\frac{1}{1-x}=1+x+x^2+x^3\cdots=\sum_{n=0}^\infty x^n$$
+               podemos derivar ambos lados para obtener
+               $$\frac{1}{(1-x)^2} = 1 +2x +3x + \cdots = \sum_{n=1}^\infty nx^{n-1}.$$
+               La anterior serie también se puede escribir como
+               $$\frac{1}{(1-x)^2} =  \sum_{n=0}^\infty (n+1)x^{n}.$$
+               De acuerdo al <span class="hint">Teorema 4.7.4</span> el radio de convergencia es $R=1$. Notemos que si $x=1$, la expresión de la izquierda
+               está indefinida, mientras que la serie diverge. Si $x=-1$, la serie de la derecha diverge, pues el término $a_n=(n+1)(-1)^n$ no tiende a cero
+               cuando $n \to \infty.$ Esto ilustra que si $f(x)$ tiene representación en series en cierto intervalo, $f'(x)$ tiene el mismo intervalo de convergencia.
+            </p>
+            <div class="fancy-line"></div>
+            <form class="question margin-top-sm" data-question="question-4-7-6" data-answer="b" autocomplete="off">
+               <h3 class="question__header margin-bottom-sm">
+                  <span class="example__title">Ejemplo 4.7.9. </span>Encuentra una serie que represente a $\ln(1-x)$ y su radio de convergencia. <span class="hint">Hint: $\ln u = \int u \,du $</span>
+               </h3>
+               <div class="question__row">
+                  <div class="question__col-1">
+                     <div class="question__options">
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-7-6-a" name="question-4-7-6" value="a" data-option="question-4-7-6">
+                           <label for="answer-4-7-6-a">$-\sum_{n=1}^\infty \frac{x^{n}}{n!}$</label>
+                        </div>
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-7-6-b" name="question-4-7-6" value="b" data-option="question-4-7-6">
+                           <label for="answer-4-7-6-b">$-\sum_{n=1}^\infty \frac{x^{n}}{n}$</label>
+                        </div>
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-7-6-c" name="question-4-7-6" value="c" data-option="question-4-7-6">
+                           <label for="answer-4-7-6-c">$-\sum_{n=1}^\infty \frac{x^{n}}{2n}$</label>
+                        </div>
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-7-6-d" name="question-4-7-6" value="d" data-option="question-4-7-6">
+                           <label for="answer-4-7-6-d">$-\sum_{n=1}^\infty \frac{x^{n}}{2n+1}$</label>
+                        </div>
+                     </div>
+                     <div class="question__btn-box">
+                        <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                        <button class="btn btn--blue" type="button" disabled data-btn-continue="s12">Continuar</button>
+                     </div>
+                  </div>
+                  <div class="question__col-2">
+                     <p class="question__answer"></p>
+                  </div>
+               </div>
+            </form>
+         </div>
+         <div class="section--hidden" data-section="s12">
+            <p class="paragraph">
+               Comenzamos notando que $\frac{d}{dx} \ln(1-x) = -\frac{1}{1-x}$, entonces
+               \begin{align*}
+                  -\ln(1-x) &= \int \frac{1}{1-x} \,dx = \int (1 +x +x^2+x^3+\cdots)\, dx\\
+                  &= C +x +\frac{x^2}{2} + \frac{x^3}{3}+\frac{x^4}{4} + \cdots = C + \sum_{n=1}^\infty \frac{x^{n}}{n}.
+               \end{align*}
+               Por el <span class="hint">Teorema 4.7.4</span>, la serie converge cuando  $|x|< 1$. Para determinar el valor de $C$, hacemos $x=0$ y obtenemos $-\ln(1-0)=C$, o bien $C=0$. Por lo tanto,
+               $$\ln(1-x) = -x -\frac{x^2}{2} - \frac{x^3}{3}-\frac{x^4}{4}- \cdots = -\sum_{n=1}^\infty \frac{x^{n}}{n}.$$
+               Si ponemos $x=\frac{1}{2}$ y recordando que $\ln \frac{1}{2}=-\ln 2$, tenemos
+               $$\ln 2 = \sum_{n=1}^\infty \frac{1}{n2^n}.$$
+            </p>
+            <div class="fancy-line"></div>
+            <div class="change-page">
+               <a href="./4.6-convergencia-absoluta-condicional.html" class="change-page__before">Anterior</a>
+               <a href="./4.8-series-taylor-mclaurin.html" class="change-page__next">Siguiente</a>
+            </div>
+         </div>
       </section>
    </main>
 </body>

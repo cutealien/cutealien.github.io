@@ -54,7 +54,354 @@
             Supongamos que $f$ es una función que puede ser representada por una serie de potencias alrededor del punto $a$ y con radio de convergencia $R$
             $$f(x)=c_0 + c_1(x-a) + c_2(x-a)^2 + \cdots .$$
          </p>
+         <p class="paragraph">
+            Es posible determinar los coeficientes $c_n$ en términos de $f$. Si hacemos $x=a$, todos los términos se hacen cero con excepción del primero, por lo que obtenemos
+            $f(a)=c_0.$
+         </p>
+         <p class="paragraph">
+            Por el <span class="modal__reference" data-modal-btn="theo-4-7-4">Teorema 4.7.4,</span> podemos diferenciar la serie término a término para obtener
+            $$f'(x)=c_1 + 2c_2(x-a) + 3c_3(x-a)^2 + 4c_4(x-a)^3 + \ldots ,$$
+            y sustituyendo $x=a$, obtenemos $f'(a)=c_1$.
+         </p>
+         <p class="paragraph">
+            Diferenciando nuevamente,
+            $$f''(x)=2c_2 + 2\cdot 3 c_3(x-a) + 3 \cdot 4 c_4(x-a)^2 + \ldots.$$
+            Sustituyendo $x=a$, $f''(a)=2c_2$.
+         </p>
+         <p class="paragraph">
+            Repitiendo el proceso una vez más, 
+            $$f'''(x)= 2\cdot 3 c_3 + 2\cdot 3 \cdot 4 c_4(x-a) + \ldots,$$
+            de donde $f(a)=2\cdot 3 c_3 = 3!c_3$.
+         </p>
+         <p class="paragraph">
+            Diferenciando $n$ veces y sustituyendo $x=a$, obtenemos
+            $$f^{(n)}(a) = 2\cdot 3 \cdot 4  \cdot \ldots \cdot n c_n = n! c_n,$$
+            de donde 
+            $$c_n = \frac{f^{(n)}(a)}{n!}.$$
+         </p>
+         <p class="paragraph">
+            Adoptando la convención de que $0!=1$ y $f^{(0)}=f$, la formula anterior permanece válida. Resumimos lo anterior en el siguiente teorema.
+         </p>
+         <div class="theorem">
+            <p class="paragraph">
+               <span class="theorem__title">Teorema 4.8.1. </span>Si $f$ tiene derivadas de todos los ordenes y representación como serie de potencias alrededor de $a$ con radio de convergencia $R$, esto es, si
+               $$f(x)=\sum_{n=0}^\infty c_n (x-a)^n \quad |x-a|< R$$
+               entonces, los coeficientes están dados por
+               $$c_n = \frac{f^{(n)}(a)}{n!}.$$
+            </p>
+         </div>
+         <p class="paragraph">
+            Sustituyendo el valor de $c_n$, la serie anterior puede ser reescrita como 
+            $$f(x)=\sum_{n=0}^\infty \frac{f^{(n)}(x)}{n!}(x-a)^n.$$
+            La serie anterior se llama <strong>Serie de Taylor</strong> y cuando $x=0$, la serie se llama <strong>Serie de McLaurin.</strong>
+         </p>
+         <div class="fancy-line"></div>
+         <div class="example">
+            <p class="paragraph example__paragraph">
+               <span class="example__title">Ejemplo 4.8.1. </span>Calcule la serie de McLaurin para la función $f(x)=e^x$.
+            </p>
+         </div>
+         <h3 class="header-tertiary">Solución.</h3>
+         <p class="paragraph">
+            Tenemos que $f^{(n)}(x)=e^x$, por lo que $f^{(n)}(0)=1$. Entonces la serie de McLaurin es
+            $$\sum_{n=0}^\infty \frac{f^{(n)}(0)}{n!}x^n= \sum_{n=0}^\infty \frac{x^n}{n!}=1 + \frac{x}{1!} + \frac{x^2}{2!} + \cdots.$$
+            El radio de convergencia ( <span class="example__title">ejercicio 4 de la sección 4.7</span> ) es todo $\mathbf{R}.$
+         </p>
+         <div class="fancy-line"></div>
+         <p class="paragraph">
+            En conclusión, si $e^x$ tiene representación en serie en el punto $x=0$, entonces $$e^x=\sum_{n=0}^\infty \frac{x^n}{n!}.$$
+         </p>
+         <p class="paragraph">
+            La pregunta que surge es, ¿bajo qué circunstancias una función $f$ es igual a su serie de Taylor? Es decir, cuándo es cierto que $$f(x)=\sum_{n=0}^\infty \frac{f^{(n)}(x)}{n!}(x-a)^n.$$
+         </p>
+         <p class="paragraph">
+            De la misma forma que con cualquier serie convergente, esto significa que $f(x)$ es el límite de la sucesión de sumas parciales. En este caso las sumas parciales son
+            $$P_n (x) = \sum_{k=0}^n \frac{f^{(k)}(x)}{k!}(x-a)^k.$$
+         </p>
+         <p class="paragraph">
+            $P_n$ es llamado el polinomio de Taylor de grado $n$ de $f$ en $a$. Por ejemplo, si $f(x)=e^x$, $P_3(x) = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!}$. En general, $f(x)=\lim_{n \to \infty} P_n(x).$
+         </p>
+         <p class="paragraph">
+            Si hacemos 
+               $$R_n(x)=f(x)-P_n(x),$$
+               entonces $f(x)=P_n(x)+R_n(x)$. El término $R_n(x)$ es llamado residuo de la serie de Taylor. Supongamos que $S_n(x)$ es la $n$-ésima suma parcial de una serie de Taylor, esto es, $S_n(x)=P_n(x)$, entonces
+               \begin{align*}
+                  \lim_{n \to \infty} S_n(x) &= \lim_{n \to \infty} P_n(x) \\
+                  &= \lim_{n \to \infty} \left ( f(x)-R_n(x) \right )\\
+                  &= f(x) -  \lim_{n \to \infty}R_n(x).
+               \end{align*}
+               Así, para cualquier $x$, la serie de Taylor converge a $f(x)$ si y sólo si $R_n(x) \to 0$ cuando $n \to \infty$. Por lo tanto, hemos demostrado el siguiente teorema.
+         </p>
+         <div class="theorem">
+            <p class="paragraph">
+               <span class="theorem__title">Teorema 4.8.2. </span>Si $f(x)=P_n(x) + R_n(x)$, donde $P_n$ es el polinomio de Taylor de grado $n$ de $f$ en $a$ y $$\lim_{n \to \infty} R_n(x)=0$$
+               para $|x-a|< R$, entonces $f$ es igual a su serie de Taylor en el intervalo $|x-a|< R.$
+            </p>
+         </div>
+         <p class="paragraph">
+            El residuo de Taylor tiene la forma $$R_n(x)=\frac{f^{(n+1)}(x_0)}{(n+1)!}(x-a)^{n+1},$$
+            donde $x_0$ es un punto entre $a$ y $x$.
+            El siguiente resultado, el cual se omite la demostración, es útil cuando se trata de demostrar que $\lim_{n \to \infty}R_n(x) = 0$
+         </p>
+         <div class="theorem">
+            <p class="paragraph">
+               <span class="theorem__title">Teorema 4.8.3. </span>Si $|f^{(n+1)}(x)|\leq M$ para $|x-a|\leq d$, entonces el residuo de la serie de Taylor satisface
+               $$|R_n(x)| \leq \frac{M}{(n+1)!}|x-a|^{n+1}$$
+               para $|x-a| \leq d.$ Esta desigualdad se conoce como desigualdad de Taylor.
+            </p>
+         </div>
+         <div class="fancy-line"></div>
+         <div class="example">
+            <p class="paragraph example__paragraph">
+               <span class="example__title">Ejemplo 4.8.2. </span>Demuestra que $e^x$ es igual a su serie de McLaurin.
+            </p>
+         </div>
+         <p class="paragraph">
+            Si $f(x)=e^x$, entonces para todo $n$ se cumple que $f^{(n+1)}(x)=e^x$. Si $d$ es cualquier número positivo tal que $|x| \leq d$, entonces $|f^{(n+1)}(x)|=e^x \leq e^d$. Con $a=0$ y $M=e^d$, la desigualdad de Taylor nos dice que, 
+            $$0 \leq |R_n(x)| \leq \frac{e^d}{(n+1)!}|x|^{n+1}.$$
+            También,
+            $$\lim_{n \to \infty}\frac{e^d}{(n+1)!}|x|^{n+1} = e^d\lim_{n \to \infty}\frac{|x|^{n+1}}{(n+1)!} = 0.$$
+            Pero, 
+            $$0 \leq \lim_{n \to \infty} |R_n(x)| \leq e^d\lim_{n \to \infty}\frac{|x|^{n+1}}{(n+1)!},$$
+            por lo que $\lim_{n \to \infty} |R_n(x)| = 0$ y $\lim_{n \to \infty} R_n(x) = 0$.
+            Y, por lo tanto, $e^x$ es igual a su serie de McLaurin, es decir,
+            $$e^x = \sum_{n=0}^\infty \frac{x^n}{n!}$$
+            para todo $x$.
+         </p>
+         <div class="fancy-line"></div>
+         <p class="paragraph">
+            Si quisiéramos la serie en el punto $x=2$, tenemos que $f^{(n)}(2)=e^2$ y en la definición de serie de Taylor $a=2$, por lo que la serie de Taylor es
+            $$\sum_{n=0}^\infty \frac{e^2}{n!}(x-2)^n.$$
+            Usando el criterio del cociente, radio de convergencia es $R=\infty$ y de manera similar al ejemplo anterior $\lim_{n \to \infty} |R_n(x)| = 0$. Por lo tanto,
+            $$e^x = \sum_{n=0}^\infty \frac{e^2}{n!}(x-2)^n.$$
+            Esta representación de $e^x$ es mejor para valores cercanos a $x=2$, mientras que la primer representación es mejor para valores alrededor de $x=0$.
+         </p>
+         <div>
+            <button class="btn-sm btn--blue" type="button" data-btn-continue="s1">Continuar</button>
+         </div>
+         <div class="fancy-line"></div>
+      </section>
+      <section class="section--hidden" data-section="s1">
+         <form class="question margin-top-sm" data-question="question-4-8-1" data-answer="c" autocomplete="off">
+            <h3 class="question__header margin-bottom-sm">
+               <span class="hint">Ejemplo 4.8.3.</span> Calcula la serie de McLaurin para $\sin x$ y determina si converge o no a su serie.
+            </h3>
+            <div class="question__row">
+               <div class="question__col-1">
+                  <div class="question__options">
+                     <div class="question__option">
+                        <input type="radio" id="answer-4-8-1-a" name="question-4-8-1" value="a" data-option="question-4-8-1">
+                        <label for="answer-4-8-1-a">Converge y la serie es $\sum_{n=0}^\infty (-1)^{n}\frac{x^{2n}}{(2n)!}$</label>
+                     </div>
+                     <div class="question__option">
+                        <input type="radio" id="answer-4-8-1-b" name="question-4-8-1" value="b" data-option="question-4-8-1">
+                        <label for="answer-4-8-1-b">No converge y la serie es $\sum_{n=0}^\infty (-1)^{n}\frac{x^{2n+1}}{(2n+1)!}$</label>
+                     </div>
+                     <div class="question__option">
+                        <input type="radio" id="answer-4-8-1-c" name="question-4-8-1" value="c" data-option="question-4-8-1">
+                        <label for="answer-4-8-1-c">Converge y la serie es $\sum_{n=0}^\infty (-1)^{n}\frac{x^{2n+1}}{(2n+1)!}$</label>
+                     </div>
+                     <div class="question__option">
+                        <input type="radio" id="answer-4-8-1-d" name="question-4-8-1" value="d" data-option="question-4-8-1">
+                        <label for="answer-4-8-1-d">No converge y la serie es $\sum_{n=0}^\infty (-1)^{n}\frac{x^{2n}}{(2n)!}$</label>
+                     </div>
+                  </div>
+                  <div class="question__btn-box">
+                     <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                     <button class="btn btn--blue" type="button" disabled data-btn-continue="s2">Continuar</button>
+                  </div>
+               </div>
+               <div class="question__col-2">
+                  <p class="question__answer"></p>
+               </div>
+            </div>
+         </form>
+         <div class="section--hidden" data-section="s2">
+            <p class="paragraph">
+               Tenemos que $f(x)=\sin x$, $f'(x)=\cos x$, $f''(x)=-\sin x$, $f'''(x)=-\cos x$ y $f^{(4)}(x)=\sin x.$ De lo anterior, $f(0)=0$, $f'(0)=1$, $f''(0)=0$, $f'''(0)=-1$ y $f^{(4)}(0)=0$.
+               Las derivadas se repiten en un ciclo de cuatro, por lo que la serie de McLaurin es
+               \begin{align*}
+                  f(0) &+ f'(0)\frac{x}{1!} + f''(0)\frac{x^2}{2!} + f'''(0)\frac{x^3}{3!} + \ldots\\
+                  =& \frac{x}{1!} - \frac{x^3}{3!} + \frac{x^5}{5!} - \frac{x^7}{7!} + \ldots \\
+                  &= \sum_{n=0}^\infty (-1)^{n}\frac{x^{2n+1}}{(2n+1)!}        
+               \end{align*}
+            </p>
+            <p class="paragraph">
+               La serie converge pues $f^{(n+1)}$ es $\pm \sin x$ o $\pm \cos x$ y, en ambos casos, $|f^{(n+1)}|\leq 1$. Por lo tanto, 
+               $$|R_n(x)| \leq \frac{M}{(n+1)!}|x-a|^{n+1} = \frac{|x-a|^{n+1}}{(n+1)!}.$$
+               La última expresión tiende a cero cuando $n \to \infty$, por lo que $\lim_{n \to \infty} |R_n(x)| = 0$ y $\lim_{n \to \infty} R_n(x) = 0$. Entonces $\sin x$ es igual a su serie de McLaurin, es decir,
+               $$\sin x =  \sum_{n=0}^\infty (-1)^{n}\frac{x^{2n+1}}{(2n+1)!}.$$
+               para todo $x$.
+            </p>
+            <div>
+               <button class="btn-sm btn--blue" type="button" data-btn-continue="s3">Continuar</button>
+            </div>
+            <div class="fancy-line"></div>
+         </div>
+         <div class="section--hidden" data-section="s3">
+            <form class="question margin-top-sm" data-question="question-4-8-2" data-answer="a" autocomplete="off">
+               <h3 class="question__header margin-bottom-sm">
+                  <span class="hint">Ejemplo 4.8.4.</span> Calcula la serie de McLaurin para $\cos x$ y determina si converge o no a su serie.
+               </h3>
+               <div class="question__row">
+                  <div class="question__col-1">
+                     <div class="question__options">
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-8-2-a" name="question-4-8-2" value="a" data-option="question-4-8-2">
+                           <label for="answer-4-8-2-a">Converge y $\sum_{n=0}^\infty (-1)^{n}\frac{x^{2n}}{(2n)!}$</label>
+                        </div>
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-8-2-b" name="question-4-8-2" value="b" data-option="question-4-8-2">
+                           <label for="answer-4-8-2-b">No converge y $\sum_{n=0}^\infty (-1)^{n}\frac{x^{2n}}{(2n)!}$</label>
+                        </div>
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-8-2-c" name="question-4-8-2" value="c" data-option="question-4-8-2">
+                           <label for="answer-4-8-2-c">Converge y $\sum_{n=0}^\infty (-1)^{n}\frac{x^{2n+1}}{(2n+1)!}$</label>
+                        </div>
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-8-2-d" name="question-4-8-2" value="d" data-option="question-4-8-2">
+                           <label for="answer-4-8-2-d">No converge y $\sum_{n=0}^\infty (-1)^{n}\frac{x^{2n+1}}{(2n+1)!}$</label>
+                        </div>
+                     </div>
+                     <div class="question__btn-box">
+                        <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                        <button class="btn btn--blue" type="button" disabled data-btn-continue="s4">Continuar</button>
+                     </div>
+                  </div>
+                  <div class="question__col-2">
+                     <p class="question__answer"></p>
+                  </div>
+               </div>
+            </form>
+         </div>
+         <div class="section--hidden" data-section="s4">
+            <p class="paragraph">
+               Puesto que $\frac{d}{dx}\sin x=\cos x$ y $\sin x$ converge a su serie de McLaurin,
+               \begin{align*}
+                  \cos x &= \frac{d}{dx}\sin x = \frac{d}{dx} \Big ( x - \frac{x^3}{3!} + \frac{x^5}{5!} - \frac{x^7}{7!} + \ldots \Big )\\
+                  &= 1- \frac{x^2}{2!} + \frac{x^4}{4!} - \frac{x^6}{6!} \ldots\\
+                  &= \sum_{n=0}^\infty (-1)^{n}\frac{x^{2n}}{(2n)!}
+               \end{align*}
+               El <span class="modal__reference" data-modal-btn="theo-4-7-4">Teorema 4.7.4,</span> nos dice que esta serie obtenida para $\cos x$ converge para todo $x$ por ser la serie diferenciada de $\sin x$.
+            </p>
+            <div>
+               <button class="btn-sm btn--blue" type="button" data-btn-continue="s5">Continuar</button>
+            </div>
+            <div class="fancy-line"></div>
+         </div>
+         <div class="section--hidden" data-section="s5">
+            <form class="question margin-top-sm" data-question="question-4-8-3" data-answer="d" autocomplete="off">
+               <h3 class="question__header margin-bottom-sm">
+                  <span class="hint">Ejemplo 4.8.5.</span> Calcula la serie de McLaurin para $x\cos x.$
+               </h3>
+               <div class="question__row">
+                  <div class="question__col-1">
+                     <div class="question__options">
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-8-3-a" name="question-4-8-3" value="a" data-option="question-4-8-3">
+                           <label for="answer-4-8-3-a">$\sum_{n=0}^\infty (-1)^{n}\frac{x^{2n+1}}{n}$</label>
+                        </div>
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-8-3-b" name="question-4-8-3" value="b" data-option="question-4-8-3">
+                           <label for="answer-4-8-3-b">$\sum_{n=0}^\infty\frac{x^{n+1}}{(2n+1)!}$</label>
+                        </div>
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-8-3-c" name="question-4-8-3" value="c" data-option="question-4-8-3">
+                           <label for="answer-4-8-3-c">$\sum_{n=0}^\infty \frac{x^{2n+1}}{(2n+1)!}$</label>
+                        </div>
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-8-3-d" name="question-4-8-3" value="d" data-option="question-4-8-3">
+                           <label for="answer-4-8-3-d">$\sum_{n=0}^\infty (-1)^{n}\frac{x^{2n+1}}{(2n)!}$</label>
+                        </div>
+                     </div>
+                     <div class="question__btn-box">
+                        <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                        <button class="btn btn--blue" type="button" disabled data-btn-continue="s6">Continuar</button>
+                     </div>
+                  </div>
+                  <div class="question__col-2">
+                     <p class="question__answer"></p>
+                  </div>
+               </div>
+            </form>
+         </div>
+         <div class="section--hidden" data-section="s6">
+            <p class="paragraph">
+               Usando la serie para el $\cos x,$ tenemos
+               $$x\cos x = x \sum_{n=0}^\infty (-1)^{n}\frac{x^{2n}}{(2n)!} = \sum_{n=0}^\infty (-1)^{n}\frac{x^{2n+1}}{(2n)!}.$$
+            </p>
+            <div>
+               <button class="btn-sm btn--blue" type="button" data-btn-continue="s7">Continuar</button>
+            </div>
+            <div class="fancy-line"></div>
+
+         </div>
+         <div class="section--hidden" data-section="s7">
+            <p class="paragraph">
+               Del <span class="hint">Teorema 4.8.3 </span>, tenemos que 
+               $$|R_n(x)| \leq \frac{M}{(n+1)!}|x-a|^{n+1}.$$
+               Si $x \neq a$, dividimos la desigualdad por $|x-a|^n$ y obtenemos,
+               $$\frac{|R_n(x)|}{|x-a|^n} \leq \frac{M}{(n+1)!}|x-a|.$$
+               Si ahora hacemos que $x \to a$, tenemos que $\frac{|R_n(x)|}{|x-a|^n} \to 0$ porque $\frac{M}{(n+1)!}|x-a| \to 0$, es decir,
+               $$\lim_{x \to a } \frac{|R_n(x)|}{|x-a|^n} = 0.$$
+               Se puede usar este resultado para calcular límites.
+            </p>
+            <form class="question margin-top-sm" data-question="question-4-8-4" data-answer="b" autocomplete="off">
+               <h3 class="question__header margin-bottom-sm">
+                  <span class="hint">Ejemplo 4.8.6.</span> Calcula $\lim_{n=0}\frac{e^x-1-x}{x^2}$. <span>Hint: Usa el polinomio de Taylor de grado $n=2$, el hecho de que $f(x)=P_n(x)+R_n(x)$ y el resultado anterior.</span>
+               </h3>
+               <div class="question__row">
+                  <div class="question__col-1">
+                     <div class="question__options">
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-8-4-a" name="question-4-8-4" value="a" data-option="question-4-8-4">
+                           <label for="answer-4-8-4-a">$1$</label>
+                        </div>
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-8-4-b" name="question-4-8-4" value="b" data-option="question-4-8-4">
+                           <label for="answer-4-8-4-b">$0$</label>
+                        </div>
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-8-4-c" name="question-4-8-4" value="c" data-option="question-4-8-4">
+                           <label for="answer-4-8-4-c">$\frac{1}{2}$</label>
+                        </div>
+                        <div class="question__option">
+                           <input type="radio" id="answer-4-8-4-d" name="question-4-8-4" value="d" data-option="question-4-8-4">
+                           <label for="answer-4-8-4-d">$\frac{1}{4}$</label>
+                        </div>
+                     </div>
+                     <div class="question__btn-box">
+                        <button class="btn btn--blue" type="submit" disabled data-btn-answer="answer">Respuesta</button>
+                        <button class="btn btn--blue" type="button" disabled data-btn-continue="s8">Continuar</button>
+                     </div>
+                  </div>
+                  <div class="question__col-2">
+                     <p class="question__answer"></p>
+                  </div>
+               </div>
+            </form>
+         </div>
+         <div class="section--hidden" data-section="s8">
+            <p class="paragraph">
+               Usando el polinomio de Taylor de grado $2$ para $e^x$ en $x=0$, tenemos que 
+               \begin{align*}
+               \lim_{n=0}\frac{e^x-1-x}{x^2} &= \lim_{n=0}\frac{1+x + \frac{x^2}{2} + R_2(x)-1-x}{x^2}\\
+               &= \lim_{n=0} \Big ( \frac{1}{2} + \frac{R_2(x)}{x^2}\Big ) \\
+               &= \frac{1}{2}.
+               \end{align*}
+            </p>
+            <div class="fancy-line"></div>
+            <div class="change-page">
+               <a href="./4.7-series-potencias.html" class="change-page__before">Anterior</a>
+            </div>
+         </div>
       </section>
    </main>
+   <div class="modal" data-modal="theo-4-7-4">
+      <div class="modal__background" data-modal-background="theo-4-7-4"></div>
+      <div class="modal__content">
+         <alien-math-template path="./components/theorems/theorem-4.7.4.html"></alien-math-template> 
+      </div>
+  </div>
 </body>
 </html>

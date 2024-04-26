@@ -72,7 +72,7 @@ HTML_SIDEBAR = `
                 <li class="subject-list__item"><a href="./4.5-criterios-de-convergencia.html" class="subject-list__link">4.5 Criterios de convergencia</a></li>
                 <li class="subject-list__item"><a href="./4.6-convergencia-absoluta-condicional.html" class="subject-list__link">4.6 Más ejemplos de series</a></li>
                 <li class="subject-list__item"><a href="./4.7-series-potencias.html" class="subject-list__link">4.7 Series de potencias</a></li>
-                <li class="subject-list__item"><a href="./4.8-series-taylor-mclaurin.html" class="subject-list__link">4.8 Series de Tayloy y McLaurin</a></li>
+                <li class="subject-list__item"><a href="./4.8-series-taylor-mclaurin.html" class="subject-list__link">4.8 Series de Taylor y McLaurin</a></li>
             </ol>
         </li>
         <li class="subject-list__item">

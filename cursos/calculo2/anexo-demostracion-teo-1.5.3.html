@@ -45,6 +45,7 @@
       <alien-mobile-sidebar id="mobile-menu"></alien-mobile-sidebar>
       <main class="main">
          <section>
+            <h2 class="header-secondary">Demostración teorema 1.5.3</h2>
             <div class="theorem">
                <p class="paragraph">
                   <strong class="theorem__title">Teorema 1.5.3.</strong> Sea
@@ -57,7 +58,228 @@
             <div class="proof">
                <h3 class="header-tertiary">Demostración.</h3>
                <p class="paragraph">
-                  pendiente...
+                  $\Rightarrow]$ Sea $\varepsilon>0$. Por Hipótesis, la función $f$ es integrable en $[a,b]$, es decir, 
+                  $$\int_a^b f(x)\,dx = {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b f(x)\, dx  =
+                  {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx, \cdots &#128516; $$ 
+                  por la definición de función integrable.
+               </p>
+               <p class="paragraph">
+                  Como $\varepsilon>0$, por <span class="modal__reference" data-modal-btn="theo-1-5-1">Teorema 1.5.1,</span> $\exists \delta>0$, 
+                  tal que para toda partición $P$ de $[a,b]$, con $||P||< \delta$, se cumple que 
+                  \[
+                     {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\, dx  - \varepsilon < \underline{S}(f,P) \qquad \mbox{ y } \qquad 
+                     \overline{S}(f,P)< {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b f(x)\, dx +\varepsilon.
+                  \]
+                  Lo cual es equivalente a que 
+                  \[
+                  - \varepsilon < \underline{S}(f,P)- {\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\, dx \qquad \mbox{ y } \qquad 
+                  \overline{S}(f,P)- {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b  f(x)\,dx<\varepsilon.
+                  \]
+                  Pero, como la función es integrable, por &#128516;, tenemos que 
+                  \[
+                  - \varepsilon < \underline{S}(f,P)- \int_a^b f(x)\, dx \qquad \mbox{ y } \qquad \overline{S}(f,P)-\int_a^b f(x)\,dx<\varepsilon. \cdots &#128550;
+                  \]
+               </p>
+               <p class="paragraph">
+                  Pero sabemos que para cualquier selección $A$ de $P$, se cumple que $$\underline{S}(f,P)\leq S(f,A,P) \leq \overline{S}(f,P).$$
+               </p>
+               <p class="paragraph">
+                  Por consistencia de la suma, podemos sumar el número real $-\int_a^b f(x)\,dx$ en toda la inecuación y obtener 
+                  $$\underline{S}(f,P)-\int_a^b f(x)\,dx\leq S(f,A,P)-\int_a^b f(x)\,dx \leq \overline{S}(f,P)-\int_a^b f(x)\,dx.$$
+               </p>
+               <p class="paragraph">
+                  Por &#128550; y transitividad, se concluye que
+                  $$-\varepsilon < S(f,A,P)-\int_a^b f(x)\,dx <\varepsilon.$$
+               </p>
+               <p class="paragraph">
+                  Así, acabamos de probar que $\forall \varepsilon>0$, $\exists \delta>0$, tal que para cada $P$ partición de $[a,b]$, con $\|P\|<\delta$, y $A$ selección de $P$, 
+                  se cumple que  $$\left| S(f,A,P)-\int_a^b f(x)\,dx \right|<\varepsilon.$$
+               </p>
+               <p class="paragraph">
+                  Finalmente, por definición, $$\lim_{\|P\|\to 0}S(f,A,P)=\int_a^b f(x)\,dx.$$
+               </p>
+               <p class="paragraph">
+                  $\Leftarrow]$ Por hipótesis, $\lim_{\|P\|\to 0}S(f,A,P)$ existe, así es un número real, digamos $L$, es decir, 
+                  $\lim_{\|P\|\to 0}S(f,A,P)=L$, el cual satisface, por definición, que $\forall \varepsilon>0, \exists \delta>0$ tal que para cada partición $P$ de $[a,b]$ con 
+                  $\|P\|<\delta$ y $A$ selección de $P$, se cumple que $|S(f,A,P)-L|<\varepsilon$.
+               </p>
+               <p class="paragraph">
+                  <strong>Afirmación 1: </strong>"Para toda $P$ partición de $[a,b]$, se tiene que $L \leq \overline{S}(f,P)$". <span style="font-style: italic;">Prueba: </span>
+                  Probaremos esta afirmación por contradicción. Supongamos que existe una partición $P_1$ de $[a,b]$, tal que $\overline{S}(f,P_1)< L$. 
+                  Entonces $0< L-\overline{S}(f,P_1)$. Consideremos $\varepsilon = L-\overline{S}(f,P_1)>0$, luego, por definición de límite de sumas de Riemann, $\exists \delta>0$ 
+                  tal que para cada partición $Q$ de $[a,b]$ con $\|Q\|<\delta$ y $A$ selección de $Q$, se cumple que $|S(f,A,Q)-L|< L-\overline{S}(f,P_1)$. 
+                  Tomemos $P$ un refinamiento de $P_1,$ tal que $\|P\|<\delta,$ entonces, $$|S(f,A,P)-L|< L-\overline{S}(f,P_1).$$ 
+                  Lo cual es equivalente a tener 
+                  $$\overline{S}(f,P_1)-L < S(f,A,P)-L < L-\overline{S}(f,P_1). \cdots &#128516;$$ 
+               </p>
+               <p class="paragraph">
+                  Para cada selección A de la partición P , se tiene que $$\underline{S}(f,P) \leq S(f,A,P) \leq \overline{S}(f,P).$$
+                  Entonces $S(f,A,P)<\overline{S}(f,P).$ Pero, $P$ es refinamiento de $P_1$, entonces por <span class="modal__reference" data-modal-btn="theo-1-4-2">Teorema 1.4.2,</span> se cumple que $\overline{S}(f,P)<\overline{S}(f,P_1)$, de donde se tiene que
+                  $$S(f,A,P)<\overline{S}(f,P)<\overline{S}(f,P_1)$$ y sumando $-L$ en toda la desigualdad, obtenemos
+                  $$S(f,A,P)-L<\overline{S}(f,P)-L<\overline{S}(f,P_1)-L. \cdots &#128550; $$
+               </p>
+               <p class="paragraph">
+                  Luego, de &#128516; y de &#128550;, se tiene que 
+                  $$\overline{S}(f,P_1)-L < S(f,A,P)-L \qquad \mbox{ y } \qquad S(f,A,P)-L<\overline{S}(f,P_1)-L$$ 
+                  lo cual es una contradicción. Por lo tanto, la afirmación 1 es cierta.
+               </p>
+               <p class="paragraph">
+                  La afirmación 1, nos dice que $L$ es una cota inferior del conjunto $$\{\overline{S}(f,P) : P \mbox{ es una partición de }[a,b]\}.$$ Así, 
+                  por definición de ínfimo y de integral superior, $$L \leq \inf\{\overline{S}(f,P): P \mbox{ es una partición de }[a,b]\}=
+                  {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b f(x)\,dx.$$
+               </p>
+               <p class="paragraph">
+                  <strong>Afirmación 2:</strong> $${\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b f(x)\,dx=L.$$<span style="font-style: italic;">Prueba: </span>
+                  Haremos la prueba por contradicción. Como sabemos que 
+                  $$L\leq {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b f(x)\,dx ,$$ 
+                  entonces suponemos que 
+                  $$L<{\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b f(x)\,dx.$$
+                   Entonces, 
+                  por propiedades en $\mathbf{R}$, tenemos que 
+                  $$0<{\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b f(x)\,dx-L.$$
+                  Consideramos 
+                  $$\varepsilon = {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b f(x)\,dx-L$$
+                  y tomamos $\varepsilon_1=\frac{\varepsilon}{2},$ 
+                  entonces, por definición de límite de sumas de Riemann, $\exists \delta>0$ tal que para cada partición $Q$ de $[a,b]$ con $\|Q\|<\delta$ y $B$ 
+                  selección de $Q$, se cumple que $$|S(f,B,Q)-L|< \varepsilon_1.$$
+                  Sea $P:=\{x_0,x_1,...,x_n\}$ una partición de $[a,b]$ con $\|P\|<\delta$ y $A$ una selección de $P$, donde $A:=\{\xi_i: \xi_i\in[x_{i-1},x_i], i=\overline{1,n}\}$ tal que
+                  \[
+                  M_i - \frac{\varepsilon_1}{(b-a)}< f(\xi_i)\leq M_i \qquad \mbox{ para toda } i=\overline{1,n},
+                  \]
+                  lo cual es posible, ya que $M_i:= \sup\{f(x):x\in[x_{i-1},x_i]\}$.
+               </p>
+               <p class="paragraph">
+                  Como $M_i < M_i+\frac{\varepsilon_1}{(b-a)}$, obtenemos que 
+                  \[
+                  M_i - \frac{\varepsilon_1}{(b-a)}< f(\xi_i)< M_i+ \frac{\varepsilon_1}{(b-a)} \qquad \mbox{ para toda } i=\overline{1,n},
+                  \]
+                  de lo cual se obtiene que 
+                  $$|f(\xi_i)-M_i| < \frac{\varepsilon_1}{(b-a)} \qquad \mbox{ para toda } i=\overline{1,n}.$$
+               </p>
+               <p class="paragraph">
+                  Notemos que 
+               </p>
+               <div class="calculation">
+                  <div class="calculation__formule--1">
+                     $$|S(f,A,P)-\overline{S}(f,P)|$$
+                  </div>
+                  <div class="calculation__formule--2">
+                     <div>
+                        $$= \left| \sum_{i=1}^n f(\xi_i)\Delta x_i - \sum_{i=1}^n M_i \Delta x_i \right| $$
+                     </div>
+                     <div class="calculation__text">
+                        por definición de sumas
+                     </div>
+                  </div>
+                  <div class="calculation__formule--2">
+                     <div>
+                        $$= \left| \sum_{i=1}^n (f(\xi_i)-M_i) \Delta x_i \right| $$
+                     </div>
+                     <div class="calculation__text">
+                        por asociatividad
+                     </div>
+                  </div>
+                  <div class="calculation__formule--2">
+                     <div>
+                        $$ \leq  \sum_{i=1}^n |f(\xi_i)-M_i| \Delta x_i $$
+                     </div>
+                     <div class="calculation__text">
+                        por desigualdad del triángulo
+                     </div>
+                  </div>
+                  <div class="calculation__formule--2">
+                     <div>
+                        $$< \sum_{i=1}^n \frac{\varepsilon_1}{(b-a)} \Delta x_i $$
+                     </div>
+                  </div>
+                  <div class="calculation__formule--2">
+                     <div>
+                        $$= \frac{\varepsilon_1}{(b-a)} \sum_{i=1}^n \Delta x_i $$
+                     </div>
+                     <div class="calculation__text">
+                        por <span class="modal__reference" data-modal-btn="t-1-2-1">Teorema 1.2.1</span>
+                     </div>
+                  </div>
+                  <div class="calculation__formule--2">
+                     <div>
+                        $$= \frac{\varepsilon_1}{(b-a)} (b-a) $$
+                     </div>
+                     <div class="calculation__text">
+                        por <span class="modal__reference" data-modal-btn="t-1-2-2">Teorema 1.2.2</span>
+                     </div>
+                  </div>
+                  <div class="calculation__formule--2">
+                     <div>
+                        $$= \varepsilon_1 = \frac{\varepsilon}{2} $$
+                     </div>
+                  </div>
+               </div>
+               <p class="paragraph">
+                  Luego, por transitividad, tenemos que $|S(f,A,P)-\overline{S}(f,P)|<\frac{\varepsilon}{2}$. Pero por propiedades en $\mathbf{R}$, sabemos que 
+                  $|S(f,A,P)-\overline{S}(f,P)|=|\overline{S}(f,P)-S(f,A,P)|$. Así, concluimos que $$|\overline{S}(f,P)-S(f,A,P)|<\frac{\varepsilon}{2}.$$
+               </p>
+               <p class="paragraph">
+                  Además, como $\|P\|<\delta$ y $A$ es una selección de $P$, entonces sabemos que $$|S(f,A,P)-L|<\varepsilon_1=\\frac{\varepsilon}{2}.$$
+                  Combinando estas dos últimas desigualdades, tenemos:
+               </p>
+               <div class="calculation">
+                  <div class="calculation__formule--1">
+                     $$|\overline{S}(f,P)-L|$$
+                  </div>
+                  <div class="calculation__formule--2">
+                     <div>
+                        $$= |\overline{S}(f,P)-S(f,A,P)+ S(f,A,P)-L| $$
+                     </div>
+                     <div class="calculation__text">
+                        sumando un cero
+                     </div>
+                  </div>
+                  <div class="calculation__formule--2">
+                     <div>
+                        $$ \leq |\overline{S}(f,P)-S(f,A,P)|+ |S(f,A,P)-L|  $$
+                     </div>
+                     <div class="calculation__text">
+                        por desigualdad triangular
+                     </div>
+                  </div>
+                  <div class="calculation__formule--2">
+                     <div>
+                        $$ < \frac{\varepsilon}{2}+\frac{\varepsilon}{2}=\varepsilon={\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b f(x)\,dx-L $$
+                     </div>
+                  </div>
+               </div>
+               <p class="paragraph">
+                  Por afirmación 1, sabemos que $\overline{S}(f,P)>L$, entonces $\overline{S}(f,P)-L>0$, así tenemos que $|\overline{S}(f,P)-L|=\overline{S}(f,P)-L$. 
+               </p>
+               <p class="paragraph">
+                  Juntando esto con la última desigualdad, se obtiene que 
+                  $$\overline{S}(f,P)-L<{\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b f(x)\,dx-L,$$ es decir, 
+                  $$\overline{S}(f,P)<{\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b f(x)\,dx.$$ 
+                  Lo cual es una contradiccón, pues la integral superior es el ínfimo de todas las sumas superiores. La contradicción llegó de suponer que la integral 
+                  superior era mayor que L.
+               </p>
+               <p class="paragraph">
+                  Por lo tanto, tenemos que la afirmación 2 es cierta, es decir, $${\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b f(x)\,dx=L.$$
+               </p>
+               <p class="paragraph">
+                  De forma análoga que la Afirmación 1, se prueba:
+               </p>
+               <p class="paragraph">
+                  <strong>Afirmación 3:</strong> "Para toda $P$ partición de $[a,b]$, se tiene que $\underline{S}(f,P) < L$."
+               </p>
+               <p class="paragraph">
+                  De donde se deduce que $${\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx\leq L.$$
+               </p>
+               <p class="paragraph">
+                  Siguiendo las ideas de la Afirmación 2, haciendo los cambios adecuados con el uso de ínfimos en lugar de supremos y tomando $m_i$ en vez de $M_i$, se demuestra:
+               </p>
+               <p class="paragraph">
+                  <strong>Afirmación 4: </strong> $${\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx = L.$$
+               </p>
+               <p class="paragraph">
+                  Finalmente, juntanto afirmaciones 2 y 4, se deduce que 
+                  $${\mkern13mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu} \int_a^b f(x)\,dx = {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu} \int_a^b f(x)\,dx,$$ 
+                  lo cual demuestra que la función $f$ es integrable en $[a,b]$.
                </p>
             </div>
             <div class="fancy-line"></div>
@@ -83,26 +305,28 @@
             </div>
          </div>
       </div>
-      <div class="modal" data-modal="theo-1-4-2">
-         <div
-            class="modal__background"
-            data-modal-background="theo-1-4-2"
-         ></div>
+      <div class="modal" data-modal="theo-1-5-1">
+         <div class="modal__background" data-modal-background="theo-1-5-1"></div>
          <div class="modal__content">
-            <alien-math-template
-               path="./components/theorems/theorem-1.4.2.html"
-            ></alien-math-template>
+            <alien-math-template path="./components/theorems/theorem-1.5.1.html"></alien-math-template>
          </div>
       </div>
-      <div class="modal" data-modal="theorem-1-2-1">
-         <div
-            class="modal__background"
-            data-modal-background="theorem-1-2-1"
-         ></div>
+      <div class="modal" data-modal="theo-1-4-2">
+         <div class="modal__background" data-modal-background="theo-1-4-2"></div>
          <div class="modal__content">
-            <alien-math-template
-               path="./components/theorems/theorem-1.2.1.html"
-            ></alien-math-template>
+            <alien-math-template path="./components/theorems/theorem-1.4.2.html"></alien-math-template>
+         </div>
+      </div>
+      <div class="modal" data-modal="t-1-2-1">
+         <div class="modal__background" data-modal-background="t-1-2-1"></div>
+         <div class="modal__content">
+            <alien-math-template path="./components/theorems/theorem-1.2.1.html"></alien-math-template>
+         </div>
+      </div>
+      <div class="modal" data-modal="t-1-2-2">
+         <div class="modal__background" data-modal-background="t-1-2-2"></div>
+         <div class="modal__content">
+            <alien-math-template path="./components/theorems/theorem-1.2.2.html"></alien-math-template>
          </div>
       </div>
    </body>

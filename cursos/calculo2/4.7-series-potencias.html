@@ -80,7 +80,7 @@
          <div class="proof">
             <h3 class="header-tertiary">Demostración.</h3>
             <p class="paragraph">
-               Supongamos que $\sum_{n=0}^\infty c_n b^n$ converge, entonces tenemos que $\lim_{n \to \infty} c_n b^n = 0$. De acuerdo a la definición de límite con $\varepsilon = 1$, existe un $N$ tal que $|c_n b^n|< 1$ para todo $n \leq N$. Por lo que, para $n \leq N$, tenemos 
+               Supongamos que $\sum_{n=0}^\infty c_n b^n$ converge, entonces tenemos que $\lim_{n \to \infty} c_n b^n = 0$. De acuerdo a la definición de límite con $\varepsilon = 1$, existe un $N$ tal que $|c_n b^n|< 1$ para todo $n \geq N$. Por lo que, para $n \geq N$, tenemos 
                $$ |c_n x^n| = \Big | \frac{c_n b^n x^n}{b^n} \Big | = |c_n b^n| \Big | \frac{x}{b} \Big |^n < \Big | \frac{x}{b} \Big |^n. $$
                Si $|x|<|b|$, $\Big | \frac{x}{b} \Big |< 1 $, por lo que $\sum_{n=0}^\infty \Big | \frac{x}{b} \Big |^n$ es una serie convergente. Así, por el teorema de comparación, la serie $\sum_{n=0}^\infty| c_n x^n | $ es convergente y, por lo tanto, la serie $\sum_{n=0}^\infty c_n x^n  $ es absolutamente convergente y, en consecuencia, es convergente. 
             </p>
@@ -93,7 +93,7 @@
             <div class="paragraph paragraph--noindent">
                <span class="theorem__title">Teorema 4.7.2. </span>Para una serie $\sum_{n=0}^\infty c_n x^n$ sólo hay tres posibilidades:
                <ul class="simple-list">
-                  <li>La serie converge cuando $x=0$.</li>
+                  <li>La serie converge únicamente cuando $x=0$.</li>
                   <li>La serie converge para todo $x$.</li>
                   <li>Existe un número positivo $R$ tal que la serie converge cuando $|x|< R$ y diverge cuando $|x|>R$.</li>
                </ul>
@@ -101,6 +101,10 @@
          </div>
          <div class="proof">
             <h3 class="header-tertiary">Demostración.</h3>
+            <p class="paragraph">
+               El primer caso se cumple trivialmente. Si ocurre el segundo caso, entonces existe un número $|x|>R$ para $R>0$ tal que la serie converge para este $x$, por lo que el tercer
+               es caso es falso. Al mismo tiempo, existe un $x \neq 0$ tal que la serie converge por lo que el primer caso también es falso.
+            </p>
             <p class="paragraph">
                Supongamos que ni es el caso 1 ni el 2 es verdad, entonces, existen dos números $b$ y $d$ diferentes de cero tal que $\sum_{n=0}^\infty c_n x^n$ converge cuando $x=b$ y 
                diverge cuando $x=d$, por lo que el conjunto  $S = \{ x: \sum_{n=0}^\infty c_n x^n \mbox{ converge} \}$ no es vacío. Por el teorema anterior, la serie diverge si 
@@ -123,7 +127,7 @@
             <div class="paragraph">
                <span class="theorem__title">Teorema 4.7.3. </span> Para una serie $\sum_{n=0}^\infty c_n (x-a)^n$ sólo hay tres posibilidades:
                <ul class="simple-list">
-                  <li>La serie converge cuando $x=a$.</li>
+                  <li>La serie converge únicamente cuando $x=a$.</li>
                   <li>La serie converge para todo $x$.</li>
                   <li>Existe un número positivo $R$ tal que la serie converge cuando $|x-a|< R$ y diverge cuando $|x-a|>R$.</li>
                </ul>
@@ -136,7 +140,7 @@
       </section>
       <section class="section--hidden" data-section="s1">
          <p class="paragraph">
-            Para obtener los valores de $x$ para los cuales la serie de potencias converge, podemos usar el criterio del cociente.
+            Para obtener los valores de $x$ para los cuales la serie de potencias converge, podemos usar el <span class="modal__reference" data-modal-btn="c-c">criterio del cociente.</span>
          </p>
          <div class="example">
             <p class="paragraph example__paragraph">
@@ -155,7 +159,7 @@
             $$\lim_{n \to \infty}\Big | \frac{a_{n+1}}{ a_n} \Big | = |x-3|.$$
          </p>
          <p class="paragraph">
-            El criterio del cociente nos dice que, para que la serie converja, se debe cumplir que $|x-3|< 1$, o bien $2< x< 4$. Por lo que la serie converge cuando $2< x< 4$ y 
+            El <span class="modal__reference" data-modal-btn="c-c">criterio del cociente</span> nos dice que, para que la serie converja, se debe cumplir que $|x-3|< 1$, o bien $2< x< 4$. Por lo que la serie converge cuando $2< x< 4$ y 
             diverge cuando $x< 2$ o $4 < x$.
          </p>
          <p class="paragraph">
@@ -206,7 +210,7 @@
             <p class="paragraph">
                Para $x=0$, se tiene que 
                $$f(0)=\sum_{n=0}^\infty n!0^n=1 + 0 +0 +\cdots = 1.$$
-               Usando el criterio del cociente para cualquier valor de $x$ con $a_n = n!x^n$, obtenemos
+               Usando el <span class="modal__reference" data-modal-btn="c-c">criterio del cociente</span> para cualquier valor de $x$ con $a_n = n!x^n$, obtenemos
                \begin{align*}
                   \lim_{n \to \infty} \Big | \frac{a_{n+1}}{ a_n} \Big | &= \lim_{n \to \infty} 
                   \Big | \frac{(n+1)x^{n+1}}{n!x^n} \Big |\\
@@ -257,7 +261,7 @@
          </div>
          <div class="section--hidden" data-section="s5">
             <p class="paragraph">
-               Usamos nuevamente el criterio del cociente con $a_n= \frac{(n!)^2}{(2n)!} (x+5)^n$, entonces
+               Usamos nuevamente el <span class="modal__reference" data-modal-btn="c-c">criterio del cociente</span> con $a_n= \frac{(n!)^2}{(2n)!} (x+5)^n$, entonces
                \begin{align*}
                   \lim_{n \to \infty} \Big | \frac{a_{n+1}}{ a_n} \Big | &= \lim_{n \to \infty} 
                   \left | \frac{ (2n)! \left ( (n+1)!\right )^2(x+5)^{n+1}}{(2n+2)!(n!)^2(x+5)^n} \right |\\
@@ -324,7 +328,7 @@
                   \lim_{n \to \infty} \Big | \frac{a_{n+1}}{a_n} \Big | &= \lim_{n \to \infty}  \Big | \frac{n!\, x^{n+1}}{(n+1)!\,x^n} \Big | \\
                   &= \lim_{n \to \infty}  |x|\frac{1}{n} = 0
                \end{align*}
-               Por el criterio del cociente, la serie converge para todo $x$. Por consiguiente, el intervalo es $(-\infty, \infty).$ Puesto que la serie converge,
+               Por el <span class="modal__reference" data-modal-btn="c-c">criterio del cociente,</span> la serie converge para todo $x$. Por consiguiente, el intervalo es $(-\infty, \infty).$ Puesto que la serie converge,
                entonces debe cumplir que $a_n \to 0$ cuando $n \to \infty$, es decir,  $\lim_{n \to \infty} \frac{x^n}{n!} = 0.$
             </p>
             <div>
@@ -539,5 +543,19 @@
          </div>
       </section>
    </main>
+   <div class="modal" data-modal="c-c">
+      <div class="modal__background" data-modal-background="c-c"></div>
+      <div class="modal__content">
+         <div class="theorem">
+            <p class="paragraph">
+               <span class="theorem__title">Teorema 4.5.7. Criterio del cociente. </span>Sea $\sum_{n=1}^\infty a_n$ una serie de números positivos tales que 
+               $\frac{a_{n+1}}{a_n} \to L$ cuando $n \to \infty.$ <br>
+               a) Si $L < 1$, la serie converge.   <br>
+               b) Si $L > 1$, la serie diverge. <br>
+               c) Si $L=1$, el criterio no decide. 
+            </p>
+         </div>         
+      </div>
+   </div>
 </body>
 </html>

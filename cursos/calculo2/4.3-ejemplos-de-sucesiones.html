@@ -144,7 +144,7 @@
          </div>
          <div class="section--hidden" data-section="s-43-2">
             <p class="paragraph">
-               Recordando <span class="modal__reference" data-modal-btn="d-4-2-4">definición de límite,</span> hay que encontar un $N$ tal que para $n \geq N$ se cumple
+               Recordando <span class="modal__reference" data-modal-btn="d-4-2-4">definición de límite,</span> hay que encontrar un $N$ tal que para $n \geq N$ se cumple
                $\left | \frac{n^2}{n+1}-\frac{n^2+1}{n} + 1 \right | < \varepsilon$ para todo $\varepsilon >0.$ Para esto hagamos primero un análisis preliminar.
             </p>
             <h3 class="header-tertiary">Análisis preliminar.</h3>
@@ -357,13 +357,13 @@
             </div>
          </form>
          <div class="section--hidden" data-section="s-43-8">
-            <p class="paragraph">
+            <!-- <p class="paragraph">
                Usando el <span class="modal__reference" data-modal-btn="t-4-2-4">Teorema 4.2.4,</span> la sucesión es acotada, pero no es monótona, por lo tanto 
                no converge.               
-            </p>
+            </p> -->
             <p class="paragraph">
-               Se puede dar una prueba alternativa usando la <span class="modal__reference" data-modal-btn="d-4-2-4">definición de límite.</span> Basta con
-               encontar un $\varepsilon$ para el que la expresión $\left |a_n - L \right | < \varepsilon$ cause una contradicción. Se muestra un ejemplo usando la sucesión anterior.
+               Se puede dar una prueba usando la <span class="modal__reference" data-modal-btn="d-4-2-4">definición de límite.</span> Basta con
+               encontrar un $\varepsilon$ para el que la expresión $\left |a_n - L \right | < \varepsilon$ cause una contradicción.
             </p>
             <p class="paragraph">
                Supongamos que el límite existe, es decir, que existe un $L$ y un entero positivo $N$ tal que si $n \geq N$, se tiene $\left |a_n - L \right | < \varepsilon$ para todo $\varepsilon >0.$
@@ -377,7 +377,7 @@
             <p class="paragraph">
                Ahora causaremos una contradicción,
                $$2=|2|=\left |2-L+L \right| \leq |2-L| + |L| < \frac{1}{2} + \frac{1}{2} = 1,$$
-               por lo que $2< 1$. Y la sucesión no converge.
+               por lo que $2< 1$. Por lo tanto, la sucesión no converge.
             </p>
             <div>
                <button class="btn-sm btn--blue" type="button" data-btn-continue="s-43-9">Continuar</button>
@@ -456,7 +456,7 @@
          <div class="section--hidden" data-section="s-43-11">
             <p class="paragraph">
                Observamos que $a_{4n} = \cos \frac{4N\pi}{2} = 1$ y $a_{4n} = \cos \frac{(4N+2)\pi}{2} = -1.$ Si escojemos $n=2N$,
-               tendriamos $a_{2N}= \cos \frac{2N\pi}{2} = (-1)^N$ y tendriamos que considerar dos casos de $N$, cuando es par y cuando es impar, razón por la cual
+               tendríamos $a_{2N}= \cos \frac{2N\pi}{2} = (-1)^N$ y habría que considerar dos casos de $N$, cuando es par y cuando es impar, razón por la cual
                se escogieron $4N$ y $4N+2$.
             </p>
             <p class="paragraph">
@@ -559,7 +559,7 @@
                $$0 \leq \frac{1+(-1)^2}{2} \leq \frac{2}{n},$$
                Por lo que 
                $$\lim_{n \to \infty} 0 \leq \lim_{n \to \infty} \frac{1+(-1)^2}{2} \leq \lim_{n \to \infty} \frac{2}{n}.$$
-               Usando el <span class="modal__reference" data-modal-btn="t-4-2-3">Teorema 4.2.3,</span> $\lim_{n \to \infty} \frac{2}{n}=0,$
+               Usando el <span class="modal__reference" data-modal-btn="t-4-2-4">Teorema 4.2.4,</span> $\lim_{n \to \infty} \frac{2}{n}=0,$
                pues $\lim_{x \to \infty} \frac{2}{x}=0$. Por lo tanto $ \lim_{n \to \infty} \frac{1+(-1)^2}{2}=0.$
             </p>
             <div class="margin-bottom-xm">
@@ -571,8 +571,8 @@
       <section class="section--hidden" data-section="s-43-16">
          <div class="example">
             <p class="paragraph example__paragraph">
-               <span class="example__title">Ejemplo 4.3.5. </span>Considera la sucesión $f(n)=\frac{n^2}{n+1}-\frac{n^2+1}{n}$ del <span class="example__title">Ejemplo 4.3.1.</span>
-               Encuentra una $N$ tal que la sucesión esté dentro de $\varepsilon$ de su límite si $\varepsilon = 0.01$.
+               <span class="example__title">Ejemplo 4.3.5. </span>Considera la sucesión $f(n)=\frac{n^2}{n+1}-\frac{n^2+1}{n}$ del <span class="example__title">Ejemplo 4.3.1,</span>
+               encuentra una $N$ tal que la sucesión esté dentro de $\varepsilon$ de su límite si $\varepsilon = 0.01$.
             </p>
          </div>
          <form class="question margin-top-sm" data-question="question-4-3-12" data-answer="a" autocomplete="off">
@@ -623,7 +623,7 @@
                Por lo que para $n>10$ también satisface $|f(n)+1| < 0.01,$ pues tomando $n=11$
                $$|f(11)+1| = \left | \frac{121}{12}-\frac{122}{11} + 1 \right | = 0.007< 0.01.$$
                Es decir, este valor $11$ es el valor mínimo de $N$ en la <span class="modal__reference" data-modal-btn="d-4-2-4">definición de límite</span>
-               y para $n \geq N$ se cumple la definición de límite. Este ejmplo muestra como $N$ depende $\varepsilon$.
+               y para $n \geq N$ se cumple la definición de límite. Este ejemplo muestra como $N$ depende $\varepsilon$.
             </p>
             <div class="margin-bottom-xm">
                <button class="btn-sm btn--blue" type="button" data-btn-continue="s-43-18">Continuar</button>

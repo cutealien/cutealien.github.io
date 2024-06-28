@@ -87,7 +87,8 @@ HTML_MOBILE_MENU = `
                     <ol class="subject-list">
                         <li class="subject-list__item"><a href="./anexo-conjuntos.html" class="subject-list__link">Conjuntos</a></li>
                         <li class="subject-list__item"><a href="./anexo-demostracion-teo-1.5.1.html" class="subject-list__link">Demostración Teorema 1.5.1</a></li> 
-                        <li class="subject-list__item"><a href="./anexo-demostracion-teo-1.5.3.html" class="subject-list__link">Demostración Teorema 1.5.3</a></li> 
+                        <li class="subject-list__item"><a href="./anexo-demostracion-teo-1.5.3.html" class="subject-list__link">Demostración Teorema 1.5.3</a></li>
+                        <li class="subject-list__item"><a href="./references.html" class="subject-list__link">Referencias</a></li> 
                     </ol>
                 </li>
             </ol>

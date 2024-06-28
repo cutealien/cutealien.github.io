@@ -163,7 +163,7 @@ const generateQuiz = function(quiz, data) {
         sectionLink.setAttribute("href", `/cursos/calculo2/${data.questions[i].linkSection}.html`)
         sectionLink.setAttribute("target", "_blank")
         sectionLink.classList.add('quiz__link', 'hidden')
-        sectionLink.textContent = 'Sección: ' + data.questions[i].linkSection
+        sectionLink.textContent = 'Sección: ' + data.questions[i].linkName
         
         newQuestion.append(sectionLink)
         newQuestion.append(message)
